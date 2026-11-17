@@ -21,7 +21,7 @@ ALWAYS_ALLOWED = ("https://transitous.org/sources/",)  # attribution footer
 
 
 def _norm(url: str) -> str:
-    u = re.sub(r"^https?://", "", url.strip().rstrip(".,;"))
+    u = re.sub(r"^(?:https?://)+", "", url.strip().rstrip(".,;"))  # also repairs "https://https://..."
     u = re.sub(r"^www\.", "", u)
     return u.rstrip("/").lower()
 

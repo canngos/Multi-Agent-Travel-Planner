@@ -109,6 +109,15 @@ async def test_ferry_helsinki_tallinn(mode):
     assert all(o["price_eur"] is None for o in r["results"])  # schedules only
 
 
+async def test_far_ferry_trip_uses_the_recorded_typical_timetable(monkeypatch):
+    """Offline only: the trip day (May 2027) is not recorded, the typical day (FERRY_DAY) is."""
+    from travel_planner.tools import transit
+    monkeypatch.setattr(transit.config, "today", lambda: RECORDED_ON)  # typical day = 2026-12-01, a Tuesday
+    r = await plan_public_transport(60.1699, 24.9384, 59.4370, 24.7536, "2027-05-11", "07:00", 3)
+    assert r["status"] == "ok" and any(o["mode"] == "ferry" for o in r["results"])
+    assert all(o["depart"].startswith("2027-05-11") and "TYPICAL TIMETABLE" in o["details"] for o in r["results"])
+
+
 @recorded
 async def test_hotel_rates(mode):
     r = await search_hotel_rates(38.7139, -9.1394, TRIP_START, TRIP_END, 2, 2.5, 8)

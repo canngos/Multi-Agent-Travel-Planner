@@ -207,6 +207,7 @@ def save_guide(markdown_text: str, filename_slug: str, tool_context: ToolContext
         raise ToolError("The guide is empty")
     slug = slugify(filename_slug)
     config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    markdown_text = markdown_text.replace("web_estimate", "web estimate")  # the raw field value reads badly
     full = markdown_text.rstrip() + ATTRIBUTION_FOOTER
     md_path = config.OUTPUT_DIR / f"{slug}.md"
     html_path = config.OUTPUT_DIR / f"{slug}.html"

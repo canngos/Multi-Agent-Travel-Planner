@@ -43,6 +43,7 @@ GROUND_STEPS = """STEPS
    per direction at most, e.g. "Tallink Helsinki Tallinn ferry ticket price". From a result, take a typical
    one-way fare per person, multiply by travellers, set price_eur to it, price_source "web_estimate",
    source "transitous+tavily", and add "fare from <page url>" to details. If no fare is found, keep price_eur null.
+   Keep "TYPICAL TIMETABLE" notes in details unchanged: those times come from a nearer date and must be checked.
 FALLBACK: if plan_public_transport fails or finds nothing, call web_search
 "<origin> to <destination> train bus ferry timetable price" and report what the pages say
 (price_source "web_estimate", source "tavily", url = the page).

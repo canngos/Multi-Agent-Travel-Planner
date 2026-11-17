@@ -5,6 +5,7 @@ from ._http import get_json
 from ._result import ToolError, ok, safe_tool
 
 NOMINATIM = "https://nominatim.openstreetmap.org"
+OPEN_METEO_GEOCODING = "https://geocoding-api.open-meteo.com/v1/search"
 
 
 @safe_tool
@@ -14,11 +15,17 @@ async def geocode_place(name: str) -> dict:
     Args:
         name: Place name, e.g. "Lisbon" or "Tampere, Finland".
     """
-    data = await get_json(
-        f"{NOMINATIM}/search",
-        namespace="nominatim",
-        params={"q": name, "format": "jsonv2", "limit": 1, "addressdetails": 1, "accept-language": "en"},
-    )
+    try:
+        data = await get_json(
+            f"{NOMINATIM}/search",
+            namespace="nominatim",
+            params={"q": name, "format": "jsonv2", "limit": 1, "addressdetails": 1, "accept-language": "en"},
+        )
+    except ToolError as exc:  # e.g. HTTP 429 when Nominatim's 1 request/s limit is hit
+        fallback = await _open_meteo_geocode(name)
+        if fallback is None:
+            raise ToolError(f"{exc} (the Open-Meteo geocoder found nothing either)") from exc
+        return fallback
     if not data:
         raise ToolError(f"No place found for '{name}'. Ask the user to rephrase or add the country.")
     top = data[0]
@@ -34,6 +41,27 @@ async def geocode_place(name: str) -> dict:
             "type": top.get("addresstype") or top.get("type"),
         }],
         attribution="© OpenStreetMap contributors (ODbL)",
+    )
+
+
+async def _open_meteo_geocode(name: str) -> dict | None:
+    """Fallback geocoder for cities (Open-Meteo, from GeoNames; free, no key). "Tampere, Finland" filters by country."""
+    city, _, country = (part.strip() for part in name.partition(","))
+    data = await get_json(OPEN_METEO_GEOCODING, namespace="open-meteo-geocoding",
+                          params={"name": city, "count": 5, "language": "en", "format": "json"})
+    results = (data or {}).get("results") or []
+    if country:
+        results = [r for r in results if country.lower() in (r.get("country") or "").lower()] or results
+    if not results:
+        return None
+    top = results[0]
+    return ok(
+        [{"name": top.get("name") or city, "display_name": ", ".join(x for x in (top.get("name"), top.get("admin1"),
+                                                                                top.get("country")) if x),
+          "lat": round(float(top["latitude"]), 5), "lon": round(float(top["longitude"]), 5),
+          "country": top.get("country"), "country_code": (top.get("country_code") or "").upper(),
+          "type": "city"}],
+        attribution="Geocoding by Open-Meteo (GeoNames, CC BY 4.0)",
     )
 
 

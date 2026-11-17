@@ -1,7 +1,15 @@
-"""Train / bus / ferry connections from Transitous (MOTIS 2 API). Schedules only, no prices."""
-from datetime import datetime
+"""Train / bus / ferry connections from Transitous (MOTIS 2 API). Schedules only, no prices.
+
+Published timetables reach only a few months ahead, and not equally far for every operator: for a trip in
+May 2027 (asked in November 2026) Transitous knew FlixBus but none of the Helsinki-Tallinn ferries. For a trip
+more than TYPICAL_AFTER_DAYS away the tool therefore also asks for the same weekday about two weeks from today
+and adds connections found only there, moved to the trip date and labelled as a typical timetable (like the
+weather tool's "typical weather").
+"""
+from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
+from .. import config
 from ..models import TransportOption
 from ._http import get_json
 from ._result import ToolError, ok, safe_tool
@@ -18,6 +26,8 @@ MODE_MAP = {
     "SUBWAY": "train", "METRO": "train", "TRAM": "train", "FUNICULAR": "train", "CABLE_CAR": "train",
 }
 LOCAL_MODES = {"WALK", "BIKE", "CAR", "RENTAL", "FLEX"}
+TYPICAL_AFTER_DAYS = 60
+TYPICAL_LEAD_DAYS = 14
 
 
 def _local(iso_utc: str, tz: str | None) -> str:
@@ -101,6 +111,28 @@ async def plan_public_transport(
         max_results: Number of connections (1-5).
     """
     datetime.fromisoformat(f"{depart_date}T{depart_time}")  # validates the inputs
+    n = max(1, min(int(max_results), 5))
+    trip_day = date.fromisoformat(depart_date)
+    main_error = None
+    try:
+        options = await _query(from_lat, from_lon, to_lat, to_lon, depart_date, depart_time, n)
+    except ToolError as exc:  # e.g. nothing published yet for that date
+        options, main_error = [], exc
+    if (trip_day - config.today()).days > TYPICAL_AFTER_DAYS:
+        near = typical_day(trip_day, config.today())
+        try:
+            typical = await _query(from_lat, from_lon, to_lat, to_lon, near.isoformat(), depart_time, n)
+        except Exception:  # noqa: BLE001 - the typical timetable is only a supplement
+            typical = []
+        known = {(o["mode"], o["operator"]) for o in options}
+        extra = [move_to_day(o, near, trip_day) for o in typical if (o["mode"], o["operator"]) not in known]
+        options = options + extra[: max(0, 5 - len(options))]
+    if not options:
+        raise main_error or ToolError("No public-transport connection found for this route and day")
+    return ok(options, attribution=ATTRIBUTION)
+
+
+async def _query(from_lat, from_lon, to_lat, to_lon, depart_date, depart_time, n) -> list[dict]:
     data = await get_json(
         TRANSITOUS_PLAN,
         namespace="transitous",
@@ -108,11 +140,25 @@ async def plan_public_transport(
             "fromPlace": f"{round(from_lat, 4)},{round(from_lon, 4)}",
             "toPlace": f"{round(to_lat, 4)},{round(to_lon, 4)}",
             "time": f"{depart_date}T{depart_time}:00Z",
-            "numItineraries": max(1, min(int(max_results), 5)),
+            "numItineraries": n,
         },
         slim=slim_plan,
     )
-    options = [o for o in (itinerary_to_option(it) for it in data.get("itineraries", [])) if o]
-    if not options:
-        raise ToolError("No public-transport connection found for this route and day")
-    return ok(options[: max(1, min(int(max_results), 5))], attribution=ATTRIBUTION)
+    return [o.model_dump() for o in (itinerary_to_option(it) for it in data.get("itineraries", [])) if o][:n]
+
+
+def typical_day(trip_day: date, today: date) -> date:
+    """The trip's weekday, at least TYPICAL_LEAD_DAYS from today (inside the published timetables)."""
+    near = today + timedelta(days=TYPICAL_LEAD_DAYS)
+    return near + timedelta(days=(trip_day.weekday() - near.weekday()) % 7)
+
+
+def move_to_day(option: dict, near: date, trip_day: date) -> dict:
+    """A connection from the typical day, with its dates moved to the trip day and a clear label."""
+    shift = trip_day - near
+    moved = dict(option)
+    for key in ("depart", "arrive"):
+        moved[key] = (datetime.fromisoformat(option[key]) + shift).strftime("%Y-%m-%dT%H:%M")
+    moved["details"] = (f"{option.get('details', '')} | TYPICAL TIMETABLE: times from {near.isoformat()} (the trip "
+                        "date is beyond the published timetable); check the real times before booking").lstrip(" |")
+    return moved

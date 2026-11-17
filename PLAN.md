@@ -247,19 +247,92 @@ Files: `travel_planner/agents/{budget_critic,itinerary_reviser,review_checks,ret
   - The critic sometimes suggests levers that are not real (e.g. a lower food allowance). Code ignores them, but they cost a round.
 
 ## Phase 9 — Hardening  *(spec step 9)*
-- [ ] Run 4 different trips:
+- [x] Run 4 different trips:
   - Lisbon, 5 days, mid budget (the demo)
   - Tallinn from Helsinki, 3 days, low budget (ferry, which exercises the ground transport path)
   - Rome, 7 days, high budget
   - Kraków from Tampere, 3 days
-- [ ] Fix failures: malformed tool calls, empty results, missing state keys, slow runs (merge comparers into searchers if needed)
-- [ ] Check the guide: no place or price without a source, and `web_estimate` prices clearly marked
-- [ ] Record the demo: run Lisbon live with the cache dir set to `cache/demo/`, commit it, then confirm that `OFFLINE=1 adk web` replays the whole demo
+- [x] Fix failures: malformed tool calls, empty results, missing state keys, slow runs (merge comparers into searchers if needed)
+- [x] Check the guide: no place or price without a source, and `web_estimate` prices clearly marked
+- [x] Record the demo: run Lisbon live with the cache dir set to `cache/demo/`, commit it, then confirm that `OFFLINE=1 adk web` replays the whole demo
+  - [x] LLM responses are cached too in demo mode (`DEMO=1`), and "today" is pinned, so the replay needs no network and no LLM key
 
 **Done when:** all 4 trips finish without errors and the offline demo replay works.
 
+**Status: done.** `scratch/dev_pipeline.py full --trip {lisbon,tallinn,rome,krakow}` plays a scripted chat for each trip.
+All four pass every check: valid itinerary, right number of days, every link grounded, guide saved, review loop
+finished, no must-fix problems. Each takes 5–7 min live.
+
+| Trip | Result |
+|---|---|
+| Lisbon (demo) | Recorded and replayed. REVISE → APPROVED (the reviser fixed a late flight and opening hours) |
+| Tallinn, low budget | Tallink out, Viking Line back (typical timetable, web-estimate fares), €368 of €450 |
+| Rome, 7 days, high | Finnair direct, Airbnb, 2 review rounds; days are thin (the research finds ~15 sights for 7 days) |
+| Kraków from Tampere | Finnair (live prices), hostel, approved in round 2 with no remaining issues |
+
+- **Demo mode:**
+  - `DEMO=1` replays the recorded Lisbon demo from `cache/demo/` (105 files, 2.6 MB, no secrets). Tool results
+    and LLM answers come from `llm_cache.py`, and "today" is pinned to the recording day.
+  - Replaying the four demo lines takes about 2 s, works with the LLM endpoint unreachable, and gives a guide
+    identical to the recording. Checked through the harness and through `adk api_server` (the API `adk web` uses).
+  - `DEMO=1 DEMO_RECORD=1` re-records. **Any prompt change makes the recording miss: re-record after prompt edits.**
+    `scratch/prune_demo_cache.py` removes entries the replay does not use.
+- **Fixes from the trips** (each with a regression test):
+  - **Guide not saved:** the writer printed its `save_guide` call as JSON text (Tallinn, Rome). The safety net
+    now saves `markdown_text` from such a reply.
+  - **Planning restarted:** a follow-up question made the concierge restart the pipeline, and the research agents
+    overwrote the research with empty results (Rome). Now a saved brief starts the pipeline in code (the model had
+    also once said "planning starts" without transferring), and `transfer_to_agent` is refused otherwise.
+  - **Geocoding:** Nominatim answered HTTP 429 during parallel runs and the concierge used coordinates from
+    memory. Open-Meteo geocoding is now the fallback.
+  - **No ferries:** Transitous had no ferry timetables for May 2027. For trips more than 60 days away the tool
+    also queries the same weekday about two weeks ahead and adds those connections, labelled "TYPICAL TIMETABLE".
+  - **Chosen options:** tidy restores the chosen transport and stay from the summaries (the model mistyped a
+    Kiwi link, leaving the return flight without a URL).
+  - **Smaller fixes:**
+    - doubled schemes (`https://https://`) are repaired;
+    - "(web estimate)" is spelled out in guides;
+    - a repeated restaurant is must-fix while unused food places exist;
+    - the LLM cache writes each answer before ADK may stop reading (a transfer ended the first recording's
+      concierge turn early).
+- **Weak spots for 9b/10:**
+  - Runs take 5–7 min live, mostly research (the comparers wait for the slowest searcher).
+  - Long trips get thin days.
+  - Nominatim often rate-limits our IP (the fallback covers it).
+
+## Phase 9b — Web UI with live agent animation
+Goal: anyone can use the planner from a browser and *see* how it works: which agent is running, which tools it
+calls with which arguments, what comes back, how state flows between agents, and how the review loop decides.
+
+Files: `ui/` (Vite + React + TypeScript), optional `server/` only if ADK's API server is not enough
+
+- [ ] **Backend:** ADK's built-in API server (`adk api_server --allow_origins http://localhost:5173`) gives
+  sessions, `/run_sse` event streaming and session state. No own backend unless something is missing (e.g.
+  serving `output/` files)
+- [ ] **Chat panel:** talk to the concierge, with the confirmation step, quick-start example prompts and a
+  "demo" button that sends the recorded Lisbon demo messages (works with `DEMO=1`, no network)
+- [ ] **Agent graph:** the real agent tree, drawn the way it runs:
+  - concierge → planning_pipeline → research_team (4 parallel branches) → planner → review_loop
+    (critic ⇄ reviser, with a round counter) → guide_writer;
+  - the active agent is highlighted;
+  - tool calls fly out of an agent as chips (spinner, then ok or error);
+  - state keys (`flight_options`, `itinerary`, …) light up as agents write them;
+  - transfers, parallel branches and loop rounds are animated
+- [ ] **Inspector:** click any agent, tool call or event to see its arguments, the result JSON, state changes,
+  timing, and the agent's instruction summary and tools
+- [ ] **Timeline:** events in order, with durations per agent (a small Gantt view shows the parallel research)
+- [ ] **Results:** the rendered guide (Markdown with links and price markers), cost table, review rounds
+  (critique, verdict, changes), and download of `.md` and `.html`
+- [ ] **Replay mode:** save a run's event log as JSON and play it back with play, pause and speed controls,
+  so the animation can be shown without waiting for, or calling, the LLM
+- [ ] **Tests:** unit tests (Vitest) for the event → graph-state reducer; a scripted check in Chrome that the
+  demo runs end to end in the UI
+
+**Done when:** with `DEMO=1`, a user can plan the Lisbon demo in the browser, watch the agents and tool calls
+animate, open any tool call's details, and read and download the guide.
+
 ## Phase 10 — Report and demo  *(spec step 10)*
-- [ ] `README.md`: what it does, setup (Python, Node, `.env`, sign-ups), how to run (`adk web`, offline demo mode), tests
+- [ ] `README.md`: what it does, setup (Python, Node, `.env`, sign-ups), how to run (`adk web`, the web UI, offline demo mode), tests
 - [ ] Architecture diagram (Mermaid in the README): agent tree, state keys, tools per agent
 - [ ] Requirements checklist mapped to the code (PROJECT.md §7)
 - [ ] Demo video or live-run script following the PROJECT.md demo scenario
@@ -305,4 +378,7 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | The guide reaches the concierge through its instruction; the pipeline's events are removed from its prompt | ADK shows every agent's tool calls and results to the root agent in later turns (tens of KB); the guide text is what follow-up questions need |
 | 2026-11-17 | The review loop's verdict, cost, ticket prices and stopping rule are decided in code; the critic LLM explains and proposes fixes | Live runs showed the critic approving plans with problems, asking for endless minor changes, and the reviser "saving money" by zeroing ticket prices or using a lower food allowance. Checks in code (`review_checks`) are deterministic and tested offline |
 | 2026-11-17 | Malformed tool calls get a hidden retry tool via per-agent callbacks (like ADK's `ReflectAndRetryModelPlugin`) | ADK drops tool calls whose arguments are not valid JSON and ends the agent's turn; plugins attach to the runner, but callbacks work the same in `adk web` and in the dev harness |
+| 2026-11-17 | Demo mode caches LLM answers (key = instruction + contents without call ids, other agents' "For context" messages and thoughts) and pins "today" | Tool caching alone cannot replay a demo: a new model answer means new tool arguments and cache misses. With both cached, the demo replays exactly in ~2 s without network or LLM key |
+| 2026-11-17 | The concierge's transfer to the pipeline happens in code when `save_trip_brief` succeeds; other transfers are refused | The model once ended its turn without transferring and once restarted the pipeline on a follow-up question |
+| 2026-11-17 | Far-future ground trips use a "typical timetable" from a near date, labelled in the details | Ferry timetables are published only months ahead; this mirrors the weather tool's typical-weather fallback |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

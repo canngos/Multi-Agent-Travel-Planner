@@ -4,7 +4,7 @@ The budget critic calls `check_itinerary` as a tool; the critic's verdict guard 
 "must fix" problem can never be approved by the model. Everything here is deterministic:
 
 must_fix  (the plan is wrong):  over budget while a cheaper option exists; a visit on a closed day or outside
-          the opening hours; a sight planned twice; a place or ticket price that is not in the research; a transport or stay option
+          the opening hours; a sight planned twice (a restaurant too, while unused food places exist); a place or ticket price that is not in the research; a transport or stay option
           that is not in the summaries; wrong number of days or dates.
 should_fix (the plan is weak):  thin days (few sights, long empty gaps, missing meals), packed days, long
           walks, meals far from the day's area, places used twice, over budget with no cheaper option left.
@@ -364,9 +364,12 @@ def check_plan(plan: dict, state) -> dict:
                              "detail": f"'{name}' has ticket_eur {item.get('ticket_eur')} but the research says "
                                        f"{found.get('ticket_eur')} (null = unknown): copy the research value."})
             k = _key(name)
-            if k in seen:  # a sight twice is an error; a restaurant twice is only dull
-                (must if kind == "sight" else should).append({"day": label, "issue": "repeated_place",
-                                                              "detail": f"'{name}' is also on day {seen[k]}: use each place once."})
+            if k in seen:  # a sight twice is an error; a restaurant twice too, unless no other food place is left
+                spare = [p["name"] for p in places if p.get("kind") in FOOD_KINDS and _key(p.get("name")) not in used]
+                level = must if kind == "sight" or spare else should
+                level.append({"day": label, "issue": "repeated_place",
+                              "detail": f"'{name}' is also on day {seen[k]}: use each place once."
+                                        + (f" Unused food places: {', '.join(spare[:4])}." if kind in FOOD_KINDS and spare else "")})
             seen.setdefault(k, label)
             hours = (found or {}).get("hours") or item.get("hours")
             open_ = parse_hours(hours, today) if today else None

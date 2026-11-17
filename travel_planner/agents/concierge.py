@@ -5,12 +5,12 @@ follow-up questions). The concierge sees the whole chat, but the pipeline's agen
 JSON results into the same session; `hide_pipeline_events` drops those from its prompt so follow-up turns stay
 small. The guide itself reaches the concierge through the instruction instead.
 """
-from datetime import date
 
 from google.adk.agents import LlmAgent
 from google.adk.agents.readonly_context import ReadonlyContext
 from google.genai import types
 
+from .. import config
 from ..config import MODEL
 from ..tools import geocode_place, save_trip_brief
 
@@ -40,17 +40,20 @@ HOW TO WORK
 4. When the user confirms, call save_trip_brief again with the same details: now it saves them. If the user
    changes something, call it with the new details (that asks for confirmation again). If it returns an error,
    fix the fields it lists (ask the user if needed).
-5. When save_trip_brief returns "ok", tell the user in one sentence that planning starts and takes a few minutes,
-   then call transfer_to_agent(agent_name="planning_pipeline"). Do not write anything after the transfer."""
+5. When save_trip_brief returns "ok", planning starts automatically (the planning team takes over and the user
+   sees its progress). Do not call any other tool and do not write anything after that."""
 
 AFTER = """AFTER A GUIDE EXISTS
 Answer questions about the trip ONLY from the guide below; if the guide does not say, say so. If the user wants
 a different trip or changes (other dates, budget, destination), confirm the new details, save the new brief with
-save_trip_brief and transfer to planning_pipeline again."""
+save_trip_brief and transfer to planning_pipeline again.
+If a brief is saved but there is no guide (planning failed), say so plainly and ask whether to plan again. Planning
+starts only through save_trip_brief returning "ok" (which needs the user's confirmation), never by itself."""
 
 
 def concierge_instruction(ctx: ReadonlyContext) -> str:
-    parts = [ROLE, f"Today is {date.today().isoformat()} ({date.today():%A}).", COLLECT, AFTER]
+    today = config.today()
+    parts = [ROLE, f"Today is {today.isoformat()} ({today:%A}).", COLLECT, AFTER]
     brief = ctx.state.get("trip_brief")
     if brief:
         parts.append(f"CURRENT SAVED TRIP BRIEF: {brief}")
@@ -80,13 +83,27 @@ def _core(args: dict) -> dict:
     return {k: args.get(k) for k in CORE_FIELDS}
 
 
-def require_confirmation(tool, args, tool_context):
-    """Before-tool callback: save_trip_brief only saves details the user saw and confirmed in a later turn.
+SAVED_KEY = "concierge_brief_saved_in"  # invocation in which save_trip_brief last returned "ok"
 
-    The first call of a turn stores the details as pending and answers "needs_confirmation". A call in a
-    later invocation (the user has replied) with the same core details goes through.
+
+def require_confirmation(tool, args, tool_context):
+    """Before-tool callback: save_trip_brief only saves details the user saw and confirmed in a later turn,
+    and the planning pipeline only starts in the turn in which the brief was saved.
+
+    The first save_trip_brief call of a turn stores the details as pending and answers "needs_confirmation".
+    A call in a later invocation (the user has replied) with the same core details goes through.
+    transfer_to_agent is refused unless save_trip_brief returned "ok" in this invocation: in a live run the
+    concierge restarted the pipeline on a follow-up question, and the research agents, given only that
+    question, overwrote the research with empty results.
     """
-    if getattr(tool, "name", "") != "save_trip_brief":
+    name = getattr(tool, "name", "")
+    if name == "transfer_to_agent":
+        if tool_context.state.get(SAVED_KEY) == tool_context.invocation_id:
+            return None
+        return {"status": "error",
+                "reason": "Planning starts only right after save_trip_brief returned ok in this turn. Answer the "
+                          "user from the guide, or if there is no guide, say so and ask whether to plan again."}
+    if name != "save_trip_brief":
         return None
     pending = tool_context.state.get(PENDING_KEY) or {}
     if pending and pending.get("invocation_id") != tool_context.invocation_id and pending.get("core") == _core(args):
@@ -96,6 +113,22 @@ def require_confirmation(tool, args, tool_context):
     return {"status": "needs_confirmation",
             "reason": "Not saved yet. Show the user a short summary of these details and ask them to confirm. "
                       "When they confirm in their next message, call save_trip_brief again with the same details."}
+
+
+PIPELINE_NAME = "planning_pipeline"
+
+
+def note_saved_brief(tool, args, tool_context, tool_response):
+    """After-tool callback: a saved brief starts the planning pipeline (the same action transfer_to_agent sets).
+
+    The transfer is done in code: in a live run the model said "planning will start now" and ended its turn
+    without calling transfer_to_agent, so nothing was planned.
+    """
+    if getattr(tool, "name", "") == "save_trip_brief" and isinstance(tool_response, dict) \
+            and tool_response.get("status") == "ok":
+        tool_context.state[SAVED_KEY] = tool_context.invocation_id
+        tool_context.actions.transfer_to_agent = PIPELINE_NAME
+    return None
 
 
 def build_concierge(planning_pipeline) -> LlmAgent:
@@ -108,5 +141,6 @@ def build_concierge(planning_pipeline) -> LlmAgent:
         sub_agents=[planning_pipeline],
         before_model_callback=hide_pipeline_events,
         before_tool_callback=require_confirmation,
+        after_tool_callback=note_saved_brief,
         generate_content_config=types.GenerateContentConfig(temperature=0.3),
     )

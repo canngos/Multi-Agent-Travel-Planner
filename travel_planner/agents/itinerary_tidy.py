@@ -4,6 +4,7 @@ Rules the model sometimes breaks and code can fix reliably:
 - items in time order within each day;
 - arrival / departure items built from the chosen transport options, and nothing planned before the
   arrival or after the departure;
+- the chosen transport and stay copied unchanged from the summaries (`restore_chosen_options`);
 - ticket prices reset to the researched values (`ground_tickets`), and a display-ready "ticket" text per sight, so the guide writer copies it instead of interpreting null
   (null means "unknown", never "free");
 - "walk_km" per day (straight-line km between consecutive stops) and "cost" recomputed from the plan's own
@@ -13,7 +14,7 @@ import json
 import re
 
 from .output import extract_json
-from .review_checks import find_place, plan_cost, research_places, walk_km
+from .review_checks import _dicts, _parse, _price, find_place, plan_cost, research_places, walk_km
 
 _TIME = re.compile(r"^(\d{1,2}):(\d{2})")
 
@@ -124,6 +125,39 @@ def ground_tickets(plan: dict, places: list[dict]) -> list[str]:
     return changes
 
 
+def restore_chosen_options(plan: dict, state) -> list[str]:
+    """Replaces the chosen transport options and stay with the matching summary entries, copied unchanged.
+
+    The model is told to copy them unchanged but once mistyped a Kiwi short link (".../wh8w2p" for
+    ".../wh8w2w"); grounding then removed the link. Matching: transport on operator, departure and price; the
+    stay on name and total price.
+    """
+    changes = []
+    transport = plan.get("transport") if isinstance(plan.get("transport"), dict) else None
+    tsum = _parse(state.get("transport_summary"))
+    for leg in ("outbound", "return"):
+        chosen = (transport or {}).get(leg)
+        if not isinstance(chosen, dict):
+            continue
+        for d in _dicts(tsum.get(leg)):
+            if d.get("operator") == chosen.get("operator") and d.get("depart") == chosen.get("depart") \
+                    and _price(d.get("price_eur")) == _price(chosen.get("price_eur")) and "url" in d:
+                if d != chosen:
+                    transport[leg] = dict(d)
+                    changes.append(f"{leg} option restored from the transport summary")
+                break
+    stay = plan.get("stay")
+    if isinstance(stay, dict):
+        for d in _dicts(_parse(state.get("stay_summary"))):
+            if d.get("name") == stay.get("name") and _price(d.get("total_price_eur")) == _price(stay.get("total_price_eur")) \
+                    and "url" in d:
+                if d != stay:
+                    plan["stay"] = dict(d)
+                    changes.append("stay restored from the stay summary")
+                break
+    return changes
+
+
 def tidy_itinerary(callback_context):
     """After-agent callback for the planner (and the Phase 8 reviser)."""
     state = callback_context.state
@@ -131,7 +165,7 @@ def tidy_itinerary(callback_context):
         plan = extract_json(state.get("itinerary") or "")
     except ValueError:
         return None
-    changes = ground_tickets(plan, research_places(state))
+    changes = restore_chosen_options(plan, state) + ground_tickets(plan, research_places(state))
     changes += tidy_plan(plan, state.get("trip_brief") or {})
     state["itinerary"] = "```json\n" + json.dumps(plan, ensure_ascii=False, indent=1) + "\n```"
     if changes:

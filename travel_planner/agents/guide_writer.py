@@ -10,6 +10,7 @@ from google.genai import types
 
 from ..config import MODEL
 from ..tools import save_guide
+from .output import extract_json
 from .grounding import RESEARCH_KEYS, ground_guide_before_save, ground_markdown, known_urls
 from .prompts import BRIEF
 from .retry import offer_retry_tool, retry_malformed_call
@@ -82,10 +83,23 @@ def _slug(brief: dict) -> str:
     return f"{brief.get('destination', 'trip')}-{brief.get('start_date', '')}-to-{brief.get('end_date', '')}"
 
 
+def _guide_from_reply(reply: str) -> str:
+    """The guide in the reply: the reply itself, or the markdown_text of a save_guide call written as JSON text
+    (GPT OSS sometimes prints the tool call instead of making it; seen in a live Tallinn run)."""
+    if '"markdown_text"' in reply:
+        try:
+            text = extract_json(reply).get("markdown_text")
+        except ValueError:
+            text = None
+        if isinstance(text, str):
+            return text
+    return reply
+
+
 def save_reply_if_not_saved(callback_context):
     """Safety net: if the model wrote the guide as its reply instead of calling save_guide, save the reply."""
     state = callback_context.state
-    reply = state.get("guide_reply") or ""
+    reply = _guide_from_reply(state.get("guide_reply") or "")
     if state.get("final_guide") or reply.count("\n## ") < 2:
         return None
     reply, _, _ = ground_markdown(reply, known_urls(state, RESEARCH_KEYS + ("itinerary",)))
