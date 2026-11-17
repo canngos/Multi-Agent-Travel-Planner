@@ -204,14 +204,47 @@ Files: `travel_planner/agents/{concierge,planner,guide_writer,pipeline,grounding
   - The concierge sees one other agent's final reply because of `include_contents="none"` slicing; harmless.
 
 ## Phase 8 — Review loop  *(spec step 8)*
-Files: `travel_planner/agents/{budget_critic,itinerary_reviser}.py`; update `pipeline.py`
+Files: `travel_planner/agents/{budget_critic,itinerary_reviser,review_checks,retry}.py`; update `pipeline.py`, `itinerary_tidy.py`
 
-- [ ] `budget_critic` → `critique`: calls `calculate_trip_cost`, flags over-budget totals, packed days, long walks and **ungrounded places or prices**. Ends with the literal verdict `APPROVED` or `REVISE`.
-- [ ] `itinerary_reviser` → `itinerary`: if the critique says `APPROVED`, calls `exit_loop`; otherwise rewrites the plan
-- [ ] `review_loop` = Loop[budget_critic, itinerary_reviser], `max_iterations=3`, inserted between the planner and the writer
-- [ ] Test that a deliberately over-budget brief triggers at least one revision, and that the loop never runs more than 3 rounds
+- [x] `budget_critic` → `critique`: calls `calculate_trip_cost`, flags over-budget totals, packed days, long walks and **ungrounded places or prices**. Ends with the literal verdict `APPROVED` or `REVISE`.
+- [x] `itinerary_reviser` → `itinerary`: if the critique says `APPROVED`, calls `exit_loop`; otherwise rewrites the plan
+- [x] `review_loop` = Loop[budget_critic, itinerary_reviser], `max_iterations=3`, inserted between the planner and the writer
+- [x] Test that a deliberately over-budget brief triggers at least one revision, and that the loop never runs more than 3 rounds
 
 **Done when:** the trace shows critique → revise → approve, and the guide reflects the revised plan.
+
+**Status: done.**
+- **Offline tests:** `tests/test_review.py`, 18 tests. Two run the real loop on a scripted model:
+  - an over-budget plan (critic "approves", code forces REVISE) is revised, then approved via `exit_loop`;
+  - a reviser that never fixes anything stops after exactly 3 rounds.
+- **Live, saved research, tighter budget** (`scratch/dev_pipeline.py tail --budget 1300`): REVISE, then APPROVED.
+  - The cheaper hostel and return flight and dropping a paid sight cut the total from €1,488 to €1,323.
+  - The guide's cost table says "over by €23", with no claims beyond the plan's figures.
+- **Live, full demo chat** (`full`): PASS in 339 s, REVISE → REVISE → APPROVED with the model calling `exit_loop`.
+  - Round 1 replaced a flight arriving a day late and a lunch before opening time.
+  - Round 2 removed a museum booked on its closed day and filled empty afternoons.
+
+- **`review_checks.check_itinerary`:** a code check, used both as the critic's tool and by the verdict guard.
+  - **must_fix:** over budget while a cheaper option exists; closed day or outside opening hours (parser for the OSM and English hour formats in the research); a place or ticket not in the research; transport or stay not in the summaries; a sight planned twice; wrong dates; a flight that loses a trip day while a same-day option exists.
+  - **should_fix:** thin days or empty gaps, missing meals, packed days, long walks, far meals, repeated restaurants.
+  - Thin days and far meals list unused researched places nearby as alternatives.
+- **Critic:** `enforce_verdict` has the last word.
+  - Must-fix problems always mean REVISE; missed ones are appended to the critique.
+  - With only should-fix problems, REVISE stands only if a researched fix exists and the last round made progress, and never in round 3. In the first live run the reviser added, removed and re-added the same museum until the round limit.
+- **Reviser guards:**
+  - `exit_loop` is refused while the verdict is REVISE.
+  - An approved plan cannot change, and a missing `exit_loop` call is replaced by an escalation.
+  - A broken reply restores the previous plan.
+  - Links, tickets and travel times are grounded again after each revision.
+  - `keep_best_plan` undoes a last-round revision that scores worse, since nothing reviews it. A live last round had added three places that were not in the research.
+- **`itinerary_tidy`** recomputes `cost` and `walk_km` from the plan and resets ticket prices to the research values.
+  - The planner had counted tickets for one traveller.
+  - A reviser had set real ticket prices to €0 to fit the budget.
+- **`retry.py`:** a malformed tool call gets up to 2 retries (planner, critic, reviser, writer, research agents). GPT OSS once wrote invalid JSON arguments for `calculate_trip_cost`; ADK dropped the call and the planner ended without a plan.
+- **Weak spots for Phase 9:**
+  - The loop adds 1.5–2 min.
+  - A repeated restaurant can survive an approval in round 3 (should_fix only).
+  - The critic sometimes suggests levers that are not real (e.g. a lower food allowance). Code ignores them, but they cost a round.
 
 ## Phase 9 — Hardening  *(spec step 9)*
 - [ ] Run 4 different trips:
@@ -270,4 +303,6 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | `cluster_by_distance` uses agglomerative (centroid-linkage) clustering with a size cap instead of k-means | Farthest-point seeding makes every outlying sight its own day; merging the closest groups keeps neighbours like Belém Tower and Jerónimos together and splits the dense centre instead |
 | 2026-11-17 | Food and local transport costs are typical per-tier figures inside `calculate_trip_cost`, listed as assumptions | No free source gives daily food costs; keeping the numbers in one tool (not in model output) makes them consistent and visible in the guide |
 | 2026-11-17 | The guide reaches the concierge through its instruction; the pipeline's events are removed from its prompt | ADK shows every agent's tool calls and results to the root agent in later turns (tens of KB); the guide text is what follow-up questions need |
+| 2026-11-17 | The review loop's verdict, cost, ticket prices and stopping rule are decided in code; the critic LLM explains and proposes fixes | Live runs showed the critic approving plans with problems, asking for endless minor changes, and the reviser "saving money" by zeroing ticket prices or using a lower food allowance. Checks in code (`review_checks`) are deterministic and tested offline |
+| 2026-11-17 | Malformed tool calls get a hidden retry tool via per-agent callbacks (like ADK's `ReflectAndRetryModelPlugin`) | ADK drops tool calls whose arguments are not valid JSON and ends the agent's turn; plugins attach to the runner, but callbacks work the same in `adk web` and in the dev harness |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

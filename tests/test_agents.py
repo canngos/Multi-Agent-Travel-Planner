@@ -92,7 +92,7 @@ def test_item_urls_collects_every_link_field():
 
 # ---------------------------------------------------------------- comparers and teams
 
-from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent  # noqa: E402
+from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgent  # noqa: E402
 
 from travel_planner.agents.comparers import build_stay_comparer, build_transport_comparer  # noqa: E402
 from travel_planner.agents.teams import RESEARCH_KEYS, build_research_team  # noqa: E402
@@ -175,11 +175,16 @@ def test_root_agent_tree():
     assert {t.__name__ for t in root.tools} == {"geocode_place", "save_trip_brief"}
     (pipeline,) = root.sub_agents
     assert isinstance(pipeline, SequentialAgent) and pipeline.name == "planning_pipeline"
-    assert [a.name for a in pipeline.sub_agents] == ["research_team", "itinerary_planner", "guide_writer"]
+    assert [a.name for a in pipeline.sub_agents] == ["research_team", "itinerary_planner", "review_loop", "guide_writer"]
+    loop = pipeline.sub_agents[2]
+    assert isinstance(loop, LoopAgent) and loop.max_iterations == 3
+    assert [a.name for a in loop.sub_agents] == ["budget_critic", "itinerary_reviser"]
     llm = [a for a in _walk(root) if isinstance(a, LlmAgent)]
-    assert len(llm) == 11  # 13 in the spec minus the Phase 8 critic and reviser
+    assert len(llm) == 13
     keys = [a.output_key for a in llm if a.output_key]
-    assert len(keys) == len(set(keys)) and {"itinerary", "guide_reply"} <= set(keys)
+    # the reviser rewrites the planner's "itinerary" in place (that is the loop's job); every other key is unique
+    assert keys.count("itinerary") == 2 and len(keys) - 1 == len(set(keys))
+    assert {"itinerary", "critique", "guide_reply"} <= set(keys)
 
 
 @pytest.mark.parametrize("factory, tools, reads", [

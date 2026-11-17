@@ -4,13 +4,16 @@ Rules the model sometimes breaks and code can fix reliably:
 - items in time order within each day;
 - arrival / departure items built from the chosen transport options, and nothing planned before the
   arrival or after the departure;
-- a display-ready "ticket" text per sight, so the guide writer copies it instead of interpreting null
-  (null means "unknown", never "free").
+- ticket prices reset to the researched values (`ground_tickets`), and a display-ready "ticket" text per sight, so the guide writer copies it instead of interpreting null
+  (null means "unknown", never "free");
+- "walk_km" per day (straight-line km between consecutive stops) and "cost" recomputed from the plan's own
+  transport, stay and tickets (the model once forgot to multiply tickets by the number of travellers).
 """
 import json
 import re
 
 from .output import extract_json
+from .review_checks import find_place, plan_cost, research_places, walk_km
 
 _TIME = re.compile(r"^(\d{1,2}):(\d{2})")
 
@@ -91,6 +94,33 @@ def tidy_plan(plan: dict, brief: dict | None = None) -> list[str]:
             if item.get("kind") == "sight":
                 item["ticket"] = ticket_text(item.get("ticket_eur"))
         day["items"] = ordered
+        day["walk_km"] = walk_km(ordered)
+    if brief.get("travellers") and days:
+        cost = plan_cost(plan, brief)
+        old_total = (plan.get("cost") or {}).get("total_eur") if isinstance(plan.get("cost"), dict) else None
+        if cost and (old_total is None or abs(float(old_total) - cost["total_eur"]) > 1):
+            changes.append(f"cost recomputed from the plan: total €{cost['total_eur']:g} (was {old_total})")
+        if cost:
+            plan["cost"] = cost
+    return changes
+
+
+def ground_tickets(plan: dict, places: list[dict]) -> list[str]:
+    """Sets every researched sight's ticket_eur to the research value (prices are facts, not plan choices).
+
+    The reviser once "saved money" by setting real ticket prices to 0. A sight that is not in the research keeps
+    its value; the critic's check reports it as an ungrounded place.
+    """
+    changes = []
+    for day in plan.get("days") or []:
+        for item in (day.get("items") or []) if isinstance(day, dict) else []:
+            if not isinstance(item, dict) or item.get("kind") != "sight":
+                continue
+            found = find_place(item.get("name"), places)
+            if found is not None and item.get("ticket_eur") != found.get("ticket_eur"):
+                changes.append(f"day {day.get('day')}: '{item.get('name')}' ticket {item.get('ticket_eur')} -> "
+                               f"{found.get('ticket_eur')} (research value)")
+                item["ticket_eur"] = found.get("ticket_eur")
     return changes
 
 
@@ -101,7 +131,8 @@ def tidy_itinerary(callback_context):
         plan = extract_json(state.get("itinerary") or "")
     except ValueError:
         return None
-    changes = tidy_plan(plan, state.get("trip_brief") or {})
+    changes = ground_tickets(plan, research_places(state))
+    changes += tidy_plan(plan, state.get("trip_brief") or {})
     state["itinerary"] = "```json\n" + json.dumps(plan, ensure_ascii=False, indent=1) + "\n```"
     if changes:
         state["itinerary_tidy_changes"] = changes
