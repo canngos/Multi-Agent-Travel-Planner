@@ -5,6 +5,7 @@ safe_tool turns into {"status": "error", ...} for the agent.
 """
 import asyncio
 import logging
+import os
 import threading
 import time
 from typing import Any, Callable, Literal
@@ -121,6 +122,18 @@ async def fetch(
         return slim(parsed) if slim else parsed
 
     return await _cache.cached(namespace, cache_request, produce, max_age_s)
+
+
+def api_key(name: str) -> str:
+    """The API key from .env. In offline mode a missing key is fine: requests are served from the cache only, and
+    keys are never part of a cache key (headers are not hashed, secret parameters are redacted), so a fresh clone
+    without .env replays the recorded responses."""
+    key = os.environ.get(name)
+    if key:
+        return key
+    if config.offline():
+        return "offline-no-key"
+    raise ToolError(f"{name} is not set in .env")
 
 
 async def get_json(url: str, *, namespace: str, params: dict | None = None, **kwargs: Any) -> Any:

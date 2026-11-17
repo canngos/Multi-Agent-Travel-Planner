@@ -343,8 +343,10 @@ def test_serpapi_hotel_slim_and_description():
 
 async def test_serpapi_tools_need_a_key_and_valid_args(monkeypatch):
     monkeypatch.delenv("SERPAPI_KEY", raising=False)
+    monkeypatch.setenv("OFFLINE", "0")  # online, a missing key is an error before any request is made
     r = await serpapi.search_serpapi_flights("HEL", "LIS", "2027-05-10")
     assert r["status"] == "error" and "SERPAPI_KEY" in r["reason"]
+    monkeypatch.setenv("OFFLINE", "1")
     monkeypatch.setenv("SERPAPI_KEY", "dummy")
     r = await serpapi.search_google_hotels("Lisbon", "2027-05-10", "2027-05-14", sort_by="cheapest")
     assert r["status"] == "error" and "sort_by" in r["reason"]
@@ -399,3 +401,17 @@ def test_osm_sight_parsing_from_both_backends():
         "Museum X", "Tu-Su 10:00-18:00", 8.0, True, 38.71)
     assert museum.source_urls == ["https://www.openstreetmap.org/node/7", "https://en.wikipedia.org/wiki/Museum_X"]
     assert (view.ticket_eur, view.indoor, view.summary) == (0.0, False, "viewpoint; free entry")
+
+
+def test_api_key_is_optional_offline(monkeypatch):
+    """A fresh clone has no .env: offline it still replays recorded responses (keys are never in cache keys)."""
+    from travel_planner.tools._http import api_key
+    from travel_planner.tools._result import ToolError
+    monkeypatch.delenv("TAVILY_API_KEY", raising=False)
+    monkeypatch.setenv("OFFLINE", "1")
+    assert api_key("TAVILY_API_KEY") == "offline-no-key"
+    monkeypatch.setenv("OFFLINE", "0")
+    with pytest.raises(ToolError, match="TAVILY_API_KEY is not set"):
+        api_key("TAVILY_API_KEY")
+    monkeypatch.setenv("TAVILY_API_KEY", "real")
+    assert api_key("TAVILY_API_KEY") == "real"

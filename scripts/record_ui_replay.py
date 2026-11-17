@@ -47,11 +47,14 @@ with httpx.Client(timeout=None) as client:
         print(f"{len(events):3d} events  {text}")
     state = client.get(f"{BASE}/apps/{APP}/users/{USER}/sessions/{session['id']}").json()["state"]
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from travel_planner.llm_cache import without_repo_path  # noqa: E402
+
 OUT.parent.mkdir(parents=True, exist_ok=True)
-OUT.write_text(json.dumps({
+OUT.write_text(json.dumps(without_repo_path({  # no local folder names in a shared file
     "title": "Lisbon, 5 days for two (recorded demo)",
     "recorded_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     "turns": turns,
     "final_state": state,
-}, ensure_ascii=False), encoding="utf-8")
+}), ensure_ascii=False), encoding="utf-8")
 print(f"wrote {OUT} ({OUT.stat().st_size // 1024} KB)")

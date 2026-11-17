@@ -100,3 +100,21 @@ def test_replay_delay_follows_demo_pace(monkeypatch):
     assert replay_delay(item) == 0.0
     monkeypatch.setenv("DEMO_PACE", "0.5")
     assert replay_delay(item) == 0.5 * (1 + 10 + 2)
+
+
+def test_request_key_does_not_depend_on_where_the_project_lives(monkeypatch):
+    """Regression: a fresh clone in another folder missed the recorded answers after save_guide (absolute paths)."""
+    from pathlib import Path
+
+    from travel_planner import config
+    from travel_planner.llm_cache import without_repo_path
+
+    def key_for(root: Path) -> dict:
+        monkeypatch.setattr(config, "REPO_ROOT", root)
+        paths = {"markdown": str(root / "output" / "lisbon.md")}
+        return without_repo_path({"system": f"THE FINISHED GUIDE (saved to {paths})",
+                                  "contents": [{"parts": [{"response": {"markdown_path": paths["markdown"]}}]}]})
+
+    here = key_for(Path(r"C:\Users\someone\Multi-Agent-Travel-Planner"))
+    there = key_for(Path(r"D:\work\clone"))
+    assert here == there and "<repo>" in here["system"] and "someone" not in str(here)

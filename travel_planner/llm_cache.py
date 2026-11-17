@@ -9,7 +9,9 @@ The key is the agent's request without things that change between runs but not t
 - "For context:" messages, i.e. other agents' replies that ADK shows to an agent. Every agent gets the data it
   needs from session state through its instruction, and with parallel branches the order (and so the text) of
   these messages depends on timing;
-- reasoning ("thought") parts.
+- reasoning ("thought") parts;
+- where the project lives: the repository folder in file paths (save_guide's result, the concierge's view of the
+  saved guide) becomes "<repo>", so a clone in another folder still matches the recording.
 """
 import asyncio
 import json
@@ -47,8 +49,22 @@ def request_key(llm_request) -> dict:
     config = llm_request.config
     tools = sorted(fd.name for t in (getattr(config, "tools", None) or [])
                    for fd in (getattr(t, "function_declarations", None) or []))
-    return {"model": llm_request.model, "system": str(getattr(config, "system_instruction", "") or ""),
-            "tools": tools, "temperature": getattr(config, "temperature", None), "contents": contents}
+    key = {"model": llm_request.model, "system": str(getattr(config, "system_instruction", "") or ""),
+           "tools": tools, "temperature": getattr(config, "temperature", None), "contents": contents}
+    return without_repo_path(key)
+
+
+def without_repo_path(key: dict) -> dict:
+    """The key with every spelling of the repository folder replaced by "<repo>"."""
+    from .config import REPO_ROOT
+
+    text = json.dumps(key, ensure_ascii=False, default=str)
+    root = str(REPO_ROOT)
+    # as written in JSON text: plain, with doubled backslashes (a path printed inside a Python dict), with slashes
+    spellings = {root, root.replace("\\", "\\\\"), REPO_ROOT.as_posix()}
+    for spelling in sorted(spellings, key=len, reverse=True):  # longest first: the doubled form contains no plain one
+        text = text.replace(json.dumps(spelling)[1:-1], "<repo>")
+    return json.loads(text)
 
 
 def replay_delay(item: dict) -> float:

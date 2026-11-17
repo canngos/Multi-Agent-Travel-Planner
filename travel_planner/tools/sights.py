@@ -1,9 +1,8 @@
 """Sights near a point from OpenTripMap, enriched with each place's detail record."""
 import asyncio
-import os
 
 from ..models import Place
-from ._http import get_json
+from ._http import api_key, get_json
 from ._result import ToolError, ok, safe_tool
 
 OTM = "https://api.opentripmap.com/0.1/en/places"
@@ -61,9 +60,7 @@ async def find_sights(lat: float, lon: float, interests: list[str], radius_km: f
         radius_km: Search radius in km (max 10).
         limit: Max number of sights (max 15).
     """
-    key = os.environ.get("OPENTRIPMAP_API_KEY")
-    if not key:
-        raise ToolError("OPENTRIPMAP_API_KEY is not set in .env")
+    key = api_key("OPENTRIPMAP_API_KEY")
     limit = max(1, min(int(limit), MAX_DETAILS))
     found = await get_json(
         f"{OTM}/radius",

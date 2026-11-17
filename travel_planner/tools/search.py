@@ -1,7 +1,6 @@
 """Web search through Tavily (opening hours, ticket and fare prices, operators)."""
-import os
 
-from ._http import post_json
+from ._http import api_key, post_json
 from ._result import ToolError, ok, safe_tool
 
 TAVILY_URL = "https://api.tavily.com/search"
@@ -20,9 +19,7 @@ async def web_search(query: str, max_results: int = 5) -> dict:
         query: Search query, e.g. "Jerónimos Monastery ticket price 2026".
         max_results: Number of sources to return (1-8).
     """
-    key = os.environ.get("TAVILY_API_KEY")
-    if not key:
-        raise ToolError("TAVILY_API_KEY is not set in .env")
+    key = api_key("TAVILY_API_KEY")
     data = await post_json(
         TAVILY_URL,
         namespace="tavily",

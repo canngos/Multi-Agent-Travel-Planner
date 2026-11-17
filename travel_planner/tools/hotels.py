@@ -1,11 +1,10 @@
 """Hotel rates from liteAPI (Nuitée), plus search deep links for Booking.com and Airbnb."""
 import asyncio
-import os
 from datetime import date
 from urllib.parse import urlencode
 
 from ..models import StayOption
-from ._http import post_json
+from ._http import api_key, post_json
 from ._result import ToolError, ok, safe_tool
 from .geo import neighbourhood
 
@@ -101,9 +100,7 @@ async def search_hotel_rates(
         radius_km: Search radius in km (max 10).
         max_results: Max hotels to return (max 15).
     """
-    key = os.environ.get("LITEAPI_KEY")
-    if not key:
-        raise ToolError("LITEAPI_KEY is not set in .env")
+    key = api_key("LITEAPI_KEY")
     nights = (date.fromisoformat(checkout) - date.fromisoformat(checkin)).days
     if nights < 1:
         raise ToolError("checkout must be after checkin")

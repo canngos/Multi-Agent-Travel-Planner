@@ -21,7 +21,8 @@ if _missing:
     log.warning("Missing %s in .env (see .env.example); LLM calls will fail.", ", ".join(_missing))
 
 LEHMUS_API_BASE = os.environ.get("LEHMUS_API_BASE", "")  # must end with /v1
-LEHMUS_MODEL_ID = os.environ.get("LEHMUS_MODEL_ID", "azsydsttjnlbfjbgqnwd")  # GPT OSS 120B
+DEFAULT_MODEL_ID = "azsydsttjnlbfjbgqnwd"  # GPT OSS 120B on Lehmus; also the model the demo was recorded with
+LEHMUS_MODEL_ID = os.environ.get("LEHMUS_MODEL_ID", DEFAULT_MODEL_ID)
 
 DEFAULT_CACHE_DIR = REPO_ROOT / "cache"
 DEMO_CACHE_DIR = REPO_ROOT / "cache" / "demo"
@@ -75,8 +76,9 @@ def user_agent() -> str:
 
 from .llm_cache import CachedLiteLlm  # noqa: E402  (imports config lazily, so this order is safe)
 
+# The model id is part of the LLM cache key, so demo mode always uses the recorded model's id.
 MODEL = CachedLiteLlm(
-    model=f"openai/{LEHMUS_MODEL_ID}",
+    model=f"openai/{DEFAULT_MODEL_ID if demo() else LEHMUS_MODEL_ID}",
     api_base=LEHMUS_API_BASE or None,
     api_key=os.environ.get("LEHMUS_API_KEY") or None,
 )

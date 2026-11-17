@@ -5,11 +5,10 @@ blocks fast-flights does not apply. Every search costs quota, so replies are cac
 (flights 12 h, hotels 24 h) and trimmed to the fields we use before caching.
 """
 import asyncio
-import os
 from datetime import date
 
 from ..models import StayOption, TransportOption
-from ._http import get_json
+from ._http import api_key, get_json
 from ._result import ToolError, ok, safe_tool
 from .geo import neighbourhood
 from .hotels import booking_url
@@ -21,9 +20,7 @@ HOTEL_MIN_RATING = {3.5: 7, 4.0: 8, 4.5: 9}  # SerpApi "rating" filter codes
 
 
 async def _search(params: dict, *, slim, max_age_s: float) -> dict:
-    key = os.environ.get("SERPAPI_KEY")
-    if not key:
-        raise ToolError("SERPAPI_KEY is not set in .env")
+    key = api_key("SERPAPI_KEY")
     data = await get_json(
         SERPAPI_SEARCH, namespace="serpapi", params={**params, **COMMON, "api_key": key},
         max_age_s=max_age_s, timeout_s=60, slim=slim,
