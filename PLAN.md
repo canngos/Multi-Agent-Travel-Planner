@@ -304,32 +304,69 @@ finished, no must-fix problems. Each takes 5–7 min live.
 Goal: anyone can use the planner from a browser and *see* how it works: which agent is running, which tools it
 calls with which arguments, what comes back, how state flows between agents, and how the review loop decides.
 
-Files: `ui/` (Vite + React + TypeScript), optional `server/` only if ADK's API server is not enough
+Files: `travel-planner-ui/` (Vite + React + TypeScript), `scripts/export_agent_graph.py`, `scripts/record_ui_replay.py`,
+`travel_planner/llm_cache.py` (`DEMO_PACE`)
 
-- [ ] **Backend:** ADK's built-in API server (`adk api_server --allow_origins http://localhost:5173`) gives
-  sessions, `/run_sse` event streaming and session state. No own backend unless something is missing (e.g.
-  serving `output/` files)
-- [ ] **Chat panel:** talk to the concierge, with the confirmation step, quick-start example prompts and a
-  "demo" button that sends the recorded Lisbon demo messages (works with `DEMO=1`, no network)
-- [ ] **Agent graph:** the real agent tree, drawn the way it runs:
+- [x] **Backend:** ADK's built-in API server (`adk api_server .`) gives sessions, `/run_sse` event streaming and
+  session state. No own backend is needed: the Vite dev server forwards `/adk/*` to it and drops the browser's
+  `Origin` header (the API server answers 403 to origins it was not told about)
+- [x] **Chat panel:** talk to the concierge, with the confirmation step and the demo's next message as a one-click
+  suggestion (works with `DEMO=1`, no network)
+- [x] **Agent graph:** the real agent tree, drawn the way it runs:
   - concierge → planning_pipeline → research_team (4 parallel branches) → planner → review_loop
     (critic ⇄ reviser, with a round counter) → guide_writer;
   - the active agent is highlighted;
   - tool calls fly out of an agent as chips (spinner, then ok or error);
   - state keys (`flight_options`, `itinerary`, …) light up as agents write them;
   - transfers, parallel branches and loop rounds are animated
-- [ ] **Inspector:** click any agent, tool call or event to see its arguments, the result JSON, state changes,
+- [x] **Inspector:** click any agent, tool call or event to see its arguments, the result JSON, state changes,
   timing, and the agent's instruction summary and tools
-- [ ] **Timeline:** events in order, with durations per agent (a small Gantt view shows the parallel research)
-- [ ] **Results:** the rendered guide (Markdown with links and price markers), cost table, review rounds
+- [x] **Timeline:** events in order, with durations per agent (a small Gantt view shows the parallel research)
+- [x] **Results:** the rendered guide (Markdown with links and price markers), cost table, review rounds
   (critique, verdict, changes), and download of `.md` and `.html`
-- [ ] **Replay mode:** save a run's event log as JSON and play it back with play, pause and speed controls,
+- [x] **Replay mode:** save a run's event log as JSON and play it back with play, pause and speed controls,
   so the animation can be shown without waiting for, or calling, the LLM
-- [ ] **Tests:** unit tests (Vitest) for the event → graph-state reducer; a scripted check in Chrome that the
+- [x] **Tests:** unit tests (Vitest) for the event → graph-state reducer; a scripted check in Chrome that the
   demo runs end to end in the UI
 
 **Done when:** with `DEMO=1`, a user can plan the Lisbon demo in the browser, watch the agents and tool calls
 animate, open any tool call's details, and read and download the guide.
+
+**Status: done.** Checked in Chrome against `DEMO=1 DEMO_PACE=0.2 adk api_server`:
+- all four demo turns ran;
+- the pipeline animated for 2 min 24 s, with all six research agents starting together and two review rounds;
+- the guide opened by itself;
+- the follow-up question was answered from the guide.
+
+The Review and Details tabs, the Gantt chart and replay mode (4×, seek, play again) all worked. The download
+buttons were not clicked in the browser check, to avoid writing files to the Downloads folder; the files are
+built from the same Markdown the Guide tab shows.
+
+- **Map from code:**
+  - The map is computed from `src/generated/agent-graph.json`, exported from the real agent tree, so it cannot
+    drift from the Python code.
+  - Layout rules: sequential = one line, parallel = forking lines, loop = return track.
+  - Each research branch has its own line colour.
+- **Event model** (`src/lib/run.ts`):
+  - ADK sends an event only after a model answer, so start times come from the tree: a finished step starts
+    the next, a parallel agent starts all branches, and a loop restarts until escalation or the round limit.
+  - An escalation from an after-agent callback (the code guard) rolls back a round that was started but sent
+    no event.
+  - Tested on the recorded demo: 34 tool calls paired, research starts at the hand-over, the planner starts
+    when both comparers finish, two loop rounds.
+- **Replays:**
+  - `public/replays/lisbon-demo.json` was recorded through `/run_sse` from a paced demo server, with the
+    original timestamps.
+  - "Save this run" writes the same format from a live session.
+- **Demo pacing:** `DEMO_PACE` makes a replayed LLM answer wait `pace` × an estimated real latency from its
+  recorded token counts, so the demo looks like a live run. 0, the default, keeps tests and the harness
+  instant.
+- **Design:**
+  - A transit-map look: cool white paper, navy ink, one colour per line.
+  - Overpass, a typeface modelled on highway signage, is bundled through `@fontsource`, so the offline demo
+    needs no CDN.
+  - The only automatic motion is the map reacting to real events.
+  - Reduced motion is respected and keyboard focus is visible.
 
 ## Phase 10 — Report and demo  *(spec step 10)*
 - [ ] `README.md`: what it does, setup (Python, Node, `.env`, sign-ups), how to run (`adk web`, the web UI, offline demo mode), tests
@@ -381,4 +418,6 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | Demo mode caches LLM answers (key = instruction + contents without call ids, other agents' "For context" messages and thoughts) and pins "today" | Tool caching alone cannot replay a demo: a new model answer means new tool arguments and cache misses. With both cached, the demo replays exactly in ~2 s without network or LLM key |
 | 2026-11-17 | The concierge's transfer to the pipeline happens in code when `save_trip_brief` succeeds; other transfers are refused | The model once ended its turn without transferring and once restarted the pipeline on a follow-up question |
 | 2026-11-17 | Far-future ground trips use a "typical timetable" from a near date, labelled in the details | Ferry timetables are published only months ahead; this mirrors the weather tool's typical-weather fallback |
+| 2026-11-18 | The web UI uses ADK's own API server (`/run_sse`) through the Vite proxy instead of a custom backend | Sessions, streaming and state already exist there; the proxy removes CORS setup and the browser's Origin header |
+| 2026-11-18 | The UI's map is drawn from an agent-graph JSON exported from the Python tree; start times are inferred from the tree | The picture cannot drift from the code, and agents light up when they start rather than after their first model answer |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

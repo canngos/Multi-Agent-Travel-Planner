@@ -1,0 +1,201 @@
+{
+ "name": "concierge",
+ "kind": "llm",
+ "description": "Talks with the user, collects and saves the trip brief, then starts the planning pipeline.",
+ "tools": [
+  "geocode_place",
+  "save_trip_brief"
+ ],
+ "output_key": null,
+ "role": "You are the CONCIERGE of a trip-planning service. You talk with the user, collect the trip details, then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself.",
+ "transfers_to": [
+  "planning_pipeline"
+ ],
+ "children": [
+  {
+   "name": "planning_pipeline",
+   "kind": "sequential",
+   "description": "Plans the whole trip from the saved trip brief: researches transport, stays, sights and food in parallel, builds the day-by-day itinerary, reviews and revises it, and writes the trip guide.",
+   "children": [
+    {
+     "name": "research_team",
+     "kind": "parallel",
+     "description": "Runs transport, stay, culture and food research at the same time.",
+     "children": [
+      {
+       "name": "transport_team",
+       "kind": "sequential",
+       "description": "Searches flights and ground transport in parallel, then compares them.",
+       "children": [
+        {
+         "name": "transport_search",
+         "kind": "parallel",
+         "description": "",
+         "children": [
+          {
+           "name": "flight_searcher",
+           "kind": "llm",
+           "description": "Finds outbound and return flights with live prices.",
+           "tools": [
+            "kiwi (MCP)",
+            "search_google_flights",
+            "search_serpapi_flights"
+           ],
+           "output_key": "flight_options",
+           "role": "You are the FLIGHT SEARCHER of a trip-planning team. Find flights from the origin to the destination on start_date (outbound) and back on end_date (return) for all travellers."
+          },
+          {
+           "name": "ground_searcher",
+           "kind": "llm",
+           "description": "Finds train, bus and ferry connections with estimated fares.",
+           "tools": [
+            "plan_public_transport",
+            "web_search",
+            "geocode_place"
+           ],
+           "output_key": "ground_options",
+           "role": "You are the GROUND TRANSPORT SEARCHER of a trip-planning team. Find train, bus and ferry connections from the origin to the destination on start_date and back on end_date, with ticket prices."
+          }
+         ]
+        },
+        {
+         "name": "transport_comparer",
+         "kind": "llm",
+         "description": "Merges flight and ground options; picks cheapest and fastest.",
+         "tools": [],
+         "output_key": "transport_summary",
+         "role": "You are the TRANSPORT COMPARER of a trip-planning team. Merge the flight and ground options for each direction, rank them, and pick the cheapest and the fastest."
+        }
+       ]
+      },
+      {
+       "name": "stay_team",
+       "kind": "sequential",
+       "description": "Searches Airbnb and hotels in parallel, then compares them per neighbourhood.",
+       "children": [
+        {
+         "name": "stay_search",
+         "kind": "parallel",
+         "description": "",
+         "children": [
+          {
+           "name": "airbnb_searcher",
+           "kind": "llm",
+           "description": "Finds Airbnb stays with live prices in good areas.",
+           "tools": [
+            "airbnb (MCP)",
+            "stay_deep_links"
+           ],
+           "output_key": "airbnb_options",
+           "role": "You are the AIRBNB SEARCHER of a trip-planning team. Find Airbnb stays for the whole trip (checkin = start_date, checkout = end_date) for all travellers, in good areas for the budget."
+          },
+          {
+           "name": "hotel_searcher",
+           "kind": "llm",
+           "description": "Finds hotels with public (Google Hotels) and wholesale (liteAPI) prices.",
+           "tools": [
+            "search_google_hotels",
+            "search_hotel_rates",
+            "stay_deep_links"
+           ],
+           "output_key": "hotel_options",
+           "role": "You are the HOTEL SEARCHER of a trip-planning team. Find hotels for the whole trip (checkin = start_date, checkout = end_date) for all travellers in one room, matching the budget tier."
+          }
+         ]
+        },
+        {
+         "name": "stay_comparer",
+         "kind": "llm",
+         "description": "Compares Airbnb and hotels per neighbourhood.",
+         "tools": [],
+         "output_key": "stay_summary",
+         "role": "You are the STAY COMPARER of a trip-planning team. Compare Airbnb stays with hotels per neighbourhood and pick the best options for the brief's budget."
+        }
+       ]
+      },
+      {
+       "name": "culture_agent",
+       "kind": "llm",
+       "description": "Finds sights with short histories, opening hours and ticket prices.",
+       "tools": [
+        "find_sights",
+        "wikivoyage_section",
+        "find_sight_hours",
+        "wiki_summary",
+        "web_search",
+        "geocode_place"
+       ],
+       "output_key": "culture_findings",
+       "role": "You are the CULTURE RESEARCHER of a trip-planning team. Find the sights worth visiting at the destination, matched to the travellers' interests, each with a short history, opening hours and ticket price."
+      },
+      {
+       "name": "food_agent",
+       "kind": "llm",
+       "description": "Finds traditional dishes and restaurants per budget tier.",
+       "tools": [
+        "local_dishes",
+        "wikivoyage_section",
+        "find_restaurants",
+        "web_search",
+        "geocode_place"
+       ],
+       "output_key": "food_findings",
+       "role": "You are the FOOD RESEARCHER of a trip-planning team. Find the destination's traditional dishes and restaurants for every budget tier, favouring local cuisine and the brief's budget_tier."
+      }
+     ]
+    },
+    {
+     "name": "itinerary_planner",
+     "kind": "llm",
+     "description": "Builds the day-by-day plan from the research results and the weather.",
+     "tools": [
+      "get_forecast",
+      "cluster_by_distance",
+      "calculate_trip_cost"
+     ],
+     "output_key": "itinerary",
+     "role": "You are the ITINERARY PLANNER of a trip-planning team. Turn the research below into a realistic day-by-day plan: nearby places on the same day, indoor sights on rainy days, and sights only on days they are open."
+    },
+    {
+     "name": "review_loop",
+     "kind": "loop",
+     "description": "Critic and reviser improve the itinerary until the critic approves it (at most 3 rounds).",
+     "max_iterations": 3,
+     "children": [
+      {
+       "name": "budget_critic",
+       "kind": "llm",
+       "description": "Reviews the itinerary (budget, hours, grounding, pacing) and says APPROVED or REVISE.",
+       "tools": [
+        "check_itinerary",
+        "calculate_trip_cost"
+       ],
+       "output_key": "critique",
+       "role": "You are the BUDGET CRITIC of a trip-planning team. You review the day-by-day plan before it becomes the trip guide: budget, opening hours, pacing, walking distances, and whether every place and price comes from the research. You do not rewrite the plan: you tell the reviser exactly what to change."
+      },
+      {
+       "name": "itinerary_reviser",
+       "kind": "llm",
+       "description": "Applies the critic's review to the itinerary, or ends the review loop when it is approved.",
+       "tools": [
+        "exit_loop"
+       ],
+       "output_key": "itinerary",
+       "role": "You are the ITINERARY REVISER of a trip-planning team. The budget critic has reviewed the plan; you apply the review."
+      }
+     ]
+    },
+    {
+     "name": "guide_writer",
+     "kind": "llm",
+     "description": "Writes the final trip guide and saves it as Markdown and HTML.",
+     "tools": [
+      "save_guide"
+     ],
+     "output_key": "guide_reply",
+     "role": "You are the GUIDE WRITER of a trip-planning team. Write the final trip guide for the travellers in Markdown, from the plan and research below, then save it with save_guide."
+    }
+   ]
+  }
+ ]
+}
