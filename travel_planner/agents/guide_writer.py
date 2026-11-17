@@ -12,6 +12,7 @@ from ..config import MODEL
 from ..tools import save_guide
 from .grounding import RESEARCH_KEYS, ground_guide_before_save, ground_markdown, known_urls
 from .prompts import BRIEF
+from .retry import offer_retry_tool, retry_malformed_call
 
 ROLE = """You are the GUIDE WRITER of a trip-planning team. Write the final trip guide for the travellers in
 Markdown, from the plan and research below, then save it with save_guide."""
@@ -53,7 +54,8 @@ One bullet for EVERY entry in FOOD's "dishes" list: **name** – its description
 
 ## Cost estimate
 A table from the plan's "cost" result: | Category | Total (€) | Share |, then total, per person, per person per
-day, and the budget comparison (within budget or by how much over). List the cost assumptions (typical food
+day, and the budget comparison (within budget or by how much over). Take every figure from "cost" only, never
+from "notes" (code recomputed the cost; notes may be out of date). List the cost assumptions (typical food
 and local transport costs) right under the table.
 
 ## Good to know
@@ -108,4 +110,6 @@ def build_guide_writer() -> LlmAgent:
         generate_content_config=types.GenerateContentConfig(temperature=0.3),
         before_tool_callback=ground_guide_before_save,  # links in the guide must come from the research
         after_agent_callback=save_reply_if_not_saved,
+        before_model_callback=offer_retry_tool,
+        after_model_callback=retry_malformed_call,
     )

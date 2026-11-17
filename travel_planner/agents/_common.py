@@ -4,6 +4,7 @@ from google.genai import types
 
 from ..config import MODEL
 from .prompts import BRIEF, GROUNDING, output_format, tool_budget
+from .retry import offer_retry_tool, retry_malformed_call
 
 
 def research_agent(
@@ -25,5 +26,7 @@ def research_agent(
         output_key=output_key,
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.2),
+        before_model_callback=offer_retry_tool,
+        after_model_callback=retry_malformed_call,
         **kwargs,
     )
