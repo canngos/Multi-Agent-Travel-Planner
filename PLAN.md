@@ -369,13 +369,41 @@ built from the same Markdown the Guide tab shows.
   - Reduced motion is respected and keyboard focus is visible.
 
 ## Phase 10 — Report and demo  *(spec step 10)*
-- [ ] `README.md`: what it does, setup (Python, Node, `.env`, sign-ups), how to run (`adk web`, the web UI, offline demo mode), tests
-- [ ] Architecture diagram (Mermaid in the README): agent tree, state keys, tools per agent
-- [ ] Requirements checklist mapped to the code (PROJECT.md §7)
-- [ ] Demo video or live-run script following the PROJECT.md demo scenario
-- [ ] Delete `scratch/` and do a final `pytest` run
+- [x] `README.md`: what it does, setup (Python, Node, `.env`, sign-ups), how to run (`adk web`, the web UI, offline demo mode), tests
+- [x] Architecture diagram (Mermaid in the README): agent tree, state keys, tools per agent
+- [x] Requirements checklist mapped to the code (PROJECT.md §7)
+- [x] Demo video or live-run script following the PROJECT.md demo scenario
+- [x] Delete `scratch/` and do a final `pytest` run
 
 **Done when:** a fresh clone, following the README, runs the offline demo without errors.
+
+**Status: done.**
+
+- **README:** a quick start for the offline demo (no keys), the web UI, full live setup with the sign-up
+  table, a Mermaid architecture diagram, the state-key table, the code guards, the tools and data sources, the
+  requirements checklist mapped to files and tests, the project layout, limitations and attribution.
+  Screenshots are in `docs/images/`.
+- **Demo script:** `docs/DEMO.md` is an 8-minute live-run script that follows the PROJECT.md scenario on the
+  recorded run: what to click, what to point out, fallbacks, and expected questions. There is no video.
+- **Scripts:** the dev harness from `scratch/` became `scripts/run_trip.py`, which plays a scripted trip, live or
+  offline with `--demo`, and runs the quality checks. Alongside it are `scripts/prune_demo_cache.py` and
+  `scripts/check_demo_api.py`. Earlier phases mention `scratch/dev_pipeline.py`; that is now
+  `scripts/run_trip.py`. `scratch/` is deleted.
+- **Fresh-clone check:** the files git would include were copied into an empty folder, with no `.env` and no
+  shell variables. Following the README there:
+  - `pip install -r requirements.txt`, then `pytest`: 185 passed;
+  - `scripts/run_trip.py --demo`: PASS (34 tool calls, REVISE → APPROVED, guide saved, follow-up answered);
+  - `DEMO=1 adk api_server`, played over HTTP: PASS with 0 cache misses;
+  - the UI: `npm ci`, `npm test` (8 passed) and `npm run build`.
+- **Fixed on the way:**
+  - Tools refused to run without API keys even offline. Now a missing key is allowed in offline mode, where
+    keys are never sent and never part of a cache key.
+  - `.env.example` named a different model id from the one the demo was recorded with. Demo mode now pins the
+    recorded model id.
+  - The LLM cache key contained the project's absolute path, from `save_guide`'s result and the concierge's
+    view of the guide. A clone in another folder missed the last two answers. The path is now normalised to
+    `<repo>`, and the 2 affected entries were re-keyed. The UI replay file no longer contains the local path.
+  - Replay seek-to-end and JSON answers in the activity list (web UI).
 
 ---
 

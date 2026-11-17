@@ -18,9 +18,3 @@ output/
 
 # ADK local session DBs
 *.db
-
-# Throwaway caches and probe output from development
-scratch/cache/
-scratch/probe_cache/
-scratch/*.txt
-scratch/runs/
