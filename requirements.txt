@@ -1,0 +1,10 @@
+google-adk[mcp]
+litellm
+httpx
+pydantic
+python-dotenv
+tzdata
+markdown
+fast-flights
+pytest
+pytest-asyncio

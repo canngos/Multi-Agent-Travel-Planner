@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# IDE (keep shared project files, ignore per-user state)
+.idea/workspace.xml
+.idea/shelf/
+
+# Runtime data
+cache/*
+!cache/demo/
+output/
+
+# ADK local session DBs
+*.db
+
+# Throwaway caches and probe output from development
+scratch/cache/
+scratch/probe_cache/
+scratch/*.txt
+scratch/runs/
