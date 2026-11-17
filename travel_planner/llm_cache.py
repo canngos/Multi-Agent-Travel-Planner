@@ -11,8 +11,10 @@ The key is the agent's request without things that change between runs but not t
   these messages depends on timing;
 - reasoning ("thought") parts.
 """
+import asyncio
 import json
 import logging
+import os
 
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.models.llm_response import LlmResponse
@@ -49,6 +51,23 @@ def request_key(llm_request) -> dict:
             "tools": tools, "temperature": getattr(config, "temperature", None), "contents": contents}
 
 
+def replay_delay(item: dict) -> float:
+    """Seconds to wait before a replayed answer: DEMO_PACE x an estimated real latency (0 = instant, default).
+
+    The estimate uses the recorded token counts (GPT OSS on Lehmus: roughly 1 s overhead, ~80 output tokens/s,
+    ~4000 prompt tokens/s), so a paced replay shows agents working in parallel like the live run did.
+    """
+    try:
+        pace = float(os.environ.get("DEMO_PACE") or 0)
+    except ValueError:
+        pace = 0.0
+    if pace <= 0:
+        return 0.0
+    usage = item.get("usage_metadata") or {}
+    seconds = 1.0 + (usage.get("candidates_token_count") or 0) / 80 + (usage.get("prompt_token_count") or 0) / 4000
+    return pace * seconds
+
+
 class CachedLiteLlm(LiteLlm):
     """LiteLlm that reads and writes the LLM cache when caching is on (see config.llm_cache_on)."""
 
@@ -64,6 +83,7 @@ class CachedLiteLlm(LiteLlm):
         hit, stored = _cache.read(NAMESPACE, key)
         if hit:
             for item in stored:
+                await asyncio.sleep(replay_delay(item))
                 yield LlmResponse.model_validate(item)
             return
         if config.offline():

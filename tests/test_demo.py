@@ -91,3 +91,12 @@ async def test_recording_survives_a_consumer_that_stops_early(tmp_path, monkeypa
         break  # like ADK after a transfer
     await gen.aclose()
     assert len(list((tmp_path / "llm").glob("*.json"))) == 1
+
+
+def test_replay_delay_follows_demo_pace(monkeypatch):
+    from travel_planner.llm_cache import replay_delay
+    item = {"usage_metadata": {"candidates_token_count": 800, "prompt_token_count": 8000}}
+    monkeypatch.delenv("DEMO_PACE", raising=False)
+    assert replay_delay(item) == 0.0
+    monkeypatch.setenv("DEMO_PACE", "0.5")
+    assert replay_delay(item) == 0.5 * (1 + 10 + 2)
