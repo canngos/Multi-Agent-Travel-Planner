@@ -156,7 +156,7 @@ export default function App() {
                 <button type="button" className="play" onClick={() => (replay.finished ? replay.seek(replay.start) : null, replay.setPlaying(!replay.playing))}
                         aria-label={replay.playing ? "Pause" : "Play"}>{replay.playing ? "Pause" : replay.finished ? "Play again" : "Play"}</button>
                 <label className="visually-hidden" htmlFor="scrub">Position in the recording</label>
-                <input id="scrub" type="range" min={replay.start} max={replay.end} step={0.1} value={Math.min(replay.time, replay.end)}
+                <input id="scrub" type="range" min={replay.start} max={replay.end} step="any" value={Math.min(replay.time, replay.end)}
                        onChange={(e) => replay.seek(Number(e.target.value))} />
                 <span className="player-time">{seconds(Math.max(0, Math.min(replay.time, replay.end) - replay.start))} of {seconds(Math.max(0, replay.end - replay.start))}</span>
                 <label className="speed">Speed{" "}

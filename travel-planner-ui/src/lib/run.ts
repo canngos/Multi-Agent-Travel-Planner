@@ -334,7 +334,11 @@ export function createReducer(index: GraphIndex) {
     const isFinal = answer.trim() !== "" && calls === 0 && ev.content?.role !== "user";
     if (isFinal && run) {
       run.lastText = answer;
-      log({ at, agent: name, kind: "answer", text: `${humanize(name)}: ${clip(plain(answer), 110)}` });
+      const node = nodes[name];
+      const structured = /^\s*(```|\{|\[)/.test(answer);  // a JSON result, not a sentence
+      log({ at, agent: name, kind: "answer", stateKey: structured && node?.output_key ? node.output_key : undefined,
+        text: structured ? `${humanize(name)} delivers its result${node?.output_key ? ` (${node.output_key})` : ""}`
+          : `${humanize(name)}: ${clip(plain(answer), 110)}` });
       if (name === rootName) {
         s.chat.push({ id: `c${s.chat.length}`, role: "agent", author: name, text: answer, at });
         run.status = "waiting";

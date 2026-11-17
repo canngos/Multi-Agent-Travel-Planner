@@ -102,12 +102,15 @@ export function useReplay(dispatch: Dispatch<RunAction>) {
     setPlaying(autoplay);
   }, [dispatch]);
 
-  const seek = useCallback((target: number) => {
+  const seek = useCallback((position: number) => {
+    // the slider rounds to its step: treat "at the end" as after the last event
+    const target = position >= (items[items.length - 1]?.at ?? 0) - 0.25 ? Infinity : position;
     dispatch({ type: "reset" });
     let idx = 0;
     while (idx < items.length && items[idx].at <= target) dispatch(items[idx++].action);
-    clock.current = { t: target, idx };
-    setTime(target);
+    const t = Number.isFinite(target) ? target : items[items.length - 1]?.at ?? 0;
+    clock.current = { t, idx };
+    setTime(t);
   }, [dispatch, items]);
 
   useEffect(() => {
