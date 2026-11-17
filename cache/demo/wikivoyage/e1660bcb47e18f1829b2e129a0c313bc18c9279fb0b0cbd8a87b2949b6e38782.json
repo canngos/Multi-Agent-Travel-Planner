@@ -1,0 +1,26 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon",
+   "prop": "wikitext",
+   "section": "1",
+   "format": "json"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951620.0498075,
+ "response": {
+  "parse": {
+   "title": "Lisbon",
+   "pageid": 19798,
+   "wikitext": {
+    "*": "==Districts==\n{{mapframe|38.74257|-9.15844|zoom=12}}\n[[File:Lisboa freguesias - Wikivoyage City districts divison.png|thumb|320px|Map of the 24 Freguesias (municipal subdivisions of the Lisbon) which are grouped on the map according to the six main regions of the city]]\n{{mapshapes|Q746032}}\n<!-- Baixa. Consisting of Santa Justa, São Nicolau and Madalena -->\n{{mapshape\n|type=geoshape\n|stroke=#4F93C0\n|stroke-opacity=0.1\n|wikidata=Q1786376, Q1786384, Q387982\n|fill=#4F93C0\n|title=[[Lisbon/Baixa|Baixa]]\n}}\n<!-- Bairro Alto. Consisting of Misericórdia, Santo António, Campo de Ourique, Estrela, Sacramento, Mártires -->\n{{mapshape\n|type=geoshape\n|stroke=#D5DC76\n|stroke-opacity=0.1\n|wikidata=Q1677202, Q10368164, Q2883431, Q423043, Q1817058, Q432607\n|fill=#D5DC76\n|title=[[Lisbon/Bairro Alto|Bairro Alto]]\n}} \n<!-- Alfama. Consisting of São Vicente, Penha de França, Arroios, Socorro, São Cristóvão e São Lourenço, Castelo, Santiago, Sé, São Miguel, Santo Estévão -->\n{{mapshape\n|type=geoshape\n|stroke=#AC5C91\n|stroke-opacity=0.1\n|wikidata=Q10376043, Q1786389, Q15041623, Q1466131, Q1740339, Q978535, Q1786441, Q585130, Q969311, Q738143\n|fill=#AC5C91\n|title=[[Lisbon/Alfama|Alfama]]\n}} \n<!-- Belém. Consisting of Ajuda, Alcântara, Belém -->\n{{mapshape\n|type=geoshape\n|stroke=#669966\n|stroke-opacity=0.1\n|wikidata=Q413311, Q1017927, Q18500330\n|fill=#669966\n|title=[[Lisbon/Belém|Belém]]\n}}\n<!-- Parque das Nações. Consisting of Beato, Marvila, Parque das Nações -->\n{{mapshape\n|type=geoshape\n|stroke=#D09440\n|stroke-opacity=0.1\n|wikidata=Q686717, Q1786435, Q1428475\n|fill=#D09440\n|title=[[Lisbon/Parque das Nações|Parque das Nações]]\n}}\n<!-- North. Consisting of Benfica, Carnide, Lumiar, Santa Clara, Olivais, São Domingos de Benfica, Campolide, Alvalade, Avenidas Novas, Areeiro -->\n{{mapshape\n|type=geoshape\n|stroke=#8888DC\n|stroke-opacity=0.1\n|wikidata=Q534230, Q1044020, Q924723, Q10367770, Q1786397, Q1618787, Q1031527, Q448231, Q9640593, Q501847\n|fill=#8888DC\n|title=[[Lisbon/North|North]]\n}}\n{{Regionlist\n| regionmap=\n| regionmaptext=\n| regionmapsize=\n\n| region1name=[[Lisbon/Alfama|Alfama]]\n| region1color=#AC5C91\n| region1items=\n| region1description=This neighbourhood still bears signs of the Moorish presence in the city, with the buildings very close to each other, and very irregular streets. It's very atmospheric and a great spot in which to wander around. Thanks to the firmer rock it was built upon, it was relatively spared during the Great Earthquake and therefore retains the charm of the winding alleys and ''azulejo''-covered crumbling walls.\n\n| region2name=[[Lisbon/Bairro Alto|Bairro Alto]]\n| region2color=#D5DC76\n| region2items=\n| region2description=Head uphill to Bairro Alto and give your legs a good workout, or take one of the ''elevadores'' (funiculars) for stunning views of the city and some wild partying in Lisbon's most popular nightclub district. This district includes the main shopping and leisure boulevard of '''Avenida da Liberdade''', '''Chiado''', an elegant shopping district, and '''Principe Real''', the trendy district with all the fancy shops.\n\n| region3name=[[Lisbon/Baixa|Baixa]]\n| region3color=#4F93C0\n| region3items=\n| region3description=This part of the city was completely rebuilt after the 1755 earthquake by the Marquês de Pombal. The planned layout, greatly different from what you will see in the more ancient neighbourhoods, is a testimony to the ideas of the Enlightenment.\n\n| region4name=[[Lisbon/Belém|Belém]]\n| region4color=#669966\n| region4items=\n| region4description=Belém, along with '''Ajuda''' and '''Alcântara''', forms the city's ''Zona Occidental'' (western zone). Here you will find many grand monuments to the country's maritime history and various cultural sights, including a {{UNESCO}}.\n\n| region5name=[[Lisbon/North|Northern Lisbon]]\n| region5color=#8888DC\n| region5items=\n| region5description=''Norte'' covers a huge portion of Lisbon but is of little interest to tourists, except for the airport and a handful of sights concentrated in the district's southern end, such as the large parks, prominent museums, and modern office towers scattered across '''Avenidas Novas''' and the hills of '''Campolide'''.\n\n| region6name=[[Lisbon/Parque das Nações|Parque das Nações]]\n| region6color=#D09440\n| region6items=\n| region6description=The ultra-modern Parque de Nações district was built at the eastern end of Lisbon for Expo '98 (1998 Lisbon World Exposition), making the most of its riverfront location. Many of the sites still exist, most notably the huge Oceanarium. The ''Parque'' is in the city's ''Zona Oriental'' (eastern zone), mostly residential neighbourhoods and industrial docklands.\n}}"
+   }
+  }
+ }
+}

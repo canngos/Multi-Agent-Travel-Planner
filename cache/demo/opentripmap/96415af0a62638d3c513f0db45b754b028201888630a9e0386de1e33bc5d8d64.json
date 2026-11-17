@@ -1,0 +1,61 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W663347632",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.6981883,
+ "response": {
+  "xid": "W663347632",
+  "name": "Monumento aos Mortos da Grande Guerra",
+  "address": {
+   "city": "Santo António",
+   "road": "Avenida da Liberdade",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "country": "Portugal",
+   "postcode": "1269-038",
+   "country_code": "pt",
+   "neighbourhood": "São José",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/663347632",
+  "bbox": {
+   "lon_min": -9.145328,
+   "lon_max": -9.145179,
+   "lat_min": 38.719443,
+   "lat_max": 38.719558
+  },
+  "wikidata": "Q10332162",
+  "kinds": "historic,monuments_and_memorials,burial_places,urban_environment,cultural,interesting_places,war_memorials,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/monumento-aos-mortos-da-grande-guerra",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W663347632",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Monumento%20aos%20Mortos%20da%20Grande%20Guerra",
+  "image": "https://commons.wikimedia.org/wiki/File:Lisboa_DSC03845_-_LISSABON_%2833221400886%29.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Lisboa_DSC03845_-_LISSABON_%2833221400886%29.jpg/400px-Lisboa_DSC03845_-_LISSABON_%2833221400886%29.jpg",
+   "height": 259,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Monumento aos Mortos da Grande Guerra",
+   "text": "Monumento aos Mortos da Grande Guerra, localizado na Avenida da Liberdade, em Lisboa, homenageia os combatentes portugueses na I Guerra Mundial. A 9 de abril de 1920, aniversário da Batalha de La Lys, surgiu a ideia de se erigir um monumento aos heróis mortos na Grande Guerra.Foi constituída uma Comissão Nacional para o efeito, presidida por Magalhães Lima, e, depois, sucessivamente pelos generais Abel Hipólito e Roberto Baptista, sendo a primeira pedra colocada pelo Presidente da República, Dr. António José de Almeida, em 9 de abril de 1923.",
+   "html": "<p><b>Monumento aos Mortos da Grande Guerra</b>, localizado na Avenida da Liberdade, em Lisboa, homenageia os combatentes portugueses na I Guerra Mundial. A 9 de abril de 1920, aniversário da Batalha de La Lys, surgiu a ideia de se erigir um monumento aos heróis mortos na Grande Guerra.</p><p>Foi constituída uma Comissão Nacional para o efeito, presidida por Magalhães Lima, e, depois, sucessivamente pelos generais Abel Hipólito e Roberto Baptista, sendo a primeira pedra colocada pelo Presidente da República, Dr. António José de Almeida, em 9 de abril de 1923.</p>"
+  },
+  "point": {
+   "lon": -9.145254135131836,
+   "lat": 38.71950149536133
+  }
+ }
+}

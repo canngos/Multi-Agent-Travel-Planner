@@ -1,0 +1,26 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon",
+   "prop": "wikitext",
+   "section": "32",
+   "format": "json"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951614.7775865,
+ "response": {
+  "parse": {
+   "title": "Lisbon",
+   "pageid": 19798,
+   "wikitext": {
+    "*": "==See==\n<!-- Please place individual entries under the appropriate districts, not here. This is for general description and pointers only. -->\n\n{{SeeDistricts}}\n\n[[File:Praça do Marquês de Pombal (Lisboa).jpg|thumb|The grand Praça do Marquês de Pombal is perhaps the most central place in Lisbon, where three major ''Avenidas'' meet.]]\n[[File:Lisboa Sé de Lisboa DSC 0090 1 (52635014679).jpg|thumb|Cathedral of Lisbon and Mouraria]]\n[[File:Torre de Belem 3.jpg|thumb|Torre de Belém (Belém Tower), one of Lisbon's most famous landmarks, with Ponte 25 de Abril in the background.]]\n[[File:Lisboa - Parque das Nações - 20170814 - 02 -.jpg|thumb|The modern Parque de Nações is in the east of Lisbon]]\n\nLisbon is a city on the water—the River Tagus (''Rio Tejo'')—built on seven hills that are traversed by trams. This has led to comparisons with [[San Francisco]]. To provide access from the southern suburbs, Lisbon has two spectacular bridges. The 25th of April Bridge (''Ponte 25 de Abril'') combines the design of the San Francisco–Oakland Bay Bridge with the color of the Golden Gate Bridge, and it's often mistaken for the latter. The Vasco da Gama Bridge (''Ponte Vasco da Gama''), Europe's longest, was built in the 1990s for Expo '98. One of Lisbon's great landmarks, [[Almada#Q805446|''Cristo Rei'']], a {{m|28}} statue of Christ the King on an {{m|82}} pedestal, isn't even in Lisbon itself, but across the river in [[Almada]], big enough to be easily seen from the capital.\n\n===[[Lisbon/Alfama|Alfama]]===\nBuilt on the hills east of the Baixa, Alfama survived the Great 1755 Earthquake largely intact. Climbing the narrow ancient lanes provides an excellent workout. You can spare your legs by taking the little historic yellow trams that serve the neighborhood. Major sights include [[Lisbon/Alfama#Q432290|Lisbon Cathedral]] and [[Lisbon/Alfama#Q636780|St. George's Castle]].\n\n===[[Lisbon/Bairro Alto|Bairro Alto]]===\nThe Bairro Alto, or \"Upper District\" (dare we say \"High Neighbourhood\"), has become Lisbon's youthful, trendy quarter. The district includes the Chiado neighbourhood, known for its numerous historic landmarks and theatres. Among the district's many sights are the [[Lisbon/Bairro Alto#Q1464499|São Bento Palace]] (where the Portuguese parliament meets), the [[Lisbon/Bairro Alto#Q212459|Museu Nacional de Arte Antiga]] (a museum of antique art), and the [[Lisbon/Bairro Alto#Q943407|Lisbon Botanical Gardens]].\n\n===[[Lisbon/Baixa|Baixa]]===\nLisbon's \"downtown\" was rebuilt in a grid street pattern following the destruction of a 1755 earthquake. The magnificent [[Lisbon/Baixa#Q999002|Praça do Comércio]] lies on the river, has a tall equestrian statue and is surrounded by lovely yellow buildings. The Baixa has several other noteworthy squares: [[Lisbon/Baixa#Q959567|Praça dos Restauradores]], [[Lisbon/Baixa#Q1549270|Praça Dom Pedro IV]], and [[Lisbon/Baixa#Q1305091|Praça da Figueira]]. The [[Lisbon/Baixa#Q168001|Santa Justa Lift]] connects the Baixa with Chiado.\n\n===[[Lisbon/Belém|Belém]]===\nLisbon's western district is packed with famous monuments, especially along the riverbank. These include the [[Lisbon/Belém#Q215003|Torre de Belém]], the [[Lisbon/Belém#Q1133712|Monument to the Discoveries]], and [[Lisbon/Belém#Q272781|Jerónimos Monastery]]. Museums include the [[Lisbon/Belém#Q1540177|Navy Museum]], the [[Lisbon/Belém#Q2191491|Museu Colecção Berardo]], and the [[Lisbon/Belém#Q1659559|National Coach Museum]].\n\n===[[Lisbon/North|Northern Lisbon]]===\nThis large expanse of Lisbon has a few sights of interest, including [[Lisbon/North#Q2034183|Parque Eduardo VII]], the [[Lisbon/North#Q211262|Calouste Gulbenkian Museum]], and the [[Lisbon/North#Q220063|zoo]].\n\n===[[Lisbon/Parque das Nações|Parque das Nações]]===\nThe Expo '98 site and its surroundings are now modern residential and commercial areas, maintaining many of the sights from the World Exposition. The [[Lisbon/Parque das Nações#Q652806|Oceanarium]] is a huge aquarium popular with both kids and adults. The [[Lisbon/Parque das Nações#Q10346955|Pavilion of Knowledge]] features many fun and educational exhibits. The riverside esplanade makes for a lovely stroll, or hop on the aerial cable cars for magnificent views."
+   }
+  }
+ }
+}

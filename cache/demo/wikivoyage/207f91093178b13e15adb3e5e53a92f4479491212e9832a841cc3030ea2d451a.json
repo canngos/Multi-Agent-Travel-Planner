@@ -1,0 +1,222 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon/Bairro Alto",
+   "prop": "sections",
+   "format": "json",
+   "redirects": 1
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951636.0159793,
+ "response": {
+  "warnings": {
+   "main": {
+    "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+   },
+   "parse": {
+    "*": "\"prop=sections\" has been deprecated. Please use \"prop=tocdata\" instead."
+   }
+  },
+  "parse": {
+   "title": "Lisbon/Bairro Alto",
+   "pageid": 186251,
+   "redirects": [],
+   "sections": [
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Get in",
+     "number": "1",
+     "index": "1",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 484,
+     "anchor": "Get_in",
+     "linkAnchor": "Get_in"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "See",
+     "number": "2",
+     "index": "2",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 1082,
+     "anchor": "See",
+     "linkAnchor": "See"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Do",
+     "number": "3",
+     "index": "3",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 9947,
+     "anchor": "Do",
+     "linkAnchor": "Do"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Buy",
+     "number": "4",
+     "index": "4",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 10372,
+     "anchor": "Buy",
+     "linkAnchor": "Buy"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Eat",
+     "number": "5",
+     "index": "5",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 13143,
+     "anchor": "Eat",
+     "linkAnchor": "Eat"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Budget",
+     "number": "5.1",
+     "index": "6",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 13517,
+     "anchor": "Budget",
+     "linkAnchor": "Budget"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Around the Jardim de São Pedro de Alcântara",
+     "number": "5.1.1",
+     "index": "7",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 13531,
+     "anchor": "Around_the_Jardim_de_São_Pedro_de_Alcântara",
+     "linkAnchor": "Around_the_Jardim_de_São_Pedro_de_Alcântara"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Around the Guerra Junqueiro Garden",
+     "number": "5.1.2",
+     "index": "8",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 15107,
+     "anchor": "Around_the_Guerra_Junqueiro_Garden",
+     "linkAnchor": "Around_the_Guerra_Junqueiro_Garden"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Around Cais do Sodré",
+     "number": "5.1.3",
+     "index": "9",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 16196,
+     "anchor": "Around_Cais_do_Sodré",
+     "linkAnchor": "Around_Cais_do_Sodré"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Mid-range",
+     "number": "5.2",
+     "index": "10",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 16961,
+     "anchor": "Mid-range",
+     "linkAnchor": "Mid-range"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Splurge",
+     "number": "5.3",
+     "index": "11",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 24177,
+     "anchor": "Splurge",
+     "linkAnchor": "Splurge"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Drink",
+     "number": "6",
+     "index": "12",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 27043,
+     "anchor": "Drink",
+     "linkAnchor": "Drink"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Sleep",
+     "number": "7",
+     "index": "13",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 30649,
+     "anchor": "Sleep",
+     "linkAnchor": "Sleep"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Budget",
+     "number": "7.1",
+     "index": "14",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 30660,
+     "anchor": "Budget_2",
+     "linkAnchor": "Budget_2"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Mid-range",
+     "number": "7.2",
+     "index": "15",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 36198,
+     "anchor": "Mid-range_2",
+     "linkAnchor": "Mid-range_2"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Splurge",
+     "number": "7.3",
+     "index": "16",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 38039,
+     "anchor": "Splurge_2",
+     "linkAnchor": "Splurge_2"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Connect",
+     "number": "8",
+     "index": "17",
+     "fromtitle": "Lisbon/Bairro_Alto",
+     "byteoffset": 41543,
+     "anchor": "Connect",
+     "linkAnchor": "Connect"
+    }
+   ],
+   "showtoc": ""
+  }
+ }
+}

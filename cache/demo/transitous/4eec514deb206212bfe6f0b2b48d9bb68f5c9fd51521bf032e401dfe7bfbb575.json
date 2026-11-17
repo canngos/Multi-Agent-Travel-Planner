@@ -1,0 +1,1409 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.transitous.org/api/v5/plan",
+  "params": {
+   "fromPlace": "60.1695,24.9354",
+   "toPlace": "38.7251,-9.1498",
+   "time": "2026-12-07T07:00:00Z",
+   "numItineraries": 3
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951611.2628744,
+ "response": {
+  "itineraries": [
+   {
+    "duration": 254460,
+    "startTime": "2026-12-07T08:09:00Z",
+    "endTime": "2026-12-10T06:50:00Z",
+    "transfers": 8,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:09:00Z",
+      "endTime": "2026-12-07T08:12:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 600,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-07T08:12:00Z",
+      "endTime": "2026-12-07T08:22:00Z",
+      "from": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:22:00Z",
+      "endTime": "2026-12-07T08:24:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-07T08:30:00Z",
+      "endTime": "2026-12-07T10:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T10:30:00Z",
+      "endTime": "2026-12-07T10:35:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 88200,
+      "routeShortName": "FlixBus N1324",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-07T12:20:00Z",
+      "endTime": "2026-12-08T12:50:00Z",
+      "from": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      },
+      "to": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T12:50:00Z",
+      "endTime": "2026-12-08T12:54:00Z",
+      "from": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      },
+      "to": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      }
+     },
+     {
+      "mode": "REGIONAL_RAIL",
+      "duration": 1380,
+      "routeShortName": "FEX",
+      "agencyName": "DB Regio AG Nordost",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:01:00Z",
+      "endTime": "2026-12-08T13:24:00Z",
+      "from": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T13:24:00Z",
+      "endTime": "2026-12-08T13:26:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      }
+     },
+     {
+      "mode": "HIGHSPEED_RAIL",
+      "duration": 22680,
+      "routeShortName": "12",
+      "agencyName": "DB Fernverkehr AG",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:43:00Z",
+      "endTime": "2026-12-08T20:01:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      },
+      "to": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T20:01:00Z",
+      "endTime": "2026-12-08T20:04:00Z",
+      "from": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      },
+      "to": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 54000,
+      "routeShortName": "FlixBus N1135",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-08T21:45:00Z",
+      "endTime": "2026-12-09T12:45:00Z",
+      "from": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      },
+      "to": {
+       "name": "Barcelona (Bus Terminal Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.39418,
+       "lon": 2.182959
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T12:45:00Z",
+      "endTime": "2026-12-09T12:47:00Z",
+      "from": {
+       "name": "Barcelona (Bus Terminal Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.39418,
+       "lon": 2.182959
+      },
+      "to": {
+       "name": "Estación de Autobuses de Barcelona (Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.394065999999995,
+       "lon": 2.182944
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 27300,
+      "routeShortName": "ALSA - Ba-Z-Ma",
+      "agencyName": "ALSA",
+      "agencyUrl": "http://www.alsa.es",
+      "startTime": "2026-12-09T14:00:00Z",
+      "endTime": "2026-12-09T21:35:00Z",
+      "from": {
+       "name": "Estación de Autobuses de Barcelona (Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.394065999999995,
+       "lon": 2.182944
+      },
+      "to": {
+       "name": "Aeropuerto Madrid - Barajas T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.495537000000006,
+       "lon": -3.594421
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T21:35:00Z",
+      "endTime": "2026-12-09T21:37:00Z",
+      "from": {
+       "name": "Aeropuerto Madrid - Barajas T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.495537000000006,
+       "lon": -3.594421
+      },
+      "to": {
+       "name": "Madrid Barajas Airport (Terminal 4)",
+       "tz": "Europe/Madrid",
+       "lat": 40.494839999999996,
+       "lon": -3.594624
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 28800,
+      "routeShortName": "FlixBus N793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-09T22:25:00Z",
+      "endTime": "2026-12-10T06:25:00Z",
+      "from": {
+       "name": "Madrid Barajas Airport (Terminal 4)",
+       "tz": "Europe/Madrid",
+       "lat": 40.494839999999996,
+       "lon": -3.594624
+      },
+      "to": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:25:00Z",
+      "endTime": "2026-12-10T06:27:00Z",
+      "from": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      },
+      "to": {
+       "name": "Centro Sul",
+       "tz": "Europe/Lisbon",
+       "lat": 38.667892,
+       "lon": -9.16414
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 1080,
+      "routeShortName": "753",
+      "agencyName": "Carris",
+      "agencyUrl": "http://www.carris.pt",
+      "startTime": "2026-12-10T06:29:00Z",
+      "endTime": "2026-12-10T06:47:00Z",
+      "from": {
+       "name": "Centro Sul",
+       "tz": "Europe/Lisbon",
+       "lat": 38.667892,
+       "lon": -9.16414
+      },
+      "to": {
+       "name": "Marquês Pombal",
+       "tz": "Europe/Lisbon",
+       "lat": 38.724667,
+       "lon": -9.150853
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:47:00Z",
+      "endTime": "2026-12-10T06:50:00Z",
+      "from": {
+       "name": "Marquês Pombal",
+       "tz": "Europe/Lisbon",
+       "lat": 38.724667,
+       "lon": -9.150853
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   },
+   {
+    "duration": 254040,
+    "startTime": "2026-12-07T08:09:00Z",
+    "endTime": "2026-12-10T06:43:00Z",
+    "transfers": 9,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:09:00Z",
+      "endTime": "2026-12-07T08:12:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 600,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-07T08:12:00Z",
+      "endTime": "2026-12-07T08:22:00Z",
+      "from": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:22:00Z",
+      "endTime": "2026-12-07T08:24:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-07T08:30:00Z",
+      "endTime": "2026-12-07T10:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T10:30:00Z",
+      "endTime": "2026-12-07T10:35:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 88200,
+      "routeShortName": "FlixBus N1324",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-07T12:20:00Z",
+      "endTime": "2026-12-08T12:50:00Z",
+      "from": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      },
+      "to": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T12:50:00Z",
+      "endTime": "2026-12-08T12:54:00Z",
+      "from": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      },
+      "to": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      }
+     },
+     {
+      "mode": "REGIONAL_RAIL",
+      "duration": 1380,
+      "routeShortName": "FEX",
+      "agencyName": "DB Regio AG Nordost",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:01:00Z",
+      "endTime": "2026-12-08T13:24:00Z",
+      "from": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T13:24:00Z",
+      "endTime": "2026-12-08T13:26:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      }
+     },
+     {
+      "mode": "HIGHSPEED_RAIL",
+      "duration": 22680,
+      "routeShortName": "12",
+      "agencyName": "DB Fernverkehr AG",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:43:00Z",
+      "endTime": "2026-12-08T20:01:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      },
+      "to": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T20:01:00Z",
+      "endTime": "2026-12-08T20:04:00Z",
+      "from": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      },
+      "to": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 54000,
+      "routeShortName": "FlixBus N1135",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-08T21:45:00Z",
+      "endTime": "2026-12-09T12:45:00Z",
+      "from": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      },
+      "to": {
+       "name": "Barcelona (Bus Terminal Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.39418,
+       "lon": 2.182959
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T12:45:00Z",
+      "endTime": "2026-12-09T12:47:00Z",
+      "from": {
+       "name": "Barcelona (Bus Terminal Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.39418,
+       "lon": 2.182959
+      },
+      "to": {
+       "name": "Estación de Autobuses de Barcelona (Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.394065999999995,
+       "lon": 2.182944
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 27300,
+      "routeShortName": "ALSA - Ba-Z-Ma",
+      "agencyName": "ALSA",
+      "agencyUrl": "http://www.alsa.es",
+      "startTime": "2026-12-09T14:00:00Z",
+      "endTime": "2026-12-09T21:35:00Z",
+      "from": {
+       "name": "Estación de Autobuses de Barcelona (Nord)",
+       "tz": "Europe/Madrid",
+       "lat": 41.394065999999995,
+       "lon": 2.182944
+      },
+      "to": {
+       "name": "Aeropuerto Madrid - Barajas T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.495537000000006,
+       "lon": -3.594421
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T21:35:00Z",
+      "endTime": "2026-12-09T21:37:00Z",
+      "from": {
+       "name": "Aeropuerto Madrid - Barajas T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.495537000000006,
+       "lon": -3.594421
+      },
+      "to": {
+       "name": "Madrid - Barajas Airport T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.49521000000001,
+       "lon": -3.594961
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 29640,
+      "routeShortName": "BlaBlaCar Bus",
+      "agencyName": "BlaBlaCar Bus",
+      "agencyUrl": "https://www.blablacar.co.uk/bus?comuto_cmkt=UK_GMAPS-PRO_ALL_ALL&utm_medium=Partnership&utm_source=Gmaps&utm_campaign=UK_GMAPS-PRO_ALL_ALL",
+      "startTime": "2026-12-09T22:00:00Z",
+      "endTime": "2026-12-10T06:14:00Z",
+      "from": {
+       "name": "Madrid - Barajas Airport T4",
+       "tz": "Europe/Madrid",
+       "lat": 40.49521000000001,
+       "lon": -3.594961
+      },
+      "to": {
+       "name": "Lisbon - Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76762,
+       "lon": -9.101270999999997
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:14:00Z",
+      "endTime": "2026-12-10T06:16:00Z",
+      "from": {
+       "name": "Lisbon - Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76762,
+       "lon": -9.101270999999997
+      },
+      "to": {
+       "name": "Lisboa Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.767757,
+       "lon": -9.099094000000001
+      }
+     },
+     {
+      "mode": "SUBURBAN",
+      "duration": 540,
+      "routeShortName": "Linha de Sintra",
+      "agencyName": "CP - Comboios de Portugal",
+      "agencyUrl": "http://www.cp.pt",
+      "startTime": "2026-12-10T06:18:00Z",
+      "endTime": "2026-12-10T06:27:00Z",
+      "from": {
+       "name": "Lisboa Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.767757,
+       "lon": -9.099094000000001
+      },
+      "to": {
+       "name": "Entrecampos",
+       "tz": "Europe/Lisbon",
+       "lat": 38.744679999999995,
+       "lon": -9.148574999999997
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:27:00Z",
+      "endTime": "2026-12-10T06:31:00Z",
+      "from": {
+       "name": "Entrecampos",
+       "tz": "Europe/Lisbon",
+       "lat": 38.744679999999995,
+       "lon": -9.148574999999997
+      },
+      "to": {
+       "name": "Campo Pequeno",
+       "tz": "Europe/Lisbon",
+       "lat": 38.74142,
+       "lon": -9.147034999999999
+      }
+     },
+     {
+      "mode": "SUBWAY",
+      "duration": 240,
+      "routeShortName": "Am",
+      "agencyName": "Metropolitano de Lisboa, E.P.E.",
+      "agencyUrl": "https://www.metrolisboa.pt",
+      "startTime": "2026-12-10T06:36:00Z",
+      "endTime": "2026-12-10T06:40:00Z",
+      "from": {
+       "name": "Campo Pequeno",
+       "tz": "Europe/Lisbon",
+       "lat": 38.74142,
+       "lon": -9.147034999999999
+      },
+      "to": {
+       "name": "Marquês de Pombal",
+       "tz": "Europe/Lisbon",
+       "lat": 38.72488,
+       "lon": -9.150807
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:40:00Z",
+      "endTime": "2026-12-10T06:43:00Z",
+      "from": {
+       "name": "Marquês de Pombal",
+       "tz": "Europe/Lisbon",
+       "lat": 38.72488,
+       "lon": -9.150807
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   },
+   {
+    "duration": 252840,
+    "startTime": "2026-12-07T08:09:00Z",
+    "endTime": "2026-12-10T06:23:00Z",
+    "transfers": 11,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:09:00Z",
+      "endTime": "2026-12-07T08:12:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 600,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-07T08:12:00Z",
+      "endTime": "2026-12-07T08:22:00Z",
+      "from": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T08:22:00Z",
+      "endTime": "2026-12-07T08:24:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-07T08:30:00Z",
+      "endTime": "2026-12-07T10:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-07T10:30:00Z",
+      "endTime": "2026-12-07T10:35:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 88200,
+      "routeShortName": "FlixBus N1324",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-07T12:20:00Z",
+      "endTime": "2026-12-08T12:50:00Z",
+      "from": {
+       "name": "Tallinn Harbour",
+       "tz": "Europe/Tallinn",
+       "lat": 59.442978000000004,
+       "lon": 24.764661999999998
+      },
+      "to": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T12:50:00Z",
+      "endTime": "2026-12-08T12:54:00Z",
+      "from": {
+       "name": "Berlin Airport BER (Berlin Brandenburg), Terminal 1/2",
+       "tz": "Europe/Berlin",
+       "lat": 52.36454,
+       "lon": 13.514170999999997
+      },
+      "to": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      }
+     },
+     {
+      "mode": "REGIONAL_RAIL",
+      "duration": 1380,
+      "routeShortName": "FEX",
+      "agencyName": "DB Regio AG Nordost",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:01:00Z",
+      "endTime": "2026-12-08T13:24:00Z",
+      "from": {
+       "name": "Flughafen BER",
+       "tz": "Europe/Berlin",
+       "lat": 52.364323,
+       "lon": 13.509145
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T13:24:00Z",
+      "endTime": "2026-12-08T13:26:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.525223000000004,
+       "lon": 13.369887000000002
+      },
+      "to": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      }
+     },
+     {
+      "mode": "HIGHSPEED_RAIL",
+      "duration": 22680,
+      "routeShortName": "12",
+      "agencyName": "DB Fernverkehr AG",
+      "agencyUrl": "",
+      "startTime": "2026-12-08T13:43:00Z",
+      "endTime": "2026-12-08T20:01:00Z",
+      "from": {
+       "name": "S+U Berlin Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 52.52506,
+       "lon": 13.369167000000001
+      },
+      "to": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-08T20:01:00Z",
+      "endTime": "2026-12-08T20:04:00Z",
+      "from": {
+       "name": "Freiburg Hauptbahnhof",
+       "tz": "Europe/Berlin",
+       "lat": 47.997879999999995,
+       "lon": 7.841439
+      },
+      "to": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 36900,
+      "routeShortName": "FlixBus N1135",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-08T21:45:00Z",
+      "endTime": "2026-12-09T08:00:00Z",
+      "from": {
+       "name": "Freiburg (im Breisgau) central station",
+       "tz": "Europe/Berlin",
+       "lat": 47.99569,
+       "lon": 7.840469000000001
+      },
+      "to": {
+       "name": "Montpellier (Sabines)",
+       "tz": "Europe/Paris",
+       "lat": 43.58393,
+       "lon": 3.860233
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T08:00:00Z",
+      "endTime": "2026-12-09T08:02:00Z",
+      "from": {
+       "name": "Montpellier (Sabines)",
+       "tz": "Europe/Paris",
+       "lat": 43.58393,
+       "lon": 3.860233
+      },
+      "to": {
+       "name": "Sabines",
+       "tz": "Europe/Paris",
+       "lat": 43.58379,
+       "lon": 3.860094
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 660,
+      "routeShortName": "2",
+      "agencyName": "TaM",
+      "agencyUrl": "https://www.tam-voyages.com",
+      "startTime": "2026-12-09T08:03:00Z",
+      "endTime": "2026-12-09T08:14:00Z",
+      "from": {
+       "name": "Sabines",
+       "tz": "Europe/Paris",
+       "lat": 43.58379,
+       "lon": 3.860094
+      },
+      "to": {
+       "name": "Rondelet",
+       "tz": "Europe/Paris",
+       "lat": 43.603077,
+       "lon": 3.8759799999999998
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T08:14:00Z",
+      "endTime": "2026-12-09T08:19:00Z",
+      "from": {
+       "name": "Rondelet",
+       "tz": "Europe/Paris",
+       "lat": 43.603077,
+       "lon": 3.8759799999999998
+      },
+      "to": {
+       "name": "Estación de tren Montpellier",
+       "tz": "Europe/Paris",
+       "lat": 43.60485,
+       "lon": 3.880491
+      }
+     },
+     {
+      "mode": "REGIONAL_RAIL",
+      "duration": 24240,
+      "routeShortName": "AVE",
+      "agencyName": "RENFE OPERADORA",
+      "agencyUrl": "http://www.renfe.com",
+      "startTime": "2026-12-09T08:34:00Z",
+      "endTime": "2026-12-09T15:18:00Z",
+      "from": {
+       "name": "Estación de tren Montpellier",
+       "tz": "Europe/Paris",
+       "lat": 43.60485,
+       "lon": 3.880491
+      },
+      "to": {
+       "name": "Estación de tren Madrid Pta.Atocha - Almudena Grandes",
+       "tz": "Europe/Madrid",
+       "lat": 40.406439999999996,
+       "lon": -3.690886
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T15:18:00Z",
+      "endTime": "2026-12-09T15:20:00Z",
+      "from": {
+       "name": "Estación de tren Madrid Pta.Atocha - Almudena Grandes",
+       "tz": "Europe/Madrid",
+       "lat": 40.406439999999996,
+       "lon": -3.690886
+      },
+      "to": {
+       "name": "Madrid-Atocha Cercanías",
+       "tz": "Europe/Madrid",
+       "lat": 40.40662,
+       "lon": -3.689439
+      }
+     },
+     {
+      "mode": "REGIONAL_RAIL",
+      "duration": 780,
+      "routeShortName": "C3",
+      "agencyName": "Renfe Cercanias",
+      "agencyUrl": "https://www.renfe.com/es/es/cercanias",
+      "startTime": "2026-12-09T15:21:00Z",
+      "endTime": "2026-12-09T15:34:00Z",
+      "from": {
+       "name": "Madrid-Atocha Cercanías",
+       "tz": "Europe/Madrid",
+       "lat": 40.40662,
+       "lon": -3.689439
+      },
+      "to": {
+       "name": "Madrid-Chamartín-Clara Campoamor",
+       "tz": "Europe/Madrid",
+       "lat": 40.47118,
+       "lon": -3.6829523999999996
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T15:34:00Z",
+      "endTime": "2026-12-09T15:36:00Z",
+      "from": {
+       "name": "Madrid-Chamartín-Clara Campoamor",
+       "tz": "Europe/Madrid",
+       "lat": 40.47118,
+       "lon": -3.6829523999999996
+      },
+      "to": {
+       "name": "Madrid-Chamartín-Clara Campoamor",
+       "tz": "Europe/Madrid",
+       "lat": 40.47118,
+       "lon": -3.6829523999999996
+      }
+     },
+     {
+      "mode": "HIGHSPEED_RAIL",
+      "duration": 15780,
+      "routeShortName": "AVLO",
+      "agencyName": "RENFE OPERADORA",
+      "agencyUrl": "http://www.renfe.com",
+      "startTime": "2026-12-09T17:06:00Z",
+      "endTime": "2026-12-09T21:29:00Z",
+      "from": {
+       "name": "Madrid-Chamartín-Clara Campoamor",
+       "tz": "Europe/Madrid",
+       "lat": 40.47118,
+       "lon": -3.6829523999999996
+      },
+      "to": {
+       "name": "Vigo Urzaiz",
+       "tz": "Europe/Madrid",
+       "lat": 42.234188,
+       "lon": -8.713727999999998
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-09T21:29:00Z",
+      "endTime": "2026-12-09T21:31:00Z",
+      "from": {
+       "name": "Vigo Urzaiz",
+       "tz": "Europe/Madrid",
+       "lat": 42.234188,
+       "lon": -8.713727999999998
+      },
+      "to": {
+       "name": "Vigo (Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 42.234140000000004,
+       "lon": -8.713762999999998
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 25200,
+      "routeShortName": "FlixBus N785",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2026-12-09T22:55:00Z",
+      "endTime": "2026-12-10T05:55:00Z",
+      "from": {
+       "name": "Vigo (Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 42.234140000000004,
+       "lon": -8.713762999999998
+      },
+      "to": {
+       "name": "Lisbon (Airport)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76837000000001,
+       "lon": -9.128187999999998
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T05:55:00Z",
+      "endTime": "2026-12-10T05:57:00Z",
+      "from": {
+       "name": "Lisbon (Airport)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76837000000001,
+       "lon": -9.128187999999998
+      },
+      "to": {
+       "name": "Aeroporto",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76896000000001,
+       "lon": -9.128010999999997
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 1380,
+      "routeShortName": "783",
+      "agencyName": "Carris",
+      "agencyUrl": "http://www.carris.pt",
+      "startTime": "2026-12-10T05:57:00Z",
+      "endTime": "2026-12-10T06:20:00Z",
+      "from": {
+       "name": "Aeroporto",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76896000000001,
+       "lon": -9.128010999999997
+      },
+      "to": {
+       "name": "Mq. Pombal - Av. Fontes P. Melo",
+       "tz": "Europe/Lisbon",
+       "lat": 38.72626,
+       "lon": -9.149757
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-10T06:20:00Z",
+      "endTime": "2026-12-10T06:23:00Z",
+      "from": {
+       "name": "Mq. Pombal - Av. Fontes P. Melo",
+       "tz": "Europe/Lisbon",
+       "lat": 38.72626,
+       "lon": -9.149757
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

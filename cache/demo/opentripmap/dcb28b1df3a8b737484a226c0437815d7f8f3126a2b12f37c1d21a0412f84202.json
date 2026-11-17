@@ -1,0 +1,59 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W424014499",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7141986,
+ "response": {
+  "xid": "W424014499",
+  "name": "Bairro da Calçada dos Mestres",
+  "address": {
+   "city": "Campolide",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Campolide",
+   "country": "Portugal",
+   "country_code": "pt",
+   "neighbourhood": "Bairro da Calçada dos Mestres",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/424014499",
+  "bbox": {
+   "lon_min": -9.17012,
+   "lon_max": -9.165935,
+   "lat_min": 38.725945,
+   "lat_max": 38.729622
+  },
+  "wikidata": "Q9674862",
+  "kinds": "historic,historical_places,interesting_places,historic_districts",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W424014499",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Cal%C3%A7ada%20dos%20Mestres",
+  "image": "https://commons.wikimedia.org/wiki/File:LISBOA_-_201406_-_20_%2814584209415%29.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/LISBOA_-_201406_-_20_%2814584209415%29.jpg/400px-LISBOA_-_201406_-_20_%2814584209415%29.jpg",
+   "height": 267,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Calçada dos Mestres",
+   "text": "A mais baixa subdivisão administrativa de Lisboa é a freguesia. No entanto, existem divisões informais, a que se chamam popularmente bairros, que não respeitam na grande maioria das vezes os limites das freguesias. Casos há de bairros que se estendem por mais do que uma freguesia, ou freguesias que no seu interior contêm vários bairros. É importante, contudo, não confundir estes bairros (bairros populares, bairros tradicionais, etc.) com os bairros fiscais (áreas de administração fiscal por parte de uma repartição de Finanças), bem como com os quatro bairros administrativos de Lisboa (que agrupam várias freguesias em quatro agrupamentos regionais lisboetas), ambos oficiais.",
+   "html": "<p>A mais baixa subdivisão administrativa de Lisboa é a freguesia. No entanto, existem divisões informais, a que se chamam popularmente bairros, que não respeitam na grande maioria das vezes os limites das freguesias. Casos há de bairros que se estendem por mais do que uma freguesia, ou freguesias que no seu interior contêm vários bairros. É importante, contudo, não confundir estes bairros (bairros populares, bairros tradicionais, etc.) com os bairros fiscais (áreas de administração fiscal por parte de uma repartição de Finanças), bem como com os quatro bairros administrativos de Lisboa (que agrupam várias freguesias em quatro agrupamentos regionais lisboetas), ambos oficiais.</p>"
+  },
+  "point": {
+   "lon": -9.167987823486328,
+   "lat": 38.72780227661133
+  }
+ }
+}

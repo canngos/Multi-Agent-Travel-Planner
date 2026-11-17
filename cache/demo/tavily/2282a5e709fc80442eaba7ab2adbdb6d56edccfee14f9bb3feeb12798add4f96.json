@@ -1,0 +1,50 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.tavily.com/search",
+  "params": {},
+  "json": {
+   "query": "bacalhau à brás traditional dish Portugal",
+   "max_results": 3,
+   "search_depth": "basic",
+   "include_answer": true
+  },
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794952178.9193625,
+ "response": {
+  "query": "bacalhau à brás traditional dish Portugal",
+  "follow_up_questions": null,
+  "answer": "Bacalhau à brás is a traditional Portuguese dish made with shredded salt cod, onions, and thinly fried potato matchsticks, all bound with eggs. The dish is usually garnished with black olives and fresh cilantro or parsley. The main ingredients include salt cod, potatoes, eggs, and onion. The origin of the recipe is uncertain, but it is said to have originated in the late 19th century in Bairro Alto, Lisbon. The name \"à brás\" is believed to come from a 19th-century Lisbon tavern or restaurant called Braz. The dish is typically served with a side of boiled or steamed veggies or a fresh salad, crusty bread, and a dry white wine like Vinho verde.",
+  "images": [],
+  "results": [
+   {
+    "url": "https://www.2foodtrippers.com/bacalhau-a-bras",
+    "title": "Bacalhau à Brás Recipe: Portuguese Salt Cod with Eggs",
+    "content": "Bacalhau à brás is a Portuguese dish made with shredded salt cod, thin fried potato matchsticks, onions and eggs cooked until just set. It’s usually topped with black olives and fresh cilantro. You’ll find the dish on tasca menus all over Lisbon.\n\nWhat does “à brás” mean?\n\nIt means “in the style of Brás.” Most food historians trace the name to a 19th-century Lisbon tavern owner or restaurant called Braz, spelled with a z in old Portuguese. Nobody knows for sure who made it first. [...] Dish: Bacalhau à brás (i.e. Brás-style salt cod)\n Cuisine: Portuguese (Lisbon)\n Main ingredients: Salt cod, potatoes, eggs, onion\n Soak time: 36 to 48 hours (change the water every 8 hours)\n Prep time: 20 minutes\n Cook time: 40 minutes\n Servings: 2 as a main or 4 as an appetizer\n Skill level: Easy once the cod is soaked\n Equipment: Cast iron skillet or air fryer, large sauté pan, chef’s knife\n Pair with: Vinho verde or another dry white wine\n\n## The History of Bacalhau à Brás [...] What are the main ingredients in bacalhau à brás?\n\nThe three essential ingredients are salt cod, potatoes and eggs. Onion, garlic, bay leaves, cilantro, olive oil and olives complete the dish.\n\nHow long should I soak salt cod for bacalhau à brás?\n\nSoak it for 36 to 48 hours in the refrigerator and change the water every 8 hours. At 36 hours the cod is still a little salty, so season carefully. You can soak it for longer, but you’ll lose the briny funk that makes this dish work.",
+    "score": 0.8414352,
+    "raw_content": null,
+    "id": "93d869-00"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Bacalhau_%C3%A0_Br%C3%A1s",
+    "title": "Bacalhau à Brás - Wikipedia",
+    "content": "Bacalhau à Brás (Portuguese pronunciation: ( \"Help:IPA/Portuguese\"), meaning \"salt cod in the style of Brás\") is a Portuguese dish made from shreds of salted cod (bacalhau), onions and thinly chopped (matchstick-sized) fried potatoes, all bound with eggs. It is usually garnished with black olives and sprinkled with fresh flat-leaf parsley. The origin of the recipe is uncertain, but in its current form it is said to have originated during the second half of the 19th century in Bairro Alto, an [...] Bacalhau à Brás\n\n| Place of origin | Lisbon, Portugal |\n| Invented | 19th century? |\n| Main ingredients | Bacalhau, onions, fried potatoes and eggs |\n|  Wikimedia Commons logo Media: Bacalhau à Brás |",
+    "score": 0.8311431,
+    "raw_content": null,
+    "id": "f0725f-01"
+   },
+   {
+    "url": "https://www.photosandfood.ca/2022/12/12/bacalhau-a-bras-portuguese-cod-fish-with-onions-eggs-and-fries-a-time-saving-hack",
+    "title": "Bacalhau à Brás. Portuguese cod fish with onions, eggs and fries + a time-saving hack! | Photos & Food",
+    "content": "After its long soak, the fish is then cooked until it’s tender and flaky, and then shredded into small pieces. The potatoes are fried, onions cooked until they’re soft, and the eggs are beaten and added to the mixture to cook. This is the base of the dish.\n\nOur version of the recipe also includes sundried black olives, garlic and white wine. There are many variations out there and I won’t claim that ours is the original version, but it is delicious! [...] Traditionally this is often served with a side of boiled or steamed veggies or a fresh salad. Don’t forget the crusty bread and, some good red wine.\n\n## Our time-saving hack: frozen shoestring or matchstick fries! [...] (Sponsored post) Bacalhau à bras is a Portuguese dish, enjoyed by many people around the world. As far as my research tells me, the dish was created in the late 19th century. It was made in a tasca (small eatery with cheap good food) in Bairro Alto, Lisbon. The creator’s last name was Braz (later changed to Brás).",
+    "score": 0.8159669,
+    "raw_content": null,
+    "id": "126834-02"
+   }
+  ],
+  "response_time": 2.35,
+  "request_id": "286465b6-ada2-4530-987c-82ead486c709"
+ }
+}

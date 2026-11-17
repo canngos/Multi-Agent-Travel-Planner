@@ -1,0 +1,63 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W663347630",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7057536,
+ "response": {
+  "xid": "W663347630",
+  "name": "Aos Restauradores de 1640",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "Parque Restauradores",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Chiado",
+   "country": "Portugal",
+   "postcode": "1250-188",
+   "pedestrian": "Praça Restauradores",
+   "country_code": "pt",
+   "house_number": "s/n",
+   "neighbourhood": "Santa Justa",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/663347630",
+  "bbox": {
+   "lon_min": -9.141796,
+   "lon_max": -9.141576,
+   "lat_min": 38.715669,
+   "lat_max": 38.715837
+  },
+  "wikidata": "Q16990265",
+  "kinds": "historic,monuments_and_memorials,burial_places,urban_environment,cultural,interesting_places,war_memorials,sculptures,monuments",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W663347630",
+  "wikipedia": "https://en.wikipedia.org/wiki/Monument%20to%20the%20Restorers",
+  "image": "https://commons.wikimedia.org/wiki/File:Lisboa_-_Monumento_aos_Restauradores.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Lisboa_-_Monumento_aos_Restauradores.jpg/268px-Lisboa_-_Monumento_aos_Restauradores.jpg",
+   "height": 400,
+   "width": 268
+  },
+  "wikipedia_extracts": {
+   "title": "en:Monument to the Restorers",
+   "text": "The Monument to the Restorers (Portuguese: Monumento aos Restauradores) is a monument located in Restauradores Square in Lisbon, Portugal. The monument memorializes the victory of the Portuguese Restoration War. The war, which saw the end of the House of Habsburg and the rise of the House of Braganza, lasted from 1640 to 1668. The monument was designed by António Tomás da Fonseca and erected in 1886.",
+   "html": "<p>The <b>Monument to the Restorers</b> (Portuguese: <i lang=\"pt\">Monumento aos Restauradores</i>) is a monument located in Restauradores Square in Lisbon, Portugal. The monument memorializes the victory of the Portuguese Restoration War. The war, which saw the end of the House of Habsburg and the rise of the House of Braganza, lasted from 1640 to 1668. The monument was designed by António Tomás da Fonseca and erected in 1886.</p>"
+  },
+  "point": {
+   "lon": -9.141685485839844,
+   "lat": 38.71575164794922
+  }
+ }
+}

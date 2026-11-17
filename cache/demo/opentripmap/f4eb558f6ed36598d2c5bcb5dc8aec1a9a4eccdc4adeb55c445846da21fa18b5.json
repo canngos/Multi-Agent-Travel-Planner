@@ -1,0 +1,56 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5131827222",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7028358,
+ "response": {
+  "xid": "N5131827222",
+  "name": "Estátua do Marquês de Pombal",
+  "address": {
+   "city": "Santo António",
+   "road": "Avenida da Liberdade",
+   "house": "Tumi",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "country": "Portugal",
+   "postcode": "1250-158",
+   "country_code": "pt",
+   "house_number": "242",
+   "neighbourhood": "Coração de Jesus",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5131827222",
+  "wikidata": "Q70103462",
+  "kinds": "architecture,historic,urban_environment,restaurants,tourist_facilities,historic_architecture,monuments_and_memorials,cultural,interesting_places,foods,sculptures,monuments,other_buildings_and_structures",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5131827222",
+  "wikipedia": "https://it.wikipedia.org/wiki/Monumento%20al%20Marchese%20de%20Pombal",
+  "image": "https://commons.wikimedia.org/wiki/File:Lisboa_June_2013-1.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Lisboa_June_2013-1.jpg/311px-Lisboa_June_2013-1.jpg",
+   "height": 400,
+   "width": 311
+  },
+  "wikipedia_extracts": {
+   "title": "it:Monumento al Marchese de Pombal",
+   "text": "Il monumento al Marchese de Pombal consiste in un piedistallo e un'alta base, 40 metri di altezza in totale, su cui si erge la statua di Sebastião José de Carvalho e Melo, meglio noto come Marchese de Pombal. Esso è ubicato nella piazza più grande di Lisbona, Piazza Marchese de Pombal.",
+   "html": "<p>Il <b>monumento al Marchese de Pombal</b> consiste in un piedistallo e un'alta base, 40&nbsp;metri di altezza in totale, su cui si erge la statua di Sebastião José de Carvalho e Melo, meglio noto come Marchese de Pombal. Esso è ubicato nella piazza più grande di Lisbona, Piazza Marchese de Pombal.</p>"
+  },
+  "point": {
+   "lon": -9.148183822631836,
+   "lat": 38.723934173583984
+  }
+ }
+}

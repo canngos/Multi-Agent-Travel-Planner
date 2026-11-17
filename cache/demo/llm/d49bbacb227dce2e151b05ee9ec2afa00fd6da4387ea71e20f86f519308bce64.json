@@ -1,0 +1,386 @@
+{
+ "request": {
+  "model": "openai/azsydsttjnlbfjbgqnwd",
+  "system": "You are the HOTEL SEARCHER of a trip-planning team. Find hotels for the whole trip\n(checkin = start_date, checkout = end_date) for all travellers in one room, matching the budget tier.\n\nTRIP BRIEF (from the session): {'origin': 'Helsinki', 'destination': 'Lisbon', 'start_date': '2027-05-10', 'end_date': '2027-05-14', 'travellers': 2, 'budget_tier': 'mid', 'total_budget_eur': 2500.0, 'interests': ['history', 'street food'], 'origin_lat': 60.16952, 'origin_lon': 24.93545, 'destination_lat': 38.72509, 'destination_lon': -9.1498, 'destination_country': 'Portugal', 'nights': 4, 'days': 5}\nDates are ISO (YYYY-MM-DD). \"travellers\" is the number of adults. \"nights\" = end_date - start_date.\n\nSTEPS\n1. search_google_hotels(area = destination, checkin, checkout, adults = travellers, sort_by, min_rating):\n   budget_tier \"low\" -> sort_by \"lowest_price\", min_rating 3.5; \"mid\" -> \"lowest_price\", 4.0;\n   \"high\" -> \"highest_rating\", 4.5. These are public prices with taxes (they include Booking.com).\n2. search_hotel_rates(lat = destination_lat, lon = destination_lon, checkin, checkout, adults, radius_km 3)\n   for more hotels (liteAPI wholesale rates).\n3. Keep up to 8 hotels: mostly from Google Hotels, plus the 2-3 best liteAPI ones. For every liteAPI hotel,\n   add to details: \"liteAPI rate: may be 15-30% below public booking sites; excludes city tax\".\nFALLBACK: if search_google_hotels fails, use liteAPI alone and say in \"notes\" that prices may be 15-30% below\nbooking sites. If both fail, call stay_deep_links(city, checkin, checkout, adults), return an empty\n\"results\" list and copy the Booking.com URL into \"fallback_links\".\n\nTOOL USE: call tools one at a time and keep it short: at most 4 tool calls in total.\nDo not repeat a call with the same arguments.\n\nGROUNDING RULES (strict):\n- Every place, price, time and link you report must come from a tool result in this conversation.\n  Never invent names, prices, opening hours or URLs, and never fill gaps from memory.\n- Keep each item's url / source_urls exactly as the tool returned them.\n- Keep price_source as the tool gave it: \"live\" (booking/search sites) or \"web_estimate\" (read from a web page via web_search).\n  A price you read from a web_search result is always \"web_estimate\".\n- If a tool returns {\"status\": \"error\"}, read its \"reason\", then use the fallback described below.\n  Mention every failed source in \"notes\".\n- If no tool gives you something, leave it out (or null) and say so in \"notes\".\n\nOUTPUT: when you are done, reply with ONLY one JSON object inside a ```json fence, nothing before or after it.\nShape: {\"results\": [StayOption, ...], \"fallback_links\": [str, ...], \"notes\": \"...\"}\nfallback_links: the stay_deep_links URLs when you had to use that fallback, otherwise [].\nStayOption = {\"kind\": \"airbnb\"|\"hotel\", \"name\": str, \"area\": str (neighbourhood), \"lat\": number, \"lon\": number,\n  \"price_per_night_eur\": number, \"total_price_eur\": number (whole stay), \"rating\": number|null,\n  \"price_source\": \"live\"|\"web_estimate\", \"source\": str, \"url\": str, \"details\": str}\nCopy each stay from the tool result; keep its details text (rating scale, taxes, distance).\nExample (values are illustrative only):\n```json\n{\"results\": [{\"kind\": \"hotel\", \"name\": \"The Central House Lisbon Baixa\", \"area\": \"Baixa\",\n  \"lat\": 38.7105, \"lon\": -9.1372, \"price_per_night_eur\": 48.5, \"total_price_eur\": 194.0, \"rating\": 4.3,\n  \"price_source\": \"live\", \"source\": \"google_hotels (serpapi)\",\n  \"url\": \"https://www.booking.com/searchresults.html?ss=The+Central+House+Lisbon+Baixa%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n  \"details\": \"2★; Google rating 4.3/5 (771 reviews); location 4.8/5\"}],\n \"fallback_links\": [], \"notes\": \"Google Hotels and liteAPI both worked.\"}\n```\nUse double quotes, no comments, no trailing commas. \"notes\" is one short paragraph: which sources worked or failed,\nfallbacks used, caveats (e.g. estimated prices). Write it in English.\n\nYou are an agent. Your internal name is \"hotel_searcher\". The description about you is \"Finds hotels with public (Google Hotels) and wholesale (liteAPI) prices.\".",
+  "tools": [
+   "search_google_hotels",
+   "search_hotel_rates",
+   "stay_deep_links"
+  ],
+  "temperature": 0.2,
+  "contents": [
+   {
+    "role": "model",
+    "parts": [
+     {
+      "call": "search_google_hotels",
+      "args": {
+       "area": "Lisbon",
+       "checkin": "2027-05-10",
+       "checkout": "2027-05-14",
+       "adults": 2,
+       "sort_by": "lowest_price",
+       "min_rating": 4.0,
+       "max_results": 10
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "parts": [
+     {
+      "result": "search_google_hotels",
+      "response": {
+       "status": "ok",
+       "count": 10,
+       "results": [
+        {
+         "kind": "hotel",
+         "name": "White House Lisbon Hostel",
+         "area": "",
+         "lat": 38.7361066,
+         "lon": -9.1563719,
+         "price_per_night_eur": 40.75,
+         "total_price_eur": 163.0,
+         "rating": 4.0,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=White+House+Lisbon+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "1★; Google rating 4/5 (278 reviews); location 3.6/5; Free Wi-Fi, Parking ($), Kitchen, Full-service laundry"
+        },
+        {
+         "kind": "hotel",
+         "name": "Live Lisboa Hostel",
+         "area": "",
+         "lat": 38.735579,
+         "lon": -9.1372613,
+         "price_per_night_eur": 44.0,
+         "total_price_eur": 176.0,
+         "rating": 4.3,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=Live+Lisboa+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "1★; Google rating 4.3/5 (122 reviews); location 3.6/5; Free Wi-Fi"
+        },
+        {
+         "kind": "hotel",
+         "name": "Green View Home",
+         "area": "",
+         "lat": 38.738565,
+         "lon": -9.1523872,
+         "price_per_night_eur": 44.0,
+         "total_price_eur": 176.0,
+         "rating": 4.1,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=Green+View+Home%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "3★; Google rating 4.1/5 (53 reviews); location 3.9/5; Free Wi-Fi, Kitchen in some rooms, Smoke-free property"
+        },
+        {
+         "kind": "hotel",
+         "name": "The Central House Lisbon Baixa",
+         "area": "",
+         "lat": 38.7131037,
+         "lon": -9.136800400000002,
+         "price_per_night_eur": 48.5,
+         "total_price_eur": 194.0,
+         "rating": 4.3,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=The+Central+House+Lisbon+Baixa%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "2★; Google rating 4.3/5 (771 reviews); location 4.8/5; Breakfast ($), Free Wi-Fi, Air conditioning, Bar"
+        },
+        {
+         "kind": "hotel",
+         "name": "Draft Hostel & Rooms",
+         "area": "",
+         "lat": 38.7107232,
+         "lon": -9.137206599999999,
+         "price_per_night_eur": 48.75,
+         "total_price_eur": 195.0,
+         "rating": 4.2,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=Draft+Hostel+%26+Rooms%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "3★; Google rating 4.2/5 (312 reviews); location 4.9/5; Free Wi-Fi, Air conditioning"
+        },
+        {
+         "kind": "hotel",
+         "name": "WOT New Lisbon Social",
+         "area": "",
+         "lat": 38.714598099999996,
+         "lon": -9.147507599999999,
+         "price_per_night_eur": 49.25,
+         "total_price_eur": 197.0,
+         "rating": 4.1,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=WOT+New+Lisbon+Social%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "2★; Google rating 4.1/5 (1797 reviews); location 4.9/5; Breakfast ($), Free Wi-Fi, Pet-friendly, Bar"
+        },
+        {
+         "kind": "hotel",
+         "name": "WOT Nomad Social",
+         "area": "",
+         "lat": 38.7319703,
+         "lon": -9.148270300000002,
+         "price_per_night_eur": 51.25,
+         "total_price_eur": 205.0,
+         "rating": 4.0,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=WOT+Nomad+Social%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "2★; Google rating 4/5 (932 reviews); location 4.1/5; Breakfast ($), Free Wi-Fi, Outdoor pool, Air conditioning"
+        },
+        {
+         "kind": "hotel",
+         "name": "Lisbon Destination Hostel",
+         "area": "",
+         "lat": 38.714307,
+         "lon": -9.140892899999999,
+         "price_per_night_eur": 56.75,
+         "total_price_eur": 227.0,
+         "rating": 4.7,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=Lisbon+Destination+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "2★; Google rating 4.7/5 (2465 reviews); location 5.0/5; Breakfast ($), Free Wi-Fi, Air conditioning, Bar"
+        },
+        {
+         "kind": "hotel",
+         "name": "This is Lisbon Hostel",
+         "area": "",
+         "lat": 38.7149111,
+         "lon": -9.1336639,
+         "price_per_night_eur": 56.75,
+         "total_price_eur": 227.0,
+         "rating": 4.7,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=This+is+Lisbon+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "2★; Google rating 4.7/5 (597 reviews); location 4.8/5; Breakfast ($), Free Wi-Fi, Kitchen, Full-service laundry"
+        },
+        {
+         "kind": "hotel",
+         "name": "Avenue Hostel & Suites",
+         "area": "",
+         "lat": 38.724106899999995,
+         "lon": -9.1474605,
+         "price_per_night_eur": 57.0,
+         "total_price_eur": 228.0,
+         "rating": 4.3,
+         "price_source": "live",
+         "source": "google_hotels (serpapi)",
+         "url": "https://www.booking.com/searchresults.html?ss=Avenue+Hostel+%26+Suites%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "1★; Google rating 4.3/5 (873 reviews); location 4.6/5; Breakfast, Free Wi-Fi, Kitchen in some rooms, Airport shuttle"
+        }
+       ],
+       "nights": 4,
+       "google_hotels_url": "https://www.google.com/travel/search?q=Lisbon&hl=en&gl=fi"
+      }
+     }
+    ]
+   },
+   {
+    "role": "model",
+    "parts": [
+     {
+      "call": "search_hotel_rates",
+      "args": {
+       "lat": 38.72509,
+       "lon": -9.1498,
+       "checkin": "2027-05-10",
+       "checkout": "2027-05-14",
+       "adults": 2,
+       "radius_km": 3,
+       "max_results": 10
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "parts": [
+     {
+      "result": "search_hotel_rates",
+      "response": {
+       "status": "ok",
+       "count": 10,
+       "results": [
+        {
+         "kind": "hotel",
+         "name": "Rossio Plaza Hotel",
+         "area": "Rua Aurea, 266",
+         "lat": 38.712395,
+         "lon": -9.139096,
+         "price_per_night_eur": 109.44,
+         "total_price_eur": 437.77,
+         "rating": 9.2,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Rossio+Plaza+Hotel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "3★, guest rating 9.2/10 (5453 reviews), Standard, Room Only, excl. City tax €32.59, non-refundable"
+        },
+        {
+         "kind": "hotel",
+         "name": "HF Fénix Urban",
+         "area": "Avenida Antonio Augusto De Aguiar,14",
+         "lat": 38.728753,
+         "lon": -9.149,
+         "price_per_night_eur": 110.83,
+         "total_price_eur": 443.34,
+         "rating": 8.6,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=HF+F%C3%A9nix+Urban%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 8.6/10 (3481 reviews), Economy Twin/Double, Room Only, excl. hotel_fee €32, non-refundable"
+        },
+        {
+         "kind": "hotel",
+         "name": "Ramada by Wyndham Lisbon",
+         "area": "Av. Eng. Arantes e Oliveira, 9",
+         "lat": 38.73958,
+         "lon": -9.124125,
+         "price_per_night_eur": 125.0,
+         "total_price_eur": 499.98,
+         "rating": 8.2,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Ramada+by+Wyndham+Lisbon%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 8.2/10 (9824 reviews), ROOM CITY VIEW, Breakfast Included, excl. City tax €32.73"
+        },
+        {
+         "kind": "hotel",
+         "name": "TURIM Ibéria Hotel",
+         "area": "Av. 5 De Outubro 160",
+         "lat": 38.740427,
+         "lon": -9.148438,
+         "price_per_night_eur": 130.34,
+         "total_price_eur": 521.34,
+         "rating": 8.5,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=TURIM+Ib%C3%A9ria+Hotel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 8.5/10 (7791 reviews), twin standard, Room Only, excl. City tax €32.73"
+        },
+        {
+         "kind": "hotel",
+         "name": "HF Fénix Lisboa",
+         "area": "Praça Marquês de Pombal, 8",
+         "lat": 38.724965,
+         "lon": -9.151087,
+         "price_per_night_eur": 136.34,
+         "total_price_eur": 545.37,
+         "rating": 8.5,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=HF+F%C3%A9nix+Lisboa%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 8.5/10 (4810 reviews), Economy Twin/Double, Room Only, excl. hotel_fee €32, non-refundable"
+        },
+        {
+         "kind": "hotel",
+         "name": "Hotel Marques De Pombal",
+         "area": "Avenida da Liberdade 243",
+         "lat": 38.723248,
+         "lon": -9.148845,
+         "price_per_night_eur": 139.57,
+         "total_price_eur": 558.28,
+         "rating": 9.0,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Hotel+Marques+De+Pombal%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 9/10 (4420 reviews), Standard Room, Breakfast Included, excl. As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change) €32"
+        },
+        {
+         "kind": "hotel",
+         "name": "Hotel Mundial",
+         "area": "Praça Martim Moniz 2",
+         "lat": 38.714782,
+         "lon": -9.137326,
+         "price_per_night_eur": 141.72,
+         "total_price_eur": 566.89,
+         "rating": 8.6,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Hotel+Mundial%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 8.6/10 (9234 reviews), Classic Double or Twin Room (1 Double Bed or 2 Large Twin Beds), Room Only, excl. City tax €32.73, non-refundable"
+        },
+        {
+         "kind": "hotel",
+         "name": "Eurostars Das Letras",
+         "area": "Rua Castilho, 6 - 12",
+         "lat": 38.720022,
+         "lon": -9.148886,
+         "price_per_night_eur": 144.22,
+         "total_price_eur": 576.89,
+         "rating": 8.7,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Eurostars+Das+Letras%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "5★, guest rating 8.7/10 (3327 reviews), Twin (2 beds), Room Only, excl. City tax €32.73, non-refundable"
+        },
+        {
+         "kind": "hotel",
+         "name": "Jupiter Lisboa Hotel - Rooftop & Spa",
+         "area": "Avenida da Republica, 46",
+         "lat": 38.739534,
+         "lon": -9.145866,
+         "price_per_night_eur": 146.02,
+         "total_price_eur": 584.07,
+         "rating": 9.2,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=Jupiter+Lisboa+Hotel+-+Rooftop+%26+Spa%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 9.2/10 (5956 reviews), Standard Room RO - PROMO, Room Only, excl. As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change) €32"
+        },
+        {
+         "kind": "hotel",
+         "name": "VIP Executive Picoas Hotel",
+         "area": "Rua Filipe Folque nº12",
+         "lat": 38.731868,
+         "lon": -9.149711,
+         "price_per_night_eur": 152.01,
+         "total_price_eur": 608.04,
+         "rating": 9.0,
+         "price_source": "live",
+         "source": "liteapi (sandbox)",
+         "url": "https://www.booking.com/searchresults.html?ss=VIP+Executive+Picoas+Hotel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1",
+         "details": "4★, guest rating 9/10 (4454 reviews), Standard Double Room - RO - Non Refundable, Room Only, excl. As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change) €32, non-refundable"
+        }
+       ],
+       "nights": 4,
+       "sandbox": true
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "saved_at": 1794951742.594283,
+ "response": [
+  {
+   "model_version": "cm-llm",
+   "content": {
+    "parts": [
+     {
+      "text": "We have Google Hotels results (mostly hostels, low-mid price) and liteAPI results (higher price). Budget tier mid: we should prioritize lowest_price with min_rating 4.0 (which we used). Need up to 8 hotels, mostly from Google, plus 2-3 best liteAPI. We have many Google results low price around 40-57 per night. Also liteAPI ones about 109+ per night.\n\nWe should select maybe 5 from Google and 3 from liteAPI. Ensure total price fits overall budget (2500 total budget for entire trip including flights etc, but we just need hotels). 8 hotels total enough.\n\nWe'll pick the top 5 cheapest from Google list: Let's sort: White House Lisbon Hostel total 163, Live Lisboa Hostel 176, Green View Home 176, The Central House 194, Draft Hostel 195 (next). Those are within budget.\n\nFrom liteAPI pick 3 cheapest total: Rossio Plaza Hotel total 437.77, HF Fénix Urban 443.34, Ramada by Wyndham 499.98 (or maybe choose those three). Good.\n\nWe need to format each StayOption with fields: kind, name, area (neighbourhood). In Google data, area is empty string; we can keep as \"\" or null? spec says string. We'll keep empty.\n\nLatitude, longitude as given.\n\nprice_per_night_eur, total_price_eur, rating, price_source = \"live\" (from both), source should be \"google_hotels (serpapi)\" for Google ones, \"liteapi (sandbox)\" for liteAPI.\n\nurl as provided. details as provided (keep as is). Also for liteAPI, add note in details: \"liteAPI rate: may be 15-30% below public booking sites; excludes city tax\". The instruction: \"for every liteAPI hotel, add to details: 'liteAPI rate: may be 15-30% below public booking sites; excludes city tax'.\" So we need to append this to details.\n\nLet's construct results array of 8 items in order: first 5 Google, then 3 liteAPI.\n\nNow produce notes: \"Google Hotels and liteAPI both succeeded; selected 5 low‑price hotels and 3 mid‑range hotels. liteAPI rates may be 15‑30% below public booking sites and exclude city tax.\"\n\nfallback_links: [].\n\nProceed.",
+      "thought": true
+     },
+     {
+      "text": "```json\n{\n  \"results\": [\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"White House Lisbon Hostel\",\n      \"area\": \"\",\n      \"lat\": 38.7361066,\n      \"lon\": -9.1563719,\n      \"price_per_night_eur\": 40.75,\n      \"total_price_eur\": 163.0,\n      \"rating\": 4.0,\n      \"price_source\": \"live\",\n      \"source\": \"google_hotels (serpapi)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=White+House+Lisbon+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"1★; Google rating 4/5 (278 reviews); location 3.6/5; Free Wi-Fi, Parking ($), Kitchen, Full-service laundry\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"Live Lisboa Hostel\",\n      \"area\": \"\",\n      \"lat\": 38.735579,\n      \"lon\": -9.1372613,\n      \"price_per_night_eur\": 44.0,\n      \"total_price_eur\": 176.0,\n      \"rating\": 4.3,\n      \"price_source\": \"live\",\n      \"source\": \"google_hotels (serpapi)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=Live+Lisboa+Hostel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"1★; Google rating 4.3/5 (122 reviews); location 3.6/5; Free Wi-Fi\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"Green View Home\",\n      \"area\": \"\",\n      \"lat\": 38.738565,\n      \"lon\": -9.1523872,\n      \"price_per_night_eur\": 44.0,\n      \"total_price_eur\": 176.0,\n      \"rating\": 4.1,\n      \"price_source\": \"live\",\n      \"source\": \"google_hotels (serpapi)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=Green+View+Home%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"3★; Google rating 4.1/5 (53 reviews); location 3.9/5; Free Wi-Fi, Kitchen in some rooms, Smoke-free property\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"The Central House Lisbon Baixa\",\n      \"area\": \"\",\n      \"lat\": 38.7131037,\n      \"lon\": -9.136800400000002,\n      \"price_per_night_eur\": 48.5,\n      \"total_price_eur\": 194.0,\n      \"rating\": 4.3,\n      \"price_source\": \"live\",\n      \"source\": \"google_hotels (serpapi)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=The+Central+House+Lisbon+Baixa%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"2★; Google rating 4.3/5 (771 reviews); location 4.8/5; Breakfast ($), Free Wi-Fi, Air conditioning, Bar\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"Draft Hostel & Rooms\",\n      \"area\": \"\",\n      \"lat\": 38.7107232,\n      \"lon\": -9.137206599999999,\n      \"price_per_night_eur\": 48.75,\n      \"total_price_eur\": 195.0,\n      \"rating\": 4.2,\n      \"price_source\": \"live\",\n      \"source\": \"google_hotels (serpapi)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=Draft+Hostel+%26+Rooms%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"3★; Google rating 4.2/5 (312 reviews); location 4.9/5; Free Wi-Fi, Air conditioning\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"Rossio Plaza Hotel\",\n      \"area\": \"Rua Aurea, 266\",\n      \"lat\": 38.712395,\n      \"lon\": -9.139096,\n      \"price_per_night_eur\": 109.44,\n      \"total_price_eur\": 437.77,\n      \"rating\": 9.2,\n      \"price_source\": \"live\",\n      \"source\": \"liteapi (sandbox)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=Rossio+Plaza+Hotel%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"3★, guest rating 9.2/10 (5453 reviews), Standard, Room Only, excl. City tax €32.59, non-refundable; liteAPI rate: may be 15-30% below public booking sites; excludes city tax\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"HF Fénix Urban\",\n      \"area\": \"Avenida Antonio Augusto De Aguiar,14\",\n      \"lat\": 38.728753,\n      \"lon\": -9.149,\n      \"price_per_night_eur\": 110.83,\n      \"total_price_eur\": 443.34,\n      \"rating\": 8.6,\n      \"price_source\": \"live\",\n      \"source\": \"liteapi (sandbox)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=HF+F%C3%A9nix+Urban%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"4★, guest rating 8.6/10 (3481 reviews), Economy Twin/Double, Room Only, excl. hotel_fee €32, non-refundable; liteAPI rate: may be 15-30% below public booking sites; excludes city tax\"\n    },\n    {\n      \"kind\": \"hotel\",\n      \"name\": \"Ramada by Wyndham Lisbon\",\n      \"area\": \"Av. Eng. Arantes e Oliveira, 9\",\n      \"lat\": 38.73958,\n      \"lon\": -9.124125,\n      \"price_per_night_eur\": 125.0,\n      \"total_price_eur\": 499.98,\n      \"rating\": 8.2,\n      \"price_source\": \"live\",\n      \"source\": \"liteapi (sandbox)\",\n      \"url\": \"https://www.booking.com/searchresults.html?ss=Ramada+by+Wyndham+Lisbon%2C+Lisbon&checkin=2027-05-10&checkout=2027-05-14&group_adults=2&no_rooms=1\",\n      \"details\": \"4★, guest rating 8.2/10 (9824 reviews), ROOM CITY VIEW, Breakfast Included, excl. City tax €32.73; liteAPI rate: may be 15-30% below public booking sites; excludes city tax\"\n    }\n  ],\n  \"fallback_links\": [],\n  \"notes\": \"Google Hotels and liteAPI both succeeded; selected 5 low‑price hotels from Google and 3 mid‑range hotels from liteAPI. liteAPI rates may be 15‑30% below public booking sites and exclude city tax.\"\n}\n```"
+     }
+    ],
+    "role": "model"
+   },
+   "partial": false,
+   "finish_reason": "STOP",
+   "usage_metadata": {
+    "cached_content_token_count": 0,
+    "candidates_token_count": 2282,
+    "prompt_token_count": 6731,
+    "total_token_count": 9013
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N2931441117",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951610.8264906,
+ "response": {
+  "xid": "N2931441117",
+  "name": "Carmo",
+  "address": {
+   "city": "Santa Maria Maior",
+   "road": "Largo do Carmo",
+   "house": "Restaurante Internacional",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Chiado",
+   "country": "Portugal",
+   "postcode": "1200-309",
+   "country_code": "pt",
+   "house_number": "16e 17",
+   "neighbourhood": "Sacramento",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/2931441117",
+  "wikidata": "Q1058764",
+  "kinds": "architecture,historic,urban_environment,restaurants,tourist_facilities,historic_architecture,monuments_and_memorials,cultural,interesting_places,foods,sculptures,monuments,other_buildings_and_structures",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N2931441117",
+  "wikipedia": "https://de.wikipedia.org/wiki/Chafariz%20do%20Carmo",
+  "image": "https://commons.wikimedia.org/wiki/File:Largo_do_Carmo_-_fontana.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Largo_do_Carmo_-_fontana.jpg/400px-Largo_do_Carmo_-_fontana.jpg",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "de:Chafariz do Carmo",
+   "text": "Der Chafariz do Carmo ist ein Trinkbrunnen im Zentrum der portugiesischen Hauptstadt Lissabon. Er wurde 1771 in der Mitte des Largo do Carmo errichtet.Gespeist wird er mit Wasser aus dem Aqueduto das Águas Livres, mit dem er durch die Galeria do Loreto verbunden ist.Chafariz do Carmo im portugiesischen Denkmalverzeichnis Sistema de Informação para o Património Arquitectónico",
+   "html": "<p>Der <b>Chafariz do Carmo</b> ist ein Trinkbrunnen im Zentrum der portugiesischen Hauptstadt Lissabon. Er wurde 1771 in der Mitte des Largo do Carmo errichtet.</p><p>Gespeist wird er mit Wasser aus dem Aqueduto das Águas Livres, mit dem er durch die Galeria do Loreto verbunden ist.</p><ul><li>Chafariz do Carmo im portugiesischen Denkmalverzeichnis Sistema de Informação para o Património Arquitectónico</li></ul>"
+  },
+  "point": {
+   "lon": -9.140974044799805,
+   "lat": 38.711700439453125
+  }
+ }
+}

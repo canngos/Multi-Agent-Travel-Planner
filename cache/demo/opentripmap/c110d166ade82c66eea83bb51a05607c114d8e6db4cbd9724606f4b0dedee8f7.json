@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N4845258130",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7156997,
+ "response": {
+  "xid": "N4845258130",
+  "name": "Muralha Fernandina",
+  "address": {
+   "city": "Misericórdia",
+   "road": "Rua da Misericórdia",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "country": "Portugal",
+   "postcode": "1200-273",
+   "country_code": "pt",
+   "house_number": "36",
+   "neighbourhood": "Encarnação",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/4845258130",
+  "wikidata": "Q25430529",
+  "kinds": "fortifications,defensive_walls,historic,archaeology,interesting_places,other_archaeological_sites",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N4845258130",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Cerca%20Fernandina%20%28de%20Lisboa%29",
+  "image": "https://commons.wikimedia.org/wiki/File:Lisbonne_Alfama_%28291257903%29.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Lisbonne_Alfama_%28291257903%29.jpg/300px-Lisbonne_Alfama_%28291257903%29.jpg",
+   "height": 400,
+   "width": 300
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Cerca Fernandina (de Lisboa)",
+   "text": "A Cerca Fernandina, também conhecidas por muralhas fernandinas de Lisboa, são as muralhas da cidade de Lisboa correspondentes à ampliação da cerca velha da era de César, levada a cabo por D. Fernando I no ano 1373 d.C..",
+   "html": "<p>A <b>Cerca Fernandina</b>, também conhecidas por <b>muralhas fernandinas de Lisboa</b>, são as muralhas da cidade de Lisboa correspondentes à ampliação da cerca velha da era de César, levada a cabo por D. Fernando I no ano 1373 d.C..</p>"
+  },
+  "point": {
+   "lon": -9.142589569091797,
+   "lat": 38.71142578125
+  }
+ }
+}

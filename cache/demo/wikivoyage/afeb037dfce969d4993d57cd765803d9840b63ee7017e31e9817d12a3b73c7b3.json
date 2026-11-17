@@ -1,0 +1,26 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon/Baixa",
+   "prop": "wikitext",
+   "section": "5",
+   "format": "json"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951628.1158762,
+ "response": {
+  "parse": {
+   "title": "Lisbon/Baixa",
+   "pageid": 186249,
+   "wikitext": {
+    "*": "==Eat==\n* {{eat\n| name=Leitaria Camponeza | alt= | url= | email=leitaria.acamponeza@gmail.com\n| address=Rua dos Sapateiros, 155 | lat=38.71165 | long=-9.13858 | directions=Baixa, 1 min from main street\n| phone=+351 923 132 488 | tollfree= | fax=\n| hours=Daily 19:00-23:00 | price=€15-30\n|lastedit=2021-09-29| content=On the location of a historical café (the ''leitaria''), this place focuses on only a short number of dishes (meats, fish and seafood) but makes up for this in quality and portion size. For an atmospheric presentation ask for one of their ''espetadas''. The wines complement the dishes and you can end the meal with a dessert. For someone looking for great value for their buck (no compromises on quality), it's a good place to start or end an evening.\n}}\n* {{eat | name=Mercado da Praça da Figueira | alt= | url=https://varn.pt/mercado-da-praca-da-figueira/ | email=mercadodafigueira@varn.pt | address=Praça da Figueira 10B | lat=38.7141 | long=-9.1372 | directions= | phone=+351 211 450 650 | tollfree= | hours=Mon–Sat 08:30–20:00, closed Sun | price= | lastedit=2021-01-08 | content=From the pavement looks like a small convenience shop, on walking in you realize the deception when confronted by the large cavernous meandering interior space, replete with everything expected from a well stocked supermarket. Although there isn't a restaurant as such, the ready to eat items on offer are tasty, fresh, inexpensive and varied. The sandwiches and hamburgers are superb.\n}} {{Dead link|date=October 2026 |bot=InternetArchiveBot }}\n* {{eat\n| name=Mercado Oriental | alt=Supermercado Oriental - Amanhecer | url= | email=\n| address=R. Palma 41 A | lat=38.7160 | long=-9.1369 | directions=Martim Moniz Station\n| phone=+351 962 733 482 | tollfree=\n| hours=12:00–22:30 | price=Small dishes €3\n| content=A food court serving Asian street food and the only place in Lisbon where you can try Macanese cuisine (at a stall called \"Taberna Macau\").\n}}\n* {{eat\n| name=Néctar WineBar | alt= | url= | email=\n| address=R. dos Douradores, 33 | lat=38.71031 | long=-9.13632 | directions=Baixa Pombalina\n| phone=+351 912633368 | tollfree=\n| hours=Mon-Sat 13:00-24:00 | price=€25-35\n| content=A place dedicated to the promotion of Portugal's wine and gastronomic culture, and featuring a daily lunch menu of Portuguese and Mediterranean cuisine. The wine list comprises – in its vast majority – a selection of Portuguese wines which best represent the country. Wine can be bought by the glass, and it is served at the appropriate temperatures and in suitable glasses. Dishes – served in portions for 2 – easily replace a main course meal. Homemade-style desserts, for which sweet wines can be suggested. A modern and cosy atmosphere.\n}}\n* {{eat\n| name=Restaurante Bonjardim | alt= | url= | email=\n| address=Tv. de Santo Antão 11 | lat=38.715933 | long=-9.140602 | directions=Baixa – 2 bldgs on a small side street off Rua Santo Antão\n| phone=+351 21 342 4389 | tollfree= | fax=\n| hours=Daily 12:00-23:00 | price=\n| lastedit=2017-05-01\n| content=Appropriately nicknamed ''Rei dos Frangos'', this is home to the best greasy spit-roasted chicken this side of Louisiana.\n}}\n* {{eat\n| name=Restaurante Gambrinus | alt= | url=http://www.gambrinuslisboa.com/ | email=info@gambrinuslisboa.com\n| address=Rua das Portas de Santo Antao, 23 | lat=38.71530 | long=-9.13977 | directions=Four Seasons Hotel Ritz\n| phone=+351 21 342 1466 | tollfree= | fax=\n| hours=Daily 12:00-01:30 | price=\n| lastedit=2017-05-07\n| content=A restaurant-bar which is one of the most chic places in the city. Highly recognized in Lisbon as something of an institution, it attracts an eclectic crowd where the appeal is food and a great selection of beers, wines and spirits. Features smoking room, private parking with a doorman.\n}}"
+   }
+  }
+ }
+}

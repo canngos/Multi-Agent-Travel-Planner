@@ -1,0 +1,52 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/Q790492",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7038028,
+ "response": {
+  "xid": "Q790492",
+  "name": "Avenida da Liberdade",
+  "address": {
+   "city": "Santo António",
+   "road": "Avenida da Liberdade",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "country": "Portugal",
+   "postcode": "1269-038",
+   "country_code": "pt",
+   "neighbourhood": "São José",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "wikidata": "Q790492",
+  "kinds": "historic,historical_places,cultural,urban_environment,interesting_places,historic_settlements,squares",
+  "sources": {
+   "geometry": "wikidata",
+   "attributes": [
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/Q790492",
+  "wikipedia": "https://en.wikipedia.org/wiki/Avenida%20da%20Liberdade",
+  "image": "https://commons.wikimedia.org/wiki/File:Avenida_da_Liberdade_%2822344060581%29_%28cropped%29.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Avenida_da_Liberdade_%2822344060581%29_%28cropped%29.jpg/333px-Avenida_da_Liberdade_%2822344060581%29_%28cropped%29.jpg",
+   "height": 400,
+   "width": 333
+  },
+  "wikipedia_extracts": {
+   "title": "en:Avenida da Liberdade",
+   "text": "Avenida da Liberdade (Portuguese for \"Avenue of Liberty\") is an important boulevard in central Lisbon, Portugal, famous as one of the most expensive shopping streets in Europe. Originating in the Passeio Público, an 18th-century park built for the Portuguese nobility, the avenue was built in 1879, when the former park was turned into a major boulevard, marking the northward expansion of the city during the 19th century. It has since become one of the most prestigious addresses in Portugal and one of Europe's most popular luxury shopping destinations, as the home to numerous luxury stores, boutiques, and hotels. The Avenida is also home to numerous embassies and diplomatic missions.",
+   "html": "<p><b>Avenida da Liberdade</b> (Portuguese for <i>\"Avenue of Liberty\"</i>) is an important boulevard in central Lisbon, Portugal, famous as one of the most expensive shopping streets in Europe. Originating in the <i>Passeio Público</i>, an 18th-century park built for the Portuguese nobility, the avenue was built in 1879, when the former park was turned into a major boulevard, marking the northward expansion of the city during the 19th century. It has since become one of the most prestigious addresses in Portugal and one of Europe's most popular luxury shopping destinations, as the home to numerous luxury stores, boutiques, and hotels. The Avenida is also home to numerous embassies and diplomatic missions.</p>"
+  },
+  "point": {
+   "lon": -9.14531135559082,
+   "lat": 38.719566345214844
+  }
+ }
+}

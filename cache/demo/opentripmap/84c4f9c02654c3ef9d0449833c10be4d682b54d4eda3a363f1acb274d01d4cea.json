@@ -1,0 +1,54 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N1148841800",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7130291,
+ "response": {
+  "xid": "N1148841800",
+  "name": "São Bento Palace",
+  "address": {
+   "city": "Misericórdia",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "São Bento",
+   "country": "Portugal",
+   "postcode": "1200-996",
+   "country_code": "pt",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/1148841800",
+  "wikidata": "Q1464499",
+  "kinds": "religion,palaces,architecture,historic_architecture,historic,historical_places,monasteries,interesting_places,historic_districts",
+  "url": "http://www.parlamento.pt",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N1148841800",
+  "wikipedia": "https://en.wikipedia.org/wiki/S%C3%A3o%20Bento%20Palace",
+  "image": "https://commons.wikimedia.org/wiki/File:Parlamento_April_2009-1a.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Parlamento_April_2009-1a.jpg/400px-Parlamento_April_2009-1a.jpg",
+   "height": 128,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:São Bento Palace",
+   "text": "São Bento Palace (Portuguese: Palácio de São Bento \"Saint Benedict's Palace\") in Lisbon is the seat of the Assembly of the Portuguese Republic, the parliament of Portugal. Originally constructed in 1598, São Bento has served as the seat of Portugal's parliament since 1834, when the former monastery of the Benedictine Order was dissolved after the Liberal Wars. During the Portuguese constitutional monarchy, the palace served as the seat of the Cortes Gerais, the traditional parliaments of Portugal, until 1910.São Bento Mansion, the official residence of the Prime Minister of Portugal, is located within the grounds of São Bento Palace.",
+   "html": "<p><b>São Bento Palace</b> (Portuguese: <span lang=\"pt\">Palácio de São Bento</span> \"Saint Benedict's Palace\") in Lisbon is the seat of the Assembly of the Portuguese Republic, the parliament of Portugal. Originally constructed in 1598, São Bento has served as the seat of Portugal's parliament since 1834, when the former monastery of the Benedictine Order was dissolved after the Liberal Wars. During the Portuguese constitutional monarchy, the palace served as the seat of the Cortes Gerais, the traditional parliaments of Portugal, until 1910.</p><p>São Bento Mansion, the official residence of the Prime Minister of Portugal, is located within the grounds of São Bento Palace.</p>"
+  },
+  "point": {
+   "lon": -9.153155326843262,
+   "lat": 38.71103286743164
+  }
+ }
+}

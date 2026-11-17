@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457851239",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951611.5704944,
+ "response": {
+  "xid": "N5457851239",
+  "name": "Monumento a Camões",
+  "address": {
+   "city": "Misericórdia",
+   "house": "Parque de Estacionamento",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "country": "Portugal",
+   "postcode": "1200-243",
+   "pedestrian": "Praça Luís de Camões",
+   "country_code": "pt",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457851239",
+  "wikidata": "Q10332143",
+  "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/luis-de-camoes",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457851239",
+  "wikipedia": "https://en.wikipedia.org/wiki/Cam%C3%B5es%20Monument",
+  "image": "https://commons.wikimedia.org/wiki/File:EstatuaCamoesLisboa.JPG",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/EstatuaCamoesLisboa.JPG/300px-EstatuaCamoesLisboa.JPG",
+   "height": 400,
+   "width": 300
+  },
+  "wikipedia_extracts": {
+   "title": "en:Camões Monument",
+   "text": "The Camões Monument (Portuguese: Monumento a Camões) is a monument located in Luís de Camões Square in the Chiado neighbourhood of Lisbon, Portugal. The monument comprises a tall bronze statue of Luís de Camões, the national poet, on a lioz limestone pillar surrounded by eight smaller statures of leading figures of Portuguese culture and literature in the Age of Discoveries: Fernão Lopes, Pedro Nunes, Gomes Eanes de Zurara, João de Barros, Fernão Lopes de Castanheda, Vasco Mouzinho de Quevedo, Jerónimo Corte-Real, and Francisco de Sá de Meneses.The monument was sculpted by Victor Bastos and unveiled in 1867, in the presence of King Luís I and his father, Ferdinand II.",
+   "html": "<p>The <b>Camões Monument</b> (Portuguese: <i lang=\"pt\">Monumento a Camões</i>) is a monument located in Luís de Camões Square in the Chiado neighbourhood of Lisbon, Portugal. The monument comprises a tall bronze statue of Luís de Camões, the national poet, on a lioz limestone pillar surrounded by eight smaller statures of leading figures of Portuguese culture and literature in the Age of Discoveries: Fernão Lopes, Pedro Nunes, Gomes Eanes de Zurara, João de Barros, Fernão Lopes de Castanheda, Vasco Mouzinho de Quevedo, Jerónimo Corte-Real, and Francisco de Sá de Meneses.</p><p>The monument was sculpted by Victor Bastos and unveiled in 1867, in the presence of King Luís I and his father, Ferdinand II.</p>"
+  },
+  "point": {
+   "lon": -9.14348316192627,
+   "lat": 38.7105712890625
+  }
+ }
+}

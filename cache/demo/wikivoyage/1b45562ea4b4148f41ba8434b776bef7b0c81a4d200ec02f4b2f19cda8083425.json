@@ -1,0 +1,123 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon/Belém",
+   "prop": "sections",
+   "format": "json",
+   "redirects": 1
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951625.1245122,
+ "response": {
+  "warnings": {
+   "main": {
+    "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+   },
+   "parse": {
+    "*": "\"prop=sections\" has been deprecated. Please use \"prop=tocdata\" instead."
+   }
+  },
+  "parse": {
+   "title": "Lisbon/Belém",
+   "pageid": 186253,
+   "redirects": [],
+   "sections": [
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Get in",
+     "number": "1",
+     "index": "1",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 161,
+     "anchor": "Get_in",
+     "linkAnchor": "Get_in"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "See",
+     "number": "2",
+     "index": "2",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 1167,
+     "anchor": "See",
+     "linkAnchor": "See"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Do",
+     "number": "3",
+     "index": "3",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 11061,
+     "anchor": "Do",
+     "linkAnchor": "Do"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Buy",
+     "number": "4",
+     "index": "4",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 12913,
+     "anchor": "Buy",
+     "linkAnchor": "Buy"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Eat",
+     "number": "5",
+     "index": "5",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 12922,
+     "anchor": "Eat",
+     "linkAnchor": "Eat"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Drink",
+     "number": "6",
+     "index": "6",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 15105,
+     "anchor": "Drink",
+     "linkAnchor": "Drink"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Sleep",
+     "number": "7",
+     "index": "7",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 16176,
+     "anchor": "Sleep",
+     "linkAnchor": "Sleep"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Connect",
+     "number": "8",
+     "index": "8",
+     "fromtitle": "Lisbon/Belém",
+     "byteoffset": 18407,
+     "anchor": "Connect",
+     "linkAnchor": "Connect"
+    }
+   ],
+   "showtoc": ""
+  }
+ }
+}

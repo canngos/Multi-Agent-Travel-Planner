@@ -1,0 +1,61 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W244539651",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794952125.9295108,
+ "response": {
+  "xid": "W244539651",
+  "name": "British Cemetery",
+  "address": {
+   "city": "Campo de Ourique",
+   "road": "Rua Saraiva de Carvalho",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Santa Isabel",
+   "country": "Portugal",
+   "postcode": "1250-245",
+   "country_code": "pt",
+   "neighbourhood": "Amoreiras",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/244539651",
+  "bbox": {
+   "lon_min": -9.161208,
+   "lon_max": -9.159521,
+   "lat_min": 38.715667,
+   "lat_max": 38.717175
+  },
+  "wikidata": "Q105643355",
+  "kinds": "cemeteries,historic,burial_places,interesting_places",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W244539651",
+  "wikipedia": "https://en.wikipedia.org/wiki/British%20Cemetery%2C%20Lisbon",
+  "image": "https://commons.wikimedia.org/wiki/File:Entrance_to_English_Cemetery_-_Lisbon.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Entrance_to_English_Cemetery_-_Lisbon.jpg/400px-Entrance_to_English_Cemetery_-_Lisbon.jpg",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:British Cemetery, Lisbon",
+   "text": "The British Cemetery (Cemitério dos Ingleses) in the Portuguese capital of Lisbon was established in the early 18th century. It is located in the Estrela district of the city and surrounds the Anglican St George's Church. The first marked grave is dated 1724. The Cemetery contains graves of early British Protestant residents and long-established British families in Portugal as well as British visitors to Lisbon. There are also 31 Commonwealth War Graves. In addition, some British Catholics and non-British Protestants, particularly Dutch, are also buried there. There is a small Jewish cemetery in an adjacent plot. Amongst the famous English men buried in the Cemetery is the novelist Henry Fielding.",
+   "html": "<p>The <b>British Cemetery</b> (<i>Cemitério dos Ingleses</i>) in the Portuguese capital of Lisbon was established in the early 18th century. It is located in the Estrela district of the city and surrounds the Anglican St George's Church. The first marked grave is dated 1724. The Cemetery contains graves of early British Protestant residents and long-established British families in Portugal as well as British visitors to Lisbon. There are also 31 Commonwealth War Graves. In addition, some British Catholics and non-British Protestants, particularly Dutch, are also buried there. There is a small Jewish cemetery in an adjacent plot. Amongst the famous English men buried in the Cemetery is the novelist Henry Fielding.</p>"
+  },
+  "point": {
+   "lon": -9.16041088104248,
+   "lat": 38.71643829345703
+  }
+ }
+}

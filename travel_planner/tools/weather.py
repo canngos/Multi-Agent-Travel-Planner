@@ -1,6 +1,7 @@
 """Weather from Open-Meteo: forecast for the next ~2 weeks, otherwise the same dates last year."""
 from datetime import date, timedelta
 
+from .. import config
 from ._http import get_json
 from ._result import ToolError, ok, safe_tool
 
@@ -20,7 +21,7 @@ WMO = {
 
 
 def _today() -> date:  # patched in tests
-    return date.today()
+    return config.today()
 
 
 def _shift_year(d: date, years: int) -> date:

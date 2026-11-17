@@ -1,0 +1,57 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N6220668933",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7109568,
+ "response": {
+  "xid": "N6220668933",
+  "name": "Campo dos Mártires da Pátria (Lisbon)",
+  "address": {
+   "city": "Arroios",
+   "road": "Campo dos Mártires da Pátria",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Arroios",
+   "country": "Portugal",
+   "postcode": "1169-043",
+   "country_code": "pt",
+   "house_number": "31",
+   "neighbourhood": "Pena",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/6220668933",
+  "wikidata": "Q9678396",
+  "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,squares,monuments",
+  "url": "http://www.lisboapatrimoniocultural.pt/artepublica/placasevocativas/pecas/Paginas/Martires-da-Patria.aspx",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N6220668933",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Campo%20dos%20M%C3%A1rtires%20da%20P%C3%A1tria",
+  "image": "https://commons.wikimedia.org/wiki/File:Campo_Santana_05.JPG",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Campo_Santana_05.JPG/400px-Campo_Santana_05.JPG",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Campo dos Mártires da Pátria",
+   "text": "O Campo dos Mártires da Pátria, correntemente conhecido pelo seu nome anterior de Campo de Santana, é um arruamento da freguesia de Arroios em Lisboa. Ocupa a parte superior do tergo que separa os dois vales convergentes no centro da cidade, e que correspondem à Avenida da Liberdade e à Avenida Almirante Reis.É um espaço carregado de história, situado na zona central de Lisboa, que serviu de matadouro no século XVI e que conheceu vários usos ao longo dos últimos dois séculos, como sejam uma praça de touros, de 1831 a 1889, a realização da Feira da Ladra, de 1835 a 1882 e, ainda um mercado de hortaliças, em meados do século XIX.",
+   "html": "<p>O <b>Campo dos Mártires da Pátria</b>, correntemente conhecido pelo seu nome anterior de <b>Campo de Santana</b>, é um arruamento da freguesia de Arroios em Lisboa. Ocupa a parte superior do tergo que separa os dois vales convergentes no centro da cidade, e que correspondem à Avenida da Liberdade e à Avenida Almirante Reis.</p><p>É um espaço carregado de história, situado na zona central de Lisboa, que serviu de matadouro no século XVI e que conheceu vários usos ao longo dos últimos dois séculos, como sejam uma praça de touros, de 1831 a 1889, a realização da Feira da Ladra, de 1835 a 1882 e, ainda um mercado de hortaliças, em meados do século XIX.</p>"
+  },
+  "point": {
+   "lon": -9.140294075012207,
+   "lat": 38.721065521240234
+  }
+ }
+}

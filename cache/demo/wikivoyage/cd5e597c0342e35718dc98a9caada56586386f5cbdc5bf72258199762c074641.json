@@ -1,0 +1,26 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon",
+   "prop": "wikitext",
+   "section": "47",
+   "format": "json"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951618.986438,
+ "response": {
+  "parse": {
+   "title": "Lisbon",
+   "pageid": 19798,
+   "wikitext": {
+    "*": "==Eat==\n<!-- Please place individual entries under the appropriate districts, not here. This is for general description and pointers only. -->\n\n[[File:Lisbon 162 (31787624974).jpg|thumb|Time Out Market, in the Mercado da Ribeira]]\n\n{{SeeDistricts}}\n\nPortuguese dining rituals tend to follow the Mediterranean siesta body clock. Most restaurants are very small, family-run and generally inexpensive. Some of them have a sheet on the door with the ''pratos do dia'' (dishes of the day) written on it – these dishes are usually cheaper and fresher than the rest of menu there, and unless you're looking for something specific, they're the right choice. During the dinner the waiter will probably bring you some unrequested starter dishes (called ''couvert''); as those are not free, don't feel obliged to touch them and they will not be charged on your bill (but check it!).\n\nTraditional Portuguese restaurants are in '''Bairro Alto''', scattered abundantly through its quirky narrow streets, and for Portuguese traditional cuisine at its finest, head to the area of '''Chiado'''. Tour groups primarily feel at home in '''Alfama'''. Tourist traps with laminated menus and meal deals are mostly concentrated in the '''Baixa''' area; one exception to this is the '''Rua das Portas de Santo Antão''', a 'seafood strip' northeast from and parallel to Praça dos Restauradores. If you feel like eating with the local people, try the '''Castelo''' neighborhood, the smaller family run places serve a fixed daily menu and are not expensive, getting up there by foot will open an appetite, or else go in the ''elétrico''. For a familiar taste at one of the many chain eateries, head to '''Doca de Santo Amaro''' (''train/tram 15 station Alcantara-Mar'') and '''Parque das Nações''' (''metro Oriental''). All the culinary and clubbing kudos is right now concentrated in '''Doca de Jardim de Tabaco''' (''piece of river waterfront right under Castelo de Sao Jorge''). Quality dishes for a high price are in well-to-do '''Lapa'''. The Pastel De Nata is one of Portugal's most well known foods, with this delightful custard egg tart best found in '''Belem'''.\n\nTry the magnificent ''pastéis de nata'' at any pastry shop.\n\nNever ask a taxi driver about which restaurant you should go to – they will take you to an expensive tourist-oriented restaurant, where they will receive a commission.\n\nYou will find traditional meals served in small coffee shops and restaurants, especially in the old parts of town. Some will be better than others, just check if there are a lot of locals eating there! They will be very cheap (as little as €5 for a full meal) and home-style cooking. The owners probably won't speak English and the menu will probably be in Portuguese only!"
+   }
+  }
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.tavily.com/search",
+  "params": {},
+  "json": {
+   "query": "Jerónimos Monastery ticket price 2027",
+   "max_results": 3,
+   "search_depth": "basic",
+   "include_answer": true
+  },
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794952146.4132702,
+ "response": {
+  "query": "Jerónimos Monastery ticket price 2027",
+  "follow_up_questions": null,
+  "answer": "The sources indicate that the ticket price for Jerónimos Monastery will increase from €12 to €18 starting from the new year. This information is provided by an Instagram post from ivanainportugal. The Jerónimos Monastery Cloister Tickets & Highlights page and the Get Your Guide listing do not specify future ticket prices but list current and other related attractions' prices starting from €15. There is no information about ticket prices beyond the stated increase.",
+  "images": [],
+  "results": [
+   {
+    "url": "https://www.instagram.com/p/DC2CCmKMesb",
+    "title": "Instagram",
+    "content": "ivanainportugal\n\nStarting from the new year, entrance fees for several museums and monuments will change:  \n • Jerónimos Monastery: The fee will increase from €12 to €18.  \n • Belém Tower: The fee will rise significantly from €8 to €15.  \n  \nI bought my tickets on @getyourguide—it’s definitely the easiest way!  \n  \nMaybe these price increases will help reduce the long queues. What do you think—would you like to visit?\n\nsousadeivede's profile picture\n\nsousadeivede\n\n😍😍😍😍😍🌹🌹🌹🌹🌹\n\nReply",
+    "score": 0.5548323,
+    "raw_content": null,
+    "id": "695bfe-00"
+   },
+   {
+    "url": "https://www.jeronimosmonasterytickets.com/cloister",
+    "title": "Jeronimos Monastery Cloister Tickets & Highlights",
+    "content": "from\n\n€15\n\nNational Palace of Mafra facade with twin bell towers and central dome, Portugal.\n\n4.6(1,858)\n\nMafra National Palace\n\nfrom\n\n€15\n\nMonastery of Batalha's Gothic facade with intricate stonework in Portugal.\n\n4.5(2,087)\n\nBatalha Monastery\n\nfrom\n\n€15\n\nCeramic tile mural depicting religious scene at National Tile Museum, Lisbon.\n\n4.5(1,982)\n\nNational Tile Museum\n\nfrom\n\n€31\n\nPadrão dos Descobrimentos monument in Lisbon, Portugal, at sunset with statues of explorers.\n\n5(5) [...] from\n\n€23\n\nHistoric green carriage on display at the National Coach Museum, Lisbon.\n\n4.6(114)\n\nNational Coach Museum in Lisbon\n\nfrom\n\n€15\n\nFacade of the Maritime Museum in Lisbon with twin spires and arched entrance.\n\n4.6(145)\n\nMaritime Museum\n\nfrom\n\n€7\n\nNational Pantheon facade in Lisbon with visitors on steps.\n\n4.5(4,589)\n\nNational Pantheon\n\nfrom\n\n€10\n\nNational Palace of Ajuda facade with green lawn in Lisbon, Portugal.\n\n4.6(1,958)\n\nAjuda National Palace\n\nfrom\n\n€15 [...] The church is free but separate. The cloister is the main ticketed space, with the monastery’s richest carved arcades and two-story layout.\n\n## More reads\n\n### Jerónimos Monastery tickets, timings, and visit planning guide\n\n### Jerónimos Monastery history, architecture, and Manueline details explained\n\n### Who is buried at the monastery\n\nMonastery of Jerónimos\n\n4.6(20,112)\n\n# Cloisters\n\nIncluded with Monastery of Jerónimos tickets\n\nTimings",
+    "score": 0.44610256,
+    "raw_content": null,
+    "id": "2c49e8-01"
+   },
+   {
+    "url": "https://www.getyourguide.com/jeronimos-monastery-l3594",
+    "title": "Jerónimos Monastery, Lisbon - Book Tickets & Tours - 2026 (Verified Reviews)",
+    "content": "image\n\nTop pick\n\nJerónimos Monastery Entrance Ticket1 day\n\n4.2\n\n(16,592)\n\n$20image\n\nBooked 6 times yesterday\n\nJerónimos Monastery Skip the Ticket Line Entry & Audio Guide1 day • Skip the line • Optional audio guide\n\n4\n\n(535)\n\n$23image\n\nNew activity\n\nJerónimos Monastery Entry Ticket with Hotel Pickup2 hours • Skip the line • Pickup available\n\nFrom$35image\n\nBooked 5 times yesterday\n\nBelém & Jerónimos Monastery Tour3 hours • Private option available\n\n4.9\n\n(1,369)\n\nFrom$65$55image\n\nTop rated [...] Top rated\n\nJerónimos Monastery, Tickets and Guided Tour2 hours\n\n4.9\n\n(303)\n\nFrom$60$48image\n\nVisit Jerónimos Monastery – São Jorge Castle Option1 hour • Skip the line\n\n5\n\n(2)\n\nFrom$35image\n\nJerónimos Monastery: History Lovers’ Guided Tour1 hour • Private group\n\n5\n\n(2)\n\nFrom$55image\n\nTop rated\n\nBelem Walking Tour with Jeronimos Monastery Entry3 hours • Skip the line • Private option available\n\n4.9\n\n(307)\n\nFrom$80$68image\n\nBooked 2 times yesterday [...] From$87$78image\n\nNew activity\n\nGuided Tour of Belém: Tower, Discoveries Monument and Monastery2.5 hours\n\nFrom$38$31image\n\nNew activity\n\nBelém Private Limo Tuk-Tuk Tour with Pastel de Belém2 hours • Skip the line • Private group\n\nFrom$88$53image\n\nTop rated\n\nBelém Walking Tour with Jerónimos Monastery Ticket3 hours • Skip the line\n\n4.7\n\n(666)\n\nFrom$58$55image\n\nBelém & Age of Discoveries Tuk Tuk Tour2 hours • Small group\n\n5\n\n(2)\n\nFrom$55$44image\n\nNew activity",
+    "score": 0.43284237,
+    "raw_content": null,
+    "id": "fb6810-02"
+   }
+  ],
+  "response_time": 2.15,
+  "request_id": "e0bea68a-2392-4afc-a6d8-40279da47ac1"
+ }
+}

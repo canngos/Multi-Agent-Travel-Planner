@@ -1,0 +1,947 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.transitous.org/api/v5/plan",
+  "params": {
+   "fromPlace": "60.1695,24.9354",
+   "toPlace": "38.7251,-9.1498",
+   "time": "2027-05-10T07:00:00Z",
+   "numItineraries": 3
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951607.695108,
+ "response": {
+  "itineraries": [
+   {
+    "duration": 325080,
+    "startTime": "2027-05-10T11:47:00Z",
+    "endTime": "2027-05-14T06:05:00Z",
+    "transfers": 5,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T11:47:00Z",
+      "endTime": "2027-05-10T11:50:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Kamppi (kaukoliikenneterminaali)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16973000000001,
+       "lon": 24.933567
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 120,
+      "routeShortName": "192",
+      "agencyName": "Salon Tilausmatkat Oy, Länsi-Uusimaa",
+      "agencyUrl": "https://www.matkahuolto.fi",
+      "startTime": "2027-05-10T11:50:00Z",
+      "endTime": "2027-05-10T11:52:00Z",
+      "from": {
+       "name": "Kamppi (kaukoliikenneterminaali)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16973000000001,
+       "lon": 24.933567
+      },
+      "to": {
+       "name": "Pohj. Rautatiekatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.17086,
+       "lon": 24.930899
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T11:52:00Z",
+      "endTime": "2027-05-10T11:54:00Z",
+      "from": {
+       "name": "Pohj. Rautatiekatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.17086,
+       "lon": 24.930899
+      },
+      "to": {
+       "name": "Helsinki, Bus Station (Kamppi)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.169407,
+       "lon": 24.933535
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 73800,
+      "routeShortName": "FlixBus N1205",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-10T11:55:00Z",
+      "endTime": "2027-05-11T08:25:00Z",
+      "from": {
+       "name": "Helsinki, Bus Station (Kamppi)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.169407,
+       "lon": 24.933535
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-11T08:25:00Z",
+      "endTime": "2027-05-11T08:27:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 87600,
+      "routeShortName": "FlixBus N1305",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-11T11:20:00Z",
+      "endTime": "2027-05-12T11:40:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-12T11:40:00Z",
+      "endTime": "2027-05-12T11:42:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 59400,
+      "routeShortName": "FlixBus 793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-12T14:25:00Z",
+      "endTime": "2027-05-13T06:55:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T06:55:00Z",
+      "endTime": "2027-05-13T06:57:00Z",
+      "from": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      },
+      "to": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 27000,
+      "routeShortName": "FlixBus N793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-13T21:55:00Z",
+      "endTime": "2027-05-14T05:25:00Z",
+      "from": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      },
+      "to": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-14T05:25:00Z",
+      "endTime": "2027-05-14T05:27:00Z",
+      "from": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      },
+      "to": {
+       "name": "CV PIEDADE R SAMEIRO ANTUNES FARMÁCIA",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66805600000001,
+       "lon": -9.164769999999999
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 1740,
+      "routeShortName": "3715",
+      "agencyName": "Carris Metropolitana",
+      "agencyUrl": "https://carrismetropolitana.pt",
+      "startTime": "2027-05-14T05:31:00Z",
+      "endTime": "2027-05-14T06:00:00Z",
+      "from": {
+       "name": "CV PIEDADE R SAMEIRO ANTUNES FARMÁCIA",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66805600000001,
+       "lon": -9.164769999999999
+      },
+      "to": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-14T06:00:00Z",
+      "endTime": "2027-05-14T06:05:00Z",
+      "from": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   },
+   {
+    "duration": 276480,
+    "startTime": "2027-05-10T11:47:00Z",
+    "endTime": "2027-05-13T16:35:00Z",
+    "transfers": 6,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T11:47:00Z",
+      "endTime": "2027-05-10T11:50:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Kamppi (kaukoliikenneterminaali)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16973000000001,
+       "lon": 24.933567
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 120,
+      "routeShortName": "192",
+      "agencyName": "Salon Tilausmatkat Oy, Länsi-Uusimaa",
+      "agencyUrl": "https://www.matkahuolto.fi",
+      "startTime": "2027-05-10T11:50:00Z",
+      "endTime": "2027-05-10T11:52:00Z",
+      "from": {
+       "name": "Kamppi (kaukoliikenneterminaali)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16973000000001,
+       "lon": 24.933567
+      },
+      "to": {
+       "name": "Pohj. Rautatiekatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.17086,
+       "lon": 24.930899
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T11:52:00Z",
+      "endTime": "2027-05-10T11:54:00Z",
+      "from": {
+       "name": "Pohj. Rautatiekatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.17086,
+       "lon": 24.930899
+      },
+      "to": {
+       "name": "Helsinki, Bus Station (Kamppi)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.169407,
+       "lon": 24.933535
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 73800,
+      "routeShortName": "FlixBus N1205",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-10T11:55:00Z",
+      "endTime": "2027-05-11T08:25:00Z",
+      "from": {
+       "name": "Helsinki, Bus Station (Kamppi)",
+       "tz": "Europe/Helsinki",
+       "lat": 60.169407,
+       "lon": 24.933535
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-11T08:25:00Z",
+      "endTime": "2027-05-11T08:27:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 87600,
+      "routeShortName": "FlixBus N1305",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-11T11:20:00Z",
+      "endTime": "2027-05-12T11:40:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-12T11:40:00Z",
+      "endTime": "2027-05-12T11:42:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 88200,
+      "routeShortName": "FlixBus 793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-12T14:25:00Z",
+      "endTime": "2027-05-13T14:55:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Lisbon (Oriente)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76788,
+       "lon": -9.100762
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T14:55:00Z",
+      "endTime": "2027-05-13T14:57:00Z",
+      "from": {
+       "name": "Lisbon (Oriente)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.76788,
+       "lon": -9.100762
+      },
+      "to": {
+       "name": "Lisboa Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.767757,
+       "lon": -9.099094000000001
+      }
+     },
+     {
+      "mode": "SUBURBAN",
+      "duration": 1440,
+      "routeShortName": "Linha da Azambuja",
+      "agencyName": "CP - Comboios de Portugal",
+      "agencyUrl": "http://www.cp.pt",
+      "startTime": "2027-05-13T15:11:00Z",
+      "endTime": "2027-05-13T15:35:00Z",
+      "from": {
+       "name": "Lisboa Oriente",
+       "tz": "Europe/Lisbon",
+       "lat": 38.767757,
+       "lon": -9.099094000000001
+      },
+      "to": {
+       "name": "Alcantara - Terra",
+       "tz": "Europe/Lisbon",
+       "lat": 38.707436,
+       "lon": -9.173238
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T15:35:00Z",
+      "endTime": "2027-05-13T15:39:00Z",
+      "from": {
+       "name": "Alcantara - Terra",
+       "tz": "Europe/Lisbon",
+       "lat": 38.707436,
+       "lon": -9.173238
+      },
+      "to": {
+       "name": "LISBOA (AV CEUTA) QTA CABRINHA (PARQUE)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.710190000000004,
+       "lon": -9.174420999999999
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 540,
+      "routeShortName": "3717",
+      "agencyName": "Carris Metropolitana",
+      "agencyUrl": "https://carrismetropolitana.pt",
+      "startTime": "2027-05-13T15:39:00Z",
+      "endTime": "2027-05-13T15:48:00Z",
+      "from": {
+       "name": "LISBOA (AV CEUTA) QTA CABRINHA (PARQUE)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.710190000000004,
+       "lon": -9.174420999999999
+      },
+      "to": {
+       "name": "Ponte 25 de Abril (Portagens)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.673805,
+       "lon": -9.173993
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T15:48:00Z",
+      "endTime": "2027-05-13T15:50:00Z",
+      "from": {
+       "name": "Ponte 25 de Abril (Portagens)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.673805,
+       "lon": -9.173993
+      },
+      "to": {
+       "name": "PRAGAL (PORTAGEM)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.673946,
+       "lon": -9.173300999999999
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 1440,
+      "routeShortName": "3715",
+      "agencyName": "Carris Metropolitana",
+      "agencyUrl": "https://carrismetropolitana.pt",
+      "startTime": "2027-05-13T16:06:00Z",
+      "endTime": "2027-05-13T16:30:00Z",
+      "from": {
+       "name": "PRAGAL (PORTAGEM)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.673946,
+       "lon": -9.173300999999999
+      },
+      "to": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T16:30:00Z",
+      "endTime": "2027-05-13T16:35:00Z",
+      "from": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   },
+   {
+    "duration": 311220,
+    "startTime": "2027-05-10T15:38:00Z",
+    "endTime": "2027-05-14T06:05:00Z",
+    "transfers": 6,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 420,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T15:38:00Z",
+      "endTime": "2027-05-10T15:45:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1695,
+       "lon": 24.9354
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.171356,
+       "lon": 24.941443999999997
+      }
+     },
+     {
+      "mode": "SUBURBAN",
+      "duration": 3900,
+      "routeShortName": "Z",
+      "agencyName": "VR",
+      "agencyUrl": "https://vr.fi",
+      "startTime": "2027-05-10T15:45:00Z",
+      "endTime": "2027-05-10T16:50:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.171356,
+       "lon": 24.941443999999997
+      },
+      "to": {
+       "name": "Lahti",
+       "tz": "Europe/Helsinki",
+       "lat": 60.97647,
+       "lon": 25.657396000000002
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T16:50:00Z",
+      "endTime": "2027-05-10T16:52:00Z",
+      "from": {
+       "name": "Lahti",
+       "tz": "Europe/Helsinki",
+       "lat": 60.97647,
+       "lon": 25.657396000000002
+      },
+      "to": {
+       "name": "Lahti Matkakeskus",
+       "tz": "Europe/Helsinki",
+       "lat": 60.977042999999995,
+       "lon": 25.658781
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 6000,
+      "routeShortName": "3003",
+      "agencyName": "FlixBus Finland Oy",
+      "agencyUrl": "https://www.flixbus.fi/",
+      "startTime": "2027-05-10T17:00:00Z",
+      "endTime": "2027-05-10T18:40:00Z",
+      "from": {
+       "name": "Lahti Matkakeskus",
+       "tz": "Europe/Helsinki",
+       "lat": 60.977042999999995,
+       "lon": 25.658781
+      },
+      "to": {
+       "name": "Länsiterminali T2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.15134,
+       "lon": 24.914711
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-10T18:40:00Z",
+      "endTime": "2027-05-10T18:42:00Z",
+      "from": {
+       "name": "Länsiterminali T2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.15134,
+       "lon": 24.914711
+      },
+      "to": {
+       "name": "Helsinki, Harbour Terminal 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.15127999999999,
+       "lon": 24.91466
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 73800,
+      "routeShortName": "FlixBus N1207",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-10T19:30:00Z",
+      "endTime": "2027-05-11T16:00:00Z",
+      "from": {
+       "name": "Helsinki, Harbour Terminal 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.15127999999999,
+       "lon": 24.91466
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-11T16:00:00Z",
+      "endTime": "2027-05-11T16:02:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 90600,
+      "routeShortName": "FlixBus N1320",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-11T17:10:00Z",
+      "endTime": "2027-05-12T18:20:00Z",
+      "from": {
+       "name": "Warsaw, Bus Station West",
+       "tz": "Europe/Warsaw",
+       "lat": 52.218094,
+       "lon": 20.963779999999996
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-12T18:20:00Z",
+      "endTime": "2027-05-12T18:22:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 59100,
+      "routeShortName": "FlixBus N7793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-12T19:00:00Z",
+      "endTime": "2027-05-13T11:25:00Z",
+      "from": {
+       "name": "Paris (Bercy Seine)",
+       "tz": "Europe/Paris",
+       "lat": 48.83532,
+       "lon": 2.380519
+      },
+      "to": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-13T11:25:00Z",
+      "endTime": "2027-05-13T11:27:00Z",
+      "from": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      },
+      "to": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      }
+     },
+     {
+      "mode": "COACH",
+      "duration": 27000,
+      "routeShortName": "FlixBus N793",
+      "agencyName": "FlixBus-eu",
+      "agencyUrl": "https://global.flixbus.com",
+      "startTime": "2027-05-13T21:55:00Z",
+      "endTime": "2027-05-14T05:25:00Z",
+      "from": {
+       "name": "Madrid (South Bus Station)",
+       "tz": "Europe/Madrid",
+       "lat": 40.395256,
+       "lon": -3.677876
+      },
+      "to": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-14T05:25:00Z",
+      "endTime": "2027-05-14T05:27:00Z",
+      "from": {
+       "name": "Almada (Metro Cova Piedade)",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66789,
+       "lon": -9.164610999999999
+      },
+      "to": {
+       "name": "CV PIEDADE R SAMEIRO ANTUNES FARMÁCIA",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66805600000001,
+       "lon": -9.164769999999999
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 1740,
+      "routeShortName": "3715",
+      "agencyName": "Carris Metropolitana",
+      "agencyUrl": "https://carrismetropolitana.pt",
+      "startTime": "2027-05-14T05:31:00Z",
+      "endTime": "2027-05-14T06:00:00Z",
+      "from": {
+       "name": "CV PIEDADE R SAMEIRO ANTUNES FARMÁCIA",
+       "tz": "Europe/Lisbon",
+       "lat": 38.66805600000001,
+       "lon": -9.164769999999999
+      },
+      "to": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2027-05-14T06:00:00Z",
+      "endTime": "2027-05-14T06:05:00Z",
+      "from": {
+       "name": "Marquês de Pombal (Metro) P6",
+       "tz": "Europe/Lisbon",
+       "lat": 38.725640000000006,
+       "lon": -9.152677
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Lisbon",
+       "lat": 38.7251,
+       "lon": -9.1498
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

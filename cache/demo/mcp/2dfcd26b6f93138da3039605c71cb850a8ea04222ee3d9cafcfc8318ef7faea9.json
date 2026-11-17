@@ -1,0 +1,149 @@
+{
+ "request": {
+  "tool": "search-flight",
+  "args": {
+   "adults": 2,
+   "departureDate": "14/05/2027",
+   "flyFrom": "LIS",
+   "flyTo": "HEL"
+  }
+ },
+ "saved_at": 1794951613.051285,
+ "response": {
+  "status": "ok",
+  "count": 10,
+  "results": [
+   {
+    "mode": "flight",
+    "operator": "Ryanair, SAS",
+    "depart": "2027-05-14T06:50",
+    "arrive": "2027-05-14T20:25",
+    "duration_min": 695,
+    "stops": 2,
+    "price_eur": 283.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/3xgwh26",
+    "details": "LIS → AGP → ARN → HEL; FR3682 LIS 06:50→AGP 09:05 | SK1584 AGP 11:20→ARN 15:35 | SK720 ARN 18:30→HEL 20:25; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "TAP Portugal, SAS",
+    "depart": "2027-05-14T07:30",
+    "arrive": "2027-05-14T20:25",
+    "duration_min": 655,
+    "stops": 2,
+    "price_eur": 355.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/5krkyj",
+    "details": "LIS → AGP → ARN → HEL; TP1134 LIS 07:30→AGP 09:45 | SK1584 AGP 11:20→ARN 15:35 | SK720 ARN 18:30→HEL 20:25; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "easyJet, Norwegian Air Sweden",
+    "depart": "2027-05-14T07:05",
+    "arrive": "2027-05-14T19:10",
+    "duration_min": 605,
+    "stops": 1,
+    "price_eur": 382.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/bm697x",
+    "details": "LIS → BCN → HEL; U27655 LIS 07:05→BCN 09:55 | D82901 BCN 14:10→HEL 19:10; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Iberia Airlines, Vueling, Finnair",
+    "depart": "2027-05-14T06:35",
+    "arrive": "2027-05-14T18:40",
+    "duration_min": 605,
+    "stops": 2,
+    "price_eur": 382.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/6qyvj7h",
+    "details": "LIS → MAD → ARN → HEL; IB540 LIS 06:35→MAD 09:00 | VY5128 MAD 10:15→ARN 14:10 | AY814 ARN 16:40→HEL 18:40; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Finnair",
+    "depart": "2027-05-14T16:35",
+    "arrive": "2027-05-14T23:10",
+    "duration_min": 275,
+    "stops": 0,
+    "price_eur": 387.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/td7ff32",
+    "details": "LIS → HEL; AY1740 LIS 16:35→HEL 23:10; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Ryanair, Finnair",
+    "depart": "2027-05-14T11:10",
+    "arrive": "2027-05-14T23:00",
+    "duration_min": 590,
+    "stops": 1,
+    "price_eur": 387.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/95v45v",
+    "details": "LIS → STN → HEL; FR1883 LIS 11:10→STN 13:55 | AY1338 LHR 18:10→HEL 23:00; AIRPORT CHANGE during layover (STN→LHR): you must travel between airports yourself; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Ryanair, Norwegian Air Sweden",
+    "depart": "2027-05-14T06:50",
+    "arrive": "2027-05-14T16:40",
+    "duration_min": 470,
+    "stops": 1,
+    "price_eur": 396.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/rxxqd3",
+    "details": "LIS → AGP → HEL; FR3682 LIS 06:50→AGP 09:05 | D82883 AGP 11:05→HEL 16:40; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "TAP Portugal, Finnair",
+    "depart": "2027-05-14T20:40",
+    "arrive": "2027-05-15T06:30",
+    "duration_min": 470,
+    "stops": 1,
+    "price_eur": 406.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/2h6tqkb",
+    "details": "LIS → AGP → HEL; TP1138 LIS 20:40→AGP 22:55 | AY1676 AGP 01:00→HEL 06:30; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "TAP Portugal, Finnair",
+    "depart": "2027-05-14T08:00",
+    "arrive": "2027-05-14T16:35",
+    "duration_min": 395,
+    "stops": 1,
+    "price_eur": 416.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/5hx9mx",
+    "details": "LIS → ARN → HEL; TP780 LIS 08:00→ARN 13:20 | AY822 ARN 14:35→HEL 16:35; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "TAP Portugal, Finnair",
+    "depart": "2027-05-14T08:00",
+    "arrive": "2027-05-14T18:40",
+    "duration_min": 520,
+    "stops": 1,
+    "price_eur": 416.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/bgxxp3",
+    "details": "LIS → ARN → HEL; TP780 LIS 08:00→ARN 13:20 | AY814 ARN 16:40→HEL 18:40; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   }
+  ],
+  "query": "LIS → HEL on 14/05/2027, 2 adults"
+ }
+}

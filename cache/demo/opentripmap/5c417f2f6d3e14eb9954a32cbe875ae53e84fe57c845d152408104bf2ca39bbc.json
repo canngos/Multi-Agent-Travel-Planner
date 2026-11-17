@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457851287",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951610.6139867,
+ "response": {
+  "xid": "N5457851287",
+  "name": "João de Deus Museum",
+  "address": {
+   "city": "Campo de Ourique",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Santa Isabel",
+   "country": "Portugal",
+   "postcode": "1250-017",
+   "country_code": "pt",
+   "neighbourhood": "Amoreiras",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457851287",
+  "wikidata": "Q90314853",
+  "kinds": "biographical_museums,historic,urban_environment,museums,historic_house_museums,monuments_and_memorials,cultural,interesting_places,history_museums,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/joao-de-deus;http://www.joaodeus.pt/museu/museu.asp",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457851287",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Museu%20Jo%C3%A3o%20de%20Deus",
+  "image": "https://commons.wikimedia.org/wiki/File:Fachada_do_Museu_e_Jardim-Escola_Jo%C3%A3o_de_Deus.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Fachada_do_Museu_e_Jardim-Escola_Jo%C3%A3o_de_Deus.jpg/400px-Fachada_do_Museu_e_Jardim-Escola_Jo%C3%A3o_de_Deus.jpg",
+   "height": 267,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Museu João de Deus",
+   "text": "O Museu João de Deus é uma casa-museu de cariz Bibliográfico, Pedagógico e Artístico. Foi solenemente inaugurado em 12 de Janeiro de 1917. Após a Implantação da República, um grupo de Republicanos abordou o filho do poeta João de Deus - João de Deus Ramos - para concretizar um projecto para a expansão de ideais. Contaram com a ajuda de Afonso Lopes Vieira, que levou à imprensa a ideia de construção do Museu João de Deus, com dois objectivos: o de ser um monumento ao poeta e também uma biblioteca de apoio à cultura portuguesa. Da autoria do arquitecto Raul Lino, conta com pinturas de Leal da Câmara.",
+   "html": "<p>O <b>Museu João de Deus</b> é uma casa-museu de cariz Bibliográfico, Pedagógico e Artístico. Foi solenemente inaugurado em 12 de Janeiro de 1917. Após a Implantação da República, um grupo de Republicanos abordou o filho do poeta João de Deus - <i>João de Deus Ramos</i> - para concretizar um projecto para a expansão de ideais. Contaram com a ajuda de Afonso Lopes Vieira, que levou à imprensa a ideia de construção do <b>Museu João de Deus</b>, com dois objectivos: o de ser um monumento ao poeta e também uma biblioteca de apoio à cultura portuguesa. Da autoria do arquitecto Raul Lino, conta com pinturas de Leal da Câmara.</p>"
+  },
+  "point": {
+   "lon": -9.158699035644531,
+   "lat": 38.71509552001953
+  }
+ }
+}

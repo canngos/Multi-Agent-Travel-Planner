@@ -1,0 +1,156 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Lisbon/Alfama",
+   "prop": "sections",
+   "format": "json",
+   "redirects": 1
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951745.0588644,
+ "response": {
+  "warnings": {
+   "main": {
+    "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+   },
+   "parse": {
+    "*": "\"prop=sections\" has been deprecated. Please use \"prop=tocdata\" instead."
+   }
+  },
+  "parse": {
+   "title": "Lisbon/Alfama",
+   "pageid": 186252,
+   "redirects": [],
+   "sections": [
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Get in",
+     "number": "1",
+     "index": "1",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 73,
+     "anchor": "Get_in",
+     "linkAnchor": "Get_in"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "See",
+     "number": "2",
+     "index": "2",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 1259,
+     "anchor": "See",
+     "linkAnchor": "See"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Do",
+     "number": "3",
+     "index": "3",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 8606,
+     "anchor": "Do",
+     "linkAnchor": "Do"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Buy",
+     "number": "4",
+     "index": "4",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 9061,
+     "anchor": "Buy",
+     "linkAnchor": "Buy"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Eat",
+     "number": "5",
+     "index": "5",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 9719,
+     "anchor": "Eat",
+     "linkAnchor": "Eat"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Budget",
+     "number": "5.1",
+     "index": "6",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 9728,
+     "anchor": "Budget",
+     "linkAnchor": "Budget"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Mid-range",
+     "number": "5.2",
+     "index": "7",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 11355,
+     "anchor": "Mid-range",
+     "linkAnchor": "Mid-range"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Splurge",
+     "number": "5.3",
+     "index": "8",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 13047,
+     "anchor": "Splurge",
+     "linkAnchor": "Splurge"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Drink",
+     "number": "6",
+     "index": "9",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 13597,
+     "anchor": "Drink",
+     "linkAnchor": "Drink"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Sleep",
+     "number": "7",
+     "index": "10",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 15006,
+     "anchor": "Sleep",
+     "linkAnchor": "Sleep"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Connect",
+     "number": "8",
+     "index": "11",
+     "fromtitle": "Lisbon/Alfama",
+     "byteoffset": 19323,
+     "anchor": "Connect",
+     "linkAnchor": "Connect"
+    }
+   ],
+   "showtoc": ""
+  }
+ }
+}

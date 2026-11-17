@@ -1,0 +1,19 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.transitous.org/api/v5/plan",
+  "params": {
+   "fromPlace": "38.7251,-9.1498",
+   "toPlace": "60.1695,24.9354",
+   "time": "2027-05-14T07:00:00Z",
+   "numItineraries": 3
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951613.8899205,
+ "response": {
+  "itineraries": []
+ }
+}

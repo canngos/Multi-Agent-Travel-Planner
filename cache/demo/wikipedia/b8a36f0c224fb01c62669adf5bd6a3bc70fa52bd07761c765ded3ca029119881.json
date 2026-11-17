@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Belém Tower",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951680.13248,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "pageid": 1608923,
+     "ns": 0,
+     "title": "Belém Tower",
+     "extract": "Belém Tower (Portuguese: Torre de Belém, pronounced [ˈtoʁɨ ðɨ βɨˈlɐ̃j]; literally: Bethlehem Tower), officially the Tower of Saint Vincent (Portuguese: Torre de São Vicente), is a 16th-century fortification located in Lisbon, Portugal, which served as a point of embarkation and disembarkation for Portuguese explorers and as a ceremonial gateway to Lisbon. The tower symbolizes Portugal's maritime and colonial power in early modern Europe. It was built during the height of the Portuguese Renaissance and is a prominent example of the Portuguese Manueline style, but it also incorporates other architectural styles, such as the minarets, which are inspired by Moorish architecture. The structure was built from lioz limestone, a material local to the Lisbon region, and is composed of a bastion and a 30-metre (100 ft) four-storey tower.\nSince 1983, the tower has been a UNESCO World Heritage Site, along with the Jerónimos Monastery. It is often portrayed as a symbol of Europe's Age of Discoveries and as a metonym for Portugal or Lisbon, given its landmark status. It has incorrectly been stated that the tower was built in the middle of the Tagus and now sits near the shore because the river was redirected after the 1755 Lisbon earthquake. In fact, the tower was built on a small island in the Tagus river near the Lisbon shore.",
+     "coordinates": [
+      {
+       "lat": 38.69166667,
+       "lon": -9.21611111,
+       "primary": true,
+       "globe": "earth"
+      }
+     ],
+     "description": "Fortified tower in Lisbon, Portugal",
+     "descriptionsource": "local",
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "touched": "2026-11-17T19:26:59Z",
+     "lastrevid": 1384722154,
+     "length": 37171,
+     "fullurl": "https://en.wikipedia.org/wiki/Bel%C3%A9m_Tower",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Bel%C3%A9m_Tower&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Bel%C3%A9m_Tower"
+    }
+   ]
+  }
+ }
+}

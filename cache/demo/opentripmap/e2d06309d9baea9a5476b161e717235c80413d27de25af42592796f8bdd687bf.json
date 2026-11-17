@@ -1,0 +1,59 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W141331582",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794951606.7091038,
+ "response": {
+  "xid": "W141331582",
+  "name": "Bairro Azul",
+  "address": {
+   "city": "Avenidas Novas",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "São Sebastião da Pedreira",
+   "country": "Portugal",
+   "country_code": "pt",
+   "neighbourhood": "Bairro Azul",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/141331582",
+  "bbox": {
+   "lon_min": -9.158172,
+   "lon_max": -9.154323,
+   "lat_min": 38.733545,
+   "lat_max": 38.736577
+  },
+  "wikidata": "Q16496200",
+  "kinds": "historic,historical_places,interesting_places,historic_districts",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W141331582",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Bairro%20Azul",
+  "image": "https://commons.wikimedia.org/wiki/File:Bairro_Azul_09.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Bairro_Azul_09.jpg/400px-Bairro_Azul_09.jpg",
+   "height": 267,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Bairro Azul",
+   "text": "O Bairro Azul é um bairro de Lisboa, edificado na década de 1930. Pertence à freguesia de Avenidas Novas (antiga freguesia de São Sebastião da Pedreira).Nele situa-se a Mesquita Central de Lisboa, a Escola E.B. 2,3 Marquesa de Alorna, o hospital SAMS, entre outros importantes edifícios.O Bairro Azul foi o primeiro a ser classificado como conjunto urbano de interesse municipal.",
+   "html": "<p>O <b>Bairro Azul</b> é um bairro de Lisboa, edificado na década de 1930. Pertence à freguesia de Avenidas Novas (antiga freguesia de São Sebastião da Pedreira).</p><p>Nele situa-se a Mesquita Central de Lisboa, a Escola E.B. 2,3 Marquesa de Alorna, o hospital SAMS, entre outros importantes edifícios.</p><p>O Bairro Azul foi o primeiro a ser classificado como conjunto urbano de interesse municipal.</p>"
+  },
+  "point": {
+   "lon": -9.156403541564941,
+   "lat": 38.735164642333984
+  }
+ }
+}
