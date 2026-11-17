@@ -1,0 +1,527 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.transitous.org/api/v5/plan",
+  "params": {
+   "fromPlace": "60.1699,24.9384",
+   "toPlace": "59.437,24.7536",
+   "time": "2026-12-01T07:00:00Z",
+   "numItineraries": 3
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915943.2189386,
+ "response": {
+  "itineraries": [
+   {
+    "duration": 9600,
+    "startTime": "2026-12-01T08:08:00Z",
+    "endTime": "2026-12-01T10:48:00Z",
+    "transfers": 2,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T08:08:00Z",
+      "endTime": "2026-12-01T08:12:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1699,
+       "lon": 24.9384
+      },
+      "to": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 600,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-01T08:12:00Z",
+      "endTime": "2026-12-01T08:22:00Z",
+      "from": {
+       "name": "Simonkatu",
+       "tz": "Europe/Helsinki",
+       "lat": 60.16873600000001,
+       "lon": 24.935246999999997
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T08:22:00Z",
+      "endTime": "2026-12-01T08:24:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-01T08:30:00Z",
+      "endTime": "2026-12-01T10:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 600,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T10:30:00Z",
+      "endTime": "2026-12-01T10:40:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "F. R. Kreutzwaldi",
+       "tz": "Europe/Tallinn",
+       "lat": 59.438416000000004,
+       "lon": 24.770322999999998
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 180,
+      "routeShortName": "35",
+      "agencyName": "Aktsiaselts Tallinna Linnatransport",
+      "agencyUrl": "https://transport.tallinn.ee",
+      "startTime": "2026-12-01T10:40:00Z",
+      "endTime": "2026-12-01T10:43:00Z",
+      "from": {
+       "name": "F. R. Kreutzwaldi",
+       "tz": "Europe/Tallinn",
+       "lat": 59.438416000000004,
+       "lon": 24.770322999999998
+      },
+      "to": {
+       "name": "Hobujaama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.4374,
+       "lon": 24.758191999999998
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 300,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T10:43:00Z",
+      "endTime": "2026-12-01T10:48:00Z",
+      "from": {
+       "name": "Hobujaama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.4374,
+       "lon": 24.758191999999998
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Tallinn",
+       "lat": 59.437,
+       "lon": 24.7536
+      }
+     }
+    ]
+   },
+   {
+    "duration": 9540,
+    "startTime": "2026-12-01T11:08:00Z",
+    "endTime": "2026-12-01T13:47:00Z",
+    "transfers": 2,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T11:08:00Z",
+      "endTime": "2026-12-01T11:11:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1699,
+       "lon": 24.9384
+      },
+      "to": {
+       "name": "Päärautatieasema",
+       "tz": "Europe/Helsinki",
+       "lat": 60.170443999999996,
+       "lon": 24.940834
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 720,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-01T11:11:00Z",
+      "endTime": "2026-12-01T11:23:00Z",
+      "from": {
+       "name": "Päärautatieasema",
+       "tz": "Europe/Helsinki",
+       "lat": 60.170443999999996,
+       "lon": 24.940834
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T11:23:00Z",
+      "endTime": "2026-12-01T11:25:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-01T11:30:00Z",
+      "endTime": "2026-12-01T13:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 360,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T13:30:00Z",
+      "endTime": "2026-12-01T13:36:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "Uus-Sadama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.441306999999995,
+       "lon": 24.769542999999995
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 120,
+      "routeShortName": "8",
+      "agencyName": "Aktsiaselts Tallinna Linnatransport",
+      "agencyUrl": "https://transport.tallinn.ee",
+      "startTime": "2026-12-01T13:36:00Z",
+      "endTime": "2026-12-01T13:38:00Z",
+      "from": {
+       "name": "Uus-Sadama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.441306999999995,
+       "lon": 24.769542999999995
+      },
+      "to": {
+       "name": "Siimeoni",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440619999999996,
+       "lon": 24.756960000000003
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 540,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T13:38:00Z",
+      "endTime": "2026-12-01T13:47:00Z",
+      "from": {
+       "name": "Siimeoni",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440619999999996,
+       "lon": 24.756960000000003
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Tallinn",
+       "lat": 59.437,
+       "lon": 24.7536
+      }
+     }
+    ]
+   },
+   {
+    "duration": 9480,
+    "startTime": "2026-12-01T11:08:00Z",
+    "endTime": "2026-12-01T13:46:00Z",
+    "transfers": 3,
+    "legs": [
+     {
+      "mode": "WALK",
+      "duration": 180,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T11:08:00Z",
+      "endTime": "2026-12-01T11:11:00Z",
+      "from": {
+       "name": "START",
+       "tz": "Europe/Helsinki",
+       "lat": 60.1699,
+       "lon": 24.9384
+      },
+      "to": {
+       "name": "Päärautatieasema",
+       "tz": "Europe/Helsinki",
+       "lat": 60.170443999999996,
+       "lon": 24.940834
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 720,
+      "routeShortName": "7",
+      "agencyName": "Helsingin seudun liikenne",
+      "agencyUrl": "http://www.hsl.fi/",
+      "startTime": "2026-12-01T11:11:00Z",
+      "endTime": "2026-12-01T11:23:00Z",
+      "from": {
+       "name": "Päärautatieasema",
+       "tz": "Europe/Helsinki",
+       "lat": 60.170443999999996,
+       "lon": 24.940834
+      },
+      "to": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T11:23:00Z",
+      "endTime": "2026-12-01T11:25:00Z",
+      "from": {
+       "name": "Länsiterminaali 2",
+       "tz": "Europe/Helsinki",
+       "lat": 60.150963,
+       "lon": 24.915804
+      },
+      "to": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      }
+     },
+     {
+      "mode": "FERRY",
+      "duration": 7200,
+      "routeShortName": "",
+      "agencyName": "Tallink Grupp AS",
+      "agencyUrl": "https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE",
+      "startTime": "2026-12-01T11:30:00Z",
+      "endTime": "2026-12-01T13:30:00Z",
+      "from": {
+       "name": "Helsinki",
+       "tz": "Europe/Helsinki",
+       "lat": 60.14914,
+       "lon": 24.91508
+      },
+      "to": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 360,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T13:30:00Z",
+      "endTime": "2026-12-01T13:36:00Z",
+      "from": {
+       "name": "Tallinn",
+       "tz": "Europe/Tallinn",
+       "lat": 59.444689999999994,
+       "lon": 24.769953
+      },
+      "to": {
+       "name": "Uus-Sadama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.441306999999995,
+       "lon": 24.769542999999995
+      }
+     },
+     {
+      "mode": "BUS",
+      "duration": 120,
+      "routeShortName": "8",
+      "agencyName": "Aktsiaselts Tallinna Linnatransport",
+      "agencyUrl": "https://transport.tallinn.ee",
+      "startTime": "2026-12-01T13:36:00Z",
+      "endTime": "2026-12-01T13:38:00Z",
+      "from": {
+       "name": "Uus-Sadama",
+       "tz": "Europe/Tallinn",
+       "lat": 59.441306999999995,
+       "lon": 24.769542999999995
+      },
+      "to": {
+       "name": "Siimeoni",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440619999999996,
+       "lon": 24.756960000000003
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 240,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T13:38:00Z",
+      "endTime": "2026-12-01T13:42:00Z",
+      "from": {
+       "name": "Siimeoni",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440619999999996,
+       "lon": 24.756960000000003
+      },
+      "to": {
+       "name": "Kanuti",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440914,
+       "lon": 24.753157
+      }
+     },
+     {
+      "mode": "TRAM",
+      "duration": 60,
+      "routeShortName": "T6",
+      "agencyName": "Aktsiaselts Tallinna Linnatransport",
+      "agencyUrl": "https://transport.tallinn.ee",
+      "startTime": "2026-12-01T13:43:00Z",
+      "endTime": "2026-12-01T13:44:00Z",
+      "from": {
+       "name": "Kanuti",
+       "tz": "Europe/Tallinn",
+       "lat": 59.440914,
+       "lon": 24.753157
+      },
+      "to": {
+       "name": "Mere puiestee",
+       "tz": "Europe/Tallinn",
+       "lat": 59.437565,
+       "lon": 24.753372
+      }
+     },
+     {
+      "mode": "WALK",
+      "duration": 120,
+      "routeShortName": null,
+      "agencyName": null,
+      "agencyUrl": null,
+      "startTime": "2026-12-01T13:44:00Z",
+      "endTime": "2026-12-01T13:46:00Z",
+      "from": {
+       "name": "Mere puiestee",
+       "tz": "Europe/Tallinn",
+       "lat": 59.437565,
+       "lon": 24.753372
+      },
+      "to": {
+       "name": "END",
+       "tz": "Europe/Tallinn",
+       "lat": 59.437,
+       "lon": 24.7536
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

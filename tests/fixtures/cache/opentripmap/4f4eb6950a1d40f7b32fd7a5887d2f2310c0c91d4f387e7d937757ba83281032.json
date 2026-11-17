@@ -1,0 +1,54 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/Q10321905",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915940.4457812,
+ "response": {
+  "xid": "Q10321905",
+  "name": "Lápides das Pedras Negras",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "Prédio do Almada",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Mouraria",
+   "country": "Portugal",
+   "postcode": "1100-171",
+   "address27": "Largo da Madalena",
+   "country_code": "pt",
+   "neighbourhood": "Sé",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "wikidata": "Q10321905",
+  "kinds": "megaliths,historic,archaeology,interesting_places",
+  "sources": {
+   "geometry": "wikidata",
+   "attributes": [
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/Q10321905",
+  "wikipedia": "https://pt.wikipedia.org/wiki/L%C3%A1pides%20das%20Pedras%20Negras",
+  "image": "https://commons.wikimedia.org/wiki/File:L%C3%A1pides_das_Pedras_Negras_8695.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/L%C3%A1pides_das_Pedras_Negras_8695.jpg/266px-L%C3%A1pides_das_Pedras_Negras_8695.jpg",
+   "height": 400,
+   "width": 266
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Lápides das Pedras Negras",
+   "text": "As Lápides das Pedras Negras são um Monumento Nacional de Portugal, com tipologia de Inscrição. Obteve a classificação por Decreto de 16 de Junho de 1910 (DG n.º 136, de 23 de junho de 1910).Está situado na freguesia de Santa Maria Maior, em Lisboa, mais propriamente na Travessa do Almada.As lápides, em número de quatro, foram descobertas quando se fez a construção do prédio denominado \"prédio do Almada\", construção do tipo pombalino. As lápides possuem inscrições latinas, sendo que duas delas referem-se a deuses romanos, nomeadamente Mercúrio e Cíbele.",
+   "html": "<p>As <b>Lápides das Pedras Negras</b> são um Monumento Nacional de Portugal, com tipologia de Inscrição. Obteve a classificação por Decreto de 16 de Junho de 1910 (DG n.º 136, de 23 de junho de 1910).</p><p>Está situado na freguesia de Santa Maria Maior, em Lisboa, mais propriamente na Travessa do Almada.</p><p>As lápides, em número de quatro, foram descobertas quando se fez a construção do prédio denominado \"prédio do Almada\", construção do tipo pombalino. As lápides possuem inscrições latinas, sendo que duas delas referem-se a deuses romanos, nomeadamente Mercúrio e Cíbele.</p>"
+  },
+  "point": {
+   "lon": -9.134920120239258,
+   "lat": 38.71036911010742
+  }
+ }
+}

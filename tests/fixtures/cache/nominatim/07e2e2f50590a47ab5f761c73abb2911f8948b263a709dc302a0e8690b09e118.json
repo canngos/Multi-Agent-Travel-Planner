@@ -1,0 +1,49 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://nominatim.openstreetmap.org/reverse",
+  "params": {
+   "lat": 38.7071,
+   "lon": -9.2121,
+   "format": "jsonv2",
+   "zoom": 15,
+   "accept-language": "en"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794925108.6036823,
+ "response": {
+  "place_id": 297656653,
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "osm_type": "node",
+  "osm_id": 206169707,
+  "lat": "38.7019484",
+  "lon": "-9.2130979",
+  "category": "place",
+  "type": "neighbourhood",
+  "place_rank": 24,
+  "importance": 0.3047903492217065,
+  "addresstype": "neighbourhood",
+  "name": "Restelo",
+  "display_name": "Restelo, São Francisco Xavier, Belém, Lisbon, 1400-005, Portugal",
+  "address": {
+   "neighbourhood": "Restelo",
+   "suburb": "São Francisco Xavier",
+   "city_district": "Belém",
+   "city": "Lisbon",
+   "county": "Lisbon",
+   "ISO3166-2-lvl6": "PT-11",
+   "postcode": "1400-005",
+   "country": "Portugal",
+   "country_code": "pt"
+  },
+  "boundingbox": [
+   "38.6919484",
+   "38.7119484",
+   "-9.2230979",
+   "-9.2030979"
+  ]
+ }
+}

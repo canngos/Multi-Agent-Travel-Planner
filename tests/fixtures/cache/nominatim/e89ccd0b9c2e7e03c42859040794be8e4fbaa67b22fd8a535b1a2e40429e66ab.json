@@ -1,0 +1,47 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://nominatim.openstreetmap.org/reverse",
+  "params": {
+   "lat": 38.7146,
+   "lon": -9.1475,
+   "format": "jsonv2",
+   "zoom": 15,
+   "accept-language": "en"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794925175.252604,
+ "response": {
+  "place_id": 294660097,
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "osm_type": "way",
+  "osm_id": 945072679,
+  "lat": "38.7133919",
+  "lon": "-9.1455522",
+  "category": "place",
+  "type": "suburb",
+  "place_rank": 19,
+  "importance": 0.41592289788182557,
+  "addresstype": "suburb",
+  "name": "Bairro Alto",
+  "display_name": "Bairro Alto, Misericórdia, Lisbon, Portugal",
+  "address": {
+   "suburb": "Bairro Alto",
+   "village": "Misericórdia",
+   "city": "Lisbon",
+   "county": "Lisbon",
+   "ISO3166-2-lvl6": "PT-11",
+   "country": "Portugal",
+   "country_code": "pt"
+  },
+  "boundingbox": [
+   "38.7106394",
+   "38.7162878",
+   "-9.1478616",
+   "-9.1429716"
+  ]
+ }
+}

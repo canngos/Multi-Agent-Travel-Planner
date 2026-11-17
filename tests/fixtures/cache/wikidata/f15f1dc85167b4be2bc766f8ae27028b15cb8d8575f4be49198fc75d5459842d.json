@@ -1,0 +1,1029 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://qlever.dev/api/wikidata",
+  "params": {
+   "query": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX schema: <http://schema.org/>\nPREFIX wikibase: <http://wikiba.se/ontology#>\nSELECT ?dish (SAMPLE(?label) AS ?name) (SAMPLE(?desc) AS ?description) (SAMPLE(?img) AS ?image) (MAX(?sl) AS ?links)\nWHERE {\n  ?country rdfs:label \"Portugal\"@en ; wdt:P31 wd:Q6256 .\n  { ?dish wdt:P495 ?country }\n  UNION { ?dish wdt:P2012|wdt:P361 ?cuisine . ?cuisine wdt:P17 ?country ; wdt:P31/wdt:P279* wd:Q1778821 . }\n  ?dish (wdt:P31|wdt:P279)/wdt:P279* wd:Q2095 .\n  MINUS { ?dish wdt:P31/wdt:P279* wd:Q11707 }\n  MINUS { ?dish (wdt:P31|wdt:P279)/wdt:P279* wd:Q40050 }\n  MINUS { ?dish wdt:P31/wdt:P279* wd:Q431289 }\n  ?dish rdfs:label ?label . FILTER(lang(?label) = \"en\")\n  OPTIONAL { ?dish schema:description ?desc . FILTER(lang(?desc) = \"en\") }\n  OPTIONAL { ?dish wdt:P18 ?img }\n  OPTIONAL { ?dish wikibase:sitelinks ?sl }\n} GROUP BY ?dish ORDER BY DESC(?links) LIMIT 40"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794933021.1520762,
+ "response": {
+  "head": {
+   "vars": [
+    "dish",
+    "name",
+    "description",
+    "image",
+    "links"
+   ]
+  },
+  "results": {
+   "bindings": [
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q202677"
+     },
+     "name": {
+      "type": "literal",
+      "value": "gazpacho",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "cold soup from Spain and Portugal",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Gazpacho%20Cazuela%20Barro.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "68"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5834964"
+     },
+     "name": {
+      "type": "literal",
+      "value": "marmalade",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "preserve made from the juice and peel of citrus fruits",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Dulce%20de%20membrillo.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "68"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q23374"
+     },
+     "name": {
+      "type": "literal",
+      "value": "chorizo",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "pork sausage originating and typical of the Iberian Peninsula, spread to Latin America of raw minced pork, seasoned with spices and dried",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Palacioschorizo.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "51"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q47564"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Mediterranean diet",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "diet typical of the Mediterranean region, or cultural heritage. UNESCO intangible cultural heritage status",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/DIETA%20MEDITERRANEA%20ITALIA.JPG"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "48"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1421401"
+     },
+     "name": {
+      "type": "literal",
+      "value": "pastel de nata",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese egg tart pastry dusted with cinnamon",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Pastel%20de%20nata%20septembre%202015.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "42"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q878189"
+     },
+     "name": {
+      "type": "literal",
+      "value": "feijoada",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "bean and meat stew popular in Portuguese-speaking areas",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Feijoada%20%C3%A0%20brasileira%201.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "37"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q555084"
+     },
+     "name": {
+      "type": "literal",
+      "value": "quince cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "fruit preserve made from quince pulp",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Dulce%20de%20membrillo.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "29"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q732"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Francesinha",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese sandwich",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Francesinha%20especial%2041.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "25"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q770977"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Caldo verde",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese soup",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Caldo%20verde.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "23"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q4774679"
+     },
+     "name": {
+      "type": "literal",
+      "value": "iberico ham",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Bellota ham",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Jam%C3%B3n%20bellota%20Mu%C3%B1ana.jpeg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "20"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q868158"
+     },
+     "name": {
+      "type": "literal",
+      "value": "cocido",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Spanish or Portuguese dish",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Cozido%20de%20gr%C3%A3o.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "20"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2369860"
+     },
+     "name": {
+      "type": "literal",
+      "value": "São Jorge cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cheese",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20S%C3%A3o%20Jorge%20-%204%20pcs.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "20"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q76872"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Serra da Estrela cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "cheese made in Serra da Estrela, Portugal",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20Serra%20da%20Estrela.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "18"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q202989"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Salame turco PAT",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "traditional Italian bakery product (PAT)",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Chocolate%20salami.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "18"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3275692"
+     },
+     "name": {
+      "type": "literal",
+      "value": "fios de ovos",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese egg dessert",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Fios%20de%20ovos.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "17"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q983032"
+     },
+     "name": {
+      "type": "literal",
+      "value": "ovos moles",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "local delicacy from Aveiro District, Portugal",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Ovos%20moles.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "17"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q891358"
+     },
+     "name": {
+      "type": "literal",
+      "value": "pastéis de Bacalhau",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "potato dish",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Bolinho%20de%20bacalhau.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "16"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q541392"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Bacalhau à Brás",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese codfish dish",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Bacalhau%20a%20Bras.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "16"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3281551"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Malasada",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese style fried doughnut",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Leonard%27s%20malasadas.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "15"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2563471"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Alheira",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "type of Portuguese sausage",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Alheira%20Feira%202010.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "15"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2769472"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Caldeirada",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "fish stew",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Caldeirada%20Paraense.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "15"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q18560070"
+     },
+     "name": {
+      "type": "literal",
+      "value": "embutido",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Set of cured, dry sausages found in the cuisines of Catalonia, Spain and Portugal and their respective colonies",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Embutidos%20frescos.JPG"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "14"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1435311"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Folar",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese bread",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Folar%20de%20Chaves%20%28grande%20plano%29.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "14"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1107324"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Bolo de mel",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "traditional cake from the Madeira Islands",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/KakkuMadeiralta.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "14"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q7309432"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Açorda",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese bread soup",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/A%C3%A7orda%20%C3%A0%20Alentejana.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "13"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q15992430"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Serradura",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "dessert",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Serradura.JPG"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1471649"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Queijo do Pico",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "trademark",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20do%20Pico.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3312636"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Nisa cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cheese",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20de%20nisa.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3305189"
+     },
+     "name": {
+      "type": "literal",
+      "value": "cabidela",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cuisine dish",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/PortoExterior%20PatoDeCabidela.JPG"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2122633"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Queijo de Azeitão",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cheese",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20de%20Azeit%C3%A3o.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2939736"
+     },
+     "name": {
+      "type": "literal",
+      "value": "carne de porco à alentejana",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese dish of pork, clams, potatoes and coriander",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Carne%20de%20porco%20%C3%A0%20Alentejana.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "12"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3083019"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Castelo Branco cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cheese",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Queijo%20de%20Castelo%20Branco.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q11125856"
+     },
+     "name": {
+      "type": "literal",
+      "value": "linguiça",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "pork sausage from Portuguese origin",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Longaniza.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q956137"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Tocino de cielo",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Spanish egg dessert",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Tocinillos%20de%20cielo-%20%28La%20Mallorquina%29.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3565924"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Bolo do caco",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Typical bread from Madeira, Portugal",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Bolo%20do%20caco%20acabadinhos%20de%20cozer.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10989778"
+     },
+     "name": {
+      "type": "literal",
+      "value": "bacalhau",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "dish, also the name for dried salted cod in Portuguese cuisine",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Bacalhoada.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10384855"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Tripas à moda do Porto",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "traditional Portuguese dish",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Tripas%20%C3%A0%20moda%20do%20Porto.JPG"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "11"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10280224"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Fartura",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese doughnut",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Farturas%202010%2017%20%28RaBoe%29.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "10"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2048709"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Serpa cheese",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese cheese",
+      "xml:lang": "en"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "10"
+     }
+    },
+    {
+     "dish": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q9657134"
+     },
+     "name": {
+      "type": "literal",
+      "value": "bifana",
+      "xml:lang": "en"
+     },
+     "description": {
+      "type": "literal",
+      "value": "Portuguese pork sandwich",
+      "xml:lang": "en"
+     },
+     "image": {
+      "type": "uri",
+      "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Porto-style%20Bifana%20sandwich%20with%20egg.jpg"
+     },
+     "links": {
+      "datatype": "http://www.w3.org/2001/XMLSchema#int",
+      "type": "literal",
+      "value": "10"
+     }
+    }
+   ]
+  },
+  "meta": {
+   "query-time-ms": 7198,
+   "result-size-total": 40,
+   "warnings": []
+  }
+ }
+}

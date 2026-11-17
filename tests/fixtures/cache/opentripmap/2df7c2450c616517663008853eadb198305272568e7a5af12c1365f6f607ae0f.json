@@ -1,0 +1,58 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457851243",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915940.6941726,
+ "response": {
+  "xid": "N5457851243",
+  "name": "Santo António Church",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "Museu de Lisboa - Santo António",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Alfama",
+   "country": "Portugal",
+   "postcode": "1100-499",
+   "pedestrian": "Largo de Santo António da Sé",
+   "country_code": "pt",
+   "house_number": "22",
+   "neighbourhood": "Sé",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457851243",
+  "wikidata": "Q2976487",
+  "kinds": "historic,churches,urban_environment,other_churches,religion,monuments_and_memorials,cultural,interesting_places,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/santo-antonio",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457851243",
+  "wikipedia": "https://en.wikipedia.org/wiki/Santo%20Ant%C3%B3nio%20de%20Lisboa%2C%20Lisbon",
+  "image": "https://commons.wikimedia.org/wiki/File:StAnthonyLisbon-CCBY1.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/StAnthonyLisbon-CCBY1.jpg/400px-StAnthonyLisbon-CCBY1.jpg",
+   "height": 266,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:Santo António de Lisboa, Lisbon",
+   "text": "The Church of Saint Anthony of Lisbon (Portuguese: Igreja de Santo António de Lisboa) is a Roman Catholic church located in Lisbon, Portugal. It is dedicated to Saint Anthony of Lisbon (also known in the Christian world as Saint Anthony of Padua). According to tradition, the church was built on the site where the saint was born, in 1195. The church is classified as a National Monument.",
+   "html": "<p>The <b>Church of Saint Anthony of Lisbon</b> (Portuguese: <i lang=\"pt\">Igreja de Santo António de Lisboa</i>) is a Roman Catholic church located in Lisbon, Portugal. It is dedicated to Saint Anthony of Lisbon (also known in the Christian world as Saint Anthony of Padua). According to tradition, the church was built on the site where the saint was born, in 1195. The church is classified as a National Monument.</p>"
+  },
+  "point": {
+   "lon": -9.134011268615723,
+   "lat": 38.71007537841797
+  }
+ }
+}

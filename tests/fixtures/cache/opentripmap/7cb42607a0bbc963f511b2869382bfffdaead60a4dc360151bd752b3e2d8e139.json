@@ -1,0 +1,56 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N3003613052",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915940.1948655,
+ "response": {
+  "xid": "N3003613052",
+  "name": "Church of São Nicolau",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "São Nicolau",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Baixa",
+   "country": "Portugal",
+   "postcode": "1100-051 SÃO NICOLAU",
+   "pedestrian": "Rua Augusta",
+   "country_code": "pt",
+   "house_number": "110",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/3003613052",
+  "wikidata": "Q10300803",
+  "kinds": "religion,architecture,historic_architecture,churches,interesting_places,cafes,foods,shops,bakeries,tourist_facilities,other_buildings_and_structures,other_churches",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N3003613052",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Igreja%20de%20S%C3%A3o%20Nicolau%20%28Lisboa%29",
+  "image": "https://commons.wikimedia.org/wiki/File:Igreja_de_S%C3%A3o_Nicolau4.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Igreja_de_S%C3%A3o_Nicolau4.jpg/265px-Igreja_de_S%C3%A3o_Nicolau4.jpg",
+   "height": 400,
+   "width": 265
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Igreja de São Nicolau (Lisboa)",
+   "text": "A Igreja Paroquial de São Nicolau e São Julião situa-se na Baixa Lisboeta entre a rua de S. Nicolau, rua da Prata e rua dos Douradores. A Igreja de São Nicolau foi construída no início do século XIII, tendo sido fundada entre 1209 e 1229 e reconstruida no mesmo século, em 1280, por iniciativa do bispo D. Mateus; depois de várias reedificações sofreu a sua mais importante mudança já na década de 70 do século XVIII devido ao Terramoto de 1755.",
+   "html": "<p>A <b>Igreja Paroquial de São Nicolau e São Julião</b> situa-se na Baixa Lisboeta entre a rua de S. Nicolau, rua da Prata e rua dos Douradores. A Igreja de São Nicolau foi construída no início do século XIII, tendo sido fundada entre 1209 e 1229 e reconstruida no mesmo século, em 1280, por iniciativa do bispo D. Mateus; depois de várias reedificações sofreu a sua mais importante mudança já na década de 70 do século XVIII devido ao Terramoto de 1755.</p>"
+  },
+  "point": {
+   "lon": -9.137422561645508,
+   "lat": 38.71043395996094
+  }
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://nominatim.openstreetmap.org/reverse",
+  "params": {
+   "lat": 38.6966,
+   "lon": -9.2909,
+   "format": "jsonv2",
+   "zoom": 15,
+   "accept-language": "en"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794926852.1805592,
+ "response": {
+  "place_id": 296740077,
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "osm_type": "node",
+  "osm_id": 6463303452,
+  "lat": "38.6973264",
+  "lon": "-9.2858473",
+  "category": "place",
+  "type": "locality",
+  "place_rank": 25,
+  "importance": 0.06672597924773022,
+  "addresstype": "locality",
+  "name": "Quinta do Relógio",
+  "display_name": "Quinta do Relógio, Quinta da Terrugem, Lagoal, Oeiras e São Julião da Barra, Paço de Arcos e Caxias, Oeiras, Lisbon, 2770-031, Portugal",
+  "address": {
+   "locality": "Quinta do Relógio",
+   "neighbourhood": "Quinta da Terrugem",
+   "hamlet": "Lagoal",
+   "city_district": "Oeiras e São Julião da Barra, Paço de Arcos e Caxias",
+   "town": "Oeiras",
+   "county": "Lisbon",
+   "ISO3166-2-lvl6": "PT-11",
+   "postcode": "2770-031",
+   "country": "Portugal",
+   "country_code": "pt"
+  },
+  "boundingbox": [
+   "38.6873264",
+   "38.7073264",
+   "-9.2958473",
+   "-9.2758473"
+  ]
+ }
+}

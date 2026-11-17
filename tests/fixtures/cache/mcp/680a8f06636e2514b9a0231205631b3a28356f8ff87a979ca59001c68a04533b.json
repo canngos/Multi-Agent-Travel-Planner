@@ -1,0 +1,149 @@
+{
+ "request": {
+  "tool": "search-flight",
+  "args": {
+   "adults": 2,
+   "departureDate": "10/05/2027",
+   "flyFrom": "HEL",
+   "flyTo": "LIS"
+  }
+ },
+ "saved_at": 1794926843.1795645,
+ "response": {
+  "status": "ok",
+  "count": 10,
+  "results": [
+   {
+    "mode": "flight",
+    "operator": "Ryanair, easyJet",
+    "depart": "2027-05-10T23:15",
+    "arrive": "2027-05-11T09:55",
+    "duration_min": 760,
+    "stops": 1,
+    "price_eur": 293.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/crcrxc9",
+    "details": "HEL → STN → LIS; FR646 HEL 23:15→STN 00:10 | U22459 LTN 07:00→LIS 09:55; AIRPORT CHANGE during layover (STN→LTN): you must travel between airports yourself; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "SAS",
+    "depart": "2027-05-10T11:15",
+    "arrive": "2027-05-10T16:10",
+    "duration_min": 415,
+    "stops": 1,
+    "price_eur": 297.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/ssjv74",
+    "details": "HEL → CPH → LIS; SK1707 HEL 11:15→CPH 11:55 | SK2801 CPH 13:10→LIS 16:10; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Norwegian Air Sweden, easyJet",
+    "depart": "2027-05-10T17:45",
+    "arrive": "2027-05-10T23:05",
+    "duration_min": 440,
+    "stops": 1,
+    "price_eur": 340.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/zkwzq4",
+    "details": "HEL → NCE → LIS; D82804 HEL 17:45→NCE 20:10 | U27612 NCE 21:25→LIS 23:05; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Ryanair",
+    "depart": "2027-05-10T22:35",
+    "arrive": "2027-05-11T08:50",
+    "duration_min": 735,
+    "stops": 1,
+    "price_eur": 342.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/3ns7t9",
+    "details": "HEL → BGY → LIS; FR3393 HEL 22:35→BGY 00:40 | FR820 BGY 06:50→LIS 08:50; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "airBaltic",
+    "depart": "2027-05-10T09:15",
+    "arrive": "2027-05-10T15:30",
+    "duration_min": 495,
+    "stops": 1,
+    "price_eur": 360.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/kdzk8v",
+    "details": "HEL → RIX → LIS; BT302 HEL 09:15→RIX 10:10 | BT675 RIX 12:50→LIS 15:30; included bags for all travellers: 2 personal item, 2 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "airBaltic",
+    "depart": "2027-05-10T05:30",
+    "arrive": "2027-05-10T15:30",
+    "duration_min": 720,
+    "stops": 1,
+    "price_eur": 360.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/44rwkq",
+    "details": "HEL → RIX → LIS; BT326 HEL 05:30→RIX 06:25 | BT675 RIX 12:50→LIS 15:30; included bags for all travellers: 2 personal item, 2 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Finnair, Wizz Air",
+    "depart": "2027-05-10T17:20",
+    "arrive": "2027-05-11T00:10",
+    "duration_min": 530,
+    "stops": 1,
+    "price_eur": 385.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/vpw22q",
+    "details": "HEL → WAW → LIS; AY1145 HEL 17:20→WAW 18:00 | W61291 WAW 20:50→LIS 00:10; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "KLM Royal Dutch Airlines, Transavia",
+    "depart": "2027-05-10T14:00",
+    "arrive": "2027-05-10T18:50",
+    "duration_min": 410,
+    "stops": 1,
+    "price_eur": 392.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/8hbzckz",
+    "details": "HEL → AMS → LIS; KL1252 HEL 14:00→AMS 15:30 | HV5955 AMS 16:45→LIS 18:50; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Finnair, KLM Royal Dutch Airlines",
+    "depart": "2027-05-10T15:55",
+    "arrive": "2027-05-10T22:55",
+    "duration_min": 540,
+    "stops": 2,
+    "price_eur": 392.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/q8dw6mt",
+    "details": "HEL → ARN → AMS → LIS; AY813 HEL 15:55→ARN 15:55 | KL1224 ARN 17:25→AMS 19:30 | KL1587 AMS 20:50→LIS 22:55; different airlines: possibly a self-transfer on separate tickets, check on Kiwi; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   },
+   {
+    "mode": "flight",
+    "operator": "Finnair",
+    "depart": "2027-05-10T13:00",
+    "arrive": "2027-05-10T15:50",
+    "duration_min": 290,
+    "stops": 0,
+    "price_eur": 411.0,
+    "price_source": "live",
+    "source": "kiwi",
+    "url": "https://kiwi.com/u/bmrccss",
+    "details": "HEL → LIS; AY1739 HEL 13:00→LIS 15:50; included bags for all travellers: 2 personal item, 0 cabin, 0 checked; price is the total for 2 adult(s)"
+   }
+  ],
+  "query": "HEL → LIS on 10/05/2027, 2 adults"
+ }
+}

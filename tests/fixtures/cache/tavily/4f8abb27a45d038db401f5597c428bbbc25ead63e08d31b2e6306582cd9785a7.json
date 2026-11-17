@@ -1,0 +1,50 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.tavily.com/search",
+  "params": {},
+  "json": {
+   "query": "Jerónimos Monastery ticket price",
+   "max_results": 3,
+   "search_depth": "basic",
+   "include_answer": true
+  },
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915941.1139956,
+ "response": {
+  "query": "Jerónimos Monastery ticket price",
+  "follow_up_questions": null,
+  "answer": "The Jerónimos Monastery ticket price is listed as €18.00 for regular entry according to the museum's official website. However, other sources like Tiqets show different prices for combined tickets and guided tours, starting from €19.50 and going up to €45.00 for specific attraction passes. The sources do not provide a definitive answer on the regular ticket price beyond the €18.00 mentioned on the museum's website.",
+  "images": [],
+  "results": [
+   {
+    "url": "https://www.museusemonumentos.pt/en/museus-e-monumentos/jeronimos-monastery",
+    "title": "Jerónimos Monastery",
+    "content": "Praça do Império – 1400-206 Lisbon  \nT +351 213 620 034  \nEmail: geral.mjeronimos@museusemonumentos.pt  \nWebsite: \n\nFacebook\n\nInstagram\n\nOpening time\n\nCloister  \nTuesday to Sunday 9:30am-5:30pm (last entry at 5:00pm)\n\nChurch  \nTuesday to Saturday 10:30am-5:00pm   \nSundays and religious holidays 2pm-5pm\n\nTicket office closes at 4:30 pm\n\nClosed: Mondays, January 1, Easter Sunday, May 1, June 13, December 25\n\nTickets\n\nRegular: 18.00 €  \nOnline Ticket Office\n\nResourses\n\nCession of Spaces, Shop [...] Tuesday-Sunday 9:30am - 5:30pm · Regular Price: 18€\n\nJerónimos Monastery",
+    "score": 0.8238959,
+    "raw_content": null,
+    "id": "5f6bec-00"
+   },
+   {
+    "url": "https://www.museusemonumentos.pt/en/museus-e-monumentos/mosteiro-dos-jeronimos-e-capela-de-sao-jeronimo",
+    "title": "Jerónimos Monastery",
+    "content": "Praça do Império – 1400-206 Lisbon  \nT +351 213 620 034  \nEmail: geral.mjeronimos@museusemonumentos.pt  \nWebsite: \n\nFacebook\n\nInstagram\n\nOpening time\n\nCloister  \nTuesday to Sunday 9:30am-5:30pm (last entry at 5:00pm)\n\nChurch  \nTuesday to Saturday 10:30am-5:00pm   \nSundays and religious holidays 2pm-5pm\n\nTicket office closes at 4:30 pm\n\nClosed: Mondays, January 1, Easter Sunday, May 1, June 13, December 25\n\nTickets\n\nRegular: 18.00 €  \nOnline Ticket Office\n\nResourses\n\nCession of Spaces, Shop [...] Tuesday-Sunday 9:30am - 5:30pm · Regular Price: 18€\n\nJerónimos Monastery",
+    "score": 0.8238959,
+    "raw_content": null,
+    "id": "bfb740-01"
+   },
+   {
+    "url": "https://www.tiqets.com/en/jeronimos-monastery-tickets-l145607",
+    "title": "Jerónimos Monastery, Lisbon | Book Tickets, Tours & More",
+    "content": "From \n\n€31.00\n\nOne Planet, One Ocean    Tourists walking along a majestic, intricately detailed medieval cathedral with arches and a large central dome under a partly cloudy sky.\n\nAttraction Passes\n\n### Oceanário de Lisboa & Jerónimos Monastery: Entry Ticket\n\nAvailable tomorrow\n\n Jerónimos Monastery\n Oceanário de Lisboa\n\n4.8   (9)\n\nFrom  ~~€49.40~~  \n\n€45.00 9\n\nAttractions\n\n### Jerónimos Monastery: Skip The Line Ticket + Guided Morning Tour\n\nAvailable Thursday, 22 Oct [...] Go to Tiqets home page \n\nPowered by   Tiqets Tiqets\n\n \n\n \n\nHelp \n\nSign in\n\n1. Portugal\n2. Lisbon\n3. Jerónimos Monastery\n\nHistoric stone building with gothic architecture, arched windows, ornate spires, and a clock tower under a blue sky. \n\n4.2  (33,490 reviews)\n\n# Jerónimos Monastery Tickets\n\nWalk around the UNESCO World Heritage Site and enjoy the Manueline architectural style\n\n## Check availability\n\n8 options • from €19.50\n\nWalking Tours [...] Available tomorrow\n\n3.9   (5,371)\n\nFrom\n\nAttraction Passes\n\n### Belem Tower + Jerónimos Monastery Entry Ticket\n\nAvailable tomorrow\n\n Jerónimos Monastery\n Belém Tower\n Lisbon: Audio Guide App\n\n3.9   (322)\n\nFrom  ~~€38.50~~  \n\n€34.00 12\n\nAttraction Passes\n\n### Lisboa Card: 51 Attractions & Public Transport\n\nAvailable tomorrow\n\n4.2   (27,364)\n\nFrom \n\n€31.00",
+    "score": 0.79645085,
+    "raw_content": null,
+    "id": "957767-02"
+   }
+  ],
+  "response_time": 0.0,
+  "request_id": "bda90bed-e844-4deb-ad23-09a60b5860d4"
+ }
+}

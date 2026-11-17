@@ -1,0 +1,48 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://nominatim.openstreetmap.org/reverse",
+  "params": {
+   "lat": 38.7046,
+   "lon": -9.1951,
+   "format": "jsonv2",
+   "zoom": 15,
+   "accept-language": "en"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794926849.3281355,
+ "response": {
+  "place_id": 297046461,
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "osm_type": "node",
+  "osm_id": 6859867176,
+  "lat": "38.7092008",
+  "lon": "-9.1905931",
+  "category": "place",
+  "type": "locality",
+  "place_rank": 25,
+  "importance": 0.06674816433966582,
+  "addresstype": "locality",
+  "name": "Pedreira de El-Rei",
+  "display_name": "Pedreira de El-Rei, Ajuda, Lisbon, 1300-134, Portugal",
+  "address": {
+   "locality": "Pedreira de El-Rei",
+   "village": "Ajuda",
+   "city": "Lisbon",
+   "county": "Lisbon",
+   "ISO3166-2-lvl6": "PT-11",
+   "postcode": "1300-134",
+   "country": "Portugal",
+   "country_code": "pt"
+  },
+  "boundingbox": [
+   "38.6992008",
+   "38.7192008",
+   "-9.2005931",
+   "-9.1805931"
+  ]
+ }
+}

@@ -1,0 +1,1682 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.liteapi.travel/v3.0/hotels/rates",
+  "params": {},
+  "json": {
+   "latitude": 38.7139,
+   "longitude": -9.1394,
+   "radius": 2500,
+   "checkin": "2027-05-10",
+   "checkout": "2027-05-14",
+   "currency": "EUR",
+   "guestNationality": "FI",
+   "occupancies": [
+    {
+     "adults": 2
+    }
+   ],
+   "limit": 40,
+   "timeout": 10
+  },
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915944.9577227,
+ "response": {
+  "sandbox": true,
+  "error": null,
+  "hotels": [
+   {
+    "id": "lp210af",
+    "name": "Hotel Mundial",
+    "latitude": 38.714782,
+    "longitude": -9.137326,
+    "rating": 8.6,
+    "stars": 4,
+    "review_count": 9234,
+    "city_name": "Lisbon",
+    "address": "Praça Martim Moniz 2"
+   },
+   {
+    "id": "lp2abb5",
+    "name": "Hotel Avenida Palace",
+    "latitude": 38.714918,
+    "longitude": -9.141389,
+    "rating": 9.4,
+    "stars": 5,
+    "review_count": 1329,
+    "city_name": "Lisbon",
+    "address": "Rua 1. De Dezembro, 123"
+   },
+   {
+    "id": "lp2ec28",
+    "name": "Hotel Marques De Pombal",
+    "latitude": 38.723248,
+    "longitude": -9.148845,
+    "rating": 9,
+    "stars": 4,
+    "review_count": 4420,
+    "city_name": "Lisbon",
+    "address": "Avenida da Liberdade 243"
+   },
+   {
+    "id": "lp309bc",
+    "name": "Dom Pedro Lisboa Hotel, a member of Radisson Individuals",
+    "latitude": 38.724743,
+    "longitude": -9.16026,
+    "rating": 9,
+    "stars": 5,
+    "review_count": 4101,
+    "city_name": "Lisbon",
+    "address": "Av. Engenheiro Duarte Pacheco, 24"
+   },
+   {
+    "id": "lp327e1",
+    "name": "Hotel do Chiado",
+    "latitude": 38.710651,
+    "longitude": -9.139407,
+    "rating": 9.2,
+    "stars": 4,
+    "review_count": 1368,
+    "city_name": "Lisbon",
+    "address": "Rua Nova Do Almada, 114"
+   },
+   {
+    "id": "lp35f1b",
+    "name": "Internacional Design Hotel",
+    "latitude": 38.713055,
+    "longitude": -9.138499,
+    "rating": 9,
+    "stars": 4,
+    "review_count": 3566,
+    "city_name": "Lisbon",
+    "address": "Rua Da Betesga 3"
+   },
+   {
+    "id": "lp36b7f",
+    "name": "EPIC SANA Marquês Hotel",
+    "latitude": 38.727419,
+    "longitude": -9.148557,
+    "rating": 9.2,
+    "stars": 5,
+    "review_count": 6168,
+    "city_name": "Lisbon",
+    "address": "Av. Fontes Pereira de Melo, 8"
+   },
+   {
+    "id": "lp3b974",
+    "name": "Heritage Avenida Liberdade - Lisbon Heritage Collection - Avenida",
+    "latitude": 38.717632,
+    "longitude": -9.14269,
+    "rating": 9.6,
+    "stars": 4,
+    "review_count": 1730,
+    "city_name": "Lisbon",
+    "address": "Avenida da Liberdade, 28"
+   },
+   {
+    "id": "lp3ba12",
+    "name": "Sofitel Lisbon Liberdade",
+    "latitude": 38.718704,
+    "longitude": -9.144965,
+    "rating": 9,
+    "stars": 5,
+    "review_count": 1531,
+    "city_name": "Lisbon",
+    "address": "Avenida da Liberdade, 127"
+   },
+   {
+    "id": "lp41d02",
+    "name": "Eurostars Das Letras",
+    "latitude": 38.720022,
+    "longitude": -9.148886,
+    "rating": 8.7,
+    "stars": 5,
+    "review_count": 3327,
+    "city_name": "Lisbon",
+    "address": "Rua Castilho, 6 - 12"
+   },
+   {
+    "id": "lp42d92",
+    "name": "Vincci Baixa Suites Apartments",
+    "latitude": 38.709307,
+    "longitude": -9.135474,
+    "rating": 9,
+    "stars": 4,
+    "review_count": 104,
+    "city_name": "Lisbon",
+    "address": "Rua do Comércio 24-30 4"
+   },
+   {
+    "id": "lp45987",
+    "name": "HF Fénix Lisboa",
+    "latitude": 38.724965,
+    "longitude": -9.151087,
+    "rating": 8.5,
+    "stars": 4,
+    "review_count": 4810,
+    "city_name": "Lisbon",
+    "address": "Praça Marquês de Pombal, 8"
+   },
+   {
+    "id": "lp48ec5",
+    "name": "Hotel Florescente",
+    "latitude": 38.716432,
+    "longitude": -9.140763,
+    "rating": 8.9,
+    "stars": 3,
+    "review_count": 7469,
+    "city_name": "Lisbon",
+    "address": "Rua Portas De Santo Antão 99"
+   },
+   {
+    "id": "lp537b3",
+    "name": "Inspira Liberdade Boutique Hotel",
+    "latitude": 38.723161,
+    "longitude": -9.145637,
+    "rating": 8.9,
+    "stars": 4,
+    "review_count": 2649,
+    "city_name": "Lisbon",
+    "address": "Rua de Santa Marta, 48"
+   },
+   {
+    "id": "lp53908",
+    "name": "Altis Avenida Hotel, a member of Preferred Hotels & Resorts",
+    "latitude": 38.715194,
+    "longitude": -9.140877,
+    "rating": 9.2,
+    "stars": 5,
+    "review_count": 3316,
+    "city_name": "Lisbon",
+    "address": "Rua 1º De Dezembro, 120"
+   },
+   {
+    "id": "lp541bf",
+    "name": "HF Fénix Urban",
+    "latitude": 38.728753,
+    "longitude": -9.149,
+    "rating": 8.6,
+    "stars": 4,
+    "review_count": 3481,
+    "city_name": "Lisbon",
+    "address": "Avenida Antonio Augusto De Aguiar,14"
+   },
+   {
+    "id": "lp54c2f",
+    "name": "The Vintage Hotel & Spa Lisbon",
+    "latitude": 38.719982,
+    "longitude": -9.15058,
+    "rating": 9.2,
+    "stars": 5,
+    "review_count": 1808,
+    "city_name": "Lisbon",
+    "address": "Rua Rodrigo da Fonseca, 2"
+   },
+   {
+    "id": "lp57165",
+    "name": "My Story Hotel Tejo",
+    "latitude": 38.713601,
+    "longitude": -9.136651,
+    "rating": 8.9,
+    "stars": 3,
+    "review_count": 7631,
+    "city_name": "Lisbon",
+    "address": "Rua Condes de Monsanto Nº2"
+   },
+   {
+    "id": "lp633cb",
+    "name": "138 Liberdade Hotel",
+    "latitude": 38.719187,
+    "longitude": -9.144128,
+    "rating": 9.1,
+    "stars": 5,
+    "review_count": 2937,
+    "city_name": "Lisbon",
+    "address": "Avenida Liberdade 138"
+   },
+   {
+    "id": "lp6931e",
+    "name": "EPIC SANA Lisboa Hotel",
+    "latitude": 38.724501,
+    "longitude": -9.158521,
+    "rating": 9.3,
+    "stars": 5,
+    "review_count": 4099,
+    "city_name": "Lisbon",
+    "address": "Av. Engenheiro Duarte Pacheco, 15"
+   },
+   {
+    "id": "lp6a139",
+    "name": "Hotel Santa Justa",
+    "latitude": 38.712541,
+    "longitude": -9.137983,
+    "rating": 9.4,
+    "stars": 4,
+    "review_count": 4087,
+    "city_name": "Lisbon",
+    "address": "Rua dos Correeiros, 204"
+   },
+   {
+    "id": "lp6c8b5",
+    "name": "Portugal Boutique Hotel",
+    "latitude": 38.71441,
+    "longitude": -9.136701,
+    "rating": 9.4,
+    "stars": 4,
+    "review_count": 3893,
+    "city_name": "Lisbon",
+    "address": "Rua João das Regras, 4"
+   },
+   {
+    "id": "lp70ff5",
+    "name": "PortoBay Liberdade",
+    "latitude": 38.722134,
+    "longitude": -9.149068,
+    "rating": 9.1,
+    "stars": 5,
+    "review_count": 2815,
+    "city_name": "Lisbon",
+    "address": "Rua Rosa Araújo, 8"
+   },
+   {
+    "id": "lp79ba4",
+    "name": "EVOLUTION Lisboa Hotel",
+    "latitude": 38.733504,
+    "longitude": -9.14417,
+    "rating": 8.8,
+    "stars": 4,
+    "review_count": 3977,
+    "city_name": "Lisbon",
+    "address": "Praça do Duque de Saldanha 4"
+   },
+   {
+    "id": "lp87311",
+    "name": "Vincci Liberdade",
+    "latitude": 38.721944,
+    "longitude": -9.1493,
+    "rating": 8.9,
+    "stars": 4,
+    "review_count": 3751,
+    "city_name": "Lisbon",
+    "address": "Rosa Araujo, 16"
+   },
+   {
+    "id": "lp8bbde",
+    "name": "TURIM Terreiro do Paço Hotel",
+    "latitude": 38.709253,
+    "longitude": -9.135049,
+    "rating": 8.5,
+    "stars": 4,
+    "review_count": 7069,
+    "city_name": "Lisbon",
+    "address": "Rua do Comercio 9"
+   },
+   {
+    "id": "lp9fdca",
+    "name": "Lisboa Pessoa Hotel",
+    "latitude": 38.712545,
+    "longitude": -9.141515,
+    "rating": 9.3,
+    "stars": 4,
+    "review_count": 4761,
+    "city_name": "Lisbon",
+    "address": "Rua da Oliveira ao Carmo, 8"
+   },
+   {
+    "id": "lpa86b6",
+    "name": "Palácio das Especiarias",
+    "latitude": 38.710207,
+    "longitude": -9.144265,
+    "rating": 9.5,
+    "stars": 4,
+    "review_count": 5438,
+    "city_name": "Lisbon",
+    "address": "Rua da Horta Seca n11"
+   },
+   {
+    "id": "lpaf35b",
+    "name": "Corpo Santo Lisbon Historical Hotel",
+    "latitude": 38.707324,
+    "longitude": -9.142008,
+    "rating": 9.8,
+    "stars": 5,
+    "review_count": 2645,
+    "city_name": "Lisbon",
+    "address": "Largo do Corpo Santo, no 25, 1200-129 Lisboa"
+   },
+   {
+    "id": "lpb167b",
+    "name": "Iberostar Selection Lisboa",
+    "latitude": 38.724038,
+    "longitude": -9.152617,
+    "rating": 9,
+    "stars": 5,
+    "review_count": 1435,
+    "city_name": "Lisbon",
+    "address": "Rua Castilho 64"
+   },
+   {
+    "id": "lpc6f3a",
+    "name": "Hotel da Baixa",
+    "latitude": 38.712563,
+    "longitude": -9.137549,
+    "rating": 9.5,
+    "stars": 4,
+    "review_count": 2414,
+    "city_name": "Lisbon",
+    "address": "Rua da Prata 231"
+   },
+   {
+    "id": "lp1d6171",
+    "name": "VIP Executive Picoas Hotel",
+    "latitude": 38.731868,
+    "longitude": -9.149711,
+    "rating": 9,
+    "stars": 4,
+    "review_count": 4454,
+    "city_name": "Lisbon",
+    "address": "Rua Filipe Folque nº12"
+   },
+   {
+    "id": "lp1eeced",
+    "name": "TURIM Boulevard Hotel",
+    "latitude": 38.719797,
+    "longitude": -9.145853,
+    "rating": 8.9,
+    "stars": 5,
+    "review_count": 5660,
+    "city_name": "Lisbon",
+    "address": "Avenida da Liberdade, 159"
+   },
+   {
+    "id": "lp225c5a",
+    "name": "My Story Hotel Figueira",
+    "latitude": 38.713465,
+    "longitude": -9.137543,
+    "rating": 9,
+    "stars": 4,
+    "review_count": 3862,
+    "city_name": "Lisbon",
+    "address": "Praça da Figueira 15"
+   },
+   {
+    "id": "lp26b986",
+    "name": "Dorma Saldanha",
+    "latitude": 38.733457,
+    "longitude": -9.143066,
+    "rating": 9,
+    "stars": 3,
+    "review_count": 5401,
+    "city_name": "Lisbon",
+    "address": "Avenida Defensores de Chaves 5-9"
+   },
+   {
+    "id": "lp65571137",
+    "name": "Lumen Hotel & The Lisbon Light Show",
+    "latitude": 38.729584,
+    "longitude": -9.14559,
+    "rating": 9.2,
+    "stars": 4,
+    "review_count": 3540,
+    "city_name": "Lisbon",
+    "address": "Rua Sousa Martins nº 20"
+   },
+   {
+    "id": "lp65576dce",
+    "name": "Rossio Plaza Hotel",
+    "latitude": 38.712395,
+    "longitude": -9.139096,
+    "rating": 9.2,
+    "stars": 3,
+    "review_count": 5453,
+    "city_name": "Lisbon",
+    "address": "Rua Aurea, 266"
+   }
+  ],
+  "data": [
+   {
+    "hotelId": "lp45987",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 544.44
+      },
+      "rates": [
+       {
+        "name": "Economy Twin/Double",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "sales_tax",
+           "amount": 29.71,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "hotel_fee",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp541bf",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 442.59
+      },
+      "rates": [
+       {
+        "name": "Economy Twin/Double",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "sales_tax",
+           "amount": 24.14,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "hotel_fee",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp87311",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 870.79
+      },
+      "rates": [
+       {
+        "name": "Vincci Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "CITY_TAX",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp70ff5",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 939.27
+      },
+      "rates": [
+       {
+        "name": "Classic_2 (double)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "CITY_TAX",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp42d92",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 810.71
+      },
+      "rates": [
+       {
+        "name": "Vincci Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "CITY_TAX",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp225c5a",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 713.02
+      },
+      "rates": [
+       {
+        "name": "Double Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 40.36,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.51,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp57165",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 608.99
+      },
+      "rates": [
+       {
+        "name": "Double Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 34.47,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp65571137",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 736.23
+      },
+      "rates": [
+       {
+        "name": "Deluxe, 1 Twin, City View",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "sales_tax",
+           "amount": 40.15,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "hotel_fee",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp6931e",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1278.33
+      },
+      "rates": [
+       {
+        "name": "Deluxe",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 72.36,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp35f1b",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 670.17
+      },
+      "rates": [
+       {
+        "name": "Standard Double or Twin Room (Interior View) (2 Twin Beds or 1 Queen Bed)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 37.93,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lpaf35b",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1367.61
+      },
+      "rates": [
+       {
+        "name": "Classic Double or Twin Room (2 Twin Beds or 1 Double Bed)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 77.41,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp309bc",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 884.54
+      },
+      "rates": [
+       {
+        "name": "Superior Room - River View",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "$78.16 USD per room per stay",
+           "amount": 71.79,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "€32 EUR per room per stay",
+           "amount": 32.02,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp2ec28",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 558.28
+      },
+      "rates": [
+       {
+        "name": "Standard Room",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change)",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp3ba12",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1399.09
+      },
+      "rates": [
+       {
+        "name": "Superior Twin Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "$123.52 USD per room per stay",
+           "amount": 113.45,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "€32 EUR per room per stay",
+           "amount": 32.02,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp210af",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 566.89
+      },
+      "rates": [
+       {
+        "name": "Classic Double or Twin Room (1 Double Bed or 2 Large Twin Beds)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 32.09,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp633cb",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 17355.37
+      },
+      "rates": [
+       {
+        "name": "Suite",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 982.38,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp9fdca",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 976.22
+      },
+      "rates": [
+       {
+        "name": "Double Standard Room - Non Refundable",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change)",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp8bbde",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 655.94
+      },
+      "rates": [
+       {
+        "name": "twin superior room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 37.13,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp537b3",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 719.53
+      },
+      "rates": [
+       {
+        "name": "Superior Room InLisbon",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "City Tax",
+           "amount": 32.01,
+           "currency": "EUR"
+          },
+          {
+           "included": true,
+           "description": "Sales tax",
+           "amount": 40.73,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp48ec5",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 535.37
+      },
+      "rates": [
+       {
+        "name": "double or twin standard",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 30.3,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp1eeced",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 855.81
+      },
+      "rates": [
+       {
+        "name": "Superior Double Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "mandatory_tax",
+           "amount": 32.16,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp2abb5",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1169.2
+      },
+      "rates": [
+       {
+        "name": "twin standard",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 66.18,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lpc6f3a",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1272.57
+      },
+      "rates": [
+       {
+        "name": "Small with Internal view",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 72.03,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp327e1",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1137.8
+      },
+      "rates": [
+       {
+        "name": "Classic Twin/Double Room",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 64.4,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp36b7f",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1653.24
+      },
+      "rates": [
+       {
+        "name": "Premium Room BB - Package - Non-Refundable",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change)",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp53908",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1009.74
+      },
+      "rates": [
+       {
+        "name": "Classic Room BB - NR15BB10 - Non Refundable 15D BB 10%",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change)",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp6c8b5",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 760.39
+      },
+      "rates": [
+       {
+        "name": "Standard Double or Twin Room",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "City Tax",
+           "amount": 16,
+           "currency": "EUR"
+          },
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 43.04,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp26b986",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 383.19
+      },
+      "rates": [
+       {
+        "name": "full size bed (1 big bed)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 21.69,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.51,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp41d02",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 565.66
+      },
+      "rates": [
+       {
+        "name": "Twin (2 beds)",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 32.02,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp79ba4",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 645.24
+      },
+      "rates": [
+       {
+        "name": "Cool Room",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "Tax",
+           "amount": 36.52,
+           "currency": "EUR"
+          },
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 34.49,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City Tax",
+           "amount": 32.04,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp6a139",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1004.35
+      },
+      "rates": [
+       {
+        "name": "Junior Suite",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 56.85,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "RFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp3b974",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 922.43
+      },
+      "rates": [
+       {
+        "name": "Baixa Standard Twin/Double Room ",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 52.21,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp54c2f",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1054.08
+      },
+      "rates": [
+       {
+        "name": "DBT VINTAGE SUPERIOR",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 59.66,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.65,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp1d6171",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 608.04
+      },
+      "rates": [
+       {
+        "name": "Standard Double Room - RO - Non Refundable",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "As per information of the local authorities, city tax will be charged  in Lisbon, 4€ per night and per person with more than 13 years, up to a maximum of 7 nights. Tax to be paid directly at the hotel (subject to change)",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lp65576dce",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 437.77
+      },
+      "rates": [
+       {
+        "name": "Standard",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 24.78,
+           "currency": "EUR"
+          },
+          {
+           "included": false,
+           "description": "City tax",
+           "amount": 32.51,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lpa86b6",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 1427.02
+      },
+      "rates": [
+       {
+        "name": "Twin Room",
+        "boardName": "Breakfast Included",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": true,
+           "description": "City tax",
+           "amount": 30.35,
+           "currency": "EUR"
+          },
+          {
+           "included": true,
+           "description": "VAT",
+           "amount": 79.06,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "hotelId": "lpb167b",
+    "roomTypes": [
+     {
+      "offerRetailRate": {
+       "amount": 763.59
+      },
+      "rates": [
+       {
+        "name": "Double Room (2 Twin Beds) - Package Rate",
+        "boardName": "Room Only",
+        "retailRate": {
+         "taxesAndFees": [
+          {
+           "included": false,
+           "description": "City Tax",
+           "amount": 32,
+           "currency": "EUR"
+          }
+         ]
+        },
+        "cancellationPolicies": {
+         "refundableTag": "NRFN"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

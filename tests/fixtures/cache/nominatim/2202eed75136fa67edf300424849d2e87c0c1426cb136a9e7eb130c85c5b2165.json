@@ -1,0 +1,48 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://nominatim.openstreetmap.org/reverse",
+  "params": {
+   "lat": 38.725,
+   "lon": -9.1511,
+   "format": "jsonv2",
+   "zoom": 15,
+   "accept-language": "en"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915949.4627743,
+ "response": {
+  "place_id": 297182104,
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "osm_type": "way",
+  "osm_id": 1340657687,
+  "lat": "38.7253359",
+  "lon": "-9.1500198",
+  "category": "place",
+  "type": "square",
+  "place_rank": 25,
+  "importance": 0.36712697163315744,
+  "addresstype": "square",
+  "name": "Praça Marquês de Pombal",
+  "display_name": "Praça Marquês de Pombal, Campo Pequeno, Avenidas Novas, Lisbon, Portugal",
+  "address": {
+   "square": "Praça Marquês de Pombal",
+   "suburb": "Campo Pequeno",
+   "city_district": "Avenidas Novas",
+   "city": "Lisbon",
+   "county": "Lisbon",
+   "ISO3166-2-lvl6": "PT-11",
+   "country": "Portugal",
+   "country_code": "pt"
+  },
+  "boundingbox": [
+   "38.7243823",
+   "38.7262089",
+   "-9.1511531",
+   "-9.1488775"
+  ]
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N2305795082",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915939.8117478,
+ "response": {
+  "xid": "N2305795082",
+  "name": "Martinho da Arcada",
+  "address": {
+   "city": "Santa Maria Maior",
+   "road": "Praça do Comércio",
+   "house": "Martinho da Arcada",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Chiado",
+   "country": "Portugal",
+   "postcode": "1100-148",
+   "country_code": "pt",
+   "house_number": "3",
+   "neighbourhood": "Madalena",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/2305795082",
+  "wikidata": "Q10326949",
+  "kinds": "architecture,historic_architecture,interesting_places,foods,cafes,tourist_facilities,other_buildings_and_structures",
+  "url": "http://www.martinhodaarcada.pt",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N2305795082",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Martinho%20da%20Arcada",
+  "image": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_Martinho_da_Arcada_-_2014_%283%29.JPG",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Caf%C3%A9_Martinho_da_Arcada_-_2014_%283%29.JPG/265px-Caf%C3%A9_Martinho_da_Arcada_-_2014_%283%29.JPG",
+   "height": 400,
+   "width": 265
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Martinho da Arcada",
+   "text": "O Café-Restaurante Martinho da Arcada, na Praça do Comércio, n.º 3, em Lisboa, Portugal, é o café mais antigo da cidade que se encontra actualmente em actividade. A sua história, de mais de dois séculos, está ligada à literatura portuguesa. Teria sido inaugurado pelo Marquês de Pombal, em 2 de Janeiro de 1782.Após o grande terramoto de 1755, a reconstrução de Lisboa permitiu instalar no Terreiro do Paço um estabelecimento, conhecido desde 1778 por Café do Gelo, que fornecia bebidas e gelados para a corte. Ao longo dos seus mais de dois séculos de existência, este Café conheceria vários proprietários que lhe deram diferentes nomes.",
+   "html": "<p><br> O <b>Café-Restaurante Martinho da Arcada</b>, na Praça do Comércio, n.º 3, em Lisboa, Portugal, é o café mais antigo da cidade que se encontra actualmente em actividade. A sua história, de mais de dois séculos, está ligada à literatura portuguesa. Teria sido inaugurado pelo Marquês de Pombal, em 2 de Janeiro de 1782.</p><p>Após o grande terramoto de 1755, a reconstrução de Lisboa permitiu instalar no Terreiro do Paço um estabelecimento, conhecido desde 1778 por Café do Gelo, que fornecia bebidas e gelados para a corte. Ao longo dos seus mais de dois séculos de existência, este Café conheceria vários proprietários que lhe deram diferentes nomes.</p>"
+  },
+  "point": {
+   "lon": -9.135848045349121,
+   "lat": 38.70869064331055
+  }
+ }
+}

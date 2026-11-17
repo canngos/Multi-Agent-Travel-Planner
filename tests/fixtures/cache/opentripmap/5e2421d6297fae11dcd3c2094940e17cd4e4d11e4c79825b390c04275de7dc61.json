@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/Q10348128",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915939.817281,
+ "response": {
+  "xid": "Q10348128",
+  "name": "Pillory of Lisbon",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "Câmara Municipal de Lisboa",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Chiado",
+   "country": "Portugal",
+   "postcode": "1100",
+   "pedestrian": "Praça do Município",
+   "country_code": "pt",
+   "house_number": "1",
+   "neighbourhood": "Mártires",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "wikidata": "Q10348128",
+  "kinds": "historic_architecture,architecture,interesting_places,other_buildings_and_structures",
+  "sources": {
+   "geometry": "wikidata",
+   "attributes": [
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/Q10348128",
+  "wikipedia": "https://en.wikipedia.org/wiki/Pillory%20of%20Lisbon",
+  "image": "https://commons.wikimedia.org/wiki/File:Pelourinho_de_Lisboa.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Pelourinho_de_Lisboa.jpg/265px-Pelourinho_de_Lisboa.jpg",
+   "height": 400,
+   "width": 265
+  },
+  "wikipedia_extracts": {
+   "title": "en:Pillory of Lisbon",
+   "text": "The Pillory of Lisbon (Portuguese: Pelourinho de Lisboa) is a pillory situated in the municipal square of the Portuguese capital (in the civil parish of Santa Maria Maior in the municipality of Lisbon), classified as a National Monument (Monumento Nacional).The date of construction of Lisbon's first pillory is unknown, but was probably in or before 1179 following the granting of a charter to Lisbon by Afonso I of Portugal. The earliest written records date for that structure date to late 14th century. Later records place the pillory at various places in the city; but all traces of this and many other structures were destroyed in the Lisbon earthquake of 1755.",
+   "html": "<p>The <b>Pillory of Lisbon</b> (Portuguese: <i lang=\"pt\">Pelourinho de Lisboa</i>) is a pillory situated in the municipal square of the Portuguese capital (in the civil parish of Santa Maria Maior in the municipality of Lisbon), classified as a <i>National Monument</i> (<i>Monumento Nacional</i>).</p><p>The date of construction of Lisbon's first pillory is unknown, but was probably in or before 1179 following the granting of a charter to Lisbon by Afonso I of Portugal. The earliest written records date for that structure date to late 14th century. Later records place the pillory at various places in the city; but all traces of this and many other structures were destroyed in the Lisbon earthquake of 1755.</p>"
+  },
+  "point": {
+   "lon": -9.139223098754883,
+   "lat": 38.70804214477539
+  }
+ }
+}

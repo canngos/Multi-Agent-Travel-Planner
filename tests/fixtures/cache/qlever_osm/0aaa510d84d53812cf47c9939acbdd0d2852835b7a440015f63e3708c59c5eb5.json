@@ -1,0 +1,4321 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://qlever.dev/api/osm-planet",
+  "params": {
+   "query": "PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>\nPREFIX osm2rdfkey: <https://osm2rdf.cs.uni-freiburg.de/rdf/key#>\nPREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/>\nSELECT ?osm ?name ?name_en ?tourism ?historic ?hours ?fee ?charge ?website ?wikipedia ?wikidata (geof:centroid(?wkt) AS ?c)\nWHERE {\n  { ?osm osmkey:tourism ?tourism . FILTER(?tourism IN (\"museum\",\"gallery\",\"attraction\",\"viewpoint\",\"zoo\",\"aquarium\",\"theme_park\")) }\n  UNION { ?osm osmkey:historic ?historic . FILTER(?historic IN (\"castle\",\"monument\",\"monastery\",\"palace\",\"fort\",\"tower\",\"city_gate\",\"ruins\",\"church\",\"manor\")) }\n  ?osm osmkey:name ?name ; geo:hasGeometry/geo:asWKT ?wkt .\n  OPTIONAL { ?osm osmkey:opening_hours ?hours } OPTIONAL { ?osm osmkey:fee ?fee }\n  OPTIONAL { ?osm osmkey:charge ?charge } OPTIONAL { ?osm osmkey:website ?website }\n  OPTIONAL { ?osm <https://www.openstreetmap.org/wiki/Key:name:en> ?name_en }\n  OPTIONAL { ?osm osm2rdfkey:wikipedia ?wikipedia } OPTIONAL { ?osm osm2rdfkey:wikidata ?wikidata }\n  FILTER(BOUND(?hours) || BOUND(?fee) || BOUND(?charge))\n  FILTER(geof:distance(?wkt, \"POINT(-9.1366 38.7077)\"^^geo:wktLiteral) < 6.0)\n} LIMIT 400"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794933030.4187136,
+ "response": {
+  "head": {
+   "vars": [
+    "osm",
+    "name",
+    "name_en",
+    "tourism",
+    "historic",
+    "hours",
+    "fee",
+    "charge",
+    "website",
+    "wikipedia",
+    "wikidata",
+    "c"
+   ]
+  },
+  "results": {
+   "bindings": [
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/10180371699"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria Resistência"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:30-19:30"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://galeriaresistencia.com/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154569 38.738578)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11047643391"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional de Arte Contemporânea (MNAC)"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "10 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museuartecontemporanea.gov.pt/en/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.141105 38.709654)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11256938140"
+     },
+     "name": {
+      "type": "literal",
+      "value": "WC/BD"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "varies"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.148248 38.725388)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11879994555"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Óriq"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Th-Su"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.165324 38.720102)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11883763755"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Diferença-Comunicação Visual"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Fr 14:00-19:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154167 38.721050)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11884275346"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria Miguel Nabinho"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.167386 38.718762)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/11944814738"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Ah Amália Living Experience"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 11:00-20:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "20 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://ah-amalia.pt"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.102172 38.741887)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12034930436"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Arquivo Histórico Parlamentar"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.parlamento.pt/Parlamento/Paginas/AHP.aspx"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.153511 38.713011)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12311665215"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Atelier dos Mestres"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 15:00-19:00; Sa 10:00-13:00; Su,PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.165559 38.726682)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12320529161"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Salto"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Th-Sa 14:00-19:00"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.108326 38.729379)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12354212136"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Centro de Arte Moderna Gulbenkian (CAM)"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "12 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://gulbenkian.pt/cam/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.153696 38.735814)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12609419502"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Palácio Nacional da Ajuda"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-18:00; We off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "15 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.palacioajuda.gov.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.197761 38.707466)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12650902087"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Arte Contemporânea Armando Martins"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q133462677"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.183303 38.700486)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12738532801"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Murais de Almada Negreiros nas Gares Marítimas"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://muraisalmadagaresmaritimas.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.174420 38.699236)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/12926040967"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Lisboa - Casa dos Bicos"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.132709 38.709079)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13096661171"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa Ásia – Coleção Francisco Capelo"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01 off; easter off; May 01 off; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "8.00 EUR"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q132182031"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.143760 38.713175)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13174527080"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de São Roque"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Oct-Mar Mo 14:00-18:00; Oct-Mar Tu-Su 10:00-18:00; Apr-Sep Mo 14:00-19:00; Apr-Sep Tu-Su 10:00-19:00; Apr-Sep Th 10:00-20:00; Jan 01,May 01,Dec 25 off; easter off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "8.00 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museusaoroque.scml.pt/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333867"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.143114 38.713443)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13814557114"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Miradouro do Arco da Rua Augusta"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "viewpoint"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-19:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "4.50 EUR"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.136726 38.708414)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13950436040"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Aqueduto das Águas Livres"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "4 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.epal.pt/EPAL/menu/museu-da-%C3%A1gua/exposi%C3%A7%C3%A3o-permanente-patrim%C3%B3nio-associado/aqueduto-das-%C3%A1guas-livres"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Aqueduto%20das%20Águas%20Livres"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q623228"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.166303 38.726565)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13975233499"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Oficina Marques"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We-Fr 10:30-18:30; Sa 13:00-19:30"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.oficinamarques.pt"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.145846 38.712546)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/13975246842"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Maçónico Português"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 14:00-17:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://gremiolusitano.pt/museu-maconico-portugues/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.144599 38.713363)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/1623055925"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Geológico"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:00-18:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "5 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Geológico%20de%20Lisboa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333493"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.149755 38.713107)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/1802199762"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa da Achada"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo,Fr 15:00-20:00; Sa-Su 11:00-18:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://www.centromariodionisio.org"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.135265 38.713434)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/2361431799"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Núcleo Medieval Moderno"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.cm-almada.pt/museu-de-almada-covas-de-pao"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.157314 38.683723)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/2503411074"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Lisboa Story Center"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "7 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://lisboastorycentre.pt/en/content/reduced-mobility"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1827867"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.135286 38.707733)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/2609607222"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria Municipal de Arte"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Sa 11:00-13:00,14:00-19:00"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.164688 38.676879)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/3037180563"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Verso Branco"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Sa 11:30-20:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.versobranco.pt/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q101063104"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.149822 38.708973)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/3128158245"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Marioneta"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "5.00 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museudamarioneta.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20da%20Marioneta"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333706"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.155793 38.708004)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/398922337"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Pastéis de Belém"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 08:00-21:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://pasteisdebelem.pt"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q3091352"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.203320 38.697479)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4340743360"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Campo Pequeno"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "10:00-19:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://campopequeno.com/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.145230 38.742403)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4361897289"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Núcleo Arqueológico da Rua dos Correeiros (BCP)"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:00-12:00,14:00-17:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/nucleo-arqueologico-da-rua-dos-correeiros-bcp"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.137041 38.709975)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4411481569"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Rua da Judiaria"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/geomonumento-da-rua-da-judiaria"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.129522 38.710297)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4419041593"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Aljube - Resistência e Liberdade"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-19:00; Jan 01,May 01,Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3.00 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Cadeia%20do%20Aljube"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q17389986"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.132553 38.710180)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4688777792"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Arpad Szenes - Vieira da Silva"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "7.50 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://fasvs.pt/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q90314709"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.155770 38.722237)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4693994869"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu João de Deus"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 09:30-17:00; PH off; Jun 13,Dec 24-26 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.joaodeus.com/museu/museu.asp"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q136460298"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.158300 38.715848)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4711868424"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Bordalo Pinheiro"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Rafael Bordalo Pinheiro Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://museubordalopinheiro.cm-lisboa.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Rafael%20Bordalo%20Pinheiro%20Museum"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q7282050"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154147 38.758899)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4785254923"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Hospital de Bonecas"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Hospital de Bonecas"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://hospitaldebonecas.com/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.137836 38.714200)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4788155560"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Centro Científico e Cultural de Macau"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Scientific and Cultural Macao Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-17:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://www.cccm.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Macau%20Scientific%20and%20Cultural%20Centre%20Museum%20(The%20Macau%20Museum)"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q17167651"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.182443 38.700849)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4804718021"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Dinheiro"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We-Sa 10:00-18:00; Jan 01,May 01,Dec 24-25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q107368231"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.138786 38.708623)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4822780021"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Maçónico Português"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 14:30-17:30"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "5 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Maçónico%20Português"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333537"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.144723 38.713193)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/4853563821"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Sociedade de Geografia de Lisboa"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Lisbon Geographical Society Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.socgeografialisboa.pt"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333716"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.140755 38.716626)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5068486965"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Arqueológico do Carmo"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Oct-May: Tu-Su 10:00-18:00; Jun-Sep: Tu-Su 10:00-19:00; Jan 01,May 01,Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "7.00 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.museuarqueologicodocarmo.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Arqueológico%20do%20Carmo"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1146790"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.140586 38.712006)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5068486966"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional do Desporto"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-17:00; Jan 01,May 01,Dec 24-25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20do%20Desporto"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q17167656"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.142174 38.715562)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5068486973"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de São Vicente de Fora"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "8 EUR"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.127881 38.714817)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5068486977"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Coleção Museológica de Rádio e de Televisão"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.118006 38.758825)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5073093222"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Guarda Nacional Republicana"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "2 EUR"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q96583150"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.140712 38.712273)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5088757633"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa Fernando Pessoa"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:00-18:00; Jan 01,May 01,Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Casa%20Fernando%20Pessoa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5047821"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.162519 38.716672)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5089643622"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Farmácia Lisboa"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 10:00-19:00; Sa 14:00-19:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "8 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20da%20Farmácia"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q9299839"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.147248 38.710068)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5089643625"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Maynense"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo,We 10:00-18:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.acad-ciencias.pt/museu/apresentacao-museu/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333535"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.149562 38.713179)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5089643629"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu das Comunicações"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Fr 10:00-18:00; Sa 14:00-18:00; PH off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "5.00 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.fpc.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20das%20Comunicações"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q6940621"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.150365 38.707825)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5090471903"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Lisboa - Torreão Poente"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3 EUR"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.137365 38.706759)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5090471910"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Medeiros e Almeida"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 13:00-17:30; Sa 10:00-17:30; Jan 01,May 01,Dec 24-25 off; easter off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "8 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Casa-Museu%20Medeiros%20e%20Almeida"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333395"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.149145 38.721680)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5090471916"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Liga dos Combatentes (Núcleo da Sede Social)"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "5 EUR"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.147364 38.712721)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5150663698"
+     },
+     "name": {
+      "type": "literal",
+      "value": "MAAT - A Fábrica da Eletricidade"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "MAAT - Tejo Power Station"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.maat.pt/pt/event/fabrica-da-eletricidade"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20da%20Eletricidade%20(Lisboa)"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1262183"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.195399 38.695744)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5170427521"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria Underdogs"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Underdogs Gallery"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Sa 14:00-20:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q101063231"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.100174 38.746210)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5446794763"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Miradouro da Basílica da Estrela"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "viewpoint"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.160585 38.713066)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/5446794769"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Miradouro do Castelo de São Jorge"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "viewpoint"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.castelodesaojorge.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.134210 38.712991)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/6260480629"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Fábrica 22"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "theme_park"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-20:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://www.fabrica22.pt"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.142329 38.756778)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/6432920200"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria de Almada"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.cm-almada.pt/galeria-municipal-de-arte"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.157783 38.682903)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/6580282086"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Torre da Igreja"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Tower & Exhibition of the Castle's church"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-19:00; Nov-Mar Mo-Su 09:00-18:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://igrejadocastelo.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.132031 38.713648)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/7572635310"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Núcleo Museológico da Marinha Portuguesa de Almada"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://ccm.marinha.pt"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.146676 38.686658)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/8662657380"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Henry"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.144337 38.738231)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/8809108805"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Centro Tejo"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-13:00,14:00-19:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.visitlisboa.com/pt-pt/locais/ask-me-lisboa-centro-tejo"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.133739 38.706709)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/8809917449"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Centro Interpretativo da História do Bacalhau"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.135170 38.707319)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/9467182967"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Lactário"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museudolactario.fasl.org.pt/museu/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q135260588"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.124972 38.712082)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/9652264909"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Casa de Goa"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://casadegoa.org"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.172290 38.706432)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/9729578705"
+     },
+     "name": {
+      "type": "literal",
+      "value": "MOVART"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Fr 14:00-18:30; Sa 10:00-14:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://movart.org"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154965 38.722442)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/9737954996"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Galeria 36"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154158 38.720784)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/node/9749140958"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Água"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-13:30"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.epal.pt/EPAL/menu/museu-da-%C3%A1gua"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.155804 38.721402)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/11381632"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Arte, Arquitetura e Tecnologia (MAAT)"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Museum of Art, Architecture and Technology"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 12:00-20:00; Tu off; Jan 01,May 01,Dec 25"
+     },
+     "website": {
+      "type": "literal",
+      "value": "www.maat.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20de%20Arte,%20Arquitetura%20e%20Tecnologia"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q27522479"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.193633 38.696028)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/11699003"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Lisboa - Teatro Romano"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Roman Theatre Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3.00 EUR"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Ruínas%20do%20teatro%20romano%20de%20Lisboa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q11780"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.132386 38.710545)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/1396217"
+     },
+     "name": {
+      "type": "literal",
+      "value": "MUDE - Museu do Design"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Dec 24, Dec 31 10:00-14:00; Jan 01,May 01,Dec 25 off"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.mude.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20do%20Design%20e%20da%20Moda"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1954392"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.136650 38.709141)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/15475185"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Picadeiro Real"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Coach Museum"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "castle"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01,May 01,Dec 25; easter off"
+     },
+     "website": {
+      "type": "literal",
+      "value": "www.museudoscoches.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20dos%20Coches"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q107104537"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.199717 38.697798)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/15482569"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Presidência da República"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Museum of the Presidency of the Republic"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Fr 10:00-18:00; Sa,Su 10:00-13:00,14:00-18:00; Jan 01,May 01,Jun 13,Dec 24-25,31 off; easter off; PH 10:00-13:00,14:00-18:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.museu.presidencia.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20da%20Presidência%20da%20República"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q17167658"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.201493 38.697652)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/17036063"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Calouste Gulbenkian"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Calouste Gulbenkian Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We-Mo 10:00-18:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Calouste%20Gulbenkian%20Museum"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q211262"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.153504 38.737809)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/5363219"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional dos Coches"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Coach Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01,May 01,Dec 25; easter off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1659559"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.198693 38.697035)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/7554558"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Carris"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 10:00-18:00; Sa 10:00-13:00,14:00-18:00; PH off"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20da%20Carris"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5046467"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.179913 38.701555)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/8416473"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Av. Infante Santo"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.167379 38.707089)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/8800175"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Jardim Botânico da Ajuda"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Ajuda Botanical Garden"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "2EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://jba.isa.ulisboa.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Jardim%20Botânico%20da%20Ajuda"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q107183486"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.200932 38.706333)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/relation/9060636"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Miradouro de Santa Clara"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "viewpoint"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.124682 38.714978)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1053294263"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Quake - Centro do Terramoto de Lisboa"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Quake - Lisbon Earthquake Centre"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q136039814"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.197088 38.697230)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1101604733"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Fado"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01,May 01,Dec 25 off"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.museudofado.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20do%20Fado"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1954395"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.127668 38.711052)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/115227670"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Lisboa - Palácio Pimenta"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3.00 EUR"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.157024 38.758171)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1306264599"
+     },
+     "name": {
+      "type": "literal",
+      "value": "B-MAD (Berardo - Museum Art Deco)"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-19:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "6 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://bmad.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.179277 38.703846)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1382432568"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Castelo de São Jorge"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "São Jorge Castle"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "castle"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-21:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.castelodesaojorge.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://de.wikipedia.org/wiki/Castelo%20de%20São%20Jorge"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q636780"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.133474 38.713902)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1382432568"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Castelo de São Jorge"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "São Jorge Castle"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-21:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.castelodesaojorge.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://de.wikipedia.org/wiki/Castelo%20de%20São%20Jorge"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q636780"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.133474 38.713902)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1385139143"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Experiência Pilar 7"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Pilar 7 Experience"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 10:00-18:00; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.visitlisboa.com/pt-pt/locais/experiencia-pilar-7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.179461 38.700381)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1413022125"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Cinemateca Portuguesa - Museu do Cinema"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Cinemateca%20Portuguesa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1092464"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.148596 38.720725)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1451054092"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional do Azulejo"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Ceramic Tile Museum"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "monastery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "closed"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museunacionaldoazulejo.gov.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20do%20Azulejo"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2313815"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.113985 38.724765)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1451054092"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional do Azulejo"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Ceramic Tile Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "closed"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://museunacionaldoazulejo.gov.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20do%20Azulejo"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2313815"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.113985 38.724765)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/145116280"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Palácio Fronteira"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Fronteira Palace"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "castle"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 11:00-12:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.fronteira-alorna.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Palace%20of%20the%20Marquises%20of%20Fronteira"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1161724"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.180470 38.740010)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/145116280"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Palácio Fronteira"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Fronteira Palace"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 11:00-12:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.fronteira-alorna.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Palace%20of%20the%20Marquises%20of%20Fronteira"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1161724"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.180470 38.740010)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/1451388965"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Tesouro Real"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Royal Treasury Museum"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Oct-Apr Mo-Su 10:00-18:00; May-Sep Mo-Su 10:00-19:00; Dec 25,Jan 1 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "11.00 EUR"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.tesouroreal.pt/"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.198773 38.707664)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/147055942"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Elevador da Boca do Vento"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "09:00-23:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Elevador%20da%20Boca%20do%20Vento"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10271772"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.158812 38.684699)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/148565686"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa da Cerca - Centro de Arte Contemporânea"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q9698170"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.159076 38.684031)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/155449351"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Fragata Dom Fernando II e Glória"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-18:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://ccm.marinha.pt/pt/dfernando"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Dom%20Fernando%20II%20e%20Glória%20(fragata)"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5289729"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.146155 38.686572)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/160122854"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Reservatório da Patriarcal"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.visitlisboa.com/pt-pt/locais/museu-da-agua-reservatorio-da-patriarcal"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Reservatório%20da%20Patriarcal"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2145587"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.148721 38.716176)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/176231538"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Estação Elevatória a Vapor dos Barbadinhos"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.119955 38.719875)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/178227720"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa-Museu Amália Rodrigues"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-13:00,14:00-18:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q106592864"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.154604 38.715400)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/188143627"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Calouste Gulbenkian - Centro de Arte Moderna"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Su-Mo, We-Fr 10:00-18:00; Sa 10:00-21:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Centro%20de%20Arte%20Moderna%20Gulbenkian"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1054339"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.153649 38.735935)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/196292365"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Torre da Paroquial"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/torre-sineira-da-ajuda-antiga-capela-da-ajuda"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q107183499"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.196444 38.708088)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/237926937"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu da Água"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; PH off"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.epal.pt/EPAL/menu/museu-da-%C3%A1gua"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Museu%20da%20Água"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q6940623"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.119620 38.720021)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/271704595"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Casa do Parlamento – Centro Interpretativo"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Sa 10:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q126717588"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.152625 38.712369)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/272545758"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Atelier-Museu Júlio Pomar"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-13:00,14:00-18:00; Jan 01,May 01,Dec 24-25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.ateliermuseujuliopomar.pt/"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q16495045"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.150434 38.711290)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/30104081"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Jardim Zoológico de Lisboa"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "zoo"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "10:00-20:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.zoo.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Jardim%20Zoológico%20de%20Lisboa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q220063"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.171655 38.745121)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/443569509"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Rua Sampaio Bruno"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q83800361"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.169627 38.716266)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/443569512"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Rua Virgílio Correia"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/geomonumento-da-rua-virgilio-correia"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.172153 38.752965)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/443590735"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento do Forte de Santa Apolónia"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.116590 38.723978)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/444445751"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz do Intendente"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q66814286"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.135753 38.719919)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/454490420"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Arte Graça"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "gallery"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "16:00-20:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q101072323"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.130017 38.720929)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/469378483"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz d'El Rei"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Chafariz%20de%20El-Rei"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5394084"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.129485 38.709726)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/585937134"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz das Terras"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q87494195"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.165911 38.708753)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/585960151"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz de São Sebastião da Pedreira"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.150472 38.731087)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/586482714"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz da Boa Memória"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.202551 38.702645)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/588019871"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Chafariz do Rio Seco"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.191457 38.704049)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/603233028"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento do Parque da Bela Vista"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.128696 38.750294)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/603263364"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Avenida Calouste Gulbenkian"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.169432 38.728469)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/603264994"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento do Parque da Pedra"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/geomonumento-do-parque-da-pedra"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.176525 38.731004)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/603270345"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Geomonumento da Avenida Duarte Pacheco"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "24/7"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.169941 38.722255)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/9253917"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Panteão Nacional"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://panteaonacional.gov.pt/"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Panteão%20Nacional"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1601019"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.124684 38.714977)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/95408856"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Reservatório da Mãe d'Água das Amoreiras"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "10:00-12:30; 13:30-17:30"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://museudaagua.epal.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Reservatório%20da%20Mãe%20d'Água%20das%20Amoreiras"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10359790"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.155676 38.721257)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96319696"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Igreja de Santo António de Lisboa"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Saint Anthony's Church"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 08:00-17:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Church%20of%20Saint%20Anthony%20of%20Lisbon"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2976487"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.133682 38.709963)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96319788"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Igreja da Conceição Velha"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "church"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 09:15-17:00; Su 10:00-13:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Igreja%20da%20Conceição%20Velha"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q5116936"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.134215 38.708887)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96321716"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional de Arte Contemporânea - Museu do Chiado"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01,May 01,Jun 13,Dec 25 off; easter off"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20do%20Chiado"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2745620"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.141137 38.708841)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96322171"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu de Lisboa - Santo António"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "charge": {
+      "type": "literal",
+      "value": "3.00 EUR"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333388"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.133906 38.710197)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96359439"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Basílica da Estrela"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "Estrela Basilica of the Sacred Heart"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Su 09:00-11:30, 15:00-16:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Estrela%20Basilica"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q2657972"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.160542 38.713168)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96359446"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Igreja do Loreto"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "attraction"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Mo-Fr 10:00-20:00; Sa-Su 10:00-21:00"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://www.igrejadoloreto.pt"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Igreja%20do%20Loreto"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q1657876"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.142773 38.710853)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/96497160"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Militar de Lisboa"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-17:00; easter off; Jan 01,May 01,Dec 25 off"
+     },
+     "website": {
+      "type": "literal",
+      "value": "http://www.exercito.pt/pt/quem-somos/organizacao/ceme/vceme/dhcm/lisboa"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Militar%20de%20Lisboa"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333544"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.124310 38.712959)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/97708551"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Miguel Bombarda"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We 11:30-13:00; Sa 14:00-18:00"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "no"
+     },
+     "website": {
+      "type": "literal",
+      "value": "https://aparteoutsider.org/?page_id=74"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Convento%20de%20Rilhafoles"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q9871495"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.141944 38.725397)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/98550235"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Fundação Ricardo do Espírito Santo Silva"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "castle"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We-Mo 10:00-17:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333456"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.130557 38.712032)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/98550235"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Fundação Ricardo do Espírito Santo Silva"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "We-Mo 10:00-17:00"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q10333456"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.130557 38.712032)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/98656587"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional de Arte Antiga"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Museum of Ancient Art"
+     },
+     "historic": {
+      "type": "literal",
+      "value": "castle"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20de%20Arte%20Antiga"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q212459"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.161515 38.704768)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/98656587"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu Nacional de Arte Antiga"
+     },
+     "name_en": {
+      "type": "literal",
+      "value": "National Museum of Ancient Art"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "hours": {
+      "type": "literal",
+      "value": "Tu-Su 10:00-18:00"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://pt.wikipedia.org/wiki/Museu%20Nacional%20de%20Arte%20Antiga"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q212459"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.161515 38.704768)"
+     }
+    },
+    {
+     "osm": {
+      "type": "uri",
+      "value": "https://www.openstreetmap.org/way/98709799"
+     },
+     "name": {
+      "type": "literal",
+      "value": "Museu do Oriente"
+     },
+     "tourism": {
+      "type": "literal",
+      "value": "museum"
+     },
+     "fee": {
+      "type": "literal",
+      "value": "yes"
+     },
+     "wikipedia": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Museum%20of%20the%20Orient"
+     },
+     "wikidata": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q6941112"
+     },
+     "c": {
+      "datatype": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "type": "literal",
+      "value": "POINT(-9.170562 38.702903)"
+     }
+    }
+   ]
+  },
+  "meta": {
+   "query-time-ms": 8820,
+   "result-size-total": 134
+  }
+ }
+}

@@ -1,0 +1,906 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://overpass-api.de/api/interpreter",
+  "params": {},
+  "json": null,
+  "data": {
+   "data": "[out:json][timeout:25];(node[\"amenity\"~\"^(restaurant|fast_food|food_court|cafe|bar|pub)$\"][\"name\"](around:600,38.6979,-9.2063);way[\"amenity\"~\"^(restaurant|fast_food|food_court|cafe|bar|pub)$\"][\"name\"](around:600,38.6979,-9.2063););out center tags 300;"
+  },
+  "response": "json"
+ },
+ "saved_at": 1794916052.0890803,
+ "response": {
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+   "timestamp_osm_base": "2026-11-17T11:45:36Z",
+   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+   {
+    "type": "node",
+    "id": 477853299,
+    "lat": 38.6975196,
+    "lon": -9.2036756,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:floor": "0",
+     "addr:housenumber": "110",
+     "addr:postcode": "1300-085",
+     "addr:street": "Rua de Belém",
+     "amenity": "cafe",
+     "brand": "Starbucks",
+     "brand:wikidata": "Q37158",
+     "brand:wikipedia": "pt:Starbucks",
+     "changing_table": "yes",
+     "check_date": "2025-05-17",
+     "contact:email": "starbucks@starbucks.pt",
+     "contact:facebook": "StarbucksPortugal",
+     "contact:instagram": "starbucksptg",
+     "contact:phone": "+351 211 147 602",
+     "contact:tiktok": "starbucksportugal",
+     "contact:twitter": "starbucksPTG",
+     "cuisine": "coffee_shop",
+     "entrance:step_count": "0",
+     "entrance:width": "122cm",
+     "internet_access": "wlan",
+     "level": "0",
+     "name": "Starbucks",
+     "note": "Corredores estreitos, especialmente o da casa de banho",
+     "official_name": "Starbucks Coffee",
+     "opening_hours": "Mo-Su 08:00-22:00",
+     "outdoor_seating": "yes",
+     "payment:cash": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "ref": "1893-122524",
+     "source:contact": "website",
+     "source:opening_hours": "survey",
+     "takeaway": "yes",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:level": "0",
+     "toilets:wheelchair": "no",
+     "toilets:wheelchair:support_brackets": "2",
+     "toilets:wheelchair:width": "75",
+     "website": "https://www.starbucks.pt/",
+     "wheelchair": "yes",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 954068009,
+    "lat": 38.6951273,
+    "lon": -9.2074335,
+    "tags": {
+     "addr:street": "Praça do Império",
+     "amenity": "restaurant",
+     "name": "Este-Oeste",
+     "name:es": "Este-Oeste",
+     "opening_hours": "Mo-Su 10:00-23:00"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513483126,
+    "lat": 38.6969463,
+    "lon": -9.2018334,
+    "tags": {
+     "amenity": "restaurant",
+     "contact:email": "info@florestadebelem.com",
+     "contact:phone": "+351 213 636 307",
+     "contact:website": "http://florestadebelem.com",
+     "cuisine": "regional",
+     "name": "Floresta de Belém",
+     "opening_hours": "11:00-23:00"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513483139,
+    "lat": 38.6971728,
+    "lon": -9.2021881,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "7",
+     "addr:postcode": "1300-082",
+     "addr:street": "Rua de Belém",
+     "amenity": "cafe",
+     "changing_table": "no",
+     "entrance:kerb:height": "10cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "3",
+     "entrance:width": "94cm",
+     "name": "Manteigaria \"Fábrica de Pastéis de Nata\"",
+     "note": "muito espaçoso por dentro",
+     "opening_hours": "Mo-Su 08:00-21:00",
+     "shop": "pastry",
+     "toilets": "no",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513483152,
+    "lat": 38.6970982,
+    "lon": -9.201824,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "1",
+     "addr:postcode": "1300-004",
+     "addr:street": "Rua de Belém",
+     "amenity": "cafe",
+     "changing_table": "no",
+     "entrance:step_count": "0",
+     "entrance:width": "119cm",
+     "name": "Queijadas de Belem",
+     "note": "A pastelaria tem espaço para cadeira de rodas mas não tem casa de banho não com espaço suficiente",
+     "outdoor_seating": "yes",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:level": "0",
+     "toilets:wheelchair": "no",
+     "wheelchair": "limited",
+     "wheelchair:description": "Außenbereich voll berollbar! Zum Innenbereich muss eine Stufe von 10-15cm überwunden werden (Eingang von der Straße her). Zweite Glastür muss bei normalem Selbstfahrerrolli noch nicht mal geöffnet werden.",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513486157,
+    "lat": 38.6969812,
+    "lon": -9.2030577,
+    "tags": {
+     "amenity": "restaurant",
+     "check_date": "2022-10-12",
+     "name": "BemBelem",
+     "opening_hours": "Mo 10:00-15:30; We-Su 10:00-22:30",
+     "phone": "+351 21 364 8768"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513486161,
+    "lat": 38.6969937,
+    "lon": -9.2032831,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "2-14",
+     "addr:interpolation": "even",
+     "addr:postcode": "1300-000",
+     "addr:street": "Travessa da Praça",
+     "amenity": "fast_food",
+     "branch": "Belém",
+     "brand": "McDonald's",
+     "brand:wikidata": "Q38076",
+     "brand:wikipedia": "pt:McDonald's",
+     "contact:facebook": "McDonaldsPortugal",
+     "contact:instagram": "mcdonaldsportugal",
+     "contact:linkedin": "https://www.linkedin.com/company/mcdonald's-corporation/",
+     "contact:phone": "+351 213 627 431",
+     "contact:tiktok": "mcdonalds.pt",
+     "contact:youtube": "https://www.youtube.com/McDonaldsPortugal",
+     "cuisine": "burger",
+     "diet:vegetarian": "yes",
+     "indoor_seating": "yes",
+     "internet_access": "wlan",
+     "name": "McDonald's",
+     "opening_hours": "Mo-Su,PH 08:00-02:00",
+     "outdoor_seating": "yes",
+     "ref": "0ecef4be-4709-5642-94fb-195876ea28ec",
+     "source:contact": "website",
+     "takeaway": "yes",
+     "website": "https://www.mcdonalds.pt/restaurantes/belem/",
+     "wheelchair": "limited"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513486164,
+    "lat": 38.6969791,
+    "lon": -9.2029505,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Cais de Belém"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513486166,
+    "lat": 38.6969768,
+    "lon": -9.2030974,
+    "tags": {
+     "amenity": "restaurant",
+     "changing_table": "no",
+     "check_date": "2022-10-12",
+     "entrance:kerb:height": "14cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "1",
+     "entrance:width": "1cm",
+     "name": "Dina",
+     "note": "tem mesas no exterior",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:level": "0",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513491510,
+    "lat": 38.6969476,
+    "lon": -9.2024892,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Jardins de Belém"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1513491516,
+    "lat": 38.6974047,
+    "lon": -9.2025475,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "42",
+     "addr:postcode": "1300-085",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "check_date": "2026-02-08",
+     "cuisine": "portuguese",
+     "name": "Adega de Belém"
+    }
+   },
+   {
+    "type": "node",
+    "id": 1514445079,
+    "lat": 38.6975445,
+    "lon": -9.2038683,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "126",
+     "addr:postcode": "1300-086",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "changing_table": "no",
+     "check_date": "2025-05-17",
+     "contact:instagram": "pao_pao_queijo_queijo_",
+     "entrance:kerb:height": "3cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "1",
+     "entrance:width": "77cm",
+     "internet_access": "wlan",
+     "name": "Pão Pão Queijo Queijo",
+     "opening_hours": "Mo-Sa 10:00-23:30; Su 10:00-22:30",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 2483762168,
+    "lat": 38.6943523,
+    "lon": -9.206488,
+    "tags": {
+     "amenity": "restaurant",
+     "check_date": "2026-09-29",
+     "check_date:diet:vegetarian": "2026-09-29",
+     "check_date:opening_hours": "2026-09-29",
+     "diet:vegetarian": "yes",
+     "indoor_seating": "yes",
+     "name": "Nosolo Italia Belém",
+     "opening_hours": "Mo-Su 11:30-23:00",
+     "outdoor_seating": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "wheelchair": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 3157300013,
+    "lat": 38.6976284,
+    "lon": -9.2024813,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "10",
+     "addr:postcode": "1300-390",
+     "addr:street": "Travessa Marta Pinto",
+     "amenity": "restaurant",
+     "cuisine": "portuguese;wine bar",
+     "name": "Enoteca De Belém",
+     "opening_hours": "Tu-Su 13:00-23:00"
+    }
+   },
+   {
+    "type": "node",
+    "id": 4384364993,
+    "lat": 38.6975247,
+    "lon": -9.2037638,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "116-118",
+     "addr:postcode": "1300-086",
+     "addr:street": "Rua de Belém",
+     "amenity": "fast_food",
+     "check_date": "2025-05-17",
+     "contact:facebook": "honoratohamburgueresartesanais",
+     "contact:instagram": "honoratohamburgueresartesanais",
+     "cuisine": "burger",
+     "diet:vegan": "yes",
+     "drive_through": "no",
+     "email": "honorato@honorato.pt",
+     "internet_access": "wlan",
+     "name": "Honorato Belém",
+     "opening_hours": "Mo-Su 12:00-23:00",
+     "outdoor_seating": "yes",
+     "phone": "+351 21 315 0425",
+     "self_service": "no",
+     "website": "https://www.honorato.pt"
+    }
+   },
+   {
+    "type": "node",
+    "id": 4470320314,
+    "lat": 38.6955153,
+    "lon": -9.2118377,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "94",
+     "addr:postcode": "1400-038",
+     "addr:street": "Rua Bartolomeu Dias",
+     "amenity": "cafe",
+     "check_date": "2026-02-08",
+     "contact:instagram": "Obolodamarta",
+     "cuisine": "cake;deli",
+     "level": "0",
+     "name": "O Bolo da Marta",
+     "opening_hours": "Mo-Sa 11:00-18:00"
+    }
+   },
+   {
+    "type": "node",
+    "id": 4755305622,
+    "lat": 38.6974199,
+    "lon": -9.2018903,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:country": "PT",
+     "addr:housenumber": "2-8",
+     "addr:postcode": "1300-085",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "changing_table": "no",
+     "cuisine": "portuguese",
+     "email": "belem2a8@gmail.com",
+     "entrance:kerb:height": "0cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "0",
+     "entrance:width": "83cm",
+     "indoor_seating": "yes",
+     "internet_access": "wlan",
+     "mobile": "+351968840494",
+     "name": "Belém 2a8  \"Bistrô\"",
+     "note": "tem mesas exteriores",
+     "outdoor_seating": "yes",
+     "phone": "+351213639055",
+     "source": "survey",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:level": "0",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 5371177857,
+    "lat": 38.6952353,
+    "lon": -9.2077213,
+    "tags": {
+     "amenity": "restaurant",
+     "cuisine": "regional",
+     "name": "Topo Belém"
+    }
+   },
+   {
+    "type": "node",
+    "id": 5743626284,
+    "lat": 38.6978821,
+    "lon": -9.2043908,
+    "tags": {
+     "amenity": "cafe",
+     "check_date": "2024-05-04",
+     "fixme": "Check tag: it's more like a bar with cafe and some food (sandwitchs and salads)",
+     "name": "BANANACAFE"
+    }
+   },
+   {
+    "type": "node",
+    "id": 5951443385,
+    "lat": 38.696931,
+    "lon": -9.2025832,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Le comptoir Parisien"
+    }
+   },
+   {
+    "type": "node",
+    "id": 6214544881,
+    "lat": 38.6969988,
+    "lon": -9.2088836,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:postcode": "1400-206",
+     "addr:street": "Praça do Império",
+     "amenity": "cafe",
+     "diet:vegetarian": "yes",
+     "indoor_seating": "yes",
+     "name": "Cafetaria Navy Museum",
+     "name:pt": "Cafetaria do Museu de Marinha",
+     "opening_hours": "Mo-Su 10:00-17:00",
+     "outdoor_seating": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "phone": "+351 21 097 7387",
+     "website": "https://www.facebook.com/cafetariamuseumarinha",
+     "wheelchair": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 6848539521,
+    "lat": 38.6950562,
+    "lon": -9.2085595,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:postcode": "1449-003",
+     "addr:street": "Praça do Império",
+     "amenity": "restaurant",
+     "cuisine": "sushi;pizza;italian;japanese",
+     "delivery": "no",
+     "internet_access": "wlan",
+     "internet_access:fee": "no",
+     "name": "Este Oeste",
+     "outdoor_seating": "yes",
+     "phone": "+351 215 904 358",
+     "website": "http://www.esteoeste.pt/"
+    }
+   },
+   {
+    "type": "node",
+    "id": 9765016148,
+    "lat": 38.6974242,
+    "lon": -9.2020143,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "10-16",
+     "addr:interpolation": "even",
+     "addr:postcode": "1300-004",
+     "addr:street": "Rua de Belém",
+     "amenity": "fast_food",
+     "branch": "Belém",
+     "brand": "Burger King",
+     "brand:wikidata": "Q177054",
+     "brand:wikipedia": "pt:Burger King",
+     "check_date": "2026-02-08",
+     "contact:facebook": "burgerkingportugal",
+     "contact:instagram": "burgerkingportugal",
+     "contact:phone": "+351 216 035 417",
+     "contact:tiktok": "burgerkingportugal",
+     "contact:youtube": "https://www.youtube.com/@burgerkingportugal3411",
+     "cuisine": "burger",
+     "drive_through": "no",
+     "name": "Burger King",
+     "opening_hours": "11:00-23:00; Fr,Sa 11:00-00:00",
+     "ref": "29617",
+     "source:contact": "website",
+     "takeaway": "yes",
+     "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_242281"
+    }
+   },
+   {
+    "type": "node",
+    "id": 9765052742,
+    "lat": 38.6973948,
+    "lon": -9.2024083,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "36",
+     "addr:postcode": "1300-083",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "changing_table": "no",
+     "check_date": "2026-02-08",
+     "diet:vegetarian": "yes",
+     "entrance:kerb:height": "17cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "1",
+     "entrance:width": "117cm",
+     "name": "Miolo \"Local COOFFE & Brunch",
+     "note": "pouco espaço entre mesas",
+     "opening_hours": "Tu-Su 09:00-17:00",
+     "phone": "+351 913504260",
+     "toilets": "yes",
+     "toilets:fee": "no",
+     "toilets:level": "0",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 9820865300,
+    "lat": 38.6930524,
+    "lon": -9.2088936,
+    "tags": {
+     "amenity": "bar",
+     "check_date": "2026-09-29",
+     "level": "0",
+     "name": "Miss Can - Canto da Sereia Bar",
+     "phone": "+351910007004",
+     "website": "https://miss-can.com/"
+    }
+   },
+   {
+    "type": "node",
+    "id": 10095217527,
+    "lat": 38.6969781,
+    "lon": -9.2031687,
+    "tags": {
+     "addr:housenumber": "82",
+     "addr:street": "Rua Vieira Portuense",
+     "amenity": "restaurant",
+     "changing_table": "no",
+     "check_date": "2022-10-12",
+     "entrance:kerb:height": "4cm",
+     "entrance:ramp": "no",
+     "entrance:step_count": "1",
+     "entrance:width": "126cm",
+     "name": "Ver Belém",
+     "toilets:wheelchair": "no",
+     "wheelchair:turning_circle": "no"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11110085964,
+    "lat": 38.696938,
+    "lon": -9.2023781,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "30",
+     "addr:postcode": "1300-315",
+     "addr:street": "Rua Vieira Portuense",
+     "amenity": "restaurant",
+     "contact:facebook": "https://www.facebook.com/RestauranteBelemCanico",
+     "cuisine": "regional;portuguese",
+     "name": "O Caniço",
+     "opening_hours": "Tu-Su 12:00-16:00",
+     "phone": "+351213630593"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11592464558,
+    "lat": 38.6971813,
+    "lon": -9.2023683,
+    "tags": {
+     "addr:housenumber": "35",
+     "addr:postcode": "1300-315",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "cuisine": "fish;shellfish",
+     "name": "Guelra",
+     "opening_hours": "Tu-Sa 12:00-23:00",
+     "phone": "+351 939 002 081"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777504,
+    "lat": 38.6976962,
+    "lon": -9.2025005,
+    "tags": {
+     "amenity": "cafe",
+     "cuisine": "bubble_tea",
+     "name": "Bubble Tea Factory"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777507,
+    "lat": 38.6970833,
+    "lon": -9.2022159,
+    "tags": {
+     "amenity": "restaurant",
+     "cuisine": "pizza",
+     "name": "DINAstia Selvagem"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777512,
+    "lat": 38.6972498,
+    "lon": -9.2030236,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Taberda de Belém \" Adamastor\""
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777513,
+    "lat": 38.6972603,
+    "lon": -9.2031142,
+    "tags": {
+     "amenity": "restaurant",
+     "cuisine": "chinese",
+     "name": "Xi-Hu",
+     "takeaway": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777516,
+    "lat": 38.6969355,
+    "lon": -9.2020819,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Notalho"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11876777518,
+    "lat": 38.6969365,
+    "lon": -9.2020205,
+    "tags": {
+     "addr:housenumber": "14",
+     "addr:postcode": "1300-571",
+     "addr:street": "Rua Vieira Portuense",
+     "amenity": "restaurant",
+     "check_date": "2026-09-01",
+     "check_date:opening_hours": "2026-09-01",
+     "cuisine": "spanish;tapas",
+     "name": "100 Montaditos",
+     "opening_hours": "Mo-Su 10:00-22:00",
+     "website": "https://portugal.100montaditos.com",
+     "website:menu": "https://portugal.100montaditos.com/pt/a-ementa"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11885081471,
+    "lat": 38.6994618,
+    "lon": -9.2054979,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "18",
+     "addr:postcode": "1400-206",
+     "addr:street": "Rua dos Jerónimos",
+     "addr:unit": "D",
+     "amenity": "restaurant",
+     "cuisine": "pizza",
+     "name": "La Fóllia de Bélem",
+     "opening_hours": "Mo-Su 12:30-15:00 19:00-22:00",
+     "phone": "+351 21 5881217",
+     "toilets": "yes",
+     "wheelchair": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11901260957,
+    "lat": 38.6991028,
+    "lon": -9.2053374,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "14",
+     "addr:postcode": "1400-206",
+     "addr:street": "Rua dos Jerónimos",
+     "addr:unit": "D",
+     "amenity": "cafe",
+     "check_date": "2026-02-08",
+     "indoor_seating": "yes",
+     "name": "11:11",
+     "old_name": "C & B coffee",
+     "outdoor_seating": "yes",
+     "toilets": "yes",
+     "wheelchair": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 11901260959,
+    "lat": 38.6992775,
+    "lon": -9.2054078,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "16",
+     "addr:postcode": "1400-211",
+     "addr:street": "Rua dos Jerónimos",
+     "addr:unit": "C",
+     "amenity": "restaurant",
+     "cuisine": "pizza;kebab",
+     "name": "BELEM KEBAB & PIZZARIA",
+     "opening_hours": "Mo-Su 07:00-00:00",
+     "phone": "+351 920 562 344"
+    }
+   },
+   {
+    "type": "node",
+    "id": 12320363231,
+    "lat": 38.6972562,
+    "lon": -9.2031331,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "97",
+     "addr:postcode": "1300-083",
+     "addr:street": "Rua de belem",
+     "amenity": "restaurant",
+     "cuisine": "chinese",
+     "name": "Xi-Hu"
+    }
+   },
+   {
+    "type": "node",
+    "id": 12320363233,
+    "lat": 38.6972404,
+    "lon": -9.2030233,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "85",
+     "addr:postcode": "1300-315",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "name": "Taberna Belém"
+    }
+   },
+   {
+    "type": "node",
+    "id": 12320363234,
+    "lat": 38.6972379,
+    "lon": -9.2029924,
+    "tags": {
+     "addr:city": "Lisboa",
+     "addr:housenumber": "83",
+     "addr:postcode": "1300-083",
+     "addr:street": "Rua de Belém",
+     "amenity": "restaurant",
+     "indoor_seating": "yes",
+     "name": "Restaurante Adamastor",
+     "outdoor_seating": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 12844000116,
+    "lat": 38.6975711,
+    "lon": -9.2019259,
+    "tags": {
+     "amenity": "restaurant",
+     "indoor_seating": "yes",
+     "name": "Taberna dos Ferreiros",
+     "outdoor_seating": "yes"
+    }
+   },
+   {
+    "type": "node",
+    "id": 13141791901,
+    "lat": 38.6966256,
+    "lon": -9.210612,
+    "tags": {
+     "addr:housenumber": "3A",
+     "addr:postcode": "1400-124",
+     "addr:street": "Rua Dom Lourenço d'Almeida",
+     "amenity": "restaurant",
+     "cuisine": "italian",
+     "diet:vegetarian": "yes",
+     "indoor_seating": "yes",
+     "name": "Focacceria BM - Bread Maniacs",
+     "opening_hours": "Tu-Su 12:00-22:00",
+     "outdoor_seating": "yes",
+     "payment:credit_cards": "yes",
+     "payment:debit_cards": "yes",
+     "website": "https://www.focacceriabm.pt/",
+     "wheelchair": "limited"
+    }
+   },
+   {
+    "type": "node",
+    "id": 14139795501,
+    "lat": 38.6969373,
+    "lon": -9.2020826,
+    "tags": {
+     "addr:housenumber": "18",
+     "addr:postcode": "1300-082",
+     "addr:street": "Rua Vieira Portuense",
+     "amenity": "cafe",
+     "check_date": "2026-09-01",
+     "check_date:opening_hours": "2026-09-01",
+     "cuisine": "breakfast;coffee_shop",
+     "name": "The Folks",
+     "opening_hours": "Mo-Th 08:30-17:00; Fr-Su 09:00-19:00",
+     "website": "https://thefolks.pt/",
+     "website:menu": "https://thefolks.pt/pages/menu-belem"
+    }
+   },
+   {
+    "type": "node",
+    "id": 14174914701,
+    "lat": 38.6944738,
+    "lon": -9.2026635,
+    "tags": {
+     "amenity": "restaurant",
+     "name": "Bonança - ANL"
+    }
+   },
+   {
+    "type": "way",
+    "id": 241540590,
+    "center": {
+     "lat": 38.6938942,
+     "lon": -9.2069296
+    },
+    "tags": {
+     "amenity": "restaurant",
+     "building": "yes",
+     "check_date": "2024-05-02",
+     "height": "2",
+     "indoor_seating": "yes",
+     "name": "Cervejaria Portugália",
+     "outdoor_seating": "yes"
+    }
+   },
+   {
+    "type": "way",
+    "id": 241540591,
+    "center": {
+     "lat": 38.69385,
+     "lon": -9.2072776
+    },
+    "tags": {
+     "addr:street": "Avenida de Brasília",
+     "addr:unit": "Espelho d'Agua",
+     "amenity": "restaurant",
+     "building": "yes",
+     "check_date": "2025-04-22",
+     "cuisine": "italian;pizza",
+     "indoor_seating": "yes",
+     "name": "ZeroZero Belém",
+     "opening_hours": "Mo-Su 12:00-24:00",
+     "outdoor_seating": "yes",
+     "phone": "+351 210364245",
+     "wheelchair": "yes"
+    }
+   },
+   {
+    "type": "way",
+    "id": 1247314265,
+    "center": {
+     "lat": 38.6971514,
+     "lon": -9.2032449
+    },
+    "tags": {
+     "amenity": "fast_food",
+     "brand": "McDonald's",
+     "brand:wikidata": "Q38076",
+     "building": "yes",
+     "check_date": "2026-02-08",
+     "cuisine": "burger",
+     "name": "McDonald's",
+     "opening_hours": "Mo-Su 08:00-02:00",
+     "takeaway": "yes"
+    }
+   }
+  ]
+ }
+}

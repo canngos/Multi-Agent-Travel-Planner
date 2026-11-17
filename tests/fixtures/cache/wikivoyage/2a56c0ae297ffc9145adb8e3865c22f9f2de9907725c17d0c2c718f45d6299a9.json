@@ -1,0 +1,728 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikivoyage.org/w/api.php",
+  "params": {
+   "action": "parse",
+   "page": "Portugal",
+   "prop": "sections",
+   "format": "json",
+   "redirects": 1
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794933012.492546,
+ "response": {
+  "warnings": {
+   "main": {
+    "*": "Subscribe to the mediawiki-api-announce mailing list at <https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/> for notice of API deprecations and breaking changes. Use [[Special:ApiFeatureUsage]] to see usage of deprecated features by your application."
+   },
+   "parse": {
+    "*": "\"prop=sections\" has been deprecated. Please use \"prop=tocdata\" instead."
+   }
+  },
+  "parse": {
+   "title": "Portugal",
+   "pageid": 28275,
+   "redirects": [],
+   "sections": [
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Regions",
+     "number": "1",
+     "index": "1",
+     "fromtitle": "Portugal",
+     "byteoffset": 1118,
+     "anchor": "Regions",
+     "linkAnchor": "Regions"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Cities",
+     "number": "2",
+     "index": "2",
+     "fromtitle": "Portugal",
+     "byteoffset": 8679,
+     "anchor": "Cities",
+     "linkAnchor": "Cities"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Other destinations",
+     "number": "3",
+     "index": "3",
+     "fromtitle": "Portugal",
+     "byteoffset": 9778,
+     "anchor": "Other_destinations",
+     "linkAnchor": "Other_destinations"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Understand",
+     "number": "4",
+     "index": "4",
+     "fromtitle": "Portugal",
+     "byteoffset": 10928,
+     "anchor": "Understand",
+     "linkAnchor": "Understand"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "People",
+     "number": "4.1",
+     "index": "5",
+     "fromtitle": "Portugal",
+     "byteoffset": 11215,
+     "anchor": "People",
+     "linkAnchor": "People"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "History",
+     "number": "4.2",
+     "index": "6",
+     "fromtitle": "Portugal",
+     "byteoffset": 13564,
+     "anchor": "History",
+     "linkAnchor": "History"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Climate",
+     "number": "4.3",
+     "index": "7",
+     "fromtitle": "Portugal",
+     "byteoffset": 23045,
+     "anchor": "Climate",
+     "linkAnchor": "Climate"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Time zone",
+     "number": "4.4",
+     "index": "8",
+     "fromtitle": "Portugal",
+     "byteoffset": 24171,
+     "anchor": "Time_zone",
+     "linkAnchor": "Time_zone"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Tourist information",
+     "number": "4.5",
+     "index": "9",
+     "fromtitle": "Portugal",
+     "byteoffset": 24458,
+     "anchor": "Tourist_information",
+     "linkAnchor": "Tourist_information"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Talk",
+     "number": "5",
+     "index": "10",
+     "fromtitle": "Portugal",
+     "byteoffset": 24570,
+     "anchor": "Talk",
+     "linkAnchor": "Talk"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Get in",
+     "number": "6",
+     "index": "11",
+     "fromtitle": "Portugal",
+     "byteoffset": 28758,
+     "anchor": "Get_in",
+     "linkAnchor": "Get_in"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By plane",
+     "number": "6.1",
+     "index": "12",
+     "fromtitle": "Portugal",
+     "byteoffset": 29329,
+     "anchor": "By_plane",
+     "linkAnchor": "By_plane"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By train",
+     "number": "6.2",
+     "index": "13",
+     "fromtitle": "Portugal",
+     "byteoffset": 32269,
+     "anchor": "By_train",
+     "linkAnchor": "By_train"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By bus",
+     "number": "6.3",
+     "index": "14",
+     "fromtitle": "Portugal",
+     "byteoffset": 33249,
+     "anchor": "By_bus",
+     "linkAnchor": "By_bus"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By boat",
+     "number": "6.4",
+     "index": "15",
+     "fromtitle": "Portugal",
+     "byteoffset": 33905,
+     "anchor": "By_boat",
+     "linkAnchor": "By_boat"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By car",
+     "number": "6.5",
+     "index": "16",
+     "fromtitle": "Portugal",
+     "byteoffset": 34062,
+     "anchor": "By_car",
+     "linkAnchor": "By_car"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Get around",
+     "number": "7",
+     "index": "17",
+     "fromtitle": "Portugal",
+     "byteoffset": 34361,
+     "anchor": "Get_around",
+     "linkAnchor": "Get_around"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By plane",
+     "number": "7.1",
+     "index": "18",
+     "fromtitle": "Portugal",
+     "byteoffset": 34377,
+     "anchor": "By_plane_2",
+     "linkAnchor": "By_plane_2"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By train",
+     "number": "7.2",
+     "index": "19",
+     "fromtitle": "Portugal",
+     "byteoffset": 35604,
+     "anchor": "By_train_2",
+     "linkAnchor": "By_train_2"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By bus",
+     "number": "7.3",
+     "index": "20",
+     "fromtitle": "Portugal",
+     "byteoffset": 37605,
+     "anchor": "By_bus_2",
+     "linkAnchor": "By_bus_2"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By taxi",
+     "number": "7.4",
+     "index": "21",
+     "fromtitle": "Portugal",
+     "byteoffset": 38290,
+     "anchor": "By_taxi",
+     "linkAnchor": "By_taxi"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "By car",
+     "number": "7.5",
+     "index": "22",
+     "fromtitle": "Portugal",
+     "byteoffset": 39069,
+     "anchor": "By_car_2",
+     "linkAnchor": "By_car_2"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Toll highways",
+     "number": "7.5.1",
+     "index": "23",
+     "fromtitle": "Portugal",
+     "byteoffset": 44461,
+     "anchor": "Toll_highways",
+     "linkAnchor": "Toll_highways"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Drunk driving",
+     "number": "7.5.2",
+     "index": "24",
+     "fromtitle": "Portugal",
+     "byteoffset": 45203,
+     "anchor": "Drunk_driving",
+     "linkAnchor": "Drunk_driving"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Parking",
+     "number": "7.5.3",
+     "index": "25",
+     "fromtitle": "Portugal",
+     "byteoffset": 45702,
+     "anchor": "Parking",
+     "linkAnchor": "Parking"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "See",
+     "number": "8",
+     "index": "26",
+     "fromtitle": "Portugal",
+     "byteoffset": 45851,
+     "anchor": "See",
+     "linkAnchor": "See"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Historic towns &amp; architecture",
+     "number": "8.1",
+     "index": "27",
+     "fromtitle": "Portugal",
+     "byteoffset": 46352,
+     "anchor": "Historic_towns_&_architecture",
+     "linkAnchor": "Historic_towns_&_architecture"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Natural beauty and beaches",
+     "number": "8.2",
+     "index": "28",
+     "fromtitle": "Portugal",
+     "byteoffset": 49406,
+     "anchor": "Natural_beauty_and_beaches",
+     "linkAnchor": "Natural_beauty_and_beaches"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Museums",
+     "number": "8.3",
+     "index": "29",
+     "fromtitle": "Portugal",
+     "byteoffset": 50991,
+     "anchor": "Museums",
+     "linkAnchor": "Museums"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Do",
+     "number": "9",
+     "index": "30",
+     "fromtitle": "Portugal",
+     "byteoffset": 52021,
+     "anchor": "Do",
+     "linkAnchor": "Do"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Football",
+     "number": "9.1",
+     "index": "31",
+     "fromtitle": "Portugal",
+     "byteoffset": 52029,
+     "anchor": "Football",
+     "linkAnchor": "Football"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Beaches",
+     "number": "9.2",
+     "index": "32",
+     "fromtitle": "Portugal",
+     "byteoffset": 53276,
+     "anchor": "Beaches",
+     "linkAnchor": "Beaches"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Golf",
+     "number": "9.3",
+     "index": "33",
+     "fromtitle": "Portugal",
+     "byteoffset": 54549,
+     "anchor": "Golf",
+     "linkAnchor": "Golf"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Events",
+     "number": "9.4",
+     "index": "34",
+     "fromtitle": "Portugal",
+     "byteoffset": 55626,
+     "anchor": "Events",
+     "linkAnchor": "Events"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Buy",
+     "number": "10",
+     "index": "35",
+     "fromtitle": "Portugal",
+     "byteoffset": 57264,
+     "anchor": "Buy",
+     "linkAnchor": "Buy"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Money",
+     "number": "10.1",
+     "index": "36",
+     "fromtitle": "Portugal",
+     "byteoffset": 57273,
+     "anchor": "Money",
+     "linkAnchor": "Money"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Costs",
+     "number": "10.2",
+     "index": "37",
+     "fromtitle": "Portugal",
+     "byteoffset": 57963,
+     "anchor": "Costs",
+     "linkAnchor": "Costs"
+    },
+    {
+     "toclevel": 3,
+     "level": "4",
+     "line": "Tax",
+     "number": "10.2.1",
+     "index": "38",
+     "fromtitle": "Portugal",
+     "byteoffset": 57976,
+     "anchor": "Tax",
+     "linkAnchor": "Tax"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Haggling",
+     "number": "10.3",
+     "index": "39",
+     "fromtitle": "Portugal",
+     "byteoffset": 58298,
+     "anchor": "Haggling",
+     "linkAnchor": "Haggling"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Overcharging &amp; cover charge",
+     "number": "10.4",
+     "index": "40",
+     "fromtitle": "Portugal",
+     "byteoffset": 58460,
+     "anchor": "Overcharging_&_cover_charge",
+     "linkAnchor": "Overcharging_&_cover_charge"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Tipping",
+     "number": "10.5",
+     "index": "41",
+     "fromtitle": "Portugal",
+     "byteoffset": 59089,
+     "anchor": "Tipping",
+     "linkAnchor": "Tipping"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Shopping",
+     "number": "10.6",
+     "index": "42",
+     "fromtitle": "Portugal",
+     "byteoffset": 59941,
+     "anchor": "Shopping",
+     "linkAnchor": "Shopping"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Consumer rights",
+     "number": "10.7",
+     "index": "43",
+     "fromtitle": "Portugal",
+     "byteoffset": 63705,
+     "anchor": "Consumer_rights",
+     "linkAnchor": "Consumer_rights"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Eat",
+     "number": "11",
+     "index": "44",
+     "fromtitle": "Portugal",
+     "byteoffset": 64635,
+     "anchor": "Eat",
+     "linkAnchor": "Eat"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Drink",
+     "number": "12",
+     "index": "45",
+     "fromtitle": "Portugal",
+     "byteoffset": 71455,
+     "anchor": "Drink",
+     "linkAnchor": "Drink"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Port Wine",
+     "number": "12.1",
+     "index": "46",
+     "fromtitle": "Portugal",
+     "byteoffset": 74308,
+     "anchor": "Port_Wine",
+     "linkAnchor": "Port_Wine"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Vinho Verde",
+     "number": "12.2",
+     "index": "47",
+     "fromtitle": "Portugal",
+     "byteoffset": 75763,
+     "anchor": "Vinho_Verde",
+     "linkAnchor": "Vinho_Verde"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Moscatel",
+     "number": "12.3",
+     "index": "48",
+     "fromtitle": "Portugal",
+     "byteoffset": 76121,
+     "anchor": "Moscatel",
+     "linkAnchor": "Moscatel"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Liqueur",
+     "number": "12.4",
+     "index": "49",
+     "fromtitle": "Portugal",
+     "byteoffset": 76366,
+     "anchor": "Liqueur",
+     "linkAnchor": "Liqueur"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Café",
+     "number": "12.5",
+     "index": "50",
+     "fromtitle": "Portugal",
+     "byteoffset": 77383,
+     "anchor": "Café",
+     "linkAnchor": "Café"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Sleep",
+     "number": "13",
+     "index": "51",
+     "fromtitle": "Portugal",
+     "byteoffset": 78460,
+     "anchor": "Sleep",
+     "linkAnchor": "Sleep"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Learn",
+     "number": "14",
+     "index": "52",
+     "fromtitle": "Portugal",
+     "byteoffset": 80282,
+     "anchor": "Learn",
+     "linkAnchor": "Learn"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Work",
+     "number": "15",
+     "index": "53",
+     "fromtitle": "Portugal",
+     "byteoffset": 80293,
+     "anchor": "Work",
+     "linkAnchor": "Work"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Stay safe",
+     "number": "16",
+     "index": "54",
+     "fromtitle": "Portugal",
+     "byteoffset": 80866,
+     "anchor": "Stay_safe",
+     "linkAnchor": "Stay_safe"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Illicit drug use",
+     "number": "16.1",
+     "index": "55",
+     "fromtitle": "Portugal",
+     "byteoffset": 83589,
+     "anchor": "Illicit_drug_use",
+     "linkAnchor": "Illicit_drug_use"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Stay healthy",
+     "number": "17",
+     "index": "56",
+     "fromtitle": "Portugal",
+     "byteoffset": 84070,
+     "anchor": "Stay_healthy",
+     "linkAnchor": "Stay_healthy"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Respect",
+     "number": "18",
+     "index": "57",
+     "fromtitle": "Portugal",
+     "byteoffset": 85549,
+     "anchor": "Respect",
+     "linkAnchor": "Respect"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Morality and social issues",
+     "number": "18.1",
+     "index": "58",
+     "fromtitle": "Portugal",
+     "byteoffset": 85561,
+     "anchor": "Morality_and_social_issues",
+     "linkAnchor": "Morality_and_social_issues"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Religion",
+     "number": "18.2",
+     "index": "59",
+     "fromtitle": "Portugal",
+     "byteoffset": 86009,
+     "anchor": "Religion",
+     "linkAnchor": "Religion"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Sexuality",
+     "number": "18.3",
+     "index": "60",
+     "fromtitle": "Portugal",
+     "byteoffset": 87142,
+     "anchor": "Sexuality",
+     "linkAnchor": "Sexuality"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Smoking",
+     "number": "18.4",
+     "index": "61",
+     "fromtitle": "Portugal",
+     "byteoffset": 88199,
+     "anchor": "Smoking",
+     "linkAnchor": "Smoking"
+    },
+    {
+     "toclevel": 2,
+     "level": "3",
+     "line": "Bullfighting",
+     "number": "18.5",
+     "index": "62",
+     "fromtitle": "Portugal",
+     "byteoffset": 89576,
+     "anchor": "Bullfighting",
+     "linkAnchor": "Bullfighting"
+    },
+    {
+     "toclevel": 1,
+     "level": "2",
+     "line": "Connect",
+     "number": "19",
+     "index": "63",
+     "fromtitle": "Portugal",
+     "byteoffset": 91304,
+     "anchor": "Connect",
+     "linkAnchor": "Connect"
+    }
+   ],
+   "showtoc": ""
+  }
+ }
+}

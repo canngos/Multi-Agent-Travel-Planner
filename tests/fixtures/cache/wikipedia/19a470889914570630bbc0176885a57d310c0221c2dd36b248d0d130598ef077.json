@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "list": "search",
+   "srsearch": "Jeronimos monastery lisbon",
+   "srlimit": 1,
+   "format": "json",
+   "formatversion": 2
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794915932.9370415,
+ "response": {
+  "batchcomplete": true,
+  "continue": {
+   "sroffset": 1,
+   "continue": "-||"
+  },
+  "query": {
+   "searchinfo": {
+    "totalhits": 356
+   },
+   "search": [
+    {
+     "ns": 0,
+     "title": "Jerónimos Monastery",
+     "pageid": 1422901,
+     "size": 35161,
+     "wordcount": 3828,
+     "snippet": "The <span class=\"searchmatch\">Jerónimos</span> <span class=\"searchmatch\">Monastery</span> or Hieronymites <span class=\"searchmatch\">Monastery</span> (Portuguese: Mosteiro dos <span class=\"searchmatch\">Jerónimos</span>, pronounced [muʃˈtɐjɾu ðu(ʒ) ʒɨˈɾɔnimuʃ]) is a former <span class=\"searchmatch\">monastery</span> of",
+     "timestamp": "2026-10-30T13:45:23Z"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,350 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://serpapi.com/search.json",
+  "params": {
+   "engine": "google_flights",
+   "type": 2,
+   "departure_id": "HEL",
+   "arrival_id": "LIS",
+   "outbound_date": "2027-05-10",
+   "adults": 2,
+   "currency": "EUR",
+   "hl": "en",
+   "gl": "fi"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1794925098.1172662,
+ "response": {
+  "error": null,
+  "google_flights_url": "https://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoeEgoyMDI3LTA1LTEwagcIARIDSEVMcgcIARIDTElTQAFAAUgBcAGYAQI&tfu=EgIIAQ",
+  "flights": [
+   {
+    "price": 357,
+    "total_duration": 495,
+    "layovers": [
+     {
+      "id": "RIX",
+      "duration": 160,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 09:15"
+      },
+      "arrival_airport": {
+       "name": "Riga Airport",
+       "id": "RIX",
+       "time": "2027-05-10 10:10"
+      },
+      "duration": 55,
+      "airline": "Air Baltic",
+      "flight_number": "BT 302"
+     },
+     {
+      "departure_airport": {
+       "name": "Riga Airport",
+       "id": "RIX",
+       "time": "2027-05-10 12:50"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 15:30"
+      },
+      "duration": 280,
+      "airline": "Air Baltic",
+      "flight_number": "BT 675"
+     }
+    ]
+   },
+   {
+    "price": 391,
+    "total_duration": 290,
+    "layovers": [],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 13:00"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 15:50"
+      },
+      "duration": 290,
+      "airline": "Finnair",
+      "flight_number": "AY 1739"
+     }
+    ]
+   },
+   {
+    "price": 411,
+    "total_duration": 405,
+    "layovers": [
+     {
+      "id": "AMS",
+      "duration": 75,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 13:55"
+      },
+      "arrival_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 15:25"
+      },
+      "duration": 150,
+      "airline": "KLM",
+      "flight_number": "KL 1252"
+     },
+     {
+      "departure_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 16:40"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 18:40"
+      },
+      "duration": 180,
+      "airline": "KLM",
+      "flight_number": "KL 1585"
+     }
+    ]
+   },
+   {
+    "price": 347,
+    "total_duration": 1125,
+    "layovers": [
+     {
+      "id": "MUC",
+      "duration": 765,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 06:00"
+      },
+      "arrival_airport": {
+       "name": "Munich International Airport",
+       "id": "MUC",
+       "time": "2027-05-10 07:35"
+      },
+      "duration": 155,
+      "airline": "Lufthansa City Airlines",
+      "flight_number": "VL 2467"
+     },
+     {
+      "departure_airport": {
+       "name": "Munich International Airport",
+       "id": "MUC",
+       "time": "2027-05-10 20:20"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 22:45"
+      },
+      "duration": 205,
+      "airline": "Lufthansa",
+      "flight_number": "LH 1780"
+     }
+    ]
+   },
+   {
+    "price": 411,
+    "total_duration": 575,
+    "layovers": [
+     {
+      "id": "AMS",
+      "duration": 245,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 07:00"
+      },
+      "arrival_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 08:30"
+      },
+      "duration": 150,
+      "airline": "KLM",
+      "flight_number": "KL 1248"
+     },
+     {
+      "departure_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 12:35"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 14:35"
+      },
+      "duration": 180,
+      "airline": "KLM",
+      "flight_number": "KL 1583"
+     }
+    ]
+   },
+   {
+    "price": 411,
+    "total_duration": 385,
+    "layovers": [
+     {
+      "id": "AMS",
+      "duration": 55,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 18:25"
+      },
+      "arrival_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 19:55"
+      },
+      "duration": 150,
+      "airline": "KLM",
+      "flight_number": "KL 1254"
+     },
+     {
+      "departure_airport": {
+       "name": "Amsterdam Airport Schiphol",
+       "id": "AMS",
+       "time": "2027-05-10 20:50"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 22:50"
+      },
+      "duration": 180,
+      "airline": "KLM",
+      "flight_number": "KL 1587"
+     }
+    ]
+   },
+   {
+    "price": 483,
+    "total_duration": 465,
+    "layovers": [
+     {
+      "id": "FRA",
+      "duration": 115,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 17:50"
+      },
+      "arrival_airport": {
+       "name": "Frankfurt Airport",
+       "id": "FRA",
+       "time": "2027-05-10 19:25"
+      },
+      "duration": 155,
+      "airline": "Lufthansa City Airlines",
+      "flight_number": "VL 851"
+     },
+     {
+      "departure_airport": {
+       "name": "Frankfurt Airport",
+       "id": "FRA",
+       "time": "2027-05-10 21:20"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 23:35"
+      },
+      "duration": 195,
+      "airline": "Lufthansa",
+      "flight_number": "LH 1172"
+     }
+    ]
+   },
+   {
+    "price": 483,
+    "total_duration": 525,
+    "layovers": [
+     {
+      "id": "MAD",
+      "duration": 175,
+      "overnight": null
+     }
+    ],
+    "flights": [
+     {
+      "departure_airport": {
+       "name": "Helsinki Airport",
+       "id": "HEL",
+       "time": "2027-05-10 16:40"
+      },
+      "arrival_airport": {
+       "name": "Adolfo Suárez Madrid-Barajas Airport",
+       "id": "MAD",
+       "time": "2027-05-10 20:05"
+      },
+      "duration": 265,
+      "airline": "Finnair",
+      "flight_number": "AY 1661"
+     },
+     {
+      "departure_airport": {
+       "name": "Adolfo Suárez Madrid-Barajas Airport",
+       "id": "MAD",
+       "time": "2027-05-10 23:00"
+      },
+      "arrival_airport": {
+       "name": "Lisbon Airport",
+       "id": "LIS",
+       "time": "2027-05-10 23:25"
+      },
+      "duration": 85,
+      "airline": "Iberia",
+      "flight_number": "IB 539"
+     }
+    ]
+   }
+  ]
+ }
+}
