@@ -81,16 +81,40 @@ def _route_km(points: list[dict]) -> tuple[list[dict], float]:
     return route, total
 
 
+def _centre(group: list[dict]) -> tuple[float, float]:
+    return sum(p["lat"] for p in group) / len(group), sum(p["lon"] for p in group) / len(group)
+
+
+def _agglomerate(points: list[dict], k: int, cap: int) -> list[list[dict]]:
+    """Merges the two closest groups (centroid distance) until k groups remain.
+
+    A merge may not exceed `cap` places, unless no allowed merge is left. Unlike k-means with
+    far-apart seeds, two neighbouring outliers (e.g. Belém Tower and Jerónimos) end up together and
+    a dense centre gets split instead. Deterministic: ties go to the earliest pair.
+    """
+    groups = [[p] for p in points]
+    while len(groups) > k:
+        pairs = [(haversine_km(*_centre(a), *_centre(b)), i, j)
+                 for i, a in enumerate(groups) for j, b in enumerate(groups) if i < j]
+        allowed = [t for t in pairs if len(groups[t[1]]) + len(groups[t[2]]) <= cap]
+        _, i, j = min(allowed or pairs)
+        groups[i] = groups[i] + groups.pop(j)
+    return groups
+
+
 @safe_tool
-def cluster_by_distance(places: list[dict], n_days: int) -> dict:
+def cluster_by_distance(places: list[dict], n_days: int, food_places: list[dict] | None = None) -> dict:
     """Groups places into n_days clusters of nearby places, one cluster per day.
 
     Each cluster is ordered as a walking route with its straight-line walking
     distance in km. Places without lat/lon are listed under "unplaced".
+    If food_places are given, each day also lists "food_nearby": the closest ones
+    (up to 5 within 2 km of the day's centre, nearest first) for lunch and dinner.
 
     Args:
-        places: List of objects with at least "name", "lat", "lon" (other keys are kept).
+        places: Sights: list of objects with at least "name", "lat", "lon" (other keys are kept).
         n_days: Number of days (clusters) to make.
+        food_places: Optional restaurants/cafes/bars: objects with "name", "lat", "lon".
     """
     if n_days < 1:
         raise ToolError("n_days must be at least 1")
@@ -99,28 +123,7 @@ def cluster_by_distance(places: list[dict], n_days: int) -> dict:
     if not located:
         raise ToolError("No places with coordinates to cluster")
     k = min(n_days, len(located))
-    cap = math.ceil(len(located) / k) + 1  # keeps days roughly balanced
-
-    # Deterministic seeding: farthest-point traversal from the first place.
-    centres = [(located[0]["lat"], located[0]["lon"])]
-    while len(centres) < k:
-        far = max(located, key=lambda p: min(_dist(p, c) for c in centres))
-        centres.append((far["lat"], far["lon"]))
-
-    groups: list[list[dict]] = []
-    for _ in range(10):  # capacity-limited k-means
-        groups = [[] for _ in range(k)]
-        for p in sorted(located, key=lambda p: min(_dist(p, c) for c in centres)):
-            ranked = sorted(range(k), key=lambda i: _dist(p, centres[i]))
-            target = next((i for i in ranked if len(groups[i]) < cap), ranked[0])
-            groups[target].append(p)
-        new_centres = [
-            (sum(p["lat"] for p in g) / len(g), sum(p["lon"] for p in g) / len(g)) if g else centres[i]
-            for i, g in enumerate(groups)
-        ]
-        if new_centres == centres:
-            break
-        centres = new_centres
+    groups = _agglomerate(located, k, cap=math.ceil(len(located) / k) + 1)  # cap keeps days roughly balanced
 
     days = []
     for i, g in enumerate(sorted((g for g in groups if g), key=lambda g: -len(g))):
@@ -134,4 +137,9 @@ def cluster_by_distance(places: list[dict], n_days: int) -> dict:
                 "lon": round(sum(p["lon"] for p in g) / len(g), 5),
             },
         })
+        if food_places:
+            c = _centre(g)
+            near = sorted((round(_dist(f, c), 2), f["name"]) for f in food_places
+                          if f.get("lat") is not None and f.get("lon") is not None and f.get("name"))
+            days[-1]["food_nearby"] = [{"name": n, "km_from_centre": km} for km, n in near if km <= 2.0][:5]
     return ok(days, unplaced=unplaced)

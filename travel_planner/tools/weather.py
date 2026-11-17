@@ -37,7 +37,8 @@ async def get_forecast(lat: float, lon: float, start_date: str, end_date: str) -
     If the trip is within ~2 weeks this is the real forecast. Otherwise it is the
     observed weather on the same dates last year, as a typical guide ("kind" says
     which). A day has "rainy": true when precipitation is at least 2 mm; plan
-    indoor sights on rainy days.
+    indoor sights on rainy days. "weekday" (Mon..Sun) is the trip date's weekday,
+    for checking opening hours.
 
     Args:
         lat: Latitude of the destination.
@@ -75,8 +76,10 @@ async def get_forecast(lat: float, lon: float, start_date: str, end_date: str) -
     for i, t in enumerate(d["time"]):
         precip = d["precipitation_sum"][i]
         code = d["weather_code"][i]
+        trip_day = _shift_year(date.fromisoformat(t), -offset)
         day = {
-            "date": _shift_year(date.fromisoformat(t), -offset).isoformat(),
+            "date": trip_day.isoformat(),
+            "weekday": trip_day.strftime("%a"),
             "weather": WMO.get(code, f"code {code}"),
             "t_max_c": d["temperature_2m_max"][i],
             "t_min_c": d["temperature_2m_min"][i],

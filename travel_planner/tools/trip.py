@@ -108,31 +108,50 @@ def save_trip_brief(
     return ok([saved])
 
 
+# Typical daily costs per person, used only when no sourced figure is given. The result labels them as assumptions.
+ASSUMED_FOOD_PER_PERSON_DAY = {"low": 30.0, "mid": 50.0, "high": 90.0}
+ASSUMED_LOCAL_TRANSPORT_PER_PERSON_DAY = {"low": 5.0, "mid": 8.0, "high": 15.0}
+
+
 @safe_tool
 def calculate_trip_cost(
     transport_total_eur: float,
     stay_total_eur: float,
-    food_per_person_per_day_eur: float,
     activities_total_eur: float,
     days: int,
     travellers: int,
-    local_transport_per_person_per_day_eur: float = 0.0,
+    budget_tier: str = "mid",
+    food_per_person_per_day_eur: float | None = None,
+    local_transport_per_person_per_day_eur: float | None = None,
     total_budget_eur: float | None = None,
 ) -> dict:
     """Totals the trip cost per category and compares it with the budget.
 
+    Food and local transport default to typical daily costs for the budget tier
+    (low/mid/high); the result lists them under "assumptions" so the guide can say so.
+
     Args:
         transport_total_eur: Getting there and back, all travellers together.
         stay_total_eur: Accommodation for the whole stay, all travellers.
-        food_per_person_per_day_eur: Food and drink per person per day.
         activities_total_eur: All tickets and activities, all travellers together.
         days: Number of trip days.
         travellers: Number of travellers.
-        local_transport_per_person_per_day_eur: Metro/tram/bus per person per day.
+        budget_tier: "low", "mid" or "high"; picks the typical food / local transport cost.
+        food_per_person_per_day_eur: Food and drink per person per day, only if you have a sourced figure.
+        local_transport_per_person_per_day_eur: Metro/tram/bus per person per day, only if sourced.
         total_budget_eur: The group's total budget, if known.
     """
     if days < 1 or travellers < 1:
         raise ToolError("days and travellers must be at least 1")
+    tier = budget_tier if budget_tier in ASSUMED_FOOD_PER_PERSON_DAY else "mid"
+    assumptions = []
+    if food_per_person_per_day_eur is None:
+        food_per_person_per_day_eur = ASSUMED_FOOD_PER_PERSON_DAY[tier]
+        assumptions.append(f"food: typical {tier}-budget cost of €{food_per_person_per_day_eur:.0f} per person per day")
+    if local_transport_per_person_per_day_eur is None:
+        local_transport_per_person_per_day_eur = ASSUMED_LOCAL_TRANSPORT_PER_PERSON_DAY[tier]
+        assumptions.append(
+            f"local transport: typical €{local_transport_per_person_per_day_eur:.0f} per person per day")
     values = [transport_total_eur, stay_total_eur, food_per_person_per_day_eur, activities_total_eur,
               local_transport_per_person_per_day_eur]
     if any(v is None or v < 0 for v in values):
@@ -151,6 +170,7 @@ def calculate_trip_cost(
         "total_eur": round(total, 2),
         "per_person_eur": round(total / travellers, 2),
         "per_person_per_day_eur": round(total / travellers / days, 2),
+        "assumptions": assumptions,
     }
     if total_budget_eur:
         diff = total_budget_eur - total
@@ -173,10 +193,11 @@ def slugify(text: str) -> str:
 
 
 @safe_tool
-def save_guide(markdown_text: str, filename_slug: str) -> dict:
+def save_guide(markdown_text: str, filename_slug: str, tool_context: ToolContext = None) -> dict:
     """Saves the finished trip guide as Markdown and HTML in the output/ folder.
 
     An attribution footer (data sources and price notes) is added automatically.
+    The guide is also kept in the session as "final_guide".
 
     Args:
         markdown_text: The full guide in Markdown.
@@ -195,4 +216,7 @@ def save_guide(markdown_text: str, filename_slug: str) -> dict:
     html_path.write_text(
         HTML_TEMPLATE.format(title=(title_match.group(1) if title_match else slug), body=body), encoding="utf-8"
     )
+    if tool_context is not None:
+        tool_context.state["final_guide"] = full
+        tool_context.state["guide_paths"] = {"markdown": str(md_path), "html": str(html_path)}
     return ok([{"markdown_path": str(md_path), "html_path": str(html_path)}])

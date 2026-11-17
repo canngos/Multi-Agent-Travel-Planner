@@ -51,6 +51,33 @@ def test_cluster_groups_neighbourhoods_and_reports_unplaced():
     assert all(d["walk_km"] < 3 for d in r["results"])
 
 
+def test_cluster_keeps_neighbouring_outliers_together():
+    """Regression: k-means with farthest-point seeds put Belém Tower and Jerónimos (1 km apart) on two days."""
+    sights = [
+        {"name": "São Jorge Castle", "lat": 38.7139, "lon": -9.1335}, {"name": "St Anthony", "lat": 38.7097, "lon": -9.1336},
+        {"name": "MUDE", "lat": 38.7093, "lon": -9.1370}, {"name": "Rua Augusta Arch", "lat": 38.7083, "lon": -9.1366},
+        {"name": "Santa Justa Lift", "lat": 38.7119, "lon": -9.1392}, {"name": "Chiado Museum", "lat": 38.7093, "lon": -9.1418},
+        {"name": "Ancient Art Museum", "lat": 38.7048, "lon": -9.1609}, {"name": "Belém Tower", "lat": 38.6916, "lon": -9.2160},
+        {"name": "Panteão", "lat": 38.7148, "lon": -9.1250}, {"name": "Jerónimos", "lat": 38.6978, "lon": -9.2061},
+    ]
+    for n in (3, 4, 5):
+        groups = [{p["name"] for p in d["places"]} for d in cluster_by_distance(sights, n)["results"]]
+        assert any({"Belém Tower", "Jerónimos"} <= g for g in groups), (n, groups)
+
+
+def test_cluster_lists_food_nearby_each_day():
+    food = [{"name": "Pastéis de Belém", "lat": 38.6975, "lon": -9.2033}, {"name": "Alfama tasca", "lat": 38.7110, "lon": -9.1310},
+            {"name": "No coords", "lat": None, "lon": None}]
+    days = cluster_by_distance(LISBON, 3, food_places=food)["results"]
+    by_first = {d["places"][0]["name"]: d for d in days}
+    belem = next(d for d in days if any(p["name"] == "Belém Tower" for p in d["places"]))
+    alfama = next(d for d in days if any(p["name"] == "Lisbon Cathedral" for p in d["places"]))
+    oceans = next(d for d in days if any(p["name"] == "Oceanário" for p in d["places"]))
+    assert [f["name"] for f in belem["food_nearby"]] == ["Pastéis de Belém"]
+    assert [f["name"] for f in alfama["food_nearby"]] == ["Alfama tasca"] and oceans["food_nearby"] == []
+    assert by_first and "food_nearby" not in cluster_by_distance(LISBON, 3)["results"][0]
+
+
 def test_cluster_more_days_than_places_and_errors():
     assert cluster_by_distance(LISBON[:2], 5)["count"] == 2
     assert cluster_by_distance(LISBON, 0)["status"] == "error"
@@ -197,15 +224,27 @@ def test_save_trip_brief_reports_bad_fields():
 
 
 def test_calculate_trip_cost():
-    r = trip.calculate_trip_cost(400, 600, 40, 100, 5, 2, local_transport_per_person_per_day_eur=6, total_budget_eur=2000)
+    r = trip.calculate_trip_cost(400, 600, 100, 5, 2, food_per_person_per_day_eur=40,
+                                 local_transport_per_person_per_day_eur=6, total_budget_eur=2000)
     c = r["results"][0]
     assert c["categories_eur"] == {"transport": 400, "stay": 600, "food": 400, "activities": 100, "local_transport": 60}
     assert (c["total_eur"], c["per_person_eur"], c["per_person_per_day_eur"]) == (1560, 780, 156)
     assert c["within_budget"] is True and c["difference_eur"] == 440 and c["budget_used_pct"] == 78.0
-    over = trip.calculate_trip_cost(400, 600, 40, 100, 5, 2, total_budget_eur=1000)["results"][0]
+    assert c["assumptions"] == []
+    over = trip.calculate_trip_cost(400, 600, 100, 5, 2, food_per_person_per_day_eur=40,
+                                    local_transport_per_person_per_day_eur=0, total_budget_eur=1000)["results"][0]
     assert over["within_budget"] is False and over["difference_eur"] == -500
-    assert trip.calculate_trip_cost(1, 1, 1, 1, 0, 1)["status"] == "error"
-    assert trip.calculate_trip_cost(-1, 1, 1, 1, 1, 1)["status"] == "error"
+    assert trip.calculate_trip_cost(1, 1, 1, 0, 1)["status"] == "error"
+    assert trip.calculate_trip_cost(-1, 1, 1, 1, 1)["status"] == "error"
+
+
+def test_calculate_trip_cost_uses_tier_assumptions():
+    c = trip.calculate_trip_cost(100, 300, 0, 4, 2, budget_tier="low")["results"][0]
+    assert c["categories_eur"]["food"] == 30 * 2 * 4 and c["categories_eur"]["local_transport"] == 5 * 2 * 4
+    assert len(c["assumptions"]) == 2 and "low-budget" in c["assumptions"][0]
+    assert c["within_budget"] is None
+    unknown = trip.calculate_trip_cost(100, 300, 0, 1, 1, budget_tier="luxury")["results"][0]
+    assert unknown["categories_eur"]["food"] == 50  # falls back to mid
 
 
 def test_save_guide_writes_md_and_html(tmp_path, monkeypatch):
@@ -219,6 +258,14 @@ def test_save_guide_writes_md_and_html(tmp_path, monkeypatch):
     assert "OpenStreetMap" in md_text and "Transitous" in md_text  # attribution footer
     assert "<table>" in html and "<title>Lisbon, 10–14 May</title>" in html and "Belém‑Tower" in html
     assert trip.save_guide("  ", "x")["status"] == "error"
+
+
+def test_save_guide_keeps_guide_in_state(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "OUTPUT_DIR", tmp_path)
+    ctx = SimpleNamespace(state={})
+    trip.save_guide("# Tallinn\n\nDay 1", "tallinn-2026-12-01", ctx)
+    assert ctx.state["final_guide"].startswith("# Tallinn") and "OpenStreetMap" in ctx.state["final_guide"]
+    assert ctx.state["guide_paths"]["html"].endswith("tallinn-2026-12-01.html")
 
 
 def test_slim_rates_keeps_cheapest_room_only():
