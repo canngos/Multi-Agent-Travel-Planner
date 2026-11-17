@@ -172,14 +172,36 @@ Files: `travel_planner/agents/{comparers,teams}.py`; `agents/output.py` (nested 
 - ADK 2.x deprecates `SequentialAgent`/`ParallelAgent` in favour of `Workflow`, which cannot yet be an LlmAgent sub-agent; we keep them (Decisions log).
 
 ## Phase 7 — End-to-end pipeline without the loop  *(spec step 7)*
-Files: `travel_planner/agents/{concierge,itinerary_planner,guide_writer,pipeline}.py`, `travel_planner/agent.py`
+Files: `travel_planner/agents/{concierge,planner,guide_writer,pipeline,grounding,itinerary_tidy}.py`, `travel_planner/agent.py`
 
-- [ ] `concierge` (root): asks for missing fields, geocodes origin and destination, confirms with the user, calls `save_trip_brief`, transfers to `planning_pipeline` (or uses the Phase 0 fallback)
-- [ ] `itinerary_planner` → `itinerary`: uses `get_forecast` and `cluster_by_distance`; puts nearby places on the same day and indoor sights on rainy days; supports 3, 5 or 7 days
-- [ ] `guide_writer` → `final_guide`: transport, stay comparison, daily plan with history snippets and food stops, cost table, links and price-source markers; calls `save_guide`
-- [ ] `planning_pipeline` = Sequential[research_team, itinerary_planner, guide_writer]
+- [x] `concierge` (root): asks for missing fields, geocodes origin and destination, confirms with the user, calls `save_trip_brief`, transfers to `planning_pipeline` (or uses the Phase 0 fallback)
+- [x] `itinerary_planner` → `itinerary`: uses `get_forecast` and `cluster_by_distance`; puts nearby places on the same day and indoor sights on rainy days; supports 3, 5 or 7 days
+- [x] `guide_writer` → `final_guide`: transport, stay comparison, daily plan with history snippets and food stops, cost table, links and price-source markers; calls `save_guide`
+- [x] `planning_pipeline` = Sequential[research_team, itinerary_planner, guide_writer]
 
 **Done when:** the demo request in `adk web` produces `output/lisbon-<dates>.md` and `.html`.
+
+**Status: done.** `scratch/dev_pipeline.py full` plays the demo chat against the real root agent. It sends four user turns: request, dates and origin, "yes", and a follow-up question. It passes all checks in 316 s (about 3 min of research, then planner and writer) and writes `output/lisbon-2027-05-10-to-2027-05-14.md` and `.html`. `adk web` lists and loads `travel_planner`. `scratch/dev_pipeline.py tail` runs only the planner and writer on saved research, for quick prompt work (~100 s).
+
+- **Concierge:**
+  - Its instruction is built per turn, with today's date (to resolve "10–14 May") and the finished guide (for follow-up questions).
+  - `hide_pipeline_events` removes the pipeline's tool traffic from its prompt.
+  - Confirmation is enforced in code: the first `save_trip_brief` call only answers `needs_confirmation`. The same details save only in a later turn, after the user has replied. In the first full run the model had saved and transferred without asking.
+- **Planner:** calls `get_forecast` (now with weekdays, for opening hours), `cluster_by_distance` (sights plus `food_places`, giving `food_nearby` per day) and `calculate_trip_cost`.
+- **Planner tools changed:**
+  - `cluster_by_distance` is now agglomerative. k-means with farthest-point seeds put Belém Tower and Jerónimos, 1 km apart, on different days.
+  - `calculate_trip_cost` fills food and local transport with labelled tier assumptions (low/mid/high: €30/50/90 food, €5/8/15 transport per person per day) unless a sourced figure is given.
+- **Code fixes after the planner** (after-agent callbacks, so they don't depend on the model):
+  - `grounding.ground_itinerary` restores mangled links (http→https, added `www.`, trailing slash) to the researched spelling and removes links that no tool returned.
+  - `itinerary_tidy` rebuilds the arrival and departure items from the chosen transport. The model once used the cheapest flight's times while SAS was chosen.
+  - It also drops items before arrival or after departure, sorts items by time, and adds a display-ready `ticket` text. The writer had turned null (unknown) into "Free entry".
+- **Writer:** `save_guide` stores the guide in `state["final_guide"]` and the file paths in `guide_paths`.
+  - A before-tool callback grounds every link in the guide, including repairing `[x]('url')` targets.
+  - If the model replies with the guide instead of calling `save_guide` (it did in the last run), an after-agent callback grounds and saves the reply.
+- **Weak spots for Phase 8/9:**
+  - Some days are thin (an empty arrival evening, a free morning) and some meal picks are far from the day's area. The critic and reviser should catch this.
+  - The planner may call `calculate_trip_cost` several times.
+  - The concierge sees one other agent's final reply because of `include_contents="none"` slicing; harmless.
 
 ## Phase 8 — Review loop  *(spec step 8)*
 Files: `travel_planner/agents/{budget_critic,itinerary_reviser}.py`; update `pipeline.py`
@@ -244,4 +266,8 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | Research agents: factories, `include_contents="none"`, temperature 0.2, JSON object output checked by `agents/output.py` (schema + URL grounding) | One agent instance per parent; no cross-talk between parallel branches; parse-and-validate makes "grounded" testable instead of eyeballed |
 | 2026-11-17 | Dishes from Wikivoyage + Wikidata (`local_dishes`); sight hours/fees from OSM via QLever (`find_sight_hours`); web search stays the fallback for fares, ticket prices and ratings | Deep research found no free, card-less, ToS-clean API for ferry/rail fares (Tallink, Viking Line, VR, CP have none; Ferryhopper MCP has no Baltic results; Virail answered 2 of 9 test searches) or restaurant ratings (Google needs billing; Tripadvisor's free API closed 31 Aug 2026; Yelp and Foursquare are paid) |
 | 2026-11-17 | Keep `SequentialAgent` / `ParallelAgent` (deprecated in ADK 2.x in favour of `Workflow`) | ADK: "Workflow cannot yet be used as an LlmAgent sub-agent", and the concierge transfers to the pipeline as its sub-agent. The warning is filtered in `pytest.ini` |
+| 2026-11-17 | Concierge confirmation and the plan's travel times / ticket texts / links are enforced by callbacks, not only by prompts | GPT OSS skipped the confirmation, copied a different flight's times, turned unknown tickets into "free" and rewrote URLs despite explicit rules. Code that checks or rebuilds these is reliable and testable offline |
+| 2026-11-17 | `cluster_by_distance` uses agglomerative (centroid-linkage) clustering with a size cap instead of k-means | Farthest-point seeding makes every outlying sight its own day; merging the closest groups keeps neighbours like Belém Tower and Jerónimos together and splits the dense centre instead |
+| 2026-11-17 | Food and local transport costs are typical per-tier figures inside `calculate_trip_cost`, listed as assumptions | No free source gives daily food costs; keeping the numbers in one tool (not in model output) makes them consistent and visible in the guide |
+| 2026-11-17 | The guide reaches the concierge through its instruction; the pipeline's events are removed from its prompt | ADK shows every agent's tool calls and results to the root agent in later turns (tens of KB); the guide text is what follow-up questions need |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

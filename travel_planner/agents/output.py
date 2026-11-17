@@ -10,7 +10,7 @@ from pydantic import ValidationError
 from ..models import Place, StayOption, TransportOption
 
 # output_key -> {path: model}. A path ending in "[]" must be a list of items; otherwise the value is one
-# object or null. "by_area[].hotel" checks the "hotel" object of every element of the "by_area" list.
+# object or null. model None = only check that the path exists. "by_area[].hotel" checks the "hotel" object of every element of the "by_area" list.
 SCHEMAS = {
     "culture_findings": {"results[]": Place},
     "food_findings": {"results[]": Place},
@@ -22,6 +22,8 @@ SCHEMAS = {
     | {"outbound.ranked[]": TransportOption, "return.ranked[]": TransportOption},
     "stay_summary": {"cheapest": StayOption, "best_value": StayOption, "top_rated": StayOption,
                      "by_area[].airbnb": StayOption, "by_area[].hotel": StayOption},
+    "itinerary": {"transport.outbound": TransportOption, "transport.return": TransportOption, "stay": StayOption,
+                  "days[]": None},
 }
 _MISSING = object()
 
@@ -81,7 +83,7 @@ def check_output(output_key: str, text: str) -> tuple[dict, list[str]]:
                 problems.append(f"'{label}' is missing" + (" or not a list" if path.endswith("[]") else ""))
             elif value == "not a list":
                 problems.append(f"'{label}' is missing or not a list")
-            elif value is not None:
+            elif value is not None and model is not None:
                 try:
                     model.model_validate(value)
                 except ValidationError as exc:
