@@ -405,6 +405,38 @@ built from the same Markdown the Guide tab shows.
     `<repo>`, and the 2 affected entries were re-keyed. The UI replay file no longer contains the local path.
   - Replay seek-to-end and JSON answers in the activity list (web UI).
 
+## Phase 10b — Running it on someone else's computer
+Goal: a lecturer can run the planner on their own PC and ask for a trip of their own, not only watch the demo.
+
+- [x] One command for planner and UI: `scripts/serve.py` starts ADK's API server under `/adk` and the built UI at
+  `/` on one port. It builds the UI on first start (`npm ci`, `npm run build`); `--demo` replays the recording
+- [x] Setup check: `scripts/check_setup.py` checks Python and the packages, sends one tiny LLM request, checks
+  every key and keyless service, and says what each missing piece costs. Exit code 1 if no LLM works
+- [x] Another LLM when Lehmus is out of reach (no VPN): `LLM_MODEL`, `LLM_API_BASE`, `LLM_API_KEY` (any LiteLLM
+  model). Untested: the prompts were tuned on GPT OSS 120B
+- [x] README "Plan your own trip (live)": install, `.env` (required, recommended and optional keys, with what is
+  lost without each), the setup check, starting, asking, how it behaves, troubleshooting
+
+**Done when:** on a fresh clone, the setup check, `serve.py` and a live trip that was never scripted work.
+
+**Status: done.**
+- **Barcelona, live through `serve.py`:** a request never seen before, sent over `/run_sse` like the UI:
+  - the concierge confirmed, then all agents ran;
+  - approved in round 1, guide saved, follow-up answered from the guide;
+  - 394 s.
+- **Kraków, live with no data-source keys** (only the LLM and `CONTACT_EMAIL`):
+  - each keyed tool failed with a clear "not set" error and the agents used their fallbacks;
+  - stays came from the keyless Airbnb MCP, and the guide said no hotel results were found;
+  - every check passed in 344 s.
+- **Fresh copy:**
+  - without `.env`, the setup check names the missing LLM key and exits 1;
+  - `serve.py --demo` built the UI, served it, and the demo passed over HTTP.
+- **Found on the way:** without `CONTACT_EMAIL`, Wikivoyage answers HTTP 403 (Wikimedia blocks clients without a
+  contact address). It is marked "required in practice" in `.env.example` and the README, and the setup check
+  explains a 403.
+- **Tests:** `tests/test_serve.py` covers the `/adk` routing, lifespan forwarding and the LLM settings (193 offline
+  tests in total).
+
 ---
 
 ## Decisions log
@@ -448,4 +480,6 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | Far-future ground trips use a "typical timetable" from a near date, labelled in the details | Ferry timetables are published only months ahead; this mirrors the weather tool's typical-weather fallback |
 | 2026-11-18 | The web UI uses ADK's own API server (`/run_sse`) through the Vite proxy instead of a custom backend | Sessions, streaming and state already exist there; the proxy removes CORS setup and the browser's Origin header |
 | 2026-11-18 | The UI's map is drawn from an agent-graph JSON exported from the Python tree; start times are inferred from the tree | The picture cannot drift from the code, and agents light up when they start rather than after their first model answer |
+| 2026-11-18 | Production start is one process: ADK's FastAPI app (prefix `/adk` stripped by a small ASGI wrapper) plus the built UI as static files | One command and one port for someone else's PC; same-origin requests pass ADK's origin check without configuration; ADK's own lifespan still runs |
+| 2026-11-18 | The LLM can be swapped with `LLM_MODEL` / `LLM_API_KEY`; Lehmus stays the default and the demo pins its model | Lehmus needs the university VPN; LiteLLM already supports other providers, so the override is a few lines (documented as untested) |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

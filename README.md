@@ -47,7 +47,7 @@ Then pick one of three ways to watch it:
 |---|---|---|
 | Terminal | `.venv/Scripts/python scripts/run_trip.py --demo` | The conversation, every tool call, an agent timeline and the quality checks, in about 3 s |
 | ADK web | `DEMO=1 .venv/Scripts/adk web`, then pick `travel_planner` | ADK's chat UI with the full event trace |
-| Web UI | see [below](#the-web-ui) | The animated agent map, inspector, timeline and guide |
+| Web UI | `.venv/Scripts/python scripts/serve.py --demo`, then open http://localhost:8000 (needs Node.js 18+ for the first build) | The animated agent map, inspector, timeline and guide |
 
 In `adk web` and the web UI, type (or click) exactly these four messages, because the replay only knows the
 recorded conversation:
@@ -72,44 +72,121 @@ A React front end in [`travel-planner-ui/`](travel-planner-ui/README.md):
 - **Guide:** the rendered guide with downloads.
 - **Replay:** recorded runs, with play, pause and speed controls.
 
-You need Node.js 18 or newer. Use two terminals in the project root:
+One command starts the planner and the UI together. It builds the UI on first start, which needs Node.js 18+:
 
 ```bash
-DEMO=1 DEMO_PACE=0.2 .venv/Scripts/adk api_server .   # or without DEMO for live planning
-cd travel-planner-ui && npm install && npm run dev     # then open http://localhost:5173
+.venv/Scripts/python scripts/serve.py --demo     # the recorded demo -> http://localhost:8000
+.venv/Scripts/python scripts/serve.py            # live planning (see the next section)
 ```
 
-"Watch a recorded run" in the UI needs no API server at all.
+"Watch a recorded run" in the UI needs no API server at all. For UI development with hot reload, see
+[travel-planner-ui/README.md](travel-planner-ui/README.md).
 
 ![Activity tab: the six research agents run in parallel, then the planner, two review rounds and the guide writer](docs/images/ui-activity.jpg)
 
 ---
 
-## Full setup: live planning
+## Plan your own trip (live)
 
-1. **LLM.** The Lehmus API is reachable only from the University of Oulu network or VPN. Copy `.env.example` to
-   `.env` and fill `LEHMUS_API_BASE`, `LEHMUS_API_KEY` and `LEHMUS_MODEL_ID` (GPT OSS 120B; the id is in the
-   example file).
-2. **Data source keys.** All have free plans that need no credit card:
+This is how to run the planner for real on your own computer and ask for any trip: any city, your dates, your
+budget. Setup takes about 15 minutes; each plan then takes 5 to 7 minutes.
 
-   | Key | Used for | Where to get it |
-   |---|---|---|
-   | `TAVILY_API_KEY` | Web search: opening hours, ticket and fare prices | [tavily.com](https://tavily.com) (1,000 searches/month) |
-   | `OPENTRIPMAP_API_KEY` | Sights near the destination | [dev.opentripmap.org](https://dev.opentripmap.org) |
-   | `LITEAPI_KEY` | Hotel rates (sandbox key) | [liteapi.travel](https://www.liteapi.travel) |
-   | `SERPAPI_KEY` (optional) | Google Hotels prices, Google Flights fallback | [serpapi.com](https://serpapi.com) (~250 searches/month) |
-   | `CONTACT_EMAIL` | Contact in the User-Agent, required by Nominatim and Wikipedia | your address |
+### 1. Install
 
-   Kiwi.com (flights, MCP), Airbnb (MCP), Nominatim, Open-Meteo, Overpass, Transitous, Wikipedia, Wikivoyage
-   and Wikidata need no key.
-3. **Node.js 18+.** The Airbnb MCP server runs locally with `npx` (installed on first use). The web UI needs
-   Node.js as well.
-4. **Run** with `.venv/Scripts/adk web`, or the web UI, or a scripted trip:
-   `.venv/Scripts/python scripts/run_trip.py --trip tallinn`. The trips are `lisbon`, `tallinn`, `rome` and
-   `krakow`. A live run takes 5 to 7 minutes.
+- Python 3.11+ and Git; Node.js 18+ (for the web UI and Airbnb search). Then, in the project folder:
 
-Responses are cached under `cache/` (30 days for most sources), so repeated runs are faster and gentler on the
-free APIs.
+  ```bash
+  python -m venv .venv
+  .venv/Scripts/pip install -r requirements.txt        # macOS/Linux: .venv/bin/pip
+  ```
+
+### 2. Configure `.env`
+
+Copy `.env.example` to `.env` and fill it in. Only the first two rows are required; every missing key has a
+fallback, so the planner still finishes, with less detail.
+
+| Setting | Needed | Without it |
+|---|---|---|
+| `LEHMUS_API_BASE`, `LEHMUS_API_KEY` (GPT OSS 120B; the model id is preset) | **required** | No planning. Lehmus works only on the University of Oulu network or VPN. Off the VPN, set `LLM_MODEL` and `LLM_API_KEY` for another provider, e.g. `openai/gpt-4.1-mini` through LiteLLM. Untested: the prompts were tuned on GPT OSS 120B |
+| `CONTACT_EMAIL` | **required in practice** | Wikipedia, Wikivoyage and Nominatim block clients without a contact address (HTTP 403), so sights, dishes and geocoding get weaker |
+| `TAVILY_API_KEY` ([tavily.com](https://tavily.com), free 1,000/month) | recommended | No opening hours or ticket prices from the web; ferry and bus fares stay unknown |
+| `OPENTRIPMAP_API_KEY` ([dev.opentripmap.org](https://dev.opentripmap.org), free) | recommended | Sights come from Wikivoyage only |
+| `LITEAPI_KEY` ([liteapi.travel](https://www.liteapi.travel), free sandbox) | optional | Hotels from SerpApi only, or Booking.com search links without prices |
+| `SERPAPI_KEY` ([serpapi.com](https://serpapi.com), free ~250/month) | optional | Hotels from liteAPI only; flight fallback uses the fast-flights library |
+
+Flights (Kiwi.com MCP), Airbnb (MCP), weather, trains and ferries, maps and Wikipedia need no key.
+
+### 3. Check the setup
+
+```bash
+.venv/Scripts/python scripts/check_setup.py
+```
+
+It makes one tiny LLM request, checks every key and service, and says what each missing piece costs. It ends with
+"Ready" or "Not ready" (exit code 1), for example:
+
+```
+[ok  ] LLM                          openai/azsydsttjnlbfjbgqnwd answered in 0.6 s ('OK')
+[warn] TAVILY_API_KEY               not set: no opening hours or ticket prices from the web, ...
+[ok  ] Kiwi.com MCP (flights)       reachable (HTTP 200)
+Ready, with 1 warning(s): the planner works, and the features above fall back as described.
+```
+
+### 4. Start it
+
+```bash
+.venv/Scripts/python scripts/serve.py              # opens http://localhost:8000
+```
+
+Options:
+- `--port 8080`;
+- `--host 0.0.0.0` to reach it from other devices on your network. It has no login, so only do this on a
+  network you trust;
+- `--no-browser`;
+- `--rebuild-ui` after changing the UI.
+
+Stop it with Ctrl+C. Without Node.js, use ADK's own chat UI instead: `.venv/Scripts/adk web`, then pick
+`travel_planner`.
+
+### 5. Ask for a trip
+
+Write your request in your own words. The concierge asks for anything missing, then shows a summary. Planning
+starts only after you confirm it. For example:
+
+> 4 days in Barcelona for two from Helsinki, 2-5 June 2027, mid budget, about 1800 euros. We like Gaudí
+> architecture, art museums and tapas.
+
+Then:
+- Watch the agents work on the map; it takes 5 to 7 minutes.
+- The guide opens in the **Guide** tab, and is saved as Markdown and HTML in `output/`.
+- Ask follow-up questions in the same chat. They are answered from the guide.
+- To change the trip (dates, budget, city), say so; the concierge confirms the new details and plans again.
+- **New conversation** starts over.
+
+Without the UI, a scripted trip runs in the terminal: `.venv/Scripts/python scripts/run_trip.py --trip tallinn`
+(trips: `lisbon`, `tallinn`, `rome`, `krakow`).
+
+### How it behaves
+
+- **It never books.** Every flight, stay and sight comes with a link. Prices are marked *live* (quoted by the
+  booking source) or *web estimate*.
+- **Caching:** API responses are cached under `cache/` (30 days for most sources), so a second plan for the same
+  city is faster and uses less free-tier quota. Delete `cache/` (but not `cache/demo/`) to fetch everything fresh.
+- **Failures:** a failing source does not stop the plan. Each agent has fallbacks, and the guide's
+  "Good to know" section lists what was missing.
+- **Waiting:** a plan takes 5 to 7 minutes, most of it research. The map shows what is happening.
+
+### Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `check_setup.py`: LLM FAIL, timeout or connection error | Connect to the University of Oulu VPN (Lehmus), or set `LLM_MODEL` / `LLM_API_KEY` |
+| The UI says "Planner server not running" | Start `scripts/serve.py` (or `adk api_server .` for the dev UI) and click "Try again" |
+| `npm was not found` when starting | Install Node.js 18+, or use `.venv/Scripts/adk web` |
+| Port 8000 already in use | `scripts/serve.py --port 8080` |
+| Sights or dishes are thin; HTTP 403 in the setup check | Set `CONTACT_EMAIL` in `.env` |
+| No Airbnb listings | Node.js/npx is missing, or Airbnb blocked the request; hotels still work |
+| Ferry or train times say "TYPICAL TIMETABLE" | The trip is beyond the published timetables; times come from the same weekday on a nearer date. Check them before booking |
 
 ---
 
@@ -219,12 +296,12 @@ Twenty function tools, plus two MCP servers. Every tool returns `{"status": "ok"
 | At least one tool call | 20 function tools in `travel_planner/tools/` and `agents/review_checks.py`, and 2 MCP servers (`tools/mcp.py`); the demo makes 34 tool calls |
 | Fully agentic | Agents choose search parameters, tools, fallbacks, rankings, schedules and revisions; code only checks and repairs their output, it never plans the trip |
 | No code from assignments 2 and 3 | New repository written from scratch (see the git history) |
-| Executable, no errors | 185 offline tests (`pytest`) and 8 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9). The recorded demo replays offline with `scripts/run_trip.py --demo` |
+| Executable, no errors | 193 offline tests (`pytest`) and 8 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
 
 ## Tests
 
 ```bash
-.venv/Scripts/python -m pytest            # 185 offline tests, ~1 s: tools on recorded responses, agents, guards
+.venv/Scripts/python -m pytest            # 193 offline tests, ~1 s: tools on recorded responses, agents, guards
 .venv/Scripts/python -m pytest -m live    # hits the real APIs and re-records tests/fixtures/cache
 cd travel-planner-ui && npm test          # UI layout and event reducer, checked against the recorded demo
 ```
@@ -243,7 +320,7 @@ travel_planner/           the ADK app (adk web lists it as "travel_planner")
   agents/                 agent builders, prompts and the code guards
   tools/                  function tools, HTTP cache, MCP toolsets
 travel-planner-ui/        React web UI (see its README)
-scripts/                  run_trip.py, demo cache and replay tools, MCP tool listing, agent-graph export
+scripts/                  serve.py (start everything), check_setup.py, run_trip.py, demo and replay tools
 tests/                    pytest suite and recorded fixtures
 cache/demo/               the recorded Lisbon demo (committed); other cache/ folders are local only
 output/                   generated guides (not committed)

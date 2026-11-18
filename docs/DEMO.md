@@ -6,16 +6,14 @@ agents and code guards, replaying recorded tool results and model answers.
 
 ## Before you start
 
-Use two terminals in the project root, ten minutes before the demo:
+Ten minutes before the demo, in the project root:
 
 ```bash
-# PowerShell: $env:DEMO="1"; $env:DEMO_PACE="0.25"; .venv\Scripts\adk api_server .
-DEMO=1 DEMO_PACE=0.25 .venv/Scripts/adk api_server .
-cd travel-planner-ui && npm run dev
+.venv/Scripts/python scripts/serve.py --demo        # opens http://localhost:8000
 ```
 
-Open http://localhost:5173 and check that the header says "Planner server connected". At `DEMO_PACE=0.25` the
-pipeline takes about 2.5 minutes, which is enough time to talk over it.
+`--demo` replays the recorded run at a watchable speed (`DEMO_PACE=0.2`, about 2 minutes for the pipeline;
+set `DEMO_PACE=0.3` for more time to talk). Check that the header says "Planner server connected".
 
 Fallbacks:
 - If the API server misbehaves, switch the UI to **Watch a recorded run**. It replays the same run in the
@@ -43,7 +41,7 @@ Fallbacks:
 - **Watch a recorded run** at 4×, with seeking to any moment.
 - Run `.venv/Scripts/python scripts/run_trip.py --demo` in a terminal. The same run takes about 3 s with no
   pacing and prints the quality checks: grounded links, valid itinerary, no must-fix problems.
-- `pytest`: 185 offline tests in about a second.
+- `pytest`: 193 offline tests in about a second.
 - A live run on another trip (needs the VPN and keys, 5 to 7 minutes):
   `.venv/Scripts/python scripts/run_trip.py --trip tallinn`. It shows the ferry path, with Tallink and Viking
   Line from Transitous and web-estimate fares.

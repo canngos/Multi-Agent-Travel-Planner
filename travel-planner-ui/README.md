@@ -13,6 +13,10 @@ run can be replayed at any speed without a server.
 
 ## Run it
 
+For normal use, one command builds this UI and serves it together with the planner on one port:
+`.venv/Scripts/python scripts/serve.py` (add `--demo` for the recorded run). The steps below are for UI
+development with hot reload.
+
 You need Node.js 18+ and the Python project set up (see the main README). Use two terminals in the project
 root.
 
