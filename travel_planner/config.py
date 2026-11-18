@@ -16,8 +16,12 @@ load_dotenv(REPO_ROOT / ".env")
 
 log = logging.getLogger(__name__)
 
-_missing = [n for n in ("LEHMUS_API_BASE", "LEHMUS_API_KEY", "LEHMUS_MODEL_ID") if not os.environ.get(n)]
-if _missing:
+# Optional: any LiteLLM model instead of Lehmus, e.g. LLM_MODEL=openai/gpt-4.1-mini with LLM_API_KEY. The prompts
+# were developed and tested on GPT OSS 120B (Lehmus); other models are not tested.
+LLM_MODEL = os.environ.get("LLM_MODEL", "").strip()
+
+_missing = [] if LLM_MODEL else [n for n in ("LEHMUS_API_BASE", "LEHMUS_API_KEY") if not os.environ.get(n)]
+if _missing and os.environ.get("DEMO") != "1":
     log.warning("Missing %s in .env (see .env.example); LLM calls will fail.", ", ".join(_missing))
 
 LEHMUS_API_BASE = os.environ.get("LEHMUS_API_BASE", "")  # must end with /v1
@@ -76,9 +80,18 @@ def user_agent() -> str:
 
 from .llm_cache import CachedLiteLlm  # noqa: E402  (imports config lazily, so this order is safe)
 
-# The model id is part of the LLM cache key, so demo mode always uses the recorded model's id.
-MODEL = CachedLiteLlm(
-    model=f"openai/{DEFAULT_MODEL_ID if demo() else LEHMUS_MODEL_ID}",
-    api_base=LEHMUS_API_BASE or None,
-    api_key=os.environ.get("LEHMUS_API_KEY") or None,
-)
+
+
+def llm_settings() -> dict:
+    """model / api_base / api_key for LiteLLM. Demo mode always uses the recorded model's id (part of the cache key)."""
+    if demo():
+        return {"model": f"openai/{DEFAULT_MODEL_ID}", "api_base": LEHMUS_API_BASE or None,
+                "api_key": os.environ.get("LEHMUS_API_KEY") or None}
+    if LLM_MODEL:
+        return {"model": LLM_MODEL, "api_base": os.environ.get("LLM_API_BASE") or None,
+                "api_key": os.environ.get("LLM_API_KEY") or None}
+    return {"model": f"openai/{LEHMUS_MODEL_ID}", "api_base": LEHMUS_API_BASE or None,
+            "api_key": os.environ.get("LEHMUS_API_KEY") or None}
+
+
+MODEL = CachedLiteLlm(**llm_settings())

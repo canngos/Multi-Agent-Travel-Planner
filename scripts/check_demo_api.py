@@ -2,6 +2,7 @@
 
   DEMO=1 .venv/Scripts/adk api_server --port 8766 .        (in another terminal)
   .venv/Scripts/python scripts/check_demo_api.py 8766
+  .venv/Scripts/python scripts/check_demo_api.py http://localhost:8000/adk      (scripts/serve.py --demo)
 """
 import json
 import sys
@@ -10,8 +11,8 @@ import time
 import httpx
 
 sys.stdout.reconfigure(encoding="utf-8")
-PORT = sys.argv[1] if len(sys.argv) > 1 else "8766"
-BASE = f"http://127.0.0.1:{PORT}"
+TARGET = sys.argv[1] if len(sys.argv) > 1 else "8766"  # a port (adk api_server) or a base URL
+BASE = f"http://127.0.0.1:{TARGET}" if TARGET.isdigit() else TARGET.rstrip("/")
 APP, USER = "travel_planner", "demo"
 TURNS = [
     "Plan 5 days in Lisbon for two, mid budget, we love history and street food.",
