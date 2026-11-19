@@ -6,38 +6,48 @@
 
 Trips: lisbon (the demo), tallinn (low budget, ferry), rome (7 days, high budget), krakow (from Tampere).
 The conversation, every tool call and an agent timeline are printed; the final session state is written to
-output/runs/<trip>-state.json. The checks at the end are the ones used to harden the pipeline (Phase 9).
+output/runs/<trip>-state.json and per-agent metrics (seconds, tool calls, tokens; per turn too) to
+output/runs/<trip>-metrics.json, read by scripts/evaluate.py. OUTPUT_DIR=<folder> writes the guide and both files
+there instead. The checks at the end are the ones used to harden the pipeline (Phase 9); in demo mode an LLM cache
+miss also fails the run.
 """
 import argparse
 import os
+import runpy
 import sys
+from pathlib import Path
 
+# read as a plain file: importing the travel_planner package now would load its settings before DEMO is set
+_demo = runpy.run_path(str(Path(__file__).resolve().parents[1] / "travel_planner" / "demo_script.py"))
+APPROVE, DEMO_TURNS, QUESTION_TURN = _demo["APPROVE"], _demo["DEMO_TURNS"], _demo["QUESTION_TURN"]
+
+# Each chat: the details, the confirmation, the approval of the reviewed plan, then a follow-up question
+# (turn QUESTION_TURN). The Lisbon demo goes on with a change the concierge scopes and a second approval.
 TRIPS = {
-    "lisbon": [
-        "Plan 5 days in Lisbon for two, mid budget, we love history and street food.",
-        "We fly from Helsinki, 10-14 May. Total budget about 2500 euros.",
-        "Yes, that's right, go ahead.",
-        "Thanks! Which day do we visit Belém, and what does the tower cost?",
-    ],
+    "lisbon": DEMO_TURNS,
     "tallinn": [
         "We'd like a cheap 3-day trip to Tallinn for two, we like old towns and simple local food.",
         "From Helsinki, 12-14 May 2027, we'd take the ferry. Total budget about 450 euros.",
         "Yes, please go ahead.",
+        APPROVE,
         "Which ferry do we take and how much does it cost?",
     ],
     "rome": [
         "Plan a week in Rome for two adults, high budget: ancient history, art and great restaurants.",
         "Flying from Helsinki, 3-9 June 2027. No fixed total budget.",
         "Correct, go ahead.",
+        APPROVE,
         "On which day do we see the Colosseum?",
     ],
     "krakow": [
         "3 days in Kraków for two, mid budget, history and pierogi.",
         "We leave from Tampere, 17-19 May 2027, about 900 euros in total.",
         "Yes, that's right.",
+        APPROVE,
         "What local dishes should we try?",
     ],
 }
+
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 parser.add_argument("--trip", choices=sorted(TRIPS), default="lisbon")
@@ -53,7 +63,6 @@ import asyncio  # noqa: E402
 import json  # noqa: E402
 import re  # noqa: E402
 import time  # noqa: E402
-from pathlib import Path  # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,12 +71,14 @@ sys.path.insert(0, str(ROOT))
 from google.adk.runners import InMemoryRunner  # noqa: E402
 from google.genai import types  # noqa: E402
 
+from travel_planner import config, llm_cache  # noqa: E402
 from travel_planner.agents.output import check_output, item_urls  # noqa: E402
 from travel_planner.agents.pipeline import build_root_agent  # noqa: E402
 from travel_planner.agents.review_checks import check_plan  # noqa: E402
 
 RESEARCH = ("transport_summary", "stay_summary", "culture_findings", "food_findings")
 ANSWERS: dict[int, str] = {}  # turn number -> the concierge's answer
+METRICS: dict = {"agents": {}, "turns": []}  # written next to the state, read by scripts/evaluate.py
 ALWAYS_OK = ("openstreetmap.org/copyright", "transitous.org/sources")
 
 
@@ -78,13 +89,24 @@ async def run(turns: list[str]) -> dict:
     try:
         for n, turn in enumerate(turns):
             print(f"\n>>> YOU: {turn}")
+            turn_start, turn_agents, turn_llm = time.perf_counter() - t0, set(), set()
             async for ev in runner.run_async(user_id="u", session_id=session.id,
                                              new_message=types.Content(role="user", parts=[types.Part(text=turn)])):
                 now = time.perf_counter() - t0
                 first, _ = spans.get(ev.author, (now, now))
                 spans[ev.author] = (first, now)
+                turn_agents.add(ev.author)
+                agent = METRICS["agents"].setdefault(ev.author, {"tool_calls": 0, "prompt_tokens": 0,
+                                                                 "output_tokens": 0, "llm_calls": 0})
+                usage = ev.usage_metadata
+                if usage is not None and not ev.partial:
+                    agent["llm_calls"] += 1
+                    turn_llm.add(ev.author)
+                    agent["prompt_tokens"] += usage.prompt_token_count or 0
+                    agent["output_tokens"] += usage.candidates_token_count or 0
                 for c in ev.get_function_calls():
                     ncalls += 1
+                    agent["tool_calls"] += 1
                     print(f"[{now:6.1f}s] {ev.author:<20} calls {c.name}"
                           f"({json.dumps(dict(c.args or {}), ensure_ascii=False)[:100]})")
                 for r in ev.get_function_responses():
@@ -98,12 +120,17 @@ async def run(turns: list[str]) -> dict:
                         print(f"[{now:6.1f}s] {ev.author.upper()}:\n{text[:1200]}")
                         if ev.author == "concierge":
                             ANSWERS[n] = text
+            METRICS["turns"].append({"turn": n, "message": turn, "seconds": round(time.perf_counter() - t0 - turn_start, 1),
+                                     "agents": sorted(turn_agents), "llm_agents": sorted(turn_llm)})
         state = (await runner.session_service.get_session(app_name="run_trip", user_id="u", session_id=session.id)).state
     finally:
         await runner.close()
     print(f"\n--- {time.perf_counter() - t0:.0f} s, {ncalls} tool calls. Agent timeline (first -> last event):")
     for author, (start, end) in sorted(spans.items(), key=lambda kv: kv[1][0]):
         print(f"   {author:<20} {start:7.1f}s -> {end:7.1f}s")
+        METRICS["agents"].setdefault(author, {}).update(first_s=round(start, 1), last_s=round(end, 1))
+    METRICS.update(seconds=round(time.perf_counter() - t0, 1), tool_calls=ncalls, demo=config.demo(),
+                   llm_cache_misses=llm_cache.MISSES)
     return dict(state)
 
 
@@ -135,8 +162,13 @@ def report(state: dict) -> bool:
         "review loop ran (approved, or stopped after 3 rounds)": bool(review) and (
             state.get("review_verdict") == "APPROVED" or len(review) == 3),
         "final plan has no must-fix problems (code check)": not final["must_fix"],
-        "the concierge answered the follow-up question": bool(ANSWERS.get(len(TRIPS[args.trip]) - 1, "").strip()),
+        "the concierge answered the follow-up question": bool(ANSWERS.get(QUESTION_TURN, "").strip()),
     }
+    checks["the user approved the reviewed plan before the guide was written"] = state.get("plan_status") == "approved"
+    if args.trip == "lisbon":  # the demo's change: the concierge scoped it, so some research was reused
+        checks["the change re-planned with the concierge's scope (research reused)"] = bool(state.get("research_reused"))
+    if config.demo():
+        checks["no LLM cache misses (the recorded demo replayed exactly)"] = llm_cache.MISSES == 0
     for label, passed in checks.items():
         print(("PASS  " if passed else "FAIL  ") + label)
     for p in problems[:5]:
@@ -151,10 +183,13 @@ def main() -> int:
         print("Only the Lisbon trip is recorded for the offline demo.")
         return 2
     state = asyncio.run(run(TRIPS[args.trip]))
-    out = ROOT / "output" / "runs"
+    print(f"LLM cache misses: {llm_cache.MISSES}")
+    out = Path(config.OUTPUT_DIR) / "runs"
     out.mkdir(parents=True, exist_ok=True)
-    (out / f"{args.trip}-state.json").write_text(json.dumps(state, ensure_ascii=False, indent=1, default=str),
-                                                 encoding="utf-8")
+    name = args.trip + ("-" + os.environ["RUN_LABEL"] if os.environ.get("RUN_LABEL") else "")
+    (out / f"{name}-state.json").write_text(json.dumps(state, ensure_ascii=False, indent=1, default=str),
+                                            encoding="utf-8")
+    (out / f"{name}-metrics.json").write_text(json.dumps(METRICS, ensure_ascii=False, indent=1), encoding="utf-8")
     ok = report(state)
     print("\nPASS" if ok else "\nFAIL")
     return 0 if ok else 1

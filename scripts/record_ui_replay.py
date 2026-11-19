@@ -7,6 +7,7 @@ Uses /run_sse, the streaming endpoint the UI uses, and keeps every event with it
 play the run back with the original timing (and any speed).
 """
 import json
+import runpy
 import sys
 import time
 from datetime import datetime, timezone
@@ -17,12 +18,7 @@ import httpx
 sys.stdout.reconfigure(encoding="utf-8")
 PORT, OUT = sys.argv[1], Path(sys.argv[2])
 BASE, APP, USER = f"http://127.0.0.1:{PORT}", "travel_planner", "replay"
-TURNS = [
-    "Plan 5 days in Lisbon for two, mid budget, we love history and street food.",
-    "We fly from Helsinki, 10-14 May. Total budget about 2500 euros.",
-    "Yes, that's right, go ahead.",
-    "Thanks! Which day do we visit Belém, and what does the tower cost?",
-]
+TURNS = runpy.run_path(str(Path(__file__).resolve().parents[1] / "travel_planner" / "demo_script.py"))["DEMO_TURNS"]
 
 for _ in range(60):
     try:

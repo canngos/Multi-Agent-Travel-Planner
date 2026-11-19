@@ -11,7 +11,7 @@ from .retry import offer_retry_tool, retry_malformed_call
 
 def research_agent(
     *, name: str, description: str, role: str, steps: str, shape: str, example: str, tools: list,
-    output_key: str, max_calls: int, before_grounding: list | None = None, **kwargs,
+    output_key: str, max_calls: int, before_grounding: list | None = None, strict_grounding: bool = False, **kwargs,
 ) -> LlmAgent:
     """An LlmAgent that reads {trip_brief}, calls its tools and writes one JSON object to `output_key`.
 
@@ -35,7 +35,7 @@ def research_agent(
         before_model_callback=offer_retry_tool,
         after_model_callback=retry_malformed_call,
         # e.g. filling gaps from the tool results, then: links only from tool results
-        after_agent_callback=[*(before_grounding or []), ground_research_output(output_key)],
+        after_agent_callback=[*(before_grounding or []), ground_research_output(output_key, strict_grounding)],
         before_tool_callback=before_tool,
         **kwargs,
     )

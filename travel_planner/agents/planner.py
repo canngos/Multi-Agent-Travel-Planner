@@ -60,6 +60,23 @@ RULES = """RULES:
 - Times are local, "HH:MM". Keep days realistic: a museum takes 1.5-2.5 h, a viewpoint 30 min; leave time
   to walk between places."""
 
+# Live runs (and the first recorded demo) started every full day with lunch at 12:30-13:00 and left the mornings
+# empty, and put two restaurants 2.5 h apart on one day.
+DAY_SHAPE_RULES = """
+- Day hours: the brief's day_start and day_end (09:30 and 22:00 if the brief has none). Full days (every day
+  except the arrival and departure days) start at day_start with a sight that is open then; lunch comes after
+  the morning's sights. Never start a full day with lunch. Nothing is planned before day_start or after
+  day_end; on the arrival day, start at the later of arrival + 1.5 h and day_start.
+- Pace: the brief's pace ("balanced" if it has none) replaces the numbers in step 4. relaxed = 1-3 sights per
+  full day with long breaks; balanced = 2-4 sights; packed = 4-6 sights with short breaks (at most 20 in total).
+- One restaurant per meal: lunch and dinner at least 3 hours apart, and no second restaurant right after a meal."""
+
+
+def plan_rules() -> str:
+    """RULES, plus the day-shape rules (the reviser uses the same rules)."""
+    return RULES + DAY_SHAPE_RULES
+
+
 SHAPE = """{"transport": {"outbound": TransportOption|null, "return": TransportOption|null, "why": str},
  "stay": StayOption|null, "stay_why": str,
  "weather_kind": str, "days": [Day, ...], "cost": <the calculate_trip_cost result object>|null, "notes": "..."}
@@ -85,7 +102,7 @@ EXAMPLE = """{"transport": {"outbound": {"mode": "flight", "operator": "SAS", ".
 
 
 def build_itinerary_planner() -> LlmAgent:
-    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(5), RULES, output_format(SHAPE, EXAMPLE)]) \
+    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(5), plan_rules(), output_format(SHAPE, EXAMPLE)]) \
         + REQUIREMENTS
     return LlmAgent(
         name="itinerary_planner",

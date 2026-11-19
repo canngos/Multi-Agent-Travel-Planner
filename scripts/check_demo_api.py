@@ -5,8 +5,11 @@
   .venv/Scripts/python scripts/check_demo_api.py http://localhost:8000/adk      (scripts/serve.py --demo)
 """
 import json
+import runpy
 import sys
 import time
+
+from pathlib import Path
 
 import httpx
 
@@ -14,12 +17,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 TARGET = sys.argv[1] if len(sys.argv) > 1 else "8766"  # a port (adk api_server) or a base URL
 BASE = f"http://127.0.0.1:{TARGET}" if TARGET.isdigit() else TARGET.rstrip("/")
 APP, USER = "travel_planner", "demo"
-TURNS = [
-    "Plan 5 days in Lisbon for two, mid budget, we love history and street food.",
-    "We fly from Helsinki, 10-14 May. Total budget about 2500 euros.",
-    "Yes, that's right, go ahead.",
-    "Thanks! Which day do we visit Belém, and what does the tower cost?",
-]
+TURNS = runpy.run_path(str(Path(__file__).resolve().parents[1] / "travel_planner" / "demo_script.py"))["DEMO_TURNS"]
 
 for _ in range(60):  # wait for the server
     try:

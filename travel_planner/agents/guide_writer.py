@@ -11,9 +11,11 @@ from datetime import date
 from google.adk.agents import LlmAgent
 from google.genai import types
 
+from .. import config
 from ..config import MODEL
 from ..tools import save_guide
 from ..tools.currency import parse_number
+from ..tools.exports import export_calendar, export_map_stops
 from .output import extract_json
 from .grounding import RESEARCH_KEYS, ground_guide_before_save, ground_markdown, known_urls
 from .prompts import BRIEF, REQUIREMENTS
@@ -79,8 +81,10 @@ RULES = """RULES:
 SAVE = """WHEN THE GUIDE IS READY:
 1. Call save_guide(markdown_text=<the whole guide>, filename_slug="<destination>-<start_date>-to-<end_date>"),
    e.g. "lisbon-2027-05-10-to-2027-05-14". Call it exactly once; do not write the guide anywhere else.
-2. Then reply in 3-5 short lines: where the guide was saved (markdown_path and html_path from the tool
-   result), the recommended transport and stay with the total cost, and whether it fits the budget.
+2. Then call export_calendar() and export_map_stops() once each (no arguments): they save the days as a
+   calendar file (.ics) and the planned places as a map file (GeoJSON) next to the guide.
+3. Then reply in 3-5 short lines: where the guide, the calendar and the map were saved (paths from the tool
+   results), the recommended transport and stay with the total cost, and whether it fits the budget.
 If save_guide returns an error, fix what the reason says and call it again (at most 2 tries)."""
 
 
@@ -167,8 +171,10 @@ def open_issues(state, guide_text: str = "") -> str:
     plan = _parse(state.get("itinerary"))
     if not plan.get("days"):
         return ""
-    lines = [f"- {'Day ' + str(x['day']) + ': ' if x.get('day') else ''}{x['detail']}"
-             for x in check_plan(plan, state)["must_fix"]]
+    report = check_plan(plan, state)
+    declined = {(d.get("day"), d.get("issue")) for d in state.get("taste_declined") or []}  # the critic's choice
+    open_ = report["must_fix"] + [x for x in report.get("decide") or [] if (x.get("day"), x["issue"]) not in declined]
+    lines = [f"- {'Day ' + str(x['day']) + ': ' if x.get('day') else ''}{x['detail']}" for x in open_]
     lines += [f"- {note}" for note in guide_drift(guide_text, plan)]
     if not lines:
         return ""
@@ -234,10 +240,30 @@ def add_important(text: str, notes: list[str]) -> str:
     return text[:first.start()] + block + text[first.start():] if first else text.rstrip() + "\n\n" + block
 
 
+RHYTHM_EXAMPLES = '"we wake up early, start at 07:00", "we stay out late" or "a more relaxed pace, please"'
+
+
+def rhythm_sentence(brief: dict) -> str:
+    """How the plan's days run, from the brief (its defaults when the user set nothing)."""
+    start = f"start at {brief['day_start']}" if brief.get("day_start") else f"start around {config.DEFAULT_DAY_START}"
+    end, pace = brief.get("day_end") or config.DEFAULT_DAY_END, brief.get("pace") or config.DEFAULT_PACE
+    chosen = any(brief.get(k) for k in ("day_start", "day_end", "pace"))
+    return f"Days in this plan {start} and end by {end}, at a {pace} pace{'' if chosen else ' (the defaults)'}."
+
+
+def add_day_rhythm(text: str, brief: dict) -> str:
+    """A line under "## Day by day" saying how the days run and that the concierge can change it."""
+    note = f"*{rhythm_sentence(brief)} For another rhythm, tell the concierge, e.g. {RHYTHM_EXAMPLES}.*\n\n"
+    heading = re.search(r"^## Day by day[^\n]*\n+", text, re.MULTILINE)
+    return text[:heading.end()] + note + text[heading.end():] if heading else text
+
+
 def finalise_guide(text: str, state) -> str:
-    """The guide as it is saved: travel-time warnings, cost figures from the plan, and "Still to check"."""
+    """The guide as it is saved: travel-time warnings, the day-rhythm line, cost figures from the plan and
+    "Still to check"."""
     plan = _parse(state.get("itinerary"))
     text = add_important(text, travel_warnings(plan, state))
+    text = add_day_rhythm(text, state.get("trip_brief") or {})
     text = fix_cost_section(text, plan.get("cost"))
     section = open_issues(state, text)
     return text.rstrip() + section if section else text
@@ -283,20 +309,43 @@ def save_reply_if_not_saved(callback_context):
         text=f"Saved the guide to {paths['markdown_path']} and {paths['html_path']}.")])
 
 
-def build_guide_writer() -> LlmAgent:
+def rhythm_offer(brief: dict) -> str:
+    return (f"Your trip guide is ready. {rhythm_sentence(brief)} If you would like a different rhythm (e.g. "
+            f"{RHYTHM_EXAMPLES}), tell me: I will keep the research and only plan the days again, which is quicker.")
+
+
+def finish_guide(callback_context):
+    """After-agent callback: the safety net above, then (outside demo mode) the offer to change the day rhythm,
+    as the last chat message of the plan."""
+    content = save_reply_if_not_saved(callback_context)
+    state = callback_context.state
+    if not state.get("final_guide"):
+        return content
+    offer = rhythm_offer(state.get("trip_brief") or {})
+    if content and content.parts and content.parts[0].text:
+        content.parts[0].text += "\n\n" + offer
+        return content
+    return types.Content(role="model", parts=[types.Part(text=offer)])
+
+
+def build_guide_writer(standalone: bool = False) -> LlmAgent:
+    """standalone: a sub-agent of the concierge, started by approve_plan (approval.py). Its turn then ends the
+    invocation and the next user message goes back to the concierge, never to the guide writer."""
     instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STRUCTURE, RULES, SAVE]) + REQUIREMENTS
     return LlmAgent(
         name="guide_writer",
         model=MODEL,
         description="Writes the final trip guide and saves it as Markdown and HTML.",
         instruction=instruction,
-        tools=[save_guide],
+        tools=[save_guide, export_calendar, export_map_stops],
         output_key="guide_reply",
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.3),
         # links in the guide must come from the research; problems the review left are listed for the travellers
         before_tool_callback=[ground_guide_before_save, add_open_issues_before_save],
-        after_agent_callback=save_reply_if_not_saved,
+        after_agent_callback=finish_guide,
         before_model_callback=offer_retry_tool,
         after_model_callback=retry_malformed_call,
+        disallow_transfer_to_parent=standalone,
+        disallow_transfer_to_peers=standalone,
     )

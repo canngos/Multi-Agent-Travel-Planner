@@ -159,11 +159,12 @@ def tool_result_urls(session) -> dict[str, str]:
     return known
 
 
-def ground_research_output(output_key: str):
+def ground_research_output(output_key: str, strict: bool = False):
     """After-agent callback factory for the research agents and comparers: every link in their JSON output must
     come from a tool result in the session (their outputs are the "known links" of every later agent).
 
-    Without any tool result in the session (e.g. an agent run alone on prepared state) nothing is changed."""
+    Without any tool result in the session (e.g. an agent run alone on prepared state) nothing is changed, unless
+    `strict`: then every link goes (the on-demand researcher runs in its own session, which must hold its sources)."""
     def callback(callback_context):
         state = callback_context.state
         try:
@@ -171,7 +172,7 @@ def ground_research_output(output_key: str):
         except ValueError:
             return None
         known = tool_result_urls(callback_context.session)
-        if not known:
+        if not known and not strict:
             return None
         for url in ALWAYS_ALLOWED:
             known.setdefault(_norm(url), url)

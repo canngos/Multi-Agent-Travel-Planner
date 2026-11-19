@@ -10,7 +10,7 @@ from google.adk.runners import InMemoryRunner
 from google.genai import types
 from pydantic import Field
 
-from travel_planner.agents.budget_critic import enforce_verdict, verdict_of
+from travel_planner.agents.plan_critic import enforce_verdict, verdict_of
 from travel_planner.agents.itinerary_reviser import gate_exit_loop, guard_revision
 from travel_planner.agents.itinerary_tidy import tidy_plan
 from travel_planner.agents.output import extract_json
@@ -148,13 +148,13 @@ def test_check_plan_finds_every_planted_problem():
     plan = bad_plan()
     report = check_plan(plan, _state(plan))
     assert _issues(report, "must_fix") == {(None, "over_budget"), (2, "outside_hours"), (2, "ungrounded_place"),
-                                           (3, "ungrounded_price"), (2, "repeated_place"),  # Taberna Nearby is unused
-                                           (2, "empty_afternoon")}  # nothing from ~14:30 to dinner, sights nearby
+                                           (3, "ungrounded_price"), (2, "repeated_place")}  # Taberna Nearby is unused
+    assert _issues(report, "decide") == {(2, "empty_afternoon")}  # nothing ~14:30 to dinner: the critic's call
     assert {(2, "missing_meal"), (3, "far_meal")} <= _issues(report, "should_fix")
     assert "Unused food places: Taberna Nearby" in next(x for x in report["must_fix"] if x["issue"] == "repeated_place")["detail"]
     budget = next(x for x in report["must_fix"] if x["issue"] == "over_budget")["detail"]
     assert "€1568 is €68 over" in budget and "Cheap Hostel" in budget and "Norwegian" in budget
-    gap = next(x for x in report["must_fix"] if x["issue"] == "empty_afternoon")
+    gap = next(x for x in report["decide"] if x["issue"] == "empty_afternoon")
     assert {a["name"] for a in gap["alternatives"]} >= {"Museu Arqueológico do Carmo", "Museu do Dinheiro"}
     meal = next(x for x in report["should_fix"] if x["issue"] == "missing_meal")
     assert [a["name"] for a in meal["alternatives"]] == ["Taberna Nearby"]  # unused and close; Far Away Diner is used
@@ -260,7 +260,7 @@ class ScriptedLlm(BaseLlm):
 
     async def generate_content_async(self, llm_request, stream=False):
         system = str(llm_request.config.system_instruction or "")
-        if "BUDGET CRITIC" in system:
+        if "PLAN CRITIC" in system:
             self.calls.append("critic")
             part = types.Part(text="MUST FIX:\nnone\nSHOULD FIX:\nnone\nKEEP: all of it.\nVERDICT: APPROVED")
         elif "VERDICT OF THE REVIEW: APPROVED" in system:
@@ -341,7 +341,7 @@ async def test_malformed_tool_call_gets_a_retry():
 
 
 def test_should_fix_only_revision_needs_a_fix_and_progress():
-    from travel_planner.agents.budget_critic import worth_revising
+    from travel_planner.agents.plan_critic import worth_revising
     gap_with_alt = {"day": 2, "issue": "empty_gap", "alternatives": [{"name": "Museu do Dinheiro"}]}
     gap_without = {"day": 3, "issue": "empty_gap", "alternatives": []}
     assert worth_revising([gap_with_alt], None, 1)

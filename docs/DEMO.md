@@ -24,24 +24,28 @@ Fallbacks:
 
 | # | Do | Point out |
 |---|---|---|
-| 1 | Show the empty map | Each station is an agent: 13 LLM agents. The lines are the orchestration. The concierge delegates to a sequential pipeline. Research runs in four parallel branches, two of them with a nested parallel search. Then come the planner, a review loop of at most three rounds, and the guide writer. The map is generated from the Python agent tree. |
-| 2 | Click **Send demo message 1 of 4** ("Plan 5 days in Lisbon…") | The concierge asks only for what is missing: dates and departure city. *Coordinator pattern.* |
+| 1 | Show the empty map | Each station is an agent: 13 LLM agents. The lines are the orchestration. The concierge delegates to a sequential pipeline. Research runs in four parallel branches, two of them with a nested parallel search. Then come the planner and a review loop of at most three rounds; the guide writer is the concierge's second hand-over, after your approval. The map is generated from the Python agent tree. |
+| 2 | Click **Send demo message 1 of 8** ("Plan 5 days in Lisbon…") | The concierge asks only for what is missing: dates and departure city. *Coordinator pattern.* |
 | 3 | Send message 2 ("We fly from Helsinki, 10-14 May…") | Two `geocode_place` calls, then `save_trip_brief` answers **needs_confirmation**. Saving is gated in code: the model cannot start planning before you confirm. |
-| 4 | Send message 3 ("Yes, that's right, go ahead.") | The hand-over (dotted track). All six research agents start **at the same moment**, which is the parallel pattern. Point at the chips: `search-flight` is the **Kiwi MCP server**, `airbnb_search` the **Airbnb MCP server**, plus Transitous, OpenTripMap, Wikivoyage and Overpass. |
+| 4 | Send message 3 ("Yes, that's right, go ahead.") | The hand-over (dotted track). All six research agents start **at the same moment**: the parallel pattern. Point at the chips: `search-flight` is the **Kiwi MCP server**, `airbnb_search` the **Airbnb MCP server**, plus Transitous, OpenTripMap, Wikivoyage and Overpass. |
 | 5 | While research runs, click **Flight searcher** | The inspector shows the agent's tools, its role prompt, every tool call (click one for the arguments and the JSON result) and the model's reasoning. |
-| 6 | Wait for the comparers | Each comparer starts only when both of its searchers are done (sequential inside each branch). Click **Shared state** to show `transport_summary`: the cheapest, fastest and ranked options, plus a recommendation. |
-| 7 | The planner, then the review loop | The planner uses weather, distance clustering and the cost tool. Then the **loop**: the budget critic runs `check_itinerary`. That is code checking opening hours, the budget, grounding and pacing. The verdict is REVISE, the reviser fixes the plan, round 2 approves, and the loop ends. The loop label counts the rounds. |
-| 8 | Open the **Review** tab | Round 1 lists what the reviser changed: a flight arriving a day late swapped for a direct one on the travel day, lunch and dinner added on day 1, an empty afternoon filled. Round 2 shows the code check deciding APPROVED. *Loop pattern with a stopping condition.* |
-| 9 | The **Guide** tab opens by itself | Show the transport tables (*live* vs *web estimate* prices), the stay comparison by neighbourhood, a day with history snippets and food stops, the cost table against the €2,500 budget, and the attribution footer. Point at the **Important** box at the top: code warns that the 06:50 return flight costs most of the last day and names the Finnair flight at 16:35 that keeps it (€104 more). Every link comes from a tool result (grounded in code). The files are in `output/`. |
-| 10 | Send message 4 ("Which day do we visit Belém…") | The concierge answers **from the guide** only: Belém is on days 2 and 3. The Belém Tower itself is not in this plan, so for "the tower" it gives the ticket of the Monument to the Discoveries (€10) and names it, instead of inventing a price. A date written next to "Day N" is checked against the trip in code. |
-| 11 | Open the **Activity** tab | The Gantt chart: the parallel research, the comparers waiting, two critic/reviser rounds. Ticks are tool calls (38 in this run). |
+| 6 | The planner, then the review loop | The planner uses weather, distance clustering and the cost tool. Then the **loop**: the plan critic runs `check_itinerary`. Code reports facts as must-fix (opening hours, budget, grounding) and day-shape points under **decide**: those are the critic's call (fix, or decline with a reason about this trip). In round 1 the critic chose to fix its one day-shape point. The reviser could also call `extra_sights_researcher` (a culture researcher used as a tool) for a thin day; it did not need to here (the live Rome run shows it, see `scripts/evaluate.py`). |
+| 7 | The plan appears in the chat | The pipeline stops and shows the reviewed plan with **Approve** / **Request changes** (*human in the loop*). The guide is not written yet. Open the **Review** tab: three rounds; critic and code agree on every verdict, and in round 3 the reviser ends the loop with `exit_loop`. |
+| 8 | Click **Approve** (message 4) | The concierge reads "looks good" and calls `approve_plan`; code checks that a reviewed plan is waiting, then hands over to the guide writer. The **Guide** tab opens: transport tables (*live* vs *web estimate*), stays by neighbourhood, days with history snippets, the cost table against €2,500, the day-rhythm line, the attribution footer. Every link comes from a tool result. |
+| 9 | Send message 5 ("Which day do we visit Belém…") | The concierge answers **from the guide** only: Belém on days 2 to 4, the Belém Tower (€15) on day 4. A date next to "Day N" is checked against the trip in code. |
+| 10 | Send message 6 ("Could we take it a bit slower… somewhere cheaper?") | The concierge shows the changed details (pace: relaxed, a cheaper stay) and asks you to confirm. |
+| 11 | Send message 7 ("Yes, please do that.") | **The change router:** the concierge calls `request_replan(rerun=["stay"])`, then saves the brief with the relaxed pace. Code validated the scope (same city, dates, origin and group). On the map only the **stay team** works; transport, culture and food are skipped and keep their results. Open **Cost and time**: "Research reused: transport, culture, food. Researched again: stay (the concierge's choice)." |
+| 12 | The second plan appears; click **Approve** (message 8) | A cheaper stay (€204 instead of €356), relaxed days. In round 2 the critic still said REVISE; code approved (no must-fix left, and another round could not help) and logged the override. The reviser then changed the approved plan anyway, so code restored it and ended the loop. The guide writer saves the guide plus a **calendar** (`.ics`) and a **map** (`.geojson`). |
+| 13 | Open the **Activity** and **Cost and time** tabs | The Gantt chart: two plans, the second without most of the research. Tokens and tool calls per agent (54 tool calls in this run). |
 
 ## If there is time
 
 - **Watch a recorded run** at 4×, with seeking to any moment.
 - Run `.venv/Scripts/python scripts/run_trip.py --demo` in a terminal. The same run takes about 3 s with no
   pacing and prints the quality checks: grounded links, valid itinerary, no must-fix problems.
-- `pytest`: 193 offline tests in about a second.
+- `pytest`: the offline test suite (a few seconds), including a replay of this demo that must have no cache miss.
+- `.venv/Scripts/python scripts/evaluate.py --agents`: who decided what in the recorded runs (critic/code
+  agreement, overrides, grounding, tokens per agent).
 - A live run on another trip (needs the VPN and keys, 5 to 7 minutes):
   `.venv/Scripts/python scripts/run_trip.py --trip tallinn`. It shows the ferry path, with Tallink and Viking
   Line from Transitous and web-estimate fares.
@@ -53,6 +57,11 @@ Fallbacks:
   the same code calls everything live.
 - **"What stops the model from inventing places or prices?"** Code checks. Links must come from tool results.
   Tickets are reset to the researched values. Places not in the research are must-fix problems for the critic.
-  Code decides the verdict, so the model cannot approve a plan that still has such a problem.
+  Code overrules the critic on such facts, and logs it, so the model cannot approve a plan that still has one.
+- **"What does the LLM decide, and what code?"** The agents choose: research, schedule, fixes, what a change needs
+  (`request_replan`), when to research more (`extra_sights_researcher`), and the user approves (`approve_plan`).
+  Code checks facts and refuses unsafe actions with a reason (README, "Who decides what").
+- **"What if I type a different message in the demo?"** `LLM_CACHE_MISS`: the replay only knows the recorded
+  conversation. Without `DEMO=1` the same code runs live.
 - **"Why so many agents?"** Each has one job and a small prompt, and independent research runs in parallel. GPT
   OSS follows short, focused instructions much better than one large prompt.

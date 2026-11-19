@@ -6,6 +6,7 @@ Guards in code, because the loop must not lose a good plan or stop with a bad on
 - `guard_revision` restores the snapshot when the verdict was APPROVED (the plan must not change) or when the
   reply is not a valid plan with the right number of days. If the model "approves" in text but forgets
   exit_loop, it ends the loop itself (escalate);
+- `merge_extra_sights` adds sights the reviser researched on demand to culture_findings (extra_sights.py);
 - then the planner's callbacks run again: link grounding and tidy (travel times, order, tickets, cost);
 - `keep_best_plan` scores every revision with the code checks. The last round's revision is never reviewed
   again, so if it scores worse than an earlier plan, the best earlier plan is kept (a live run's last
@@ -18,16 +19,17 @@ from google.adk.tools import exit_loop
 from google.genai import types
 
 from ..config import MODEL
-from .budget_critic import MAX_ROUNDS
+from .plan_critic import MAX_ROUNDS
+from .extra_sights import budget as extra_sights_budget, extra_sights_tool, merge_extra_sights
 from .grounding import ground_itinerary
 from .itinerary_tidy import tidy_itinerary
 from .output import extract_json
 from .review_checks import _parse, check_plan
-from .planner import EXAMPLE, INPUTS as RESEARCH_INPUTS, RULES as PLAN_RULES, SHAPE
+from .planner import EXAMPLE, INPUTS as RESEARCH_INPUTS, SHAPE, plan_rules
 from .prompts import BRIEF, REQUIREMENTS, output_format
 from .retry import offer_retry_tool, retry_malformed_call
 
-ROLE = """You are the ITINERARY REVISER of a trip-planning team. The budget critic has reviewed the plan; you
+ROLE = """You are the ITINERARY REVISER of a trip-planning team. The plan critic has reviewed the plan; you
 apply the review."""
 
 VERDICT = """VERDICT OF THE REVIEW: {review_verdict?}
@@ -53,10 +55,33 @@ HOW = """HOW TO FIX
 - Packed day or long walk: move the farthest item to another day or drop it.
 - Meal far from the day's sights: swap it for a listed nearby alternative (or a "free" item "Lunch near <area>").
 - Place used twice: replace the repeat with an unused alternative.
+- A day-shape point the critique lists under DECLINED: leave it as it is (the critic decided it suits this trip).
+  Fix the "decide" items of the code check that the critique lists under MUST FIX.
 Keep each day's date, weekday and weather. Keep "cost" as it is (code recomputes it from your plan).
 Add "changes": a list of short strings, one per change (e.g. "Day 4: MUDE moved 09:30 -> 10:30, opens 10:00").
 Update "notes" so that everything in it is still true. Never write cost totals or budget figures in "notes" or
 "changes": code recomputes the cost after your reply, so any figure you write could be wrong."""
+
+# How to fix the day-shape checks (review_checks._day_shape_issues)
+HOW_DAY_SHAPE = """
+- Empty morning: move the day's sights that open early into the morning (the first around 10:00) and put lunch
+  after them, or add one of the listed alternatives.
+- Two meals close together: keep one, and use the other slot for one of the listed alternatives or drop it.
+- Before the travellers' day start or after their day end: move it inside their day hours or drop it."""
+
+
+# Research on demand (extra_sights.py): the reviser decides when a thin day needs more research
+HOW_EXTRA = """
+- Thin day or empty gap with NO listed alternative: you may call extra_sights_researcher once for that day's area
+  (area name, lat/lon of a planned item there, count 2-3). Add the sights it returns, with their names, ticket_eur
+  and hours unchanged. It is limited to 2 calls per round; never call it when alternatives are listed."""
+
+
+def how_to_fix() -> str:
+    """HOW, plus how to fix the day-shape checks and when to research on demand (inserted after the list of
+    fixes)."""
+    return HOW.replace("\nKeep each day's date", HOW_DAY_SHAPE + HOW_EXTRA + "\nKeep each day's date", 1)
+
 
 REVISED_SHAPE = SHAPE.replace('"notes": "..."}', '"notes": "...", "changes": [str, ...]}')
 
@@ -115,8 +140,11 @@ def guard_revision(callback_context):
 
 
 def _score(itinerary, state) -> list[int]:
+    """[must-fix, other open problems]; day-shape findings the critic declined do not count."""
     report = check_plan(_parse(itinerary), state)
-    return [len(report["must_fix"]), len(report["should_fix"])]
+    declined = {(d.get("day"), d.get("issue")) for d in state.get("taste_declined") or []}
+    taste = [x for x in report.get("decide") or [] if (x.get("day"), x["issue"]) not in declined]
+    return [len(report["must_fix"]), len(taste) + len(report["should_fix"])]
 
 
 def keep_best_plan(callback_context):
@@ -142,19 +170,20 @@ def keep_best_plan(callback_context):
 
 
 def build_itinerary_reviser(model=None) -> LlmAgent:
-    instruction = "\n\n".join([ROLE, VERDICT, BRIEF, INPUTS, RESEARCH_INPUTS, HOW, PLAN_RULES,
+    instruction = "\n\n".join([ROLE, VERDICT, BRIEF, INPUTS, RESEARCH_INPUTS, how_to_fix(), plan_rules(),
                                output_format(REVISED_SHAPE, EXAMPLE)]) + REQUIREMENTS
     return LlmAgent(
         name="itinerary_reviser",
         model=model or MODEL,
         description="Applies the critic's review to the itinerary, or ends the review loop when it is approved.",
         instruction=instruction,
-        tools=[exit_loop],
+        tools=[exit_loop, extra_sights_tool()],
         output_key="itinerary",
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.2),
         before_agent_callback=snapshot_plan,
-        before_tool_callback=gate_exit_loop,
+        before_tool_callback=[gate_exit_loop, extra_sights_budget],
+        after_tool_callback=merge_extra_sights,
         after_agent_callback=[guard_revision, ground_itinerary, tidy_itinerary, keep_best_plan],
         before_model_callback=offer_retry_tool,
         after_model_callback=retry_malformed_call,

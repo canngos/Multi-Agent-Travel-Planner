@@ -31,7 +31,11 @@ LEHMUS_MODEL_ID = os.environ.get("LEHMUS_MODEL_ID", DEFAULT_MODEL_ID)
 DEFAULT_CACHE_DIR = REPO_ROOT / "cache"
 DEMO_CACHE_DIR = REPO_ROOT / "cache" / "demo"
 DEMO_TODAY = date(2026, 11, 17)  # the day the demo was recorded; prompts and the weather tool use "today"
-OUTPUT_DIR = REPO_ROOT / "output"
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "output"
+# OUTPUT_DIR=<folder> writes guides elsewhere (the demo-replay test uses a temp folder, so output/ is left alone)
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"]) if os.environ.get("OUTPUT_DIR") else DEFAULT_OUTPUT_DIR
+# The day rhythm a trip brief gets when the user states none (TripBrief.day_start / day_end / pace)
+DEFAULT_DAY_START, DEFAULT_DAY_END, DEFAULT_PACE = "09:30", "22:00", "balanced"
 
 
 def demo() -> bool:

@@ -7,6 +7,9 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 BudgetTier = Literal["low", "mid", "high"]
 PriceSource = Literal["live", "web_estimate"]
 TransportMode = Literal["flight", "train", "bus", "ferry"]
+Pace = Literal["relaxed", "balanced", "packed"]
+ClockTime = Field(default=None, pattern=r"^([01]\d|2[0-3]):[0-5]\d$")  # "HH:MM", local time
+MIN_DAY_HOURS = 4  # a shorter day_start-day_end window leaves no room for a plan
 
 
 class _Model(BaseModel):
@@ -32,11 +35,25 @@ class TripBrief(_Model):
     # (children and their ages, pets, accessibility, diet, room type).
     avoid_modes: list[TransportMode] = Field(default_factory=list)
     requirements: list[str] = Field(default_factory=list)
+    # Optional day rhythm, only when the user states it (None = the planners' defaults: 09:30-22:00, balanced).
+    day_start: str | None = ClockTime
+    day_end: str | None = ClockTime
+    pace: Pace | None = None
 
     @model_validator(mode="after")
     def _check_dates(self) -> "TripBrief":
         if self.end_date <= self.start_date:
             raise ValueError("end_date must be after start_date")
+        return self
+
+    @model_validator(mode="after")
+    def _check_day_hours(self) -> "TripBrief":
+        from .config import DEFAULT_DAY_END, DEFAULT_DAY_START
+
+        start, end = self.day_start or DEFAULT_DAY_START, self.day_end or DEFAULT_DAY_END
+        if minutes_of(end) - minutes_of(start) < MIN_DAY_HOURS * 60:
+            raise ValueError(f"day_end ({end}) must be at least {MIN_DAY_HOURS} hours after day_start ({start}), "
+                             "on the same day")
         return self
 
     @property
@@ -46,6 +63,12 @@ class TripBrief(_Model):
     @property
     def days(self) -> int:
         return self.nights + 1
+
+
+def minutes_of(clock: str) -> int:
+    """Minutes after midnight of an "HH:MM" time."""
+    hours, minutes = clock.split(":")
+    return int(hours) * 60 + int(minutes)
 
 
 class TransportOption(_Model):

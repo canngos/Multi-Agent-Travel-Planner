@@ -6,7 +6,9 @@ guide:
 - they compare flights, ferries and trains, and Airbnb against hotels;
 - they find sights with their history, local dishes and restaurants for your budget;
 - they fit everything into a schedule that respects opening hours and the weather;
-- a critic checks the result before you see it.
+- a critic checks the result, and you approve the reviewed plan before the guide is written;
+- when you ask for a change ("a cheaper hotel", "a slower pace"), the concierge decides which research to redo
+  and the rest is reused.
 
 The planner never books anything. Every option comes with a link, and every price says where it came from.
 
@@ -50,13 +52,19 @@ Then pick one of three ways to watch it:
 | ADK web | `DEMO=1 .venv/Scripts/adk web`, then pick `travel_planner` | ADK's chat UI with the full event trace |
 | Web UI | `.venv/Scripts/python scripts/serve.py --demo`, then open http://localhost:8000 (needs Node.js 18+ for the first build) | The animated agent map, inspector, timeline and guide |
 
-In `adk web` and the web UI, type (or click) exactly these four messages, because the replay only knows the
-recorded conversation:
+In `adk web` and the web UI, type (or click) exactly these eight messages, because the replay only knows the
+recorded conversation (they are listed in `travel_planner/demo_script.py`):
 
 1. `Plan 5 days in Lisbon for two, mid budget, we love history and street food.`
 2. `We fly from Helsinki, 10-14 May. Total budget about 2500 euros.`
-3. `Yes, that's right, go ahead.`
-4. `Thanks! Which day do we visit Belém, and what does the tower cost?`
+3. `Yes, that's right, go ahead.` (planning starts; the reviewed plan is shown for approval)
+4. `Looks good, please write the guide.`
+5. `Thanks! Which day do we visit Belém, and what does the tower cost?`
+6. `Could we take it a bit slower, with a relaxed pace, and stay somewhere cheaper?`
+7. `Yes, please do that.` (the concierge re-plans: only the stay is researched again)
+8. `Looks good, please write the guide.`
+
+Any other message gets `LLM_CACHE_MISS`: the replay has no model to answer it.
 
 In PowerShell, set variables first: `$env:DEMO="1"; .venv\Scripts\adk web`. Add `DEMO_PACE=0.2` to replay the
 model answers at a realistic speed (about 2 minutes for the whole run) instead of instantly.
@@ -70,6 +78,9 @@ A React front end in [`travel-planner-ui/`](travel-planner-ui/README.md):
   out of them as chips, and the review loop counts its rounds.
 - **Inspector:** click any agent or tool call for its arguments, results and reasoning.
 - **Activity:** a Gantt chart of who worked when.
+- **Approval:** the reviewed plan appears in the chat with "Approve and write the guide" and "Request changes".
+- **Cost and time:** model answers, tokens, tool calls and working time per agent, and which research a re-plan
+  reused.
 - **Guide:** the rendered guide with downloads.
 - **Replay:** recorded runs, with play, pause and speed controls.
 
@@ -160,9 +171,14 @@ starts only after you confirm it. You can add hard requirements such as "we don'
 
 Then:
 - Watch the agents work on the map; it takes 5 to 7 minutes.
-- The guide opens in the **Guide** tab, and is saved as Markdown and HTML in `output/`.
+- The reviewed plan appears in the chat. Approve it, or say what to change.
+- The guide opens in the **Guide** tab, and is saved as Markdown and HTML in `output/`, with a calendar file
+  (`.ics`, one event per planned item) and a map file (`.geojson`, the planned places in order).
 - Ask follow-up questions in the same chat. They are answered from the guide.
-- To change the trip (dates, budget, city), say so; the concierge confirms the new details and plans again.
+- To change the plan, say so. The concierge decides which research the change needs: "a cheaper hotel" redoes
+  only the stay search, "start the days at 8" or "a slower pace" skips the research and only re-plans the days
+  (research is 1.5 to 2.5 minutes of a plan; the planner and the review always run again). A new city, new dates, another origin or another group size is a new trip and is
+  researched from scratch.
 - **New conversation** starts over.
 
 Without the UI, a scripted trip runs in the terminal: `.venv/Scripts/python scripts/run_trip.py --trip tallinn`
@@ -199,12 +215,14 @@ Without the UI, a scripted trip runs in the terminal: `.venv/Scripts/python scri
 
 ```mermaid
 flowchart LR
-    U([You]) <--> C["concierge<br/><i>geocode_place, save_trip_brief</i>"]
-    C -- "brief saved and confirmed:<br/>transfer" --> P
+    U([You]) <--> C["concierge<br/><i>geocode_place, save_trip_brief,<br/>request_replan, approve_plan</i>"]
+    C -- "brief confirmed, or a re-plan<br/>with the concierge's scope" --> P
+    P -- "reviewed plan<br/>shown for approval" --> U
+    C -- "plan approved:<br/>approve_plan" --> GW["guide_writer<br/><i>save_guide, export_calendar,<br/>export_map_stops</i>"]
 
     subgraph P["planning_pipeline (sequential)"]
         direction LR
-        subgraph R["research_team (parallel)"]
+        subgraph R["research_team (parallel; a re-plan skips the branches out of scope)"]
             direction TB
             subgraph T["transport_team"]
                 direction LR
@@ -230,13 +248,12 @@ flowchart LR
         IP["itinerary_planner<br/><i>weather, clustering, cost</i>"]
         subgraph L["review_loop (loop, max 3 rounds)"]
             direction LR
-            BC["budget_critic<br/><i>check_itinerary, cost</i>"] --> IR["itinerary_reviser<br/><i>exit_loop</i>"]
+            BC["plan_critic<br/><i>check_itinerary, cost</i>"] --> IR["itinerary_reviser<br/><i>exit_loop,<br/>extra_sights_researcher (agent as tool)</i>"]
             IR -. "REVISE" .-> BC
         end
-        GW["guide_writer<br/><i>save_guide</i>"]
-        R --> IP --> L --> GW
+        R --> IP --> L
     end
-    GW --> O[("output/*.md<br/>output/*.html")]
+    GW --> O[("output/*.md, *.html,<br/>*.ics, *.geojson")]
 ```
 
 The agents share their results through ADK session state. Each one writes one key that later agents read in
@@ -244,20 +261,44 @@ their instructions:
 
 | Agent | Writes | Reads |
 |---|---|---|
-| concierge | `trip_brief` (via `save_trip_brief`) | the chat; the finished guide for follow-up questions |
+| concierge | `trip_brief` (via `save_trip_brief`), `replan_scope` (via `request_replan`) | the chat; the reviewed plan or the finished guide |
 | flight / ground / airbnb / hotel searcher | `flight_options`, `ground_options`, `airbnb_options`, `hotel_options` | `trip_brief` |
 | transport / stay comparer | `transport_summary`, `stay_summary` | the two searchers' options |
 | culture / food agent | `culture_findings`, `food_findings` | `trip_brief` |
 | itinerary_planner | `itinerary` | the four summaries and findings |
-| budget_critic | `critique` (ends with `VERDICT: APPROVED` or `REVISE`) | `itinerary`, summaries |
-| itinerary_reviser | `itinerary` (revised) | `itinerary`, `critique`, the code check, all research |
-| guide_writer | `final_guide` (via `save_guide`), `guide_reply` | everything above |
+| plan_critic | `critique` (ends with `VERDICT: APPROVED` or `REVISE`) | `itinerary`, summaries |
+| itinerary_reviser | `itinerary` (revised); new sights into `culture_findings` | `itinerary`, `critique`, the code check, all research |
+| extra_sights_researcher (a tool of the reviser) | `extra_sights_findings` | the area the reviser asks about, `culture_findings` |
+| guide_writer | `final_guide` (via `save_guide`), `guide_reply`, calendar and map files | everything above |
 
 **Orchestration patterns:**
-- *Coordinator with delegation:* the concierge collects the brief and transfers to the pipeline.
+- *Coordinator with delegation:* the concierge collects the brief and transfers to the pipeline, and after your
+  approval to the guide writer.
 - *Sequential:* the pipeline, and each team's search-then-compare.
 - *Parallel:* four research branches, two of which nest a parallel search.
 - *Loop:* critic and reviser until approval, at most three rounds.
+- *Agent as tool:* the reviser calls `extra_sights_researcher`, a second culture researcher wrapped in an ADK
+  `AgentTool`, when a day is thin and nothing researched is left nearby.
+- *Human in the loop:* the pipeline stops after the review; you approve the plan or ask for a change.
+
+### Who decides what
+
+The agents make the choices; code checks objective facts, may refuse an unsafe action with a reason, and logs
+every time it overrides an agent (`review_log`, `revision_log`, `replan_log`, `extra_sights_log`), so
+`scripts/evaluate.py` can count how often that happens.
+
+| Decision | Made by | Code's part |
+|---|---|---|
+| Search parameters, tools, fallbacks, rankings | each research agent | tool budgets; links must come from tool results |
+| Which research a change needs (re-plan scope) | **concierge** (`request_replan`) | refuses a new destination, dates, origin or group, a changed "no flights" without transport, or no finished plan to reuse; without a request, everything is researched again |
+| Whether the guide is written | **you**, read by the concierge (`approve_plan`) | refuses when no reviewed plan is waiting |
+| The day-by-day schedule | itinerary planner | recomputes travel times, tickets and the cost from the plan |
+| Whether to research a thin day further | **reviser** (`extra_sights_researcher`) | at most 2 calls per round; new sights are grounded and merged into the research |
+| How to fix a review | reviser | undoes a broken or worse revision; `exit_loop` only after approval |
+| Taste: interests, rainy days, order within a day | critic | none |
+| Day shape: an empty morning, two meals close together, a placeholder meal, an empty afternoon | **critic**: fixes each one, or declines it under DECLINED with a reason about this trip | reports them ("decide"); a finding the critic leaves out, or declines with a stock phrase ("fine", "minor"), must be fixed; obvious cases stay must-fix (a late start although that day's own sights open in the morning, two meals under 2 hours apart); every decline is logged |
+| Verdict | critic | overrules the critic on facts (closed hours, invented places or prices, over budget with a cheaper option, wrong day count, a refused transport mode, items outside the hours the travellers stated) and stops rounds that cannot help; every override is logged with what the critic said |
+| Last chat message (rhythm offer) | code (`finish_guide`), a fixed sentence | |
 
 **Code guards around the model.** Live runs showed GPT OSS breaking prompt rules: it copied the wrong flight's
 times, changed URLs, turned unknown prices into "free", and approved plans with closed museums. The rules that
@@ -266,17 +307,19 @@ matter are therefore enforced in code, each with a regression test:
 | Guard | Module | What it guarantees |
 |---|---|---|
 | Confirmation | `agents/concierge.py` | The brief is checked, saved only after you confirm what you saw, and only then does planning start |
+| Re-plan scope | `agents/replan.py` | The concierge's scope is only used when it is safe for the brief that was saved; skipped branches keep their results unchanged |
+| Approval | `agents/approval.py` | The guide is written only after you approved a reviewed plan |
 | Hard requirements | `tools/trip.py`, `agents/transport.py` | An excluded transport mode is never searched or chosen; other requirements reach every agent |
 | Grounded links | `agents/grounding.py` | Every link shown comes from a tool result; altered links are restored, invented ones removed |
 | Itinerary tidy | `agents/itinerary_tidy.py`, `agents/enrich.py` | Travel times come from the chosen transport, tickets and hours from the research; the cost is recomputed from the plan |
-| Review checks | `agents/review_checks.py` | Code checks the budget, opening hours, grounding, day count and pacing (e.g. an empty afternoon or a far-away stay), and decides the verdict |
+| Review checks | `agents/review_checks.py`, `agents/plan_critic.py` | Code checks the budget, opening hours, grounding, day count and pacing; facts are must-fix, day-shape matters of taste go to the critic, who must decide each one |
 | Guide check | `agents/guide_writer.py` | Before saving, the guide is compared with the checked plan; travel-time warnings and open problems are added |
-| Revision guards | `agents/itinerary_reviser.py` | `exit_loop` only after approval; broken or worse revisions are undone |
+| Revision guards | `agents/itinerary_reviser.py`, `agents/extra_sights.py` | `exit_loop` only after approval; broken or worse revisions are undone; on-demand research is budgeted and grounded |
 | Retries and budgets | `agents/retry.py`, `agents/limits.py` | A tool call with invalid JSON gets two more tries; tool budgets are enforced so free quotas last |
 
 ## Tools and data sources
 
-Twenty function tools, plus two MCP servers. Every tool returns `{"status": "ok", "results": [...]}` or
+Twenty-four function tools, one agent used as a tool, and two MCP servers. Every tool returns `{"status": "ok", "results": [...]}` or
 `{"status": "error", "reason": ...}`; tools never raise to the agent, and each research agent has fallbacks.
 
 | Tool | Source | Agent |
@@ -292,29 +335,98 @@ Twenty function tools, plus two MCP servers. Every tool returns `{"status": "ok"
 | `geocode_place` | Nominatim, with Open-Meteo geocoding as fallback | concierge, research agents |
 | `get_forecast` | Open-Meteo (forecast, or the same dates last year) | itinerary_planner |
 | `cluster_by_distance`, `calculate_trip_cost`, `check_itinerary` | own code | planner, critic |
-| `save_trip_brief`, `save_guide`, `exit_loop` | own code / ADK | concierge, writer, reviser |
+| `save_trip_brief`, `request_replan`, `approve_plan` | own code | concierge |
+| `save_guide`, `export_calendar`, `export_map_stops` | own code | guide_writer |
+| `exit_loop`; `extra_sights_researcher` (an `AgentTool` around a culture researcher) | ADK; OpenTripMap, OpenStreetMap, Wikipedia | itinerary_reviser |
 
 ## Requirements checklist
 
 | Requirement (PROJECT.md §7) | Where it is met |
 |---|---|
 | At least 3 different agents | 13 LLM agents with distinct roles and prompts in `travel_planner/agents/`, plus 7 workflow agents; `tests/test_agents.py::test_root_agent_tree` checks the tree |
-| Multi-agent orchestration pattern | Delegation (`concierge.py`), sequential, parallel, nested parallel (`teams.py`, `pipeline.py`) and loop (`pipeline.py::build_review_loop`) |
-| At least one tool call | 20 function tools in `travel_planner/tools/` and `agents/review_checks.py`, and 2 MCP servers (`tools/mcp.py`); the demo makes 38 tool calls |
-| Fully agentic | Agents choose search parameters, tools, fallbacks, rankings, schedules and revisions; code only checks and repairs their output, it never plans the trip |
+| Multi-agent orchestration pattern | Delegation (`concierge.py`), sequential, parallel, nested parallel (`teams.py`, `pipeline.py`), loop (`pipeline.py::build_review_loop`), agent as tool (`extra_sights.py`) and human in the loop (`approval.py`) |
+| At least one tool call | 24 function tools in `travel_planner/tools/`, `agents/review_checks.py`, `agents/replan.py` and `agents/approval.py`, an agent used as a tool (`agents/extra_sights.py`) and 2 MCP servers (`tools/mcp.py`); the demo makes 54 tool calls |
+| Fully agentic | Agents make the choices between steps too: the concierge decides which research a change needs (`request_replan`) and when you approved the plan (`approve_plan`); the reviser decides when to research more (`extra_sights_researcher`). Code checks facts, refuses unsafe actions with a reason and logs every override; see "Who decides what" and the evaluation below |
 | No code from assignments 2 and 3 | New repository written from scratch (see the git history) |
-| Executable, no errors | 357 offline tests (`pytest`) and 8 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
+| Executable, no errors | 435 offline tests (`pytest`, including an end-to-end replay of the demo that must have no cache miss) and 11 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
 
 ## Tests
 
 ```bash
-.venv/Scripts/python -m pytest            # 357 offline tests, ~2 s: tools on recorded responses, agents, guards
+.venv/Scripts/python -m pytest            # 435 offline tests, ~6 s: tools on recorded responses, agents, guards, the demo replay
 .venv/Scripts/python -m pytest -m live    # hits the real APIs and re-records tests/fixtures/cache
 cd travel-planner-ui && npm test          # UI layout and event reducer, checked against the recorded demo
 ```
 
-The offline tests also run the review loop, the retry and the concierge's hand-over on scripted models, so no
-LLM is needed.
+The offline tests also run the review loop, the retry, the concierge's hand-overs, the change router, the approval
+step and research on demand on scripted models, so no LLM is needed. `tests/test_demo_replay.py` replays the
+recorded demo end to end in a temporary output folder and fails on any LLM cache miss.
+
+## Evaluation
+
+`scripts/evaluate.py` measures finished runs offline from the saved session state and metrics
+(`output/runs/<trip>-state.json` and `-metrics.json`, written by `scripts/run_trip.py`):
+
+```bash
+.venv/Scripts/python scripts/evaluate.py                    # every run in output/runs
+.venv/Scripts/python scripts/evaluate.py --agents           # + tokens, tool calls and seconds per agent
+.venv/Scripts/python scripts/evaluate.py --judge            # + LLM-as-judge scores 1-5 (live LLM)
+CRITIC_MODE=code_only RUN_LABEL=code_only .venv/Scripts/python scripts/run_trip.py --trip krakow   # ablation
+```
+
+Runs of 2026-11-19 (GPT OSS 120B). "A4" columns ran after the day-shape findings became the critic's decision;
+the columns without a label ran before, when code enforced them. The demo column is the recording replayed (its
+times are replay times, and the state is the second plan's). "code only" is the ablation.
+
+| Measure | lisbon (demo, 2nd plan) | tallinn | rome | krakow | tallinn (A4) | rome (A4) | krakow (A4) | tallinn (code only) | krakow (code only) |
+|---|---|---|---|---|---|---|---|---|---|
+| Review rounds | 2 | 3 | 3 | 2 | 1 | 3 | 2 | 1 | 2 |
+| Final verdict | APPROVED | APPROVED | REVISE | APPROVED | APPROVED | REVISE | APPROVED | APPROVED | APPROVED |
+| Critic mode | llm | llm | llm | llm | llm | llm | llm | code_only | code_only |
+| Critic = code verdict (rounds) | 1/2 | 3/3 | 3/3 | 1/2 | 0/1 | 3/3 | 2/2 | 1/1 | 2/2 |
+| Code overrides | r2: critic REVISE -> APPROVED | none | none | r2: critic REVISE -> APPROVED | r1: critic REVISE -> APPROVED | none | none | none | none |
+| Must/should per round | 4/5 → 0/1 | 1/1 → 1/1 → 0/1 | 8/10 → 2/4 → 3/4 | 2/1 → 0/1 | 0/0 | 2/6 → 1/6 → 3/2 | 0/1 → 0/1 | 0/1 | 0/3 → 0/1 |
+| Day-shape findings to decide per round | 0 → 0 | - → - → - | - → - → - | - → - | 0 | 3 → 0 → 0 | 1 → 0 | - | - → - |
+| Declined by the critic (with a reason) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Declines refused by code (stock reason) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| A decline, as written | - | - | - | - | - | - | - | - | - |
+| Final plan must/should (code check) | 0/1 | 0/1 | 0/2 | 0/1 | 0/0 | 1/5 | 0/1 | 0/1 | 0/1 |
+| Revisions undone by code | 1 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 |
+| Planned places found in research | 6/6 | 10/10 | 27/27 | 11/11 | 12/12 | 20/20 | 11/11 | 11/11 | 16/16 |
+| Links removed (invented) | 1 | 1 | 1 | 2 | 3 | 1 | 1 | 0 | 10 |
+| Budget EUR | 2500.0 | 450.0 | - | 900.0 | 450.0 | - | 900.0 | 450.0 | 900.0 |
+| Computed total EUR | 1532.0 | 585.0 | 2624.0 | 755.44 | 420.8 | 2692.0 | 986.9 | 429.3 | 955.0 |
+| Sights researched on demand | 0 | 0 | 9 | 0 | 4 | 7 | 0 | 0 | 0 |
+| Re-plans (agent's scope) | rerun ['stay'] | none | none | none | none | none | none | none | none |
+| Re-plan requests refused | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Seconds (whole chat) | 0.5 | 247.7 | 605.8 | 304.2 | 325.0 | 536.5 | 262.5 | 149.2 | 272.3 |
+| Seconds saved by reusing research | 0.1 | - | - | - | - | - | - | - | - |
+| Tool calls | 54 | 30 | 45 | 39 | 31 | 41 | 36 | 22 | 35 |
+| Tokens (prompt + output) | 957931 | 457625 | 788149 | 594039 | 455850 | 716807 | 581155 | 279703 | 525569 |
+| LLM cache misses | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+What the numbers say:
+- **Grounding holds:** every planned place in every run is in the research. Links the model invented are removed
+  (0 to 10 per run). All final plans but one have no must-fix problem left; Rome (A4) ended its three rounds with a
+  place used twice, which the guide lists under "Still to check".
+- **Who decides the verdict:** code overrode the critic 3 times in these runs, always to approve when the critic
+  wanted another round that could not help (no must-fix problem left, and the last round or no progress). It never
+  had to turn a critic's approval into REVISE. Code undid 4 revisions (a plan changed after approval).
+- **Day shape is the critic's call (A4):** in the A4 runs the check gave the critic 4 day-shape findings to decide
+  (3 in Rome, 1 in Kraków); it chose to fix all 4, declined none, and code refused no decline. So handing these
+  findings to the critic did not bring back the lunch-first days seen earlier; the guards (silence and stock
+  phrases count as "fix it", obvious cases stay must-fix) were not needed in these runs but are covered by tests.
+- **Research on demand:** the reviser called `extra_sights_researcher` on its own in Rome (9 and 7 new sights) and
+  Tallinn (4).
+- **Change router:** in the demo the concierge scoped "a relaxed pace and a cheaper stay" to `rerun: ["stay"]`.
+  Live, the stay research took 54 s against 88 to 154 s for a full research phase (Lisbon 119 s), so the change
+  saved about a minute of research; the planner and the review (2 to 5 minutes) run again on every re-plan.
+- **Ablation:** with `CRITIC_MODE=code_only` the loop needs fewer rounds (Tallinn 1 vs 3) because the code check
+  approves a plan whose remaining problems are should-fix only, without the critic's judgement of interests,
+  rainy days and order. (The Tallinn ablation's scripted chat ended before the approval step: the concierge asked
+  for confirmation one turn later, so no guide was written.)
+- **Variance:** the same script can take another turn live. In a live Lisbon run the concierge asked for a nightly
+  price cap before re-planning, which the scripted replies never gave, so no re-plan happened.
 
 ## Project layout
 
@@ -337,14 +449,20 @@ docs/                     DEMO.md (presentation script) and screenshots
 ## Limitations
 
 - **Speed:** a live run takes 5 to 7 minutes, most of it research; the comparers wait for the slowest searcher.
-- **Thin days:** long trips can get thin days. The culture search finds about 15 sights, and code approves a
-  thin day when nothing researched is left nearby.
+  A change to a finished plan is faster when the concierge reuses research, but only as fast as the slowest
+  branch it reruns.
+- **Thin days:** long trips can get thin days. The reviser can research an area on demand (at most twice per
+  review round); if that finds nothing new, code approves the thin day.
+- **Change scope is the concierge's judgement:** code refuses unsafe scopes (a new city, dates, origin or group;
+  a new "no flights" without transport), but a scope that is too narrow for a matter of taste (e.g. new interests
+  without culture) is not caught.
 - **Prices:** prices are quotes or estimates, never bookings. *Web estimate* fares come from web pages and can be
   out of date. Hotel sandbox rates can differ from public prices.
 - **Typical timetables:** for trips months ahead, ferry and train times come from a "typical timetable" (the same
   weekday on a nearer date) and are labelled so in the guide.
-- **Demo is fixed:** the demo replays only the recorded conversation. Re-record it after changing any prompt:
-  `scripts/run_trip.py --record`, then `scripts/prune_demo_cache.py --delete`.
+- **Demo is fixed:** the demo replays only the recorded conversation. Re-record it after changing any prompt,
+  tool output or check (needs the Lehmus LLM): `scripts/record_demo.py`, then `scripts/prune_demo_cache.py
+  --delete`, `scripts/record_ui_replay.py` and the facts pinned in `travel-planner-ui/src/lib/run.test.ts`.
 - **Rate limits:** Nominatim rate-limits busy IPs; geocoding then falls back to Open-Meteo.
 - **One city, up to 21 days:** for a region ("Tuscany") or several cities, the concierge asks you to pick one city.
 - **Hard requirements:** "no flights" is enforced in code; needs such as diet or children are followed by the

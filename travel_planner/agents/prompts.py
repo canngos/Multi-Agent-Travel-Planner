@@ -22,7 +22,8 @@ Do not repeat a call with the same arguments."""
 
 # Appended to every planning agent's instruction. save_trip_brief fills it with the travellers' hard requirements
 # (excluded transport modes, children, pets, diet, rooms for a group); it renders as "" for an ordinary trip.
-REQUIREMENTS = "{trip_requirements?}"
+# On a re-plan, the user's change request follows (replan.note_block; "" otherwise).
+REQUIREMENTS = "{trip_requirements?}{plan_change_note?}"
 
 
 def output_format(shape: str, example: str) -> str:

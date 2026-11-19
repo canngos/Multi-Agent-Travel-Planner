@@ -4,18 +4,21 @@
  "description": "Talks with the user, collects and saves the trip brief, then starts the planning pipeline.",
  "tools": [
   "geocode_place",
-  "save_trip_brief"
+  "save_trip_brief",
+  "request_replan",
+  "approve_plan"
  ],
  "output_key": null,
  "role": "You are the CONCIERGE of a trip-planning service. You talk with the user, collect the trip details, then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself.",
  "transfers_to": [
-  "planning_pipeline"
+  "planning_pipeline",
+  "guide_writer"
  ],
  "children": [
   {
    "name": "planning_pipeline",
    "kind": "sequential",
-   "description": "Plans the whole trip from the saved trip brief: researches transport, stays, sights and food in parallel, builds the day-by-day itinerary, reviews and revises it, and writes the trip guide.",
+   "description": "Plans the whole trip from the saved trip brief: researches transport, stays, sights and food in parallel, builds the day-by-day itinerary, reviews and revises it, and shows the reviewed plan to the user for approval.",
    "children": [
     {
      "name": "research_team",
@@ -163,7 +166,7 @@
      "max_iterations": 3,
      "children": [
       {
-       "name": "budget_critic",
+       "name": "plan_critic",
        "kind": "llm",
        "description": "Reviews the itinerary (budget, hours, grounding, pacing) and says APPROVED or REVISE.",
        "tools": [
@@ -171,31 +174,34 @@
         "calculate_trip_cost"
        ],
        "output_key": "critique",
-       "role": "You are the BUDGET CRITIC of a trip-planning team. You review the day-by-day plan before it becomes the trip guide: budget, opening hours, pacing, walking distances, and whether every place and price comes from the research. You do not rewrite the plan: you tell the reviser exactly what to change."
+       "role": "You are the PLAN CRITIC of a trip-planning team. You review the day-by-day plan before it becomes the trip guide: budget, opening hours, pacing, walking distances, and whether every place and price comes from the research. You do not rewrite the plan: you tell the reviser exactly what to change."
       },
       {
        "name": "itinerary_reviser",
        "kind": "llm",
        "description": "Applies the critic's review to the itinerary, or ends the review loop when it is approved.",
        "tools": [
-        "exit_loop"
+        "exit_loop",
+        "extra_sights_researcher"
        ],
        "output_key": "itinerary",
-       "role": "You are the ITINERARY REVISER of a trip-planning team. The budget critic has reviewed the plan; you apply the review."
+       "role": "You are the ITINERARY REVISER of a trip-planning team. The plan critic has reviewed the plan; you apply the review."
       }
      ]
-    },
-    {
-     "name": "guide_writer",
-     "kind": "llm",
-     "description": "Writes the final trip guide and saves it as Markdown and HTML.",
-     "tools": [
-      "save_guide"
-     ],
-     "output_key": "guide_reply",
-     "role": "You are the GUIDE WRITER of a trip-planning team. Write the final trip guide for the travellers in Markdown, from the plan and research below, then save it with save_guide."
     }
    ]
+  },
+  {
+   "name": "guide_writer",
+   "kind": "llm",
+   "description": "Writes the final trip guide and saves it as Markdown and HTML.",
+   "tools": [
+    "save_guide",
+    "export_calendar",
+    "export_map_stops"
+   ],
+   "output_key": "guide_reply",
+   "role": "You are the GUIDE WRITER of a trip-planning team. Write the final trip guide for the travellers in Markdown, from the plan and research below, then save it with save_guide."
   }
  ]
 }

@@ -20,6 +20,9 @@ export interface AgentRun {
   lastEventAt?: number;
   lastText?: string;
   reasoning: string[];
+  llmCalls: number;
+  tokensIn: number;
+  tokensOut: number;
 }
 
 export interface ToolCall {
@@ -89,7 +92,8 @@ export type RunAction =
 export function initialRun(index: GraphIndex): RunState {
   const agents: Record<string, AgentRun> = {};
   for (const name of Object.keys(index.nodes)) {
-    agents[name] = { status: "idle", spans: [], toolCalls: [], outputs: [], rounds: 0, reasoning: [] };
+    agents[name] = { status: "idle", spans: [], toolCalls: [], outputs: [], rounds: 0, reasoning: [], llmCalls: 0,
+      tokensIn: 0, tokensOut: 0 };
   }
   return { agents, tools: {}, toolOrder: [], chat: [], state: {}, writes: [], activity: [], arrivals: [],
     escalated: {}, now: 0, eventCount: 0, busy: false };
@@ -144,7 +148,10 @@ export function createReducer(index: GraphIndex) {
         log({ at, agent: name, kind: "start", text: `${humanize(name)} starts` });
         return;
       }
-      if (node.kind === "loop") run.rounds = 1;
+      if (node.kind === "loop") {  // a new run of the loop (a re-plan): the last run's exit_loop no longer counts
+        run.rounds = 1;
+        s.escalated[name] = false;
+      }
       const kids = node.children ?? [];
       if (node.kind === "parallel") kids.forEach((k) => activate(k.name, at));
       else if (kids.length) activate(kids[0].name, at);
@@ -184,6 +191,17 @@ export function createReducer(index: GraphIndex) {
         }
       }
       complete(up, at);
+    };
+
+    const finishBelow = (name: string, at: number) => {
+      for (const kid of nodes[name]?.children ?? []) {
+        finishBelow(kid.name, at);
+        const kr = s.agents[kid.name];
+        if (kr && kr.status !== "done" && kr.status !== "idle") {
+          kr.status = "done";
+          close(kid.name, at);
+        }
+      }
     };
 
     const enclosingLoop = (name: string): string | undefined => {
@@ -238,6 +256,12 @@ export function createReducer(index: GraphIndex) {
     if (run && run.status === "idle") activate(name, at);
     if (run) run.lastEventAt = at; // not predicted by the tree (e.g. an unknown agent)
     if (run && run.status === "waiting" && name === rootName) { run.status = "thinking"; open(name, at); }
+
+    if (run && ev.usageMetadata) {  // one model answer: count it and its tokens (the metrics panel)
+      run.llmCalls += 1;
+      run.tokensIn += ev.usageMetadata.promptTokenCount ?? 0;
+      run.tokensOut += ev.usageMetadata.candidatesTokenCount ?? 0;
+    }
 
     if (ev.errorCode) {
       const msg = `${humanize(name)}: ${ev.errorMessage ?? ev.errorCode}`;
@@ -344,9 +368,14 @@ export function createReducer(index: GraphIndex) {
         run.status = "waiting";
         close(name, at);
       } else {
-        if (name === "guide_writer") {
+        // the guide writer's reply, and the reviewed plan the pipeline shows for approval
+        if (name === "guide_writer" || name === "planning_pipeline") {
           s.chat.push({ id: `w${s.chat.length}`, role: "agent", author: name, text: answer, at });
         }
+        // A workflow agent speaks for itself only when it ends without running its children (a re-plan skipping a
+        // research team that keeps its results) or after them (the pipeline presenting the plan): either way,
+        // nothing below it is still working.
+        if (node && node.kind !== "llm") finishBelow(name, at);
         complete(name, at);
       }
     }
@@ -355,3 +384,22 @@ export function createReducer(index: GraphIndex) {
 }
 
 export const isWorking = (status: AgentStatus) => status === "thinking" || status === "tool";
+
+/** Per-agent cost and time for the metrics panel: model answers, tokens, tool calls and seconds spent working. */
+export interface AgentMetrics {
+  name: string;
+  llmCalls: number;
+  tokensIn: number;
+  tokensOut: number;
+  toolCalls: number;
+  seconds: number;
+}
+
+export function agentMetrics(run: RunState, agents: string[], now: number): AgentMetrics[] {
+  return agents.map((name) => {
+    const a = run.agents[name];
+    const seconds = a.spans.reduce((sum, sp) => sum + Math.max(0, (sp.end ?? now) - sp.start), 0);
+    const toolCalls = a.toolCalls.filter((id) => run.tools[id]?.name !== "transfer_to_agent").length;
+    return { name, llmCalls: a.llmCalls, tokensIn: a.tokensIn, tokensOut: a.tokensOut, toolCalls, seconds };
+  });
+}

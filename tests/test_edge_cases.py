@@ -297,11 +297,11 @@ def test_group_gets_several_hotel_rooms_in_the_requirements():
 
 
 def _all_planning_agents():
-    from travel_planner.agents.budget_critic import build_budget_critic
+    from travel_planner.agents.plan_critic import build_plan_critic
     from travel_planner.agents.guide_writer import build_guide_writer
     from travel_planner.agents.itinerary_reviser import build_itinerary_reviser
     from travel_planner.agents.planner import build_itinerary_planner
-    return _grounding_agents() + [build_itinerary_planner, build_budget_critic, build_itinerary_reviser,
+    return _grounding_agents() + [build_itinerary_planner, build_plan_critic, build_itinerary_reviser,
                                   build_guide_writer]
 
 
@@ -603,9 +603,10 @@ def test_problems_the_review_could_not_fix_are_listed_in_the_guide():
     assert "## Still to check" in text and "Museum of Invented Things" in text and "Day 2" in text
 
 
-def test_a_plan_without_problems_adds_nothing_to_the_guide():
-    from tests.test_review import fixed_plan
-    assert _save_guide_args(fixed_plan()) == GUIDE
+def test_a_plan_without_problems_adds_nothing_to_the_guide_but_the_day_rhythm():
+    from tests.test_review import BRIEF, fixed_plan
+    from travel_planner.agents.guide_writer import add_day_rhythm
+    assert _save_guide_args(fixed_plan()) == add_day_rhythm(GUIDE, BRIEF)
 
 
 def test_safety_net_save_also_lists_the_open_problems(tmp_path, monkeypatch):
@@ -697,9 +698,9 @@ def test_google_flights_duration_includes_layovers():
 
 def _paid_tool_agents():
     from travel_planner.agents import RESEARCH_AGENTS
-    from travel_planner.agents.budget_critic import build_budget_critic
+    from travel_planner.agents.plan_critic import build_plan_critic
     from travel_planner.agents.planner import build_itinerary_planner
-    return list(RESEARCH_AGENTS.values()) + [build_itinerary_planner, build_budget_critic]
+    return list(RESEARCH_AGENTS.values()) + [build_itinerary_planner, build_plan_critic]
 
 
 @pytest.mark.parametrize("factory", _paid_tool_agents())
@@ -775,7 +776,7 @@ def test_placeholder_meal_next_to_an_unused_restaurant_is_flagged():
         research["food_findings"]["results"].append({"kind": "restaurant", "name": "Unused Tasca", "lat": 38.7104,
                                                      "lon": -9.1330, "hours": "Daily 12:00-23:00", "budget_tier": "mid"})
     plan, state = _live_state(nearby)
-    issue = _issues_of(plan, state, "should_fix")["placeholder_meal"]
+    issue = _issues_of(plan, state, "decide")["placeholder_meal"]  # a matter of taste: the critic decides
     assert issue["day"] == 3 and [a["name"] for a in issue["alternatives"]] == ["Unused Tasca"]
 
 
@@ -785,13 +786,13 @@ def _afternoon_day(items):
     return change
 
 
-def test_a_whole_empty_afternoon_with_unused_sights_nearby_is_must_fix():
+def test_a_whole_empty_afternoon_with_unused_sights_nearby_is_for_the_critic_to_decide():
     from tests.test_review import _item
     plan, state = _live_state(_afternoon_day([  # Wednesday: nothing between lunch (12:30) and dinner (19:30)
         _item("10:30", "sight", "MUDE - Museu do Design", None, 38.7091, -9.1366),
         _item("12:30", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
         _item("19:30", "free", "Dinner near Baixa")]))
-    issue = _issues_of(plan, state, "must_fix")["empty_afternoon"]
+    issue = _issues_of(plan, state, "decide")["empty_afternoon"]
     assert issue["day"] == 2 and issue["alternatives"] and "12:30-19:30" in issue["detail"]
 
 
@@ -802,7 +803,99 @@ def test_an_empty_evening_or_a_short_gap_stays_a_should_fix():
         _item("12:30", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
         _item("14:00", "sight", "Museu Arqueológico do Carmo", 7.0, 38.7120, -9.1406),
         _item("16:00", "sight", "Museu do Dinheiro", 0.0, 38.7086, -9.1380)]))
-    assert "empty_afternoon" not in _issues_of(plan, state, "must_fix")
+    assert "empty_afternoon" not in {**_issues_of(plan, state, "must_fix"), **_issues_of(plan, state, "decide")}
+
+
+# ---------------------------------------------------------------- day shape (live runs only, not the demo)
+
+def _late_start_day(plan, research):  # Wednesday: lunch first, though MUDE opens at 10:00
+    from tests.test_review import _item
+    plan["days"][1]["items"] = [
+        _item("12:30", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
+        _item("14:00", "sight", "MUDE - Museu do Design", None, 38.7091, -9.1366),
+        _item("16:00", "sight", "Museu do Dinheiro", 0.0, 38.7086, -9.1380),
+        _item("19:30", "free", "Dinner near Baixa")]
+
+
+def test_a_full_day_starting_with_lunch_is_an_empty_morning():
+    plan, state = _live_state(_late_start_day)
+    issue = _issues_of(plan, state, "must_fix")["empty_morning"]
+    assert issue["day"] == 2 and "before 12:30" in issue["detail"] and "MUDE" in issue["detail"]
+    # the same morning is not reported again as an ordinary gap
+    assert not any(x["day"] == 2 and x["issue"] == "empty_gap" and "09:00" in x["detail"]
+                   for x in check_plan_of(plan, state)["should_fix"])
+
+
+def test_a_full_day_starting_at_10_30_is_fine():
+    from tests.test_review import _item
+    plan, state = _live_state(_afternoon_day([
+        _item("10:30", "sight", "MUDE - Museu do Design", None, 38.7091, -9.1366),
+        _item("13:00", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
+        _item("15:00", "sight", "Museu do Dinheiro", 0.0, 38.7086, -9.1380)]))
+    assert "empty_morning" not in _issues_of(plan, state, "must_fix")
+
+
+def test_two_restaurants_close_together_are_one_meal_too_many():
+    from tests.test_review import _item
+
+    def two_dinners(plan, research):
+        plan["days"][1]["items"] = [
+            _item("10:30", "sight", "MUDE - Museu do Design", None, 38.7091, -9.1366),
+            _item("13:00", "free", "Lunch near Baixa"),
+            _item("15:00", "sight", "Museu do Dinheiro", 0.0, 38.7086, -9.1380),
+            _item("19:30", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
+            _item("20:30", "free", "Dinner near Baixa")]
+    plan, state = _live_state(two_dinners)
+    issue = _issues_of(plan, state, "must_fix")["double_meal"]
+    assert issue["day"] == 2 and "'Taberna Nearby' at 19:30 and 'Dinner near Baixa' at 20:30" in issue["detail"]
+    # lunch at 13:00 and dinner at 19:30 are fine
+    assert sum(x["issue"] == "double_meal" for x in check_plan_of(plan, state)["must_fix"]) == 1
+
+
+def test_obvious_day_shape_faults_stay_must_fix_and_the_rest_is_for_the_critic(monkeypatch):
+    def all_faults(plan, research):
+        _late_start_day(plan, research)  # lunch first although MUDE, planned that day, opens at 10:00
+        plan["days"][1]["items"].insert(1, plan["days"][1]["items"][-1] | {"time": "13:30"})  # a meal 1 h later
+        research["food_findings"]["results"].append({"kind": "restaurant", "name": "Unused Tasca", "lat": 38.7104,
+                                                     "lon": -9.1330, "hours": "Daily 12:00-23:00", "budget_tier": "mid"})
+    plan, state = _live_state(all_faults)
+    for demo in (False, True):  # the demo runs the same checks since it was recorded again (2026-11-19)
+        if demo:
+            monkeypatch.setenv("DEMO", "1")
+        must, decide = _issues_of(plan, state, "must_fix"), _issues_of(plan, state, "decide")
+        assert "only the order changes" in must["empty_morning"]["obvious"]
+        assert "less than 2 hours" in must["double_meal"]["obvious"]
+        assert "placeholder_meal" in decide and not {"empty_morning", "double_meal"} & set(decide)
+
+
+def test_a_late_start_with_only_other_sights_open_early_or_meals_2_5_hours_apart_are_the_critics_call():
+    from tests.test_review import _item
+
+    def change(plan, research):  # nothing planned that day opens early; Carmo (unused, nearby) opens at 10:00
+        plan["days"][1]["items"] = [
+            _item("12:00", "restaurant", "Taberna Nearby", None, 38.7108, -9.1330),
+            _item("14:30", "restaurant", "Faca & Garfo", None, 38.7125, -9.1410),
+            _item("16:00", "sight", "Late Museum", 5.0, 38.7100, -9.1340),
+            _item("19:30", "free", "Dinner near Baixa")]
+        research["culture_findings"]["results"].append(
+            {"kind": "sight", "name": "Late Museum", "lat": 38.7100, "lon": -9.1340, "hours": "Daily 15:00-20:00",
+             "ticket_eur": 5.0})
+    plan, state = _live_state(change)
+    decide = _issues_of(plan, state, "decide")
+    assert {"empty_morning", "double_meal"} <= set(decide) and not decide["empty_morning"].get("obvious")
+
+
+def test_planner_and_reviser_get_the_day_shape_rules():
+    from travel_planner.agents.itinerary_reviser import build_itinerary_reviser
+    from travel_planner.agents.planner import build_itinerary_planner
+    for build in (build_itinerary_planner, build_itinerary_reviser):
+        assert "Never start a full day with lunch" in build().instruction
+    assert "Empty morning:" in build_itinerary_reviser().instruction
+
+
+def check_plan_of(plan, state):
+    from travel_planner.agents.review_checks import check_plan
+    return check_plan(plan, state)
 
 
 async def test_forecast_days_without_data_are_unknown_not_dry(monkeypatch):
@@ -940,9 +1033,10 @@ def _finalised(state, guide):
     return args["markdown_text"]
 
 
-def test_a_guide_that_follows_the_plan_is_saved_unchanged():
+def test_a_guide_that_follows_the_plan_is_saved_unchanged_but_for_the_day_rhythm():
+    from travel_planner.agents.guide_writer import add_day_rhythm
     _, state, guide, _ = _plan_and_guide()
-    assert _finalised(state, guide) == guide
+    assert _finalised(state, guide) == add_day_rhythm(guide, state["trip_brief"])
 
 
 def test_cost_table_is_rebuilt_from_the_plan_when_the_guide_changed_numbers():
@@ -1080,15 +1174,13 @@ def test_concierge_follow_up_rule_appears_only_once_a_guide_exists():
     assert "never answer with a different place" in after
 
 
-def test_concierge_explains_what_the_planners_cannot_do_but_not_in_the_recorded_demo(monkeypatch):
+def test_concierge_explains_what_the_planners_cannot_do():
     from types import SimpleNamespace
     from travel_planner.agents.concierge import concierge_instruction
     live = concierge_instruction(SimpleNamespace(state={}))
     assert "WHAT THE PLANNING TEAM CANNOT DO" in live
     assert "cheapest city" in live and "total_budget_eur" in live
     assert live.index("CANNOT DO") < live.index("AFTER A GUIDE EXISTS")
-    monkeypatch.setenv("DEMO", "1")
-    assert "CANNOT DO" not in concierge_instruction(SimpleNamespace(state={}))
 
 
 # ---------------------------------------------------------------- a second plan in the same session
@@ -1132,3 +1224,117 @@ def test_research_output_is_left_alone_when_the_session_has_no_tool_results():
     state = {"culture_findings": text}
     ground_research_output("culture_findings")(SimpleNamespace(state=state, session=SimpleNamespace(events=[])))
     assert state["culture_findings"] == text
+
+
+# ---------------------------------------------------------------- the user's day rhythm (start, end, pace)
+
+def _with_brief(state, **fields):
+    return {**state, "trip_brief": {**state["trip_brief"], **fields}}
+
+
+@pytest.mark.parametrize("change, field", [({"day_start": "7am"}, "day_start"), ({"day_end": "25:00"}, "day_end"),
+                                           ({"day_start": "20:00"}, "4 hours"), ({"pace": "fast"}, "pace")])
+def test_save_trip_brief_rejects_a_bad_day_rhythm(change, field):
+    from types import SimpleNamespace
+    from travel_planner.tools.trip import save_trip_brief
+    result = save_trip_brief(tool_context=SimpleNamespace(state={}), **{**FUTURE, **change})
+    assert result["status"] == "error" and field in result["reason"]
+
+
+def test_the_day_rhythm_is_saved_only_when_the_user_gave_it():
+    from types import SimpleNamespace
+    from travel_planner.tools.trip import save_trip_brief
+    state = {}
+    save_trip_brief(tool_context=SimpleNamespace(state=state), **FUTURE)
+    plain = state["trip_brief"]
+    assert not {"day_start", "day_end", "pace"} & set(plain) and state["trip_pace_research"] == ""
+    save_trip_brief(tool_context=SimpleNamespace(state=state), **FUTURE, day_start="07:00", pace="packed")
+    assert state["trip_brief"]["day_start"] == "07:00" and state["trip_brief"]["pace"] == "packed"
+    assert state["previous_trip_brief"] == plain  # the brief of the plan before
+    assert "choose up to" in state["trip_pace_research"]
+
+
+def test_only_a_packed_trip_asks_the_culture_agent_for_more_sights():
+    from travel_planner.agents.culture import build_culture_agent
+    assert build_culture_agent().instruction.endswith("{trip_pace_research?}")
+
+
+def test_a_brief_without_a_day_rhythm_keeps_the_checks_as_they_were():
+    from travel_planner.agents.review_checks import DAY_END, DAY_START, PACES, day_rhythm
+    rhythm = day_rhythm({"destination": "Lisbon"})
+    assert (rhythm.start, rhythm.end, rhythm.morning) == (DAY_START, DAY_END, 9 * 60 + 30)
+    assert rhythm.pace == PACES["balanced"] and (rhythm.user_start, rhythm.user_end) == (None, None)
+    balanced = PACES["balanced"]
+    assert (balanced.min_sights, balanced.max_sights, balanced.gap_min, balanced.min_between,
+            balanced.empty_afternoon, balanced.morning_grace) == (2, 5, 240, 45, 150, 90)
+
+
+def test_the_pace_sets_how_full_a_day_must_be():
+    plan, state = _live_state()
+    assert any(x["issue"] == "empty_gap" for x in check_plan_of(plan, state)["should_fix"])  # day 1, balanced
+    assert not check_plan_of(plan, _with_brief(state, pace="relaxed"))["should_fix"]  # long breaks are fine
+    packed = check_plan_of(plan, _with_brief(state, pace="packed"))["should_fix"]
+    assert {x["day"] for x in packed if x["issue"] == "empty_gap"} == {1, 2, 3}  # 16:00-19:30 is too long
+    plan["days"][1]["items"] = [i for i in plan["days"][1]["items"] if i["name"] != "Museu do Dinheiro"]
+    assert any(x["day"] == 2 and x["issue"] == "thin_day"
+               for x in check_plan_of(plan, _with_brief(state, pace="packed"))["should_fix"])
+    assert not any(x["issue"] == "thin_day" for x in check_plan_of(plan, _with_brief(state, pace="relaxed"))["should_fix"])
+
+
+def test_items_outside_the_users_day_hours_are_must_fix():
+    plan, state = _live_state()  # dinner at 19:30 on days 1-2; day 2 starts at 10:30, day 3 at 10:00
+    found = [(x["day"], x["issue"], x["detail"]) for x in
+             check_plan_of(plan, _with_brief(state, day_start="11:00", day_end="19:00"))["must_fix"]
+             if x["issue"] in ("before_day_start", "after_day_end")]
+    assert [(day, issue) for day, issue, _ in found] == [(1, "after_day_end"), (2, "before_day_start"),
+                                                         (2, "after_day_end"), (3, "before_day_start")]
+    assert "'MUDE - Museu do Design' at 10:30 is before 11:00" in found[1][2] and "19:30" in found[2][2]
+    # without hours from the user nothing is too early or too late, and the transport items never are
+    assert not {"before_day_start", "after_day_end"} & set(_issues_of(plan, state, "must_fix"))
+
+
+def test_a_late_riser_is_not_told_their_morning_is_empty():
+    plan, state = _live_state(_late_start_day)  # first item 12:30
+    assert "empty_morning" in _issues_of(plan, state, "must_fix")
+    assert "empty_morning" not in _issues_of(plan, _with_brief(state, day_start="12:00"), "must_fix")
+
+
+def test_day_hours_checks_run_in_the_demo_too(monkeypatch):
+    plan, state = _live_state()
+    monkeypatch.setenv("DEMO", "1")
+    assert {"before_day_start", "after_day_end"} <= set(
+        _issues_of(plan, _with_brief(state, day_start="11:00", day_end="19:00"), "must_fix"))
+
+
+def test_concierge_learns_the_optional_day_rhythm():
+    from types import SimpleNamespace
+    from travel_planner.agents.concierge import concierge_instruction
+    live = concierge_instruction(SimpleNamespace(state={}))
+    assert "OPTIONAL DAY RHYTHM (never ask for it" in live and '"packed"' in live
+
+
+def test_planner_rules_follow_the_briefs_day_hours_and_pace():
+    from travel_planner.agents.planner import build_itinerary_planner
+    instruction = build_itinerary_planner().instruction
+    assert "the brief's day_start and day_end (09:30 and 22:00" in instruction and "packed = 4-6" in instruction
+
+
+def test_the_guide_says_how_its_days_run_and_how_to_change_that():
+    from travel_planner.agents.guide_writer import add_day_rhythm, rhythm_sentence
+    assert rhythm_sentence({}) == ("Days in this plan start around 09:30 and end by 22:00, at a balanced pace "
+                                   "(the defaults).")
+    assert rhythm_sentence({"day_start": "07:00", "pace": "packed"}) == \
+        "Days in this plan start at 07:00 and end by 22:00, at a packed pace."
+    text = add_day_rhythm("# Guide\n\n## Day by day\n### Day 1\n", {})
+    assert text.startswith("# Guide\n\n## Day by day\n*Days in this plan") and "tell the concierge" in text
+    assert text.endswith("\n\n### Day 1\n")
+    assert add_day_rhythm("# Guide without days\n", {}) == "# Guide without days\n"
+
+
+def test_the_last_chat_message_offers_another_day_rhythm():
+    from types import SimpleNamespace
+    from travel_planner.agents.guide_writer import finish_guide
+    state = {"trip_brief": {"destination": "Lisbon"}, "final_guide": "# Lisbon", "guide_reply": "Saved."}
+    content = finish_guide(SimpleNamespace(state=state))
+    assert "start around 09:30" in content.parts[0].text and "plan the days again" in content.parts[0].text
+    assert finish_guide(SimpleNamespace(state={**state, "final_guide": None})) is None  # nothing saved, no offer

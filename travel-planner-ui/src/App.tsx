@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState, type ChangeEvent } from "react";
 
 import { Chat } from "./components/Chat";
-import { ActivityPanel, DataPanel, DetailsPanel, GuidePanel, ReviewPanel } from "./components/Panels";
+import { ActivityPanel, DataPanel, DetailsPanel, GuidePanel, MetricsPanel, ReviewPanel } from "./components/Panels";
 import { RouteMap } from "./components/RouteMap";
 import type { Selection } from "./components/selection";
 import graphJson from "./generated/agent-graph.json";
@@ -10,17 +10,25 @@ import { indexGraph, layoutMap } from "./lib/graph";
 import { useLiveRun, useReplay, useServerStatus, useTicker } from "./lib/hooks";
 import { isReplayFile } from "./lib/replay";
 import { createReducer, initialRun, isWorking } from "./lib/run";
+import { useTheme, type ThemeChoice } from "./lib/theme";
 import type { AgentNode, ReplayFile } from "./lib/types";
+
+const THEME_OPTIONS: { id: ThemeChoice; label: string }[] = [
+  { id: "system", label: "Auto" },
+  { id: "light", label: "Light" },
+  { id: "dark", label: "Dark" },
+];
 
 const index = indexGraph(graphJson as AgentNode);
 const layout = layoutMap(index.root);
 const DEMO_REPLAY = "/replays/lisbon-demo.json";
 
-type Tab = "activity" | "guide" | "review" | "details" | "data";
+type Tab = "activity" | "guide" | "review" | "metrics" | "details" | "data";
 const TABS: { id: Tab; label: string }[] = [
   { id: "activity", label: "Activity" },
   { id: "guide", label: "Guide" },
   { id: "review", label: "Review" },
+  { id: "metrics", label: "Cost and time" },
   { id: "details", label: "Details" },
   { id: "data", label: "Shared state" },
 ];
@@ -29,6 +37,7 @@ export default function App() {
   const reducer = useMemo(() => createReducer(index), []);
   const [run, dispatch] = useReducer(reducer, index, initialRun);
   const [mode, setMode] = useState<"live" | "replay">("live");
+  const [theme, setTheme] = useTheme();
   const [server, recheck] = useServerStatus();
   const live = useLiveRun(dispatch);
   const replay = useReplay(dispatch);
@@ -96,6 +105,11 @@ export default function App() {
           <button type="button" role="radio" aria-checked={mode === "live"} onClick={() => switchMode("live")}>Plan a trip</button>
           <button type="button" role="radio" aria-checked={mode === "replay"} onClick={() => switchMode("replay")}>Watch a recorded run</button>
         </div>
+        <div className="segmented theme" role="radiogroup" aria-label="Colour theme">
+          {THEME_OPTIONS.map((o) => (
+            <button key={o.id} type="button" role="radio" aria-checked={theme === o.id} onClick={() => setTheme(o.id)}>{o.label}</button>
+          ))}
+        </div>
         {mode === "live" ? (
           <div className={`server server-${server.state}`} role="status">
             <span className="server-dot" />
@@ -119,7 +133,7 @@ export default function App() {
       )}
 
       <main className="layout">
-        <Chat messages={run.chat} mode={mode} canSend={canSend} busy={run.busy && mode === "live"} sent={live.sent}
+        <Chat messages={run.chat} awaitingApproval={run.state.plan_status === "awaiting_approval"} mode={mode} canSend={canSend} busy={run.busy && mode === "live"} sent={live.sent}
               onSend={(t) => void live.send(t)} onOpenGuide={() => setTab("guide")} />
 
         <div className="work">
@@ -183,6 +197,7 @@ export default function App() {
               {tab === "activity" && <ActivityPanel index={index} run={run} layout={layout} now={now} onSelect={select} />}
               {tab === "guide" && <GuidePanel run={run} />}
               {tab === "review" && <ReviewPanel run={run} onSelect={select} />}
+              {tab === "metrics" && <MetricsPanel index={index} run={run} now={now} onSelect={select} />}
               {tab === "details" && <DetailsPanel index={index} run={run} selection={selection} onSelect={select} />}
               {tab === "data" && <DataPanel run={run} onSelect={select} />}
             </div>

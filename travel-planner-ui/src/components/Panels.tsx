@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 
 import { argSummary, download, guideHtml, parseValue, pretty, renderMarkdown, seconds } from "../lib/format";
 import { humanize, type GraphIndex, type MapLayout } from "../lib/graph";
-import type { ActivityItem, RunState } from "../lib/run";
+import { agentMetrics, type ActivityItem, type RunState } from "../lib/run";
 import type { Selection } from "./selection";
 
 interface Common {
@@ -98,7 +98,9 @@ export function GuidePanel({ run }: { run: RunState }) {
 
 // ------------------------------------------------------------------ review
 
-interface ReviewRound { round: number; verdict: string; critic_said?: string; overridden?: boolean; must_fix: number; should_fix: number; total_eur?: number }
+interface Decline { day: number | null; issue: string; reason: string }
+interface ReviewRound { round: number; verdict: string; critic_said?: string; overridden?: boolean; must_fix: number; should_fix: number; total_eur?: number;
+  decide?: number; declined?: Decline[]; declines_refused?: Decline[] }
 interface RevisionRound { round: number; verdict?: string; changes?: string[] | null; restored?: string; exit?: string }
 
 export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Selection) => void }) {
@@ -106,7 +108,7 @@ export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Se
   const revisions = (run.state.revision_log as RevisionRound[] | null) ?? [];
   const critique = typeof run.state.critique === "string" ? run.state.critique : "";
   const overridden = typeof run.state.critique_overridden === "string" ? run.state.critique_overridden : "";
-  if (!reviews.length) return <Empty>The budget critic reviews the plan after the itinerary planner, and the reviser fixes what it finds, for up to three rounds.</Empty>;
+  if (!reviews.length) return <Empty>The plan critic reviews the plan after the itinerary planner, and the reviser fixes what it finds, for up to three rounds.</Empty>;
   return (
     <div className="review">
       <ol className="rounds">
@@ -119,7 +121,15 @@ export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Se
                 {r.must_fix} must-fix and {r.should_fix} should-fix problems found by the code check
                 {typeof r.total_eur === "number" ? `; plan total €${r.total_eur.toLocaleString("en")}` : ""}.
                 {r.overridden ? ` The critic said ${r.critic_said}; the code check decided ${r.verdict}.` : ""}
+                {r.decide ? ` ${r.decide} day-shape point${r.decide === 1 ? "" : "s"} for the critic to decide.` : ""}
               </p>
+              {r.declined?.length ? (
+                <ul className="declined">{r.declined.map((d, i) => (
+                  <li key={i}>Critic declined day {d.day} {d.issue.replace(/_/g, " ")}: {d.reason}</li>))}</ul>
+              ) : null}
+              {r.declines_refused?.length ? (
+                <p className="muted">Declines refused by code (no reason about this trip): {r.declines_refused.map((d) => `day ${d.day} ${d.issue.replace(/_/g, " ")}`).join(", ")}.</p>
+              ) : null}
               {rev?.changes?.length ? (
                 <ul>{rev.changes.map((c, i) => <li key={i}>{c}</li>)}</ul>
               ) : rev?.exit ? <p className="muted">The reviser ended the loop ({rev.exit === "exit_loop" ? "called exit_loop" : "ended by the code guard"}).</p> : null}
@@ -138,6 +148,61 @@ export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Se
       <button type="button" className="link-button" onClick={() => onSelect({ kind: "state", key: "itinerary_check" })}>
         Show the code check result
       </button>
+    </div>
+  );
+}
+
+// ------------------------------------------------------------------ metrics (cost and time per agent)
+
+interface ReplanEntry { rerun?: string[]; accepted?: boolean; refused?: string; reason?: string; change_note?: string }
+const BRANCH_NAMES = ["transport", "stay", "culture", "food"];
+
+export function MetricsPanel({ index, run, now, onSelect }: Common & { now: number }) {
+  const rows = agentMetrics(run, index.llmAgents, now).filter((m) => m.llmCalls || m.toolCalls || m.seconds);
+  const reused = Array.isArray(run.state.research_reused) ? (run.state.research_reused as string[]) : [];
+  const replans = (run.state.replan_log as ReplanEntry[] | null) ?? [];
+  const extra = (run.state.extra_sights_log as { added?: string[] }[] | null) ?? [];
+  if (!rows.length) return <Empty>Model answers, tokens, tool calls and working time per agent appear here during a run.</Empty>;
+  const total = rows.reduce((t, m) => ({ llm: t.llm + m.llmCalls, tin: t.tin + m.tokensIn, tout: t.tout + m.tokensOut,
+    tools: t.tools + m.toolCalls }), { llm: 0, tin: 0, tout: 0, tools: 0 });
+  const n = (x: number) => x.toLocaleString("en");
+  return (
+    <div className="metrics">
+      {reused.length > 0 && (
+        <p className="badge badge-reuse" role="status">
+          Research reused: {reused.join(", ")}. Researched again: {BRANCH_NAMES.filter((b) => !reused.includes(b)).join(", ") || "nothing"} (the concierge's choice).
+        </p>
+      )}
+      {replans.length > 0 && (
+        <ul className="replans">
+          {replans.map((r, i) => (
+            <li key={i} className={r.accepted ? "" : "refused"}>
+              Re-plan {r.accepted ? "accepted" : "refused"}: rerun {r.rerun?.length ? r.rerun.join(", ") : "nothing"}
+              {r.change_note ? ` ("${r.change_note}")` : ""}{r.refused ? `. Code refused: ${r.refused}` : ""}
+            </li>
+          ))}
+        </ul>
+      )}
+      {extra.some((e) => e.added?.length) && (
+        <p className="muted">Sights researched on demand by the reviser: {extra.flatMap((e) => e.added ?? []).join(", ")}.</p>
+      )}
+      <table className="data-table">
+        <thead><tr><th scope="col">Agent</th><th scope="col">Model answers</th><th scope="col">Tokens in / out</th>
+          <th scope="col">Tool calls</th><th scope="col">Working time</th></tr></thead>
+        <tbody>
+          {rows.map((m) => (
+            <tr key={m.name}>
+              <td><button type="button" className="link-button" onClick={() => onSelect({ kind: "agent", name: m.name })}>{humanize(m.name)}</button></td>
+              <td>{m.llmCalls}</td>
+              <td>{n(m.tokensIn)} / {n(m.tokensOut)}</td>
+              <td>{m.toolCalls}</td>
+              <td>{seconds(m.seconds)}</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot><tr><th scope="row">Total</th><td>{total.llm}</td><td>{n(total.tin)} / {n(total.tout)}</td><td>{total.tools}</td><td /></tr></tfoot>
+      </table>
+      <p className="muted">Working time is when each agent was active; parallel agents overlap. A replayed run keeps the recorded timing.</p>
     </div>
   );
 }

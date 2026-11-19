@@ -172,13 +172,14 @@ def _ctx(state):
 def test_root_agent_tree():
     root = build_root_agent()
     assert root.name == "concierge" and entry.root_agent.name == "concierge"
-    assert {t.__name__ for t in root.tools} == {"geocode_place", "save_trip_brief"}
-    (pipeline,) = root.sub_agents
+    assert {t.__name__ for t in root.tools} == {"geocode_place", "save_trip_brief", "request_replan", "approve_plan"}
+    pipeline, writer = root.sub_agents
     assert isinstance(pipeline, SequentialAgent) and pipeline.name == "planning_pipeline"
-    assert [a.name for a in pipeline.sub_agents] == ["research_team", "itinerary_planner", "review_loop", "guide_writer"]
+    assert [a.name for a in pipeline.sub_agents] == ["research_team", "itinerary_planner", "review_loop"]
+    assert writer.name == "guide_writer" and writer.disallow_transfer_to_parent and writer.disallow_transfer_to_peers
     loop = pipeline.sub_agents[2]
     assert isinstance(loop, LoopAgent) and loop.max_iterations == 3
-    assert [a.name for a in loop.sub_agents] == ["budget_critic", "itinerary_reviser"]
+    assert [a.name for a in loop.sub_agents] == ["plan_critic", "itinerary_reviser"]
     llm = [a for a in _walk(root) if isinstance(a, LlmAgent)]
     assert len(llm) == 13
     keys = [a.output_key for a in llm if a.output_key]
@@ -187,10 +188,21 @@ def test_root_agent_tree():
     assert {"itinerary", "critique", "guide_reply"} <= set(keys)
 
 
+def test_demo_runs_the_same_tree_as_a_live_run(monkeypatch):
+    names = lambda root: [a.name for a in _walk(root)]  # noqa: E731
+    live = build_root_agent()
+    monkeypatch.setenv("DEMO", "1")
+    demo = build_root_agent()
+    assert names(demo) == names(live) and {t.__name__ for t in demo.tools} == {t.__name__ for t in live.tools}
+    def prompts(root):
+        return [a.instruction for a in _walk(root) if isinstance(a, LlmAgent) and isinstance(a.instruction, str)]
+    assert prompts(demo) == prompts(live)  # no demo-only prompt text: the demo shows the system as it is
+
+
 @pytest.mark.parametrize("factory, tools, reads", [
     (build_itinerary_planner, {"get_forecast", "cluster_by_distance", "calculate_trip_cost"},
      ("transport_summary", "stay_summary", "culture_findings", "food_findings")),
-    (build_guide_writer, {"save_guide"},
+    (build_guide_writer, {"save_guide", "export_calendar", "export_map_stops"},
      ("itinerary", "transport_summary", "stay_summary", "culture_findings", "food_findings")),
 ])
 async def test_planner_and_writer_read_state(factory, tools, reads):

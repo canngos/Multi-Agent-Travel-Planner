@@ -1,4 +1,10 @@
 """airbnb_searcher -> airbnb_options and hotel_searcher -> hotel_options."""
+import json
+import shutil
+
+from google.genai import types
+
+from .. import config
 from ..tools import search_google_hotels, search_hotel_rates, stay_deep_links
 from ..tools.mcp import airbnb_toolset, mcp_cache_after, mcp_cache_before
 from ._common import research_agent
@@ -52,6 +58,17 @@ HOTEL_EXAMPLE = """{"results": [{"kind": "hotel", "name": "The Central House Lis
  "fallback_links": [], "notes": "Google Hotels and liteAPI both worked."}"""
 
 
+def skip_without_npx(callback_context):
+    """Before-agent callback (REVIEW.md A5): the Airbnb MCP server runs through npx; without Node.js the agent can
+    only fail, so it does not run. A hard fact, not a choice. Never offline: the recorded MCP answers need no npx."""
+    if config.offline() or shutil.which("npx"):
+        return None
+    text = "```json\n" + json.dumps({"results": [], "fallback_links": [], "notes": (
+        "Not searched: the Airbnb source needs Node.js (npx), which is not installed on this computer.")}) + "\n```"
+    callback_context.state["airbnb_options"] = text
+    return types.Content(role="model", parts=[types.Part(text=text)])
+
+
 def build_airbnb_searcher():
     return research_agent(
         name="airbnb_searcher",
@@ -60,6 +77,7 @@ def build_airbnb_searcher():
         tools=[airbnb_toolset(), stay_deep_links],
         output_key="airbnb_options",
         max_calls=4,
+        before_agent_callback=skip_without_npx,
         before_tool_callback=mcp_cache_before,
         after_tool_callback=mcp_cache_after,
     )

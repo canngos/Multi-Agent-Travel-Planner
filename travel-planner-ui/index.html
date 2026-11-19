@@ -6,6 +6,15 @@
     <meta name="description" content="Plan a trip with thirteen AI agents and watch how they work together." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Trip planner</title>
+    <script>
+      // Apply the saved theme before first paint so a dark-mode visitor never sees a light flash.
+      (function () {
+        var c = "system";
+        try { c = localStorage.getItem("trip-planner-theme") || "system"; } catch (e) {}
+        var dark = c === "dark" || (c !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

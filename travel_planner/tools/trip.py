@@ -87,6 +87,18 @@ def check_brief(args: dict) -> TripBrief:
 
 
 PEOPLE_PER_ROOM = 2
+OMIT_WHEN_EMPTY = ("avoid_modes", "requirements", "day_start", "day_end", "pace")
+PACKED_SIGHTS_PER_DAY, PACKED_MAX_SIGHTS = 5, 20
+
+
+def pace_research_block(brief: TripBrief) -> str:
+    """Extra instruction for the culture researcher (state["trip_pace_research"]): a packed trip needs more sights
+    than the usual 8-12. "" otherwise, so the instruction stays exactly as it was."""
+    if brief.pace != "packed":
+        return ""
+    want = max(12, min(PACKED_MAX_SIGHTS, PACKED_SIGHTS_PER_DAY * brief.days))
+    return (f"\n\nPACE: the travellers want packed days, so in step 3 choose up to {want} sights instead of 8-12 "
+            "(still at least 3 indoor ones).")
 
 
 def requirements_block(brief: TripBrief) -> str:
@@ -128,6 +140,9 @@ def save_trip_brief(
     destination_country: str | None = None,
     avoid_modes: list[str] | None = None,
     requirements: list[str] | None = None,
+    day_start: str | None = None,
+    day_end: str | None = None,
+    pace: str | None = None,
 ) -> dict:
     """Validates the complete trip brief and saves it for the planning team.
 
@@ -152,6 +167,11 @@ def save_trip_brief(
             (e.g. ["flight"] for "we don't fly"). Only what the user said.
         requirements: Other hard needs the user stated, one short phrase each, e.g. "travelling with
             children aged 4 and 7", "bringing a dog", "wheelchair access", "vegetarian", "two separate beds".
+        day_start: When the travellers like to start their days, "HH:MM", only if the user said so
+            (e.g. "we wake up early" -> "07:00"). Leave it out otherwise: the planners use 09:30.
+        day_end: When their days should end, "HH:MM", only if the user said so (default 22:00).
+        pace: "relaxed", "balanced" or "packed", only if the user said how full the days should be
+            (default "balanced").
     """
     brief = check_brief(dict(
         origin=origin, destination=destination, start_date=start_date, end_date=end_date,
@@ -159,12 +179,16 @@ def save_trip_brief(
         interests=interests or [], origin_lat=origin_lat, origin_lon=origin_lon,
         destination_lat=destination_lat, destination_lon=destination_lon,
         destination_country=destination_country, avoid_modes=avoid_modes, requirements=requirements,
+        day_start=day_start, day_end=day_end, pace=pace,
     ))
-    # empty requirement lists are left out, so an ordinary brief (and every instruction showing it) is unchanged
-    saved = {k: v for k, v in brief.model_dump(mode="json").items() if v or k not in ("avoid_modes", "requirements")}
+    # empty optional fields are left out, so an ordinary brief (and every instruction showing it) is unchanged
+    saved = {k: v for k, v in brief.model_dump(mode="json").items() if v or k not in OMIT_WHEN_EMPTY}
     saved.update(nights=brief.nights, days=brief.days)
+    # the brief of the previous plan in this session: a change of only the day rhythm reuses its research
+    tool_context.state["previous_trip_brief"] = tool_context.state.get("trip_brief")
     tool_context.state["trip_brief"] = saved
     tool_context.state["trip_requirements"] = requirements_block(brief)
+    tool_context.state["trip_pace_research"] = pace_research_block(brief)
     return ok([saved])
 
 

@@ -41,7 +41,7 @@ EXAMPLE = """{"results": [{"kind": "sight", "name": "Belém Tower", "lat": 38.69
 
 
 def build_culture_agent():
-    return research_agent(
+    agent = research_agent(
         name="culture_agent",
         description="Finds sights with short histories, opening hours and ticket prices.",
         role=ROLE, steps=STEPS, shape=SHAPE, example=EXAMPLE,
@@ -50,3 +50,6 @@ def build_culture_agent():
         max_calls=13,
         before_grounding=[fill_from_tool_results("culture_findings")],  # tickets and hours the agent left out
     )
+    # a packed trip asks for more sights than 8-12; "" for every other trip, so its instruction is unchanged
+    agent.instruction += "{trip_pace_research?}"
+    return agent

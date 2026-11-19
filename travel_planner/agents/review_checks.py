@@ -1,11 +1,16 @@
 """Code checks of the itinerary, used by the review loop (Phase 8).
 
-The budget critic calls `check_itinerary` as a tool; the critic's verdict guard runs the same checks, so a
+The plan critic calls `check_itinerary` as a tool; the critic's verdict guard runs the same checks, so a
 "must fix" problem can never be approved by the model. Everything here is deterministic:
 
 must_fix  (the plan is wrong):  over budget while a cheaper option exists; a visit on a closed day or outside
           the opening hours; a sight planned twice (a restaurant too, while unused food places exist); a place or ticket price that is not in the research; a transport or stay option
           that is not in the summaries; wrong number of days or dates.
+          Also an item outside the day hours the travellers stated (a requirement they set, like "no flights").
+decide    (taste, the plan critic decides each one: fix it or decline it with a reason): an empty morning on a
+          full day, two meals close together, a "Lunch near ..." placeholder while a researched food place is
+          nearby, a whole empty afternoon with researched sights nearby. Obvious cases stay must_fix ("obvious":
+          why): a late start although the day's own sights open in the morning, two meals under 2 hours apart.
 should_fix (the plan is weak):  thin days (few sights, long empty gaps, missing meals), packed days, long
           walks, meals far from the day's area, places used twice, over budget with no cheaper option left.
 
@@ -15,10 +20,13 @@ reviser can fix them without inventing anything.
 import json
 import re
 import unicodedata
+from dataclasses import dataclass
 from datetime import date, timedelta
 
 from google.adk.tools import ToolContext
 
+from .. import config
+from ..models import minutes_of
 from ..tools._result import ok
 from ..tools.geo import haversine_km
 from ..tools.trip import calculate_trip_cost
@@ -26,14 +34,41 @@ from .output import extract_json
 
 FOOD_KINDS = {"restaurant", "cafe", "bar"}
 PLACE_KINDS = {"sight"} | FOOD_KINDS
-GAP_MIN = 240          # a gap longer than this between planned items (or the day's edges) is a thin spot
-DAY_START, DAY_END = 9 * 60, 22 * 60
+# the day's edges for the gap check when the brief sets no day_start/day_end: the defaults the prompts state
+DAY_START, DAY_END = minutes_of(config.DEFAULT_DAY_START), minutes_of(config.DEFAULT_DAY_END)
 FAR_MEAL_KM = 2.0
 LONG_WALK_KM = 8.0     # straight-line km between consecutive items
 ALT_RADIUS_KM = 2.5
 MIN_SAVING_EUR = 10.0  # a cheaper transport option must save at least this much to be suggested
 AFTERNOON = (12 * 60, 18 * 60)
-EMPTY_AFTERNOON_MIN = 150  # this much idle time inside the afternoon is a lost afternoon; 1-2 free hours are fine
+MORNING_OPEN_AFTER_START = 60  # a sight open within this many minutes of day_start can start the day
+
+
+@dataclass(frozen=True)
+class PaceLimits:
+    min_sights: int        # fewer sights on a full day is a thin day
+    max_sights: int        # more is a packed day
+    gap_min: int           # a longer gap between planned items (or the day's edges) is a thin spot
+    min_between: int       # sights closer together than this (minutes) are rushed
+    empty_afternoon: int   # this much idle time inside the afternoon is a lost afternoon
+    morning_grace: int     # a full day whose first item is later than day_start + this has lost its morning
+
+
+# "balanced" holds the values these checks always used; the brief's pace picks another row (TripBrief.pace).
+# The sight counts are deliberately more tolerant than the prompts (planner/concierge ask for relaxed 1-3,
+# balanced 2-4, packed 4-6; the check accepts 1-3, 2-5 and 3-7): the prompts aim at the target, the check flags
+# only a clear miss, so a plan one sight off is not sent back for another review round.
+PACES = {"relaxed": PaceLimits(1, 3, 360, 60, 240, 150),
+         "balanced": PaceLimits(2, 5, 240, 45, 150, 90),
+         "packed": PaceLimits(3, 7, 150, 30, 90, 60)}
+MEAL_GAP_MIN = 180  # two restaurants (or meal placeholders) closer than this are one meal too many
+# Day-shape findings that are a matter of taste (REVIEW.md A4): the code check reports them under "decide" and the
+# plan critic decides each one (fix it, or decline it with a reason; see plan_critic.enforce_verdict). An obvious
+# case stays must_fix with its reason in "obvious": a full day starting late although that day's own planned sights
+# open in the morning (only the order changes), or two meals less than OBVIOUS_MEAL_GAP_MIN apart.
+TASTE_ISSUES = ("empty_morning", "double_meal", "placeholder_meal", "empty_afternoon")
+OBVIOUS_MEAL_GAP_MIN = 120
+MEAL_NAME = re.compile(r"lunch|dinner|eat", re.IGNORECASE)
 VISIT_MIN = {"sight": 90, "restaurant": 60, "cafe": 60, "bar": 60, "free": 60}  # typical length of a planned item
 FAR_STAY_KM = 4.0          # stay farther than this from the planned sights ...
 NEAR_STAY_KM = 2.0         # ... while the summary has one this close
@@ -449,14 +484,50 @@ def _option_known(option: dict, summary: dict, price_key: str, match_keys: tuple
     return False
 
 
+def _opens_by(hours, day: date | None, limit: int) -> bool:
+    """True if the hours say the place is open at `limit` (minutes) or opens by then, on that day."""
+    spans = parse_hours(hours, day) if hours and day else None
+    return isinstance(spans, list) and any(o <= limit < c for o, c in spans)
+
+
+@dataclass(frozen=True)
+class DayRhythm:
+    """The travellers' day from the brief: edges for the gap check, the morning start, pace limits, and the hours
+    the user set (None when they set none: then nothing is "too early" or "too late")."""
+    start: int
+    end: int
+    morning: int
+    pace: PaceLimits
+    pace_name: str
+    user_start: int | None
+    user_end: int | None
+
+
+def day_rhythm(brief: dict) -> DayRhythm:
+    """With no day_start, day_end or pace in the brief, every value is what the checks always used."""
+    def clock(key):
+        try:
+            return minutes_of(brief[key]) if brief.get(key) else None
+        except (TypeError, ValueError):
+            return None
+    user_start, user_end = clock("day_start"), clock("day_end")
+    name = brief.get("pace") if brief.get("pace") in PACES else config.DEFAULT_PACE
+    return DayRhythm(start=DAY_START if user_start is None else user_start,
+                     end=DAY_END if user_end is None else user_end,
+                     morning=minutes_of(config.DEFAULT_DAY_START) if user_start is None else user_start,
+                     pace=PACES[name], pace_name=name, user_start=user_start, user_end=user_end)
+
+
 def check_plan(plan: dict, state) -> dict:
     """Runs every check on a parsed plan. Returns {"must_fix", "should_fix", "cost", "facts"}."""
     brief = state.get("trip_brief") or {}
     must, should = [], []
+    rhythm = day_rhythm(brief)
+    pace = rhythm.pace
     days = [d for d in plan.get("days") or [] if isinstance(d, dict)]
     if not days:
         return {"must_fix": [{"day": None, "issue": "no_plan", "detail": "The plan has no days (or is not valid JSON)."}],
-                "should_fix": [], "cost": None, "facts": {}}
+                "should_fix": [], "decide": [], "cost": None, "facts": {}}
     places = research_places(state)
     unreadable = unreadable_research(state)
     unchecked_kinds = set().union(*(RESEARCH_KINDS[key] for key in unreadable))
@@ -559,7 +630,7 @@ def check_plan(plan: dict, state) -> dict:
 
         # pacing: the day's usable window runs from arrival (+1.5 h) to departure (-2.5 h flight / -1 h other)
         times = sorted(t for t in (_minutes(i) for i in items if i.get("kind") != "transport") if t is not None)
-        start, end = DAY_START, DAY_END
+        start, end = rhythm.start, rhythm.end
         for i in items:
             name, t = str(i.get("name") or "").lower(), _minutes(i)
             if i.get("kind") != "transport" or t is None:
@@ -569,7 +640,7 @@ def check_plan(plan: dict, state) -> dict:
             elif name.startswith("depart") and n == len(days) - 1:
                 end = min(end, t - (150 if "flight" in str(i.get("note", "")).lower() else 60))
         full_day = 0 < n < len(days) - 1
-        if full_day and len(sights) < 2:
+        if full_day and len(sights) < pace.min_sights:
             should.append({"day": label, "issue": "thin_day", "detail": f"Only {len(sights)} sight(s) on a full day."})
         gap_spans = {}  # id(issue) -> (from, idle from, to), to spot a whole empty afternoon below
         length = {}  # item time -> how long the item there takes
@@ -580,7 +651,7 @@ def check_plan(plan: dict, state) -> dict:
         if end - start >= 120:
             edges = [start] + [t for t in times if start <= t <= end] + [end]
             for a, b in zip(edges, edges[1:]):
-                if b - a > GAP_MIN:
+                if b - a > pace.gap_min:
                     should.append({"day": label, "issue": "empty_gap",
                                    "detail": f"Nothing planned {_fmt(a)}-{_fmt(b)}."})
                     gap_spans[id(should[-1])] = (a, a + (length.get(a, 0) if a != start else 0), b)
@@ -589,11 +660,11 @@ def check_plan(plan: dict, state) -> dict:
             for meal, lo, hi in (("lunch", 11 * 60 + 30, 15 * 60 + 30), ("dinner", 18 * 60, 22 * 60 + 30)):
                 if start <= lo + 60 and end >= lo + 120 and not any(t is not None and lo <= t <= hi for _, t in meals):
                     should.append({"day": label, "issue": "missing_meal", "detail": f"No {meal} planned."})
-        if len(sights) > 5:
+        if len(sights) > pace.max_sights:
             should.append({"day": label, "issue": "packed_day", "detail": f"{len(sights)} sights in one day."})
         timed = sorted((t, i) for i in items if i.get("kind") == "sight" for t in [_minutes(i)] if t is not None)
         for (t1, a), (t2, b) in zip(timed, timed[1:]):
-            if t2 - t1 < 45:
+            if t2 - t1 < pace.min_between:
                 should.append({"day": label, "issue": "packed_day",
                                "detail": f"Only {t2 - t1} min between '{a.get('name')}' and '{b.get('name')}'."})
         km = walk_km(items)
@@ -616,7 +687,7 @@ def check_plan(plan: dict, state) -> dict:
             if item.get("kind") == "free" and re.search(r"lunch|dinner|eat", str(item.get("name")), re.I):
                 alternatives = _alternatives(centre, used, places, FOOD_KINDS)
                 if alternatives:
-                    should.append({"day": label, "issue": "placeholder_meal",
+                    must.append({"day": label, "issue": "placeholder_meal",
                                    "detail": f"'{item.get('name')}' at {item.get('time')} is a placeholder, but unused "
                                              "researched food places are nearby: use one of the alternatives.",
                                    "alternatives": alternatives})
@@ -624,15 +695,19 @@ def check_plan(plan: dict, state) -> dict:
         for x in thin:
             kinds = FOOD_KINDS if x["issue"] == "missing_meal" else {"sight"}
             x["alternatives"] = _alternatives(centre, used, places, kinds)
+        lost_afternoon_from = set()  # gaps already reported as a whole empty afternoon
         for x in thin:  # 1-2 free hours are fine; a whole afternoon with researched sights nearby is not
             a, idle_from, b = gap_spans.get(id(x), (0, 0, 0))
             covered = min(b, AFTERNOON[1]) - max(idle_from, AFTERNOON[0])
-            if x["issue"] == "empty_gap" and x["alternatives"] and covered >= EMPTY_AFTERNOON_MIN:
+            if x["issue"] == "empty_gap" and x["alternatives"] and covered >= pace.empty_afternoon:
                 should.remove(x)
+                lost_afternoon_from.add(a)
                 must.append({"day": label, "issue": "empty_afternoon",
                              "detail": f"Nothing planned {_fmt(a)}-{_fmt(b)}: a whole afternoon. Add one of the "
                                        "listed alternatives at a time it is open.",
                              "alternatives": x["alternatives"]})
+        _day_shape_issues(must, should, label, items, sights, times, start, full_day, today, centre, used,
+                          places, gap_spans, lost_afternoon_from, rhythm)
 
     far = _far_stay_issue(plan, days, ssum)
     if far:
@@ -644,13 +719,67 @@ def check_plan(plan: dict, state) -> dict:
         (must if budget[0] == "must_fix" else should).append(budget[1])
     facts = {"days": len(days), "sights": sum(1 for d in days for i in d.get("items") or [] if isinstance(i, dict) and i.get("kind") == "sight"),
              "total_eur": (cost or {}).get("total_eur"), "budget_eur": brief.get("total_budget_eur")}
-    return {"must_fix": must, "should_fix": should, "cost": cost, "facts": facts}
+    decide = [x for x in must if x["issue"] in TASTE_ISSUES and not x.get("obvious")]
+    must = [x for x in must if x not in decide]
+    return {"must_fix": must, "should_fix": should, "decide": decide, "cost": cost, "facts": facts}
+
+
+def _day_shape_issues(must, should, label, items, sights, times, start, full_day, today, centre, used, places,
+                      gap_spans, lost_afternoon_from, rhythm: DayRhythm) -> None:
+    """Empty mornings, two meals close together, and items outside the hours the user set (must_fix).
+
+    Live runs and the recorded demo began every full day with lunch at 12:30-13:00, though the day's own sights
+    opened at 09:00-10:00, and put two restaurants 2.5 h apart on the arrival day."""
+    open_by = rhythm.morning + MORNING_OPEN_AFTER_START
+    late = times[0] > rhythm.morning + rhythm.pace.morning_grace if times else False
+    if full_day and late and start not in lost_afternoon_from:
+        early = [i.get("name") for i in sights
+                 if _opens_by((find_place(i.get("name"), places) or {}).get("hours") or i.get("hours"), today, open_by)]
+        alternatives = [a for a in _alternatives(centre, used, places, {"sight"})
+                        if _opens_by(a.get("hours"), today, open_by)]
+        if early or alternatives:
+            should[:] = [x for x in should if not (x["day"] == label and x["issue"] == "empty_gap"
+                                                   and gap_spans.get(id(x), (None,))[0] == start)]
+            how = (f"one of the day's sights open by {_fmt(open_by)} ({', '.join(repr(n) for n in early)})"
+                   if early else "one of the listed alternatives")
+            issue = {"day": label, "issue": "empty_morning",
+                     "detail": f"Nothing planned before {_fmt(times[0])} on a full day: start around "
+                               f"{_fmt(rhythm.morning)} with {how}, and have lunch after it.",
+                     "alternatives": alternatives}
+            if early:
+                issue["obvious"] = f"the day's own sights open by {_fmt(open_by)}: only the order changes"
+            must.append(issue)
+    for item in items:  # the hours the travellers asked for (none when they did not say)
+        t = _minutes(item)
+        if item.get("kind") == "transport" or t is None:
+            continue
+        if rhythm.user_start is not None and t < rhythm.user_start:
+            must.append({"day": label, "issue": "before_day_start",
+                         "detail": f"'{item.get('name')}' at {item.get('time')} is before {_fmt(rhythm.user_start)}, "
+                                   "when the travellers start their days: move it later or drop it."})
+        elif rhythm.user_end is not None and t > rhythm.user_end:
+            must.append({"day": label, "issue": "after_day_end",
+                         "detail": f"'{item.get('name')}' at {item.get('time')} is after {_fmt(rhythm.user_end)}, "
+                                   "when the travellers end their days: move it earlier or drop it."})
+    meals = sorted((t, str(i.get("name"))) for i in items
+                   if i.get("kind") == "restaurant" or (i.get("kind") == "free" and MEAL_NAME.search(str(i.get("name"))))
+                   for t in [_minutes(i)] if t is not None)
+    for (t1, a), (t2, b) in zip(meals, meals[1:]):
+        if t2 - t1 < MEAL_GAP_MIN:
+            issue = {"day": label, "issue": "double_meal",
+                     "detail": f"'{a}' at {_fmt(t1)} and '{b}' at {_fmt(t2)} are two meals {t2 - t1} min apart: "
+                               "keep one, and use the other slot for one of the listed alternatives or drop it.",
+                     "alternatives": _alternatives(centre, used, places, {"sight"})}
+            if t2 - t1 < OBVIOUS_MEAL_GAP_MIN:
+                issue["obvious"] = f"two meals less than {OBVIOUS_MEAL_GAP_MIN // 60} hours apart"
+            must.append(issue)
 
 
 def check_state(state) -> dict:
     """check_plan on state["itinerary"]; also stores the result in state["itinerary_check"] for the reviser."""
     report = check_plan(_parse(state.get("itinerary")), state)
-    state["itinerary_check"] = json.dumps({k: report[k] for k in ("must_fix", "should_fix", "facts")}, ensure_ascii=False)
+    state["itinerary_check"] = json.dumps({k: report[k] for k in ("must_fix", "should_fix", "decide", "facts")},
+                                          ensure_ascii=False)
     return report
 
 
@@ -659,7 +788,8 @@ def check_itinerary(tool_context: ToolContext) -> dict:
 
     Checks the budget (cost recomputed from the plan), opening hours against visit times, places and prices
     missing from the research, transport and stay against the summaries, the day count, thin or packed days,
-    long walks, meals far from the day's sights and repeated places. Problems are split into "must_fix" and
-    "should_fix"; thin days and far meals list unused researched alternatives nearby.
+    long walks, meals far from the day's sights and repeated places. Problems are split into "must_fix" (always
+    fixed), "decide" (day-shape matters of taste: you decide each one, fix it or decline it with a reason) and
+    "should_fix"; thin days, far meals and day-shape findings list unused researched alternatives nearby.
     """
     return ok([check_state(tool_context.state)])

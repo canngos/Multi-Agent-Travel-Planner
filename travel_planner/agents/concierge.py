@@ -1,4 +1,6 @@
 """concierge (root): chats until the trip brief is complete, saves it, then hands over to planning_pipeline.
+After the review it waits for the user to approve the plan (approve_plan -> guide_writer) or ask for a change
+(request_replan -> planning_pipeline again, reusing the research the change does not affect).
 
 The instruction is built per turn (today's date for resolving "10-14 May", and the finished guide for
 follow-up questions). The concierge sees the whole chat, but the pipeline's agents post dozens of tool calls and
@@ -19,6 +21,8 @@ from ..models import TripBrief
 from ..tools import geocode_place, save_trip_brief
 from ..tools._result import ToolError
 from ..tools.trip import check_brief
+from .approval import GUIDE_WRITER, approve_plan, awaiting_block
+from .replan import request_replan, scoped_save
 from .retry import offer_retry_tool, retry_malformed_call
 
 OTHER_AGENT_PREFIX = "For context:"  # how ADK presents another agent's events to the current agent
@@ -71,6 +75,37 @@ then offer the closest thing it can do:
   stay if that is unclear) and put the split in requirements, e.g. "transport at most 300 EUR in total".
 Never ask the same question again without first saying why you need the answer."""
 
+# The day rhythm is optional: the planners have defaults, and the guide (and its chat message) offers the change.
+DAY_RHYTHM = """OPTIONAL DAY RHYTHM (never ask for it; save_trip_brief fields, left out unless the user says so)
+- day_start / day_end ("HH:MM"): when the travellers like to start and end their days. Defaults 09:30 and 22:00.
+  E.g. "we wake up early" -> day_start "07:00"; "start the plan from 8" -> "08:00"; "we are not morning
+  people" -> "11:00"; "we stay out late" -> day_end "23:30". day_end must be the same day (at most "23:59").
+- pace: "relaxed" (1-3 sights a day, long breaks), "balanced" (the default, 2-4) or "packed" (4-6, short
+  breaks). E.g. "we want to see as much as possible" -> "packed"; "we like to take it slow" -> "relaxed".
+Show the ones that are set in the confirmation summary. If the user changes only these after a guide exists,
+confirm them, then call request_replan with rerun [] and save the brief again with the same details plus the new
+values: planning then keeps the research and only plans the days again, which is quicker."""
+
+# REVIEW.md A1: the concierge decides what a change needs; request_replan only refuses an unsafe scope
+REPLAN = """CHANGES TO A FINISHED PLAN (request_replan)
+When the user wants to change a plan that exists, decide which research the change affects and call request_replan
+before planning starts:
+- rerun: the research teams to run again: "transport" (flights, trains, buses, ferries), "stay" (hotels and
+  Airbnb), "culture" (sights), "food" (restaurants and dishes). The others keep their results, which saves several
+  minutes. Examples: "a cheaper hotel" -> ["stay"]; "more museums" or new interests -> ["culture"] (and "food" if
+  the interests are about food); "we don't want to fly" -> ["transport"]; "start the days at 8", "a slower pace" or
+  "swap two days" -> [] (only the days are planned again).
+- change_note: the user's wish in one sentence for the planning team (e.g. "a hotel under 100 EUR a night").
+- reason: one short sentence on why you chose this scope.
+Then call save_trip_brief with all the trip details, including every changed one (pace, day hours, budget,
+interests, avoid_modes, requirements), or the same details if none changed: saving starts the planning.
+If trip details change, first show the changed details and ask the user to confirm; when they confirm, call
+request_replan and then save_trip_brief in that turn (no second confirmation is needed then). If no trip detail
+changes, call request_replan and save_trip_brief right away.
+A new destination, new dates, another origin or another number of travellers is a new trip: do not call
+request_replan, just confirm and save the new brief (everything is researched again). If request_replan refuses,
+read its reason and follow it."""
+
 AFTER = """AFTER A GUIDE EXISTS
 Answer questions about the trip ONLY from the guide below; if the guide does not say, say so. If the user wants
 a different trip or changes (other dates, budget, destination), confirm the new details, save the new brief with
@@ -81,10 +116,7 @@ starts only through save_trip_brief returning "ok" (which needs the user's confi
 
 def concierge_instruction(ctx: ReadonlyContext) -> str:
     today = config.today()
-    parts = [ROLE, f"Today is {today.isoformat()} ({today:%A}).", COLLECT]
-    if not config.demo():  # the demo's recorded answers are keyed on the prompt it was recorded with
-        parts.append(LIMITS)
-    parts.append(AFTER)
+    parts = [ROLE, f"Today is {today.isoformat()} ({today:%A}).", COLLECT, LIMITS, DAY_RHYTHM, REPLAN, AFTER]
     brief = ctx.state.get("trip_brief")
     if brief:
         parts.append(f"CURRENT SAVED TRIP BRIEF: {brief}")
@@ -96,17 +128,42 @@ def concierge_instruction(ctx: ReadonlyContext) -> str:
         # price of another monument
         parts.append("FOLLOW-UP ANSWERS: name only places, prices and times written in the guide. If the user asks "
                      "about a place the guide does not include, say so plainly; never answer with a different place.")
+    elif awaiting_block(ctx.state):
+        parts.append(awaiting_block(ctx.state))
     else:
         parts.append("No guide has been made yet in this session.")
     return "\n\n".join(parts)
 
 
+PRESENTED_BY = "[planning_pipeline] said:"  # the reviewed plan shown to the user (approval.present_plan)
+_QUOTE_MARKERS = re.compile(r"<<<(?:BEGIN|END)_QUOTED_AGENT_CONTENT>>>")
+
+
+def _presented_plan(content) -> str | None:
+    """The text of the pipeline's "reviewed plan" message, if `content` is ADK's relay of it."""
+    for part in content.parts or []:
+        text = part.text or ""
+        if text.startswith(PRESENTED_BY):
+            return _QUOTE_MARKERS.sub("", text[len(PRESENTED_BY):]).strip()
+    return None
+
+
 def hide_pipeline_events(callback_context, llm_request):
-    """Before-model callback: keep only the user's and the concierge's own turns in the prompt."""
-    llm_request.contents = [
-        c for c in llm_request.contents
-        if not (c.role == "user" and c.parts and (c.parts[0].text or "").startswith(OTHER_AGENT_PREFIX))
-    ]
+    """Before-model callback: keep only the user's and the concierge's own turns in the prompt, plus the reviewed
+    plan the pipeline showed, as one of the concierge's own turns.
+
+    The plan stays because in a recording the concierge, whose last turn was saving the brief, answered "looks
+    good" with "the revised itinerary will be ready shortly": without the plan in the chat it could not tell that
+    the user was approving it."""
+    kept = []
+    for c in llm_request.contents:
+        if c.role == "user" and c.parts and (c.parts[0].text or "").startswith(OTHER_AGENT_PREFIX):
+            plan = _presented_plan(c)
+            if plan:
+                kept.append(types.Content(role="model", parts=[types.Part(text=plan)]))
+            continue
+        kept.append(c)
+    llm_request.contents = kept
     return None
 
 
@@ -153,6 +210,8 @@ def require_confirmation(tool, args, tool_context):
     """
     name = getattr(tool, "name", "")
     if name == "transfer_to_agent":
+        if (args or {}).get("agent_name") == GUIDE_WRITER:  # only through approve_plan, after the user approved
+            return {"status": "error", "reason": "Call approve_plan when the user approves the reviewed plan."}
         if tool_context.state.get(SAVED_KEY) == tool_context.invocation_id:
             return None
         return {"status": "error",
@@ -164,6 +223,9 @@ def require_confirmation(tool, args, tool_context):
         shown = _shown(check_brief(args))
     except ToolError as exc:
         return {"status": "error", "reason": str(exc)}
+    if scoped_save(tool_context.state, shown, tool_context.invocation_id):  # a change confirmed this turn
+        tool_context.state[PENDING_KEY] = None
+        return None
     pending = tool_context.state.get(PENDING_KEY) or {}
     if pending and pending.get("invocation_id") != tool_context.invocation_id and _same_brief(pending.get("brief"), shown):
         tool_context.state[PENDING_KEY] = None
@@ -262,14 +324,17 @@ def note_saved_brief(tool, args, tool_context, tool_response):
     return None
 
 
-def build_concierge(planning_pipeline) -> LlmAgent:
+def build_concierge(planning_pipeline, guide_writer=None) -> LlmAgent:
+    """guide_writer: the concierge's second sub-agent, started by approve_plan after the user approved the reviewed
+    plan (approval.py). Left out only by tests that give the concierge a stand-in pipeline."""
+    tools = [geocode_place, save_trip_brief, request_replan] + ([approve_plan] if guide_writer is not None else [])
     return LlmAgent(
         name="concierge",
         model=MODEL,
         description="Talks with the user, collects and saves the trip brief, then starts the planning pipeline.",
         instruction=concierge_instruction,
-        tools=[geocode_place, save_trip_brief],
-        sub_agents=[planning_pipeline],
+        tools=tools,
+        sub_agents=[planning_pipeline] + ([guide_writer] if guide_writer is not None else []),
         before_model_callback=[hide_pipeline_events, offer_retry_tool],
         # a tool call with invalid JSON gets another try; "Day N" dates in answers must match the trip
         after_model_callback=[retry_malformed_call, fix_day_dates],

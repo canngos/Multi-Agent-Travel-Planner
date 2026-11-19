@@ -11,12 +11,14 @@ The key is the agent's request without things that change between runs but not t
   these messages depends on timing;
 - reasoning ("thought") parts;
 - where the project lives: the repository folder in file paths (save_guide's result, the concierge's view of the
-  saved guide) becomes "<repo>", so a clone in another folder still matches the recording.
+  saved guide) becomes "<repo>", so a clone in another folder still matches the recording. A guide folder set
+  with OUTPUT_DIR counts as "<repo>/output" for the same reason.
 """
 import asyncio
 import json
 import logging
 import os
+from pathlib import Path
 
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.models.llm_response import LlmResponse
@@ -24,6 +26,7 @@ from google.adk.models.llm_response import LlmResponse
 log = logging.getLogger(__name__)
 NAMESPACE = "llm"
 OTHER_AGENT_PREFIX = "For context:"
+MISSES = 0  # LLM cache misses in offline mode since the process started (run_trip.py reports them)
 
 
 def _part(p) -> dict | None:
@@ -55,16 +58,25 @@ def request_key(llm_request) -> dict:
 
 
 def without_repo_path(key: dict) -> dict:
-    """The key with every spelling of the repository folder replaced by "<repo>"."""
-    from .config import REPO_ROOT
+    """The key with every spelling of the repository folder replaced by "<repo>" (and of the guide folder by
+    "<repo>/output")."""
+    from . import config
 
     text = json.dumps(key, ensure_ascii=False, default=str)
-    root = str(REPO_ROOT)
-    # as written in JSON text: plain, with doubled backslashes (a path printed inside a Python dict), with slashes
-    spellings = {root, root.replace("\\", "\\\\"), REPO_ROOT.as_posix()}
-    for spelling in sorted(spellings, key=len, reverse=True):  # longest first: the doubled form contains no plain one
-        text = text.replace(json.dumps(spelling)[1:-1], "<repo>")
+    output, default_output = Path(config.OUTPUT_DIR), config.REPO_ROOT / "output"
+    if output.resolve() != default_output.resolve():
+        for there, here in zip(_spellings(output), _spellings(default_output)):
+            text = text.replace(there, here)
+    for spelling in sorted(set(_spellings(config.REPO_ROOT)), key=len, reverse=True):
+        text = text.replace(spelling, "<repo>")  # longest first: the doubled form contains no plain one
     return json.loads(text)
+
+
+def _spellings(path: Path) -> list[str]:
+    """A path as it appears inside JSON text: doubled backslashes (a path printed inside a Python dict), plain,
+    and with slashes."""
+    plain = str(path)
+    return [json.dumps(s)[1:-1] for s in (plain.replace("\\", "\\\\"), plain, path.as_posix())]
 
 
 def replay_delay(item: dict) -> float:
@@ -103,6 +115,8 @@ class CachedLiteLlm(LiteLlm):
                 yield LlmResponse.model_validate(item)
             return
         if config.offline():
+            global MISSES
+            MISSES += 1
             log.warning("LLM cache miss in offline mode (agent instruction starts: %.80s)", key["system"])
             _cache.write(NAMESPACE + "_misses", key, None)  # the request, to diff against the recorded ones
             yield LlmResponse(error_code="LLM_CACHE_MISS",

@@ -4,15 +4,24 @@ import { renderMarkdown } from "../lib/format";
 import { humanize } from "../lib/graph";
 import type { ChatMessage } from "../lib/run";
 
+/** What the "Approve" button sends: the concierge decides what it means (approve_plan). */
+export const APPROVE_TEXT = "Looks good, please write the guide.";
+
+// The recorded demo's messages, in order (travel_planner/demo_script.py; tests/test_demo_replay.py keeps them equal)
 export const DEMO_LINES = [
   "Plan 5 days in Lisbon for two, mid budget, we love history and street food.",
   "We fly from Helsinki, 10-14 May. Total budget about 2500 euros.",
   "Yes, that's right, go ahead.",
+  APPROVE_TEXT,
   "Thanks! Which day do we visit Belém, and what does the tower cost?",
+  "Could we take it a bit slower, with a relaxed pace, and stay somewhere cheaper?",
+  "Yes, please do that.",
+  APPROVE_TEXT,
 ];
 
 interface Props {
   messages: ChatMessage[];
+  awaitingApproval?: boolean;
   mode: "live" | "replay";
   canSend: boolean;
   busy: boolean;
@@ -21,8 +30,9 @@ interface Props {
   onOpenGuide: () => void;
 }
 
-export function Chat({ messages, mode, canSend, busy, sent, onSend, onOpenGuide }: Props) {
+export function Chat({ messages, awaitingApproval, mode, canSend, busy, sent, onSend, onOpenGuide }: Props) {
   const [draft, setDraft] = useState("");
+  const input = useRef<HTMLTextAreaElement>(null);
   const list = useRef<HTMLOListElement>(null);
   useEffect(() => {  // scroll the message list only (scrollIntoView would also scroll the page)
     const el = list.current;
@@ -69,6 +79,17 @@ export function Chat({ messages, mode, canSend, busy, sent, onSend, onOpenGuide 
 
       {mode === "live" && (
         <form className="composer" onSubmit={submit}>
+          {awaitingApproval && !busy && (
+            <div className="approval" role="group" aria-label="Approve the reviewed plan">
+              <p>The plan has been reviewed. Approve it to get the full guide, or tell the concierge what to change.</p>
+              <div className="approval-actions">
+                <button type="button" className="primary" onClick={() => onSend(APPROVE_TEXT)} disabled={!canSend}>
+                  Approve and write the guide
+                </button>
+                <button type="button" onClick={() => input.current?.focus()} disabled={!canSend}>Request changes</button>
+              </div>
+            </div>
+          )}
           {nextDemo && !busy && (
             <button type="button" className="suggestion" onClick={() => onSend(nextDemo)} disabled={!canSend}>
               <span>Send demo message {sent.length + 1} of {DEMO_LINES.length}</span>
@@ -76,7 +97,7 @@ export function Chat({ messages, mode, canSend, busy, sent, onSend, onOpenGuide 
             </button>
           )}
           <label htmlFor="chat-input" className="visually-hidden">Message to the concierge</label>
-          <textarea id="chat-input" rows={2} value={draft} placeholder={busy ? "The planner is working…" : canSend ? "Write a message…" : "The planner server is not connected"}
+          <textarea id="chat-input" ref={input} rows={2} value={draft} placeholder={busy ? "The planner is working…" : canSend ? "Write a message…" : "The planner server is not connected"}
                     onChange={(e) => setDraft(e.target.value)} disabled={!canSend}
                     onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) submit(e); }} />
           <button type="submit" className="send" disabled={!canSend || !draft.trim()}>Send</button>
