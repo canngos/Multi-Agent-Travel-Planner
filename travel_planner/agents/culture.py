@@ -1,6 +1,7 @@
 """culture_agent: sights with a short history, opening hours and tickets -> culture_findings."""
 from ..tools import find_sight_hours, find_sights, geocode_place, web_search, wiki_summary, wikivoyage_section
 from ._common import research_agent
+from .enrich import fill_from_tool_results
 
 ROLE = """You are the CULTURE RESEARCHER of a trip-planning team. Find the sights worth visiting at the
 destination, matched to the travellers' interests, each with a short history, opening hours and ticket price."""
@@ -47,4 +48,5 @@ def build_culture_agent():
         tools=[find_sights, wikivoyage_section, find_sight_hours, wiki_summary, web_search, geocode_place],
         output_key="culture_findings",
         max_calls=13,
+        before_grounding=[fill_from_tool_results("culture_findings")],  # tickets and hours the agent left out
     )

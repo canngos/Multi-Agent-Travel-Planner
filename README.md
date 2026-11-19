@@ -23,7 +23,8 @@ minutes later you get `output/lisbon-2027-05-10-to-2027-05-14.md` and `.html` wi
 - stays compared by neighbourhood;
 - five planned days with short histories and food stops;
 - the dishes to try;
-- a cost table against your budget, with sources marked as *live* or *web estimate*.
+- a cost table against your budget, with sources marked as *live* or *web estimate*;
+- warnings where something needs your attention, such as a cheap flight that costs you most of the last day.
 
 ---
 
@@ -151,7 +152,8 @@ Stop it with Ctrl+C. Without Node.js, use ADK's own chat UI instead: `.venv/Scri
 ### 5. Ask for a trip
 
 Write your request in your own words. The concierge asks for anything missing, then shows a summary. Planning
-starts only after you confirm it. For example:
+starts only after you confirm it. You can add hard requirements such as "we don't fly", "travelling with a
+4-year-old" or "vegetarian". The planner handles one city for up to 21 days. For example:
 
 > 4 days in Barcelona for two from Helsinki, 2-5 June 2027, mid budget, about 1800 euros. We like Gaudí
 > architecture, art museums and tapas.
@@ -170,8 +172,11 @@ Without the UI, a scripted trip runs in the terminal: `.venv/Scripts/python scri
 
 - **It never books.** Every flight, stay and sight comes with a link. Prices are marked *live* (quoted by the
   booking source) or *web estimate*.
-- **Caching:** API responses are cached under `cache/` (30 days for most sources), so a second plan for the same
-  city is faster and uses less free-tier quota. Delete `cache/` (but not `cache/demo/`) to fetch everything fresh.
+- **Warnings:** the guide opens with an **Important** note when your travel times cost most of a day, and names
+  the option that would keep it. Anything the final check could not fix is listed under "Still to check".
+- **Prices in other currencies** (Kraków, Prague, London) are converted to euro.
+- **Caching:** API answers are saved under `cache/` (live prices for a day at most), so a second plan for the same city
+  is faster and uses less free-tier quota. Delete `cache/` (but not `cache/demo/`) to fetch everything fresh.
 - **Failures:** a failing source does not stop the plan. Each agent has fallbacks, and the guide's
   "Good to know" section lists what was missing.
 - **Waiting:** a plan takes 5 to 7 minutes, most of it research. The map shows what is happening.
@@ -260,12 +265,14 @@ matter are therefore enforced in code, each with a regression test:
 
 | Guard | Module | What it guarantees |
 |---|---|---|
-| Confirmation | `agents/concierge.py` | The brief is saved only after you confirm it, and only then does planning start |
+| Confirmation | `agents/concierge.py` | The brief is checked, saved only after you confirm what you saw, and only then does planning start |
+| Hard requirements | `tools/trip.py`, `agents/transport.py` | An excluded transport mode is never searched or chosen; other requirements reach every agent |
 | Grounded links | `agents/grounding.py` | Every link shown comes from a tool result; altered links are restored, invented ones removed |
-| Itinerary tidy | `agents/itinerary_tidy.py` | Travel times come from the chosen transport. Tickets come from the research. The cost and walking distance are recomputed from the plan |
-| Review checks | `agents/review_checks.py` | Code checks the budget, opening hours, grounding, day count and pacing; it decides the verdict and when the loop stops |
+| Itinerary tidy | `agents/itinerary_tidy.py`, `agents/enrich.py` | Travel times come from the chosen transport, tickets and hours from the research; the cost is recomputed from the plan |
+| Review checks | `agents/review_checks.py` | Code checks the budget, opening hours, grounding, day count and pacing (e.g. an empty afternoon or a far-away stay), and decides the verdict |
+| Guide check | `agents/guide_writer.py` | Before saving, the guide is compared with the checked plan; travel-time warnings and open problems are added |
 | Revision guards | `agents/itinerary_reviser.py` | `exit_loop` only after approval; broken or worse revisions are undone |
-| Retries | `agents/retry.py` | A tool call with invalid JSON arguments gets up to two more tries |
+| Retries and budgets | `agents/retry.py`, `agents/limits.py` | A tool call with invalid JSON gets two more tries; tool budgets are enforced so free quotas last |
 
 ## Tools and data sources
 
@@ -293,15 +300,15 @@ Twenty function tools, plus two MCP servers. Every tool returns `{"status": "ok"
 |---|---|
 | At least 3 different agents | 13 LLM agents with distinct roles and prompts in `travel_planner/agents/`, plus 7 workflow agents; `tests/test_agents.py::test_root_agent_tree` checks the tree |
 | Multi-agent orchestration pattern | Delegation (`concierge.py`), sequential, parallel, nested parallel (`teams.py`, `pipeline.py`) and loop (`pipeline.py::build_review_loop`) |
-| At least one tool call | 20 function tools in `travel_planner/tools/` and `agents/review_checks.py`, and 2 MCP servers (`tools/mcp.py`); the demo makes 34 tool calls |
+| At least one tool call | 20 function tools in `travel_planner/tools/` and `agents/review_checks.py`, and 2 MCP servers (`tools/mcp.py`); the demo makes 38 tool calls |
 | Fully agentic | Agents choose search parameters, tools, fallbacks, rankings, schedules and revisions; code only checks and repairs their output, it never plans the trip |
 | No code from assignments 2 and 3 | New repository written from scratch (see the git history) |
-| Executable, no errors | 193 offline tests (`pytest`) and 8 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
+| Executable, no errors | 357 offline tests (`pytest`) and 8 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
 
 ## Tests
 
 ```bash
-.venv/Scripts/python -m pytest            # 193 offline tests, ~1 s: tools on recorded responses, agents, guards
+.venv/Scripts/python -m pytest            # 357 offline tests, ~2 s: tools on recorded responses, agents, guards
 .venv/Scripts/python -m pytest -m live    # hits the real APIs and re-records tests/fixtures/cache
 cd travel-planner-ui && npm test          # UI layout and event reducer, checked against the recorded demo
 ```
@@ -339,12 +346,16 @@ docs/                     DEMO.md (presentation script) and screenshots
 - **Demo is fixed:** the demo replays only the recorded conversation. Re-record it after changing any prompt:
   `scripts/run_trip.py --record`, then `scripts/prune_demo_cache.py --delete`.
 - **Rate limits:** Nominatim rate-limits busy IPs; geocoding then falls back to Open-Meteo.
+- **One city, up to 21 days:** for a region ("Tuscany") or several cities, the concierge asks you to pick one city.
+- **Hard requirements:** "no flights" is enforced in code; needs such as diet or children are followed by the
+  agents but not checked.
 
 ## Data and licences
 
 Map and place data © OpenStreetMap contributors (ODbL). Weather and geocoding by Open-Meteo (CC BY 4.0). Routing by
 [Transitous](https://transitous.org/sources/). Sights © OpenTripMap. Texts from Wikipedia and Wikivoyage
 (CC BY-SA 4.0). Dishes from Wikidata (CC0). Flight data from Kiwi.com, stays from Airbnb, liteAPI and Booking.com
-links. Every guide ends with this attribution.
+links. Exchange rates from the European Central Bank via [Frankfurter](https://frankfurter.dev). Every guide ends
+with this attribution.
 
 Code: MIT licence, see [LICENSE](LICENSE).

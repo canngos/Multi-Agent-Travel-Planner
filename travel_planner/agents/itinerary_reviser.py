@@ -24,7 +24,7 @@ from .itinerary_tidy import tidy_itinerary
 from .output import extract_json
 from .review_checks import _parse, check_plan
 from .planner import EXAMPLE, INPUTS as RESEARCH_INPUTS, RULES as PLAN_RULES, SHAPE
-from .prompts import BRIEF, output_format
+from .prompts import BRIEF, REQUIREMENTS, output_format
 from .retry import offer_retry_tool, retry_malformed_call
 
 ROLE = """You are the ITINERARY REVISER of a trip-planning team. The budget critic has reviewed the plan; you
@@ -143,7 +143,7 @@ def keep_best_plan(callback_context):
 
 def build_itinerary_reviser(model=None) -> LlmAgent:
     instruction = "\n\n".join([ROLE, VERDICT, BRIEF, INPUTS, RESEARCH_INPUTS, HOW, PLAN_RULES,
-                               output_format(REVISED_SHAPE, EXAMPLE)])
+                               output_format(REVISED_SHAPE, EXAMPLE)]) + REQUIREMENTS
     return LlmAgent(
         name="itinerary_reviser",
         model=model or MODEL,

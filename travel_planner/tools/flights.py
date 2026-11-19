@@ -6,6 +6,7 @@ Flights search link the user can open in a browser.
 """
 import asyncio
 import dataclasses
+from datetime import datetime
 from urllib.parse import urlencode
 
 from fast_flights import FlightQuery, Passengers, create_query, fetch_flights_html
@@ -37,23 +38,33 @@ def _fmt(dt) -> str:
     return f"{y:04d}-{m:02d}-{d:02d}T{hh:02d}:{mm:02d}"
 
 
+def _when(point: dict) -> datetime:
+    (y, m, d), (hh, mm) = point["date"], point["time"]
+    return datetime(y, m, d, hh, mm)
+
+
 def flight_to_option(f: dict, url: str) -> TransportOption:
-    """f is a dataclasses.asdict(fast_flights.model.Flights)."""
+    """f is a dataclasses.asdict(fast_flights.model.Flights).
+
+    Google gives each leg's flying time only. A layover is the time between landing and the next take-off at the
+    same airport (both local times there), so the total duration is comparable with Kiwi's and SerpApi's."""
     legs = f["flights"]
     first, last = legs[0], legs[-1]
     route = " → ".join([legs[0]["from_airport"]["code"]] + [leg["to_airport"]["code"] for leg in legs])
+    layovers = [round((_when(b["departure"]) - _when(a["arrival"])).total_seconds() / 60) for a, b in zip(legs, legs[1:])]
+    stopover = "; ".join(f"layover {a['to_airport']['code']} {m // 60}h{m % 60:02d}" for a, m in zip(legs, layovers))
     return TransportOption(
         mode="flight",
         operator=", ".join(f["airlines"]) or "unknown",
         depart=_fmt(_Dt(**first["departure"])),
         arrive=_fmt(_Dt(**last["arrival"])),
-        duration_min=sum(leg["duration"] for leg in legs),
+        duration_min=sum(leg["duration"] for leg in legs) + sum(max(0, m) for m in layovers),
         stops=len(legs) - 1,
         price_eur=float(f["price"]) if f.get("price") else None,
         price_source="live" if f.get("price") else None,
         source="google_flights",
         url=url,
-        details=f"{route}; duration is flying time only (layovers not included); price as shown by Google Flights",
+        details="; ".join(x for x in (route, stopover) if x) + "; price as shown by Google Flights",
     )
 
 

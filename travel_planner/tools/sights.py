@@ -1,5 +1,6 @@
 """Sights near a point from OpenTripMap, enriched with each place's detail record."""
 import asyncio
+import re
 
 from ..models import Place
 from ._http import api_key, get_json
@@ -29,10 +30,12 @@ MAX_DETAILS = 15
 
 
 def kinds_for(interests: list[str]) -> str:
+    """OpenTripMap kinds for the interests. A key must start a word ("historical" -> historic), so "parties" does
+    not mean art and "agriculture" not culture."""
     kinds = []
     for word in interests:
         for key, value in INTEREST_KINDS.items():
-            if key in word.lower():
+            if re.search(rf"\b{re.escape(key)}", word.lower()):
                 kinds.extend(value.split(","))
     return ",".join(dict.fromkeys(kinds)) or DEFAULT_KINDS
 

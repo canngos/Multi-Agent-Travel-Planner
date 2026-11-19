@@ -177,7 +177,7 @@ def test_flight_conversion_and_consent_detection():
     }
     o = flights.flight_to_option(f, "https://g.example")
     assert (o.depart, o.arrive, o.stops, o.duration_min, o.price_eur, o.price_source) == (
-        "2026-12-10T07:05", "2026-12-10T12:05", 1, 350, 412.0, "live")
+        "2026-12-10T07:05", "2026-12-10T12:05", 1, 420, 412.0, "live")  # 165 + 70 min layover in FRA + 185
     assert o.details.startswith("HEL → FRA → LIS")
     assert flights.is_consent_page('<html><head><base href="https://consent.google.com/">')
     assert not flights.is_consent_page("<html><title>Google Flights</title>")

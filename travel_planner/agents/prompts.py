@@ -20,6 +20,10 @@ GROUNDING = """GROUNDING RULES (strict):
 TOOL_BUDGET = """TOOL USE: call tools one at a time and keep it short: at most {max_calls} tool calls in total.
 Do not repeat a call with the same arguments."""
 
+# Appended to every planning agent's instruction. save_trip_brief fills it with the travellers' hard requirements
+# (excluded transport modes, children, pets, diet, rooms for a group); it renders as "" for an ordinary trip.
+REQUIREMENTS = "{trip_requirements?}"
+
 
 def output_format(shape: str, example: str) -> str:
     return f"""OUTPUT: when you are done, reply with ONLY one JSON object inside a ```json fence, nothing before or after it.

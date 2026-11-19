@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 BudgetTier = Literal["low", "mid", "high"]
 PriceSource = Literal["live", "web_estimate"]
+TransportMode = Literal["flight", "train", "bus", "ferry"]
 
 
 class _Model(BaseModel):
@@ -27,6 +28,10 @@ class TripBrief(_Model):
     destination_lat: float | None = Field(default=None, ge=-90, le=90)
     destination_lon: float | None = Field(default=None, ge=-180, le=180)
     destination_country: str | None = None
+    # Hard requirements: modes the travellers refuse ("no flights"), and needs every agent must respect
+    # (children and their ages, pets, accessibility, diet, room type).
+    avoid_modes: list[TransportMode] = Field(default_factory=list)
+    requirements: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _check_dates(self) -> "TripBrief":

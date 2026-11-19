@@ -5,7 +5,9 @@ from .. import config
 from ._http import get_json
 from ._result import ToolError, ok, safe_tool
 
-FORECAST_DAYS = 15  # Open-Meteo forecasts reach 16 days ahead
+# Open-Meteo forecasts reach 15 days ahead, but the last one can come back empty (seen live for 1-3 December
+# asked on 18 November): trips ending later use the typical weather instead.
+FORECAST_DAYS = 14
 ARCHIVE_LAG_DAYS = 5  # the archive API trails today by a few days
 DAILY = "weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum"
 RAINY_MM = 2.0
@@ -62,30 +64,34 @@ async def get_forecast(lat: float, lon: float, start_date: str, end_date: str) -
                     "start_date": start.isoformat(), "end_date": end.isoformat()},
         )
     else:
+        # The archive window starts on the same date in an earlier year and is exactly as long as the trip, so a
+        # trip over 29 February still gets one weather day per trip day (day i of the window = trip day i).
         kind, offset = "typical (observed on the same dates in an earlier year, not a forecast)", -1
-        while _shift_year(end, offset) >= today - timedelta(days=ARCHIVE_LAG_DAYS):
+        while _shift_year(start, offset) + (end - start) >= today - timedelta(days=ARCHIVE_LAG_DAYS):
             offset -= 1
+        archive_start = _shift_year(start, offset)
         data = await get_json(
             "https://archive-api.open-meteo.com/v1/archive",
             namespace="open-meteo",
             params={**params, "daily": DAILY,
-                    "start_date": _shift_year(start, offset).isoformat(),
-                    "end_date": _shift_year(end, offset).isoformat()},
+                    "start_date": archive_start.isoformat(),
+                    "end_date": (archive_start + (end - start)).isoformat()},
         )
     d = data["daily"]
     days = []
     for i, t in enumerate(d["time"]):
         precip = d["precipitation_sum"][i]
         code = d["weather_code"][i]
-        trip_day = _shift_year(date.fromisoformat(t), -offset)
+        trip_day = start + timedelta(days=i)
         day = {
             "date": trip_day.isoformat(),
             "weekday": trip_day.strftime("%a"),
-            "weather": WMO.get(code, f"code {code}"),
+            # no data is unknown weather, not a dry day ("clear (no data)" in a live plan)
+            "weather": "unknown (no forecast data yet)" if code is None else WMO.get(code, f"code {code}"),
             "t_max_c": d["temperature_2m_max"][i],
             "t_min_c": d["temperature_2m_min"][i],
             "precip_mm": precip,
-            "rainy": precip is not None and precip >= RAINY_MM,
+            "rainy": None if precip is None else precip >= RAINY_MM,
         }
         if "precipitation_probability_max" in d:
             day["precip_probability_pct"] = d["precipitation_probability_max"][i]

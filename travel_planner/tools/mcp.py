@@ -25,6 +25,7 @@ from .. import config
 from ..models import StayOption, TransportOption
 from . import _cache
 from ._result import error, ok
+from .currency import parse_number
 from .geo import haversine_km, neighbourhood
 
 log = logging.getLogger(__name__)
@@ -196,8 +197,9 @@ async def normalise_kiwi(result: dict, args: dict, max_results: int = 10) -> dic
 
 
 def _euros(text: str) -> float | None:
-    m = re.search(r"€\s?([\d,]+(?:\.\d+)?)", text or "")
-    return float(m.group(1).replace(",", "")) if m else None
+    """The first euro amount in Airbnb's text, in English ('€1,234.56') or European ('€1.234,56') notation."""
+    m = re.search(r"€\s?(\d[\d.,]*)", text or "")
+    return parse_number(m.group(1).rstrip(".,")) if m else None
 
 
 def airbnb_listing_to_option(r: dict, nights: int, area: str, query: str, km: float | None = None) -> StayOption | None:
@@ -205,8 +207,8 @@ def airbnb_listing_to_option(r: dict, nights: int, area: str, query: str, km: fl
     coord = (stay.get("location") or {}).get("coordinate") or {}
     price = r.get("structuredDisplayPrice") or {}
     breakdown = (price.get("explanationData") or {}).get("priceDetails") or ""
-    total_m = re.search(r"Total:\s*€\s?([\d,]+(?:\.\d+)?)", breakdown)
-    total = float(total_m.group(1).replace(",", "")) if total_m else _euros((price.get("primaryLine") or {}).get("accessibilityLabel", ""))
+    total_m = re.search(r"Total:\s*(€\s?\d[\d.,]*)", breakdown)
+    total = _euros(total_m.group(1)) if total_m else _euros((price.get("primaryLine") or {}).get("accessibilityLabel", ""))
     if total is None or coord.get("latitude") is None:
         return None
     name = ((stay.get("description") or {}).get("name") or {}).get("localizedStringWithTranslationPreference") or "Airbnb listing"
@@ -309,10 +311,20 @@ def _is_normalised(response: Any) -> bool:
     return isinstance(response, dict) and response.get("status") in ("ok", "error") and "content" not in response
 
 
+def _round_trip_arg(name: str) -> bool:
+    return name in ("returnDate", "returnDateTo", "returnDateFlexDays") or name.startswith(("ret_", "nights_in_dst"))
+
+
 async def mcp_cache_before(tool, args: dict, tool_context) -> dict | None:
-    """before_tool_callback: serves MCP results from the disk cache (or fails cleanly when OFFLINE)."""
+    """before_tool_callback: serves MCP results from the disk cache (or fails cleanly when OFFLINE).
+
+    Kiwi searches are made one-way: a round-trip search prices both directions together, and that total would
+    be read as the outbound leg's price, with the return flight added on top."""
     if not isinstance(tool, McpTool):
         return None
+    if tool.name == "search-flight":
+        for name in [k for k in args if _round_trip_arg(k)]:
+            del args[name]  # ADK calls the tool with this same dict
     request = _cache_request(tool.name, args)
     if not config.refresh_cache():
         hit, response = _cache.read("mcp", request, RESULT_MAX_AGE_S.get(tool.name, DEFAULT_RESULT_MAX_AGE_S))

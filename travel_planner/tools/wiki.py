@@ -1,10 +1,11 @@
 """Wikipedia summaries and Wikivoyage sections (with structured listings)."""
 import re
-from urllib.parse import quote
+from urllib.parse import quote, unquote
 
 from ..models import Place
 from ._http import get_json
 from ._result import ToolError, ok, safe_tool
+from .currency import eur_rates, is_foreign, leading_price, parse_money, parse_number, to_eur
 
 WIKIVOYAGE_API = "https://en.wikivoyage.org/w/api.php"
 LISTING_KINDS = {"see": "sight", "do": "sight", "eat": "restaurant", "drink": "bar", "listing": "sight"}
@@ -25,6 +26,8 @@ async def wiki_summary(title: str, lang: str = "en") -> dict:
         title: Article title or search phrase, e.g. "Belém Tower".
         lang: Wikipedia language code, default "en".
     """
+    if not re.fullmatch(r"[a-z]{2,12}(?:-[a-z]{2,12})?", lang or ""):  # it becomes part of the host name
+        raise ToolError(f"lang must be a Wikipedia language code such as 'en' or 'pt', not {lang!r}")
     api = f"https://{lang}.wikipedia.org/w/api.php"
     # The query API answers 200 with "missing" instead of 404, so every step is cacheable
     # (errors are never cached, which would break offline replay of the search fallback).
@@ -156,24 +159,42 @@ def _budget_from_heading(heading: str) -> str | None:
     return None
 
 
-def _budget_from_price(price: str) -> str | None:
-    """Meal price text like '€15-30' -> tier by the midpoint (per person)."""
-    nums = [float(n.replace(",", ".")) for n in re.findall(r"\d+(?:[.,]\d+)?", price)]
-    if "€" not in price and "eur" not in price.lower() or not nums:
+def _budget_from_price(price: str, rates: dict[str, float] | None = None) -> str | None:
+    """Meal price text like '€15-30' (or 'zł 30-50' with exchange rates) -> tier by the euro midpoint (per person)."""
+    money = parse_money(price)
+    nums = [parse_number(n) for n in re.findall(r"\d+(?:[.,]\d+)?", price)]
+    if money is None or not nums:
         return None
-    mid = sum(nums[:2]) / len(nums[:2])
+    mid = to_eur(sum(nums[:2]) / len(nums[:2]), money[1], rates)
+    if mid is None:
+        return None
     return "low" if mid < 15 else "mid" if mid <= 35 else "high"
 
 
-def _price_eur(price: str) -> float | None:
-    """'€2' -> 2.0, 'Free' -> 0.0; ranges or other currencies -> None (keep the text instead)."""
-    p = price.strip().lower()
-    if p.startswith("free"):
+def _price_eur(price: str, rates: dict[str, float] | None = None) -> float | None:
+    """'€2' -> 2.0, 'Free' -> 0.0, '20 zł' -> its euro value when exchange rates are given;
+    ranges, price lists and unconvertible currencies -> None (keep the text instead)."""
+    p = price.strip()
+    if p.lower().startswith("free"):
         return 0.0
-    m = re.fullmatch(r"(?:€|eur)\s*(\d+(?:[.,]\d+)?)|(\d+(?:[.,]\d+)?)\s*(?:€|eur)", p)
-    if not m:
-        return None
-    return float((m.group(1) or m.group(2)).replace(",", "."))
+    money = parse_money(p, whole=True)
+    return to_eur(*money, rates) if money else None
+
+
+def _ticket_eur(price: str, rates: dict[str, float] | None = None) -> float | None:
+    """A sight's adult ticket: a single price, or the first price of a list ("€6 (adults), €3 (seniors)"); in a live
+    Tallinn run every museum's list price was dropped and the trip cost counted all tickets as €0."""
+    exact = _price_eur(price, rates)
+    if exact is not None:
+        return exact
+    first = leading_price(price.strip())
+    return to_eur(*first, rates) if first else None
+
+
+async def wikivoyage_rates(wikitext: str) -> dict[str, float] | None:
+    """Exchange rates, fetched only when a listing's price is in a currency other than the euro."""
+    prices = re.findall(r"\|\s*price\s*=\s*([^|}]*)", wikitext)
+    return await eur_rates() if any(is_foreign(clean_wikitext(p)) for p in prices) else None
 
 
 def _float(value: str) -> float | None:
@@ -183,8 +204,10 @@ def _float(value: str) -> float | None:
         return None
 
 
-def parse_listings(wikitext: str, page_url: str, limit: int = MAX_LISTINGS) -> list[Place]:
-    """Extracts {{see|...}}, {{eat|...}} etc. listings, tracking budget-tier subheadings."""
+def parse_listings(wikitext: str, page_url: str, limit: int = MAX_LISTINGS,
+                   rates: dict[str, float] | None = None) -> list[Place]:
+    """Extracts {{see|...}}, {{eat|...}} etc. listings, tracking budget-tier subheadings.
+    With exchange rates (see wikivoyage_rates), prices in other currencies are converted to euro."""
     places = []
     # Split by headings so each listing knows the subheading it sits under.
     chunks = re.split(r"^(=+[^=\n]+=+)\s*$", wikitext, flags=re.MULTILINE)
@@ -200,17 +223,19 @@ def parse_listings(wikitext: str, page_url: str, limit: int = MAX_LISTINGS) -> l
                 continue
             price_text = clean_wikitext(p.get("price", ""))
             summary = clean_wikitext(p.get("content", ""))
-            if price_text and _price_eur(price_text) is None:
-                summary = f"{summary} Price: {price_text}".strip()
+            converted = _price_eur(price_text, rates) if price_text else None
+            if price_text and _price_eur(price_text) is None:  # not a plain euro price: keep the original text
+                approx = f" (≈ €{converted:g} at the ECB rate)" if converted is not None else ""
+                summary = f"{summary} Price: {price_text}{approx}".strip()
             places.append(Place(
                 kind=LISTING_KINDS[name],
                 name=clean_wikitext(p["name"]),
                 lat=_float(p.get("lat")),
                 lon=_float(p.get("long")),
                 summary=summary[:600],
-                budget_tier=(tier or _budget_from_price(price_text)) if name in ("eat", "drink") else None,
+                budget_tier=(tier or _budget_from_price(price_text, rates)) if name in ("eat", "drink") else None,
                 hours=clean_wikitext(p.get("hours", "")) or None,
-                ticket_eur=_price_eur(price_text) if name in ("see", "do") and price_text else None,
+                ticket_eur=_ticket_eur(price_text, rates) if name in ("see", "do") and price_text else None,
                 source_urls=[u for u in (page_url, p.get("url", "").strip()) if u],
             ))
             if len(places) >= limit:
@@ -228,6 +253,7 @@ def district_pages(wikitext: str, page: str) -> list[str]:
 
 async def wikivoyage_wikitext(page: str, section: str) -> tuple[str, str, str, str]:
     """(page title, section heading, raw wikitext incl. subsections, page URL) of one Wikivoyage section."""
+    page = unquote(page).replace("_", " ").strip()  # the model sometimes passes the URL form, "Krak%C3%B3w"
     meta = await get_json(
         WIKIVOYAGE_API, namespace="wikivoyage",
         params={"action": "parse", "page": page, "prop": "sections", "format": "json", "redirects": 1},
@@ -263,7 +289,7 @@ async def wikivoyage_section(page: str, section: str) -> dict:
         section: Section heading, e.g. "See" or "Eat".
     """
     title, line, wikitext, page_url = await wikivoyage_wikitext(page, section)
-    listings = parse_listings(wikitext, page_url)
+    listings = parse_listings(wikitext, page_url, rates=await wikivoyage_rates(wikitext))
     # The excerpt is the prose outside listings (listings are returned separately).
     prose, cursor = [], 0
     for _, _, start, end in _template_spans(wikitext, set(LISTING_KINDS)):

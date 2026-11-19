@@ -148,12 +148,13 @@ def test_check_plan_finds_every_planted_problem():
     plan = bad_plan()
     report = check_plan(plan, _state(plan))
     assert _issues(report, "must_fix") == {(None, "over_budget"), (2, "outside_hours"), (2, "ungrounded_place"),
-                                           (3, "ungrounded_price"), (2, "repeated_place")}  # Taberna Nearby is unused
-    assert {(2, "missing_meal"), (2, "empty_gap"), (3, "far_meal")} <= _issues(report, "should_fix")
+                                           (3, "ungrounded_price"), (2, "repeated_place"),  # Taberna Nearby is unused
+                                           (2, "empty_afternoon")}  # nothing from ~14:30 to dinner, sights nearby
+    assert {(2, "missing_meal"), (3, "far_meal")} <= _issues(report, "should_fix")
     assert "Unused food places: Taberna Nearby" in next(x for x in report["must_fix"] if x["issue"] == "repeated_place")["detail"]
     budget = next(x for x in report["must_fix"] if x["issue"] == "over_budget")["detail"]
     assert "€1568 is €68 over" in budget and "Cheap Hostel" in budget and "Norwegian" in budget
-    gap = next(x for x in report["should_fix"] if x["issue"] == "empty_gap")
+    gap = next(x for x in report["must_fix"] if x["issue"] == "empty_afternoon")
     assert {a["name"] for a in gap["alternatives"]} >= {"Museu Arqueológico do Carmo", "Museu do Dinheiro"}
     meal = next(x for x in report["should_fix"] if x["issue"] == "missing_meal")
     assert [a["name"] for a in meal["alternatives"]] == ["Taberna Nearby"]  # unused and close; Far Away Diner is used

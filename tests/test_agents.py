@@ -32,7 +32,7 @@ def test_agent_construction(name):
     assert agent.instruction.count("{trip_brief}") == 1
     uses_mcp = any(isinstance(t, CachedMcpToolset) for t in agent.tools)
     if uses_mcp:  # MCP agents must cache/normalise through the callbacks
-        assert agent.before_tool_callback is mcp_cache_before and agent.after_tool_callback is mcp_cache_after
+        assert mcp_cache_before in agent.canonical_before_tool_callbacks and agent.after_tool_callback is mcp_cache_after
 
 
 def test_factories_return_fresh_agents():
@@ -305,7 +305,7 @@ def test_concierge_needs_confirmation_in_a_later_turn():
     changed = {**args, "travellers": 3}
     assert concierge_mod.require_confirmation(tool, changed, turn2)["status"] == "needs_confirmation"  # changed: ask again
     turn3 = SimpleNamespace(state=state, invocation_id="inv-3")
-    assert concierge_mod.require_confirmation(tool, {**changed, "interests": ["food"]}, turn3) is None  # confirmed
+    assert concierge_mod.require_confirmation(tool, changed, turn3) is None  # confirmed
     assert state[concierge_mod.PENDING_KEY] is None
     assert concierge_mod.require_confirmation(SimpleNamespace(name="geocode_place"), {}, turn3) is None
 

@@ -6,7 +6,8 @@ from ..config import MODEL
 from ..tools import calculate_trip_cost, cluster_by_distance, get_forecast
 from .grounding import ground_itinerary
 from .itinerary_tidy import tidy_itinerary
-from .prompts import BRIEF, output_format, tool_budget
+from .limits import limit_tool_calls
+from .prompts import BRIEF, REQUIREMENTS, output_format, tool_budget
 from .retry import offer_retry_tool, retry_malformed_call
 
 ROLE = """You are the ITINERARY PLANNER of a trip-planning team. Turn the research below into a realistic
@@ -84,7 +85,8 @@ EXAMPLE = """{"transport": {"outbound": {"mode": "flight", "operator": "SAS", ".
 
 
 def build_itinerary_planner() -> LlmAgent:
-    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(5), RULES, output_format(SHAPE, EXAMPLE)])
+    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(5), RULES, output_format(SHAPE, EXAMPLE)]) \
+        + REQUIREMENTS
     return LlmAgent(
         name="itinerary_planner",
         model=MODEL,
@@ -96,6 +98,7 @@ def build_itinerary_planner() -> LlmAgent:
         generate_content_config=types.GenerateContentConfig(temperature=0.2),
         # restore mangled links / drop links no tool returned, then sort items and add ticket texts
         after_agent_callback=[ground_itinerary, tidy_itinerary],
+        before_tool_callback=limit_tool_calls(5),
         before_model_callback=offer_retry_tool,  # retry when a tool call's arguments are not valid JSON
         after_model_callback=retry_malformed_call,
     )

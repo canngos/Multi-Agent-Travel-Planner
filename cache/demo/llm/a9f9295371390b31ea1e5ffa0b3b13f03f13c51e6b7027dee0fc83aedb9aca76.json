@@ -386,7 +386,7 @@
          "summary": "A , the monastery was built in the 16th century and is an outstanding example of the Portuguese late Gothic Manueline style. Price: €18 (adults), €9 (seniors/students/youth card), free (children under 12); free admission to the church and on first Sun of the month. Note that tickets are sold from the neighbouring archeological museum, not at the monastery entrance",
          "budget_tier": null,
          "hours": "Oct-May: Tue-Sun 10:00-17:30; May-Sep: Tue-Sun 10:00-18:30; last entry 30 min before closing; closed 1 Jan, Easter, 1 May, 13 Jun, and 25 Dec",
-         "ticket_eur": null,
+         "ticket_eur": 18.0,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -518,7 +518,7 @@
          "summary": "A , the iconic fortified tower was built in the early 16th century in the late Gothic Manueline style as a fortress. It was said to be the last thing Portuguese explorers saw when departing, and the first thing they saw upon return. It was later used as a prison for political prisoners, and is today one of the most recognized symbols of Lisbon and Portugal. Price: €6 (adults), €3 (seniors/students/youth card), free (children under 12); free admission on first Sun of the month. Combined ticket with Mosteiro dos Jerónimos €12, combined ticket with Mosteiro dos Jerónimos and Museu Nacional de Arq",
          "budget_tier": null,
          "hours": "Oct-May: Tue-Sun 10:00-17:30; May-Sep: Tue-Sun 10:00-18:30; last entry 30 min before closing; closed 1 Jan, Easter, 1 May, 13 Jun, and 25 Dec",
-         "ticket_eur": null,
+         "ticket_eur": 6.0,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -533,7 +533,7 @@
          "summary": "Transport museum with various old trams and buses on display. Price: €4.50, €2.50 for over 65s, under 6 free",
          "budget_tier": null,
          "hours": "Mon-Sat, 1000-1300 and 1400-1800",
-         "ticket_eur": null,
+         "ticket_eur": 4.5,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -553,24 +553,26 @@
    }
   ]
  },
- "saved_at": 1794952128.9230425,
+ "saved_at": 1795004795.0063546,
  "response": [
   {
    "model_version": "cm-llm",
    "content": {
     "parts": [
      {
-      "text": "We have find_sights results list many items but many not relevant (history). Need choose 8-12 sights, focusing on history. Likely include: Jerónimos Monastery, Belém Tower, Monument to the Discoveries, São Bento Palace, Museu Nacional de Arte Antiga (not in results yet), Alfama Cathedral (Lisbon Cathedral), St. George's Castle, Museu Nacional dos Coches, Museu da Marinha maybe, Ajuda Botanical Gardens optional (outdoor). Need indoor at least 3.\n\nWe have Wikivoyage \"See\" for other districts; need to get more listings from district pages like Lisbon/Alfama, Lisbon/Baixa, Lisbon/Bairro Alto, Lisbon/North etc.\n\nLet's fetch Alfama.\n",
+      "text": "We have find_sights results (mostly monuments, not many indoor). Wikivoyage \"See\" for Lisbon returned no specifics; district pages list includes Belém etc. We fetched Belém page with many sights.\n\nWe need 8-12 sights, matching interests (history, street food but we are only sights, no food). Should include at least 3 indoor (museums, churches, palaces). We'll select key historic sights across city:\n\n- Jerónimos Monastery (Mosteiro dos Jerónimos) - indoor, history, ticket.\n- Belém Tower (Torre de Belém) - outdoor but iconic.\n- Monument to the Discoveries (Padrão dos Descobrimentos) - outdoor.\n- Museu Nacional dos Coches (National Coach Museum) - indoor museum.\n- Museu Colecção Berardo (Berardo Museum) - indoor modern art, still history.\n- São Bento Palace - indoor (parliament) maybe accessible? Might have limited access; but we can include with unknown hours maybe.\n- Alfama district includes Lisbon Cathedral (Sé de Lisboa) and São Jorge Castle. Not yet fetched. Need to get those via find_sight_hours maybe.\n\nWe haven't fetched find_sight_hours. Let's call for radius 6 km to get OSM hours.",
       "thought": true
      },
      {
       "function_call": {
-       "id": "chatcmpl-tool-816912856ae45d87",
+       "id": "chatcmpl-tool-996f68f1be619be2",
        "args": {
-        "page": "Lisbon/Alfama",
-        "section": "See"
+        "lat": 38.72509,
+        "lon": -9.1498,
+        "radius_km": 6,
+        "limit": 60
        },
-       "name": "wikivoyage_section"
+       "name": "find_sight_hours"
       }
      }
     ],
@@ -580,9 +582,9 @@
    "finish_reason": "STOP",
    "usage_metadata": {
     "cached_content_token_count": 0,
-    "candidates_token_count": 193,
-    "prompt_token_count": 9424,
-    "total_token_count": 9617
+    "candidates_token_count": 315,
+    "prompt_token_count": 9433,
+    "total_token_count": 9748
    }
   }
  ]

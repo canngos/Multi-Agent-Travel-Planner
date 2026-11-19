@@ -11,10 +11,17 @@ from .geo import neighbourhood
 LITEAPI_RATES = "https://api.liteapi.travel/v3.0/hotels/rates"
 
 
-def booking_url(query: str, checkin: str, checkout: str, adults: int) -> str:
+def booking_url(query: str, checkin: str, checkout: str, adults: int, rooms: int = 1) -> str:
     return "https://www.booking.com/searchresults.html?" + urlencode(
-        {"ss": query, "checkin": checkin, "checkout": checkout, "group_adults": adults, "no_rooms": 1}
+        {"ss": query, "checkin": checkin, "checkout": checkout, "group_adults": adults, "no_rooms": rooms}
     )
+
+
+def occupancies(adults: int, rooms: int) -> list[dict]:
+    """The adults spread as evenly as possible over the rooms: 5 adults in 3 rooms -> 2, 2, 1."""
+    rooms = max(1, min(int(rooms), int(adults)))
+    base, extra = divmod(int(adults), rooms)
+    return [{"adults": base + (1 if i < extra else 0)} for i in range(rooms)]
 
 
 def airbnb_url(city: str, checkin: str, checkout: str, adults: int) -> str:
@@ -85,10 +92,11 @@ def describe(hotel: dict, rate: dict) -> str:
 @safe_tool
 async def search_hotel_rates(
     lat: float, lon: float, checkin: str, checkout: str, adults: int = 2, radius_km: float = 3.0, max_results: int = 10,
+    rooms: int = 1,
 ) -> dict:
     """Live hotel prices near a point for the given dates, cheapest first.
 
-    Each result has the total price for the stay, price per night, neighbourhood,
+    Each result has the total price for the stay (all rooms), price per night, neighbourhood,
     rating (0-10) and a Booking.com search link for that hotel.
 
     Args:
@@ -96,14 +104,16 @@ async def search_hotel_rates(
         lon: Longitude of the area.
         checkin: Check-in date, ISO "YYYY-MM-DD".
         checkout: Check-out date, ISO "YYYY-MM-DD".
-        adults: Number of adults in one room.
+        adults: Number of adults in total.
         radius_km: Search radius in km (max 10).
         max_results: Max hotels to return (max 15).
+        rooms: Number of rooms; the adults are spread over them (e.g. 3 rooms for a group of 5).
     """
     key = api_key("LITEAPI_KEY")
     nights = (date.fromisoformat(checkout) - date.fromisoformat(checkin)).days
     if nights < 1:
         raise ToolError("checkout must be after checkin")
+    rooming = occupancies(adults, rooms)
     data = await post_json(
         LITEAPI_RATES,
         namespace="liteapi",
@@ -116,7 +126,7 @@ async def search_hotel_rates(
             "checkout": checkout,
             "currency": "EUR",
             "guestNationality": "FI",
-            "occupancies": [{"adults": int(adults)}],
+            "occupancies": rooming,
             "limit": 40,
             "timeout": 10,
         },
@@ -150,8 +160,9 @@ async def search_hotel_rates(
             rating=h.get("rating"),
             price_source="live",
             source=source,
-            url=booking_url(f"{h['name']}, {h.get('city_name', '')}".strip(", "), checkin, checkout, int(adults)),
-            details=describe(h, rate),
+            url=booking_url(f"{h['name']}, {h.get('city_name', '')}".strip(", "), checkin, checkout, int(adults),
+                            len(rooming)),
+            details=(f"total for {len(rooming)} rooms; " if len(rooming) > 1 else "") + describe(h, rate),
         )
         for (total, rate, h), area in zip(offers, areas)
     ]
@@ -159,7 +170,7 @@ async def search_hotel_rates(
 
 
 @safe_tool
-def stay_deep_links(city: str, checkin: str, checkout: str, adults: int = 2) -> dict:
+def stay_deep_links(city: str, checkin: str, checkout: str, adults: int = 2, rooms: int = 1) -> dict:
     """Search links for Airbnb and Booking.com for a city and dates (last-resort
     fallback when the live searches fail: lets the user check prices themselves).
 
@@ -168,8 +179,9 @@ def stay_deep_links(city: str, checkin: str, checkout: str, adults: int = 2) -> 
         checkin: Check-in date, ISO "YYYY-MM-DD".
         checkout: Check-out date, ISO "YYYY-MM-DD".
         adults: Number of adults.
+        rooms: Number of hotel rooms (Booking.com).
     """
     return ok([
         {"site": "airbnb", "url": airbnb_url(city, checkin, checkout, adults)},
-        {"site": "booking.com", "url": booking_url(city, checkin, checkout, adults)},
+        {"site": "booking.com", "url": booking_url(city, checkin, checkout, adults, max(1, int(rooms)))},
     ])

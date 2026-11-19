@@ -15,7 +15,8 @@ from google.genai import types
 
 from ..config import MODEL
 from ..tools import calculate_trip_cost
-from .prompts import BRIEF, tool_budget
+from .limits import limit_tool_calls
+from .prompts import BRIEF, REQUIREMENTS, tool_budget
 from .review_checks import check_itinerary, check_state
 from .retry import offer_retry_tool, retry_malformed_call
 
@@ -137,7 +138,7 @@ def enforce_verdict(callback_context):
 
 
 def build_budget_critic(model=None) -> LlmAgent:
-    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(3), RULES, OUTPUT])
+    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(3), RULES, OUTPUT]) + REQUIREMENTS
     return LlmAgent(
         name="budget_critic",
         model=model or MODEL,
@@ -149,6 +150,7 @@ def build_budget_critic(model=None) -> LlmAgent:
         generate_content_config=types.GenerateContentConfig(temperature=0.2),
         before_agent_callback=start_round,
         after_agent_callback=enforce_verdict,
+        before_tool_callback=limit_tool_calls(3),
         before_model_callback=offer_retry_tool,
         after_model_callback=retry_malformed_call,
     )

@@ -1,29 +1,38 @@
-"""Deterministic link grounding for the planner and the guide writer.
+"""Deterministic link grounding for the research agents, the planner and the guide writer.
 
-LLMs copying URLs sometimes "improve" them (http -> https, adding www., dropping a trailing slash) and can
-invent one from memory. Every link shown to the user must come from a tool result, so:
-- a link that matches a researched link after normalising is restored to the researched spelling;
-- a link that matches nothing is removed (itinerary: source_url -> null; guide: the Markdown link keeps its
-  text but loses the URL).
-The known links are every URL found in the research outputs in session state.
+LLMs copying URLs sometimes "improve" them (http -> https, adding www., dropping a trailing slash, decoding
+%C3%A9 to é) and can invent one from memory. Every link shown to the user must come from a tool result, so:
+- a link that matches a known link after normalising is restored to the known spelling;
+- a link that matches nothing is removed (JSON: url -> null; Markdown: a link keeps its text but loses the
+  URL, a bare URL is deleted).
+The research agents' and comparers' outputs are grounded against the raw tool results in the session
+(`ground_research_output`); later agents are grounded against those research outputs (`known_urls`).
 """
 import json
 import re
+from urllib.parse import unquote
 
 from .output import extract_json
 
-URL_RE = re.compile(r"https?://[^\s\"'<>()\[\]|]+")
-MD_LINK_RE = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]+)\)")
-QUOTED_TARGET_RE = re.compile(r"\]\(\s*['\"<]\s*(https?://[^'\"<>\s)]+)\s*['\">]\s*\)")
+_URL_CHARS = r"[^\s\"'<>()\[\]|]"
+URL_RE = re.compile(rf"https?://(?:{_URL_CHARS}|\({_URL_CHARS}*\))+")  # balanced brackets: .../Sé_(Lisbon)
+_TARGET = r"https?://(?:[^()\s]|\([^()\s]*\))+"
+MD_LINK_RE = re.compile(rf"\[([^\]]*)\]\(({_TARGET})\)")
+_MD_LINK_SPLIT = re.compile(rf"(\[[^\]]*\]\({_TARGET}\))")
+QUOTED_TARGET_RE = re.compile(r"\]\(\s*['\"<]\s*(https?://[^'\"<>\s]+)\s*['\">]\s*\)")
 RESEARCH_KEYS = ("transport_summary", "stay_summary", "culture_findings", "food_findings",
                  "flight_options", "ground_options", "airbnb_options", "hotel_options")
 ALWAYS_ALLOWED = ("https://transitous.org/sources/",)  # attribution footer
 
 
 def _norm(url: str) -> str:
-    u = re.sub(r"^(?:https?://)+", "", url.strip().rstrip(".,;"))  # also repairs "https://https://..."
-    u = re.sub(r"^www\.", "", u)
-    return u.rstrip("/").lower()
+    """Comparison key: no scheme, no "www.", no trailing slash, host in lower case, path percent-decoded.
+    The path keeps its case: short links like kiwi.com/u/AbC123 are case-sensitive."""
+    # also repairs "https://https://..." and "httpshttps://..." (both seen in model output)
+    u = re.sub(r"^(?:https?(?::/*|(?=https?:)))+", "", url.strip().rstrip(".,;"), flags=re.I)
+    u = re.sub(r"^www\.", "", u, flags=re.I)
+    host, slash, path = u.partition("/")
+    return (host.lower() + slash + unquote(path)).rstrip("/")
 
 
 def known_urls(state, keys=RESEARCH_KEYS) -> dict[str, str]:
@@ -66,22 +75,31 @@ def ground_markdown(text: str, known: dict[str, str]) -> tuple[str, list[str], l
 
     def bare(m: re.Match) -> str:
         url = m.group(0)
-        good = ground_url(url.rstrip(".,;"), known)
-        if good is not None and good != url.rstrip(".,;"):
+        clean = url.rstrip(".,;")
+        good = ground_url(clean, known)
+        if good is None:  # the web UI turns bare URLs into links, so an invented one must go too
+            removed.append(clean)
+            return url[len(clean):]
+        if good != clean:
             fixed.append(url)
-            return good + url[len(url.rstrip(".,;")):]
-        return url  # unknown bare URLs are left for the review step; links are what users click
+            return good + url[len(clean):]
+        return url
 
-    parts = re.split(r"(\[[^\]]*\]\(https?://[^)\s]+\))", text)  # leave the already-checked links alone
+    parts = _MD_LINK_SPLIT.split(text)  # leave the already-checked links alone
     text = "".join(p if MD_LINK_RE.fullmatch(p) else URL_RE.sub(bare, p) for p in parts)
     return text, fixed, removed
 
 
-def ground_data(node, known: dict[str, str], fixed: list, removed: list):
-    """Walks parsed agent JSON and grounds url / source_url / source_urls fields in place."""
+def ground_data(node, known: dict[str, str], fixed: list, removed: list, text: bool = False):
+    """Walks parsed agent JSON and grounds url / source_url / source_urls fields in place.
+
+    text=True also grounds URLs written inside other strings (details, notes, summaries), as Markdown."""
     if isinstance(node, list):
-        for item in node:
-            ground_data(item, known, fixed, removed)
+        for i, item in enumerate(node):
+            if text and isinstance(item, str):
+                node[i] = _ground_text(item, known, fixed, removed)
+            else:
+                ground_data(item, known, fixed, removed, text)
     elif isinstance(node, dict):
         for key in ("url", "source_url"):
             url = node.get(key)
@@ -93,20 +111,85 @@ def ground_data(node, known: dict[str, str], fixed: list, removed: list):
                 elif good != url:
                     fixed.append(url)
                     node[key] = good
-        if isinstance(node.get("source_urls"), list):
-            kept = []
-            for url in node["source_urls"]:
-                good = ground_url(url, known) if isinstance(url, str) else None
-                if good is None:
-                    removed.append(url)
-                else:
-                    if good != url:
-                        fixed.append(url)
-                    kept.append(good)
-            node["source_urls"] = kept
-        for value in node.values():
+        for key in ("source_urls", "fallback_links"):
+            if isinstance(node.get(key), list):
+                node[key] = _ground_list(node[key], known, fixed, removed)
+        for key, value in node.items():
+            if key in ("url", "source_url", "source_urls", "fallback_links"):
+                continue
             if isinstance(value, (list, dict)):
-                ground_data(value, known, fixed, removed)
+                ground_data(value, known, fixed, removed, text)
+            elif text and isinstance(value, str):
+                node[key] = _ground_text(value, known, fixed, removed)
+
+
+def _ground_list(urls: list, known: dict[str, str], fixed: list, removed: list) -> list:
+    kept = []
+    for url in urls:
+        good = ground_url(url, known) if isinstance(url, str) else None
+        if good is None:
+            removed.append(url)
+        else:
+            if good != url:
+                fixed.append(url)
+            kept.append(good)
+    return kept
+
+
+def _ground_text(value: str, known: dict[str, str], fixed: list, removed: list) -> str:
+    if "http" not in value:
+        return value
+    out, f, r = ground_markdown(value, known)
+    fixed += f
+    removed += r
+    return out
+
+
+def tool_result_urls(session) -> dict[str, str]:
+    """normalised URL -> URL, for every URL in the tool results (function responses) of the session so far."""
+    known = {}
+    for event in getattr(session, "events", None) or []:
+        content = getattr(event, "content", None)
+        for part in (getattr(content, "parts", None) or []):
+            response = getattr(getattr(part, "function_response", None), "response", None)
+            if response:
+                for url in URL_RE.findall(json.dumps(response, ensure_ascii=False, default=str)):
+                    url = url.rstrip(".,;")
+                    known.setdefault(_norm(url), url)
+    return known
+
+
+def ground_research_output(output_key: str):
+    """After-agent callback factory for the research agents and comparers: every link in their JSON output must
+    come from a tool result in the session (their outputs are the "known links" of every later agent).
+
+    Without any tool result in the session (e.g. an agent run alone on prepared state) nothing is changed."""
+    def callback(callback_context):
+        state = callback_context.state
+        try:
+            data = extract_json(state.get(output_key) or "")
+        except ValueError:
+            return None
+        known = tool_result_urls(callback_context.session)
+        if not known:
+            return None
+        for url in ALWAYS_ALLOWED:
+            known.setdefault(_norm(url), url)
+        fixed, removed = [], []
+        ground_data(data, known, fixed, removed, text=True)
+        # Only invented links make a rewrite necessary: a respelled one (http/https, www., trailing slash) names the
+        # same page, and later agents treat both spellings as one link.
+        if removed:
+            data["notes"] = (str(data.get("notes") or "") + f" Removed {len(removed)} link(s) that no tool "
+                                                             "returned.").strip()
+            state[output_key] = "```json\n" + json.dumps(data, ensure_ascii=False, indent=1) + "\n```"
+            fixes = dict(state.get("research_link_fixes") or {})
+            fixes[output_key] = {"fixed": fixed, "removed": removed}
+            state["research_link_fixes"] = fixes
+        return None
+
+    callback.__name__ = f"ground_{output_key}"
+    return callback
 
 
 def ground_itinerary(callback_context):

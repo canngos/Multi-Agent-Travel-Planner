@@ -14,14 +14,22 @@ import json
 import re
 
 from .output import extract_json
-from .review_checks import _dicts, _parse, _price, find_place, plan_cost, research_places, walk_km
+from .review_checks import (_dicts, _minutes, _parse, _price, clock_minutes, find_place, plan_cost, research_places,
+                            walk_km)
 
-_TIME = re.compile(r"^(\d{1,2}):(\d{2})")
+_OTHER_FORMAT = re.compile(r"\d\s*[ap]\.?\s*m\b|\d[h.]\d{2}", re.IGNORECASE)  # "1:00 PM", "1 pm", "13h00", "13.00"
 
 
-def _minutes(item: dict) -> int | None:
-    m = _TIME.match(str(item.get("time") or ""))
-    return int(m.group(1)) * 60 + int(m.group(2)) if m else None
+def _normalise_times(items: list[dict], label) -> list[str]:
+    """"1:00 PM" / "13h00" -> "13:00", so the guide shows one format and nothing misreads the time."""
+    changes = []
+    for item in items:
+        text = str(item.get("time") or "")
+        t = clock_minutes(text)
+        if t is not None and _OTHER_FORMAT.search(text):
+            item["time"] = f"{t // 60 % 24:02d}:{t % 60:02d}"
+            changes.append(f"day {label}: time '{text}' -> {item['time']}")
+    return changes
 
 
 def ticket_text(ticket) -> str | None:
@@ -69,7 +77,9 @@ def tidy_plan(plan: dict, brief: dict | None = None) -> list[str]:
 
     for day in days:
         original = [i for i in day.get("items") or [] if isinstance(i, dict)]
+        changes += _normalise_times(original, day.get("day"))
         items = list(original)
+        untimed_at = float("inf")  # items without a time go last (on the departure day: just before leaving)
         if anchored:  # replace the model's travel items with ones built from the chosen options
             items = [i for i in items
                      if not (i.get("kind") == "transport" and _TRAVEL_WORDS.search(str(i.get("name", ""))))]
@@ -79,18 +89,21 @@ def tidy_plan(plan: dict, brief: dict | None = None) -> list[str]:
             if leave_out and arrive and leave_out[0] == date and leave_out[0] != arrive[0]:
                 items.append(_leg_item(outbound, leave_out[1], f"Depart from {brief.get('origin', 'home')}"))
             if arrive and arrive[0] == date:
-                start_min = _minutes({"time": arrive[1]})
-                items = [i for i in items if i.get("kind") == "transport" or (_minutes(i) or 0) >= start_min]
+                start_min = clock_minutes(arrive[1])
+                items = [i for i in items if i.get("kind") == "transport" or _minutes(i) is None
+                         or _minutes(i) >= start_min]
                 items.append(_leg_item(outbound, arrive[1], f"Arrive in {brief.get('destination', 'the city')}"))
             elif arrive and date and date < arrive[0]:
                 items = [i for i in items if i.get("kind") == "transport"]
             if leave_back and leave_back[0] == date:
-                end_min = _minutes({"time": leave_back[1]})
-                items = [i for i in items if i.get("kind") == "transport" or (_minutes(i) or 0) <= end_min]
+                end_min = clock_minutes(leave_back[1])
+                items = [i for i in items if i.get("kind") == "transport" or _minutes(i) is None
+                         or _minutes(i) <= end_min]
                 items.append(_leg_item(back, leave_back[1], f"Depart from {brief.get('destination', 'the city')}"))
+                untimed_at = end_min - 0.5
             dropped = [i for i in original if i.get("kind") != "transport" and i not in items]
             changes += [f"day {day.get('day')}: dropped '{i.get('name')}' (outside the travel times)" for i in dropped]
-        ordered = sorted(items, key=lambda i: (_minutes(i) is None, _minutes(i) or 0))
+        ordered = sorted(items, key=lambda i: untimed_at if _minutes(i) is None else _minutes(i))
         for item in ordered:
             if item.get("kind") == "sight":
                 item["ticket"] = ticket_text(item.get("ticket_eur"))

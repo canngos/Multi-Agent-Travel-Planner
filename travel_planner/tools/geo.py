@@ -6,6 +6,8 @@ from ._result import ToolError, ok, safe_tool
 
 NOMINATIM = "https://nominatim.openstreetmap.org"
 OPEN_METEO_GEOCODING = "https://geocoding-api.open-meteo.com/v1/search"
+REGION_TYPES = {"country", "state", "region", "province", "county", "state_district", "archipelago", "island",
+                "continent"}  # Nominatim addresstypes that are not a city
 
 
 @safe_tool
@@ -30,6 +32,11 @@ async def geocode_place(name: str) -> dict:
         raise ToolError(f"No place found for '{name}'. Ask the user to rephrase or add the country.")
     top = data[0]
     address = top.get("address", {})
+    kind = top.get("addresstype") or top.get("type")
+    extra = {}
+    if kind in REGION_TYPES:  # its centre point is no place to search for sights, stays or connections
+        extra["warning"] = (f"'{top.get('name') or name}' is a {kind}, not a city: ask the user which city to plan "
+                            "(the planner plans one city per trip).")
     return ok(
         [{
             "name": top.get("name") or name,
@@ -38,9 +45,10 @@ async def geocode_place(name: str) -> dict:
             "lon": round(float(top["lon"]), 5),
             "country": address.get("country"),
             "country_code": (address.get("country_code") or "").upper(),
-            "type": top.get("addresstype") or top.get("type"),
+            "type": kind,
         }],
         attribution="© OpenStreetMap contributors (ODbL)",
+        **extra,
     )
 
 

@@ -437,6 +437,96 @@ Goal: a lecturer can run the planner on their own PC and ask for a trip of their
 - **Tests:** `tests/test_serve.py` covers the `/adk` routing, lifespan forwarding and the LLM settings (193 offline
   tests in total).
 
+## Phase 11 — Edge-case review and fixes  *(2026-11-18)*
+Goal: find the cases the four test trips never hit, fix them in code, and confirm the fixes with live runs.
+
+- [x] Review the code for edge cases. Each suspected bug was reproduced by calling the project's own functions
+  offline before it counted as a finding
+- [x] Compare the system with the constraints of the TravelPlanner benchmark (Hugging Face `osunlp/TravelPlanner`).
+  Covered: no invented places, no repeated places, meals, day count, budget. Missing: hard constraints such as
+  "no flights", children, pets, diet and room type
+- [x] Fix every finding with a failing test first (`tests/test_edge_cases.py`), keeping the demo's prompts unchanged
+- [x] Live runs to find what offline tests cannot: concierge edge cases, Tallinn (no flights, vegetarian, 1–3 Dec),
+  Kraków (five adults, prices in złoty)
+- [x] Fix the live findings, then run Tallinn and Kraków again to confirm
+- [x] Re-record the changed part of the demo, prune the demo cache, regenerate the UI replay
+
+**Done when:** every finding has a regression test, the demo replays offline, and a second live run shows the fixes.
+
+**Status: done.** 357 offline tests and 8 UI tests pass; the demo replays offline with every check passing.
+
+- **Opening hours** (`review_checks.parse_hours`):
+  - "Tuesday to Sunday", "except Monday", 12-hour times ("9:30 AM–6:00 PM") and month ranges in brackets
+    are now understood;
+  - "closed" and "Temporarily closed" (both in the Lisbon research) count as closed;
+  - the word "we" is no longer read as Wednesday;
+  - as in OSM, a later rule overrides an earlier one.
+- **Review checks** (`review_checks.check_plan`):
+  - a budget that cannot be met is a should-fix; before, the loop stripped every paid sight;
+  - a whole empty afternoon with researched sights nearby is a must-fix (2.5 h or more of idle time between
+    12:00 and 18:00, counted from the end of the previous activity);
+  - new should-fixes: a stay far from the sights while a central one costs a little more, and a placeholder meal
+    next to an unused restaurant;
+  - research JSON with trailing commas is repaired, and research that cannot be read no longer marks every place
+    as invented;
+  - an excluded transport mode is a must-fix and is never offered as a cheaper option.
+- **Brief and concierge:**
+  - the brief is validated before the user confirms it;
+  - confirmation compares the whole brief (coordinates within 5 km, country, interests), so a
+    Paris, France → Paris, Texas swap asks again;
+  - refused: a start date in the past, more than 21 days, several cities;
+  - the geocoder warns when a place is a region (Tuscany);
+  - new brief fields `avoid_modes` and `requirements`. They reach every agent through `{trip_requirements?}`,
+    and a searcher whose modes are all excluded does not run;
+  - follow-up answers: a date next to "Day N", "Outbound" or "Return" is corrected to the trip's date.
+- **Grounding:**
+  - research outputs are checked against the raw tool results in the session;
+  - links with parentheses are kept, invented bare URLs removed, link paths compared case-sensitively,
+    `httpshttps://` repaired.
+- **Guide** (`guide_writer.finalise_guide`, before saving):
+  - an **Important** box when the travel times cost most of the first or last day, naming the cheapest option that
+    keeps the day (a warning, not an error);
+  - the cost table is rebuilt from the plan when the guide's figures differ;
+  - "Still to check" lists open must-fix problems and anything the guide changed from the checked plan.
+- **Prices:**
+  - the adult price of a price list becomes the ticket ("€6 (adults), €3 …", "Adult 10 zł …");
+  - prices in other currencies are converted with ECB rates (`tools/currency.py`);
+  - tickets and hours the culture and food agents left out are filled from their tool results (`agents/enrich.py`).
+- **Tools:**
+  - Kiwi searches are always one-way, so a round-trip price is not counted as one leg;
+  - the forecast is used up to 14 days ahead, and a day without data is "unknown";
+  - Transitous answers expire after 7 days, empty ones after 1 day;
+  - the typical-weather window always matches the trip (29 February);
+  - transit endpoints far from both trip places are snapped to the brief;
+  - `wiki_summary` accepts only a language code; Wikivoyage titles are URL-decoded;
+  - group hotel searches use several rooms;
+  - Google Flights durations include layovers.
+- **Pipeline:**
+  - a new plan in the same chat starts without the previous plan's research and guide;
+  - retries are counted per review round, and the concierge gets them too;
+  - tool names with `_` for `-` still run (`search_flight`);
+  - tool budgets are enforced in code (`agents/limits.py`);
+  - the saved HTML guide has no raw HTML or script links.
+- **Live runs:**
+  - The first Tallinn run showed the critic rightly asking for a central hostel, the code overriding it to
+    APPROVED, and the guide writer then swapping the hostel and adding a dinner in the guide only, so the plan the
+    code checked was not the plan the user read. The second run chose the central hostel through the review loop,
+    and the guide matched the plan.
+  - Kraków: the second run's guide had the early-return warning ("… Finnair at 18:55 costs €225 more for the
+    group …"), converted złoty tickets, and no empty afternoon.
+  - Concierge-only runs: a region, two cities, a past date and a 30-day trip were all handled by asking the user.
+- **Demo:**
+  - The ticket fix changed the culture agent's input, so the demo was re-recorded from the culture agent on.
+    Every tool result was reused whatever its age, and Nominatim was kept failing as in the recording (it fell back
+    to Open-Meteo); otherwise new coordinates force a full re-record.
+  - Flights, stays and food are unchanged. 22 superseded cache files were pruned.
+  - The demo now shows the Important box and real ticket prices, and still goes REVISE → APPROVED in 38 tool calls.
+  - `docs/DEMO.md`, the README and the UI replay are updated to match.
+- **Still open:**
+  - follow-up answers are free LLM text (only their dates are checked);
+  - the planner may leave out a top sight (the Belém Tower is not in the new demo plan);
+  - many Kraków sights have no ticket price in any source.
+
 ---
 
 ## Decisions log
@@ -482,4 +572,13 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-18 | The UI's map is drawn from an agent-graph JSON exported from the Python tree; start times are inferred from the tree | The picture cannot drift from the code, and agents light up when they start rather than after their first model answer |
 | 2026-11-18 | Production start is one process: ADK's FastAPI app (prefix `/adk` stripped by a small ASGI wrapper) plus the built UI as static files | One command and one port for someone else's PC; same-origin requests pass ADK's origin check without configuration; ADK's own lifespan still runs |
 | 2026-11-18 | The LLM can be swapped with `LLM_MODEL` / `LLM_API_KEY`; Lehmus stays the default and the demo pins its model | Lehmus needs the university VPN; LiteLLM already supports other providers, so the override is a few lines (documented as untested) |
+| 2026-11-18 | Hard requirements are brief fields (`avoid_modes`, `requirements`) and reach the agents through a `{trip_requirements?}` placeholder that renders as "" for an ordinary trip | The brief had nowhere to put "no flights", children, pets or diet (TravelPlanner tests exactly these). An empty placeholder leaves every recorded demo prompt unchanged |
+| 2026-11-18 | Only excluded transport modes are enforced in code; children, pets, diet and room needs are followed by the agents | Free-text needs cannot be checked reliably in code; a mode can |
+| 2026-11-18 | A whole empty afternoon is a must-fix; a travel time that costs most of the first or last day is a warning in the guide, not an error | Project owner's decisions: 1–2 free hours are fine but an empty afternoon is wrong; a cheaper early flight is a fair choice if the travellers know what it costs |
+| 2026-11-18 | Link grounding trusts the raw tool results in the session; a research link that differs only in spelling is not rewritten | Before, the "known links" were whatever the research agents wrote. Respelled links name the same page, and rewriting them would change the demo's recorded prompts |
+| 2026-11-18 | The guide is checked against the plan before saving: the cost table is rebuilt when its figures differ, drift is listed under "Still to check" | A live guide swapped the hostel and added a dinner that the code never checked |
+| 2026-11-18 | Prices in other currencies are converted with ECB reference rates (Frankfurter, free, no key, cached a week), fetched only when a foreign price appears | Kraków tickets were all unknown and costed at €0; fetching only for foreign prices keeps euro trips and the demo free of extra calls |
+| 2026-11-18 | Tool budgets are enforced in code at the prompt's budget plus 2 | A looping model could use up the free SerpApi and Tavily quotas; the slack leaves room for a retried call |
+| 2026-11-18 | Tests pin "today" with `TODAY=2026-11-17` (honoured by `config.today()`) | Past dates are now refused, and the 2027 trips in the fixtures would fall into the past next year |
+| 2026-11-18 | Demo changes are re-recorded partly: cached tool results are reused whatever their age, Nominatim keeps failing as in the recording, and only changed LLM requests go live | A plain `DEMO_RECORD=1` run reached Nominatim, got different coordinates and re-recorded everything, giving a different demo |
 | 2026-11-17 | Python 3.13 venv in `.venv/` | 3.14 is too new for some wheels; 3.13 meets the 3.11+ requirement |

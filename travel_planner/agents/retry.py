@@ -8,9 +8,11 @@ another chance, the same way ADK's ReflectAndRetryModelPlugin does, but per agen
   request's tools_dict only, so it is never declared to the model;
 - `retry_malformed_call` (after-model) replaces the failed response with a call to that tool. ADK runs it and
   the model receives its reply: "your call was not run, call it again with valid JSON". At most
-  MAX_RETRIES per agent run.
+  MAX_RETRIES per agent run (per review round for the critic and the reviser, which run up to three times in one
+  invocation).
 """
 import uuid
+from collections import OrderedDict
 
 from google.adk.models.llm_response import LlmResponse
 from google.adk.tools.function_tool import FunctionTool
@@ -18,7 +20,8 @@ from google.genai import types
 
 RETRY_TOOL = "tool_call_failed"
 MAX_RETRIES = 2
-_counts: dict[tuple[str, str], int] = {}
+MAX_TRACKED = 512  # recent agent runs whose retries are counted; older ones are long finished
+_counts: OrderedDict[tuple, int] = OrderedDict()
 
 
 def tool_call_failed(tool_names: str, attempt: int) -> dict:
@@ -33,12 +36,20 @@ _TOOL = FunctionTool(func=tool_call_failed)
 
 
 def offer_retry_tool(callback_context, llm_request):
-    llm_request.tools_dict[RETRY_TOOL] = _TOOL
+    """Before-model callback: makes the hidden retry tool callable, and lets a tool be called with "_" for "-" or
+    the other way round (GPT OSS called Kiwi's "search-flight" as "search_flight"). Aliases are only added to
+    the lookup table, never declared to the model."""
+    tools = llm_request.tools_dict
+    for name, tool in list(tools.items()):
+        tools.setdefault(name.replace("-", "_"), tool)
+        tools.setdefault(name.replace("_", "-"), tool)
+    tools[RETRY_TOOL] = _TOOL
     return None
 
 
-def _key(callback_context) -> tuple[str, str]:
-    return callback_context.invocation_id, callback_context.agent_name
+def _key(callback_context) -> tuple:
+    state = getattr(callback_context, "state", None) or {}
+    return callback_context.invocation_id, callback_context.agent_name, state.get("review_round")
 
 
 def retry_malformed_call(callback_context, llm_response):
@@ -46,6 +57,9 @@ def retry_malformed_call(callback_context, llm_response):
         return None
     key = _key(callback_context)
     _counts[key] = _counts.get(key, 0) + 1
+    _counts.move_to_end(key)
+    while len(_counts) > MAX_TRACKED:
+        _counts.popitem(last=False)
     if _counts[key] > MAX_RETRIES:
         return None
     message = llm_response.error_message or ""

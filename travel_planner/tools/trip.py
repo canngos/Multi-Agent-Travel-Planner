@@ -1,4 +1,5 @@
 """Own-code tools: save the trip brief, total the trip cost, save the final guide."""
+import html
 import re
 from datetime import datetime
 
@@ -56,6 +57,59 @@ def _validation_reason(exc: ValidationError) -> str:
     return "Invalid trip brief - " + "; ".join(parts)
 
 
+MAX_TRIP_DAYS = 21  # a longer plan no longer fits in one model answer
+_SEVERAL_PLACES = re.compile(r"\s(?:and|&|\+)\s|/", re.IGNORECASE)
+BRIEF_FIELDS = tuple(TripBrief.model_fields)
+
+
+def check_brief(args: dict) -> TripBrief:
+    """The validated brief from save_trip_brief's arguments (omitted or null ones take their defaults).
+
+    Raises ToolError naming every field to fix: the model's own rules (dates in order, travellers, budget) plus
+    what the planner cannot plan: a start date in the past, more than MAX_TRIP_DAYS days, several destinations.
+    """
+    values = {k: v for k, v in args.items() if k in BRIEF_FIELDS and v is not None}
+    try:
+        brief = TripBrief(**values)
+    except ValidationError as exc:
+        raise ToolError(_validation_reason(exc)) from exc
+    problems = []
+    if brief.start_date < config.today():
+        problems.append(f"start_date: {brief.start_date} is in the past (today is {config.today()})")
+    if brief.days > MAX_TRIP_DAYS:
+        problems.append(f"end_date: the trip has {brief.days} days; the planner plans at most {MAX_TRIP_DAYS}")
+    if _SEVERAL_PLACES.search(brief.destination):
+        problems.append(f"destination: '{brief.destination}' names several places; the planner plans one city per "
+                        "trip (plan the other one afterwards)")
+    if problems:
+        raise ToolError("Invalid trip brief - " + "; ".join(problems))
+    return brief
+
+
+PEOPLE_PER_ROOM = 2
+
+
+def requirements_block(brief: TripBrief) -> str:
+    """Instruction text for every planning agent (state["trip_requirements"]); "" when there is nothing to add,
+    so the instructions of an ordinary trip stay exactly as they were."""
+    lines = []
+    if brief.avoid_modes:
+        lines.append(f"- Never use these transport modes: {', '.join(brief.avoid_modes)}.")
+    lines += [f"- {r}" for r in brief.requirements]
+    if brief.travellers > PEOPLE_PER_ROOM:
+        rooms = -(-brief.travellers // PEOPLE_PER_ROOM)
+        lines.append(f"- Group of {brief.travellers}: hotels need {rooms} rooms (pass rooms={rooms} to "
+                     f"search_hotel_rates and stay_deep_links; search_google_hotels prices one room only). Airbnb "
+                     f"stays must sleep {brief.travellers}.")
+    if not lines:
+        return ""
+    # agents commented on requirements outside their job ("vegetarian does not affect transport"): ask them not to
+    return ("\n\nHARD REQUIREMENTS OF THE TRAVELLERS (they override the steps and defaults above). Follow the ones "
+            "that concern your task, say in \"notes\" which of those you could not meet, and do not mention the "
+            "others:\n" + "\n".join(lines) + "\nIf a requirement mentions children, infants or pets, pass them to "
+            "every search tool that has such a parameter.")
+
+
 @safe_tool
 def save_trip_brief(
     destination: str,
@@ -72,6 +126,8 @@ def save_trip_brief(
     destination_lat: float | None = None,
     destination_lon: float | None = None,
     destination_country: str | None = None,
+    avoid_modes: list[str] | None = None,
+    requirements: list[str] | None = None,
 ) -> dict:
     """Validates the complete trip brief and saves it for the planning team.
 
@@ -92,19 +148,23 @@ def save_trip_brief(
         destination_lat: Destination latitude from geocode_place.
         destination_lon: Destination longitude from geocode_place.
         destination_country: Destination country from geocode_place.
+        avoid_modes: Transport modes the travellers refuse, from "flight", "train", "bus", "ferry"
+            (e.g. ["flight"] for "we don't fly"). Only what the user said.
+        requirements: Other hard needs the user stated, one short phrase each, e.g. "travelling with
+            children aged 4 and 7", "bringing a dog", "wheelchair access", "vegetarian", "two separate beds".
     """
-    try:
-        brief = TripBrief(
-            origin=origin, destination=destination, start_date=start_date, end_date=end_date,
-            travellers=travellers, budget_tier=budget_tier, total_budget_eur=total_budget_eur,
-            interests=interests or [], origin_lat=origin_lat, origin_lon=origin_lon,
-            destination_lat=destination_lat, destination_lon=destination_lon,
-            destination_country=destination_country,
-        )
-    except ValidationError as exc:
-        raise ToolError(_validation_reason(exc)) from exc
-    saved = {**brief.model_dump(mode="json"), "nights": brief.nights, "days": brief.days}
+    brief = check_brief(dict(
+        origin=origin, destination=destination, start_date=start_date, end_date=end_date,
+        travellers=travellers, budget_tier=budget_tier, total_budget_eur=total_budget_eur,
+        interests=interests or [], origin_lat=origin_lat, origin_lon=origin_lon,
+        destination_lat=destination_lat, destination_lon=destination_lon,
+        destination_country=destination_country, avoid_modes=avoid_modes, requirements=requirements,
+    ))
+    # empty requirement lists are left out, so an ordinary brief (and every instruction showing it) is unchanged
+    saved = {k: v for k, v in brief.model_dump(mode="json").items() if v or k not in ("avoid_modes", "requirements")}
+    saved.update(nights=brief.nights, days=brief.days)
     tool_context.state["trip_brief"] = saved
+    tool_context.state["trip_requirements"] = requirements_block(brief)
     return ok([saved])
 
 
@@ -186,6 +246,19 @@ def calculate_trip_cost(
     return ok([result])
 
 
+_UNSAFE_LINK = re.compile(r"""\b(href|src)\s*=\s*(["'])(?!https?:|mailto:|#)[^"']*\2""", re.IGNORECASE)
+
+
+def guide_html(text: str, raw_html: bool = False) -> str:
+    """Markdown -> HTML for the saved guide. The model's text gets no raw HTML (a tag copied from a web page would
+    run in the browser) and only http(s)/mailto links; raw_html=True is for our own footer."""
+    converter = md.Markdown(extensions=["tables", "sane_lists"])
+    if not raw_html:
+        converter.preprocessors.deregister("html_block")
+        converter.inlinePatterns.deregister("html")
+    return _UNSAFE_LINK.sub(r'\1="#"', converter.convert(text))
+
+
 def slugify(text: str) -> str:
     text = re.sub(r"[^\w\s-]", "", text.lower(), flags=re.UNICODE)
     text = re.sub(r"[\s_-]+", "-", text).strip("-")
@@ -213,10 +286,9 @@ def save_guide(markdown_text: str, filename_slug: str, tool_context: ToolContext
     html_path = config.OUTPUT_DIR / f"{slug}.html"
     md_path.write_text(full, encoding="utf-8")
     title_match = re.search(r"^#\s+(.+)$", markdown_text, flags=re.MULTILINE)
-    body = md.markdown(full, extensions=["tables", "sane_lists"])
-    html_path.write_text(
-        HTML_TEMPLATE.format(title=(title_match.group(1) if title_match else slug), body=body), encoding="utf-8"
-    )
+    body = guide_html(markdown_text.rstrip()) + "\n" + guide_html(ATTRIBUTION_FOOTER, raw_html=True)
+    title = html.escape(title_match.group(1) if title_match else slug)
+    html_path.write_text(HTML_TEMPLATE.format(title=title, body=body), encoding="utf-8")
     if tool_context is not None:
         tool_context.state["final_guide"] = full
         tool_context.state["guide_paths"] = {"markdown": str(md_path), "html": str(html_path)}

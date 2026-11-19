@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "São Jorge Castle",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795004838.2802446,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "pageid": 2785024,
+     "ns": 0,
+     "title": "São Jorge Castle",
+     "extract": "São Jorge Castle (Portuguese: Castelo de São Jorge; Portuguese pronunciation: [kɐʃˈtɛlu dɨ sɐ̃w̃ ˈʒɔɾʒɨ]), sometimes known in English as Saint George's Castle, is a historic castle in the Portuguese capital of Lisbon, located in the freguesia of Santa Maria Maior. Human occupation of the castle hill dates to at least the 8th century BC while the oldest fortifications on the site date from the 2nd century BC. The hill on which Saint George's Castle stands has played an important part in the history of Lisbon, having served as the location of fortifications occupied successively by Phoenicians, Carthaginians, Romans, and Moors, before its conquest by the Portuguese in the 1147 Siege of Lisbon. Since the 12th century, the castle has variously served as a royal palace, a military barracks, home of the Torre do Tombo National Archive, and now as a national monument and museum.",
+     "coordinates": [
+      {
+       "lat": 38.71388889,
+       "lon": -9.13361111,
+       "primary": true,
+       "globe": "earth"
+      }
+     ],
+     "description": "Historic castle in Lisbon, Portugal",
+     "descriptionsource": "local",
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "touched": "2026-11-17T19:28:42Z",
+     "lastrevid": 1379583700,
+     "length": 22148,
+     "fullurl": "https://en.wikipedia.org/wiki/S%C3%A3o_Jorge_Castle",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=S%C3%A3o_Jorge_Castle&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/S%C3%A3o_Jorge_Castle"
+    }
+   ]
+  }
+ }
+}

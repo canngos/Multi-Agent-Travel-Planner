@@ -18,6 +18,7 @@ FIXTURE_CACHE = Path(__file__).parent / "fixtures" / "cache"
 @pytest.fixture(autouse=True)
 def _cache_mode(request, monkeypatch):
     monkeypatch.setenv("CACHE_DIR", str(FIXTURE_CACHE))
+    monkeypatch.setenv("TODAY", "2026-11-17")  # trips in the fixtures (2027) stay in the future
     if request.node.get_closest_marker("live"):
         monkeypatch.setenv("OFFLINE", "0")
         monkeypatch.setenv("REFRESH_CACHE", "1")

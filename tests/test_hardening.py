@@ -140,7 +140,9 @@ async def test_saved_brief_starts_the_pipeline_without_a_transfer_call():
     from google.genai import types
     from pydantic import Field
 
-    from travel_planner.agents.concierge import PENDING_KEY, _core, build_concierge
+    from types import SimpleNamespace
+
+    from travel_planner.agents.concierge import build_concierge, require_confirmation
 
     brief = {"destination": "Lisbon", "start_date": "2027-05-10", "end_date": "2027-05-14", "origin": "Helsinki",
              "travellers": 2, "budget_tier": "mid", "total_budget_eur": 2500.0}
@@ -161,8 +163,10 @@ async def test_saved_brief_starts_the_pipeline_without_a_transfer_call():
     concierge = build_concierge(LlmAgent(name="planning_pipeline", model=pipeline_llm, instruction="Plan."))
     concierge.model = Scripted()
     runner = InMemoryRunner(agent=concierge, app_name="t")
-    pending = {"invocation_id": "an-earlier-turn", "core": _core(brief)}  # the user saw the summary last turn
-    session = await runner.session_service.create_session(app_name="t", user_id="u", state={PENDING_KEY: pending})
+    earlier = {}  # the user saw the summary last turn
+    require_confirmation(SimpleNamespace(name="save_trip_brief"), dict(brief),
+                         SimpleNamespace(state=earlier, invocation_id="an-earlier-turn"))
+    session = await runner.session_service.create_session(app_name="t", user_id="u", state=earlier)
     async for _ in runner.run_async(user_id="u", session_id=session.id, new_message=types.Content(
             role="user", parts=[types.Part(text="Yes, go ahead.")])):
         pass

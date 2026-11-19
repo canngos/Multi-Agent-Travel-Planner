@@ -62,8 +62,11 @@ def llm_cache_on() -> bool:
 
 
 def today() -> date:
-    """Today's date; pinned to the recording day in demo mode, so replayed prompts are identical."""
-    return DEMO_TODAY if demo() else date.today()
+    """Today's date; pinned to the recording day in demo mode, so replayed prompts are identical.
+    TODAY=YYYY-MM-DD pins it otherwise (the tests use it, so dates in their fixtures never fall into the past)."""
+    if demo():
+        return DEMO_TODAY
+    return date.fromisoformat(os.environ["TODAY"]) if os.environ.get("TODAY") else date.today()
 
 
 def refresh_cache() -> bool:

@@ -92,12 +92,14 @@ async def fetch(
     timeout_s: float = TIMEOUT_S,
     retries: int = MAX_RETRIES,
     slim: Callable[[Any], Any] | None = None,
+    ttl_for: Callable[[Any], float | None] | None = None,
 ) -> Any:
     """Cached HTTP request. Returns the parsed JSON body (or text).
 
     namespace: cache subfolder, one per API (e.g. "nominatim").
     slim: optional function that shrinks the body to the fields the tool uses,
           applied before caching (keeps cache files and the demo cache small).
+    ttl_for: optional function giving a (slimmed) body a shorter cache life than max_age_s.
     Secret params/headers are sent but never hashed or stored.
     """
     cache_request = {
@@ -121,7 +123,7 @@ async def fetch(
                 raise ToolError(f"{urlsplit(url).hostname}: response is not JSON: {resp.text[:200]}") from exc
         return slim(parsed) if slim else parsed
 
-    return await _cache.cached(namespace, cache_request, produce, max_age_s)
+    return await _cache.cached(namespace, cache_request, produce, max_age_s, ttl_for)
 
 
 def api_key(name: str) -> str:

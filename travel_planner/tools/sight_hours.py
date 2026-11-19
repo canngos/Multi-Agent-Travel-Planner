@@ -13,6 +13,7 @@ from ..models import Place
 from ._http import get_json
 from ._overpass import ATTRIBUTION, MAX_AGE_S, element_point, osm_url, overpass
 from ._result import ToolError, ok, safe_tool
+from .currency import eur_rates, is_foreign, parse_money, to_eur
 from .geo import haversine_km
 
 TOURISM = ("museum", "gallery", "attraction", "viewpoint", "zoo", "aquarium", "theme_park")
@@ -94,13 +95,13 @@ async def _elements(lat: float, lon: float, radius_km: float) -> list[dict]:
         return data.get("elements", [])
 
 
-def charge_eur(charge: str) -> float | None:
-    """'10 EUR', '€ 12.50', 'adult 8 EUR; child 4 EUR' -> first euro amount."""
-    m = re.search(r"(\d+(?:[.,]\d{1,2})?)\s*(?:EUR|€)|(?:EUR|€)\s*(\d+(?:[.,]\d{1,2})?)", charge or "", re.IGNORECASE)
-    return float((m.group(1) or m.group(2)).replace(",", ".")) if m else None
+def charge_eur(charge: str, rates: dict[str, float] | None = None) -> float | None:
+    """'10 EUR', '€ 12.50', 'adult 8 EUR; child 4 EUR' -> the first amount in euro ('20 PLN' needs exchange rates)."""
+    money = parse_money(charge or "")
+    return to_eur(*money, rates) if money else None
 
 
-def element_to_place(el: dict) -> Place | None:
+def element_to_place(el: dict, rates: dict[str, float] | None = None) -> Place | None:
     tags = el.get("tags", {})
     lat, lon = element_point(el)
     name = tags.get("name:en") or tags.get("name")
@@ -108,7 +109,7 @@ def element_to_place(el: dict) -> Place | None:
         return None
     kind = tags.get("tourism") or tags.get("historic") or "sight"
     fee, charge = tags.get("fee", ""), tags.get("charge", "")
-    ticket = charge_eur(charge)
+    ticket = charge_eur(charge, rates)
     if ticket is None and fee == "no":
         ticket = 0.0
     bits = [kind.replace("_", " ")]
@@ -153,8 +154,11 @@ async def find_sight_hours(lat: float, lon: float, radius_km: float = 3.0, limit
     """
     radius_km = round(max(0.3, min(float(radius_km), 8.0)), 1)
     rows = []
-    for el in await _elements(round(lat, 4), round(lon, 4), radius_km):
-        place = element_to_place(el)
+    elements = await _elements(round(lat, 4), round(lon, 4), radius_km)
+    foreign = any(is_foreign(el.get("tags", {}).get("charge", "")) for el in elements)
+    rates = await eur_rates() if foreign else None  # fetched only for prices in another currency
+    for el in elements:
+        place = element_to_place(el, rates)
         if place:
             notable = any("wikipedia.org" in u for u in place.source_urls) or "wikidata" in el.get("tags", {})
             rows.append((place.hours is None, not notable, haversine_km(lat, lon, place.lat, place.lon), place))

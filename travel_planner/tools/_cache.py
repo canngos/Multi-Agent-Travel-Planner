@@ -42,21 +42,25 @@ def _path(namespace: str, key: str) -> Path:
 
 
 def read(namespace: str, request: dict, max_age_s: float | None = None) -> tuple[bool, Any]:
-    """Returns (hit, response). Entries older than max_age_s count as misses, except
-    in OFFLINE mode, where any cached entry is better than nothing."""
+    """Returns (hit, response). Entries older than max_age_s (or their own shorter "ttl_s") count as misses,
+    except in OFFLINE mode, where any cached entry is better than nothing."""
     path = _path(namespace, make_key(request))
     if not path.exists():
         return False, None
     entry = json.loads(path.read_text(encoding="utf-8"))
-    if max_age_s is not None and not config.offline() and time.time() - entry["saved_at"] > max_age_s:
+    limits = [a for a in (max_age_s, entry.get("ttl_s")) if a is not None]
+    if limits and not config.offline() and time.time() - entry["saved_at"] > min(limits):
         return False, None
     return True, entry["response"]
 
 
-def write(namespace: str, request: dict, response: Any) -> None:
+def write(namespace: str, request: dict, response: Any, ttl_s: float | None = None) -> None:
+    """Stores a response; ttl_s gives this entry a shorter life than its namespace (e.g. an empty answer)."""
     path = _path(namespace, make_key(request))
     path.parent.mkdir(parents=True, exist_ok=True)
     entry = {"request": request, "saved_at": time.time(), "response": response}
+    if ttl_s is not None:
+        entry["ttl_s"] = ttl_s
     # Atomic write: parallel agents may fetch the same thing at once.
     fd, tmp = tempfile.mkstemp(dir=path.parent, suffix=".tmp")
     with os.fdopen(fd, "w", encoding="utf-8") as f:
@@ -69,10 +73,12 @@ async def cached(
     request: dict,
     produce: Callable[[], Awaitable[Any]],
     max_age_s: float | None = None,
+    ttl_for: Callable[[Any], float | None] | None = None,
 ) -> Any:
     """Cache-or-produce for anything JSON-serializable (HTTP bodies, library calls, MCP results).
 
     `request` must already be free of secrets; it is hashed and stored as-is.
+    ttl_for(response) may give a fresh response a shorter life, e.g. an empty answer that may fill up soon.
     """
     if not config.refresh_cache():
         hit, response = read(namespace, request, max_age_s)
@@ -81,5 +87,5 @@ async def cached(
     if config.offline():
         raise CacheMiss(f"OFFLINE mode and no cached response for {namespace} request")
     response = await produce()
-    write(namespace, request, response)
+    write(namespace, request, response, ttl_for(response) if ttl_for else None)
     return response

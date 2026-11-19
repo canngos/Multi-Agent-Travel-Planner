@@ -8,7 +8,8 @@ from google.adk.agents import LlmAgent
 from google.genai import types
 
 from ..config import MODEL
-from .prompts import BRIEF, output_format
+from .grounding import ground_research_output
+from .prompts import BRIEF, REQUIREMENTS, output_format
 
 COMPARE_RULES = """RULES:
 - Use ONLY options that appear in the inputs above. Copy each chosen option object unchanged (same fields,
@@ -83,7 +84,7 @@ STAY_EXAMPLE = """{"by_area": [{"area": "Baixa", "airbnb": {"kind": "airbnb", "n
 
 def _comparer(name: str, description: str, role: str, inputs: str, steps: str, shape: str, example: str,
               output_key: str) -> LlmAgent:
-    instruction = "\n\n".join([role, BRIEF, inputs, steps, COMPARE_RULES, output_format(shape, example)])
+    instruction = "\n\n".join([role, BRIEF, inputs, steps, COMPARE_RULES, output_format(shape, example)]) + REQUIREMENTS
     return LlmAgent(
         name=name,
         model=MODEL,
@@ -92,6 +93,7 @@ def _comparer(name: str, description: str, role: str, inputs: str, steps: str, s
         output_key=output_key,
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.1),
+        after_agent_callback=ground_research_output(output_key),  # a copied option keeps the tool's link
     )
 
 

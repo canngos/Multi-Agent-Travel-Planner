@@ -28,6 +28,8 @@ MODE_MAP = {
 LOCAL_MODES = {"WALK", "BIKE", "CAR", "RENTAL", "FLEX"}
 TYPICAL_AFTER_DAYS = 60
 TYPICAL_LEAD_DAYS = 14
+MAX_AGE_S = 7 * 24 * 3600  # timetables change
+EMPTY_MAX_AGE_S = 24 * 3600  # "nothing found" often means "not published yet": ask again tomorrow
 
 
 def _local(iso_utc: str, tz: str | None) -> str:
@@ -143,6 +145,8 @@ async def _query(from_lat, from_lon, to_lat, to_lon, depart_date, depart_time, n
             "numItineraries": n,
         },
         slim=slim_plan,
+        max_age_s=MAX_AGE_S,
+        ttl_for=lambda body: None if isinstance(body, dict) and body.get("itineraries") else EMPTY_MAX_AGE_S,
     )
     return [o.model_dump() for o in (itinerary_to_option(it) for it in data.get("itineraries", [])) if o][:n]
 

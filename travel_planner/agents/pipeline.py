@@ -16,7 +16,22 @@ from .concierge import build_concierge
 from .guide_writer import build_guide_writer
 from .itinerary_reviser import build_itinerary_reviser
 from .planner import build_itinerary_planner
-from .teams import build_research_team
+from .teams import RESEARCH_KEYS, build_research_team
+
+PLAN_KEYS = RESEARCH_KEYS + ("itinerary", "itinerary_before_revision", "itinerary_link_fixes", "itinerary_tidy_changes",
+                             "research_link_fixes", "final_guide", "guide_paths", "guide_reply", "guide_link_fixes")
+
+
+def reset_plan_state(callback_context):
+    """Before-agent callback of the pipeline: a new plan starts from nothing.
+
+    A session can plan several trips. Without this, an agent that writes nothing on the second plan (an error, an
+    empty reply) left the first trip's research in place for the later agents, and the old guide stopped the guide
+    writer's safety net and kept answering the concierge's follow-up questions."""
+    state = callback_context.state
+    for key in PLAN_KEYS:
+        state[key] = None
+    return None
 
 
 def reset_review(callback_context):
@@ -45,6 +60,7 @@ def build_planning_pipeline() -> SequentialAgent:
                      "food in parallel, builds the day-by-day itinerary, reviews and revises it, and writes the "
                      "trip guide."),
         sub_agents=[build_research_team(), build_itinerary_planner(), build_review_loop(), build_guide_writer()],
+        before_agent_callback=reset_plan_state,
     )
 
 

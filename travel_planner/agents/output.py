@@ -48,22 +48,29 @@ def _resolve(data, path: str) -> list[tuple[str, object]]:
     return found
 
 _FENCE = re.compile(r"```(?:json)?\s*(\{.*?\})\s*```", re.DOTALL)
+_TRAILING_COMMA = re.compile(r",(\s*[}\]])")
 
 
 def extract_json(text: str) -> dict:
-    """The JSON object from an agent reply: the last ```json fence, else the first {...} in the text."""
+    """The JSON object from an agent reply: the last ```json fence, else the first {...} in the text.
+
+    A candidate that does not parse is tried once more without trailing commas ("[1, 2,]"): the model sometimes
+    writes them, and one comma must not make a whole research result unreadable for the code checks.
+    """
     fences = _FENCE.findall(text or "")
     candidates = list(reversed(fences))
     start = (text or "").find("{")
     if start >= 0:
         candidates.append(text[start:])
+    decoder = json.JSONDecoder()
     for candidate in candidates:
-        try:
-            obj, _ = json.JSONDecoder().raw_decode(candidate.strip())
-        except ValueError:
-            continue
-        if isinstance(obj, dict):
-            return obj
+        for attempt in (candidate.strip(), _TRAILING_COMMA.sub(r"\1", candidate.strip())):
+            try:
+                obj, _ = decoder.raw_decode(attempt)
+            except ValueError:
+                continue
+            if isinstance(obj, dict):
+                return obj
     raise ValueError("no JSON object found in the agent output")
 
 

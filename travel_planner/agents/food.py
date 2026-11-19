@@ -1,6 +1,7 @@
 """food_agent: traditional dishes and restaurants per budget tier -> food_findings."""
 from ..tools import find_restaurants, geocode_place, local_dishes, web_search, wikivoyage_section
 from ._common import research_agent
+from .enrich import fill_from_tool_results
 
 ROLE = """You are the FOOD RESEARCHER of a trip-planning team. Find the destination's traditional dishes and
 restaurants for every budget tier, favouring local cuisine and the brief's budget_tier."""
@@ -46,4 +47,5 @@ def build_food_agent():
         tools=[local_dishes, wikivoyage_section, find_restaurants, web_search, geocode_place],
         output_key="food_findings",
         max_calls=8,
+        before_grounding=[fill_from_tool_results("food_findings")],  # opening hours the agent left out
     )

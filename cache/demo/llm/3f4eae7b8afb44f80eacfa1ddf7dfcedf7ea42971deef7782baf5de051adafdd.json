@@ -386,7 +386,7 @@
          "summary": "A , the monastery was built in the 16th century and is an outstanding example of the Portuguese late Gothic Manueline style. Price: €18 (adults), €9 (seniors/students/youth card), free (children under 12); free admission to the church and on first Sun of the month. Note that tickets are sold from the neighbouring archeological museum, not at the monastery entrance",
          "budget_tier": null,
          "hours": "Oct-May: Tue-Sun 10:00-17:30; May-Sep: Tue-Sun 10:00-18:30; last entry 30 min before closing; closed 1 Jan, Easter, 1 May, 13 Jun, and 25 Dec",
-         "ticket_eur": null,
+         "ticket_eur": 18.0,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -518,7 +518,7 @@
          "summary": "A , the iconic fortified tower was built in the early 16th century in the late Gothic Manueline style as a fortress. It was said to be the last thing Portuguese explorers saw when departing, and the first thing they saw upon return. It was later used as a prison for political prisoners, and is today one of the most recognized symbols of Lisbon and Portugal. Price: €6 (adults), €3 (seniors/students/youth card), free (children under 12); free admission on first Sun of the month. Combined ticket with Mosteiro dos Jerónimos €12, combined ticket with Mosteiro dos Jerónimos and Museu Nacional de Arq",
          "budget_tier": null,
          "hours": "Oct-May: Tue-Sun 10:00-17:30; May-Sep: Tue-Sun 10:00-18:30; last entry 30 min before closing; closed 1 Jan, Easter, 1 May, 13 Jun, and 25 Dec",
-         "ticket_eur": null,
+         "ticket_eur": 6.0,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -533,7 +533,7 @@
          "summary": "Transport museum with various old trams and buses on display. Price: €4.50, €2.50 for over 65s, under 6 free",
          "budget_tier": null,
          "hours": "Mon-Sat, 1000-1300 and 1400-1800",
-         "ticket_eur": null,
+         "ticket_eur": 4.5,
          "indoor": null,
          "source_urls": [
           "https://en.wikivoyage.org/wiki/Lisbon/Bel%C3%A9m",
@@ -555,10 +555,12 @@
     "role": "model",
     "parts": [
      {
-      "call": "wikivoyage_section",
+      "call": "find_sight_hours",
       "args": {
-       "page": "Lisbon/Alfama",
-       "section": "See"
+       "lat": 38.72509,
+       "lon": -9.1498,
+       "radius_km": 6,
+       "limit": 60
       }
      }
     ]
@@ -567,205 +569,947 @@
     "role": "user",
     "parts": [
      {
-      "result": "wikivoyage_section",
+      "result": "find_sight_hours",
       "response": {
        "status": "ok",
-       "count": 11,
+       "count": 60,
        "results": [
         {
          "kind": "sight",
-         "name": "Miradouro de Santa Luzia",
-         "lat": null,
-         "lon": null,
-         "summary": "Good viewpoint in Alfama uphill from the cathedral along tram route. Lovely view over rooftops and river.",
+         "name": "Museu Medeiros e Almeida",
+         "lat": 38.72168,
+         "lon": -9.149145,
+         "summary": "museum",
          "budget_tier": null,
-         "hours": null,
+         "hours": "Mo-Fr 13:00-17:30; Sa 10:00-17:30; Jan 01,May 01,Dec 24-25 off; easter off",
+         "ticket_eur": 8.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5090471910"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Arpad Szenes - Vieira da Silva",
+         "lat": 38.722237,
+         "lon": -9.15577,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; PH off",
+         "ticket_eur": 7.5,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4688777792",
+          "https://fasvs.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Reservatório da Mãe d'Água das Amoreiras",
+         "lat": 38.721257,
+         "lon": -9.155676,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "10:00-12:30; 13:30-17:30",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/95408856",
+          "http://museudaagua.epal.pt"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Miguel Bombarda",
+         "lat": 38.725397,
+         "lon": -9.141944,
+         "summary": "museum; free entry",
+         "budget_tier": null,
+         "hours": "We 11:30-13:00; Sa 14:00-18:00",
          "ticket_eur": 0.0,
-         "indoor": null,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama"
+          "https://www.openstreetmap.org/way/97708551",
+          "https://aparteoutsider.org/?page_id=74"
          ]
         },
         {
          "kind": "sight",
-         "name": "Miradouro da Senhora do Monte",
-         "lat": 38.7189,
-         "lon": -9.1328,
-         "summary": "The highest viewpoint in Lisbon, at the top of the Graça hill, spread out in front of the small Capela de Nossa Senhora do Monte (founded in 1147, remodelled in the 20th century). To the south you look down over the Castelo de São Jorge, the Mouraria and the Baixa to the Tagus estuary; to the west, from Bairro Alto out to the Monsanto forest; to the north, down the Avenida Almirante Reis valley. It sits a little further out than the viewpoints at Santa Luzia and Portas do Sol, so it is usually quieter, and it is a fine place to watch the sunset.",
+         "name": "Casa-Museu Amália Rodrigues",
+         "lat": 38.7154,
+         "lon": -9.154604,
+         "summary": "museum",
          "budget_tier": null,
-         "hours": null,
+         "hours": "Tu-Su 10:00-13:00,14:00-18:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/178227720"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Nacional do Desporto",
+         "lat": 38.715562,
+         "lon": -9.142174,
+         "summary": "museum; free entry",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-17:00; Jan 01,May 01,Dec 24-25 off",
          "ticket_eur": 0.0,
-         "indoor": null,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama"
+          "https://www.openstreetmap.org/node/5068486966"
          ]
         },
         {
          "kind": "sight",
-         "name": "Castelo de São Jorge",
-         "lat": null,
-         "lon": null,
-         "summary": "Humans settled on this hill as early as the 8th century BCE, and the first fortifications date from the 1st century BCE. Before the Portuguese conquest in the 1147 Siege of Lisbon, the site was successively occupied by the Phoenicians, Carthaginians, Romans, and Moors. Sights within the castle include the permanent exhibition of archaeological artefacts with an emphasis on the 11th- and 12th-century Moors, ruins of the former Royal Palace of Alcáçova, a garden with native forest species, and a camera obscura showing the city's sights. The castle offers great view over the city and the river. I",
+         "name": "Museu Calouste Gulbenkian - Centro de Arte Moderna",
+         "lat": 38.735935,
+         "lon": -9.153649,
+         "summary": "museum",
          "budget_tier": null,
-         "hours": "Mar–Oct: daily 10:00–21:00, Nov–Feb daily 09:00–18:00",
+         "hours": "Su-Mo, We-Fr 10:00-18:00; Sa 10:00-21:00",
          "ticket_eur": null,
-         "indoor": null,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "https://castelodesaojorge.pt/en/"
+          "https://www.openstreetmap.org/way/188143627",
+          "https://en.wikipedia.org/wiki/Centro_de_Arte_Moderna_Gulbenkian"
          ]
         },
         {
          "kind": "sight",
-         "name": "Igreja e Mosteiro de São Vicente de Fora",
-         "lat": null,
-         "lon": null,
-         "summary": "Started in 1582, this Mannerist monastery wasn't completed until 1629, following the reconstruction of a 1147 church under royal decree. The church houses the Pantheon of the House of Braganza, where many monarchs, consorts, and their offspring are entombed.",
+         "name": "Museu João de Deus",
+         "lat": 38.715848,
+         "lon": -9.1583,
+         "summary": "museum; free entry",
          "budget_tier": null,
-         "hours": null,
-         "ticket_eur": null,
-         "indoor": null,
-         "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama"
-         ]
-        },
-        {
-         "kind": "sight",
-         "name": "Lisbon Cathedral",
-         "lat": 38.70985,
-         "lon": -9.132983,
-         "summary": "Built in 1147, the cathedral has survived various earthquakes and has undergone restoration, renovation, and modification over the years. Its elements include Romanesque, Gothic, and Baroque styles. It has been a national monument since 1910. Price: , children 7–12 , children 6 & under free",
-         "budget_tier": null,
-         "hours": "Mon–Sat 10:00–18:30",
-         "ticket_eur": null,
-         "indoor": null,
-         "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "https://www.patriarcado-lisboa.pt/site/index.php?id=10686"
-         ]
-        },
-        {
-         "kind": "sight",
-         "name": "Museu da Água",
-         "lat": null,
-         "lon": null,
-         "summary": "",
-         "budget_tier": null,
-         "hours": "Mon–Fri 10:00–12:30 & 13:30–17:30",
+         "hours": "Mo-Fr 09:30-17:00; PH off; Jun 13,Dec 24-26 off",
          "ticket_eur": 0.0,
-         "indoor": null,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "https://www.epal.pt/EPAL/en/menu/water-museum/"
+          "https://www.openstreetmap.org/node/4693994869",
+          "https://www.joaodeus.com/museu/museu.asp"
          ]
         },
         {
          "kind": "sight",
-         "name": "Museu Nacional do Azulejo",
-         "lat": null,
-         "lon": null,
-         "summary": "One of the most important national museums, dedicated to Portuguese azulejo tiles since the late 1400s. It's in the former Madre de Deus Convent, founded in 1509 by Queen Leonor. Price: , seniors 65+/students/youth card , disabled & children 12 and under free",
+         "name": "Museu Maynense",
+         "lat": 38.713179,
+         "lon": -9.149562,
+         "summary": "museum; entry fee",
          "budget_tier": null,
-         "hours": "Tue–Sun 10:00–13:00 & 14:00–18:00, closed Mon",
+         "hours": "Mo,We 10:00-18:00; PH off",
          "ticket_eur": null,
-         "indoor": null,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "http://www.museudoazulejo.gov.pt/en-GB/default.aspx"
+          "https://www.openstreetmap.org/node/5089643625",
+          "https://www.acad-ciencias.pt/museu/apresentacao-museu/"
          ]
         },
         {
          "kind": "sight",
-         "name": "Museu Militar de Lisboa",
-         "lat": null,
-         "lon": null,
-         "summary": "Housed in a 16th-century foundry, this museum holds its testaments to Portuguese military history, and contains many artifacts, including a sword used by Vasco da Gama.",
+         "name": "Museu Geológico",
+         "lat": 38.713107,
+         "lon": -9.149755,
+         "summary": "museum",
          "budget_tier": null,
-         "hours": null,
-         "ticket_eur": null,
-         "indoor": null,
+         "hours": "Mo-Sa 10:00-18:00; PH off",
+         "ticket_eur": 5.0,
+         "indoor": true,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama"
+          "https://www.openstreetmap.org/node/1623055925"
          ]
         },
         {
          "kind": "sight",
-         "name": "Museu de Sociedade de Geografia",
-         "lat": 38.7167,
-         "lon": -9.1408,
-         "summary": "Exhibits of ethnography from Portugal's former colonies. Price: , seniors 65+ , students & youths , families of 4 or more  each, disabled & children 12 and under free",
+         "name": "Chafariz do Intendente",
+         "lat": 38.719919,
+         "lon": -9.135753,
+         "summary": "attraction",
          "budget_tier": null,
-         "hours": "Mon–Fri 10:00–12:45 & 14:00–16:45, closed Sat Sun",
+         "hours": "24/7",
          "ticket_eur": null,
          "indoor": null,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "https://www.socgeografialisboa.pt/museu/"
+          "https://www.openstreetmap.org/way/444445751"
          ]
         },
         {
          "kind": "sight",
-         "name": "Museu do Teatro Romano",
-         "lat": 38.710469,
-         "lon": -9.132408,
-         "summary": "Along the way from downtown to Saint George's Castle.",
+         "name": "Museu Maçónico Português",
+         "lat": 38.713193,
+         "lon": -9.144723,
+         "summary": "museum",
          "budget_tier": null,
-         "hours": null,
+         "hours": "Mo-Fr 14:30-17:30",
+         "ticket_eur": 5.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4822780021"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu de São Roque",
+         "lat": 38.713443,
+         "lon": -9.143114,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Oct-Mar Mo 14:00-18:00; Oct-Mar Tu-Su 10:00-18:00; Apr-Sep Mo 14:00-19:00; Apr-Sep Tu-Su 10:00-19:00; Apr-Sep Th 10:00-20:00; Jan 01,May 01,Dec 25 off; easter off",
+         "ticket_eur": 8.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/13174527080",
+          "https://museusaoroque.scml.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Casa Ásia – Coleção Francisco Capelo",
+         "lat": 38.713175,
+         "lon": -9.14376,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01 off; easter off; May 01 off; Dec 25 off",
+         "ticket_eur": 8.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/13096661171"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Casa do Parlamento – Centro Interpretativo",
+         "lat": 38.712369,
+         "lon": -9.152625,
+         "summary": "museum; free entry",
+         "budget_tier": null,
+         "hours": "Mo-Sa 10:00-18:00",
+         "ticket_eur": 0.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/271704595"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Aqueduto das Águas Livres",
+         "lat": 38.726565,
+         "lon": -9.166303,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; PH off",
+         "ticket_eur": 4.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/13950436040",
+          "https://www.epal.pt/EPAL/menu/museu-da-%C3%A1gua/exposi%C3%A7%C3%A3o-permanente-patrim%C3%B3nio-associado/aqueduto-das-%C3%A1guas-livres"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Casa Fernando Pessoa",
+         "lat": 38.716672,
+         "lon": -9.162519,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Mo-Sa 10:00-18:00; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5088757633"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Calouste Gulbenkian Museum",
+         "lat": 38.737809,
+         "lon": -9.153504,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "We-Mo 10:00-18:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/17036063",
+          "https://en.wikipedia.org/wiki/Calouste_Gulbenkian_Museum"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Atelier-Museu Júlio Pomar",
+         "lat": 38.71129,
+         "lon": -9.150434,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-13:00,14:00-18:00; Jan 01,May 01,Dec 24-25 off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/272545758",
+          "https://www.ateliermuseujuliopomar.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Estrela Basilica of the Sacred Heart",
+         "lat": 38.713168,
+         "lon": -9.160542,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "Mo-Su 09:00-11:30, 15:00-16:00",
          "ticket_eur": null,
          "indoor": null,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "http://www.museudelisboa.pt/en/equipamentos/teatro-romano.html"
+          "https://www.openstreetmap.org/way/96359439",
+          "https://en.wikipedia.org/wiki/Estrela_Basilica"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu da Guarda Nacional Republicana",
+         "lat": 38.712273,
+         "lon": -9.140712,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Mo-Sa 10:00-18:00",
+         "ticket_eur": 2.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5073093222"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Arqueológico do Carmo",
+         "lat": 38.712006,
+         "lon": -9.140586,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Oct-May: Tu-Su 10:00-18:00; Jun-Sep: Tu-Su 10:00-19:00; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": 7.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5068486965",
+          "https://www.museuarqueologicodocarmo.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu da Farmácia Lisboa",
+         "lat": 38.710068,
+         "lon": -9.147248,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Mo-Fr 10:00-19:00; Sa 14:00-19:00",
+         "ticket_eur": 8.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5089643622"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Igreja do Loreto",
+         "lat": 38.710853,
+         "lon": -9.142773,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "Mo-Fr 10:00-20:00; Sa-Su 10:00-21:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96359446",
+          "https://www.igrejadoloreto.pt"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Arte Graça",
+         "lat": 38.720929,
+         "lon": -9.130017,
+         "summary": "gallery",
+         "budget_tier": null,
+         "hours": "16:00-20:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/454490420"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Verso Branco",
+         "lat": 38.708973,
+         "lon": -9.149822,
+         "summary": "gallery",
+         "budget_tier": null,
+         "hours": "Tu-Sa 11:30-20:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/3037180563",
+          "https://www.versobranco.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "São Jorge Castle",
+         "lat": 38.713902,
+         "lon": -9.133474,
+         "summary": "castle; entry fee",
+         "budget_tier": null,
+         "hours": "Mo-Su 09:00-21:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/1382432568",
+          "https://www.castelodesaojorge.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu das Comunicações",
+         "lat": 38.707825,
+         "lon": -9.150365,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Fr 10:00-18:00; Sa 14:00-18:00; PH off",
+         "ticket_eur": 5.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5089643629",
+          "https://www.fpc.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Nacional de Arte Contemporânea - Museu do Chiado",
+         "lat": 38.708841,
+         "lon": -9.141137,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01,May 01,Jun 13,Dec 25 off; easter off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96321716"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu da Marioneta",
+         "lat": 38.708004,
+         "lon": -9.155793,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00",
+         "ticket_eur": 5.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/3128158245",
+          "https://museudamarioneta.pt"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Geomonumento da Rua Sampaio Bruno",
+         "lat": 38.716266,
+         "lon": -9.169627,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "24/7",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/443569509"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu do Dinheiro",
+         "lat": 38.708623,
+         "lon": -9.138786,
+         "summary": "museum; free entry",
+         "budget_tier": null,
+         "hours": "We-Sa 10:00-18:00; Jan 01,May 01,Dec 24-25 off",
+         "ticket_eur": 0.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4804718021"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "MUDE - Museu do Design",
+         "lat": 38.709141,
+         "lon": -9.13665,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Dec 24, Dec 31 10:00-14:00; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/1396217",
+          "https://www.mude.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu de Lisboa - Santo António",
+         "lat": 38.710197,
+         "lon": -9.133906,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off",
+         "ticket_eur": 3.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96322171"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Saint Anthony's Church",
+         "lat": 38.709963,
+         "lon": -9.133682,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "Mo-Su 08:00-17:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96319696",
+          "https://en.wikipedia.org/wiki/Church_of_Saint_Anthony_of_Lisbon"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Fundação Ricardo do Espírito Santo Silva",
+         "lat": 38.712032,
+         "lon": -9.130557,
+         "summary": "castle",
+         "budget_tier": null,
+         "hours": "We-Mo 10:00-17:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/98550235"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Roman Theatre Museum",
+         "lat": 38.710545,
+         "lon": -9.132386,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01 off; May 01 off; Dec 25 off",
+         "ticket_eur": 3.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/11699003"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu do Aljube - Resistência e Liberdade",
+         "lat": 38.71018,
+         "lon": -9.132553,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-19:00; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": 3.0,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4419041593",
+          "https://en.wikipedia.org/wiki/Cadeia_do_Aljube"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Igreja da Conceição Velha",
+         "lat": 38.708887,
+         "lon": -9.134215,
+         "summary": "church",
+         "budget_tier": null,
+         "hours": "Mo-Fr 09:15-17:00; Su 10:00-13:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96319788"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Chafariz das Terras",
+         "lat": 38.708753,
+         "lon": -9.165911,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "24/7",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/585937134"
          ]
         },
         {
          "kind": "sight",
          "name": "Panteão Nacional",
-         "lat": 38.715,
-         "lon": -9.125,
-         "summary": "This is one of the most striking buildings in Lisbon. Its tall dome and white facade makes it a real landmark in Alfama/Eastern Lisbon. Excellent views from the rooftop terrace. Construction began in 1681, then halted until the dome was added in 1966 and then converted to the National Pantheon. Amália Rodrigues, queen of fado, is buried here, and fresh roses can be seen on the tomb. The church also has wide viewing platform on the rooftop all around its dome. Excellent panorama of the river and surroundings. No elevator.",
+         "lat": 38.714977,
+         "lon": -9.124684,
+         "summary": "attraction",
          "budget_tier": null,
-         "hours": "Tue-Sun 10:00-17:00, platform 10:00-18:00 (closed Mondays, shorter hours in winter)",
-         "ticket_eur": 4.0,
+         "hours": "Tu-Su 10:00-18:00",
+         "ticket_eur": null,
          "indoor": null,
          "source_urls": [
-          "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-          "http://www.panteaonacional.gov.pt/"
+          "https://www.openstreetmap.org/way/9253917",
+          "https://panteaonacional.gov.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Chafariz d'El Rei",
+         "lat": 38.709726,
+         "lon": -9.129485,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "24/7",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/469378483"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu do Fado",
+         "lat": 38.711052,
+         "lon": -9.127668,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/1101604733",
+          "https://www.museudofado.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "National Museum of Ancient Art",
+         "lat": 38.704768,
+         "lon": -9.161515,
+         "summary": "castle",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/98656587"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu Militar de Lisboa",
+         "lat": 38.712959,
+         "lon": -9.12431,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-17:00; easter off; Jan 01,May 01,Dec 25 off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/96497160",
+          "http://www.exercito.pt/pt/quem-somos/organizacao/ceme/vceme/dhcm/lisboa"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu da Água",
+         "lat": 38.720021,
+         "lon": -9.11962,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; PH off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/237926937",
+          "https://www.epal.pt/EPAL/menu/museu-da-%C3%A1gua",
+          "https://en.wikipedia.org/wiki/Museu_da_Água"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Jardim Zoológico de Lisboa",
+         "lat": 38.745121,
+         "lon": -9.171655,
+         "summary": "zoo",
+         "budget_tier": null,
+         "hours": "10:00-20:00",
+         "ticket_eur": null,
+         "indoor": false,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/30104081",
+          "https://www.zoo.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "National Ceramic Tile Museum",
+         "lat": 38.724765,
+         "lon": -9.113985,
+         "summary": "monastery; entry fee",
+         "budget_tier": null,
+         "hours": "closed",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/1451054092",
+          "https://museunacionaldoazulejo.gov.pt/"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Fronteira Palace",
+         "lat": 38.74001,
+         "lon": -9.18047,
+         "summary": "castle",
+         "budget_tier": null,
+         "hours": "Mo-Sa 11:00-12:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/145116280",
+          "https://www.fronteira-alorna.pt/",
+          "https://en.wikipedia.org/wiki/Palace_of_the_Marquises_of_Fronteira"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museu da Carris",
+         "lat": 38.701555,
+         "lon": -9.179913,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Mo-Fr 10:00-18:00; Sa 10:00-13:00,14:00-18:00; PH off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/7554558"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Rafael Bordalo Pinheiro Museum",
+         "lat": 38.758899,
+         "lon": -9.154147,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4711868424",
+          "http://museubordalopinheiro.cm-lisboa.pt/",
+          "https://en.wikipedia.org/wiki/Rafael_Bordalo_Pinheiro_Museum"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Scientific and Cultural Macao Museum",
+         "lat": 38.700849,
+         "lon": -9.182443,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-17:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/4788155560",
+          "http://www.cccm.pt/",
+          "https://en.wikipedia.org/wiki/Macau_Scientific_and_Cultural_Centre_Museum_(The_Macau_Museum)"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Fragata Dom Fernando II e Glória",
+         "lat": 38.686572,
+         "lon": -9.146155,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "Mo-Su 09:00-18:00",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/155449351",
+          "https://ccm.marinha.pt/pt/dfernando"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Torre da Paroquial",
+         "lat": 38.708088,
+         "lon": -9.196444,
+         "summary": "attraction",
+         "budget_tier": null,
+         "hours": "24/7",
+         "ticket_eur": null,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/196292365",
+          "https://informacoeseservicos.lisboa.pt/contactos/diretorio-da-cidade/torre-sineira-da-ajuda-antiga-capela-da-ajuda"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Elevador da Boca do Vento",
+         "lat": 38.684699,
+         "lon": -9.158812,
+         "summary": "attraction; free entry",
+         "budget_tier": null,
+         "hours": "09:00-23:00",
+         "ticket_eur": 0.0,
+         "indoor": null,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/147055942"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Casa da Cerca - Centro de Arte Contemporânea",
+         "lat": 38.684031,
+         "lon": -9.159076,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/148565686"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Underdogs Gallery",
+         "lat": 38.74621,
+         "lon": -9.100174,
+         "summary": "gallery",
+         "budget_tier": null,
+         "hours": "Tu-Sa 14:00-20:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/node/5170427521"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Museum of Art, Architecture and Technology",
+         "lat": 38.696028,
+         "lon": -9.193633,
+         "summary": "museum",
+         "budget_tier": null,
+         "hours": "Mo-Su 12:00-20:00; Tu off; Jan 01,May 01,Dec 25",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/11381632",
+          "www.maat.pt"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "Quake - Lisbon Earthquake Centre",
+         "lat": 38.69723,
+         "lon": -9.197088,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Mo-Su 10:00-18:00",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/way/1053294263"
+         ]
+        },
+        {
+         "kind": "sight",
+         "name": "National Coach Museum",
+         "lat": 38.697035,
+         "lon": -9.198693,
+         "summary": "museum; entry fee",
+         "budget_tier": null,
+         "hours": "Tu-Su 10:00-18:00; Jan 01,May 01,Dec 25; easter off",
+         "ticket_eur": null,
+         "indoor": true,
+         "source_urls": [
+          "https://www.openstreetmap.org/relation/5363219"
          ]
         }
        ],
-       "page": "Lisbon/Alfama",
-       "section": "See",
-       "url": "https://en.wikivoyage.org/wiki/Lisbon/Alfama",
-       "text": "See:\n*",
-       "district_pages": [],
-       "attribution": "Wikivoyage (CC BY-SA 4.0)"
+       "attribution": "© OpenStreetMap contributors (ODbL)"
+      }
+     }
+    ]
+   },
+   {
+    "role": "model",
+    "parts": [
+     {
+      "call": "wiki_summary",
+      "args": {
+       "title": "Belém Tower"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "parts": [
+     {
+      "result": "wiki_summary",
+      "response": {
+       "status": "ok",
+       "count": 1,
+       "results": [
+        {
+         "title": "Belém Tower",
+         "description": "Fortified tower in Lisbon, Portugal",
+         "extract": "Belém Tower (Portuguese: Torre de Belém, pronounced [ˈtoʁɨ ðɨ βɨˈlɐ̃j]; literally: Bethlehem Tower), officially the Tower of Saint Vincent (Portuguese: Torre de São Vicente), is a 16th-century fortification located in Lisbon, Portugal, which served as a point of embarkation and disembarkation for Portuguese explorers and as a ceremonial gateway to Lisbon. The tower symbolizes Portugal's maritime and colonial power in early modern Europe. It was built during the height of the Portuguese Renaissance and is a prominent example of the Portuguese Manueline style, but it also incorporates other architectural styles, such as the minarets, which are inspired by Moorish architecture. The structure was built from lioz limestone, a material local to the Lisbon region, and is composed of a bastion and a 30-metre (100 ft) four-storey tower.\nSince 1983, the tower has been a UNESCO World Heritage Site, along with the Jerónimos Monastery. It is often portrayed as a symbol of Europe's Age of Discoveries and as a metonym for Portugal or Lisbon, given its landmark status.",
+         "lat": 38.69166667,
+         "lon": -9.21611111,
+         "url": "https://en.wikipedia.org/wiki/Bel%C3%A9m_Tower"
+        }
+       ],
+       "attribution": "Text from Wikipedia (CC BY-SA 4.0)"
       }
      }
     ]
    }
   ]
  },
- "saved_at": 1794952132.0829418,
+ "saved_at": 1795004815.8188035,
  "response": [
   {
    "model_version": "cm-llm",
    "content": {
     "parts": [
      {
-      "text": "We have collected data:\n\n- find_sights gave many monuments, many not relevant to history? Many are monuments, but we need history and street food interest. Street food covered by food researcher, so we focus on history sights.\n\nWe have Wikivoyage \"See\" from Belém, Alfama, and the city page gave district_pages.\n\nWe need 8-12 sights, indoor at least 3, spread across city, match interests (history). Should include: Jerónimos Monastery, Belém Tower, Monument to the Discoveries, National Museum of Azulejo, National Tile Museum? That's \"Museu Nacional do Azulejo\", indoor. Also Castelo de São Jorge, Lisbon Cathedral, Panteão Nacional, São Bento Palace (parliament building). Also maybe National Museum of Ancient Art (Museu Nacional de Arte Antiga) appears in Bairro Alto list but not fetched; we could get via find_sight_hours later.\n\nNow we need opening hours and tickets. Use find_sight_hours with radius 6.",
+      "text": "We need to produce final JSON with 8-12 sights matching interests (history, street food). No food markets. At least 3 indoor (museums/churches/palaces). Use data from tools. We have many sights from find_sights (mostly monuments, not all indoor). We have many from find_sight_hours (lots of museums, etc). Also from Wikivoyage See for Belém gives specific info for some top sights: Ajuda Botanical Gardens, Monument to the Discoveries, Mosteiro dos Jerónimos, Torre de Belém, Museum of Art Architecture and Technology, etc. Also hours and tickets already there.\n\nWe should combine and pick around 10 sights focusing history: Jerónimos Monastery (Mosteiro dos Jerónimos), Belém Tower, Monument to the Discoveries, São Jorge Castle, National Museum of Ancient Art, National Coach Museum, Museu Nacional de Arte Antiga (National Museum of Ancient Art is in OSM list as \"National Museum of Ancient Art\", but no details). Also include indoor museums: Museu Nacional do Azulejo? Not in list. We have Museu Nacional de Arte Contemporânea (Chiado), Museu da Marinha, etc. Need at least 3 indoor. Choose: Mosteiro dos Jerónimos (indoor/outdoor), Torre de Belém (outdoor), São Jorge Castle (indoor/outdoor), National Museum of Ancient Art (indoor), National Coach Museum (indoor), Museu Nacional de Arte Contemporânea (indoor), Museu Arpad Szenes - Vieira da Silva (indoor), Museu Arqueológico do Carmo (indoor). That's 8.\n\nNow gather hours and ticket info:\n\n- Mosteiro dos Jerónimos: from Wikivoyage listing includes hours and ticket 18.0. Provide source URLs from Wikivoyage (Lisbon/Belém). Also OSM maybe has entry but we have hours already. Use that.\n\n- Torre de Belém: from Wikivoyage list includes hours and ticket 6.0.\n\n- Monument to the Discoveries: from Wikivoyage list: hours null, ticket 4.0. Might need hours; OSM likely has hours but not in find_sight_hours (maybe not). Could search via web but limited to 2 calls. Could maybe rely on OSM not needed? Hours missing; could use web_search for multiple. Let's check OSM for Monument to the Discoveries? Not in find_sight_hours list. So we need web_search for that and maybe for São Jorge Castle hours/ticket. We'll use one web_search query containing both.\n\n- São Jorge Castle: find_sight_hours includes entry with hours \"Mo-Su 09:00-21:00\", ticket_eur null (maybe free). So we have hours.\n\n- National Museum of Ancient Art: In OSM list as \"National Museum of Ancient Art\" with hours \"Tu-Su 10:00-18:00\", ticket_eur null (likely fee). may need ticket; but we have no price. Could leave null.\n\n- National Coach Museum: OSM list shows hours \"10:00-18:00\", ticket_eur 8.0.\n\n- Museu Nacional de Arte Contemporânea - Museu do Chiado: OSM list hours \"Tu-Su 10:00-18:00\", ticket_eur null.\n\n- Museu Arpad Szenes - Vieira da Silva: OSM hours \"Tu-Su 10:00-18:00; PH off\", ticket 7.5.\n\n- Museu Arqueológico do Carmo: OSM hours \"Oct-May: Tu-Su 10:00-18:00; Jun-Sep: Tu-Su 10:00-19:00\", ticket 7.0.\n\nNow need summary sentences: For each, need 2-3 sentences about what it is + short history. For most, we have wiki_summary only for Belém Tower. For others, we need to call wiki_summary for a few important sights maybe 4-6. Top sights lacking history: Mosteiro dos Jerónimos, São Jorge Castle, National Museum of Ancient Art, National Coach Museum. We'll call wiki_summary for each.\n\nLet's do web_search for monuments hours/ticket for Monument to the Discoveries maybe also for Jerónimos? Already have ticket. Could skip to avoid extra calls. But need hours for Monument to the Discoveries (missing). Use web_search query for Monument to the Discoveries opening hours ticket price. This will be second web_search (allowed up to 2). Also maybe also for National Museum of Ancient Art ticket price? Could combine both in same query: \"Monument to the Discoveries opening hours ticket price National Museum of Ancient Art opening hours ticket price\". Use one query. Let's do that.\n\n",
       "thought": true
      },
      {
       "function_call": {
-       "id": "chatcmpl-tool-a87b4e17a7843b96",
+       "id": "chatcmpl-tool-9e397cfe6686eecd",
        "args": {
-        "lat": 38.72509,
-        "lon": -9.1498,
-        "radius_km": 6,
-        "limit": 60
+        "query": "Monument to the Discoveries Lisbon opening hours ticket price National Museum of Ancient Art Lisbon opening hours ticket price",
+        "max_results": 3
        },
-       "name": "find_sight_hours"
+       "name": "web_search"
       }
      }
     ],
@@ -775,9 +1519,9 @@
    "finish_reason": "STOP",
    "usage_metadata": {
     "cached_content_token_count": 0,
-    "candidates_token_count": 263,
-    "prompt_token_count": 11427,
-    "total_token_count": 11690
+    "candidates_token_count": 1043,
+    "prompt_token_count": 16983,
+    "total_token_count": 18026
    }
   }
  ]

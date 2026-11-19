@@ -5,14 +5,19 @@ state["guide_paths"]. The agent's own short reply goes to "guide_reply". If the 
 reply instead of calling save_guide, the after-agent callback saves that reply, so a guide file always exists.
 Either way, every link is grounded first (grounding.py).
 """
+import re
+from datetime import date
+
 from google.adk.agents import LlmAgent
 from google.genai import types
 
 from ..config import MODEL
 from ..tools import save_guide
+from ..tools.currency import parse_number
 from .output import extract_json
 from .grounding import RESEARCH_KEYS, ground_guide_before_save, ground_markdown, known_urls
-from .prompts import BRIEF
+from .prompts import BRIEF, REQUIREMENTS
+from .review_checks import _dicts, _key, _parse, _price, check_plan, find_place
 from .retry import offer_retry_tool, retry_malformed_call
 
 ROLE = """You are the GUIDE WRITER of a trip-planning team. Write the final trip guide for the travellers in
@@ -79,6 +84,172 @@ SAVE = """WHEN THE GUIDE IS READY:
 If save_guide returns an error, fix what the reason says and call it again (at most 2 tries)."""
 
 
+COST_NAMES = {"transport": "Transport", "stay": "Stay", "food": "Food", "activities": "Activities",
+              "local_transport": "Local transport"}
+_BOLD_ITEM = re.compile(r"^\s*[-*]\s*\*\*(\d{1,2}:\d{2})\s+(.+?)\*\*", re.MULTILINE)
+
+
+def _section(text: str, heading: str) -> re.Match | None:
+    """The body of "## <heading>" (up to the next "## " heading)."""
+    return re.search(rf"^## {re.escape(heading)}[^\n]*\n(.*?)(?=^## |\Z)", text, re.MULTILINE | re.DOTALL)
+
+
+def render_cost(cost: dict) -> str:
+    """The cost estimate as Markdown, every figure from the plan's code-computed cost."""
+    rows = ["| Category | Total (€) | Share |", "|---|---|---|"]
+    rows += [f"| {COST_NAMES.get(k, k)} | {v:.2f} | {(cost.get('share_pct') or {}).get(k, 0):.1f} % |"
+             for k, v in cost["categories_eur"].items()]
+    rows.append(f"| **Total** | **{cost['total_eur']:.2f}** | |")
+    lines = ["\n".join(rows), "", f"- Per person: €{cost['per_person_eur']:.2f}",
+             f"- Per person per day: €{cost['per_person_per_day_eur']:.2f}"]
+    if cost.get("budget_eur"):
+        verdict = ("within the budget" if cost.get("within_budget")
+                   else f"€{-cost['difference_eur']:.2f} over the budget")
+        lines.append(f"- Budget €{cost['budget_eur']:.2f}: {verdict} ({cost.get('budget_used_pct')} % used)")
+    if cost.get("assumptions"):
+        lines += ["", "**Assumptions**"] + [f"- {a}" for a in cost["assumptions"]]
+    return "\n".join(lines) + "\n\n"
+
+
+def fix_cost_section(text: str, cost: dict | None) -> str:
+    """Rebuilds "## Cost estimate" from the plan's cost when the guide's figures differ from it.
+
+    A live Tallinn guide showed the stay of another hostel (€56) and a €338 total next to the plan's
+    percentages; the plan, checked by code, cost €332."""
+    match = _section(text, "Cost estimate")
+    if not (match and isinstance(cost, dict) and cost.get("categories_eur")):
+        return text
+    found = []
+    for n in re.findall(r"\d[\d.,]*\d|\d", match.group(1)):
+        try:
+            found.append(parse_number(n))
+        except ValueError:
+            continue
+    wanted = list(cost["categories_eur"].values()) + [cost["total_eur"]]
+    if all(any(abs(w - f) <= 0.51 for f in found) for w in wanted):
+        return text
+    return text[:match.start(1)] + render_cost(cost) + text[match.end(1):]
+
+
+def guide_drift(text: str, plan: dict) -> list[str]:
+    """Where the guide differs from the checked plan: another stay, or day items added or left out.
+
+    Travel items are not compared (the guide names them its own way and covers them under "Getting there")."""
+    notes = []
+    stay = plan.get("stay") if isinstance(plan.get("stay"), dict) else {}
+    where = _section(text, "Where to stay")
+    if where and stay.get("name") and _key(stay["name"]) not in _key(where.group(1).split("\n|", 1)[0]):
+        notes.append(f"The stay described in the guide is not the plan's stay: the plan and the cost use "
+                     f"'{stay['name']}' (€{stay.get('total_price_eur')} total).")
+    for day in plan.get("days") or []:
+        if not isinstance(day, dict):
+            continue
+        body = re.search(rf"^### Day {day.get('day')}\b.*?(?=^### |^## |\Z)", text, re.MULTILINE | re.DOTALL)
+        if not body:
+            continue
+        written = [name.strip() for _, name in _BOLD_ITEM.findall(body.group(0))]
+        planned = [i.get("name") for i in day.get("items") or [] if isinstance(i, dict) and i.get("name")]
+        travel = [i.get("name") for i in day.get("items") or [] if isinstance(i, dict) and i.get("kind") == "transport"]
+        added = [w for w in written if not find_place(w, [{"name": p} for p in planned])
+                 and not re.match(r"(arriv|depart|leave|fly|flight|ferry|train|bus)", w, re.I)]
+        missing = [p for p in planned if p not in travel and not find_place(p, [{"name": w} for w in written])]
+        notes += [f"Day {day.get('day')}: the guide adds '{w}', which is not in the checked plan." for w in added]
+        notes += [f"Day {day.get('day')}: the plan's '{p}' is missing from the guide." for p in missing]
+    return notes
+
+
+def open_issues(state, guide_text: str = "") -> str:
+    """A "Still to check" section: must-fix problems the code check still finds in the final plan, and where the
+    guide drifted from that plan; "" when there is nothing.
+
+    The last review round's revision is never reviewed again, and a loop can end at its round limit with
+    problems left; the travellers must see those instead of a guide that looks approved."""
+    plan = _parse(state.get("itinerary"))
+    if not plan.get("days"):
+        return ""
+    lines = [f"- {'Day ' + str(x['day']) + ': ' if x.get('day') else ''}{x['detail']}"
+             for x in check_plan(plan, state)["must_fix"]]
+    lines += [f"- {note}" for note in guide_drift(guide_text, plan)]
+    if not lines:
+        return ""
+    return ("\n\n## Still to check\nThe final code check found these points in the plan and the guide. "
+            "Check them before booking:\n" + "\n".join(lines) + "\n")
+
+
+LATE_ARRIVAL_MIN = 17 * 60   # arriving after 17:00 loses most of the first day
+EARLY_RETURN_MIN = 12 * 60   # leaving before noon loses most of the last day
+KEEPS_FIRST_DAY = 12 * 60    # an alternative arriving by noon keeps most of the first day ...
+KEEPS_LAST_DAY = 15 * 60     # ... and one leaving from 15:00 most of the last
+
+
+def _when(iso) -> tuple[str, int] | None:
+    m = re.match(r"(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})", str(iso or ""))
+    return (m.group(1), int(m.group(2)) * 60 + int(m.group(3))) if m else None
+
+
+def travel_warnings(plan: dict, state) -> list[str]:
+    """Warnings for travel times that cost most of the first or last day, with the cheapest option in the
+    transport summary that keeps the day. Not an error: a cheap early flight is a fair choice, but the
+    travellers must know what it costs them (a live Kraków plan lost its last day to an 08:50 flight)."""
+    brief = state.get("trip_brief") or {}
+    avoid = set(brief.get("avoid_modes") or [])
+    transport = plan.get("transport") if isinstance(plan.get("transport"), dict) else {}
+    summary = _parse(state.get("transport_summary"))
+    notes = []
+    for leg, key, day in (("outbound", "arrive", brief.get("start_date")), ("return", "depart", brief.get("end_date"))):
+        chosen = transport.get(leg) if isinstance(transport.get(leg), dict) else None
+        when = _when((chosen or {}).get(key))
+        if not (chosen and day and when and when[0] == day):
+            continue
+        if (when[1] < LATE_ARRIVAL_MIN) if leg == "outbound" else (when[1] >= EARLY_RETURN_MIN):
+            continue
+        better = {}
+        for option in _dicts(summary.get(leg) if isinstance(summary.get(leg), (dict, list)) else []):
+            w, price = _when(option.get(key)), _price(option.get("price_eur"))
+            if not (option.get("operator") and w and w[0] == day and price is not None) or option.get("mode") in avoid:
+                continue
+            if (w[1] <= KEEPS_FIRST_DAY) if leg == "outbound" else (w[1] >= KEEPS_LAST_DAY):
+                better[(option["operator"], option.get(key))] = option
+        stamp = f"{when[1] // 60:02d}:{when[1] % 60:02d} on {date.fromisoformat(day):%a} {date.fromisoformat(day).day} " \
+                f"{date.fromisoformat(day):%b}"
+        mode = chosen.get("mode") or "trip"
+        text = (f"Your outbound {mode} arrives at {stamp}, so most of the first day is lost." if leg == "outbound"
+                else f"Your return {mode} leaves at {stamp}, so most of the last day is lost.")
+        if better:
+            best = min(better.values(), key=lambda o: _price(o.get("price_eur")))
+            diff = _price(best.get("price_eur")) - (_price(chosen.get("price_eur")) or 0)
+            text += (f" {best['operator']} at {str(best.get(key))[11:16]} costs €{abs(diff):g} "
+                     f"{'more' if diff >= 0 else 'less'} for the group (€{_price(best.get('price_eur')):g} in total) "
+                     "and keeps most of the day.")
+        notes.append(text)
+    return notes
+
+
+def add_important(text: str, notes: list[str]) -> str:
+    """Puts the warnings right before the first section, where nobody misses them."""
+    if not notes:
+        return text
+    block = "> **Important**\n" + "\n".join(f"> - {n}" for n in notes) + "\n\n"
+    first = re.search(r"^## ", text, re.MULTILINE)
+    return text[:first.start()] + block + text[first.start():] if first else text.rstrip() + "\n\n" + block
+
+
+def finalise_guide(text: str, state) -> str:
+    """The guide as it is saved: travel-time warnings, cost figures from the plan, and "Still to check"."""
+    plan = _parse(state.get("itinerary"))
+    text = add_important(text, travel_warnings(plan, state))
+    text = fix_cost_section(text, plan.get("cost"))
+    section = open_issues(state, text)
+    return text.rstrip() + section if section else text
+
+
+def add_open_issues_before_save(tool, args, tool_context):
+    """Before-tool callback for save_guide (after link grounding): see finalise_guide."""
+    if getattr(tool, "name", "") == "save_guide" and isinstance(args.get("markdown_text"), str):
+        args["markdown_text"] = finalise_guide(args["markdown_text"], tool_context.state)
+    return None
+
+
 def _slug(brief: dict) -> str:
     return f"{brief.get('destination', 'trip')}-{brief.get('start_date', '')}-to-{brief.get('end_date', '')}"
 
@@ -103,6 +274,7 @@ def save_reply_if_not_saved(callback_context):
     if state.get("final_guide") or reply.count("\n## ") < 2:
         return None
     reply, _, _ = ground_markdown(reply, known_urls(state, RESEARCH_KEYS + ("itinerary",)))
+    reply = finalise_guide(reply, state)
     result = save_guide(reply, _slug(state.get("trip_brief") or {}), callback_context)
     if result.get("status") != "ok":
         return None
@@ -112,7 +284,7 @@ def save_reply_if_not_saved(callback_context):
 
 
 def build_guide_writer() -> LlmAgent:
-    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STRUCTURE, RULES, SAVE])
+    instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STRUCTURE, RULES, SAVE]) + REQUIREMENTS
     return LlmAgent(
         name="guide_writer",
         model=MODEL,
@@ -122,7 +294,8 @@ def build_guide_writer() -> LlmAgent:
         output_key="guide_reply",
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.3),
-        before_tool_callback=ground_guide_before_save,  # links in the guide must come from the research
+        # links in the guide must come from the research; problems the review left are listed for the travellers
+        before_tool_callback=[ground_guide_before_save, add_open_issues_before_save],
         after_agent_callback=save_reply_if_not_saved,
         before_model_callback=offer_retry_tool,
         after_model_callback=retry_malformed_call,

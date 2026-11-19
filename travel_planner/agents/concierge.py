@@ -6,13 +6,20 @@ JSON results into the same session; `hide_pipeline_events` drops those from its 
 small. The guide itself reaches the concierge through the instruction instead.
 """
 
+import re
+from datetime import date, timedelta
+
 from google.adk.agents import LlmAgent
 from google.adk.agents.readonly_context import ReadonlyContext
 from google.genai import types
 
 from .. import config
 from ..config import MODEL
+from ..models import TripBrief
 from ..tools import geocode_place, save_trip_brief
+from ..tools._result import ToolError
+from ..tools.trip import check_brief
+from .retry import offer_retry_tool, retry_malformed_call
 
 OTHER_AGENT_PREFIX = "For context:"  # how ADK presents another agent's events to the current agent
 
@@ -43,6 +50,27 @@ HOW TO WORK
 5. When save_trip_brief returns "ok", planning starts automatically (the planning team takes over and the user
    sees its progress). Do not call any other tool and do not write anything after that."""
 
+# In a live run the user asked for "the cheapest European city to fly to from Helsinki" between two dates, then
+# on to Izmir, with separate caps for transport and accommodation; the concierge asked for a city and dates three
+# times without ever saying it could not search for one.
+LIMITS = """WHAT THE PLANNING TEAM CANNOT DO
+It plans ONE trip: from the origin to one destination city on exact dates, and back to the origin. It cannot:
+- choose the destination ("the cheapest city to fly to", "somewhere warm"): nobody searches prices before the
+  brief is saved;
+- end the trip somewhere other than the origin (e.g. Helsinki -> Riga -> Izmir): the return is always
+  destination -> origin;
+- pick the cheapest days within a date window: it needs exact dates;
+- keep separate budgets for transport and accommodation: there is one total budget for the group.
+If the user asks for one of these, say plainly in one or two sentences that the service cannot do it and why,
+then offer the closest thing it can do:
+- no destination: ask the user to choose the city themselves;
+- trip ending elsewhere: plan the stay as a trip from the origin, and say the guide's return will go back to the
+  origin, so the onward flight must be booked separately;
+- date window: ask for exact dates inside the window;
+- separate caps: add them up into total_budget_eur (ask whether an accommodation cap is per night or for the whole
+  stay if that is unclear) and put the split in requirements, e.g. "transport at most 300 EUR in total".
+Never ask the same question again without first saying why you need the answer."""
+
 AFTER = """AFTER A GUIDE EXISTS
 Answer questions about the trip ONLY from the guide below; if the guide does not say, say so. If the user wants
 a different trip or changes (other dates, budget, destination), confirm the new details, save the new brief with
@@ -53,7 +81,10 @@ starts only through save_trip_brief returning "ok" (which needs the user's confi
 
 def concierge_instruction(ctx: ReadonlyContext) -> str:
     today = config.today()
-    parts = [ROLE, f"Today is {today.isoformat()} ({today:%A}).", COLLECT, AFTER]
+    parts = [ROLE, f"Today is {today.isoformat()} ({today:%A}).", COLLECT]
+    if not config.demo():  # the demo's recorded answers are keyed on the prompt it was recorded with
+        parts.append(LIMITS)
+    parts.append(AFTER)
     brief = ctx.state.get("trip_brief")
     if brief:
         parts.append(f"CURRENT SAVED TRIP BRIEF: {brief}")
@@ -61,6 +92,10 @@ def concierge_instruction(ctx: ReadonlyContext) -> str:
     paths = ctx.state.get("guide_paths")
     if guide:
         parts.append(f"THE FINISHED GUIDE (saved to {paths}):\n{guide}")
+        # in a recorded run the concierge answered a question about the Belém Tower (not in the plan) with the
+        # price of another monument
+        parts.append("FOLLOW-UP ANSWERS: name only places, prices and times written in the guide. If the user asks "
+                     "about a place the guide does not include, say so plainly; never answer with a different place.")
     else:
         parts.append("No guide has been made yet in this session.")
     return "\n\n".join(parts)
@@ -76,11 +111,29 @@ def hide_pipeline_events(callback_context, llm_request):
 
 
 PENDING_KEY = "concierge_pending_brief"
-CORE_FIELDS = ("destination", "start_date", "end_date", "origin", "travellers", "budget_tier", "total_budget_eur")
+COORD_TOLERANCE_DEG = 0.05  # ~5 km: the same geocoding result copied twice, not another place with the same name
 
 
-def _core(args: dict) -> dict:
-    return {k: args.get(k) for k in CORE_FIELDS}
+def _shown(brief: TripBrief) -> dict:
+    """The brief as the user saw it in the summary: names and interests ignore case (interests also order)."""
+    shown = brief.model_dump(mode="json")
+    for key in ("destination", "origin", "destination_country"):
+        shown[key] = (shown[key] or "").casefold() or None
+    shown["interests"] = sorted({i.strip().casefold() for i in shown["interests"]})
+    return shown
+
+
+def _same_brief(a: dict | None, b: dict) -> bool:
+    if not isinstance(a, dict) or a.keys() != b.keys():
+        return False
+    for key in b:
+        x, y = a[key], b[key]
+        if key.endswith(("_lat", "_lon")) and x is not None and y is not None:
+            if abs(x - y) > COORD_TOLERANCE_DEG:
+                return False
+        elif x != y:
+            return False
+    return True
 
 
 SAVED_KEY = "concierge_brief_saved_in"  # invocation in which save_trip_brief last returned "ok"
@@ -90,8 +143,10 @@ def require_confirmation(tool, args, tool_context):
     """Before-tool callback: save_trip_brief only saves details the user saw and confirmed in a later turn,
     and the planning pipeline only starts in the turn in which the brief was saved.
 
-    The first save_trip_brief call of a turn stores the details as pending and answers "needs_confirmation".
-    A call in a later invocation (the user has replied) with the same core details goes through.
+    The first save_trip_brief call of a turn validates the details (so the user never confirms an impossible
+    brief), stores them as pending and answers "needs_confirmation". A call in a later invocation (the user has
+    replied) with the same details goes through: every field counts, including coordinates (Paris, France is not
+    Paris, Texas), country and interests; omitted fields count as their defaults.
     transfer_to_agent is refused unless save_trip_brief returned "ok" in this invocation: in a live run the
     concierge restarted the pipeline on a follow-up question, and the research agents, given only that
     question, overwrote the research with empty results.
@@ -105,14 +160,90 @@ def require_confirmation(tool, args, tool_context):
                           "user from the guide, or if there is no guide, say so and ask whether to plan again."}
     if name != "save_trip_brief":
         return None
+    try:
+        shown = _shown(check_brief(args))
+    except ToolError as exc:
+        return {"status": "error", "reason": str(exc)}
     pending = tool_context.state.get(PENDING_KEY) or {}
-    if pending and pending.get("invocation_id") != tool_context.invocation_id and pending.get("core") == _core(args):
+    if pending and pending.get("invocation_id") != tool_context.invocation_id and _same_brief(pending.get("brief"), shown):
         tool_context.state[PENDING_KEY] = None
         return None
-    tool_context.state[PENDING_KEY] = {"invocation_id": tool_context.invocation_id, "core": _core(args)}
-    return {"status": "needs_confirmation",
-            "reason": "Not saved yet. Show the user a short summary of these details and ask them to confirm. "
-                      "When they confirm in their next message, call save_trip_brief again with the same details."}
+    tool_context.state[PENDING_KEY] = {"invocation_id": tool_context.invocation_id, "brief": shown}
+    reason = ("Not saved yet. Show the user a short summary of these details and ask them to confirm. "
+              "When they confirm in their next message, call save_trip_brief again with the same details.")
+    if shown["avoid_modes"] or shown["requirements"]:
+        reason += " Include the hard requirements (avoid_modes, requirements) in the summary."
+    return {"status": "needs_confirmation", "reason": reason}
+
+
+_MONTHS = "jan feb mar apr may jun jul aug sep oct nov dec".split()
+_DATE_TEXT = (r"\d{4}-\d{2}-\d{2}"                                       # 2026-12-02
+              r"|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}\.?,?\s+\d{4}"   # 2 Dec 2026
+              r"|[A-Za-z]{3,9}\.?\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}")  # December 2, 2026
+_DAY_DATE = re.compile(rf"(\bDay\s+(\d{{1,2}})\b[^\n\d]{{0,25}}?)({_DATE_TEXT})", re.IGNORECASE)
+# "Outbound (12 Dec 2026)" / "Return (14 Dec 2026)" for ferries on 1 and 3 December (second live Tallinn run)
+_LEG_DATE = re.compile(rf"(\b(outbound|return)\b[^\n\d]{{0,25}}?)({_DATE_TEXT})", re.IGNORECASE)
+
+
+def _parse_date(text: str) -> tuple[date, str] | None:
+    """(date, style) of a date as the concierge writes it; style is "iso", "%d %b", "%d %B", "%b %d" or "%B %d"."""
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", text):
+        return date.fromisoformat(text), "iso"
+    words = re.findall(r"[A-Za-z]+", re.sub(r"(st|nd|rd|th)\b", "", text))
+    nums = [int(n) for n in re.findall(r"\d+", text)]
+    if not words or words[0][:3].lower() not in _MONTHS or len(nums) != 2:
+        return None
+    long_name = len(words[0]) > 3
+    try:
+        d = date(nums[1], _MONTHS.index(words[0][:3].lower()) + 1, nums[0])
+    except ValueError:
+        return None
+    first_is_day = text.strip()[0].isdigit()
+    return d, ("%d %B" if long_name else "%d %b") if first_is_day else ("%B %d" if long_name else "%b %d")
+
+
+def _date_like(d: date, style: str) -> str:
+    if style == "iso":
+        return d.isoformat()
+    if style.startswith("%d"):
+        return f"{d.day} {d.strftime(style[3:])} {d.year}"
+    return f"{d.strftime(style[:2])} {d.day}, {d.year}"
+
+
+def fix_day_dates(callback_context, llm_response):
+    """After-model callback: a date written next to "Day N" must be that trip day's date, and an "Outbound" or
+    "Return" date outside the trip becomes the trip's first or last day.
+
+    In a live run the concierge answered about "Day 2 (12 Dec 2026)" for a trip on 1-3 December; the guide said
+    2026-12-02. Only such day-and-date pairs are corrected; the rest of the answer is left as it is."""
+    brief = callback_context.state.get("trip_brief") or {}
+    try:
+        start, end = date.fromisoformat(brief["start_date"]), date.fromisoformat(brief["end_date"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    changed = False
+
+    def fix(m: re.Match) -> str:
+        nonlocal changed
+        parsed, n = _parse_date(m.group(3)), int(m.group(2))
+        want = start + timedelta(days=n - 1)
+        if parsed is None or not 1 <= n <= (end - start).days + 1 or parsed[0] == want:
+            return m.group(0)
+        changed = True
+        return m.group(1) + _date_like(want, parsed[1])
+
+    def fix_leg(m: re.Match) -> str:  # only a date outside the trip is wrong (an overnight trip may arrive later)
+        nonlocal changed
+        parsed = _parse_date(m.group(3))
+        if parsed is None or start <= parsed[0] <= end:
+            return m.group(0)
+        changed = True
+        return m.group(1) + _date_like(start if m.group(2).lower() == "outbound" else end, parsed[1])
+
+    for part in (llm_response.content.parts if llm_response.content else None) or []:
+        if part.text and not part.thought:
+            part.text = _LEG_DATE.sub(fix_leg, _DAY_DATE.sub(fix, part.text))
+    return llm_response if changed else None
 
 
 PIPELINE_NAME = "planning_pipeline"
@@ -139,7 +270,9 @@ def build_concierge(planning_pipeline) -> LlmAgent:
         instruction=concierge_instruction,
         tools=[geocode_place, save_trip_brief],
         sub_agents=[planning_pipeline],
-        before_model_callback=hide_pipeline_events,
+        before_model_callback=[hide_pipeline_events, offer_retry_tool],
+        # a tool call with invalid JSON gets another try; "Day N" dates in answers must match the trip
+        after_model_callback=[retry_malformed_call, fix_day_dates],
         before_tool_callback=require_confirmation,
         after_tool_callback=note_saved_brief,
         generate_content_config=types.GenerateContentConfig(temperature=0.3),

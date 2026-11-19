@@ -73,6 +73,7 @@ def test_demo_switches_cache_dir_offline_and_today(monkeypatch):
     assert not config.offline() and config.cache_dir() == config.DEMO_CACHE_DIR
     monkeypatch.delenv("DEMO")
     monkeypatch.delenv("DEMO_RECORD")
+    monkeypatch.delenv("TODAY")  # conftest pins it for the other tests
     assert config.today() == date.today() and not config.llm_cache_on()
 
 
