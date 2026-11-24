@@ -52,8 +52,8 @@ describe("run reducer on the recorded Lisbon demo", () => {
     expect(final.agents.planning_pipeline.status).toBe("done");
   });
 
-  it("pairs all 55 tool calls with their results", () => {
-    expect(final.toolOrder).toHaveLength(55);
+  it("pairs all 52 tool calls with their results", () => {
+    expect(final.toolOrder).toHaveLength(52);
     expect(Object.values(final.tools).every((t) => t.status !== "running")).toBe(true);
   });
 
@@ -65,13 +65,12 @@ describe("run reducer on the recorded Lisbon demo", () => {
     expect(final.agents.transport_comparer.spans[0].start).toBeGreaterThan(transfer.at);
   });
 
-  it("runs each plan's review loop afresh; the code guard's escalation leaves no extra round", () => {
-    // in this recording the first plan ended with exit_loop in round 3; the re-plan was approved in round 2 and
-    // code ended the loop (the reviser changed the approved plan): that escalation comes from an after-agent
-    // callback, after the tree had started round 3. The first loop's exit must not end the second loop early.
-    expect((replay.final_state!.revision_log as { exit?: string }[]).at(-1)!.exit).toBe("forced by code");
+  it("runs each plan's review loop afresh; the loop's exit leaves no extra round", () => {
+    // in this recording each plan was approved in round 2 and the reviser ended its loop with exit_loop (for the
+    // re-plan, code approved over the critic's REVISE). The first loop's exit must not end the second loop early.
+    expect((replay.final_state!.revision_log as { exit?: string }[]).at(-1)!.exit).toBe("exit_loop");
     expect(final.agents.review_loop.rounds).toBe(2);
-    expect(final.agents.plan_critic.spans).toHaveLength(5);  // 3 rounds, then 2
+    expect(final.agents.plan_critic.spans).toHaveLength(4);  // 2 rounds, then 2
     expect(final.agents.review_loop.status).toBe("done");
     expect(final.agents.review_loop.spans).toHaveLength(2);  // one review per plan
     expect(final.escalated.review_loop).toBe(true);

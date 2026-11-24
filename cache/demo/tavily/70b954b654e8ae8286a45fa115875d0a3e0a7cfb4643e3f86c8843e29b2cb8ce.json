@@ -1,0 +1,66 @@
+{
+ "request": {
+  "method": "POST",
+  "url": "https://api.tavily.com/search",
+  "params": {},
+  "json": {
+   "query": "FlixBus Helsinki to Lisbon price 2027",
+   "max_results": 5,
+   "search_depth": "basic",
+   "include_answer": true
+  },
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795537937.8912737,
+ "response": {
+  "query": "FlixBus Helsinki to Lisbon price 2027",
+  "follow_up_questions": null,
+  "answer": "The sources do not provide a definitive price for a FlixBus ticket from Helsinki to Lisbon in 2027. The information available indicates that the journey takes as little as 70 hours 40 minutes and can cost as little as 176,95 €, but these details are for unspecified years. There is no direct information about the 2027 ticket price.",
+  "images": [],
+  "results": [
+   {
+    "url": "https://global.flixbus.com/bus-routes/bus-helsinki-lisbon",
+    "title": "Bus Helsinki to Lisbon - Buy affordable tickets",
+    "content": "### Are weekend trips available from Helsinki to Lisbon?\n\n## Looking for bus tickets from Helsinki to Lisbon?\n\nLook no further, we’ve got all the details you need to plan your bus trip! The journey Helsinki to Lisbon takes as little as\n\n70 hours 40 minutesand can cost as little as\n\n176,95 €. The first bus leaves at\n\n14:55and the last bus leaves at\n\n22:30. FlixBus runs [...] # Cheap bus tickets from Helsinki to Lisbon\n\nfrom 176,95 €\n\n## Connecting you to the world\n\nEndless possibilities. Discover over 8,000 destinations across more than 40 countries.\n\n## Comfort on the go\n\nKick back with free Wi-Fi, power outlets, and extra leg space. That's what modern buses are all about.\n\n## Choose, book, travel\n\nFrom your screen to your seat in seconds. You do the booking, we'll take care of the rest.\n\n## Go together [...] 7 rideseach day between Helsinki and Lisbon and when travelling with FlixBus, you can expect free Wifi, power sockets and a guaranteed seat for your journey.",
+    "score": 0.49081525,
+    "raw_content": null,
+    "id": "840c72-00"
+   },
+   {
+    "url": "https://global.flixbus.com/bus-routes/bus-lisbon-helsinki",
+    "title": "Bus Lisbon to Helsinki - Buy affordable tickets",
+    "content": "### Are weekend trips available from Lisbon to Helsinki?\n\n## Looking for bus tickets from Lisbon to Helsinki?\n\nLook no further, we’ve got all the details you need to plan your bus trip! The journey Lisbon to Helsinki takes as little as\n\n70 hours 50 minutesand can cost as little as\n\n149,98 €. The first bus leaves at\n\n05:30and the last bus leaves at\n\n23:00. FlixBus runs [...] 4 rideseach day between Lisbon and Helsinki and when travelling with FlixBus, you can expect free Wifi, power sockets and a guaranteed seat for your journey. [...] Best service on board\n\nAvailable options you can find for a more comfortable trip:\n\nFree WiFi\n\nStay connected throughout your journey\n\nPower Outlets\n\nKeep your devices charged on the go\n\nComfortable seats\n\nRelax with extra legroom and reclining seats\n\nLuggage storage\n\nSpace to safely stow your belongings\n\nToilets\n\nConveniently available on every FlixBus\n\nFirst time travelling with us?\n\nMore on our service\n\nOnboard services are subject to availability\n\n## Frequently asked questions",
+    "score": 0.3709087,
+    "raw_content": null,
+    "id": "3ed2ca-01"
+   },
+   {
+    "url": "https://global.flixbus.com/bus-routes/bus-helsinki-lisbon-airport",
+    "title": "Bus Helsinki to Lisbon (Airport) - Buy affordable tickets",
+    "content": "Power Outlets\n\nKeep your devices charged on the go\n\nComfortable seats\n\nRelax with extra legroom and reclining seats\n\nLuggage storage\n\nSpace to safely stow your belongings\n\nToilets\n\nConveniently available on every FlixBus\n\nFirst time travelling with us?\n\nMore on our service\n\nOnboard services are subject to availability\n\n## Frequently asked questions\n\n### How long does it take from Helsinki to Lisbon (Airport) by bus?\n\n### How much is the bus ticket between Helsinki and Lisbon (Airport)? [...] # Cheap bus tickets from Helsinki to Lisbon (Airport)\n\nfrom 189,45 €\n\n## Connecting you to the world\n\nEndless possibilities. Discover over 8,000 destinations across more than 40 countries.\n\n## Comfort on the go\n\nKick back with free Wi-Fi, power outlets, and extra leg space. That's what modern buses are all about.\n\n## Choose, book, travel\n\nFrom your screen to your seat in seconds. You do the booking, we'll take care of the rest.\n\n## Go together [...] 14:55. FlixBus runs daily rides between Helsinki and Lisbon (Airport) and when travelling with FlixBus, you can expect free Wifi, power sockets and a guaranteed seat for your journey.",
+    "score": 0.36772424,
+    "raw_content": null,
+    "id": "6fb874-02"
+   },
+   {
+    "url": "https://www.rome2rio.com/Bus/Helsinki/Lisbon",
+    "title": "Helsinki to Lisbon Buses | 7-Day Timetable",
+    "content": "No, there is no direct bus from Helsinki to Lisbon. However, there are services departing from Helsinki, Harbour Terminal 2 station and arriving at Lisbon station via Berlin, Zentralen Omnibusbahnhof station and Paris, Quai de Bercy (Bercy Seine) station. The journey, including transfers, takes approximately 2 days 16h.\n\nHelsinki to Lisbon bus services, operated by FlixBus, depart from Helsinki, Harbour Terminal 2 station. [...] Helsinki to Lisbon bus services, operated by FlixBus, arrive at Lisbon station.\n\nBook your Helsinki to Lisbon bus tickets online with Omio and FlixBus.\n\nThe distance between Helsinki and Lisbon is 3360.3 km. The road distance is 5388 km.\n\nYou can take a bus from Helsinki, Harbour Terminal 2 to Lisbon via Berlin, Zentralen Omnibusbahnhof and Paris, Quai de Bercy (Bercy Seine) in around 2d 19h.\n\nBus Exterior\n\nRoute One\n\nFlixbus\n\nFlixbus interior\n\nBlaBlaBus at Saint-Denis\n\nWikipedia\n\nBus interior",
+    "score": 0.3523132,
+    "raw_content": null,
+    "id": "f488f3-03"
+   },
+   {
+    "url": "https://www.flixbus.com/bus/lisbon",
+    "title": "Affordable Bus tickets to Lisbon",
+    "content": "Not sure where the bus stops are in Lisbon? We've got you covered. Check out the map on this page for their locations.\n\n   How much does it cost to get to Lisbon? \n\nPrices for a bus to Lisbon starts at just $4.48, depending on your starting point.\n\n   How do I use my FlixBus ticket to Lisbon? Do I need to print it? [...] ## What to expect of your trip\n\nFast, easy, and affordable options from / to Lisbon\n\n# 3\n\n#### Number of bus stops\n\nCard icon\n\n# 136\n\n#### Directly reachable cities\n\nCard icon\n\n#### Cheapest trip\n\n# From $4.48\n\nCard icon\n\nSafe Payment\n\nUse Paypal, Google Pay, Visa & International cards\n\nEasy to buy\n\nGet your tickets online, in our App, or in a Flixshop\n\nCustomer care\n\nEffortless support from booking to travel\n\n## Digital ticket & Live tracking\n\nDiscover the FlixBus app\n\nBook trips [...] Lisbon is a major city of the old European world that still hasn’t completely been taken over by modernity and it’s a great time for a FlixBus trip there to catch a glimpse before everyone else. Book your Flixbus ticket now! A bus trip to Lisbon with free Wi-Fi and spacious seats – imagine that! Booking is easy – online, at a sales point, or with our FlixBusApp. Payment options are many and simple: credit card, Paypal, Google Pay, Apple Pay – or even with cash onboard or at a sales point. Bus",
+    "score": 0.31038076,
+    "raw_content": null,
+    "id": "725f6e-04"
+   }
+  ],
+  "response_time": 4.71,
+  "request_id": "113fa983-96d9-46b0-9383-b342c6eb5668"
+ }
+}

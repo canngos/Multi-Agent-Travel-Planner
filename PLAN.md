@@ -556,6 +556,10 @@ Goal: fix every finding of `reports/stress-test-2026-11-19/REPORT.md` (33 live c
   scenarios re-run live (`reports/stress-test-2026-11-19/AFTER.md`, `runs-after/`). The second run found 11 more
   problems (arrival day counted as full, comma-separated opening hours, the recommendation and the Important box
   picking off-day options, "cheaper hotel" giving a dearer one, the card warning, the language rule); all fixed
+- [x] (2026-11-24) Web fares priced in code: a live Tallinn-Riga run for two stored the €24 per-person bus fare as
+  the total. The ground searcher now copies `fare_per_person_eur` (its own output shape) and `price_web_fares`
+  sets `price_eur` = fare x travellers (`tests/test_web_fares.py`). Demo re-recorded (52 tool calls, both review
+  loops approved in round 2), UI replay, `run.test.ts` and `docs/DEMO.md` updated
 
 ---
 

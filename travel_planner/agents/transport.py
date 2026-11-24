@@ -77,6 +77,13 @@ TransportOption = {"mode": "flight"|"train"|"bus"|"ferry", "operator": str, "dep
   "price_source": "live"|"web_estimate"|null (required when price_eur is set), "source": str, "url": str, "details": str}
 price_eur is the TOTAL for all travellers. Copy each option from the tool result; keep its details text."""
 
+# The ground searcher's fares come from web pages, per person: it copies that number and code prices the group
+GROUND_SHAPE = TRANSPORT_SHAPE.replace(
+    '"price_eur": number|null,', '"fare_per_person_eur": number|null, "price_eur": null,').replace(
+    "price_eur is the TOTAL for all travellers.",
+    "fare_per_person_eur is the one-way fare for ONE person as the page gives it; leave price_eur null, the code "
+    "sets it to the total for all travellers.")
+
 FLIGHT_ROLE = """You are the FLIGHT SEARCHER of a trip-planning team. Find flights from the origin to the destination
 on start_date (outbound) and back on end_date (return) for all travellers."""
 
@@ -108,18 +115,19 @@ GROUND_STEPS = """STEPS
    If the brief lacks coordinates, call geocode_place for origin and destination first.
 2. Prices: Transitous gives schedules only. For the main operator of the best connection, call web_search once
    per direction at most, e.g. "Tallink Helsinki Tallinn ferry ticket price". From a result, take a typical
-   one-way fare per person, multiply by travellers, set price_eur to it, price_source "web_estimate",
-   source "transitous+tavily", and add "fare from <page url>" to details. If no fare is found, keep price_eur null.
+   one-way fare PER PERSON and copy it, as the page gives it, into fare_per_person_eur; set price_source
+   "web_estimate", source "transitous+tavily", and add "fare from <page url>" to details. Leave price_eur null:
+   the code multiplies the fare by the travellers. If no fare is found, leave both null.
    Keep "TYPICAL TIMETABLE" notes in details unchanged: those times come from a nearer date and must be checked.
 FALLBACK: if plan_public_transport fails or finds nothing, call web_search
 "<origin> to <destination> train bus ferry timetable price" and report what the pages say
-(price_source "web_estimate", source "tavily", url = the page).
+(fare_per_person_eur as above, price_source "web_estimate", source "tavily", url = the page).
 If the only ground routes take more than 24 hours (e.g. Helsinki to Lisbon), report at most one per direction
 and say in "notes" that ground travel is impractical for this trip.
 Otherwise keep up to 3 connections per direction (different departure times or operators)."""
 
 GROUND_EXAMPLE = """{"outbound": [{"mode": "ferry", "operator": "Tallink", "depart": "2026-12-01T07:30", "arrive": "2026-12-01T10:30",
-  "duration_min": 180, "stops": 2, "price_eur": 70.0, "price_source": "web_estimate", "source": "transitous+tavily",
+  "duration_min": 180, "stops": 2, "fare_per_person_eur": 35.0, "price_eur": null, "price_source": "web_estimate", "source": "transitous+tavily",
   "url": "https://www.tallink.com/", "details": "tram 7 (HSL): Rautatientori → Länsiterminaali | ferry (Tallink): Helsinki → Tallinn; fare from https://www.example.com/fares"}],
  "return": [], "fallback_links": [], "notes": "Return connection not found by Transitous; fares are web estimates."}"""
 
@@ -253,15 +261,44 @@ def keep_car_ferry(callback_context):
     return None
 
 
+def price_web_fares(callback_context):
+    """After-agent callback of the ground searcher (before grounding): a web fare is copied per person
+    (fare_per_person_eur) and the group total is computed here. A live Tallinn-Riga run for two set price_eur to the
+    €24 per-person bus fare, so the plan and its cost counted half the tickets while the guide said €48."""
+    state = callback_context.state
+    n = int((state.get("trip_brief") or {}).get("travellers") or 1)
+    try:
+        data = extract_json(state.get("ground_options") or "")
+    except ValueError:
+        return None
+    changed = False
+    for leg in ("outbound", "return"):
+        for option in data.get(leg) or []:
+            if not isinstance(option, dict) or "fare_per_person_eur" not in option:
+                continue
+            fare = option.pop("fare_per_person_eur")
+            changed = True
+            if isinstance(fare, (int, float)) and not isinstance(fare, bool) and fare >= 0:
+                option["price_eur"] = round(float(fare) * n, 2)
+                option["price_source"] = "web_estimate"
+                if n > 1:
+                    option["details"] = (str(option.get("details") or "")
+                                         + f"; price is €{fare:g} per person x {n} travellers").strip("; ")
+    if changed:
+        _rewrite(state, "ground_options", data)
+    return None
+
+
 def build_ground_searcher():
     return research_agent(
         name="ground_searcher",
         description="Finds train, bus and ferry connections with estimated fares.",
-        role=GROUND_ROLE, steps=GROUND_STEPS, shape=TRANSPORT_SHAPE, example=GROUND_EXAMPLE,
+        role=GROUND_ROLE, steps=GROUND_STEPS, shape=GROUND_SHAPE, example=GROUND_EXAMPLE,
         tools=[plan_public_transport, web_search, geocode_place],
         output_key="ground_options",
         max_calls=6,
         before_agent_callback=skip_when_excluded({"train", "bus", "ferry"}, "ground_options", "train, bus or ferry"),
         before_tool_callback=snap_transit_points,
-        before_grounding=[keep_car_ferry],  # an own-car trip over the sea keeps the routing tool's car ferry
+        # web fares per person -> group totals; an own-car trip over the sea keeps the routing tool's car ferry
+        before_grounding=[price_web_fares, keep_car_ferry],
     )
