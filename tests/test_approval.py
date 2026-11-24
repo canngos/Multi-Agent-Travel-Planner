@@ -20,7 +20,7 @@ def test_present_plan_shows_the_days_and_waits_for_approval():
     text = content.parts[0].text
     assert state["plan_status"] == "awaiting_approval" and state["plan_summary"] in text
     assert "**Day 2 (Wed 2027-05-12):** 10:30 MUDE - Museu do Design · 12:30 Taberna Nearby" in text
-    assert "- **Stay:** Cheap Hostel (Baixa), 150 EUR in total" in text and "looks good" in text
+    assert "- **Stay:** Cheap Guesthouse (Baixa), 150 EUR in total" in text and "looks good" in text
     assert "A REVIEWED PLAN IS WAITING" in approval.awaiting_block(state)
 
 

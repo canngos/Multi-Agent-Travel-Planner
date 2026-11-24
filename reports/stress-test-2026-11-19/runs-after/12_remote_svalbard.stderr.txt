@@ -1,0 +1,17 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+tool plan_public_transport failed: No public-transport connection found for this route and day
+tool find_restaurants failed: Overpass unavailable (overpass-api.de: HTTP 502: # 502 Gateway Timeout
+
+This Overpass API server is currently at capacity. All query workers are busy
+and the request queue is full.
+
+## What to do
+
+Retry your request using exponential backoff: wait a | maps.mail.ru: HTTP 504: <html>
+<head><title>504 Gateway Time-out</title></head>
+<body>
+<center><h1>504 Gateway Time-out</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+). Use Wikivoyage 'Eat' listings instead.

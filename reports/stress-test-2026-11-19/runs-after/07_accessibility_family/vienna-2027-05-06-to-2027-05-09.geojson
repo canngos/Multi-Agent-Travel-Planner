@@ -1,0 +1,324 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.4327838,
+     48.2442299
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Citadines Danube Vienna",
+    "url": "https://www.booking.com/searchresults.html?ss=Citadines+Danube+Vienna%2C+Vienna&checkin=2027-05-06&checkout=2027-05-09&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.365952,
+     48.204384
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Burggarten",
+    "url": "https://opentripmap.com/en/card/W8063831"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.361786,
+     48.208035
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Volksgarten",
+    "url": "https://opentripmap.com/en/card/W8063768"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.359667,
+     48.211517
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "Rathauspark",
+    "url": "https://opentripmap.com/en/card/R7735480"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.366645,
+     48.205095
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "13:45",
+    "kind": "restaurant",
+    "name": "Palmenhaus",
+    "url": "http://www.palmenhaus.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37771,
+     48.224445
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Augarten",
+    "url": "https://opentripmap.com/en/card/W8044066"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.370594,
+     48.206486
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-05-06",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Le Bol",
+    "url": "http://www.lebol.at"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.379677,
+     48.204769
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Stadtpark",
+    "url": "https://opentripmap.com/en/card/W551031461"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.373155,
+     48.203792
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "House of Music (Haus der Musik)",
+    "url": "https://en.wikipedia.org/wiki/Haus_der_Musik"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.376916,
+     48.208693
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Inigo",
+    "url": "http://inigo.at/restaurant/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.358545,
+     48.206947
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Grete-Rehor-Park",
+    "url": "https://opentripmap.com/en/card/W8083418"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.378724,
+     48.207607
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Plachutta",
+    "url": "https://www.plachutta-wollzeile.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.374933,
+     48.208218
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Mozarthaus Vienna",
+    "url": "https://www.mozarthausvienna.at/en/plan-your-visit"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.373,
+     48.2085
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "St. Stephen's Cathedral (Stephansdom)",
+    "url": "https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Vienna"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.374494,
+     48.209199
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Figlmüller",
+    "url": "http://www.figlmueller.at/en/figlmueller-wollzeile-en.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.367949,
+     48.200863
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Girardipark",
+    "url": "https://opentripmap.com/en/card/R2906770"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37407,
+     48.206368
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Artner am Franziskanerplatz",
+    "url": "http://www.artner.co.at/"
+   }
+  }
+ ]
+}

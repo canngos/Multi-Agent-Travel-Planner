@@ -1,0 +1,31 @@
+{
+ "id": "22_ambiguous_city",
+ "title": "Ambiguous city name (Valencia / Springfield)",
+ "turns": [
+  {
+   "user": "4 days in Springfield, 2 adults, from Helsinki, 10-13 June 2027, mid budget 3000 euros.",
+   "seconds": 9.9,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Could you let me know which Springfield you’d like to visit (e.g., Springfield, Illinois, USA or Springfield, UK, etc.)? Also, are there any particular interests (history, food, nightlife, etc.) you’d like the plan to focus on?"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 9.871377500006929,
+   "last": 9.871377500006929
+  }
+ },
+ "seconds": 9.9,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

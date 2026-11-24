@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Casa Asia",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129492.1805682,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "ns": 0,
+     "title": "Casa Asia",
+     "missing": true,
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "fullurl": "https://en.wikipedia.org/wiki/Casa_Asia",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Casa_Asia&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Casa_Asia"
+    }
+   ]
+  }
+ }
+}

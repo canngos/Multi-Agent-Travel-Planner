@@ -17,7 +17,7 @@ from .comparers import build_stay_comparer, build_transport_comparer
 from .culture import build_culture_agent
 from .food import build_food_agent
 from .replan import skip_branch
-from .stay import build_airbnb_searcher, build_hotel_searcher
+from .stay import build_airbnb_searcher, build_hotel_searcher, skip_without_stay
 from .transport import build_flight_searcher, build_ground_searcher
 
 RESEARCH_KEYS = ("flight_options", "ground_options", "transport_summary", "airbnb_options", "hotel_options",
@@ -40,7 +40,8 @@ def build_stay_team() -> SequentialAgent:
     return SequentialAgent(
         name="stay_team",
         description="Searches Airbnb and hotels in parallel, then compares them per neighbourhood.",
-        before_agent_callback=skip_branch("stay"),
+        # no stay needed (a hard fact the user stated), or a re-plan that keeps the stay research
+        before_agent_callback=[skip_without_stay, skip_branch("stay")],
         sub_agents=[
             ParallelAgent(name="stay_search", sub_agents=[build_airbnb_searcher(), build_hotel_searcher()]),
             build_stay_comparer(),

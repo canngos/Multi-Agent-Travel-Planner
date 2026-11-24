@@ -1,0 +1,43 @@
+{
+ "id": "17_past_dates",
+ "title": "Dates in the past",
+ "turns": [
+  {
+   "user": "Plan 3 days in Prague, 10-12 March 2026, 2 adults from Helsinki, mid budget 1000 euros.",
+   "seconds": 20.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The dates you gave (10‑12 March 2026) are already past. Could you let me know new start and end dates for your 3‑day Prague trip (any future dates that work for you)?"
+    }
+   ]
+  },
+  {
+   "user": "Yes those dates, 10-12 March 2026.",
+   "seconds": 2.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but I can’t create a travel plan for dates that have already passed. Could you please provide new, future dates for your 3‑day visit to Prague? Once we have a valid date range, I’ll be able to collect the remaining details and get your trip planned."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> error Invalid trip brief - start_date: 2026-03-10 is in the past (today is 2026-11-19)"
+ ],
+ "tool_calls": 3,
+ "agents": {
+  "concierge": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 5.457383000000846,
+   "last": 22.650714399991557
+  }
+ },
+ "seconds": 22.7,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

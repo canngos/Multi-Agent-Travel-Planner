@@ -1,0 +1,62 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/R9426989",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129145.4245207,
+ "response": {
+  "xid": "R9426989",
+  "name": "Estátua equestre de D. José I",
+  "address": {
+   "city": "Santa Maria Maior",
+   "road": "Rua da Prata",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Baixa",
+   "country": "Portugal",
+   "postcode": "1149-027",
+   "address29": "Praça do Comércio",
+   "country_code": "pt",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "relation/9426989",
+  "bbox": {
+   "lon_min": -9.136547,
+   "lon_max": -9.136371,
+   "lat_min": 38.707459,
+   "lat_max": 38.707583
+  },
+  "wikidata": "Q18476235",
+  "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/d-jose-i",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/R9426989",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Est%C3%A1tua%20equestre%20de%20D.%20Jos%C3%A9%20I",
+  "image": "https://commons.wikimedia.org/wiki/File:P3079533_%286251172955%29.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/P3079533_%286251172955%29.jpg/300px-P3079533_%286251172955%29.jpg",
+   "height": 400,
+   "width": 300
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Estátua equestre de D. José I",
+   "text": "A estátua equestre de D. José I situa-se na Praça do Comércio, na cidade de Lisboa, em Portugal, e é da autoria do escultor Joaquim Machado de Castro. É uma obra escultórica notável: trata-se da primeira estátua equestre realizada em Portugal, sendo também, neste país, o primeiro monumento escultórico na via pública dedicado a uma pessoa viva. Foi, ainda, a primeira estátua das suas dimensões a ser fundida de um só jacto, em Portugal, e uma das primeiras a sê-lo no mundo.",
+   "html": "<p>A <b>estátua equestre de D. José I</b> situa-se na Praça do Comércio, na cidade de Lisboa, em Portugal, e é da autoria do escultor Joaquim Machado de Castro. É uma obra escultórica notável: trata-se da primeira estátua equestre realizada em Portugal, sendo também, neste país, o primeiro monumento escultórico na via pública dedicado a uma pessoa viva. Foi, ainda, a primeira estátua das suas dimensões a ser fundida de um só jacto, em Portugal, e uma das primeiras a sê-lo no mundo.</p>"
+  },
+  "point": {
+   "lon": -9.13646125793457,
+   "lat": 38.70751953125
+  }
+ }
+}

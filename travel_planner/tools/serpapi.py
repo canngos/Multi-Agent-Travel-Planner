@@ -5,6 +5,7 @@ blocks fast-flights does not apply. Every search costs quota, so replies are cac
 (flights 12 h, hotels 24 h) and trimmed to the fields we use before caching.
 """
 import asyncio
+import re
 from datetime import date
 
 from ..models import StayOption, TransportOption
@@ -157,10 +158,19 @@ def describe_property(p: dict) -> str:
     return "; ".join(bits)
 
 
+HOSTEL = re.compile(r"host[ae]l|\bdorm|backpack|capsule", re.IGNORECASE)  # "hostal": a Spanish budget inn
+HOSTEL_NOTE = "hostel: the price may be for dorm beds, not a private room; check the room type"
+MAX_ADULTS_PER_SEARCH = 6  # Google Hotels (SerpApi) fails above this; a bigger group is searched per room
+
+
+def is_hostel(name, details="", kind="") -> bool:
+    return bool(HOSTEL.search(" ".join(str(x or "") for x in (name, details, kind))))
+
+
 @safe_tool
 async def search_google_hotels(
     area: str, checkin: str, checkout: str, adults: int = 2, sort_by: str = "relevance", min_rating: float = 0.0,
-    max_results: int = 10,
+    max_results: int = 10, hotel_class: str = "", exclude_hostels: bool = False, rooms: int = 1,
 ) -> dict:
     """Hotel prices from Google Hotels via SerpApi (second hotel source next to
     search_hotel_rates; each call uses quota, so call it once per area).
@@ -172,11 +182,14 @@ async def search_google_hotels(
         area: City or neighbourhood, e.g. "Lisbon" or "Alfama, Lisbon".
         checkin: Check-in date, ISO "YYYY-MM-DD".
         checkout: Check-out date, ISO "YYYY-MM-DD".
-        adults: Number of adults in one room.
+        adults: Number of adults in total.
         sort_by: "relevance", "lowest_price", "highest_rating" or "most_reviewed".
             "lowest_price" alone mostly finds hostels: combine it with min_rating.
         min_rating: Minimum Google rating: 0 (any), 3.5, 4.0 or 4.5.
         max_results: Max hotels to return (max 15).
+        hotel_class: Star classes to keep, e.g. "3,4,5" ("" = any).
+        exclude_hostels: Leave hostels out.
+        rooms: Number of rooms; the adults are spread over them and the price is the total for all rooms.
     """
     nights = (date.fromisoformat(checkout) - date.fromisoformat(checkin)).days
     if nights < 1:
@@ -185,17 +198,29 @@ async def search_google_hotels(
         raise ToolError(f"sort_by must be one of {list(HOTEL_SORT)}")
     if min_rating and float(min_rating) not in HOTEL_MIN_RATING:
         raise ToolError(f"min_rating must be 0 or one of {list(HOTEL_MIN_RATING)}")
+    classes = ",".join(c for c in re.findall(r"[1-5]", str(hotel_class or "")))
+    adults, rooms = max(1, int(adults)), max(1, int(rooms))
+    if adults > MAX_ADULTS_PER_SEARCH:  # a big group: price one room and multiply
+        rooms = max(rooms, -(-adults // 2))
+    rooms = min(rooms, adults)
+    per_room = -(-adults // rooms)  # the fullest room sets the price searched
     params = {"engine": "google_hotels", "q": area.strip(), "check_in_date": checkin, "check_out_date": checkout,
-              "adults": int(adults)}
+              "adults": per_room}
     if HOTEL_SORT[sort_by]:
         params["sort_by"] = HOTEL_SORT[sort_by]
     if min_rating:
         params["rating"] = HOTEL_MIN_RATING[float(min_rating)]
+    if classes:
+        params["hotel_class"] = classes
     data = await _search(params, slim=slim_hotels, max_age_s=24 * 3600)
     props = [p for p in data.get("properties", []) if (p.get("gps_coordinates") or {}).get("latitude") is not None]
+    if exclude_hostels:
+        props = [p for p in props if not is_hostel(p.get("name"), kind=p.get("type"))]
     if not props:
         raise ToolError(f"Google Hotels returned no priced hotels for '{area}' on these dates")
     props = props[: max(1, min(int(max_results), 15))]
+    if rooms > 1:
+        props = [{**p, "total": round(p["total"] * rooms, 2)} for p in props]
     areas = await asyncio.gather(
         *(neighbourhood(p["gps_coordinates"]["latitude"], p["gps_coordinates"]["longitude"]) for p in props)
     )
@@ -212,8 +237,11 @@ async def search_google_hotels(
             rating=p.get("overall_rating"),
             price_source="live",
             source="google_hotels (serpapi)",
-            url=booking_url(f"{p['name']}, {city}", checkin, checkout, int(adults)),
-            details=describe_property(p),
+            url=booking_url(f"{p['name']}, {city}", checkin, checkout, adults, rooms),
+            details="; ".join(x for x in (
+                f"total for {rooms} rooms ({per_room} adults each)" if rooms > 1 else "",
+                describe_property(p),
+                HOSTEL_NOTE if is_hostel(p["name"], kind=p.get("type")) else "") if x),
         )
         for p, hood in zip(props, areas)
     ]

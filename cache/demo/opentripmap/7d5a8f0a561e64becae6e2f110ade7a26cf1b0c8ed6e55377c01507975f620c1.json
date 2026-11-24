@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457844770",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129204.0592675,
+ "response": {
+  "xid": "N5457844770",
+  "name": "Dighton Rock",
+  "address": {
+   "city": "Belém",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Belém",
+   "country": "Portugal",
+   "postcode": "1400-206",
+   "country_code": "pt",
+   "neighbourhood": "Restelo",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457844770",
+  "wikidata": "Q3098851",
+  "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/pedra-de-dighton-escultura",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457844770",
+  "wikipedia": "https://en.wikipedia.org/wiki/Dighton%20Rock",
+  "image": "https://commons.wikimedia.org/wiki/File:Dighton_Rock-Davis_photograph.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Dighton_Rock-Davis_photograph.jpg/400px-Dighton_Rock-Davis_photograph.jpg",
+   "height": 273,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:Dighton Rock",
+   "text": "The Dighton Rock is a 40-ton boulder, originally located in the riverbed of the Taunton River at Berkley, Massachusetts (formerly part of the town of Dighton). The rock is noted for its petroglyphs (\"primarily lines, geometric shapes, and schematic drawings of people, along with writing, both verified and not.\"), carved designs of ancient and uncertain origin, and the controversy about their creators. In 1963, during construction of a coffer dam, state officials removed the rock from the river for preservation. It was installed in a museum in a nearby park, Dighton Rock State Park. In 1971 it was listed on the National Register of Historic Places (NRHP).",
+   "html": "<p>The <b>Dighton Rock</b> is a 40-ton boulder, originally located in the riverbed of the Taunton River at Berkley, Massachusetts (formerly part of the town of Dighton). The rock is noted for its petroglyphs (\"primarily lines, geometric shapes, and schematic drawings of people, along with writing, both verified and not.\"), carved designs of ancient and uncertain origin, and the controversy about their creators. In 1963, during construction of a coffer dam, state officials removed the rock from the river for preservation. It was installed in a museum in a nearby park, Dighton Rock State Park. In 1971 it was listed on the National Register of Historic Places (NRHP).</p>"
+  },
+  "point": {
+   "lon": -9.208364486694336,
+   "lat": 38.6974983215332
+  }
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.518812999999998,
+     50.437411999999995
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Heart Kyiv Apart-Hotel",
+    "url": "https://www.booking.com/searchresults.html?ss=Heart+Kyiv+Apart-Hotel%2C+Kyiv&checkin=2027-06-10&checkout=2027-06-12&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.523889,
+     50.45025
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "18:30",
+    "kind": "sight",
+    "name": "Maidan Nezalezhnosti (Independence Square)",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.514444,
+     50.452778
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Saint Sophia Cathedral",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.52353,
+     50.44815
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Puzata Khata",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.508717,
+     50.444942
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "St. Volodymyr's Cathedral",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.51754,
+     50.43892
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Celentano",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  }
+ ]
+}

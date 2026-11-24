@@ -1,0 +1,286 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.1772245999999997,
+     41.396864099999995
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Hola Hostal Eixample",
+    "url": "https://www.booking.com/searchresults.html?ss=Hola+Hostal+Eixample%2C+Barcelona&checkin=2027-06-03&checkout=2027-06-06&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.175226,
+     41.387585
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "11:15",
+    "kind": "sight",
+    "name": "Palau de la Música Catalana",
+    "url": "https://www.openstreetmap.org/way/377216661"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155753,
+     41.399497
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Can Xurrades",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.17638,
+     41.383922
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "14:45",
+    "kind": "sight",
+    "name": "Cathedral of Santa Eulàlia",
+    "url": "http://www.catedralbcn.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.177678,
+     41.383921
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Museu d'Història de Barcelona",
+    "url": "https://www.barcelona.cat/museuhistoria/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155589,
+     41.397075
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "La Rosa del Desierto",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.181944,
+     41.383611
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Basilica of Santa Maria del Mar",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.156314,
+     41.404461
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Sol i Lluna",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.15465,
+     41.400429
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Botafumeiro",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.174234,
+     41.378824
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Palau Güell",
+    "url": "https://www.openstreetmap.org/way/166565579"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155077,
+     41.40031
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Frankfurt's Casa Valles",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.159409,
+     41.396051
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Palau Robert",
+    "url": "https://palaurobert.gencat.cat/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.150617,
+     41.403499
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "16:00",
+    "kind": "free",
+    "name": "Casa Vicens",
+    "url": "https://casavicens.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.156517,
+     41.402769
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Karakala",
+    "url": "http://www.karakala.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.16492,
+     41.39158
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-06-06",
+    "time": "09:00",
+    "kind": "sight",
+    "name": "Casa Batlló",
+    "url": "https://www.casabatllo.es/en/online-tickets"
+   }
+  }
+ ]
+}

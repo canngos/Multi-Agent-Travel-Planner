@@ -1,0 +1,202 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Vienna
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-1@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T082500
+DTEND:20270506T092500
+SUMMARY:Arrive in Vienna
+DESCRIPTION:Day 1. Flight with airBaltic\; see Getting there and back. http
+ s://kiwi.com/u/f84sfzn69b
+URL:https://kiwi.com/u/f84sfzn69b
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-2@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T100000
+DTEND:20270506T113000
+SUMMARY:Burggarten
+DESCRIPTION:Day 1. Historic park\, wheelchair‑friendly paths. https://ope
+ ntripmap.com/en/card/W8063831
+GEO:48.204384;16.365952
+URL:https://opentripmap.com/en/card/W8063831
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-3@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T113000
+DTEND:20270506T130000
+SUMMARY:Volksgarten
+DESCRIPTION:Day 1. Pleasant garden near Hofburg\, suitable for a stroller. 
+ https://opentripmap.com/en/card/W8063768
+GEO:48.208035;16.361786
+URL:https://opentripmap.com/en/card/W8063768
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-4@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T130000
+DTEND:20270506T134500
+SUMMARY:Rathauspark
+DESCRIPTION:Day 1. Quiet city‑hall park\, easy walking routes. https://op
+ entripmap.com/en/card/R7735480
+GEO:48.211517;16.359667
+URL:https://opentripmap.com/en/card/R7735480
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-5@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T134500
+DTEND:20270506T143000
+SUMMARY:Palmenhaus
+DESCRIPTION:Day 1. Mid‑range\, child‑friendly tables\; try Wiener schni
+ tzel. http://www.palmenhaus.at/
+GEO:48.205095;16.366645
+URL:http://www.palmenhaus.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-6@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T143000
+DTEND:20270506T160000
+SUMMARY:Augarten
+DESCRIPTION:Day 1. Baroque park\, wheelchair‑friendly paths\; good for a 
+ stroller. https://opentripmap.com/en/card/W8044066
+GEO:48.224445;16.377710
+URL:https://opentripmap.com/en/card/W8044066
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-7@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270506T180000
+DTEND:20270506T190000
+SUMMARY:Le Bol
+DESCRIPTION:Day 1. Fine French‑Provencal cuisine\; good for an early dinn
+ er. http://www.lebol.at
+GEO:48.206486;16.370594
+URL:http://www.lebol.at
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-8@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270507T093000
+DTEND:20270507T110000
+SUMMARY:Stadtpark
+DESCRIPTION:Day 2. Large municipal park\, perfect for a stroller walk. http
+ s://opentripmap.com/en/card/W551031461
+GEO:48.204769;16.379677
+URL:https://opentripmap.com/en/card/W551031461
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-9@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270507T110000
+DTEND:20270507T123000
+SUMMARY:House of Music (Haus der Musik)
+DESCRIPTION:Day 2. Interactive music museum\, wheelchair accessible\; ticke
+ t €19. https://en.wikipedia.org/wiki/Haus_der_Musik
+GEO:48.203792;16.373155
+URL:https://en.wikipedia.org/wiki/Haus_der_Musik
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-10@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270507T133000
+DTEND:20270507T143000
+SUMMARY:Inigo
+DESCRIPTION:Day 2. Modern\, diverse menu with vegetarian options\; try a sm
+ all plate for the toddler. http://inigo.at/restaurant/
+GEO:48.208693;16.376916
+URL:http://inigo.at/restaurant/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-11@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270507T150000
+DTEND:20270507T163000
+SUMMARY:Grete-Rehor-Park
+DESCRIPTION:Day 2. Small park with playground\, suitable for a stroller. ht
+ tps://opentripmap.com/en/card/W8083418
+GEO:48.206947;16.358545
+URL:https://opentripmap.com/en/card/W8083418
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-12@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270507T180000
+DTEND:20270507T190000
+SUMMARY:Plachutta
+DESCRIPTION:Day 2. High‑end\, famous for Tafelspitz\; suitable for a fami
+ ly dinner. https://www.plachutta-wollzeile.at/
+GEO:48.207607;16.378724
+URL:https://www.plachutta-wollzeile.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-13@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270508T103000
+DTEND:20270508T120000
+SUMMARY:Mozarthaus Vienna
+DESCRIPTION:Day 3. Mozart's former residence\; ticket €16. https://www.mo
+ zarthausvienna.at/en/plan-your-visit
+GEO:48.208218;16.374933
+URL:https://www.mozarthausvienna.at/en/plan-your-visit
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-14@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270508T123000
+DTEND:20270508T133000
+SUMMARY:St. Stephen's Cathedral (Stephansdom)
+DESCRIPTION:Day 3. Iconic Gothic cathedral\, wheelchair‑accessible ramp a
+ vailable. https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral\,_Vienna
+GEO:48.208500;16.373000
+URL:https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Vienna
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-15@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270508T133000
+DTEND:20270508T143000
+SUMMARY:Figlmüller
+DESCRIPTION:Day 3. Mid‑range classic schnitzel house\; great for a hearty
+  lunch. http://www.figlmueller.at/en/figlmueller-wollzeile-en.html
+GEO:48.209199;16.374494
+URL:http://www.figlmueller.at/en/figlmueller-wollzeile-en.html
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-16@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270508T143000
+DTEND:20270508T160000
+SUMMARY:Girardipark
+DESCRIPTION:Day 3. Connected park area with green spaces\, stroller‑frien
+ dly. https://opentripmap.com/en/card/R2906770
+GEO:48.200863;16.367949
+URL:https://opentripmap.com/en/card/R2906770
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-17@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270508T183000
+DTEND:20270508T193000
+SUMMARY:Artner am Franziskanerplatz
+DESCRIPTION:Day 3. Upscale wine‑focused venue\; perfect for a relaxed din
+ ner. http://www.artner.co.at/
+GEO:48.206368;16.374070
+URL:http://www.artner.co.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-18@trip-planner
+DTSTAMP:20261119T231122Z
+DTSTART:20270509T071000
+DTEND:20270509T081000
+SUMMARY:Depart from Vienna
+DESCRIPTION:Day 4. Flight with Austrian Airlines\, Finnair\; see Getting th
+ ere and back. https://kiwi.com/u/xjcqrn7rnz
+URL:https://kiwi.com/u/xjcqrn7rnz
+END:VEVENT
+END:VCALENDAR

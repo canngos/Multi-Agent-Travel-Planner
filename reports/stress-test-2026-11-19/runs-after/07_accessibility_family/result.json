@@ -1,0 +1,210 @@
+{
+ "id": "07_accessibility_family",
+ "title": "Wheelchair user + toddler in Vienna",
+ "turns": [
+  {
+   "user": "Vienna 4 days, 6-9 May 2027, from Helsinki. Two adults and a 2-year-old; my husband uses a wheelchair, so everything must be step-free. Mid budget about 2500 euros. Music, parks, cafes.",
+   "seconds": 25.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Vienna, Austria  \n- **Dates:** 06 May – 09 May 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 2 adults + 1 2‑year‑old child  \n- **Budget:** Mid tier, total ≈ 2 500 EUR  \n- **Interests:** Music, parks, cafés  \n- **Requirements:** Wheelchair‑accessible everywhere, travelling with a 2‑year‑old  \n\nPlease confirm if everything looks correct."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1038.8,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Vienna (2027-05-06 to 2027-05-09)**\n\n- **Outbound:** airBaltic flight 2027-05-06 05:30-08:25, 384 EUR\n- **Return:** Austrian Airlines, Finnair flight 2027-05-09 07:10-12:55, 376 EUR\n- **Stay:** Citadines Danube Vienna, 265 EUR in total\n\n- **Day 1 (Thu 2027-05-06):** 08:25 Arrive in Vienna · 10:00 Burggarten · 11:30 Volksgarten · 13:00 Rathauspark · 13:45 Palmenhaus · 14:30 Augarten · 18:00 Le Bol\n- **Day 2 (Fri 2027-05-07):** 09:30 Stadtpark · 11:00 House of Music (Haus der Musik) · 13:30 Inigo · 15:00 Grete-Rehor-Park · 18:00 Plachutta\n- **Day 3 (Sat 2027-05-08):** 10:30 Mozarthaus Vienna · 12:30 St. Stephen's Cathedral (Stephansdom) · 13:30 Figlmüller · 14:30 Girardipark · 18:30 Artner am Franziskanerplatz\n- **Day 4 (Sun 2027-05-09):** 07:10 Depart from Vienna\n\nEstimated total: 1759 EUR (budget 2500 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 78.9,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: vienna-2027-05-06-to-2027-05-09.md (and vienna-2027-05-06-to-2027-05-09.html, best opened in a browser), the calendar vienna-2027-05-06-to-2027-05-09.ics, the map vienna-2027-05-06-to-2027-05-09.geojson in the output folder.\nTransport: out airBaltic flight 6 May 05:30; back Austrian Airlines, Finnair flight 9 May 07:10.\nStay: Citadines Danube Vienna (€265 in total).\nEstimated total: €1759, within your €2500 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Is Schönbrunn wheelchair accessible?",
+   "seconds": 3.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The guide I provided does not contain information about the wheelchair accessibility of Schönbrunn. I recommend checking the official Schönbrunn Palace website or contacting them directly for the most up‑to‑date accessibility details."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 06 May - 09 May 2027, 4 days and 3 nights. Include the hard requirements (avoid_modes, req",
+  "culture_agent: wiki_summary -> error 'St. Stephen's Cathedral' is ambiguous on Wikipedia; add the destination city, e.g. 'St. Stephen's Cathedral, <city>'"
+ ],
+ "tool_calls": 46,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 10.858068000001367,
+   "last": 1147.2699269000004
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 32.23446399999375,
+   "last": 1064.6482504000014
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 35.921982200001366,
+   "last": 205.46350179999718
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 42.03406009999162,
+   "last": 168.6525188999949
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 42.30117949999112,
+   "last": 311.7826645000023
+  },
+  "culture_agent": {
+   "events": 30,
+   "tool_calls": 14,
+   "first": 42.335593199997675,
+   "last": 330.276320399993
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 42.63680239999667,
+   "last": 244.99770379999245
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 45.27888009999879,
+   "last": 170.48568499999237
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 330.66416220000247,
+   "last": 330.6685279999947
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 406.3549154999928,
+   "last": 406.3549154999928
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 408.7473018000019,
+   "last": 501.4377230999962
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 501.4379775999987,
+   "last": 501.4379775999987
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 501.4381449999928,
+   "last": 992.0258730999922
+  },
+  "itinerary_reviser": {
+   "events": 17,
+   "tool_calls": 4,
+   "first": 521.4868121000036,
+   "last": 1064.6477805000031
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 1140.2044089999981,
+   "last": 1143.5558541999926
+  }
+ },
+ "seconds": 1147.3,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Vienna",
+  "start_date": "2027-05-06",
+  "end_date": "2027-05-09",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2500.0,
+  "interests": [
+   "music",
+   "parks",
+   "cafes"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 48.20835,
+  "destination_lon": 16.3725,
+  "destination_country": "Austria",
+  "requirements": [
+   "wheelchair accessible",
+   "travelling with a 2-year-old"
+  ],
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1759.0,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": null,
+   "issue": "interest_not_found",
+   "detail": "The research found nothing for the interest 'cafes', so the plan has nothing for it."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10644
+ }
+}

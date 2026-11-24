@@ -1,0 +1,201 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Riga
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-1@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T081000
+DTEND:20270513T091000
+SUMMARY:Arrive in Riga
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/7bmv52g9c2
+URL:https://kiwi.com/u/7bmv52g9c2
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-2@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T093000
+DTEND:20270513T101500
+SUMMARY:Golden Coffee
+DESCRIPTION:Day 1. Coffee and pastries. https://www.openstreetmap.org/node/
+ 4429199818
+GEO:56.947498;24.107939
+URL:https://www.openstreetmap.org/node/4429199818
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-3@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T110000
+DTEND:20270513T123000
+SUMMARY:Mencendorfa nams
+DESCRIPTION:Day 1. Visit the historic residential building. https://www.ope
+ nstreetmap.org/way/157820969
+GEO:56.946770;24.108252
+URL:https://www.openstreetmap.org/way/157820969
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-4@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T123000
+DTEND:20270513T133000
+SUMMARY:Lido Alus sēta
+DESCRIPTION:Day 1. Try traditional Latvian dishes. https://www.openstreetma
+ p.org/node/3575097196
+GEO:56.948241;24.106398
+URL:https://www.openstreetmap.org/node/3575097196
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-5@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T133000
+DTEND:20270513T150000
+SUMMARY:Museum of the History of Riga and Navigation
+DESCRIPTION:Day 1. Explore Riga's maritime past. https://www.openstreetmap.
+ org/node/13721805929
+GEO:56.948499;24.104309
+URL:https://www.openstreetmap.org/node/13721805929
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-6@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270513T173000
+DTEND:20270513T183000
+SUMMARY:Province
+DESCRIPTION:Day 1. Regional Latvian cuisine\, early dinner to catch flight.
+  https://www.openstreetmap.org/node/4294897789
+GEO:56.947608;24.107705
+URL:https://www.openstreetmap.org/node/4294897789
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-7@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T080000
+DTEND:20270514T093000
+SUMMARY:Riga Central Market
+DESCRIPTION:Day 2. Browse fresh produce and local crafts. https://www.arbou
+ rsabroad.com/riga-central-market
+GEO:56.950073;24.106417
+URL:https://www.arboursabroad.com/riga-central-market
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-8@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T103000
+DTEND:20270514T111500
+SUMMARY:Čili Pica
+DESCRIPTION:Day 2. Quick bite and coffee. https://en.wikivoyage.org/wiki/Ri
+ ga
+URL:https://en.wikivoyage.org/wiki/Riga
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-9@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T123000
+DTEND:20270514T131500
+SUMMARY:Pienene
+DESCRIPTION:Day 2. Light lunch\, try local pastries. https://www.openstreet
+ map.org/node/4728980389
+GEO:56.947147;24.107688
+URL:https://www.openstreetmap.org/node/4728980389
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-10@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T123000
+DTEND:20270514T140000
+SUMMARY:Riga Art Nouveau Museum
+DESCRIPTION:Day 2. Explore Art Nouveau interiors. https://www.liveriga.com/
+ en/1582-art-nouveau-museum
+GEO:56.949127;24.105680
+URL:https://www.liveriga.com/en/1582-art-nouveau-museum
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-11@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T143000
+DTEND:20270514T153000
+SUMMARY:Riga Art Nouveau Centre
+DESCRIPTION:Day 2. Museum of Art Nouveau heritage. https://www.openstreetma
+ p.org/node/1160803251
+GEO:56.959610;24.108517
+URL:https://www.openstreetmap.org/node/1160803251
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-12@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T153000
+DTEND:20270514T170000
+SUMMARY:House of the Black Heads
+DESCRIPTION:Day 2. Visit the historic guild building before it closes. http
+ s://www.openstreetmap.org/way/87495471
+GEO:56.947127;24.106812
+URL:https://www.openstreetmap.org/way/87495471
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-13@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270514T180000
+DTEND:20270514T190000
+SUMMARY:Piga Gastrobārs
+DESCRIPTION:Day 2. Dinner with regional dishes. https://www.openstreetmap.o
+ rg/node/2049517248
+GEO:56.946054;24.107995
+URL:https://www.openstreetmap.org/node/2049517248
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-14@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270515T100000
+DTEND:20270515T113000
+SUMMARY:Latvian National Museum of Art
+DESCRIPTION:Day 3. Explore Latvian art from the 18th century to today. http
+ s://www.openstreetmap.org/way/87971760
+GEO:56.955780;24.113070
+URL:https://www.openstreetmap.org/way/87971760
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-15@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270515T120000
+DTEND:20270515T130000
+SUMMARY:Late Night Munchies
+DESCRIPTION:Day 3. Low‑budget bite for lunch. https://www.openstreetmap.o
+ rg/node/2049517245
+GEO:56.946112;24.107622
+URL:https://www.openstreetmap.org/node/2049517245
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-16@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270515T143000
+DTEND:20270515T153000
+SUMMARY:Folkklubs Ala Pagrabs
+DESCRIPTION:Day 3. Enjoy drinks in a historic cellar. https://www.openstree
+ tmap.org/node/3203344123
+GEO:56.946156;24.107815
+URL:https://www.openstreetmap.org/node/3203344123
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-17@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270515T160000
+DTEND:20270515T170000
+SUMMARY:Salve
+DESCRIPTION:Day 3. Regional dinner before heading to the airport. https://w
+ ww.openstreetmap.org/node/445460349
+GEO:56.947177;24.107363
+URL:https://www.openstreetmap.org/node/445460349
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-18@trip-planner
+DTSTAMP:20261119T232515Z
+DTSTART:20270515T214000
+DTEND:20270515T224000
+SUMMARY:Depart from Riga
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/wgrwgnv6t2
+URL:https://kiwi.com/u/wgrwgnv6t2
+END:VEVENT
+END:VCALENDAR

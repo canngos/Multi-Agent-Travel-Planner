@@ -19,12 +19,37 @@ from .concierge import build_concierge
 from .guide_writer import build_guide_writer
 from .itinerary_reviser import build_itinerary_reviser
 from .planner import build_itinerary_planner
-from .replan import BRANCHES, NOTE_KEY, PLANNED_KEY, REUSED_KEY, accepted_scope, note_block
+from .replan import (BRANCHES, NOTE_KEY, PLANNED_KEY, REUSED_KEY, STAY_WORDS, TRANSPORT_WORDS, accepted_scope,
+                     changed_fields, note_block)
+from .review_checks import _parse
 from .teams import RESEARCH_KEYS, build_research_team
 
 PLAN_KEYS = RESEARCH_KEYS + ("itinerary", "itinerary_before_revision", "itinerary_link_fixes", "itinerary_tidy_changes",
-                             "research_link_fixes", "final_guide", "guide_paths", "guide_reply", "guide_link_fixes",
-                             STATUS_KEY, SUMMARY_KEY)
+                             "research_link_fixes", "final_guide", "guide_paths", "guide_reply", "guide_reply_raw", "guide_message_sent", "guide_link_fixes",
+                             STATUS_KEY, SUMMARY_KEY, "guide_exports", "exports_by_code", "ungrounded_dropped", "json_repaired",
+                             "infeasible_dropped")
+
+
+PINNED_KEY = "pinned_choices"          # transport/stay of the previous plan that this re-plan keeps (tidy restores them)
+PREVIOUS_KEY = "previous_plan_choices"  # transport and stay of the previous plan, to tell the user what did not change
+
+
+def pinned_choices(scope: dict, previous: dict, brief: dict) -> dict | None:
+    """The previous plan's transport (and stay) when the re-plan keeps that research and nothing that could change
+    the choice changed: a live "swap two days" re-plan (rerun []) switched the outbound flight from Finnair 07:00
+    to airBaltic 09:15 although the user asked for nothing about transport."""
+    changed = changed_fields(scope.get("base"), brief)
+    note = str(scope.get("change_note") or "")
+    pins = {}
+    if "transport" not in scope["rerun"] and isinstance(previous.get("transport"), dict) \
+            and not changed & {"total_budget_eur", "budget_tier", "avoid_modes", "own_car", "requirements"} \
+            and not TRANSPORT_WORDS.search(note):
+        pins["transport"] = previous["transport"]
+    if "stay" not in scope["rerun"] and isinstance(previous.get("stay"), dict) \
+            and not changed & {"total_budget_eur", "budget_tier", "own_accommodation", "requirements"} \
+            and not STAY_WORDS.search(note):
+        pins["stay"] = previous["stay"]
+    return pins or None
 
 
 def reset_plan_state(callback_context):
@@ -38,6 +63,10 @@ def reset_plan_state(callback_context):
     scope = accepted_scope(state, getattr(callback_context, "invocation_id", None))
     kept = [b for b in BRANCHES if b not in scope["rerun"]] if scope else []
     keep = {key for branch in kept for key in BRANCHES[branch]}
+    previous = _parse(state.get("itinerary")) if scope else {}
+    state[PINNED_KEY] = pinned_choices(scope, previous, state.get("trip_brief") or {}) if previous else None
+    state[PREVIOUS_KEY] = ({"transport": previous.get("transport"), "stay": previous.get("stay")}
+                           if previous else None)
     link_fixes = state.get("research_link_fixes") or {}
     for key in PLAN_KEYS:
         if key not in keep:

@@ -18,3 +18,6 @@ output/
 
 # ADK local session DBs
 *.db
+
+# graphify knowledge-graph output
+graphify-out/

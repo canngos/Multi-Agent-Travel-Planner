@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457844732",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129145.4198914,
+ "response": {
+  "xid": "N5457844732",
+  "name": "Arco da Rua Augusta",
+  "address": {
+   "city": "Santa Maria Maior",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Baixa",
+   "country": "Portugal",
+   "postcode": "1100-150",
+   "pedestrian": "Rua Augusta",
+   "country_code": "pt",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457844732",
+  "wikidata": "Q637590",
+  "kinds": "architecture,historic_architecture,historic,monuments_and_memorials,cultural,urban_environment,interesting_places,sculptures,monuments,triumphal_archs",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/arco-da-rua-augusta",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457844732",
+  "wikipedia": "https://en.wikipedia.org/wiki/Rua%20Augusta%20Arch",
+  "image": "https://commons.wikimedia.org/wiki/File:Lisbon_Pra%C3%A7a_do_Com%C3%A9rcio_BW_2018-10-03_13-33-44_s.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Lisbon_Pra%C3%A7a_do_Com%C3%A9rcio_BW_2018-10-03_13-33-44_s.jpg/298px-Lisbon_Pra%C3%A7a_do_Com%C3%A9rcio_BW_2018-10-03_13-33-44_s.jpg",
+   "height": 400,
+   "width": 298
+  },
+  "wikipedia_extracts": {
+   "title": "en:Rua Augusta Arch",
+   "text": "The Rua Augusta Arch (Portuguese: Arco da Rua Augusta) is a stone, triumphal arch-like, historical building and visitor attraction in Lisbon, Portugal, on the Praça do Comércio. It was built to commemorate the city's reconstruction after the 1755 earthquake. It has six columns (some 11 m high) and is adorned with statues of various historical figures. Significant height from the arch crown to the cornice imparts an appearance of heaviness to the structure. The associated space is filled with the coat of arms of Portugal. The allegorical group at the top, made by French sculptor Célestin Anatole Calmels, represents Glory rewarding Valor and Genius.",
+   "html": "<p>The <b>Rua Augusta Arch</b> (Portuguese: <i>Arco da Rua Augusta</i>) is a stone, triumphal arch-like, historical building and visitor attraction in Lisbon, Portugal, on the <i>Praça do Comércio</i>. It was built to commemorate the city's reconstruction after the 1755 earthquake. It has six columns (some 11&nbsp;m high) and is adorned with statues of various historical figures. Significant height from the arch crown to the cornice imparts an appearance of heaviness to the structure. The associated space is filled with the coat of arms of Portugal. The allegorical group at the top, made by French sculptor Célestin Anatole Calmels, represents Glory rewarding Valor and Genius.</p>"
+  },
+  "point": {
+   "lon": -9.136817932128906,
+   "lat": 38.708438873291016
+  }
+ }
+}

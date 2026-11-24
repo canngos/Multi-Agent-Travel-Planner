@@ -1,0 +1,235 @@
+{
+ "id": "01_weekend_short_notice",
+ "title": "This weekend, minimal info (dates within forecast window)",
+ "turns": [
+  {
+   "user": "Copenhagen this weekend, just me, cheap.",
+   "seconds": 7.6,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Got it! To set up your trip I just need a few quick details:\n\n- **Exact dates** (e.g., “Saturday 23 Nov to Sunday 24 Nov” or “Friday 22 Nov to Monday 25 Nov”)\n- **Departure city** (default is Helsinki; let me know if you’re leaving from somewhere else)\n- **Number of travellers** (you mentioned just you → 1)\n- **Budget level** (you said “cheap” → low; let me know if that’s fine)\n- Any **specific interests** you’d like to focus on (e.g., food, museums, nightlife) – optional\n\nOnce I have those, I’ll lock in the brief and kick off the planning."
+    }
+   ]
+  },
+  {
+   "user": "From Helsinki, Saturday to Sunday. No idea about budget, keep it cheap.",
+   "seconds": 7.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip Summary**\n\n- **Destination:** Copenhagen, Denmark  \n- **Dates:** Saturday 21 Nov 2026 → Sunday 22 Nov 2026 (2 days)  \n- **Departure city:** Helsinki, Finland  \n- **Travellers:** 1 (you)  \n- **Budget:** Low / “cheap”  \n- **Interests:** (not specified – feel free to add any, e.g., food, museums, nightlife)\n\nDoes everything look correct? Please confirm or let me know any changes."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 545.3,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Copenhagen (2026-11-21 to 2026-11-22)**\n\n- **Outbound:** SAS flight 2026-11-21 11:15-12:00, 126 EUR\n- **Return:** Finnair flight 2026-11-22 08:55-11:30, 200 EUR\n- **Stay:** Sleep in Heaven (De Gamles By), 21 EUR in total\n\n- **Day 1 (Sat 2026-11-21):** 12:00 Arrive in Copenhagen · 13:30 Rosenborg Castle · 15:00 The David Collection · 18:00 Obelix\n- **Day 2 (Sun 2026-11-22):** 08:55 Depart from Copenhagen\n\nEstimated total: 417 EUR.\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 56.6,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "The guide was saved as **copenhagen-2026-11-21-to-2026-11-22.md** (and HTML) in the temporary folder.  \nThe calendar file **copenhagen-2026-11-21-to-2026-11-22.ics** and the GeoJSON map **copenhagen-2026-11-21-to-2026-11-22.geojson** were also created.  \n\n**Recommended transport:** SAS outbound (€126 live) + Finnair return (€200 live) – total €326.  \n**Recommended stay:** Sleep in Heaven hotel – €21 live for the night.  \n\nTotal estimated cost €417 fits the **low‑budget** tier (no specific budget limit given)."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "What will the weather be like?",
+   "seconds": 3.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "According to the guide’s forecast:\n\n- **Saturday 21 Nov 2026:** Partly cloudy, temperatures around 2 – 7 °C.  \n- **Sunday 22 Nov 2026:** Partly cloudy, cooler, with temperatures about 1 – 3 °C."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 31,
+ "agents": {
+  "concierge": {
+   "events": 13,
+   "tool_calls": 5,
+   "first": 7.573338899994269,
+   "last": 620.1153476999898
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 17.798803999990923,
+   "last": 560.3184992999886
+  },
+  "food_agent": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 20.240416599990567,
+   "last": 116.14616350000142
+  },
+  "culture_agent": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 20.448241399994004,
+   "last": 177.21482639999886
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.837213399994653,
+   "last": 240.15230699999665
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.837501099988003,
+   "last": 83.56488669999817
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.837735199995223,
+   "last": 200.41576540000096
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 28.98791519999213,
+   "last": 72.8539904999925
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 303.34742130000086,
+   "last": 303.34742130000086
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 362.5656550999993,
+   "last": 362.5656550999993
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 366.18919150000147,
+   "last": 467.14029189999565
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 467.14052580000134,
+   "last": 467.14052580000134
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 467.1406886999903,
+   "last": 527.8060198000021
+  },
+  "itinerary_reviser": {
+   "events": 6,
+   "tool_calls": 0,
+   "first": 480.8255196999962,
+   "last": 560.317947699994
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 613.07177889999,
+   "last": 616.9698758000013
+  }
+ },
+ "seconds": 620.2,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Copenhagen",
+  "start_date": "2026-11-21",
+  "end_date": "2026-11-22",
+  "travellers": 1,
+  "budget_tier": "low",
+  "total_budget_eur": null,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 55.68672,
+  "destination_lon": 12.57007,
+  "destination_country": "Denmark",
+  "nights": 1,
+  "days": 2
+ },
+ "plan_status": "approved",
+ "cost_total": 417.0,
+ "n_days": 2,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "far_meal",
+   "detail": "'Obelix' is 2.1 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Central Station",
+     "kind": "restaurant",
+     "km": 1.6,
+     "hours": "Daily 05:00-20:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "Bento",
+     "kind": "restaurant",
+     "km": 1.9,
+     "hours": "Tue-Sat 11:00-14:00, 17:00-23:00 (kitchen closes at 22:00)",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Mesón España",
+     "kind": "restaurant",
+     "km": 2.0,
+     "hours": "Mon-Sat 17:00-24:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 7949
+ }
+}

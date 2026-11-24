@@ -1,0 +1,181 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Longyearbyen
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-1@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270114T235000
+DTEND:20270115T005000
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Flight with Finnair\, SAS\; see Getting there and back. 
+ https://kiwi.com/u/gg6t9tn4v7
+URL:https://kiwi.com/u/gg6t9tn4v7
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-2@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270115T113000
+DTEND:20270115T123000
+SUMMARY:Arrive in Longyearbyen
+DESCRIPTION:Day 2. Flight with Finnair\, SAS\; see Getting there and back. 
+ https://kiwi.com/u/gg6t9tn4v7
+URL:https://kiwi.com/u/gg6t9tn4v7
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-3@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270115T131500
+DTEND:20270115T140000
+SUMMARY:Barentz Pub & Spiseri
+DESCRIPTION:Day 2. Mid‑tier lunch\, try the Arctic pizza. https://en.wiki
+ voyage.org/wiki/Longyearbyen
+GEO:78.220839;15.648400
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-4@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270115T140000
+DTEND:20270115T153000
+SUMMARY:Galleri Svalbard
+DESCRIPTION:Day 2. Explore Arctic art exhibitions (indoor). https://en.wiki
+ voyage.org/wiki/Longyearbyen
+GEO:78.203119;15.594050
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-5@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270115T160000
+DTEND:20270115T173000
+SUMMARY:Svalbard Church
+DESCRIPTION:Day 2. Visit the world’s northernmost church (indoor). https:
+ //en.wikivoyage.org/wiki/Longyearbyen
+GEO:78.219830;15.618279
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-6@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270115T193000
+DTEND:20270115T203000
+SUMMARY:Restaurant Nansen
+DESCRIPTION:Day 2. High‑end dinner\, Arctic‑inspired menu. https://en.w
+ ikivoyage.org/wiki/Longyearbyen
+GEO:78.221028;15.645482
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-7@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T100000
+DTEND:20270116T113000
+SUMMARY:Svalbard Museum
+DESCRIPTION:Day 3. Indoor museum\, 2 h to see natural and cultural histor
+ y. https://www.openstreetmap.org/node/3526633670
+GEO:78.222378;15.652313
+URL:https://www.openstreetmap.org/node/3526633670
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-8@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T123000
+DTEND:20270116T140000
+SUMMARY:North Pole Expedition Museum
+DESCRIPTION:Day 3. Indoor\, polar aviation exhibits. https://www.openstreet
+ map.org/node/4586740390
+GEO:78.223319;15.653519
+URL:https://www.openstreetmap.org/node/4586740390
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-9@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T150000
+DTEND:20270116T160000
+SUMMARY:Vinterhagen Restaurant
+DESCRIPTION:Day 3. Mid‑tier lunch\, sample reindeer stew. https://en.wiki
+ voyage.org/wiki/Longyearbyen
+GEO:78.222067;15.633351
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-10@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T160000
+DTEND:20270116T173000
+SUMMARY:Arctic Husky Dog‑Sledding Tour
+DESCRIPTION:Day 3. Guided husky sledding (4 h) chasing Northern Lights. h
+ ttps://en.visitsvalbard.com/activity-planner/polar-night-dog-sledding-sval
+ bard-husky-p2522333
+URL:https://en.visitsvalbard.com/activity-planner/polar-night-dog-sledding-
+ svalbard-husky-p2522333
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-11@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T200000
+DTEND:20270116T210000
+SUMMARY:Stationen
+DESCRIPTION:Day 3. High‑end dinner\, refined Arctic cuisine. https://en.w
+ ikivoyage.org/wiki/Longyearbyen
+GEO:78.218756;15.640600
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-12@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270116T224500
+DTEND:20270117T001500
+SUMMARY:Northern Lights Viewing Spot
+DESCRIPTION:Day 3. Night‑time aurora viewing away from settlement lights.
+  https://en.visitsvalbard.com/inspiration/various/10-things-about-the-nort
+ hern-lights
+URL:https://en.visitsvalbard.com/inspiration/various/10-things-about-the-no
+ rthern-lights
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-13@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270117T083000
+DTEND:20270117T100000
+SUMMARY:Gruve 1A Amerikagruva
+DESCRIPTION:Day 4. Visit historic coal mine ruin (outdoor). https://opentri
+ pmap.com/en/card/W686576331
+GEO:78.217087;15.599052
+URL:https://opentripmap.com/en/card/W686576331
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-14@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270117T100000
+DTEND:20270117T110000
+SUMMARY:24‑Hour Sundial
+DESCRIPTION:Day 4. Quick outdoor photo stop. https://en.wikivoyage.org/wiki
+ /Longyearbyen
+GEO:78.222300;15.629700
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-15@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270117T110000
+DTEND:20270117T120000
+SUMMARY:Mix kiosk
+DESCRIPTION:Day 4. Quick snack before heading to the airport. https://en.wi
+ kivoyage.org/wiki/Longyearbyen
+GEO:78.218836;15.639345
+URL:https://en.wikivoyage.org/wiki/Longyearbyen
+END:VEVENT
+BEGIN:VEVENT
+UID:longyearbyen-2027-01-14-to-2027-01-17-16@trip-planner
+DTSTAMP:20261119T204258Z
+DTSTART:20270117T121000
+DTEND:20270117T131000
+SUMMARY:Depart from Longyearbyen
+DESCRIPTION:Day 4. Flight with Norwegian Air Shuttle\, Norwegian Air Sweden
+ \; see Getting there and back. https://kiwi.com/u/jtc68p25j8
+URL:https://kiwi.com/u/jtc68p25j8
+END:VEVENT
+END:VCALENDAR

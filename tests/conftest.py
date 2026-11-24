@@ -17,6 +17,8 @@ FIXTURE_CACHE = Path(__file__).parent / "fixtures" / "cache"
 
 @pytest.fixture(autouse=True)
 def _cache_mode(request, monkeypatch):
+    from travel_planner.tools import flights
+    monkeypatch.setitem(flights._consent, "seen", False)  # a consent page seen by one test must not skip another
     monkeypatch.setenv("CACHE_DIR", str(FIXTURE_CACHE))
     monkeypatch.setenv("TODAY", "2026-11-17")  # trips in the fixtures (2027) stay in the future
     if request.node.get_closest_marker("live"):

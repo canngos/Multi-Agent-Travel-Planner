@@ -1,0 +1,188 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-1@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270610T100600
+DTEND:20270610T110600
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Bus with UAB Kautra\; see Getting there and back. https:
+ //www.autobusubilietai.lt
+URL:https://www.autobusubilietai.lt
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-2@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270611T133800
+DTEND:20270611T134500
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 2. Bus with UAB Kautra\; see Getting there and back. https:
+ //www.autobusubilietai.lt
+URL:https://www.autobusubilietai.lt
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-3@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270611T134500
+DTEND:20270611T151500
+SUMMARY:Neues Museum
+DESCRIPTION:Day 2. Egyptian collection and the bust of Nefertiti. https://w
+ ww.openstreetmap.org/way/18578139
+GEO:52.520170;13.397730
+URL:https://www.openstreetmap.org/way/18578139
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-4@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270611T153000
+DTEND:20270611T163000
+SUMMARY:Curry 36
+DESCRIPTION:Day 2. Quick lunch of classic currywurst. http://www.curry36.de
+GEO:52.493558;13.387728
+URL:http://www.curry36.de
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-5@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270611T173000
+DTEND:20270611T190000
+SUMMARY:Pergamon Museum
+DESCRIPTION:Day 2. World‑famous museum on Museum Island (currently closed
+  for renovation). https://www.openstreetmap.org/way/313659704
+GEO:52.520971;13.396591
+URL:https://www.openstreetmap.org/way/313659704
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-6@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270611T193000
+DTEND:20270611T203000
+SUMMARY:Asador Steakhouse
+DESCRIPTION:Day 2. Mid‑range dinner with steak and Spanish dishes. http:/
+ /www.restaurant-asador.de/
+GEO:52.503708;13.388071
+URL:http://www.restaurant-asador.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-7@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T103000
+DTEND:20270612T120000
+SUMMARY:Bode Museum
+DESCRIPTION:Day 3. Sculptures\, Byzantine art and coin collection. https://
+ www.openstreetmap.org/relation/4211594
+GEO:52.521731;13.394951
+URL:https://www.openstreetmap.org/relation/4211594
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-8@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T123000
+DTEND:20270612T140000
+SUMMARY:Altes Museum
+DESCRIPTION:Day 3. Classical antiquities on Museum Island. https://www.open
+ streetmap.org/relation/3619
+GEO:52.519453;13.398785
+URL:https://www.openstreetmap.org/relation/3619
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-9@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T143000
+DTEND:20270612T153000
+SUMMARY:Hasir
+DESCRIPTION:Day 3. Mid‑budget Turkish restaurant\, open 24 h. http://ww
+ w.hasir.de
+GEO:52.500878;13.419190
+URL:http://www.hasir.de
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-10@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T154500
+DTEND:20270612T171500
+SUMMARY:DDR Museum
+DESCRIPTION:Day 3. Interactive exhibits on everyday life in former East Ger
+ many. https://www.openstreetmap.org/way/175149971
+GEO:52.519422;13.402256
+URL:https://www.openstreetmap.org/way/175149971
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-11@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T203000
+DTEND:20270612T213000
+SUMMARY:Café Sarotti-Höfe
+DESCRIPTION:Day 3. Mid‑budget café offering German dishes. http://cafe-s
+ arottihoefe.de/
+GEO:52.491035;13.388679
+URL:http://cafe-sarottihoefe.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-12@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270612T235900
+DTEND:20270613T012900
+SUMMARY:Berghain / Panorama Bar
+DESCRIPTION:Day 3. World‑renowned techno club\; doors open at 23:59 on Sa
+ turday. https://www.technoairlines.com/blog/how-to-get-into-berghain
+URL:https://www.technoairlines.com/blog/how-to-get-into-berghain
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-13@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270613T103000
+DTEND:20270613T120000
+SUMMARY:Humboldt Forum
+DESCRIPTION:Day 4. Cultural exhibitions in the rebuilt Berlin Palace. https
+ ://www.humboldtforum.org
+GEO:52.517032;13.401227
+URL:https://www.humboldtforum.org
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-14@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270613T123000
+DTEND:20270613T133000
+SUMMARY:Mustafas Gemüse Kebap
+DESCRIPTION:Day 4. Popular kebab stand near Humboldt Forum. http://mustafas
+ .de/
+GEO:52.493809;13.388058
+URL:http://mustafas.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-15@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270613T133000
+DTEND:20270613T150000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 4. History of Germany from the Middle Ages to present. http
+ s://www.openstreetmap.org/node/3203167561
+GEO:52.517748;13.397023
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-16@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270613T200000
+DTEND:20270613T210000
+SUMMARY:Burgermeister
+DESCRIPTION:Day 4. Late‑night burger spot\, open until 03:00. http://burg
+ er-meister.de/
+GEO:52.501096;13.442384
+URL:http://burger-meister.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-17@trip-planner
+DTSTAMP:20261119T203734Z
+DTSTART:20270614T080600
+DTEND:20270614T090600
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 5. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+END:VCALENDAR

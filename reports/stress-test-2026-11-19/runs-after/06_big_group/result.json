@@ -1,0 +1,187 @@
+{
+ "id": "06_big_group",
+ "title": "School group of 14 to Berlin, low budget",
+ "turns": [
+  {
+   "user": "Class trip: 12 students (16-17 years old) and 2 teachers, 4 days in Berlin, 20-23 April 2027, from Helsinki. Low budget, about 6000 euros total. History, Berlin Wall, no nightlife.",
+   "seconds": 27.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Berlin, Germany  \n- **Dates:** 20 Apr 2027 – 23 Apr 2027 (4 days / 3 nights)  \n- **Travelers:** 14 people (12 students + 2 teachers)  \n- **Origin:** Helsinki, Finland  \n- **Budget:** Low tier, total ≈ €6 000  \n- **Interests:** History, Berlin Wall  \n- **Requirements:** No nightlife  \n\n*Note:* With a group of more than 9 travelers, flights will need to be booked through the airline’s group desk, so transport costs will be estimated (per‑person fare × group size).\n\nPlease confirm that the details above are correct or let me know any changes."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 735.0,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Berlin (2027-04-20 to 2027-04-23)**\n\n- **Outbound:** Finnair flight 2027-04-20 07:10-08:05, 1064 EUR\n- **Return:** Finnair flight 2027-04-23 18:05-21:00, 1204 EUR\n- **Stay:** 36Rooms, 532 EUR in total\n\n- **Day 1 (Tue 2027-04-20):** 08:05 Arrive in Berlin · 10:00 German Historical Museum · 12:30 Witty's Currywurst · 14:00 Neues Museum · 16:00 Bode Museum · 18:00 DDR Museum · 20:30 Bombay\n- **Day 2 (Wed 2027-04-21):** 10:00 Brandenburg Gate · 12:30 Curry Wolf am Brandenburger Tor · 14:00 Memorial to the Murdered Jews of Europe · 15:30 Topography of Terror · 19:00 Die Berliner Republik\n- **Day 3 (Thu 2027-04-22):** 10:00 East Side Gallery · 12:30 Dada Falafel · 14:00 St. Hedwig's Cathedral · 16:30 Infotafel Berliner Mauer · 19:30 Weilands\n- **Day 4 (Fri 2027-04-23):** 10:00 Berlin Wall Memorial · 12:30 Chay Viet · 18:05 Depart from Berlin\n\nEstimated total: 5999 EUR (budget 6000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 73.0,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: berlin-2027-04-20-to-2027-04-23.md (and berlin-2027-04-20-to-2027-04-23.html, best opened in a browser), the calendar berlin-2027-04-20-to-2027-04-23.ics, the map berlin-2027-04-20-to-2027-04-23.geojson in the output folder.\nTransport: out Finnair flight 20 Apr 07:10; back Finnair flight 23 Apr 18:05.\nStay: 36Rooms (€532 in total).\nEstimated total: €5999, within your €6000 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 20 Apr - 23 Apr 2027, 4 days and 3 nights. A group of 14: flights for more than 9 people a"
+ ],
+ "tool_calls": 41,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 10.858488999991096,
+   "last": 762.6981696000003
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 30.864458700001705,
+   "last": 762.005836700002
+  },
+  "culture_agent": {
+   "events": 22,
+   "tool_calls": 10,
+   "first": 36.72040079999715,
+   "last": 301.2219177999941
+  },
+  "food_agent": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 39.290870600001654,
+   "last": 196.10834219999379
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 39.29109430000244,
+   "last": 160.73496129999694
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 40.65762669999094,
+   "last": 167.79110319999745
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 43.73305369999434,
+   "last": 246.73380560000078
+  },
+  "airbnb_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 51.51891169999726,
+   "last": 314.60245700000087
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 280.3037459999905,
+   "last": 280.3129409999965
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 410.5056525999971,
+   "last": 410.5056525999971
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 412.91148399999656,
+   "last": 577.0717163999943
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 577.072210600003,
+   "last": 577.072210600003
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 577.0724394999997,
+   "last": 759.7509928999934
+  },
+  "itinerary_reviser": {
+   "events": 9,
+   "tool_calls": 2,
+   "first": 594.2289310999913,
+   "last": 762.0049882000021
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 829.8475498000043,
+   "last": 834.9778807999974
+  }
+ },
+ "seconds": 835.0,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Berlin",
+  "start_date": "2027-04-20",
+  "end_date": "2027-04-23",
+  "travellers": 14,
+  "budget_tier": "low",
+  "total_budget_eur": 6000.0,
+  "interests": [
+   "history",
+   "Berlin Wall"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 52.51739,
+  "destination_lon": 13.39513,
+  "destination_country": "Germany",
+  "requirements": [
+   "no nightlife"
+  ],
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 5999.0,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9947
+ }
+}

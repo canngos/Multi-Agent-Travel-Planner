@@ -1,0 +1,343 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.07888,
+     41.44809
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Rooms in La Floresta - Barcelona",
+    "url": "https://www.airbnb.com/rooms/8823241?check_in=2027-06-03&check_out=2027-06-06&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.17555556,
+     41.3875
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "10:45",
+    "kind": "sight",
+    "name": "Palau de la Música Catalana",
+    "url": "https://www.palaumusica.cat/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.168989,
+     41.405591
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Alkimia",
+    "url": "http://www.alkimia.cat/?lang=en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.176741,
+     41.384426
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Museu Frederic Marès",
+    "url": "http://www.museumares.bcn.cat/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.17638889,
+     41.38388889
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Barcelona Cathedral",
+    "url": "https://www.catedralbcn.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.181272,
+     41.385138
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "17:30",
+    "kind": "sight",
+    "name": "Picasso Museum",
+    "url": "https://museupicassobcn.cat"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.154597,
+     41.400477
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "20:45",
+    "kind": "restaurant",
+    "name": "La Taberna del Cura",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.17433,
+     41.40369
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "09:45",
+    "kind": "sight",
+    "name": "Sagrada Família",
+    "url": "https://sagradafamilia.org/en/sagrada-familia-ticket"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155589,
+     41.397075
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "La Rosa del Desierto",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155753,
+     41.399497
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "15:45",
+    "kind": "restaurant",
+    "name": "Can Xurrades",
+    "url": "https://www.facebook.com/canxurradesbarcelona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.16492,
+     41.39158
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "17:30",
+    "kind": "sight",
+    "name": "Casa Batlló",
+    "url": "https://www.casabatllo.es/en/online-tickets"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.156718,
+     41.404085
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "D.O. vins i platillos",
+    "url": "http://www.dovinsiplatillos.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.151483,
+     41.414684
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Park Güell",
+    "url": "https://www.parkguell.cat/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.155836,
+     41.404891
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "13:45",
+    "kind": "restaurant",
+    "name": "Kibuka",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.15079,
+     41.40358
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Casa Vicens",
+    "url": "https://casavicens.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.152582,
+     41.415287
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Casa Martí Trias i Domènech",
+    "url": "https://opentripmap.com/en/card/Q47170945"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.15222,
+     41.41349
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "17:15",
+    "kind": "sight",
+    "name": "Can Muntaner de Dalt",
+    "url": "https://opentripmap.com/en/card/Q96099488"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.156314,
+     41.404461
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Sol i Lluna",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia"
+   }
+  }
+ ]
+}

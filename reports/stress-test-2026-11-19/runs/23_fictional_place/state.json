@@ -1,0 +1,27 @@
+{
+ "concierge_pending_brief": {
+  "invocation_id": "e-20dd418b-48dc-40a1-83a2-bd3773cd5e0e",
+  "brief": {
+   "origin": "helsinki",
+   "destination": "atlantis",
+   "start_date": "2027-07-01",
+   "end_date": "2027-07-03",
+   "travellers": 2,
+   "budget_tier": "mid",
+   "total_budget_eur": null,
+   "interests": [],
+   "origin_lat": 60.16662,
+   "origin_lon": 24.94354,
+   "destination_lat": -33.56668,
+   "destination_lon": 18.48335,
+   "destination_country": "south africa",
+   "avoid_modes": [],
+   "requirements": [],
+   "own_accommodation": false,
+   "own_car": false,
+   "day_start": null,
+   "day_end": null,
+   "pace": null
+  }
+ }
+}

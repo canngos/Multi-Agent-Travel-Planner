@@ -186,3 +186,17 @@ async def test_slim_is_applied_before_caching(tmp_cache, mock_http):
     assert "huge" not in stored
     assert await _http.get_json(URL, namespace="ex", slim=slim) == {"keep": 1}  # served slim from cache
     assert len(mock_http.calls) == 1
+
+
+async def test_requests_in_flight_are_capped_per_host():
+    import asyncio
+    from travel_planner.tools import _http
+    first, second = await _http._acquire("overpass-api.de"), await _http._acquire("overpass-api.de")
+    waiting = asyncio.ensure_future(_http._acquire("overpass-api.de"))
+    await asyncio.sleep(0.3)
+    assert not waiting.done()  # both slots are taken
+    first.release()
+    third = await asyncio.wait_for(waiting, 2)
+    second.release()
+    third.release()
+    assert await _http._acquire("example.org") is None  # hosts without a cap are not limited

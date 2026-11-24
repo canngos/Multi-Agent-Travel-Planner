@@ -12,7 +12,7 @@ import json
 import re
 from urllib.parse import unquote
 
-from .output import extract_json
+from .output import extract_json, was_repaired
 
 _URL_CHARS = r"[^\s\"'<>()\[\]|]"
 URL_RE = re.compile(rf"https?://(?:{_URL_CHARS}|\({_URL_CHARS}*\))+")  # balanced brackets: .../Sé_(Lisbon)
@@ -56,6 +56,16 @@ def ground_url(url: str, known: dict[str, str]) -> str | None:
     return known.get(_norm(url))
 
 
+EMPTY_LINK_RE = re.compile(r"(\s*[–—-]\s*|\s*)\[([^\]]*)\]\(\s*(?:null|none|undefined|nan|#)?\s*\)", re.IGNORECASE)
+_LINK_WORDS = {"source", "link", "website", "more", "here", "info"}
+
+
+def _no_target(m: re.Match) -> str:
+    """A link without a target: its label stays as text, unless the label is only "source" or the like."""
+    label = m.group(2).strip()
+    return "" if label.lower() in _LINK_WORDS or not label else m.group(1) + label
+
+
 def ground_markdown(text: str, known: dict[str, str]) -> tuple[str, list[str], list[str]]:
     """Fixes or unlinks every Markdown link and bare URL. Returns (text, fixed, removed)."""
     fixed, removed = [], []
@@ -71,6 +81,7 @@ def ground_markdown(text: str, known: dict[str, str]) -> tuple[str, list[str], l
         return f"[{label}]({good})"
 
     text = QUOTED_TARGET_RE.sub(r"](\1)", text)  # [x]('https://..') or [x](<https://..>) -> [x](https://..)
+    text = EMPTY_LINK_RE.sub(_no_target, text)  # [source](null): a live Monaco guide had two
     text = MD_LINK_RE.sub(link, text)
 
     def bare(m: re.Match) -> str:
@@ -171,6 +182,9 @@ def ground_research_output(output_key: str, strict: bool = False):
             data = extract_json(state.get(output_key) or "")
         except ValueError:
             return None
+        if was_repaired(state.get(output_key) or ""):  # later agents and the code checks read clean JSON
+            state[output_key] = "```json\n" + json.dumps(data, ensure_ascii=False, indent=1) + "\n```"
+            state["json_repaired"] = list(dict.fromkeys((state.get("json_repaired") or []) + [output_key]))
         known = tool_result_urls(callback_context.session)
         if not known and not strict:
             return None

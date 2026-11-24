@@ -1,0 +1,178 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Krakow
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-1@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T080500
+DTEND:20270517T090500
+SUMMARY:Arrive in Krakow
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/t8rxzsvnr7
+URL:https://kiwi.com/u/t8rxzsvnr7
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-2@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T103000
+DTEND:20270517T120000
+SUMMARY:Town Hall Tower
+DESCRIPTION:Day 1. Panoramic view of the Old Town from the historic tower. 
+ https://www.muzeumkrakowa.pl/branches/town-hall-tower
+GEO:50.061476;19.936412
+URL:https://www.muzeumkrakowa.pl/branches/town-hall-tower
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-3@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T123000
+DTEND:20270517T133000
+SUMMARY:Polakowski
+DESCRIPTION:Day 1. Low‑budget Polish cafeteria\, try the pierogi. http://
+ www.polakowski.com.pl
+GEO:50.053291;19.947224
+URL:http://www.polakowski.com.pl
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-4@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T133000
+DTEND:20270517T150000
+SUMMARY:St Mary's Basilica
+DESCRIPTION:Day 1. Gothic church with famous wooden altarpiece\; watch the 
+ hourly hejnał. http://www.mariacki.com/
+GEO:50.061660;19.939110
+URL:http://www.mariacki.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-5@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T150000
+DTEND:20270517T163000
+SUMMARY:Barbican
+DESCRIPTION:Day 1. Well‑preserved medieval gate\, great for photos. https
+ ://muzeumkrakowa.pl/oddzialy/barbakan
+GEO:50.065468;19.941615
+URL:https://muzeumkrakowa.pl/oddzialy/barbakan
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-6@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270517T183000
+DTEND:20270517T193000
+SUMMARY:Mały Śledź
+DESCRIPTION:Day 1. Low‑budget spot\, good pierogi and cheap beer.
+GEO:50.054800;19.943500
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-7@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270518T100000
+DTEND:20270518T113000
+SUMMARY:Old Synagogue (Old Jewish Synagogue)
+DESCRIPTION:Day 2. One of Europe's oldest synagogues\, now a museum. https:
+ //muzeumkrakowa.pl/oddzialy/stara-synagoga
+GEO:50.051372;19.948610
+URL:https://muzeumkrakowa.pl/oddzialy/stara-synagoga
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-8@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270518T123000
+DTEND:20270518T133000
+SUMMARY:Judah Food Market
+DESCRIPTION:Day 2. Street‑food market\, try the pierogi and zapiekanki. h
+ ttps://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.050200;19.948100
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-9@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270518T133000
+DTEND:20270518T150000
+SUMMARY:Galicia Jewish Museum
+DESCRIPTION:Day 2. Modern museum about Galicia’s Jewish heritage. https:/
+ /galiciajewishmuseum.org/
+GEO:50.050857;19.949677
+URL:https://galiciajewishmuseum.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-10@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270518T153000
+DTEND:20270518T170000
+SUMMARY:Oskar Schindler's Enamel Factory
+DESCRIPTION:Day 2. Museum documenting Schindler’s rescue efforts. https:/
+ /muzeumkrakowa.pl/oddzialy/fabryka-emalia-oskara-schindlera
+GEO:50.047462;19.961621
+URL:https://muzeumkrakowa.pl/oddzialy/fabryka-emalia-oskara-schindlera
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-11@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270518T190000
+DTEND:20270518T200000
+SUMMARY:Bagelmama
+DESCRIPTION:Day 2. Bagel shop\, good for a relaxed dinner. https://www.face
+ book.com/bagelmama/
+GEO:50.050600;19.948100
+URL:https://www.facebook.com/bagelmama/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-12@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270519T093000
+DTEND:20270519T110000
+SUMMARY:Royal Castle (Wawel Castle)
+DESCRIPTION:Day 3. Historic royal residence on Wawel Hill. http://www.wawel
+ .krakow.pl/en/
+GEO:50.054010;19.935140
+URL:http://www.wawel.krakow.pl/en/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-13@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270519T120000
+DTEND:20270519T133000
+SUMMARY:Wawel Cathedral
+DESCRIPTION:Day 3. Gothic‑Renaissance cathedral\, coronation site. https:
+ //www.katedra-wawelska.pl/en/
+GEO:50.054600;19.935500
+URL:https://www.katedra-wawelska.pl/en/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-14@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270519T134500
+DTEND:20270519T144500
+SUMMARY:Kuchnia u Doroty
+DESCRIPTION:Day 3. Mid‑budget Polish kitchen\, try pierogi with fresh fil
+ lings. https://www.facebook.com/kuchniaudoroty/
+GEO:50.052100;19.942800
+URL:https://www.facebook.com/kuchniaudoroty/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-15@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270519T150000
+DTEND:20270519T163000
+SUMMARY:Cloth Hall (Sukiennice)
+DESCRIPTION:Day 3. Historic trading hall with souvenir shops and the Polish
+  Art Gallery. https://mnk.pl/oddzial/galeria-sztuki-polskiej
+GEO:50.061660;19.937360
+URL:https://mnk.pl/oddzial/galeria-sztuki-polskiej
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-16@trip-planner
+DTSTAMP:20261119T231517Z
+DTSTART:20270519T185500
+DTEND:20270519T195500
+SUMMARY:Depart from Krakow
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/qd2gsru3pt
+URL:https://kiwi.com/u/qd2gsru3pt
+END:VEVENT
+END:VCALENDAR

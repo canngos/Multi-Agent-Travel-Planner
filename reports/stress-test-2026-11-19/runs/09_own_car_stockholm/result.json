@@ -1,0 +1,248 @@
+{
+ "id": "09_own_car_stockholm",
+ "title": "Own car from Turku to Stockholm (car ferry)",
+ "turns": [
+  {
+   "user": "I'll drive my own car from Turku to Stockholm, 3 days, 7-9 May 2027, two adults, mid budget 900 euros. Design, food, archipelago.",
+   "seconds": 28.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick overview of the trip you’ve described:\n\n- **Destination:** Stockholm, Sweden  \n- **Dates:** 7 May 2027 – 9 May 2027 (3 days)  \n- **Origin:** Turku, Finland (you’ll drive your own car)  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, ≈ 900 EUR total  \n- **Interests:** design, food, archipelago  \n\nIs everything correct? If you’d like to change anything, just let me know; otherwise, just confirm and I’ll lock in the brief and hand it over to the planning team."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 817.0,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Stockholm (2027-05-07 to 2027-05-09)**\n\n- **Getting there:** by your own car (and the car ferry below)\n- **Outbound:** Viking Line ferry 2027-05-07 20:36-06:55\n- **Return:** Viking Line ferry 2027-05-09 19:27-08:00\n- **Stay:** Nomad Gärdet Hostel (Ladugårdsgärdet), 134 EUR in total\n\n- **Day 1 (Sat 2027-05-07):** 20:36 Depart from Turku\n- **Day 2 (Sun 2027-05-08):** 06:55 Arrive in Stockholm · 10:00 Skansen · 12:30 Café at the Swedish Centre for Architecture and Design · 14:00 Vasa Museum · 16:00 Maritime Museum · 18:00 Fotografiska · 20:00 Mälarpaviljongen\n- **Day 3 (Mon 2027-05-09):** 13:30 Kungsholmen · 15:00 Swedish Museum of Performing Arts · 19:27 Depart from Stockholm\n\nEstimated total: 473 EUR (budget 900 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 98.0,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Guide saved to **C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\09_own_car_stockholm\\stockholm-2027-05-07-to-2027-05-09.md** (HTML at the same folder).  \nCalendar exported to **C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\09_own_car_stockholm\\stockholm-2027-05-07-to-2027-05-09.ics**.  \nMap exported to **C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\09_own_car_stockholm\\stockholm-2027-05-07-to-2027-05-09.geojson**.  \n\n**Recommended transport:** Viking Line car ferry (20:36 → 06:55 outbound, 19:27 → 08:00 return).  \n**Recommended stay:** Nomad Gärdet Hostel (€134 total).  \n\nTotal estimated cost €473 — well within the €900 budget (≈ 53 % used)."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details.",
+  "culture_agent: wiki_summary -> error 'Royal Armoury Stockholm' is ambiguous on Wikipedia; add the city, e.g. 'Royal Armoury Stockholm, Lisbon'"
+ ],
+ "tool_calls": 38,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 6.693814600002952,
+   "last": 848.5611161999987
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 31.571704899994074,
+   "last": 845.789672400002
+  },
+  "flight_searcher": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 31.605014200002188,
+   "last": 31.605014200002188
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 34.045221699998365,
+   "last": 124.20048889999453
+  },
+  "ground_searcher": {
+   "events": 17,
+   "tool_calls": 8,
+   "first": 34.86850719999347,
+   "last": 111.39545799999905
+  },
+  "culture_agent": {
+   "events": 19,
+   "tool_calls": 9,
+   "first": 35.01881900000444,
+   "last": 261.0702983999945
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 38.00082180000027,
+   "last": 182.67537939999602
+  },
+  "airbnb_searcher": {
+   "events": 3,
+   "tool_calls": 1,
+   "first": 38.798964999994496,
+   "last": 164.0763758999965
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 156.92037629999686,
+   "last": 156.92037629999686
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 293.69802670000354,
+   "last": 293.69802670000354
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 295.80757459999586,
+   "last": 461.0216583000001
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 461.02204349999374,
+   "last": 461.02204349999374
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 461.0225697999995,
+   "last": 750.1679019000003
+  },
+  "itinerary_reviser": {
+   "events": 9,
+   "tool_calls": 0,
+   "first": 518.2308066999976,
+   "last": 845.7891711999982
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 933.2551629999944,
+   "last": 943.7486744999915
+  }
+ },
+ "seconds": 943.8,
+ "brief": {
+  "origin": "Turku",
+  "destination": "Stockholm",
+  "start_date": "2027-05-07",
+  "end_date": "2027-05-09",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 900.0,
+  "interests": [
+   "design",
+   "food",
+   "archipelago"
+  ],
+  "origin_lat": 60.45148,
+  "origin_lon": 22.26869,
+  "destination_lat": 59.32938,
+  "destination_lon": 18.06871,
+  "destination_country": "Sweden",
+  "own_car": true,
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 473.0,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": []
+  },
+  {
+   "day": 2,
+   "issue": "long_walk",
+   "detail": "8.5 km straight-line between the day's stops: regroup or add a metro/tram note."
+  },
+  {
+   "day": 2,
+   "issue": "far_meal",
+   "detail": "'Mälarpaviljongen' is 3.7 km from the day's sights.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "far_meal",
+   "detail": "'Kungsholmen' is 2.1 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Mäster Anders",
+     "kind": "restaurant",
+     "km": 2.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Wijnjas",
+     "kind": "restaurant",
+     "km": 2.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Rådhuset",
+     "kind": "restaurant",
+     "km": 2.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 8808
+ }
+}

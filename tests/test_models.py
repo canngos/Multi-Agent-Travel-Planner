@@ -16,7 +16,6 @@ def test_trip_brief_defaults_and_iso_dates():
 @pytest.mark.parametrize(
     "overrides",
     [
-        {"end_date": "2027-05-10"},  # same day
         {"end_date": "2027-05-01"},  # before start
         {"start_date": "10/05/2027"},  # not ISO
         {"budget_tier": "luxury"},
@@ -55,3 +54,9 @@ def test_stay_option_and_place():
     p = Place(kind="sight", name="Belém Tower", lat=38.6916, lon=-9.2160)
     assert p.source_urls == [] and p.indoor is None
     assert Place(kind="restaurant", name="No coords").lat is None
+
+
+def test_a_day_trip_has_one_day_and_no_night():
+    from travel_planner.models import TripBrief
+    brief = TripBrief(destination="Tallinn", start_date="2027-05-15", end_date="2027-05-15")
+    assert brief.day_trip and brief.days == 1 and brief.nights == 0

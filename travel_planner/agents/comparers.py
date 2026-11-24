@@ -4,11 +4,15 @@ Comparers call no tools: they read the two searchers' results from session state
 (`{flight_options?}` etc.; the `?` renders an empty string if a searcher wrote nothing)
 and merge, rank and pick. They only reorganise options that are already grounded.
 """
+import json
+
 from google.adk.agents import LlmAgent
 from google.genai import types
 
 from ..config import MODEL
 from .grounding import ground_research_output
+from .output import extract_json
+from .review_checks import _parse, recommended_option
 from .prompts import BRIEF, REQUIREMENTS, output_format
 
 COMPARE_RULES = """RULES:
@@ -32,7 +36,9 @@ TRANSPORT_STEPS = """HOW TO COMPARE (do it separately for "outbound" and "return
    "fastest" = the option with the lowest duration_min.
 3. "ranked" = up to 5 options, best value first: sort by price_eur, but move an option down when it is much
    slower than the others (e.g. > 2x the fastest) or its details warn about an AIRPORT CHANGE or self-transfer.
-   Options without a price go last.
+   An option whose details say FAR AIRPORT does not arrive at the destination: put it last and never recommend it
+   while another option exists. Options without a price go after the priced ones, but keep them in "ranked"
+   (a ferry or bus without a fare is often the cheap way there): name them in "recommendation".
 4. "recommendation": 2-3 sentences: which outbound + return combination you recommend for this brief
    (budget_tier, travellers) and why, the combined price for all travellers, and any warning to show the user.
 5. "total_cheapest_eur" = price of the cheapest outbound + cheapest return (null if one is missing)."""
@@ -83,7 +89,7 @@ STAY_EXAMPLE = """{"by_area": [{"area": "Baixa", "airbnb": {"kind": "airbnb", "n
 
 
 def _comparer(name: str, description: str, role: str, inputs: str, steps: str, shape: str, example: str,
-              output_key: str) -> LlmAgent:
+              output_key: str, before_grounding: list | None = None) -> LlmAgent:
     instruction = "\n\n".join([role, BRIEF, inputs, steps, COMPARE_RULES, output_format(shape, example)]) + REQUIREMENTS
     return LlmAgent(
         name=name,
@@ -93,14 +99,42 @@ def _comparer(name: str, description: str, role: str, inputs: str, steps: str, s
         output_key=output_key,
         include_contents="none",
         generate_content_config=types.GenerateContentConfig(temperature=0.1),
-        after_agent_callback=ground_research_output(output_key),  # a copied option keeps the tool's link
+        # a copied option keeps the tool's link
+        after_agent_callback=[*(before_grounding or []), ground_research_output(output_key)],
     )
+
+
+def add_recommended(callback_context):
+    """After-agent callback of the transport comparer (before grounding): code adds "recommended", the best option per
+    direction by price plus travel time and lost trip time, weighted by the budget tier (review_checks.leg_cost),
+    among the options the travellers can take (accepted modes, the right airport, a bus that suits their needs).
+
+    The comparer ranked by price and the planner followed: a live Vienna run chose a 31-hour bus for a wheelchair
+    user, and several plans kept an early return flight that cost the last day for €5 less. The review checks
+    measure the plan against the same choice (poor_transport_choice)."""
+    state = callback_context.state
+    brief = state.get("trip_brief") or {}
+    try:
+        summary = extract_json(state.get("transport_summary") or "")
+    except ValueError:
+        return None
+    searched = {leg: [o for key in ("flight_options", "ground_options")
+                      for o in _parse(state.get(key)).get(leg) or [] if isinstance(o, dict)]
+                for leg in ("outbound", "return")}
+    picks = {leg: recommended_option(summary, leg, brief, searched[leg]) for leg in ("outbound", "return")}
+    if not any(picks.values()):
+        return None
+    summary["recommended"] = {**picks, "how": (
+        "chosen by code: the lowest price plus travel time and lost trip time, valued by the budget tier, among the "
+        "options the travellers can take")}
+    state["transport_summary"] = "```json\n" + json.dumps(summary, ensure_ascii=False, indent=1) + "\n```"
+    return None
 
 
 def build_transport_comparer() -> LlmAgent:
     return _comparer("transport_comparer", "Merges flight and ground options; picks cheapest and fastest.",
                      TRANSPORT_ROLE, TRANSPORT_INPUTS, TRANSPORT_STEPS, TRANSPORT_SHAPE, TRANSPORT_EXAMPLE,
-                     "transport_summary")
+                     "transport_summary", before_grounding=[add_recommended])
 
 
 def build_stay_comparer() -> LlmAgent:

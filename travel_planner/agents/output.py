@@ -5,6 +5,7 @@ Used by the dev harness and tests now, and by the pipeline's sanity checks later
 import json
 import re
 
+import json_repair
 from pydantic import ValidationError
 
 from ..models import Place, StayOption, TransportOption
@@ -51,12 +52,15 @@ _FENCE = re.compile(r"```(?:json)?\s*(\{.*?\})\s*```", re.DOTALL)
 _TRAILING_COMMA = re.compile(r",(\s*[}\]])")
 
 
-def extract_json(text: str) -> dict:
-    """The JSON object from an agent reply: the last ```json fence, else the first {...} in the text.
+_OPEN_FENCE = re.compile(r"```(?:json)?\s*(\{.*)", re.DOTALL)
 
-    A candidate that does not parse is tried once more without trailing commas ("[1, 2,]"): the model sometimes
-    writes them, and one comma must not make a whole research result unreadable for the code checks.
-    """
+
+def _parse_json(text: str) -> tuple[dict, bool]:
+    """(object, repaired). Strict parsing first (fences, then the first {...}, each also without trailing commas);
+    then json_repair on the same candidates.
+
+    A live Vienna run's transport summary had mismatched brackets: the code checks read it as {} and skipped every
+    transport check, so a 31-hour bus passed review. A repaired object is better than none."""
     fences = _FENCE.findall(text or "")
     candidates = list(reversed(fences))
     start = (text or "").find("{")
@@ -70,8 +74,35 @@ def extract_json(text: str) -> dict:
             except ValueError:
                 continue
             if isinstance(obj, dict):
-                return obj
+                return obj, False
+    # the mismatched fence regex above needs a closing "}" right before ```: take an open fence's body too
+    candidates += [m.rsplit("```", 1)[0] for m in _OPEN_FENCE.findall(text or "")]
+    for candidate in candidates:
+        try:
+            obj = json_repair.loads(candidate.strip())
+        except Exception:  # the repair library may raise on odd input
+            continue
+        if isinstance(obj, dict) and obj:
+            return obj, True
     raise ValueError("no JSON object found in the agent output")
+
+
+def extract_json(text: str) -> dict:
+    """The JSON object from an agent reply: the last ```json fence, else the first {...} in the text.
+
+    A candidate that does not parse is tried once more without trailing commas ("[1, 2,]"), then repaired with
+    json_repair (mismatched brackets, missing quotes): one slip must not make a whole research result unreadable for
+    the code checks.
+    """
+    return _parse_json(text)[0]
+
+
+def was_repaired(text: str) -> bool:
+    """True when the reply's JSON only parses after repair (so it should be rewritten as clean JSON)."""
+    try:
+        return _parse_json(text)[1]
+    except ValueError:
+        return False
 
 
 def check_output(output_key: str, text: str) -> tuple[dict, list[str]]:

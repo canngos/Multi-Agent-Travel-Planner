@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Cerca Fernandina",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129525.5056467,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "ns": 0,
+     "title": "Cerca Fernandina",
+     "missing": true,
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "fullurl": "https://en.wikipedia.org/wiki/Cerca_Fernandina",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Cerca_Fernandina&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Cerca_Fernandina"
+    }
+   ]
+  }
+ }
+}

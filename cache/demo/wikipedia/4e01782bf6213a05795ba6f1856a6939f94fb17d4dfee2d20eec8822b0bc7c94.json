@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Navy Museum (Portugal)",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129307.3976011,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "pageid": 12464919,
+     "ns": 0,
+     "title": "Navy Museum (Portugal)",
+     "extract": "The Navy Museum (Portuguese: Museu de Marinha) is a maritime museum in Lisbon, dedicated to all aspects of the history of navigation in Portugal. The museum is administered by the Portuguese Navy and is located in the tourist district of Belém. It occupies a part of the neo-Manueline western wing of the Jerónimos Monastery with the National Museum of Archaeology, as well as a modern annex built to the north of the monastery. \nThe history of the museum is connected to King Luís I (1838–1889), who had a strong interest in oceanographic studies and an accomplished navigator himself. In 1863, he began collecting items related to the preservation of maritime history of Portugal, a collection that was enlarged in the following decades, culminating in the inauguration of the Maritime Museum in 1963 in its present location.\nThe exhibits include historical paintings, archaeological items and many scale models of ships used in Portugal since the 15th century, a collection of navigations instruments and maps, royal barges, as well as the Fairey III \"Santa Cruz\" that crossed the Atlantic in 1923, and the Portuguese Navy's first aircraft, an FBA Type B flying boat.",
+     "coordinates": [
+      {
+       "lat": 38.69709722,
+       "lon": -9.20813889,
+       "primary": true,
+       "globe": "earth"
+      }
+     ],
+     "description": "Maritime museum in Lisbon",
+     "descriptionsource": "local",
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "touched": "2026-11-16T13:09:22Z",
+     "lastrevid": 1363428858,
+     "length": 3384,
+     "fullurl": "https://en.wikipedia.org/wiki/Navy_Museum_(Portugal)",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Navy_Museum_(Portugal)&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Navy_Museum_(Portugal)"
+    }
+   ]
+  }
+ }
+}

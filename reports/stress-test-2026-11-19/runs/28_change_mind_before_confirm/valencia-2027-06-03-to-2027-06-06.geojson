@@ -1,0 +1,286 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.3929,
+     39.4672
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Your double room near downtown VT-56790-V",
+    "url": "https://www.airbnb.com/rooms/1188175904323900400?check_in=2027-06-03&check_out=2027-06-06&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.370833,
+     39.479342
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "10:15",
+    "kind": "sight",
+    "name": "Museu de Belles Arts de València",
+    "url": "https://en.wikipedia.org/wiki/Museu_de_Belles_Arts_de_Val%C3%A8ncia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.376009,
+     39.479259
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "11:45",
+    "kind": "sight",
+    "name": "Torres de Serranos",
+    "url": "https://www.openstreetmap.org/way/9281502"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.37895,
+     39.47317
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Central Bar",
+    "url": "http://www.centralbar.es/en/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.37386,
+     39.47655
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Almodí (Almudín)",
+    "url": "https://en.wikivoyage.org/wiki/Valencia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.37506,
+     39.4756
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Catedral de Santa María de Valencia",
+    "url": "https://catedraldevalencia.es/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.3839,
+     39.47573
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "17:00",
+    "kind": "sight",
+    "name": "Torres de Quart",
+    "url": "https://en.wikivoyage.org/wiki/Valencia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.37445,
+     39.46973
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "20:30",
+    "kind": "restaurant",
+    "name": "El Poblet Restaurante",
+    "url": "http://elpobletrestaurante.com/home"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.378986,
+     39.4735
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Central Market",
+    "url": "https://www.mercadocentralvalencia.es"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.378395,
+     39.474376
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "10:45",
+    "kind": "sight",
+    "name": "Lonja de la Seda",
+    "url": "https://en.wikipedia.org/wiki/Lonja_de_la_Seda"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.37766,
+     39.47486
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Tasca Ángel",
+    "url": "https://www.facebook.com/Tasca-Angel-163047987042853/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.374668,
+     39.472524
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "16:00",
+    "kind": "sight",
+    "name": "Museu Nacional de Ceràmica y Artes Suntuarias González Martí",
+    "url": "https://en.wikivoyage.org/wiki/Valencia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.39155,
+     39.47618
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Bar Ricardo",
+    "url": "http://barricardo.com/english.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.35,
+     39.45416667
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-06-06",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "City of Arts and Sciences",
+    "url": "https://en.wikipedia.org/wiki/City_of_Arts_and_Sciences"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.3472,
+     39.4531
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-06-06",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "L'Oceanogràfic",
+    "url": "https://www.oceanografic.org/en/"
+   }
+  }
+ ]
+}

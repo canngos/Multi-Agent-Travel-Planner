@@ -1,0 +1,128 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Mariehamn
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-1@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270604T160000
+DTEND:20270604T163000
+SUMMARY:Arrive in Mariehamn
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/purcufg9m9
+URL:https://kiwi.com/u/purcufg9m9
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-2@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270604T163000
+DTEND:20270604T173000
+SUMMARY:Bagarstugan Cafe och Vin
+DESCRIPTION:Day 1. Try Ålandspannkaka (≈ €6.5) for a low‑budget di
+ nner. https://bagarstugan.ax/
+GEO:60.099760;19.942940
+URL:https://bagarstugan.ax/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-3@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270604T180000
+DTEND:20270604T193000
+SUMMARY:St. George's Church in Mariehamn
+DESCRIPTION:Day 1. Visit the historic 1927 church\; free entry. https://www
+ .mariehamnsforsamling.fi/kyrkor-och-lokaler/s-t-gorans-kyrka
+GEO:60.097300;19.934800
+URL:https://www.mariehamnsforsamling.fi/kyrkor-och-lokaler/s-t-gorans-kyrka
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-4@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T100000
+DTEND:20270605T113000
+SUMMARY:Pommern (museum ship)
+DESCRIPTION:Day 2. Explore the four‑masted barque\; ticket includes marit
+ ime museum. https://www.pommern.ax/
+GEO:60.097360;19.925045
+URL:https://www.pommern.ax/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-5@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T114500
+DTEND:20270605T130000
+SUMMARY:Åland Maritime Museum
+DESCRIPTION:Day 2. Visit the ship‑building exhibits adjacent to Pommern. 
+ https://sjofartsmuseum.ax
+GEO:60.097247;19.926527
+URL:https://sjofartsmuseum.ax
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-6@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T130000
+DTEND:20270605T140000
+SUMMARY:Draken Kebab Hamn
+DESCRIPTION:Day 2. Low‑budget kebab lunch. https://en.wikivoyage.org/wiki
+ /Mariehamn
+GEO:60.093380;19.929220
+URL:https://en.wikivoyage.org/wiki/Mariehamn
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-7@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T143000
+DTEND:20270605T153000
+SUMMARY:Åland Museum and Åland Art Museum
+DESCRIPTION:Day 2. History and art collections\; indoor activity for rainy 
+ weather. https://www.museum.ax/museer-sevardheter/alands-kulturhistoriska-
+ museum
+GEO:60.096984;19.944908
+URL:https://www.museum.ax/museer-sevardheter/alands-kulturhistoriska-museum
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-8@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T153000
+DTEND:20270605T170000
+SUMMARY:Mariehamn Museum
+DESCRIPTION:Day 2. Model of 1920s Mariehamn\; free entry. https://www.marie
+ hamnsmuseet.hembygd.fi/
+GEO:60.098932;19.938187
+URL:https://www.mariehamnsmuseet.hembygd.fi/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-9@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270605T183000
+DTEND:20270605T193000
+SUMMARY:Pizza Diablo
+DESCRIPTION:Day 2. Mid‑range pizza dinner\, popular local spot. https://d
+ iablo.ax/
+GEO:60.100150;19.942540
+URL:https://diablo.ax/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-10@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270606T063000
+DTEND:20270606T080000
+SUMMARY:Torpviken birdwatching tower
+DESCRIPTION:Day 3. Quick sunrise bird‑watching\; free entry. http://www.f
+ agelskyddsforeningen.ax/index.php/fagelstationer-och-torn/fageltornet-vid-
+ jomala-torpfjaerden
+GEO:60.108381;19.899390
+URL:http://www.fagelskyddsforeningen.ax/index.php/fagelstationer-och-torn/f
+ ageltornet-vid-jomala-torpfjaerden
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-11@trip-planner
+DTSTAMP:20261119T204826Z
+DTSTART:20270606T095000
+DTEND:20270606T105000
+SUMMARY:Depart from Mariehamn
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/ht7pu7g5dw
+URL:https://kiwi.com/u/ht7pu7g5dw
+END:VEVENT
+END:VCALENDAR

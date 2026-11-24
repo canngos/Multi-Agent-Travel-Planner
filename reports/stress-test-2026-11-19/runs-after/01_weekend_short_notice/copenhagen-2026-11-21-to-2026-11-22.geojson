@@ -1,0 +1,172 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5506637,
+     55.6868323
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Sleep in Heaven",
+    "url": "https://www.booking.com/searchresults.html?ss=Sleep+in+Heaven%2C+Copenhagen&checkin=2026-11-21&checkout=2026-11-22&group_adults=1&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.57426,
+     55.680162
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2026-11-21",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Riz Raz",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.571944,
+     55.6725
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2026-11-21",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Ny Carlsberg Glyptotek",
+    "url": "https://www.openstreetmap.org/relation/1322262"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5691795,
+     55.6761856
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2026-11-21",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Fodkold",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.57393,
+     55.686873
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2026-11-22",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Botanical Garden (University of Copenhagen)",
+    "url": "https://www.openstreetmap.org/way/3098803"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.577436,
+     55.685691
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2026-11-22",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Rosenborg Castle",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5701806,
+     55.6777413
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2026-11-22",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Fresh Bagel",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.575794,
+     55.681362
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2026-11-22",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Rundetårn (Round Tower)",
+    "url": "https://www.openstreetmap.org/way/1011492033"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.593333,
+     55.684028
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2026-11-22",
+    "time": "14:45",
+    "kind": "sight",
+    "name": "Amalienborg Palace",
+    "url": "http://kongehuset.dk/english/palaces/amalienborg"
+   }
+  }
+ ]
+}

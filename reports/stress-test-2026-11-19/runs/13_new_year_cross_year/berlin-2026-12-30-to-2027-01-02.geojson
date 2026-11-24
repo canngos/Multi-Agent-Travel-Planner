@@ -1,0 +1,305 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.414288,
+     52.525367
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "H2 Hotel Berlin-Alexanderplatz",
+    "url": "https://www.booking.com/searchresults.html?ss=H2+Hotel+Berlin-Alexanderplatz%2C+Berlin&checkin=2026-12-30&checkout=2027-01-02&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3777,
+     52.5163
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "17:30",
+    "kind": "sight",
+    "name": "Brandenburg Gate",
+    "url": "https://www.openstreetmap.org/way/518071791"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.37611111,
+     52.51861111
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "18:30",
+    "kind": "sight",
+    "name": "Reichstag Dome",
+    "url": "https://www.openstreetmap.org/node/2432753840"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.385531,
+     52.521336
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "20:30",
+    "kind": "restaurant",
+    "name": "Die Berliner Republik",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.40277778,
+     52.5175
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Humboldt Forum",
+    "url": "https://www.openstreetmap.org/node/8413352835"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.388122,
+     52.520242
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "12:15",
+    "kind": "restaurant",
+    "name": "Witty's Currywurst",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.402256,
+     52.519422
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "DDR Museum",
+    "url": "https://www.openstreetmap.org/way/175149971"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.40111111,
+     52.51916667
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "Berlin Cathedral",
+    "url": "https://www.openstreetmap.org/way/313670734"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3974,
+     52.52881
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Kopps",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3777,
+     52.5163
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "21:30",
+    "kind": "sight",
+    "name": "Brandenburg Gate (NYE fireworks)",
+    "url": "https://www.openstreetmap.org/way/518071791"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.397023,
+     52.517748
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-01-01",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "German Historical Museum",
+    "url": "https://www.openstreetmap.org/node/3203167561"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.40338,
+     52.52768
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-01-01",
+    "time": "12:15",
+    "kind": "restaurant",
+    "name": "Chi Sing Restaurant",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.38876,
+     52.52269
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-01-01",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Grill Royal",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.412771,
+     52.522034
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-01-02",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Fountain of the Peoples' Friendship",
+    "url": "https://opentripmap.com/en/card/W52564405"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3871174,
+     52.5255132
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-01-02",
+    "time": "11:30",
+    "kind": "restaurant",
+    "name": "Lucky Star",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.393694,
+     52.527566
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 4,
+    "date": "2027-01-02",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Museum der Stille",
+    "url": "https://www.openstreetmap.org/node/4261575774"
+   }
+  }
+ ]
+}

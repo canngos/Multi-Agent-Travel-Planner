@@ -1,0 +1,58 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5457851346",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129145.4265735,
+ "response": {
+  "xid": "N5457851346",
+  "name": "Lisbon City Hall",
+  "address": {
+   "city": "Santa Maria Maior",
+   "house": "Câmara Municipal de Lisboa",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Chiado",
+   "country": "Portugal",
+   "postcode": "1100",
+   "pedestrian": "Praça do Município",
+   "country_code": "pt",
+   "house_number": "1",
+   "neighbourhood": "Mártires",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5457851346",
+  "wikidata": "Q20059161",
+  "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+  "url": "http://www.cm-lisboa.pt/equipamentos/equipamento/info/timpano-dos-pacos-do-concelho",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5457851346",
+  "wikipedia": "https://en.wikipedia.org/wiki/Lisbon%20City%20Hall",
+  "image": "https://commons.wikimedia.org/wiki/File:C%C3%A1mara_Municipal_de_Lisboa%2C_Portugal%2C_2012-05-12%2C_DD_01.JPG",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/C%C3%A1mara_Municipal_de_Lisboa%2C_Portugal%2C_2012-05-12%2C_DD_01.JPG/400px-C%C3%A1mara_Municipal_de_Lisboa%2C_Portugal%2C_2012-05-12%2C_DD_01.JPG",
+   "height": 296,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:Lisbon City Hall",
+   "text": "The Lisbon City Hall (Portuguese: Paços do Concelho de Lisboa, lit. 'Palace of the Municipality of Lisbon') is the seat of the Lisbon municipal government. The building is located in the City Square (Praça do Município), Santa Maria Maior, Lisbon. It houses the Lisbon City Council. Built in the neoclassical style, its monumental façade features a large pediment over a central balcony with sculptures by Calmels, and four oculi. Inside, it has a remarkable central staircase, by the architect José Luís Monteiro, and paintings by several artists, like Pereira Cão, Columbano Bordalo Pinheiro, José Malhoa e José Rodrigues.",
+   "html": "<p>The <b>Lisbon City Hall</b> (Portuguese: <i lang=\"pt\">Paços do Concelho de Lisboa</i>, <abbr title=\"literal translation\">lit.</abbr><span> </span>'Palace of the Municipality of Lisbon')<b> </b> is the seat of the Lisbon municipal government. The building is located in the City Square (<i>Praça do Município</i>), Santa Maria Maior, Lisbon. It houses the Lisbon City Council. Built in the neoclassical style, its monumental façade features a large pediment over a central balcony with sculptures by Calmels, and four oculi. Inside, it has a remarkable central staircase, by the architect José Luís Monteiro, and paintings by several artists, like Pereira Cão, Columbano Bordalo Pinheiro, José Malhoa e José Rodrigues.</p>"
+  },
+  "point": {
+   "lon": -9.138809204101562,
+   "lat": 38.708126068115234
+  }
+ }
+}

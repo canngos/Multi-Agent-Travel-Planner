@@ -1,0 +1,24 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+tool find_restaurants failed: Overpass unavailable (overpass-api.de: HTTP 502: # 502 Gateway Timeout
+
+This Overpass API server is currently at capacity. All query workers are busy
+and the request queue is full.
+
+## What to do
+
+Retry your request using exponential backoff: wait a | maps.mail.ru: HTTP 504: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:). Use Wikivoyage 'Eat' listings instead.
+Tool 'wiki_summary<|channel|>commentary' not found.
+Available tools: find_sights, wikivoyage_section, find_sight_hours, wiki_summary, web_search, geocode_place, find-sights, wikivoyage-section, find-sight-hours, wiki-summary, web-search, geocode-place, tool_call_failed
+
+Possible causes:
+  1. LLM hallucinated the function name - review agent instruction clarity
+  2. Tool not registered - verify agent.tools list
+  3. Name mismatch - check for typos
+
+Suggested fixes:
+  - Review agent instruction to ensure tool usage is clear
+  - Verify tool is included in agent.tools list
+  - Check for typos in function name

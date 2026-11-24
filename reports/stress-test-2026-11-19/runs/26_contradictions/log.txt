@@ -1,0 +1,21 @@
+
+>>> USER: 7 days in Dubai, 5-star luxury only, but total budget 300 euros, 0 adults, from Helsinki, 10-16 Feb 2027.
+[  13.3s] <<< CONCIERGE:
+I’ve got the basics of your trip:
+
+- **Destination:** Dubai (UAE)  
+- **Dates:** 10 ‑ 16 Feb 2027 (7 days)  
+- **Origin:** Helsinki  
+- **Travellers:** 0 adults  
+- **Budget:** 300 EUR total  
+- **Accommodation style:** 5‑star luxury only  
+
+To move forward I need a couple of clarifications:
+
+1. **Number of travellers** – we need at least one traveller (adults or children).  
+2. **Budget vs. 5‑star luxury** – a 5‑star experience for a week will normally exceed 300 EUR. Is the budget flexible, or would you like to adjust the accommodation level or other expectations?
+
+Let me know how you’d like to proceed, and feel free to add any other preferences (e.g., interests, avoid certain transport modes, etc.).
+
+
+=== done in 13.3 s, 0 tool calls, errors=[]

@@ -1,0 +1,191 @@
+{
+ "id": "01_weekend_short_notice",
+ "title": "This weekend, minimal info (dates within forecast window)",
+ "turns": [
+  {
+   "user": "Copenhagen this weekend, just me, cheap.",
+   "seconds": 28.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief**\n\n- **Destination:** Copenhagen, Denmark  \n- **Dates:** 21 Nov – 22 Nov 2026 (2 days, 1 night)  \n- **Departure:** Helsinki, Finland  \n- **Travellers:** 1 adult  \n- **Budget tier:** low (cheap)  \n\nIs this correct? Please confirm (or let me know any changes)."
+    }
+   ]
+  },
+  {
+   "user": "From Helsinki, Saturday to Sunday. No idea about budget, keep it cheap.",
+   "seconds": 345.7,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Copenhagen (2026-11-21 to 2026-11-22)**\n\n- **Outbound:** SAS flight 2026-11-21 11:15-12:00, 126 EUR\n- **Return:** Finnair flight 2026-11-22 19:20-21:55, 231 EUR\n- **Stay:** Sleep in Heaven (De Gamles By), 21 EUR in total\n\n- **Day 1 (Sat 2026-11-21):** 12:00 Arrive in Copenhagen · 13:00 Riz Raz · 16:30 Ny Carlsberg Glyptotek · 19:30 Fodkold\n- **Day 2 (Sun 2026-11-22):** 10:00 Botanical Garden (University of Copenhagen) · 11:30 Rosenborg Castle · 12:30 Fresh Bagel · 13:45 Rundetårn (Round Tower) · 14:45 Amalienborg Palace · 19:20 Depart from Copenhagen\n\nEstimated total: 465 EUR.\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 54.9,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: copenhagen-2026-11-21-to-2026-11-22.md (and copenhagen-2026-11-21-to-2026-11-22.html, best opened in a browser), the calendar copenhagen-2026-11-21-to-2026-11-22.ics, the map copenhagen-2026-11-21-to-2026-11-22.geojson in the output folder.\nTransport: out SAS flight 21 Nov 11:15; back Finnair flight 22 Nov 19:20.\nStay: Sleep in Heaven (€21 in total).\nEstimated total: €465.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "What will the weather be like?",
+   "seconds": 2.6,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "According to the guide, the forecast for your weekend in Copenhagen is:\n\n- **Saturday (21 Nov 2026):** partly cloudy, temperatures around **3 °C to 7 °C**.  \n- **Sunday (22 Nov 2026):** partly cloudy, cooler with temperatures about **1 °C to 3 °C**."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 21 Nov - 22 Nov 2026, 2 days and 1 night."
+ ],
+ "tool_calls": 36,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 9.159856199999922,
+   "last": 431.5851694000012
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 31.102853999997023,
+   "last": 374.04151529999217
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 35.949855700004264,
+   "last": 105.10647299999255
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 35.95117259999097,
+   "last": 93.01506209999206
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 35.95557259999623,
+   "last": 114.43229070000234
+  },
+  "culture_agent": {
+   "events": 16,
+   "tool_calls": 7,
+   "first": 35.955795200003195,
+   "last": 153.2725664000027
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 36.092545099993,
+   "last": 93.991108599992
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 36.240079800001695,
+   "last": 102.99436719999358
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 197.23917200000142,
+   "last": 197.23917200000142
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 202.96492709999438,
+   "last": 202.96899710000434
+  },
+  "itinerary_planner": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 205.34663459999138,
+   "last": 322.85839589999523
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 322.8586353999999,
+   "last": 322.8586353999999
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 322.8587955999974,
+   "last": 372.21274899999844
+  },
+  "itinerary_reviser": {
+   "events": 7,
+   "tool_calls": 1,
+   "first": 331.3352426999918,
+   "last": 374.04108719999203
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 422.8188216999988,
+   "last": 428.964486900004
+  }
+ },
+ "seconds": 431.6,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Copenhagen",
+  "start_date": "2026-11-21",
+  "end_date": "2026-11-22",
+  "travellers": 1,
+  "budget_tier": "low",
+  "total_budget_eur": null,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 55.67594,
+  "destination_lon": 12.56553,
+  "destination_country": "Denmark",
+  "nights": 1,
+  "days": 2
+ },
+ "plan_status": "approved",
+ "cost_total": 464.72,
+ "n_days": 2,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 8329
+ }
+}

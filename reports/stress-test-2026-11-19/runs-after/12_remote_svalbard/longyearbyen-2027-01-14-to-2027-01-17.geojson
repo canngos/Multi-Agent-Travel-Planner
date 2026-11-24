@@ -1,0 +1,210 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6336552,
+     78.2220657
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Mary-Ann's Polarrigg",
+    "url": "https://www.booking.com/searchresults.html?ss=Mary-Ann%27s+Polarrigg%2C+Longyearbyen&checkin=2027-01-14&checkout=2027-01-17&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.624814583158336,
+     78.21121402920485
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "Funktionærmessen Restaurant",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.59405,
+     78.203119
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Galleri Svalbard",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.599052,
+     78.217087
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Gruve 1A Amerikagruva",
+    "url": "https://opentripmap.com/en/card/W686576331"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6297,
+     78.2223
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "24‑Hour Sundial",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.641569,
+     78.220756
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "17:30",
+    "kind": "sight",
+    "name": "WildPhoto Travel",
+    "url": "https://www.openstreetmap.org/node/5228487121"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.589505,
+     78.207458
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-01-15",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Huset",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6484,
+     78.220839
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-01-16",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Barentz Pub & Spiseri",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.652312,
+     78.222382
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-01-16",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Svalbard Museum",
+    "url": "https://opentripmap.com/en/card/N3526633670"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.653517,
+     78.223351
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-01-16",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "North Pole Expedition Museum",
+    "url": "https://opentripmap.com/en/card/Q18796945"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.633351455330343,
+     78.2220666016873
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-01-16",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Vinterhagen Restaurant",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  }
+ ]
+}

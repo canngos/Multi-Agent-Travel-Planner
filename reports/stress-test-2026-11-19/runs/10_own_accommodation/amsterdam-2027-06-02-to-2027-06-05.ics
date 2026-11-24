@@ -1,0 +1,158 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Amsterdam
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-1@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270602T205000
+DTEND:20270602T213000
+SUMMARY:Arrive in Amsterdam
+DESCRIPTION:Day 1. Flight with Finnair\, Norwegian Air Sweden\; see Getting
+  there and back. https://kiwi.com/u/dn2nk97gfx
+URL:https://kiwi.com/u/dn2nk97gfx
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-2@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270602T213000
+DTEND:20270602T223000
+SUMMARY:De Blauwe Hollander
+DESCRIPTION:Day 1. Dutch home‑cooked comfort food (e.g.\, hutspot). http:
+ //www.deblauwehollander.nl
+GEO:52.363540;4.884730
+URL:http://www.deblauwehollander.nl
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-3@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270603T100000
+DTEND:20270603T113000
+SUMMARY:Foam Fotografiemuseum Amsterdam
+DESCRIPTION:Day 2. Explore contemporary photography exhibitions. https://ww
+ w.openstreetmap.org/node/250624672
+GEO:52.363889;4.893611
+URL:https://www.openstreetmap.org/node/250624672
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-4@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270603T123000
+DTEND:20270603T140000
+SUMMARY:Magere Brug
+DESCRIPTION:Day 2. Iconic skinny bridge\, great photo spot for cyclists. ht
+ tps://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+GEO:52.363586;4.902357
+URL:https://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-5@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270603T140000
+DTEND:20270603T153000
+SUMMARY:Rijksmuseum
+DESCRIPTION:Day 2. Dutch national museum with masterpieces by Rembrandt and
+  Vermeer. https://www.rijksmuseum.nl/en/visit
+GEO:52.359863;4.885131
+URL:https://www.rijksmuseum.nl/en/visit
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-6@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270603T173000
+DTEND:20270603T183000
+SUMMARY:La Margarita
+DESCRIPTION:Day 2. Caribbean plates (rice\, beans\, plantains). https://en.
+ wikivoyage.org/wiki/Amsterdam/Canal_District
+GEO:52.366430;4.891150
+URL:https://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-7@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270604T100000
+DTEND:20270604T113000
+SUMMARY:Museum Het Grachtenhuis
+DESCRIPTION:Day 3. Multimedia exhibition on the canal district’s history.
+  https://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+GEO:52.367882;4.886241
+URL:https://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-8@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270604T120000
+DTEND:20270604T133000
+SUMMARY:Anne Frank House
+DESCRIPTION:Day 3. Visit the Secret Annex and exhibition. http://www.annefr
+ ank.org/
+GEO:52.375147;4.884040
+URL:http://www.annefrank.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-9@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270604T150000
+DTEND:20270604T163000
+SUMMARY:Van Gogh Museum
+DESCRIPTION:Day 3. World‑largest collection of Van Gogh paintings and dra
+ wings. https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices
+GEO:52.358218;4.881171
+URL:https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-10@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270604T173000
+DTEND:20270604T183000
+SUMMARY:Damsteeg
+DESCRIPTION:Day 3. Modern fish‑focused dishes with veggie options. https:
+ //en.wikivoyage.org/wiki/Amsterdam/Canal_District
+GEO:52.372490;4.883320
+URL:https://en.wikivoyage.org/wiki/Amsterdam/Canal_District
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-11@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270604T210000
+DTEND:20270604T220000
+SUMMARY:Pancakes! Amsterdam
+DESCRIPTION:Day 3. Try sweet and savoury Dutch pancakes. http://www.pancake
+ samsterdam.com/
+GEO:52.370500;4.883180
+URL:http://www.pancakesamsterdam.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-12@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270605T103000
+DTEND:20270605T120000
+SUMMARY:Eye Filmmuseum
+DESCRIPTION:Day 4. Film exhibitions and screenings. https://en.wikipedia.or
+ g/wiki/EYE_Institut_Filmmuseum
+GEO:52.384335;4.900812
+URL:https://en.wikipedia.org/wiki/EYE_Institut_Filmmuseum
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-13@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270605T130000
+DTEND:20270605T140000
+SUMMARY:Kinnaree
+DESCRIPTION:Day 4. Thai green curry and pad thai. http://www.restaurantkinn
+ aree.nl
+GEO:52.378022;4.883282
+URL:http://www.restaurantkinnaree.nl
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-14@trip-planner
+DTSTAMP:20261119T203745Z
+DTSTART:20270605T192500
+DTEND:20270605T202500
+SUMMARY:Depart from Amsterdam
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/qnrfv3s9gx
+URL:https://kiwi.com/u/qnrfv3s9gx
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,179 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Vienna
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-1@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270506T142800
+DTEND:20270506T152800
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-2@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270507T214400
+DTEND:20270507T223000
+SUMMARY:Arrive in Vienna
+DESCRIPTION:Day 2. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-3@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270507T223000
+DTEND:20270508T000000
+SUMMARY:Stadtpark
+DESCRIPTION:Day 2. Evening stroll (free). https://opentripmap.com/en/card/W
+ 551031461
+GEO:48.204769;16.379677
+URL:https://opentripmap.com/en/card/W551031461
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-4@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T093000
+DTEND:20270508T101500
+SUMMARY:Burggarten
+DESCRIPTION:Day 3. Stroll through the historic park and visit the Butterfly
+  House greenhouse. https://opentripmap.com/en/card/W8063831
+GEO:48.204384;16.365952
+URL:https://opentripmap.com/en/card/W8063831
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-5@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T101500
+DTEND:20270508T114500
+SUMMARY:Albertina
+DESCRIPTION:Day 3. Explore the graphic art collection (2 h). http://www.a
+ lbertina.at/
+GEO:48.204695;16.368239
+URL:http://www.albertina.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-6@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T123000
+DTEND:20270508T133000
+SUMMARY:Palmenhaus
+DESCRIPTION:Day 3. Mid‑range lunch with classic Austrian dishes\; try the
+  Wiener Schnitzel. http://www.palmenhaus.at/
+GEO:48.205095;16.366645
+URL:http://www.palmenhaus.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-7@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T134500
+DTEND:20270508T151500
+SUMMARY:Imperial Treasury (Schatzkammer)
+DESCRIPTION:Day 3. View Habsburg crown jewels (1.5 h). http://www.kaiserl
+ iche-schatzkammer.at/
+GEO:48.206567;16.365422
+URL:http://www.kaiserliche-schatzkammer.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-8@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T153000
+DTEND:20270508T170000
+SUMMARY:Volksgarten
+DESCRIPTION:Day 3. Relax in the rose garden\; short walk (30 min). https:
+ //opentripmap.com/en/card/W8063768
+GEO:48.208035;16.361786
+URL:https://opentripmap.com/en/card/W8063768
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-9@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270508T190000
+DTEND:20270508T200000
+SUMMARY:Zum Leupold
+DESCRIPTION:Day 3. Dinner with seasonal local dishes\; good for a relaxed e
+ vening. http://www.leupold.at/
+GEO:48.213017;16.363073
+URL:http://www.leupold.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-10@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T093000
+DTEND:20270509T110000
+SUMMARY:St. Stephen's Cathedral
+DESCRIPTION:Day 4. Visit the iconic gothic cathedral (1.5 h). https://en.
+ wikipedia.org/wiki/St._Stephen%27s_Cathedral\,_Vienna
+GEO:48.208481;16.373166
+URL:https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Vienna
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-11@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T111500
+DTEND:20270509T124500
+SUMMARY:House of Music
+DESCRIPTION:Day 4. Interactive music museum (2 h). https://www.hausdermus
+ ik.com/
+GEO:48.204167;16.373333
+URL:https://www.hausdermusik.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-12@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T133000
+DTEND:20270509T143000
+SUMMARY:Figlmüller
+DESCRIPTION:Day 4. Lunch\; famous for the oversized Wiener Schnitzel. http:
+ //www.figlmueller.at/en/figlmueller-wollzeile-en.html
+GEO:48.209199;16.374494
+URL:http://www.figlmueller.at/en/figlmueller-wollzeile-en.html
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-13@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T144500
+DTEND:20270509T161500
+SUMMARY:Mozarthaus Vienna
+DESCRIPTION:Day 4. Explore Mozart’s former residence (2 h). https://www
+ .mozarthausvienna.at/
+GEO:48.207778;16.375278
+URL:https://www.mozarthausvienna.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-14@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T170000
+DTEND:20270509T180000
+SUMMARY:Augarten
+DESCRIPTION:Day 4. Brief walk in Vienna’s oldest Baroque garden. https://
+ en.wikipedia.org/wiki/Augarten
+GEO:48.224445;16.377710
+URL:https://en.wikipedia.org/wiki/Augarten
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-15@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T180000
+DTEND:20270509T190000
+SUMMARY:Zum Leupold
+DESCRIPTION:Day 4. Dinner with seasonal local dishes\; good for a relaxed e
+ vening. http://www.leupold.at/
+GEO:48.213017;16.363073
+URL:http://www.leupold.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-16@trip-planner
+DTSTAMP:20261119T202526Z
+DTSTART:20270509T230700
+DTEND:20270510T000700
+SUMMARY:Depart from Vienna
+DESCRIPTION:Day 4. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+END:VCALENDAR

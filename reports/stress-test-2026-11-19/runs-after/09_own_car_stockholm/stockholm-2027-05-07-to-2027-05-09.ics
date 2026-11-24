@@ -1,0 +1,137 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Stockholm
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-1@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270507T203600
+DTEND:20270507T213600
+SUMMARY:Depart from Turku
+DESCRIPTION:Day 1. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-2@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270508T065500
+DTEND:20270508T075500
+SUMMARY:Arrive in Stockholm
+DESCRIPTION:Day 2. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-3@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270508T100000
+DTEND:20270508T113000
+SUMMARY:Skansen Open‑Air Museum
+DESCRIPTION:Day 2. Explore historic Swedish buildings and zoo\; archipelago
+  vibe. https://www.skansen.se
+GEO:59.326539;18.105239
+URL:https://www.skansen.se
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-4@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270508T130000
+DTEND:20270508T140000
+SUMMARY:Lunch near Skansen
+DESCRIPTION:Day 2. Pick a nearby spot\; try Swedish meatballs (köttbullar)
+ .
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-5@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270508T143000
+DTEND:20270508T160000
+SUMMARY:Royal Armoury (Livrustkammaren)
+DESCRIPTION:Day 2. Swedish military history collection inside the Royal Pal
+ ace. https://www.openstreetmap.org/node/304606190
+GEO:59.326615;18.073078
+URL:https://www.openstreetmap.org/node/304606190
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-6@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270508T183000
+DTEND:20270508T193000
+SUMMARY:Dinner near Skansen
+DESCRIPTION:Day 2. Enjoy a light dinner\, perhaps gravlax.
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-7@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T100000
+DTEND:20270509T113000
+SUMMARY:Swedish Centre for Architecture and Design (ArkDes)
+DESCRIPTION:Day 3. Design‑focused museum on Skeppsholmen. https://arkdes.
+ se/
+GEO:59.325833;18.085000
+URL:https://arkdes.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-8@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T120000
+DTEND:20270509T133000
+SUMMARY:Moderna Museet
+DESCRIPTION:Day 3. Modern art and design exhibitions. https://www.modernamu
+ seet.se/
+GEO:59.326389;18.083611
+URL:https://www.modernamuseet.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-9@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T133000
+DTEND:20270509T143000
+SUMMARY:Mäster Anders
+DESCRIPTION:Day 3. Mid‑budget French/Swedish cuisine\, grilled meats.
+GEO:59.329090;18.044740
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-10@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T144500
+DTEND:20270509T155500
+SUMMARY:Nationalmuseum
+DESCRIPTION:Day 3. Swedish fine arts and design collection. https://en.wiki
+ pedia.org/wiki/Nationalmuseum
+GEO:59.328600;18.078100
+URL:https://en.wikipedia.org/wiki/Nationalmuseum
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-11@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T155500
+DTEND:20270509T163000
+SUMMARY:Vasa Museum
+DESCRIPTION:Day 3. Visit the 17th‑century warship before it closes at 18:
+ 00. https://www.vasamuseet.se/en/visit/buy-ticket
+GEO:59.328084;18.091370
+URL:https://www.vasamuseet.se/en/visit/buy-ticket
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-12@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T163000
+DTEND:20270509T173000
+SUMMARY:Kungsholmen
+DESCRIPTION:Day 3. Mid‑budget food‑court style venue on the quay.
+GEO:59.326500;18.043650
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-13@trip-planner
+DTSTAMP:20261119T234216Z
+DTSTART:20270509T192600
+DTEND:20270509T202600
+SUMMARY:Depart from Stockholm
+DESCRIPTION:Day 3. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+END:VCALENDAR

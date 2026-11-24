@@ -52,8 +52,8 @@ describe("run reducer on the recorded Lisbon demo", () => {
     expect(final.agents.planning_pipeline.status).toBe("done");
   });
 
-  it("pairs all 54 tool calls with their results", () => {
-    expect(final.toolOrder).toHaveLength(54);
+  it("pairs all 55 tool calls with their results", () => {
+    expect(final.toolOrder).toHaveLength(55);
     expect(Object.values(final.tools).every((t) => t.status !== "running")).toBe(true);
   });
 

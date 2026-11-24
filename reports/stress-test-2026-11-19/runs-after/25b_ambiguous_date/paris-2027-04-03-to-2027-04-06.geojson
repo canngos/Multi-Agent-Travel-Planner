@@ -1,0 +1,191 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.4464,
+     48.9205
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Cozy & quiet room in Drancy – close to public transport",
+    "url": "https://www.airbnb.com/rooms/1785758130269777089?check_in=2027-04-03&check_out=2027-04-06&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.311878,
+     48.857037
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Les Invalides – Musée de l'Armée",
+    "url": "https://en.wikipedia.org/wiki/Les_Invalides"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.324723,
+     48.860295
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Palais de la Légion d'Honneur (Musée de la Légion d'Honneur)",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.336397,
+     48.860864
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Louvre Museum",
+    "url": "https://en.wikipedia.org/wiki/Louvre"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.335377,
+     48.85466
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Musée national Eugène Delacroix",
+    "url": "https://en.wikipedia.org/wiki/Mus%C3%A9e_national_Eug%C3%A8ne_Delacroix"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.326389,
+     48.86
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Musée d'Orsay",
+    "url": "https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.322659,
+     48.863766
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Musée de l'Orangerie",
+    "url": "https://en.wikipedia.org/wiki/Mus%C3%A9e_de_l%27Orangerie"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.319834,
+     48.861351
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Fondation Custodia",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.312378,
+     48.866158
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 4,
+    "date": "2027-04-06",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Grand Palais",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.314929,
+     48.866026
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 4,
+    "date": "2027-04-06",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Petit Palais",
+    "url": "https://en.wikipedia.org/wiki/Petit_Palais"
+   }
+  }
+ ]
+}

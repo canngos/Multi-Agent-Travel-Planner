@@ -256,8 +256,9 @@ async def normalise_airbnb_search(result: dict, args: dict, centre: tuple[float,
         listings = [(r, c, None) for r, c in listings]
     listings = listings[:max_results]
     if not listings:
+        city = str(args.get("location") or "the city").split(",")[0].strip() or "the city"
         return error(f"Airbnb found {found} listings, none within {MAX_STAY_DISTANCE_KM} km of the centre; "
-                     "search again with a neighbourhood, e.g. 'Baixa, Lisbon'")
+                     f"search again with a central neighbourhood of {city}, e.g. '<neighbourhood>, {city}'")
     areas = await asyncio.gather(*(neighbourhood(c["latitude"], c["longitude"]) for _, c, _ in listings))
     stays = [o for o in (airbnb_listing_to_option(r, nights, a, query, km) for (r, _, km), a in zip(listings, areas)) if o]
     if not stays:

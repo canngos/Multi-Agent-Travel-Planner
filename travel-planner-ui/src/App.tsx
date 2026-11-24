@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useReducer, useRef, useState, type ChangeEvent } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useReducer, useRef, useState, type ChangeEvent } from "react";
 
 import { Chat } from "./components/Chat";
+import type { ImportedMap } from "./components/GuideMap";
 import { ActivityPanel, DataPanel, DetailsPanel, GuidePanel, MetricsPanel, ReviewPanel } from "./components/Panels";
 import { RouteMap } from "./components/RouteMap";
 import type { Selection } from "./components/selection";
@@ -19,14 +20,18 @@ const THEME_OPTIONS: { id: ThemeChoice; label: string }[] = [
   { id: "dark", label: "Dark" },
 ];
 
+// Leaflet is only loaded when the Guide map tab is opened
+const GuideMapPanel = lazy(() => import("./components/GuideMap").then((m) => ({ default: m.GuideMapPanel })));
+
 const index = indexGraph(graphJson as AgentNode);
 const layout = layoutMap(index.root);
 const DEMO_REPLAY = "/replays/lisbon-demo.json";
 
-type Tab = "activity" | "guide" | "review" | "metrics" | "details" | "data";
+type Tab = "activity" | "guide" | "map" | "review" | "metrics" | "details" | "data";
 const TABS: { id: Tab; label: string }[] = [
   { id: "activity", label: "Activity" },
   { id: "guide", label: "Guide" },
+  { id: "map", label: "Guide map" },
   { id: "review", label: "Review" },
   { id: "metrics", label: "Cost and time" },
   { id: "details", label: "Details" },
@@ -44,6 +49,11 @@ export default function App() {
   const [tab, setTab] = useState<Tab>("activity");
   const [selection, setSelection] = useState<Selection | null>(null);
   const [replayError, setReplayError] = useState("");
+  // map files opened in the Guide map tab and which one is shown; kept here so they survive switching tabs (until the page reloads)
+  const [mapImports, setMapImports] = useState<ImportedMap[]>([]);
+  const [mapSelected, setMapSelected] = useState("run");
+  const addMapImport = useCallback((m: ImportedMap) =>
+    setMapImports((list) => (list.some((x) => x.name === m.name) ? list.map((x) => (x.name === m.name ? m : x)) : [...list, m])), []);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const wall = useTicker(mode === "live" && run.busy);
@@ -190,12 +200,20 @@ export default function App() {
                         onClick={() => setTab(t.id)}>
                   {t.label}
                   {t.id === "guide" && typeof run.state.final_guide === "string" && <span className="tab-dot" aria-label="ready" />}
+                  {t.id === "map" && typeof (run.state.guide_exports as { map?: unknown } | undefined)?.map === "string"
+                    && <span className="tab-dot" aria-label="ready" />}
                 </button>
               ))}
             </div>
             <div className="tab-panel" id="tab-panel" role="tabpanel" aria-labelledby={`tab-${tab}`}>
               {tab === "activity" && <ActivityPanel index={index} run={run} layout={layout} now={now} onSelect={select} />}
               {tab === "guide" && <GuidePanel run={run} />}
+              {tab === "map" && (
+                <Suspense fallback={<p className="empty-state">Loading the map…</p>}>
+                  <GuideMapPanel run={run} imports={mapImports} onImport={addMapImport}
+                                 selected={mapSelected} onSelect={setMapSelected} />
+                </Suspense>
+              )}
               {tab === "review" && <ReviewPanel run={run} onSelect={select} />}
               {tab === "metrics" && <MetricsPanel index={index} run={run} now={now} onSelect={select} />}
               {tab === "details" && <DetailsPanel index={index} run={run} selection={selection} onSelect={select} />}

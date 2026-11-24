@@ -8,6 +8,8 @@ NOMINATIM = "https://nominatim.openstreetmap.org"
 OPEN_METEO_GEOCODING = "https://geocoding-api.open-meteo.com/v1/search"
 REGION_TYPES = {"country", "state", "region", "province", "county", "state_district", "archipelago", "island",
                 "continent"}  # Nominatim addresstypes that are not a city
+SMALL_PLACE_TYPES = {"village", "hamlet", "isolated_dwelling", "locality", "farm", "neighbourhood"}
+SMALL_PLACE_IMPORTANCE = 0.5  # a small place below this is an unexpected match for a trip destination
 
 
 @safe_tool
@@ -21,7 +23,8 @@ async def geocode_place(name: str) -> dict:
         data = await get_json(
             f"{NOMINATIM}/search",
             namespace="nominatim",
-            params={"q": name, "format": "jsonv2", "limit": 1, "addressdetails": 1, "accept-language": "en"},
+            params={"q": name, "format": "jsonv2", "limit": 1, "addressdetails": 1, "accept-language": "en",
+                    "extratags": 1},
         )
     except ToolError as exc:  # e.g. HTTP 429 when Nominatim's 1 request/s limit is hit
         fallback = await _open_meteo_geocode(name)
@@ -31,12 +34,23 @@ async def geocode_place(name: str) -> dict:
     if not data:
         raise ToolError(f"No place found for '{name}'. Ask the user to rephrase or add the country.")
     top = data[0]
-    address = top.get("address", {})
     kind = top.get("addresstype") or top.get("type")
+    if kind in REGION_TYPES:
+        top = await _city_for_region(name, top)
+        kind = top.get("addresstype") or top.get("type")
+    address = top.get("address", {})
     extra = {}
-    if kind in REGION_TYPES:  # its centre point is no place to search for sights, stays or connections
+    if kind in REGION_TYPES and (top.get("extratags") or {}).get("linked_place") == "city":
+        kind = "city"  # a capital region that is the city (Tokyo): nothing to ask the user
+    if kind in REGION_TYPES:
+        # its centre point is no place to search for sights, stays or connections
         extra["warning"] = (f"'{top.get('name') or name}' is a {kind}, not a city: ask the user which city to plan "
                             "(the planner plans one city per trip).")
+    elif kind in SMALL_PLACE_TYPES and float(top.get("importance") or 0) < SMALL_PLACE_IMPORTANCE:
+        # a live run mapped "Atlantis" silently to a small town: the user must confirm such a match
+        extra["warning"] = (f"'{top.get('name') or name}' was found only as a small {kind} in "
+                            f"{address.get('country') or 'an unexpected place'} ({top.get('display_name')}): confirm "
+                            "with the user that this is the place they mean.")
     return ok(
         [{
             "name": top.get("name") or name,
@@ -50,6 +64,31 @@ async def geocode_place(name: str) -> dict:
         attribution="© OpenStreetMap contributors (ODbL)",
         **extra,
     )
+
+
+async def _city_for_region(name: str, region: dict) -> dict:
+    """A city-state or a capital region is a city to plan: "Singapore" and "Monaco" are countries in OpenStreetMap
+    and "Tokyo" a province (a live run asked the user "the 23 wards or another city?"). Tokyo's region carries
+    linked_place=city; for the others, a city search for the same name near the region's point gives the city.
+    Real regions ("Portugal", "Bavaria") stay regions."""
+    if (region.get("extratags") or {}).get("linked_place") == "city":
+        return region
+    try:
+        found = await get_json(
+            f"{NOMINATIM}/search", namespace="nominatim",
+            params={"q": name, "format": "jsonv2", "limit": 1, "addressdetails": 1, "accept-language": "en",
+                    "featureType": "city"},
+        )
+    except ToolError:
+        return region
+    if not found:
+        return region
+    city = found[0]
+    near = haversine_km(float(region["lat"]), float(region["lon"]), float(city["lat"]), float(city["lon"])) <= 50
+    same = (city.get("name") or "").casefold() == (region.get("name") or name).casefold()
+    if near and same:
+        return {**city, "addresstype": "city"}
+    return region
 
 
 async def _open_meteo_geocode(name: str) -> dict | None:

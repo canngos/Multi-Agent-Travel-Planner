@@ -1,0 +1,31 @@
+{
+ "concierge_pending_brief": {
+  "invocation_id": "e-cddcc862-ebb4-48d1-ba59-447951865e0f",
+  "brief": {
+   "origin": "helsinki",
+   "destination": "tokyo",
+   "start_date": "2027-04-05",
+   "end_date": "2027-04-11",
+   "travellers": 2,
+   "budget_tier": "high",
+   "total_budget_eur": 8000.0,
+   "interests": [
+    "anime",
+    "sushi",
+    "temples"
+   ],
+   "origin_lat": 60.16662,
+   "origin_lon": 24.94354,
+   "destination_lat": 35.67686,
+   "destination_lon": 139.76389,
+   "destination_country": "japan",
+   "avoid_modes": [],
+   "requirements": [],
+   "own_accommodation": false,
+   "own_car": false,
+   "day_start": null,
+   "day_end": null,
+   "pace": null
+  }
+ }
+}

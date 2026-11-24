@@ -527,6 +527,36 @@ Goal: find the cases the four test trips never hit, fix them in code, and confir
   - the planner may leave out a top sight (the Belém Tower is not in the new demo plan);
   - many Kraków sights have no ticket price in any source.
 
+## Phase 12 — Fixes from the live stress test  *(2026-11-19/20)*
+Goal: fix every finding of `reports/stress-test-2026-11-19/REPORT.md` (33 live conversations).
+
+- [x] Robustness: agent JSON is repaired (`json-repair`) and rewritten clean; an unreadable transport summary no
+  longer silently skips the transport checks (it falls back to the searchers' options). Regression tests replay the
+  final states of 16 stress runs (`tests/fixtures/stress/`, `tests/test_stress_fixtures.py`)
+- [x] Feasibility checks: arrival airport far from the destination (`far_airport`, airports from `airportsdata`),
+  no time to reach the airport/station (`no_time_to_leave`), a return after the trip (`night_without_stay`), stay
+  nights from the actual travel times, an empty full day (`empty_day`; a day trip out of town fills a day), filler
+  items removed by tidy, rushed visits, fuzzy names (typos, "St." = "Saint"), and ungrounded places dropped after
+  the last review round
+- [x] Stay tier: Google Hotels filters by tier in code (class 3-5 and no hostels for mid, 4-5★ for high), rooms
+  for groups, `stay_tier` check; hostel prices get a dorm-bed note (Google's price for 2 guests covers both beds)
+- [x] Transport: `leg_cost` = price + (travel time + lost trip time) x value per hour by tier; the comparer gets a
+  code-picked "recommended" option; `poor_transport_choice` and `unsuitable_transport` (long or overnight bus for
+  wheelchair users or children); unknown fares are listed as not included, never as €0; groups over 9 are searched
+  for one passenger and priced x N
+- [x] Research and guide: research and plan size scale with the trip length (day trips from Wikivoyage "Go next"
+  over a week), `interest_missing`, `food_tier` and splurge meal costs, polar night / short days, events on the
+  dates, "not verified" lines for accessibility, children, diet and pets, travel-advice line, `[source](null)` links
+- [x] Concierge: 1-day trips, reply in the user's language, off-topic answer, the summary is the confirmation
+  question, days and nights computed in code, a too-small budget and big groups flagged before planning, card
+  numbers removed before the model sees them, Tokyo/Singapore/Monaco geocoded as cities and small-place matches
+  confirmed, re-plans keep the previous transport and stay when the change does not concern them
+- [x] Guide writer: one chat message built in code (file names, transport, stay, total), no local paths
+- [x] Demo re-recorded (still REVISE -> APPROVED, 55 tool calls, UI replay and `run.test.ts` updated); 19 stress
+  scenarios re-run live (`reports/stress-test-2026-11-19/AFTER.md`, `runs-after/`). The second run found 11 more
+  problems (arrival day counted as full, comma-separated opening hours, the recommendation and the Important box
+  picking off-day options, "cheaper hotel" giving a dearer one, the card warning, the language rule); all fixed
+
 ---
 
 ## Decisions log
@@ -613,3 +643,15 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-19 | `before_day_start` / `after_day_end` stay must_fix (REVIEW.md listed them as taste) | They enforce hours the travellers stated, a hard requirement like "no flights", not a matter of taste |
 | 2026-11-19 | Declined findings do not count in keep_best_plan's score or in the guide's "Still to check"; the code-only ablation declines nothing | The critic's decision stands everywhere; the ablation stays the strict pre-A4 baseline |
 | 2026-11-19 | The UI reducer clears a loop's escalation when the loop starts again | In a session with two plans, the first loop's exit_loop stopped the second loop's rounds in the UI |
+| 2026-11-19 | The export tools also keep the file text in state (`guide_exports`), and the UI's Guide tab offers the calendar and map for download; `finish_guide` writes an export the guide writer skipped (logged in `exports_by_code`) | The files were only on disk, so the UI (and a replay without a server) could not offer them; the demo's second guide writer skipped the map. They are conversions of the plan, not a choice |
+| 2026-11-19 | Brief field `own_accommodation` (left out of the saved brief unless true): the stay team is skipped, every agent is told "stay": null, tidy removes a stay planned anyway, and changing it needs the stay research on a re-plan. The concierge's confirmation points to the field when a requirement says no accommodation is needed | A tester's "staying in own apartment (no accommodation needed)" went into free-text requirements: the hotel and Airbnb searchers still ran and the guide still offered a hotel. Verified live (Kraków): no stay agent ran, no stay planned or costed |
+| 2026-11-19 | Briefs are compared with unset flags (False) treated as empty | The brief shown to the user lists own_accommodation false; the saved brief leaves it out. Without this every re-plan looked like an accommodation change |
+| 2026-11-19 | Brief field `own_car`: the travellers drive there and back and use the car at the destination. The flight search is skipped; the ground searcher calls the routing tool only to see whether the route crosses the sea (then the car ferry is planned); tidy removes a flight, train or bus planned anyway; changing it needs the transport research on a re-plan; the concierge's confirmation points to the field | Same gap as accommodation ("I will use my car"). Project owner's choice: own car means driving there and back |
+| 2026-11-19 | No fuel cost for a car trip: the cost counts nothing for the drive and no local public transport, and says fuel or charging, tolls and parking are not included; only a rough road distance and time (straight line x 1.25 at 80 km/h) are given, and only for a road-only route | Project owner: the car may be electric, so a fuel figure would be wrong |
+| 2026-11-19 | Own-car guard: if the routing tool found a ferry but the ground searcher reported none, code adds the tool's ferry (car fare unknown); a car trip whose research has a ferry but whose plan has none is must-fix (`car_ferry_missing`) | A live Helsinki-Tallinn car trip "drove" 100 km across the Gulf of Finland from the distance estimate. After the fix the agent itself planned Tallink out and Viking Line back |
+| 2026-11-20 | Same-day trips are allowed (end_date = start_date): no stay is searched, day 1 is arrival and departure | A stress-test user asked for a day trip; the concierge faked an overnight trip with nowhere to sleep |
+| 2026-11-20 | Groups over 9 are priced as the per-person fare x N, marked as an estimate with a group-desk note | Kiwi, Google Flights and SerpApi all refuse more than 9 passengers; splitting searches doubles quota and rarely returns the same flights |
+| 2026-11-20 | Transport choice by `leg_cost` (price + hours x €5/15/40 per traveller for low/mid/high), computed in code, also used by the review | Ranking by price chose a 31 h bus for a wheelchair user and early flights that lost the last day for €5 |
+| 2026-11-20 | Hostel prices are not multiplied for 2+ guests | Checked in Google Hotels: the price for 2 guests is the nightly total for both beds; a note says it may be dorm beds |
+| 2026-11-20 | The concierge chats in the user's language; the guide and code-built messages stay English | Smallest change that fixes the Finnish run; translating the code-built guide parts is out of scope |
+| 2026-11-20 | The guide writer's own final text is held back; one message built in code is shown | Its text leaked absolute local paths and raw JSON in most stress runs |

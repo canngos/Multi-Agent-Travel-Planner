@@ -1,0 +1,189 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Barcelona
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-1@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T091000
+DTEND:20270603T101000
+SUMMARY:Arrive in Barcelona
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\; see Getting there and
+  back. https://kiwi.com/u/pktbnyt9mf
+URL:https://kiwi.com/u/pktbnyt9mf
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-2@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T111500
+DTEND:20270603T124500
+SUMMARY:Palau de la Música Catalana
+DESCRIPTION:Day 1. Catalan modernista concert hall\, UNESCO site. https://w
+ ww.openstreetmap.org/way/377216661
+GEO:41.387585;2.175226
+URL:https://www.openstreetmap.org/way/377216661
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-3@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T130000
+DTEND:20270603T140000
+SUMMARY:Can Xurrades
+DESCRIPTION:Day 1. Mid‑range Catalan dishes\; try the Ous Estrellats. htt
+ ps://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.399497;2.155753
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-4@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T144500
+DTEND:20270603T161500
+SUMMARY:Cathedral of Santa Eulàlia
+DESCRIPTION:Day 1. Gothic cathedral with beautiful cloister. http://www.cat
+ edralbcn.org/
+GEO:41.383922;2.176380
+URL:http://www.catedralbcn.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-5@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T163000
+DTEND:20270603T180000
+SUMMARY:Museu d'Història de Barcelona
+DESCRIPTION:Day 1. Roman ruins beneath the Gothic Quarter. https://www.barc
+ elona.cat/museuhistoria/
+GEO:41.383921;2.177678
+URL:https://www.barcelona.cat/museuhistoria/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-6@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270603T200000
+DTEND:20270603T210000
+SUMMARY:La Rosa del Desierto
+DESCRIPTION:Day 1. Moroccan tapas\; try the lamb tagine. https://en.wikivoy
+ age.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.397075;2.155589
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-7@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270604T100000
+DTEND:20270604T113000
+SUMMARY:Basilica of Santa Maria del Mar
+DESCRIPTION:Day 2. Stunning Catalan Gothic basilica. https://en.wikivoyage.
+ org/wiki/Barcelona/Ciutat_Vella
+GEO:41.383611;2.181944
+URL:https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-8@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270604T133000
+DTEND:20270604T143000
+SUMMARY:Sol i Lluna
+DESCRIPTION:Day 2. Cozy Mediterranean spot\; good for a relaxed lunch. http
+ s://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.404461;2.156314
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-9@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270604T180000
+DTEND:20270604T190000
+SUMMARY:Botafumeiro
+DESCRIPTION:Day 2. High‑end seafood\; try the grilled fish platter. https
+ ://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.400429;2.154650
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-10@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270604T203000
+DTEND:20270604T213000
+SUMMARY:Metro tip
+DESCRIPTION:Day 2. Use metro line 3 from Santa Eulàlia to Barceloneta to
+  shorten walking.
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-11@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270605T100000
+DTEND:20270605T113000
+SUMMARY:Palau Güell
+DESCRIPTION:Day 3. Gaudí’s early modernista mansion\; rooftop chimneys a
+ re iconic. https://www.openstreetmap.org/way/166565579
+GEO:41.378824;2.174234
+URL:https://www.openstreetmap.org/way/166565579
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-12@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270605T133000
+DTEND:20270605T143000
+SUMMARY:Frankfurt's Casa Valles
+DESCRIPTION:Day 3. Cheap burgers and hot dogs\; good for quick lunch. https
+ ://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.400310;2.155077
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-13@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270605T153000
+DTEND:20270605T160000
+SUMMARY:Palau Robert
+DESCRIPTION:Day 3. Historic exhibition building\; free entry. https://palau
+ robert.gencat.cat/
+GEO:41.396051;2.159409
+URL:https://palaurobert.gencat.cat/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-14@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270605T160000
+DTEND:20270605T170000
+SUMMARY:Casa Vicens
+DESCRIPTION:Day 3. Gaudí’s first major work\; free entry. https://casavi
+ cens.org/
+GEO:41.403499;2.150617
+URL:https://casavicens.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-15@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270605T200000
+DTEND:20270605T210000
+SUMMARY:Karakala
+DESCRIPTION:Day 3. Lebanese tapas\; try the mixed mezze. http://www.karakal
+ a.com/
+GEO:41.402769;2.156517
+URL:http://www.karakala.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-16@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270606T090000
+DTEND:20270606T103000
+SUMMARY:Casa Batlló
+DESCRIPTION:Day 4. Gaudí’s masterpiece with vibrant façade\; buy ticket
+  in advance. https://www.casabatllo.es/en/online-tickets
+GEO:41.391580;2.164920
+URL:https://www.casabatllo.es/en/online-tickets
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-17@trip-planner
+DTSTAMP:20261119T205916Z
+DTSTART:20270606T104500
+DTEND:20270606T114500
+SUMMARY:Depart from Barcelona
+DESCRIPTION:Day 4. Flight with Norwegian Air Sweden\; see Getting there and
+  back. https://kiwi.com/u/qbjtpwzq7u
+URL:https://kiwi.com/u/qbjtpwzq7u
+END:VEVENT
+END:VCALENDAR

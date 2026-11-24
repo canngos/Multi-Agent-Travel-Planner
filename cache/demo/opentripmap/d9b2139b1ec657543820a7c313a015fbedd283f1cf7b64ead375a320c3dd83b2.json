@@ -1,0 +1,59 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W342558475",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129204.12693,
+ "response": {
+  "xid": "W342558475",
+  "name": "Bairro de Caselas",
+  "address": {
+   "city": "Belém",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "São Francisco Xavier",
+   "country": "Portugal",
+   "country_code": "pt",
+   "neighbourhood": "Bairro de Caselas",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/342558475",
+  "bbox": {
+   "lon_min": -9.21823,
+   "lon_max": -9.210446,
+   "lat_min": 38.714083,
+   "lat_max": 38.718198
+  },
+  "wikidata": "Q9643846",
+  "kinds": "historic,historical_places,interesting_places,historic_districts",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W342558475",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Bairro%20de%20Caselas",
+  "image": "https://commons.wikimedia.org/wiki/File:RuaCaselas.JPG",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/RuaCaselas.JPG/400px-RuaCaselas.JPG",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Bairro de Caselas",
+   "text": "O Bairro de Caselas é um bairro da cidade de Lisboa, freguesia de Belém. É um antigo bairro social construído em 1949, da autoria de Couto Martins.Fica situado no limite do Parque Florestal de Monsanto entre a autoestrada A5 e a Avenida das Descobertas. É composto por duas partes distintas, uma a oeste e outra a leste do antigo núcleo urbano de Caselas, que se situava sobre um dos eixos de penetração em Lisboa, a estrada da Portela, proveniente de Carnaxide. Era uma zona de quintas e casais.",
+   "html": "<p>O <b>Bairro de Caselas</b> é um bairro da cidade de Lisboa, freguesia de Belém. É um antigo bairro social construído em 1949, da autoria de Couto Martins.</p><p>Fica situado no limite do Parque Florestal de Monsanto entre a autoestrada A5 e a Avenida das Descobertas. É composto por duas partes distintas, uma a oeste e outra a leste do antigo núcleo urbano de Caselas, que se situava sobre um dos eixos de penetração em Lisboa, a estrada da Portela, proveniente de Carnaxide. Era uma zona de quintas e casais.</p>"
+  },
+  "point": {
+   "lon": -9.215510368347168,
+   "lat": 38.71592330932617
+  }
+ }
+}

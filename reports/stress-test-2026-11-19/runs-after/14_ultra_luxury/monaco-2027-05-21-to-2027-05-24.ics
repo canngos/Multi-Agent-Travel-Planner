@@ -1,0 +1,247 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Monaco
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-1@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T091000
+DTEND:20270521T101000
+SUMMARY:Arrive in Monaco
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoeEgoyMDI3L
+ TA1LTIxagcIARIDSEVMcgcIARIDTkNFQAFAAUgBcAGYAQI&tfu=EgIIAQ
+URL:https://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoe
+ EgoyMDI3LTA1LTIxagcIARIDSEVMcgcIARIDTkNFQAFAAUgBcAGYAQI&tfu=EgIIAQ
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-2@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T110000
+DTEND:20270521T123000
+SUMMARY:Prince's Palace of Monaco
+DESCRIPTION:Day 1. Visit the state rooms and historic fortress. https://en.
+ wikipedia.org/wiki/Prince%27s_Palace_of_Monaco
+GEO:43.731278;7.420150
+URL:https://en.wikipedia.org/wiki/Prince%27s_Palace_of_Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-3@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T123000
+DTEND:20270521T133000
+SUMMARY:Chez Roger
+DESCRIPTION:Day 1. Try the local Socca (€3). https://en.wikivoyage.org/wi
+ ki/Monaco
+GEO:43.732433;7.420169
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-4@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T133000
+DTEND:20270521T143000
+SUMMARY:Oceanographic Museum of Monaco
+DESCRIPTION:Day 1. Marine‑science exhibits and historic vessels. https://
+ musee.oceano.org
+GEO:43.730663;7.425534
+URL:https://musee.oceano.org
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-5@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T143000
+DTEND:20270521T160000
+SUMMARY:Musée des Timbres et des Monnaies
+DESCRIPTION:Day 1. Explore Monaco's stamp and coin collection. https://www.
+ mtm-monaco.mc/
+GEO:43.730872;7.417584
+URL:https://www.mtm-monaco.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-6@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270521T183000
+DTEND:20270521T193000
+SUMMARY:Beefbar
+DESCRIPTION:Day 1. Quality beef cuts\, extensive wine list. http://beefbar.
+ com/
+GEO:43.727810;7.421620
+URL:http://beefbar.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-7@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T093000
+DTEND:20270522T110000
+SUMMARY:Port Hercules
+DESCRIPTION:Day 2. Monaco's main harbour – ideal for yachting enthusiasts
+ . https://en.wikipedia.org/wiki/Port_Hercules
+GEO:43.735000;7.426000
+URL:https://en.wikipedia.org/wiki/Port_Hercules
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-8@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T120000
+DTEND:20270522T130000
+SUMMARY:Café de Paris
+DESCRIPTION:Day 2. People‑watching spot with Mediterranean bites. https:/
+ /en.wikivoyage.org/wiki/Monaco
+GEO:43.739720;7.427690
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-9@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T133000
+DTEND:20270522T150000
+SUMMARY:Opéra de Monaco
+DESCRIPTION:Day 2. Garnier‑style opera house\, tours available. http://ww
+ w.opera.mc/
+GEO:43.738860;7.428480
+URL:http://www.opera.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-10@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T150000
+DTEND:20270522T160000
+SUMMARY:Monte Carlo Casino
+DESCRIPTION:Day 2. Explore the gaming rooms and historic atrium. http://www
+ .casinomontecarlo.com
+GEO:43.739170;7.427960
+URL:http://www.casinomontecarlo.com
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-11@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T160000
+DTEND:20270522T173000
+SUMMARY:Port Hercules
+DESCRIPTION:Day 2. Second visit to enjoy the harbour ambience. https://en.w
+ ikipedia.org/wiki/Port_Hercules
+GEO:43.735000;7.426000
+URL:https://en.wikipedia.org/wiki/Port_Hercules
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-12@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270522T193000
+DTEND:20270522T203000
+SUMMARY:Louis XV
+DESCRIPTION:Day 2. Three‑star Michelin seafood tasting menu. https://www.
+ montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-ducasse-hotel-de-
+ paris
+GEO:43.739110;7.427340
+URL:https://www.montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-du
+ casse-hotel-de-paris
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-13@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T100000
+DTEND:20270523T113000
+SUMMARY:Japanese Garden
+DESCRIPTION:Day 3. Zen garden with waterfalls and tea house. https://en.wik
+ ipedia.org/wiki/Japanese_Garden\,_Monaco
+GEO:43.742274;7.431074
+URL:https://en.wikipedia.org/wiki/Japanese_Garden,_Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-14@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T113000
+DTEND:20270523T130000
+SUMMARY:Nouveau Musée National – Villa Sauber
+DESCRIPTION:Day 3. Contemporary art exhibitions. http://www.nmnm.mc/
+GEO:43.744400;7.430500
+URL:http://www.nmnm.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-15@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T130000
+DTEND:20270523T140000
+SUMMARY:Maison des pâtes Saint‑Charles
+DESCRIPTION:Day 3. Freshly made pasta with regional sauces. https://en.wiki
+ voyage.org/wiki/Monaco
+GEO:43.742266;7.426580
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-16@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T150000
+DTEND:20270523T163000
+SUMMARY:Jardin Exotique
+DESCRIPTION:Day 3. Exotic garden with panoramic views.
+GEO:43.731277;7.414172
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-17@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T173000
+DTEND:20270523T190000
+SUMMARY:Yacht Club de Monaco
+DESCRIPTION:Day 3. Visit the exclusive harbour club and admire the super‑
+ yachts. https://en.wikipedia.org/wiki/Yacht_Club_de_Monaco
+URL:https://en.wikipedia.org/wiki/Yacht_Club_de_Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-18@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270523T193000
+DTEND:20270523T203000
+SUMMARY:Lo Sfizio Street
+DESCRIPTION:Day 3. Terrace pizza with local toppings. https://en.wikivoyage
+ .org/wiki/Monaco
+GEO:43.742178;7.426482
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-19@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270524T100000
+DTEND:20270524T113000
+SUMMARY:Monaco Top Cars Collection
+DESCRIPTION:Day 4. Historic and modern racing cars. https://www.mtcc.mc/
+GEO:43.730892;7.417149
+URL:https://www.mtcc.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-20@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270524T120000
+DTEND:20270524T133000
+SUMMARY:Jardin Exotique
+DESCRIPTION:Day 4. Succulent plants and panoramic views. http://www.jardin-
+ exotique.mc
+GEO:43.731277;7.414172
+URL:http://www.jardin-exotique.mc
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-21@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270524T133000
+DTEND:20270524T143000
+SUMMARY:Mickey’s Pizza
+DESCRIPTION:Day 4. Classic wood‑oven pizza\, quick bite. https://www.mick
+ eyspizza-monaco.com/
+GEO:43.733480;7.418289
+URL:https://www.mickeyspizza-monaco.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-22@trip-planner
+DTSTAMP:20261119T232945Z
+DTSTART:20270524T191000
+DTEND:20270524T201000
+SUMMARY:Depart from Monaco
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoeEgoyMDI3L
+ TA1LTI0agcIARIDTkNFcgcIARIDSEVMQAFAAUgBcAGYAQI&tfu=EgIIAQ
+URL:https://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoe
+ EgoyMDI3LTA1LTI0agcIARIDTkNFcgcIARIDSEVMQAFAAUgBcAGYAQI&tfu=EgIIAQ
+END:VEVENT
+END:VCALENDAR

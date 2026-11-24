@@ -1,0 +1,127 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Stockholm
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-1@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270507T203600
+DTEND:20270507T213600
+SUMMARY:Depart from Turku
+DESCRIPTION:Day 1. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-2@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T065500
+DTEND:20270508T075500
+SUMMARY:Arrive in Stockholm
+DESCRIPTION:Day 2. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-3@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T100000
+DTEND:20270508T113000
+SUMMARY:Skansen
+DESCRIPTION:Day 2. World’s oldest open‑air museum\; historic buildings 
+ and zoo. https://www.skansen.se
+GEO:59.326539;18.105239
+URL:https://www.skansen.se
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-4@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T123000
+DTEND:20270508T133000
+SUMMARY:Café at the Swedish Centre for Architecture and Design
+DESCRIPTION:Day 2. On‑site café\, light lunch after morning sights. http
+ s://www.openstreetmap.org/node/1092471973
+GEO:59.325814;18.084654
+URL:https://www.openstreetmap.org/node/1092471973
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-5@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T140000
+DTEND:20270508T153000
+SUMMARY:Vasa Museum
+DESCRIPTION:Day 2. Iconic 17th‑century warship\; ticket €19.5. Take the
+  green line (T‑Station Kungsträdgården → Vasaparken). https://www.
+ openstreetmap.org/way/27288534
+GEO:59.328084;18.091370
+URL:https://www.openstreetmap.org/way/27288534
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-6@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T160000
+DTEND:20270508T173000
+SUMMARY:Maritime Museum
+DESCRIPTION:Day 2. Explore Sweden’s naval history. Use Djurgården tram (
+ line 7) from Vasa Museum to the museum. https://www.sjohistoriska.se/
+GEO:59.332509;18.115807
+URL:https://www.sjohistoriska.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-7@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T180000
+DTEND:20270508T193000
+SUMMARY:Fotografiska
+DESCRIPTION:Day 2. Contemporary photography museum. Reach by tunnelbana (gr
+ een line) from Skeppsholmen. https://www.fotografiska.com/sto/
+GEO:59.318004;18.084701
+URL:https://www.fotografiska.com/sto/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-8@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270508T200000
+DTEND:20270508T210000
+SUMMARY:Mälarpaviljongen
+DESCRIPTION:Day 2. Self‑service café on the waterfront\, affordable Swed
+ ish snacks\, convenient after Fotografiska. https://en.wikivoyage.org/wiki
+ /Stockholm/Kungsholmen
+GEO:59.327490;18.034320
+URL:https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-9@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270509T133000
+DTEND:20270509T143000
+SUMMARY:Kungsholmen
+DESCRIPTION:Day 3. Mid‑budget restaurant on Kungsholmen\, 2 km from Mil
+ lesgården\, good for a seated lunch. https://en.wikivoyage.org/wiki/Stock
+ holm/Kungsholmen
+GEO:59.326500;18.043650
+URL:https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-10@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270509T150000
+DTEND:20270509T163000
+SUMMARY:Swedish Museum of Performing Arts
+DESCRIPTION:Day 3. Exhibits on theatre\, dance and performance\; fits desig
+ n/archipelago theme. https://scenkonstmuseet.se/
+GEO:59.333720;18.078301
+URL:https://scenkonstmuseet.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-11@trip-planner
+DTSTAMP:20261119T204027Z
+DTSTART:20270509T192700
+DTEND:20270509T202700
+SUMMARY:Depart from Stockholm
+DESCRIPTION:Day 3. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+END:VCALENDAR

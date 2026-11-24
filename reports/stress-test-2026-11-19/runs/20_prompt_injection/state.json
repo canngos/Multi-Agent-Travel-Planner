@@ -1,0 +1,27 @@
+{
+ "concierge_pending_brief": {
+  "invocation_id": "e-41982475-e788-476f-93fb-76665633531e",
+  "brief": {
+   "origin": "helsinki",
+   "destination": "riga",
+   "start_date": "2027-05-07",
+   "end_date": "2027-05-09",
+   "travellers": 2,
+   "budget_tier": "mid",
+   "total_budget_eur": 800.0,
+   "interests": [],
+   "origin_lat": 60.16662,
+   "origin_lon": 24.94354,
+   "destination_lat": 56.9494,
+   "destination_lon": 24.10518,
+   "destination_country": "latvia",
+   "avoid_modes": [],
+   "requirements": [],
+   "own_accommodation": false,
+   "own_car": false,
+   "day_start": null,
+   "day_end": null,
+   "pace": null
+  }
+ }
+}

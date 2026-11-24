@@ -1,0 +1,305 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.1113273,
+     56.9504758
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Liberty Hotel",
+    "url": "https://www.booking.com/searchresults.html?ss=Liberty+Hotel%2C+Riga&checkin=2027-05-13&checkout=2027-05-15&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107939,
+     56.947498
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "09:30",
+    "kind": "cafe",
+    "name": "Golden Coffee",
+    "url": "https://www.openstreetmap.org/node/4429199818"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.108252,
+     56.94677
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Mencendorfa nams",
+    "url": "https://www.openstreetmap.org/way/157820969"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.106398,
+     56.948241
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Lido Alus sēta",
+    "url": "https://www.openstreetmap.org/node/3575097196"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.104309,
+     56.948499
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Museum of the History of Riga and Navigation",
+    "url": "https://www.openstreetmap.org/node/13721805929"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107705,
+     56.947608
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Province",
+    "url": "https://www.openstreetmap.org/node/4294897789"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.106417,
+     56.950073
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "08:00",
+    "kind": "sight",
+    "name": "Riga Central Market",
+    "url": "https://www.arboursabroad.com/riga-central-market"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107688,
+     56.947147
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "12:30",
+    "kind": "cafe",
+    "name": "Pienene",
+    "url": "https://www.openstreetmap.org/node/4728980389"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.10568,
+     56.949127
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "Riga Art Nouveau Museum",
+    "url": "https://www.liveriga.com/en/1582-art-nouveau-museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.108517,
+     56.95961
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Riga Art Nouveau Centre",
+    "url": "https://www.openstreetmap.org/node/1160803251"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.106812,
+     56.947127
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "House of the Black Heads",
+    "url": "https://www.openstreetmap.org/way/87495471"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107995,
+     56.946054
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Piga Gastrobārs",
+    "url": "https://www.openstreetmap.org/node/2049517248"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.11307,
+     56.95578
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Latvian National Museum of Art",
+    "url": "https://www.openstreetmap.org/way/87971760"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107622,
+     56.946112
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "Late Night Munchies",
+    "url": "https://www.openstreetmap.org/node/2049517245"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107815,
+     56.946156
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "14:30",
+    "kind": "bar",
+    "name": "Folkklubs Ala Pagrabs",
+    "url": "https://www.openstreetmap.org/node/3203344123"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.107363,
+     56.947177
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "16:00",
+    "kind": "restaurant",
+    "name": "Salve",
+    "url": "https://www.openstreetmap.org/node/445460349"
+   }
+  }
+ ]
+}

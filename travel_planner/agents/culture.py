@@ -1,5 +1,6 @@
 """culture_agent: sights with a short history, opening hours and tickets -> culture_findings."""
 from ..tools import find_sight_hours, find_sights, geocode_place, web_search, wiki_summary, wikivoyage_section
+from ..tools.trip import extra_research_calls
 from ._common import research_agent
 from .enrich import fill_from_tool_results
 
@@ -14,7 +15,9 @@ STEPS = """STEPS
    central districts (e.g. "Lisbon/Baixa").
 3. Choose 8-12 sights: fit the interests, spread over the city, merge duplicates found by several tools, and
    include at least 3 indoor sights (museums, churches, palaces) for rainy days. No restaurants, cafés or
-   food markets: the food researcher covers those.
+   food markets: the food researcher covers those. Keep the destination's landmarks that the tools return (the
+   best-known sights, e.g. the first Wikivoyage "See" listings), and at least 2 sights for each interest when
+   the tools have them: a live Barcelona run for "architecture" dropped the Sagrada Família.
 4. find_sight_hours(destination_lat, destination_lon, radius_km 6) once: OpenStreetMap opening hours and
    entry fees (ticket_eur 0 = free). Match its results to your sights by name (names may be in the local
    language, e.g. "Mosteiro dos Jerónimos" = "Jerónimos Monastery") and fill in hours / ticket_eur, adding its
@@ -23,6 +26,12 @@ STEPS = """STEPS
    and use 2-3 sentences of its extract.
 6. Only if hours or tickets are STILL missing for the top sights, call web_search AT MOST TWICE in total, each
    time for several sights at once, e.g. "<sight A> <sight B> <sight C> opening hours ticket price".
+7. An interest that is an activity (e.g. surfing, wine tasting, cycling, hiking) with no matching sight yet: call
+   web_search "<activity> in <destination>" once and add the best place it names as a sight (with that page as
+   source_urls, hours and ticket_eur only if the page gives them).
+8. Call web_search "<destination> events <month> <year>" once (month and year of start_date). If a big event
+   falls on the trip dates (a festival, a Grand Prix, a national holiday that closes sights or raises prices),
+   write it in "notes" with its dates and page url.
 FALLBACK: if find_sights fails, build the list from Wikivoyage "See" (and its district pages) and
 find_sight_hours.
 If Wikivoyage fails too, use web_search "top sights in <city> history opening hours"."""
@@ -47,9 +56,10 @@ def build_culture_agent():
         role=ROLE, steps=STEPS, shape=SHAPE, example=EXAMPLE,
         tools=[find_sights, wikivoyage_section, find_sight_hours, wiki_summary, web_search, geocode_place],
         output_key="culture_findings",
-        max_calls=13,
+        max_calls=15,  # 6 lookups + up to 2 web searches for hours, 1 for an activity, 1 for events
         before_grounding=[fill_from_tool_results("culture_findings")],  # tickets and hours the agent left out
+        limit_bonus=extra_research_calls,
     )
-    # a packed trip asks for more sights than 8-12; "" for every other trip, so its instruction is unchanged
+    # a packed or long trip asks for more sights than 8-12; "" for every other trip, so its instruction is unchanged
     agent.instruction += "{trip_pace_research?}"
     return agent

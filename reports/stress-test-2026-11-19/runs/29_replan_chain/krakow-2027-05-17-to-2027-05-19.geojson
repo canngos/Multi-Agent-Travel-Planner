@@ -1,0 +1,248 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9368697,
+     50.0639148
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Bresson Hostel",
+    "url": "https://www.booking.com/searchresults.html?ss=Bresson+Hostel%2C+Krakow&checkin=2027-05-17&checkout=2027-05-19&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9354,
+     50.0546
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "09:35",
+    "kind": "sight",
+    "name": "Wawel Cathedral",
+    "url": "https://en.wikipedia.org/wiki/Wawel_Cathedral"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.937777,
+     50.062005
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "11:15",
+    "kind": "sight",
+    "name": "Rynek Underground",
+    "url": "https://en.wikipedia.org/wiki/Rynek_Underground"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9435,
+     50.0548
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Mały Śledź",
+    "url": "https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.936412,
+     50.061476
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Town Hall Tower",
+    "url": "https://muzeumkrakowa.pl/oddzialy/wieza-ratuszowa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.934722,
+     50.053889
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Wawel Castle",
+    "url": "https://en.wikipedia.org/wiki/Wawel_Castle"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9478,
+     50.0532
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-05-17",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Hamsa",
+    "url": "https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9239,
+     50.0603
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "National Museum in Kraków",
+    "url": "https://en.wikipedia.org/wiki/National_Museum_in_Krak%C3%B3w"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9462,
+     50.0498
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Poranki - breakfast, coffee & cake",
+    "url": "https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.939427,
+     50.06166
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "St. Mary's Basilica",
+    "url": "https://en.wikipedia.org/wiki/Basilica_of_the_Assumption_of_the_Blessed_Virgin_Mary,_Krak%C3%B3w"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94033,
+     50.063226
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Museum of Pharmacy",
+    "url": "http://muzeum.farmacja.uj.edu.pl"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.961621,
+     50.047462
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Oskar Schindler's Enamel Factory",
+    "url": "https://muzeumkrakowa.pl/oddzialy/fabryka-emalia-oskara-schindlera"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9481,
+     50.0502
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 2,
+    "date": "2027-05-18",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Judah Food Market",
+    "url": "https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz"
+   }
+  }
+ ]
+}

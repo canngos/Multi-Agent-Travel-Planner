@@ -1,0 +1,266 @@
+{
+ "id": "24_finnish_language",
+ "title": "Request in Finnish",
+ "turns": [
+  {
+   "user": "Haluaisin 4 päivän matkan Barcelonaan kahdelle, 3.-6. kesäkuuta 2027, Helsingistä. Budjetti noin 1600 euroa. Tykkäämme arkkitehtuurista ja tapaksista.",
+   "seconds": 14.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s the trip brief I have so far:\n\n- **Destination:** Barcelona, Spain  \n- **Dates:** 3 – 6 June 2027 (4 days)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** ~1,600 EUR (mid‑range)  \n- **Interests:** architecture, tapas  \n\nPlease confirm that everything looks correct or let me know if you’d like to change anything."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 742.6,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Barcelona (2027-06-03 to 2027-06-06)**\n\n- **Outbound:** Norwegian Air Sweden flight 2027-06-03 06:15-09:10, 266 EUR\n- **Return:** Norwegian Air Sweden flight 2027-06-06 10:45-15:45, 273 EUR\n- **Stay:** Hola Hostal Eixample (la Dreta de l'Eixample), 310 EUR in total\n\n- **Day 1 (Thu 2027-06-03):** 09:10 Arrive in Barcelona · 11:15 Palau de la Música Catalana · 13:00 Can Xurrades · 14:45 Cathedral of Santa Eulàlia · 16:30 Museu d'Història de Barcelona · 20:00 La Rosa del Desierto\n- **Day 2 (Fri 2027-06-04):** 10:00 Basilica of Santa Maria del Mar · 13:30 Sol i Lluna · 18:00 Botafumeiro · 20:30 Metro tip\n- **Day 3 (Sat 2027-06-05):** 10:00 Palau Güell · 13:30 Frankfurt's Casa Valles · 15:30 Palau Robert · 16:00 Casa Vicens · 20:00 Karakala\n- **Day 4 (Sun 2027-06-06):** 09:00 Casa Batlló · 10:45 Depart from Barcelona\n\nEstimated total: 1407 EUR (budget 1600 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 77.4,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "The guide was saved as **barcelona‑2027‑06‑03‑to‑2027‑06‑06.md** (and HTML version).  \nThe calendar file **barcelona‑2027‑06‑03‑to‑2027‑06‑06.ics** and the GeoJSON map **barcelona‑2027‑06‑03‑to‑2027‑06‑06.geojson** were also created.  \n\n**Recommended transport:** direct Norwegian Air Sweden flights (outbound 06:15–09:10, return 10:45–15:45) – total €539.  \n**Recommended stay:** Hola Hostal Eixample – €310 total.  \n\n**Total cost:** €1 407 (≈ 88 % of the €1 600 budget), so the trip fits comfortably within the budget."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Mitä Sagrada Família maksaa?",
+   "seconds": 3.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The current guide does not include any information about Sagrada Familia, so I can’t provide its price. If you’d like, we can adjust the plan to add a visit to Sagrada Familia and include its ticket cost. Let me know how you’d like to proceed."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 39,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 6.152827599988086,
+   "last": 837.4630516999896
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 16.335070899993298,
+   "last": 756.6020851999929
+  },
+  "food_agent": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 18.854916999989655,
+   "last": 89.93139220000012
+  },
+  "culture_agent": {
+   "events": 24,
+   "tool_calls": 11,
+   "first": 19.618095899990294,
+   "last": 198.88411139999516
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.11438279999129,
+   "last": 79.47798719999264
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.575307399994927,
+   "last": 92.28661009999632
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 21.12359899999865,
+   "last": 78.3103870999912
+  },
+  "ground_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 22.55348769998818,
+   "last": 76.79346069999156
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 192.8905792000005,
+   "last": 192.8905792000005
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 204.01253689998703,
+   "last": 204.01253689998703
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 206.60693639999954,
+   "last": 366.6833760999871
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 366.6836437999882,
+   "last": 366.6836437999882
+  },
+  "plan_critic": {
+   "events": 17,
+   "tool_calls": 4,
+   "first": 366.6838143999921,
+   "last": 682.3733620999992
+  },
+  "itinerary_reviser": {
+   "events": 11,
+   "tool_calls": 1,
+   "first": 438.9899726000003,
+   "last": 756.6014073999977
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 829.1304001999961,
+   "last": 834.0136711999949
+  }
+ },
+ "seconds": 837.5,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Barcelona",
+  "start_date": "2027-06-03",
+  "end_date": "2027-06-06",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 1600.0,
+  "interests": [
+   "architecture",
+   "tapas"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 41.38258,
+  "destination_lon": 2.17707,
+  "destination_country": "Spain",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1407.0,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "far_meal",
+   "detail": "'Can Xurrades' is 2.3 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Alkimia",
+     "kind": "restaurant",
+     "km": 2.4,
+     "hours": "Mon-Fri 13:30-15:30, 20:30-22:30",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 1,
+   "issue": "far_meal",
+   "detail": "'La Rosa del Desierto' is 2.2 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Alkimia",
+     "kind": "restaurant",
+     "km": 2.4,
+     "hours": "Mon-Fri 13:30-15:30, 20:30-22:30",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Picasso Museum",
+     "kind": "sight",
+     "km": 0.2,
+     "hours": "Sun-Tue 10:00-20:00 (19:00 in winter), closes strictly on time",
+     "ticket_eur": 13.0,
+     "budget_tier": null
+    },
+    {
+     "name": "Museu Picasso",
+     "kind": "sight",
+     "km": 0.2,
+     "hours": "Sun-Tue 10:00-20:00 (19:00 in winter), closes strictly on time",
+     "ticket_eur": 13.0,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "issue": "far_meal",
+   "detail": "'Sol i Lluna' is 3.2 km from the day's sights.",
+   "alternatives": []
+  },
+  {
+   "day": 2,
+   "issue": "far_meal",
+   "detail": "'Botafumeiro' is 2.9 km from the day's sights.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9983
+ }
+}

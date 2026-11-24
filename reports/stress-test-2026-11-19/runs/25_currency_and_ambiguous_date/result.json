@@ -1,0 +1,31 @@
+{
+ "id": "25_currency_and_ambiguous_date",
+ "title": "Budget in USD + ambiguous date format 03/04/2027",
+ "turns": [
+  {
+   "user": "Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.",
+   "seconds": 36.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Got it! Just one quick clarification before I lock everything in:\n\nYou mentioned a total budget of **$2,500**. Should I convert that to euros for the brief (roughly **€2,300 EUR** at today’s rates), or would you prefer to specify the amount directly in euros?"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 2,
+ "agents": {
+  "concierge": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 14.736725299997488,
+   "last": 36.00528129999293
+  }
+ },
+ "seconds": 36.0,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

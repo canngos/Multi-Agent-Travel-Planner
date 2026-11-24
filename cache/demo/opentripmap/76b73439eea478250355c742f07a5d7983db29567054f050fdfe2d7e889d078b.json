@@ -1,0 +1,511 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/radius",
+  "params": {
+   "radius": 1500,
+   "lat": 38.7088,
+   "lon": -9.1411,
+   "kinds": "historic",
+   "rate": "3",
+   "format": "json",
+   "limit": 60
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129142.2611833,
+ "response": [
+  {
+   "xid": "N5457851346",
+   "name": "Lisbon City Hall",
+   "dist": 212.76362677,
+   "rate": 7,
+   "osm": "node/5457851346",
+   "wikidata": "Q20059161",
+   "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.138809204101562,
+    "lat": 38.708126068115234
+   }
+  },
+  {
+   "xid": "N1600208694",
+   "name": "Chiado",
+   "dist": 213.84184441,
+   "rate": 3,
+   "osm": "node/1600208694",
+   "wikidata": "Q601430",
+   "kinds": "historic,monuments_and_memorials,cultural,urban_environment,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.142234802246094,
+    "lat": 38.71051025390625
+   }
+  },
+  {
+   "xid": "N5457851239",
+   "name": "Monumento a Camões",
+   "dist": 285.64426817,
+   "rate": 7,
+   "osm": "node/5457851239",
+   "wikidata": "Q10332143",
+   "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.14348316192627,
+    "lat": 38.7105712890625
+   }
+  },
+  {
+   "xid": "N4845258130",
+   "name": "Muralha Fernandina",
+   "dist": 319.12175253,
+   "rate": 7,
+   "osm": "node/4845258130",
+   "wikidata": "Q25430529",
+   "kinds": "fortifications,defensive_walls,historic,archaeology,interesting_places,other_archaeological_sites",
+   "point": {
+    "lon": -9.142589569091797,
+    "lat": 38.71142578125
+   }
+  },
+  {
+   "xid": "N2931441117",
+   "name": "Carmo",
+   "dist": 322.23375035,
+   "rate": 7,
+   "osm": "node/2931441117",
+   "wikidata": "Q1058764",
+   "kinds": "architecture,historic,urban_environment,restaurants,tourist_facilities,historic_architecture,monuments_and_memorials,cultural,interesting_places,foods,sculptures,monuments,other_buildings_and_structures",
+   "point": {
+    "lon": -9.140974044799805,
+    "lat": 38.711700439453125
+   }
+  },
+  {
+   "xid": "W663319284",
+   "name": "Chafariz do Largo do Carmo",
+   "dist": 352.18062956,
+   "rate": 7,
+   "osm": "way/663319284",
+   "wikidata": "Q1058764",
+   "kinds": "fountains,historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.140829086303711,
+    "lat": 38.71196365356445
+   }
+  },
+  {
+   "xid": "N5457844732",
+   "name": "Arco da Rua Augusta",
+   "dist": 374.60239368,
+   "rate": 7,
+   "osm": "node/5457844732",
+   "wikidata": "Q637590",
+   "kinds": "architecture,historic_architecture,historic,monuments_and_memorials,cultural,urban_environment,interesting_places,sculptures,monuments,triumphal_archs",
+   "point": {
+    "lon": -9.136817932128906,
+    "lat": 38.708438873291016
+   }
+  },
+  {
+   "xid": "W394631209",
+   "name": "Baixa",
+   "dist": 383.08494502,
+   "rate": 7,
+   "osm": "way/394631209",
+   "wikidata": "Q804032",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.137016296386719,
+    "lat": 38.71009063720703
+   }
+  },
+  {
+   "xid": "N5651521604",
+   "name": "Galerias Romanas da Rua da Prata",
+   "dist": 399.70405855,
+   "rate": 7,
+   "osm": "node/5651521604",
+   "wikidata": "Q10288100",
+   "kinds": "historic,archaeology,interesting_places,other_archaeological_sites",
+   "point": {
+    "lon": -9.136666297912598,
+    "lat": 38.709747314453125
+   }
+  },
+  {
+   "xid": "R9426989",
+   "name": "Estátua equestre de D. José I",
+   "dist": 427.75717725,
+   "rate": 7,
+   "osm": "relation/9426989",
+   "wikidata": "Q18476235",
+   "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.13646125793457,
+    "lat": 38.70751953125
+   }
+  },
+  {
+   "xid": "N6853537685",
+   "name": "Nata de Lisboa",
+   "dist": 437.85116651,
+   "rate": 7,
+   "osm": "node/6853537685",
+   "wikidata": "Q804032",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.138078689575195,
+    "lat": 38.71195602416992
+   }
+  },
+  {
+   "xid": "Q10321905",
+   "name": "Lápides das Pedras Negras",
+   "dist": 565.0611745,
+   "rate": 7,
+   "wikidata": "Q10321905",
+   "kinds": "megaliths,historic,archaeology,interesting_places",
+   "point": {
+    "lon": -9.134920120239258,
+    "lat": 38.71036911010742
+   }
+  },
+  {
+   "xid": "W663311597",
+   "name": "Dom Pedro IV",
+   "dist": 574.7780882,
+   "rate": 3,
+   "osm": "way/663311597",
+   "wikidata": "Q1549270",
+   "kinds": "historic,monuments_and_memorials,cultural,urban_environment,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.139368057250977,
+    "lat": 38.71379852294922
+   }
+  },
+  {
+   "xid": "N6192875999",
+   "name": "Porta do Mar",
+   "dist": 607.93706745,
+   "rate": 3,
+   "osm": "node/6192875999",
+   "wikidata": "Q25430497",
+   "kinds": "fortifications,defensive_walls,historic,interesting_places",
+   "point": {
+    "lon": -9.134130477905273,
+    "lat": 38.7092170715332
+   }
+  },
+  {
+   "xid": "N5457851243",
+   "name": "Santo António Church",
+   "dist": 632.61632945,
+   "rate": 7,
+   "osm": "node/5457851243",
+   "wikidata": "Q2976487",
+   "kinds": "historic,churches,urban_environment,other_churches,religion,monuments_and_memorials,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.134011268615723,
+    "lat": 38.71007537841797
+   }
+  },
+  {
+   "xid": "W945072679",
+   "name": "Bairro Alto",
+   "dist": 654.76439843,
+   "rate": 7,
+   "osm": "way/945072679",
+   "wikidata": "Q652613",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.145574569702148,
+    "lat": 38.71354293823242
+   }
+  },
+  {
+   "xid": "W426391772",
+   "name": "Bairro Alto",
+   "dist": 667.03769053,
+   "rate": 7,
+   "osm": "way/426391772",
+   "wikidata": "Q652613",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.145730018615723,
+    "lat": 38.71358871459961
+   }
+  },
+  {
+   "xid": "N1929175965",
+   "name": "São Jorge Castle",
+   "dist": 670.54753798,
+   "rate": 7,
+   "osm": "node/1929175965",
+   "wikidata": "Q636780",
+   "kinds": "architecture,historic_architecture,fortifications,historic,interesting_places,castles,restaurants,foods,tourist_facilities,other_buildings_and_structures",
+   "point": {
+    "lon": -9.134586334228516,
+    "lat": 38.712032318115234
+   }
+  },
+  {
+   "xid": "N1801653047",
+   "name": "São Jorge Castle",
+   "dist": 738.79658492,
+   "rate": 7,
+   "osm": "node/1801653047",
+   "wikidata": "Q636780",
+   "kinds": "view_points,other,fortifications,historic,interesting_places,castles",
+   "point": {
+    "lon": -9.133734703063965,
+    "lat": 38.71211624145508
+   }
+  },
+  {
+   "xid": "N5446794769",
+   "name": "São Jorge Castle",
+   "dist": 758.66778928,
+   "rate": 7,
+   "osm": "node/5446794769",
+   "wikidata": "Q636780",
+   "kinds": "view_points,other,fortifications,historic,interesting_places,castles",
+   "point": {
+    "lon": -9.134209632873535,
+    "lat": 38.712989807128906
+   }
+  },
+  {
+   "xid": "W663347630",
+   "name": "Aos Restauradores de 1640",
+   "dist": 773.52454105,
+   "rate": 7,
+   "osm": "way/663347630",
+   "wikidata": "Q16990265",
+   "kinds": "historic,monuments_and_memorials,burial_places,urban_environment,cultural,interesting_places,war_memorials,sculptures,monuments",
+   "point": {
+    "lon": -9.141685485839844,
+    "lat": 38.71575164794922
+   }
+  },
+  {
+   "xid": "Q11780",
+   "name": "Ancient Roman theatre (Lisbon)",
+   "dist": 778.39582518,
+   "rate": 7,
+   "wikidata": "Q11780",
+   "kinds": "historic,theatres_and_entertainments,cultural,archaeology,interesting_places,other_theatres,other_archaeological_sites",
+   "point": {
+    "lon": -9.132408142089844,
+    "lat": 38.71046829223633
+   }
+  },
+  {
+   "xid": "W168984058",
+   "name": "São Jorge Castle",
+   "dist": 778.10033019,
+   "rate": 7,
+   "osm": "way/168984058",
+   "wikidata": "Q636780",
+   "kinds": "settlements,fortifications,historic,archaeology,cultural,museums,interesting_places,castles,other_museums",
+   "point": {
+    "lon": -9.13398265838623,
+    "lat": 38.71304702758789
+   }
+  },
+  {
+   "xid": "W169004504",
+   "name": "São Jorge Castle",
+   "dist": 805.45813693,
+   "rate": 7,
+   "osm": "way/169004504",
+   "wikidata": "Q636780",
+   "kinds": "fortifications,defensive_walls,historic,interesting_places,castles",
+   "point": {
+    "lon": -9.132885932922363,
+    "lat": 38.71215057373047
+   }
+  },
+  {
+   "xid": "N5448423387",
+   "name": "São Jorge Castle",
+   "dist": 808.061319,
+   "rate": 7,
+   "osm": "node/5448423387",
+   "wikidata": "Q636780",
+   "kinds": "fortifications,historic,urban_environment,gardens_and_parks,cultural,interesting_places,castles",
+   "point": {
+    "lon": -9.133705139160156,
+    "lat": 38.71320724487305
+   }
+  },
+  {
+   "xid": "N5651594396",
+   "name": "São Jorge Castle",
+   "dist": 816.34453506,
+   "rate": 7,
+   "osm": "node/5651594396",
+   "wikidata": "Q636780",
+   "kinds": "settlements,fortifications,historic,archaeology,interesting_places,castles",
+   "point": {
+    "lon": -9.132859230041504,
+    "lat": 38.712318420410156
+   }
+  },
+  {
+   "xid": "R3323923",
+   "name": "São Jorge Castle",
+   "dist": 845.82995892,
+   "rate": 7,
+   "osm": "relation/3323923",
+   "wikidata": "Q636780",
+   "kinds": "fortifications,historic,interesting_places,castles",
+   "point": {
+    "lon": -9.133939743041992,
+    "lat": 38.71395492553711
+   }
+  },
+  {
+   "xid": "W945061630",
+   "name": "Alfama",
+   "dist": 853.84546374,
+   "rate": 7,
+   "osm": "way/945061630",
+   "wikidata": "Q985517",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.13205337524414,
+    "lat": 38.71178436279297
+   }
+  },
+  {
+   "xid": "W244745550",
+   "name": "São Jorge Castle",
+   "dist": 959.30120535,
+   "rate": 7,
+   "osm": "way/244745550",
+   "wikidata": "Q636780",
+   "kinds": "fortifications,historic,archaeology,interesting_places,castles,other_archaeological_sites",
+   "point": {
+    "lon": -9.132347106933594,
+    "lat": 38.71405792236328
+   }
+  },
+  {
+   "xid": "W469378483",
+   "name": "Chafariz d'El Rei",
+   "dist": 1017.54772977,
+   "rate": 7,
+   "osm": "way/469378483",
+   "wikidata": "Q5394084",
+   "kinds": "fountains,historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.129463195800781,
+    "lat": 38.70974349975586
+   }
+  },
+  {
+   "xid": "N207597971",
+   "name": "Alfama",
+   "dist": 1051.65241175,
+   "rate": 7,
+   "osm": "node/207597971",
+   "wikidata": "Q985517",
+   "kinds": "historic,historical_places,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.129858016967773,
+    "lat": 38.71228790283203
+   }
+  },
+  {
+   "xid": "N1148841800",
+   "name": "São Bento Palace",
+   "dist": 1077.44237512,
+   "rate": 7,
+   "osm": "node/1148841800",
+   "wikidata": "Q1464499",
+   "kinds": "religion,palaces,architecture,historic_architecture,historic,historical_places,monasteries,interesting_places,historic_districts",
+   "point": {
+    "lon": -9.153155326843262,
+    "lat": 38.71103286743164
+   }
+  },
+  {
+   "xid": "W585939130",
+   "name": "Chafariz da Esperança",
+   "dist": 1081.57122128,
+   "rate": 7,
+   "osm": "way/585939130",
+   "wikidata": "Q16934804",
+   "kinds": "fountains,historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.153533935546875,
+    "lat": 38.70892333984375
+   }
+  },
+  {
+   "xid": "R9304070",
+   "name": "Chafariz de Dentro",
+   "dist": 1159.1182793,
+   "rate": 7,
+   "osm": "relation/9304070",
+   "wikidata": "Q5394084",
+   "kinds": "fountains,historic,monuments_and_memorials,urban_environment,cultural,interesting_places,sculptures,monuments",
+   "point": {
+    "lon": -9.128164291381836,
+    "lat": 38.711307525634766
+   }
+  },
+  {
+   "xid": "W663347632",
+   "name": "Monumento aos Mortos da Grande Guerra",
+   "dist": 1241.54078714,
+   "rate": 7,
+   "osm": "way/663347632",
+   "wikidata": "Q10332162",
+   "kinds": "historic,monuments_and_memorials,burial_places,urban_environment,cultural,interesting_places,war_memorials,sculptures,monuments",
+   "point": {
+    "lon": -9.145254135131836,
+    "lat": 38.71950149536133
+   }
+  },
+  {
+   "xid": "Q790492",
+   "name": "Avenida da Liberdade",
+   "dist": 1249.88668407,
+   "rate": 7,
+   "wikidata": "Q790492",
+   "kinds": "historic,historical_places,cultural,urban_environment,interesting_places,historic_settlements,squares",
+   "point": {
+    "lon": -9.14531135559082,
+    "lat": 38.719566345214844
+   }
+  },
+  {
+   "xid": "N6220668933",
+   "name": "Campo dos Mártires da Pátria (Lisbon)",
+   "dist": 1363.5668505,
+   "rate": 7,
+   "osm": "node/6220668933",
+   "wikidata": "Q9678396",
+   "kinds": "historic,monuments_and_memorials,urban_environment,cultural,interesting_places,squares,monuments",
+   "point": {
+    "lon": -9.140294075012207,
+    "lat": 38.721065521240234
+   }
+  },
+  {
+   "xid": "Q1638625",
+   "name": "Pantheon of the House of Braganza",
+   "dist": 1398.64946501,
+   "rate": 3,
+   "wikidata": "Q1638625",
+   "kinds": "historic,monuments_and_memorials,burial_places,crypts,interesting_places,monuments,mausoleums",
+   "point": {
+    "lon": -9.126944541931152,
+    "lat": 38.714778900146484
+   }
+  }
+ ]
+}

@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.37356,
+     52.53234
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "City Centre Oasis Balcony Room- Female Guests Only",
+    "url": "https://www.airbnb.com/rooms/1496891358081318736?check_in=2027-06-10&check_out=2027-06-14&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.39773,
+     52.52017
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Neues Museum",
+    "url": "https://www.openstreetmap.org/way/18578139"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3877282,
+     52.4935584
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "15:30",
+    "kind": "restaurant",
+    "name": "Curry 36",
+    "url": "http://www.curry36.de"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.396591,
+     52.520971
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "17:30",
+    "kind": "sight",
+    "name": "Pergamon Museum",
+    "url": "https://www.openstreetmap.org/way/313659704"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3880714,
+     52.5037079
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Asador Steakhouse",
+    "url": "http://www.restaurant-asador.de/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.394951,
+     52.521731
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Bode Museum",
+    "url": "https://www.openstreetmap.org/relation/4211594"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.398785,
+     52.519453
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "Altes Museum",
+    "url": "https://www.openstreetmap.org/relation/3619"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.4191905,
+     52.5008784
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "14:30",
+    "kind": "restaurant",
+    "name": "Hasir",
+    "url": "http://www.hasir.de"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.402256,
+     52.519422
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "DDR Museum",
+    "url": "https://www.openstreetmap.org/way/175149971"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.388679,
+     52.491035
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "20:30",
+    "kind": "restaurant",
+    "name": "Café Sarotti-Höfe",
+    "url": "http://cafe-sarottihoefe.de/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.401227,
+     52.517032
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 4,
+    "date": "2027-06-13",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Humboldt Forum",
+    "url": "https://www.humboldtforum.org"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3880577,
+     52.4938089
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 4,
+    "date": "2027-06-13",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Mustafas Gemüse Kebap",
+    "url": "http://mustafas.de/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.397023,
+     52.517748
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 4,
+    "date": "2027-06-13",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "German Historical Museum",
+    "url": "https://www.openstreetmap.org/node/3203167561"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.4423837,
+     52.501096
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-06-13",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Burgermeister",
+    "url": "http://burger-meister.de/"
+   }
+  }
+ ]
+}

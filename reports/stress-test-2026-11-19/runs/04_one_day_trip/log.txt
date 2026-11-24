@@ -1,0 +1,35 @@
+
+>>> USER: A day trip to Tallinn from Helsinki on 15 May 2027, two of us, back the same evening. Budget 150 euros. Old town and a nice lunch.
+[   6.5s] concierge              CALL geocode_place({"name": "Tallinn"})
+[   6.8s] concierge              CALL geocode_place({"name": "Helsinki"})
+[  10.1s] concierge              CALL save_trip_brief({"destination": "Tallinn", "destination_country": "Estonia", "destination_lat": 59.43724, "destination_lon": 24.75727, "origin": "Helsinki", "origin_lat": 60.16662, "origin_lon": 24.94354, "start_date": "2027-05-15", "end_date": "2027-05-15", "travellers": 2, "budget_tier": "low", "total_budget_eur")
+[  10.1s]   ERR concierge: save_trip_brief -> error Invalid trip brief - brief: Value error, end_date must be after start_date
+[  13.3s] <<< CONCIERGE:
+I’m ready to save the brief, but the system requires the *end date* to be **after** the *start date*. Your plan says 15 May 2027 for both departure and return, which isn’t allowed.
+
+Would you be happy to set the return for **16 May 2027** (evening) instead, or would you prefer another date? Let me know the updated end date and I’ll finalize the brief.
+
+
+>>> USER: Yes, that's right, go ahead.
+[  24.5s] concierge              CALL save_trip_brief({"destination": "Tallinn", "destination_country": "Estonia", "destination_lat": 59.43724, "destination_lon": 24.75727, "origin": "Helsinki", "origin_lat": 60.16662, "origin_lon": 24.94354, "start_date": "2027-05-15", "end_date": "2027-05-16", "travellers": 2, "budget_tier": "low", "total_budget_eur")
+[  24.5s]   ERR concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details.
+[  26.5s] <<< CONCIERGE:
+**Trip brief summary**
+
+- **Destination:** Tallinn, Estonia  
+- **Dates:** 15 May 2027 → 16 May 2027 (day trip, returning the evening of the 16th)  
+- **Origin:** Helsinki, Finland  
+- **Travelers:** 2 adults  
+- **Budget:** €150 total (low‑budget tier)  
+- **Interests:** History, food (Old Town walk and a nice lunch)
+
+Please confirm that these details are correct or let me know any changes.
+
+(skip @APPROVE: plan_status=None)
+
+>>> USER: What time is the last ferry back?
+[  28.9s] <<< CONCIERGE:
+I don’t have the exact ferry timetable at this moment, but once we finalize your trip brief the planning team will look up the available ferry options and include the latest departure times for the return journey on 16 May 2027. If you have a preferred latest arrival time, let me know and I can add that as a requirement for the planners.
+
+
+=== done in 28.9 s, 4 tool calls, errors=[]

@@ -1,0 +1,324 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.88997,
+     64.14811
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "“Room near the Ocean”",
+    "url": "https://www.airbnb.com/rooms/1814551811608657622?check_in=2027-03-10&check_out=2027-03-14&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.926711,
+     64.141796
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Hallgrímskirkja",
+    "url": "https://www.hallgrimskirkja.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9377,
+     64.14821
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Bæjarins beztu pylsur",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.932886,
+     64.150436
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Harpa",
+    "url": "https://www.harpa.is/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.945,
+     64.1509
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Hamborgarabúllan",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93576,
+     64.148468
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "The Icelandic Phallological Museum",
+    "url": "https://www.phallus.is/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93888,
+     64.14689
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "The Icelandic Bar",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.932163,
+     64.147309
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "The Culture House",
+    "url": "https://www.openstreetmap.org/way/94560552"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.939219,
+     64.144107
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "National Gallery of Iceland",
+    "url": "https://www.listasafn.is/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93367,
+     64.14231
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Þrír frakkar",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.940444,
+     64.149065
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Reykjavik Art Museum",
+    "url": "https://www.openstreetmap.org/node/688998258"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9346887,
+     64.1430249
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Hotel Holt",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.948163,
+     64.141951
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "National Museum of Iceland",
+    "url": "http://www.natmus.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9469379,
+     64.1383261
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Dill",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.942782,
+     64.147351
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Reykjavík 871±2",
+    "url": "https://en.wikipedia.org/wiki/The_Settlement_Exhibition"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.938,
+     64.1488
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Kolaportið",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.92568,
+     64.14563
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 5,
+    "date": "2027-03-14",
+    "time": "14:00",
+    "kind": "restaurant",
+    "name": "Austur-Indíafjelagið",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  }
+ ]
+}

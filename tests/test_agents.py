@@ -31,8 +31,11 @@ def test_agent_construction(name):
     assert _tool_names(agent) == tools
     assert agent.instruction.count("{trip_brief}") == 1
     uses_mcp = any(isinstance(t, CachedMcpToolset) for t in agent.tools)
-    if uses_mcp:  # MCP agents must cache/normalise through the callbacks
-        assert mcp_cache_before in agent.canonical_before_tool_callbacks and agent.after_tool_callback is mcp_cache_after
+    if uses_mcp:  # MCP agents must cache/normalise through the callbacks (the flight searcher wraps them)
+        from travel_planner.agents.transport import flight_tool_after, flight_tool_before
+        before, after = ((flight_tool_before, flight_tool_after) if name == "flight_searcher"
+                         else (mcp_cache_before, mcp_cache_after))
+        assert before in agent.canonical_before_tool_callbacks and agent.after_tool_callback is after
 
 
 def test_factories_return_fresh_agents():

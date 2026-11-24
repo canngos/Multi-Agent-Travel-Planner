@@ -1,0 +1,31 @@
+{
+ "id": "26_contradictions",
+ "title": "Contradictory: 5-star luxury but 300 EUR for 7 days in Dubai; zero travellers",
+ "turns": [
+  {
+   "user": "7 days in Dubai, 5-star luxury only, but total budget 300 euros, 0 adults, from Helsinki, 10-16 Feb 2027.",
+   "seconds": 13.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’ve got the basics of your trip:\n\n- **Destination:** Dubai (UAE)  \n- **Dates:** 10 ‑ 16 Feb 2027 (7 days)  \n- **Origin:** Helsinki  \n- **Travellers:** 0 adults  \n- **Budget:** 300 EUR total  \n- **Accommodation style:** 5‑star luxury only  \n\nTo move forward I need a couple of clarifications:\n\n1. **Number of travellers** – we need at least one traveller (adults or children).  \n2. **Budget vs. 5‑star luxury** – a 5‑star experience for a week will normally exceed 300 EUR. Is the budget flexible, or would you like to adjust the accommodation level or other expectations?\n\nLet me know how you’d like to proceed, and feel free to add any other preferences (e.g., interests, avoid certain transport modes, etc.)."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 13.290592000004835,
+   "last": 13.290592000004835
+  }
+ },
+ "seconds": 13.3,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

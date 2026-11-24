@@ -22,10 +22,11 @@ from ..config import MODEL
 from .plan_critic import MAX_ROUNDS
 from .extra_sights import budget as extra_sights_budget, extra_sights_tool, merge_extra_sights
 from .grounding import ground_itinerary
-from .itinerary_tidy import tidy_itinerary
+from .itinerary_tidy import tidy_itinerary, tidy_plan
 from .output import extract_json
-from .review_checks import _parse, check_plan
-from .planner import EXAMPLE, INPUTS as RESEARCH_INPUTS, SHAPE, plan_rules
+from .review_checks import (PLACE_KINDS, RESEARCH_KINDS, _parse, check_plan, find_place, research_places,
+                            too_late_to_leave, unreadable_research)
+from .planner import EXAMPLE, INPUTS as RESEARCH_INPUTS, PLAN_SIZE, SHAPE, plan_rules
 from .prompts import BRIEF, REQUIREMENTS, output_format
 from .retry import offer_retry_tool, retry_malformed_call
 
@@ -166,12 +167,62 @@ def keep_best_plan(callback_context):
             log[-1]["restored"] = (f"last revision scored {score} (must, should); kept the plan from round "
                                    f"{best['round']} with {best['score']}")
         state["revision_log"] = log
+    if round_no >= MAX_ROUNDS:
+        drop_ungrounded_places(state)
+        drop_too_late_to_leave(state)
     return None
+
+
+def drop_too_late_to_leave(state) -> None:
+    """After the last round: departure-day items that still end after the travellers must leave for the airport or
+    station leave the plan (logged in state["infeasible_dropped"]). The last revision is never reviewed again, and a
+    plan the travellers cannot follow is worse than a shorter last day."""
+    try:
+        plan = extract_json(state.get("itinerary") or "")
+    except ValueError:
+        return
+    late = too_late_to_leave(plan)
+    if not late:
+        return
+    day = plan["days"][late[0][0]]
+    gone = [id(item) for _, item in late]
+    day["items"] = [i for i in day.get("items") or [] if id(i) not in gone]
+    tidy_plan(plan, state.get("trip_brief") or {})
+    state["itinerary"] = "```json\n" + json.dumps(plan, ensure_ascii=False, indent=1) + "\n```"
+    state["infeasible_dropped"] = [f"day {day.get('day')}: '{item.get('name')}' at {item.get('time')}" for _, item in late]
+
+
+def drop_ungrounded_places(state) -> None:
+    """After the last round: places that are still not in the research leave the plan (logged). They are facts the
+    loop failed to fix (two live runs ended with an invented "St. Nicholas Cathedral" and a misspelt name), and the
+    last revision is never reviewed again. Not when the research itself is unreadable."""
+    try:
+        plan = extract_json(state.get("itinerary") or "")
+    except ValueError:
+        return
+    places = research_places(state)
+    unchecked = set().union(*(RESEARCH_KINDS[key] for key in unreadable_research(state)))
+    dropped = []
+    for day in plan.get("days") or []:
+        if not isinstance(day, dict):
+            continue
+        kept = []
+        for item in day.get("items") or []:
+            kind = item.get("kind") if isinstance(item, dict) else None
+            if kind in PLACE_KINDS and kind not in unchecked and places and find_place(item.get("name"), places) is None:
+                dropped.append(f"day {day.get('day')}: '{item.get('name')}'")
+            else:
+                kept.append(item)
+        day["items"] = kept
+    if dropped:
+        tidy_plan(plan, state.get("trip_brief") or {})  # walk and cost follow the shorter plan
+        state["itinerary"] = "```json\n" + json.dumps(plan, ensure_ascii=False, indent=1) + "\n```"
+        state["ungrounded_dropped"] = dropped
 
 
 def build_itinerary_reviser(model=None) -> LlmAgent:
     instruction = "\n\n".join([ROLE, VERDICT, BRIEF, INPUTS, RESEARCH_INPUTS, how_to_fix(), plan_rules(),
-                               output_format(REVISED_SHAPE, EXAMPLE)]) + REQUIREMENTS
+                               output_format(REVISED_SHAPE, EXAMPLE)]) + REQUIREMENTS + PLAN_SIZE
     return LlmAgent(
         name="itinerary_reviser",
         model=model or MODEL,

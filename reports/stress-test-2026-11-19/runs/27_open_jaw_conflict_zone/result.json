@@ -1,0 +1,200 @@
+{
+ "id": "27_open_jaw_conflict_zone",
+ "title": "Kyiv (no air traffic) and end trip elsewhere",
+ "turns": [
+  {
+   "user": "3 days in Kyiv, 2 adults from Helsinki, 10-12 June 2027, mid budget 1200 euros, then we continue to Warsaw instead of going home.",
+   "seconds": 10.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but our service can only plan a round‑trip that starts and ends in the same city. We can arrange your travel from Helsinki to Kyiv (10 – 12 June 2027) and back to Helsinki, but the onward leg to Warsaw would need to be booked separately.\n\nWould you like me to go ahead and create a plan for Helsinki ↔ Kyiv (returning to Helsinki) with the details you’ve given?"
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 19.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Kyiv, Ukraine  \n- **Dates:** 10 June 2027 – 12 June 2027 (3 days)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 2 adults  \n- **Budget tier:** Mid (total budget ≈ 1200 EUR)  \n\nPlease confirm that these details are correct or let me know any changes."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 435.0,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Kyiv (2027-06-10 to 2027-06-12)**\n\n- **Outbound:** Finnair, Wizz Air Malta flight 2027-06-10 06:20-11:40, 336 EUR\n- **Return:** airBaltic, Finnair flight 2027-06-12 14:45-19:25, 370 EUR\n- **Stay:** City Loft, 25 EUR in total\n\n- **Day 1 (Thu 2027-06-10):** 11:40 Arrive in Kyiv · 13:30 Kyiv Pechersk Lavra · 15:45 National Museum of the History of Ukraine in the Second World War · 17:30 Two Geese - Pechersk · 19:00 Mystetskyi Arsenal · 20:45 Korchma Budmo\n- **Day 2 (Fri 2027-06-11):** 09:30 Saint Sophia Cathedral · 12:30 Zavertailo · 13:30 House of the Metropolitan · 15:30 St. Michael's Golden-Domed Monastery · 19:00 Puzata Khata\n- **Day 3 (Sat 2027-06-12):** 09:30 Zustrich · 11:00 October Palace · 14:45 Depart from Kyiv\n\nEstimated total: 1090 EUR (budget 1200 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 62.6,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "The guide, calendar and map were saved:\n\n- Guide: `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\27_open_jaw_conflict_zone\\kyiv-2027-06-10-to-2027-06-12.md` (and HTML version)  \n- Calendar: `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\27_open_jaw_conflict_zone\\kyiv-2027-06-10-to-2027-06-12.ics`  \n- Map: `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\27_open_jaw_conflict_zone\\kyiv-2027-06-10-to-2027-06-12.geojson`\n\n**Recommended transport:** outbound Finnair + Wizz Air Malta (5 h 20 m, €336) and return airBaltic + Finnair (4 h 40 m, €370).  \n**Recommended stay:** City Loft hotel (€25 total).  \n\nTotal cost €1 090 (≈ €545 per person) – well within the €1 200 budget, leaving about €110 spare."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 34,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 10.27243830000225,
+   "last": 465.7398654999997
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 32.427967399999034,
+   "last": 465.06311180000193
+  },
+  "food_agent": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 34.860791700004484,
+   "last": 124.6115931999957
+  },
+  "culture_agent": {
+   "events": 16,
+   "tool_calls": 7,
+   "first": 35.96880930000043,
+   "last": 196.2972005000047
+  },
+  "ground_searcher": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 36.12091789999977,
+   "last": 107.83665700000711
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 38.798958200000925,
+   "last": 128.92401109999628
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 38.79923930000223,
+   "last": 166.31867229999625
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 39.08745110000018,
+   "last": 171.32682290000957
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 257.1508313000086,
+   "last": 257.1508313000086
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 266.2238997000095,
+   "last": 266.2238997000095
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 275.9685429999954,
+   "last": 390.9123394000053
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 390.9125572000048,
+   "last": 390.9125572000048
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 390.9127145999955,
+   "last": 463.26138140000694
+  },
+  "itinerary_reviser": {
+   "events": 7,
+   "tool_calls": 1,
+   "first": 406.7980305999954,
+   "last": 465.06262160000915
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 520.3809351000091,
+   "last": 527.6372399999964
+  }
+ },
+ "seconds": 527.7,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Kyiv",
+  "start_date": "2027-06-10",
+  "end_date": "2027-06-12",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 1200.0,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 50.45466,
+  "destination_lon": 30.5238,
+  "destination_country": "Ukraine",
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 1090.0,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "far_meal",
+   "detail": "'Korchma Budmo' is 3.7 km from the day's sights.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9324
+ }
+}

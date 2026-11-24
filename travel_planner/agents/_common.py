@@ -21,7 +21,8 @@ def research_agent(
     instruction = "\n\n".join([role, BRIEF, steps, tool_budget(max_calls), GROUNDING, output_format(shape, example)]) \
         + REQUIREMENTS
     # the prompt's tool budget, enforced in code before any agent-specific tool callback (e.g. the MCP cache)
-    before_tool = [limit_tool_calls(max_calls)] + ([kwargs.pop("before_tool_callback")]
+    bonus = kwargs.pop("limit_bonus", None)  # more calls for some trips (e.g. a long trip's researchers)
+    before_tool = [limit_tool_calls(max_calls, bonus=bonus)] + ([kwargs.pop("before_tool_callback")]
                                                    if "before_tool_callback" in kwargs else [])
     return LlmAgent(
         name=name,

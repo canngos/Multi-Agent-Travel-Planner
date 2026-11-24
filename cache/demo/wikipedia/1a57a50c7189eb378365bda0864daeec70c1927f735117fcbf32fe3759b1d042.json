@@ -1,0 +1,47 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Walls of Lisbon",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129527.1389234,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "pageid": 66677055,
+     "ns": 0,
+     "title": "Walls of Lisbon",
+     "extract": "The walls of Lisbon are a series of three nested defensive stone-wall complexes built at different times to defend Lisbon. They consist of the São Jorge Castle proper and its walls (the Cidadela or Citadel) the Cerca Moura (or Cerca Velha) (lit. the Moorish Walls), its lateral extension the Muralha de D. Dinis (King Denis's wall), and the Cerca Fernandina (Ferdinand's wall).\nWhile the castle walls are essentially intact, the remaining walls are only visible in fragments embedded in buildings and open spaces in contemporary Lisbon.",
+     "description": "Walls around the capital of Portugal",
+     "descriptionsource": "local",
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "touched": "2026-11-17T20:05:23Z",
+     "lastrevid": 1368916496,
+     "length": 38212,
+     "fullurl": "https://en.wikipedia.org/wiki/Walls_of_Lisbon",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Walls_of_Lisbon&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Walls_of_Lisbon"
+    }
+   ]
+  }
+ }
+}

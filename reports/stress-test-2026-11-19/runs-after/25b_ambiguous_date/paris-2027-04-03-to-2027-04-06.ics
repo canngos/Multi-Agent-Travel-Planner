@@ -1,0 +1,182 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Paris
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-1@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270403T094000
+DTEND:20270403T104000
+SUMMARY:Arrive in Paris
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/zhw83g376b
+URL:https://kiwi.com/u/zhw83g376b
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-2@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270403T113000
+DTEND:20270403T130000
+SUMMARY:Les Invalides – Musée de l'Armée
+DESCRIPTION:Day 1. Explore the military museum and Napoleon's tomb. https:/
+ /en.wikipedia.org/wiki/Les_Invalides
+GEO:48.857037;2.311878
+URL:https://en.wikipedia.org/wiki/Les_Invalides
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-3@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270403T133000
+DTEND:20270403T143000
+SUMMARY:Lunch near Paris
+DESCRIPTION:Day 1. No nearby restaurant data – grab a quick bite (try a c
+ roissant).
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-4@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270403T143000
+DTEND:20270403T160000
+SUMMARY:Palais de la Légion d'Honneur (Musée de la Légion d'Honneur)
+DESCRIPTION:Day 1. Visit the museum of France's highest order of merit.
+GEO:48.860295;2.324723
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-5@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270403T163000
+DTEND:20270403T173000
+SUMMARY:Dinner near Paris
+DESCRIPTION:Day 1. No nearby restaurant data – consider a bakery for a cl
+ assic croissant.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-6@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270404T093000
+DTEND:20270404T110000
+SUMMARY:Louvre Museum
+DESCRIPTION:Day 2. See iconic works such as the Mona Lisa and Venus de Mi
+ lo. https://en.wikipedia.org/wiki/Louvre
+GEO:48.860864;2.336397
+URL:https://en.wikipedia.org/wiki/Louvre
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-7@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270404T120000
+DTEND:20270404T133000
+SUMMARY:Musée national Eugène Delacroix
+DESCRIPTION:Day 2. Explore the Romantic painter's studio‑house. https://e
+ n.wikipedia.org/wiki/Mus%C3%A9e_national_Eug%C3%A8ne_Delacroix
+GEO:48.854660;2.335377
+URL:https://en.wikipedia.org/wiki/Mus%C3%A9e_national_Eug%C3%A8ne_Delacroix
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-8@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270404T134500
+DTEND:20270404T144500
+SUMMARY:Lunch near Paris
+DESCRIPTION:Day 2. No restaurant coordinates – enjoy a bakery croissant a
+ nd coffee.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-9@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270404T190000
+DTEND:20270404T200000
+SUMMARY:Dinner near Paris
+DESCRIPTION:Day 2. Try a classic French bistro (croissant‑style dinner no
+ t required).
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-10@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270405T093000
+DTEND:20270405T110000
+SUMMARY:Musée d'Orsay
+DESCRIPTION:Day 3. Impressionist masterpieces in a former railway station. 
+ https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay
+GEO:48.860000;2.326389
+URL:https://en.wikipedia.org/wiki/Mus%C3%A9e_d%27Orsay
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-11@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270405T120000
+DTEND:20270405T133000
+SUMMARY:Musée de l'Orangerie
+DESCRIPTION:Day 3. Monet's Water Lilies and other Impressionist works. http
+ s://en.wikipedia.org/wiki/Mus%C3%A9e_de_l%27Orangerie
+GEO:48.863766;2.322659
+URL:https://en.wikipedia.org/wiki/Mus%C3%A9e_de_l%27Orangerie
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-12@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270405T134500
+DTEND:20270405T143000
+SUMMARY:Lunch near Paris
+DESCRIPTION:Day 3. Grab a fresh croissant at a nearby bakery.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-13@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270405T143000
+DTEND:20270405T160000
+SUMMARY:Fondation Custodia
+DESCRIPTION:Day 3. Old Master drawings and prints in a historic mansion.
+GEO:48.861351;2.319834
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-14@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270405T190000
+DTEND:20270405T200000
+SUMMARY:Dinner near Paris
+DESCRIPTION:Day 3. Enjoy a relaxed dinner – consider a café for a light 
+ meal.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-15@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270406T093000
+DTEND:20270406T110000
+SUMMARY:Grand Palais
+DESCRIPTION:Day 4. Visit the historic exhibition hall (currently hosting an
+  art show).
+GEO:48.866158;2.312378
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-16@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270406T120000
+DTEND:20270406T133000
+SUMMARY:Petit Palais
+DESCRIPTION:Day 4. Free fine‑arts museum in an elegant Beaux‑Arts build
+ ing. https://en.wikipedia.org/wiki/Petit_Palais
+GEO:48.866026;2.314929
+URL:https://en.wikipedia.org/wiki/Petit_Palais
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-17@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270406T133000
+DTEND:20270406T143000
+SUMMARY:Lunch near Paris
+DESCRIPTION:Day 4. Final lunch – try a croissant or quiche from a local b
+ akery.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-18@trip-planner
+DTSTAMP:20261119T235602Z
+DTSTART:20270406T190000
+DTEND:20270406T200000
+SUMMARY:Depart from Paris
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/zg4mgzx28y
+URL:https://kiwi.com/u/zg4mgzx28y
+END:VEVENT
+END:VCALENDAR

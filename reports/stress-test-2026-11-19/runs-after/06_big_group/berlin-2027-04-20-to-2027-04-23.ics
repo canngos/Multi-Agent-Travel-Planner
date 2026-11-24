@@ -1,0 +1,226 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-1@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T080500
+DTEND:20270420T090500
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/3bhxrxfc9h
+URL:https://kiwi.com/u/3bhxrxfc9h
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-2@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T100000
+DTEND:20270420T113000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 1. Explore German history from pre‑history to present. ht
+ tps://www.openstreetmap.org/node/3203167561
+GEO:52.518056;13.396944
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-3@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T123000
+DTEND:20270420T133000
+SUMMARY:Witty's Currywurst
+DESCRIPTION:Day 1. Lunch: organic currywurst and fries. https://en.wikivoya
+ ge.org/wiki/Berlin/Mitte
+GEO:52.520242;13.388122
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-4@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T140000
+DTEND:20270420T153000
+SUMMARY:Neues Museum
+DESCRIPTION:Day 1. Visit the archaeological collection\, including the bust
+  of Nefertiti. https://www.openstreetmap.org/way/18578139
+GEO:52.520170;13.397730
+URL:https://www.openstreetmap.org/way/18578139
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-5@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T160000
+DTEND:20270420T173000
+SUMMARY:Bode Museum
+DESCRIPTION:Day 1. Sculpture\, Byzantine art and numismatics on Museum Isla
+ nd. https://www.openstreetmap.org/relation/4211594
+GEO:52.521731;13.394951
+URL:https://www.openstreetmap.org/relation/4211594
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-6@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T180000
+DTEND:20270420T193000
+SUMMARY:DDR Museum
+DESCRIPTION:Day 1. Interactive exhibition of everyday life in former East G
+ ermany. https://www.openstreetmap.org/way/175149971
+GEO:52.519422;13.402256
+URL:https://www.openstreetmap.org/way/175149971
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-7@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270420T203000
+DTEND:20270420T213000
+SUMMARY:Bombay
+DESCRIPTION:Day 1. Dinner: classic Indian dishes. https://en.wikivoyage.org
+ /wiki/Berlin/Mitte
+GEO:52.523150;13.388160
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-8@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270421T100000
+DTEND:20270421T113000
+SUMMARY:Brandenburg Gate
+DESCRIPTION:Day 2. Iconic neoclassical monument and symbol of reunification
+ . https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.516300;13.377700
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-9@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270421T123000
+DTEND:20270421T133000
+SUMMARY:Curry Wolf am Brandenburger Tor
+DESCRIPTION:Day 2. Lunch: classic currywurst stand near the Gate. https://e
+ n.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.517550;13.383400
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-10@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270421T140000
+DTEND:20270421T153000
+SUMMARY:Memorial to the Murdered Jews of Europe
+DESCRIPTION:Day 2. Visit the Holocaust memorial and underground info centre
+ . https://www.openstreetmap.org/way/172234733
+GEO:52.513938;13.378624
+URL:https://www.openstreetmap.org/way/172234733
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-11@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270421T153000
+DTEND:20270421T170000
+SUMMARY:Topography of Terror
+DESCRIPTION:Day 2. Visit the museum documenting Nazi institutions and see r
+ emaining Wall stretch. https://www.openstreetmap.org/way/24368681
+GEO:52.506284;13.384435
+URL:https://www.openstreetmap.org/way/24368681
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-12@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270421T190000
+DTEND:20270421T200000
+SUMMARY:Die Berliner Republik
+DESCRIPTION:Day 2. Dinner: traditional German fare and beer. https://en.wik
+ ivoyage.org/wiki/Berlin/Mitte
+GEO:52.521336;13.385531
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-13@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270422T100000
+DTEND:20270422T113000
+SUMMARY:East Side Gallery
+DESCRIPTION:Day 3. Walk the open‑air gallery of murals on the former Wall
+ . https://www.museumsportal-berlin.de/en/museums/east-side-gallery
+GEO:52.507899;13.389435
+URL:https://www.museumsportal-berlin.de/en/museums/east-side-gallery
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-14@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270422T123000
+DTEND:20270422T133000
+SUMMARY:Dada Falafel
+DESCRIPTION:Day 3. Lunch: falafel sandwiches\, vegan‑friendly. https://en
+ .wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.526450;13.388170
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-15@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270422T140000
+DTEND:20270422T153000
+SUMMARY:St. Hedwig's Cathedral
+DESCRIPTION:Day 3. Visit Berlin's largest Catholic cathedral. https://www.o
+ penstreetmap.org/way/58608090
+GEO:52.515764;13.394858
+URL:https://www.openstreetmap.org/way/58608090
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-16@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270422T163000
+DTEND:20270422T180000
+SUMMARY:Infotafel Berliner Mauer
+DESCRIPTION:Day 3. Read the wall information plaque on your walk. https://o
+ pentripmap.com/en/card/N1489358328
+GEO:52.516010;13.376547
+URL:https://opentripmap.com/en/card/N1489358328
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-17@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270422T193000
+DTEND:20270422T203000
+SUMMARY:Weilands
+DESCRIPTION:Day 3. Dinner: healthy salads and soups. https://en.wikivoyage.
+ org/wiki/Berlin/Mitte
+GEO:52.506740;13.372300
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-18@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270423T100000
+DTEND:20270423T113000
+SUMMARY:Berlin Wall Memorial
+DESCRIPTION:Day 4. Visit the preserved wall section and documentation centr
+ e. https://eurolandmarks.com/attractions/germany/berlin/berlin-wall-memori
+ al
+GEO:52.535000;13.389722
+URL:https://eurolandmarks.com/attractions/germany/berlin/berlin-wall-memori
+ al
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-19@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270423T123000
+DTEND:20270423T133000
+SUMMARY:Chay Viet
+DESCRIPTION:Day 4. Lunch: vegetarian Vietnamese dishes. https://en.wikivoya
+ ge.org/wiki/Berlin/Mitte
+GEO:52.534200;13.397960
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-20@trip-planner
+DTSTAMP:20261119T230612Z
+DTSTART:20270423T180500
+DTEND:20270423T190500
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/x9mz99xf7s
+URL:https://kiwi.com/u/x9mz99xf7s
+END:VEVENT
+END:VCALENDAR

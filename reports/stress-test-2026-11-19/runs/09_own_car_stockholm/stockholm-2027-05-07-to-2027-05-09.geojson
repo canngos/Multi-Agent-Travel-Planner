@@ -1,0 +1,172 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.1117271,
+     59.34221319999999
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Nomad Gärdet Hostel",
+    "url": "https://www.booking.com/searchresults.html?ss=Nomad+G%C3%A4rdet+Hostel%2C+Stockholm&checkin=2027-05-07&checkout=2027-05-09&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.105239,
+     59.326539
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Skansen",
+    "url": "https://www.skansen.se"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.084654,
+     59.325814
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Café at the Swedish Centre for Architecture and Design",
+    "url": "https://www.openstreetmap.org/node/1092471973"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.09137,
+     59.328084
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Vasa Museum",
+    "url": "https://www.openstreetmap.org/way/27288534"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.115807,
+     59.332509
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "16:00",
+    "kind": "sight",
+    "name": "Maritime Museum",
+    "url": "https://www.sjohistoriska.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.084701,
+     59.318004
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "18:00",
+    "kind": "sight",
+    "name": "Fotografiska",
+    "url": "https://www.fotografiska.com/sto/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.03432,
+     59.32749
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Mälarpaviljongen",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04365,
+     59.3265
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Kungsholmen",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.078301,
+     59.33372
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Swedish Museum of Performing Arts",
+    "url": "https://scenkonstmuseet.se/"
+   }
+  }
+ ]
+}

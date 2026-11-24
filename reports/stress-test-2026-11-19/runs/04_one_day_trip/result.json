@@ -1,0 +1,54 @@
+{
+ "id": "04_one_day_trip",
+ "title": "Same-day Tallinn trip (1 day)",
+ "turns": [
+  {
+   "user": "A day trip to Tallinn from Helsinki on 15 May 2027, two of us, back the same evening. Budget 150 euros. Old town and a nice lunch.",
+   "seconds": 13.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m ready to save the brief, but the system requires the *end date* to be **after** the *start date*. Your plan says 15 May 2027 for both departure and return, which isn’t allowed.\n\nWould you be happy to set the return for **16 May 2027** (evening) instead, or would you prefer another date? Let me know the updated end date and I’ll finalize the brief."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 13.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief summary**\n\n- **Destination:** Tallinn, Estonia  \n- **Dates:** 15 May 2027 → 16 May 2027 (day trip, returning the evening of the 16th)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** €150 total (low‑budget tier)  \n- **Interests:** History, food (Old Town walk and a nice lunch)\n\nPlease confirm that these details are correct or let me know any changes."
+    }
+   ]
+  },
+  {
+   "user": "What time is the last ferry back?",
+   "seconds": 2.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I don’t have the exact ferry timetable at this moment, but once we finalize your trip brief the planning team will look up the available ferry options and include the latest departure times for the return journey on 16 May 2027. If you have a preferred latest arrival time, let me know and I can add that as a requirement for the planners."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> error Invalid trip brief - brief: Value error, end_date must be after start_date",
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 4,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 4,
+   "first": 6.473228899994865,
+   "last": 28.868190900000627
+  }
+ },
+ "seconds": 28.9,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

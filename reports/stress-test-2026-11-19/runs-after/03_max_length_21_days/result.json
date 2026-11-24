@@ -1,0 +1,1129 @@
+{
+ "id": "03_max_length_21_days",
+ "title": "21-day trip to Porto (the stated maximum)",
+ "turns": [
+  {
+   "user": "I want to spend 21 days in Porto, from 1 April 2027 to 21 April 2027, alone, from Helsinki. Mid budget, about 3000 euros. Wine, azulejos, surfing.",
+   "seconds": 19.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Porto, Portugal  \n- **Dates:** 01 Apr – 21 Apr 2027 (21 days, 20 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 1 adult  \n- **Budget:** Mid‑range, total ≈ 3000 EUR  \n- **Interests:** wine, azulejos, surfing  \n\nPlease confirm that the details are correct (or let me know any changes)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1200.0,
+   "replies": []
+  }
+ ],
+ "errors": [
+  "TIMEOUT after 1200s on turn: Yes, that's right, go ahead."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 01 Apr - 21 Apr 2027, 21 days and 20 nights."
+ ],
+ "tool_calls": 31,
+ "agents": {
+  "concierge": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 7.6468032999982825,
+   "last": 21.552435199992033
+  },
+  "planning_pipeline": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 21.55331180000212,
+   "last": 21.55331180000212
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 27.68135249998886,
+   "last": 173.09286379998957
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 28.73966079999809,
+   "last": 160.6523670000024
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 29.085679900003015,
+   "last": 126.17640050000045
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 29.376292100001592,
+   "last": 193.52774289999797
+  },
+  "food_agent": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 34.10273199999938,
+   "last": 251.98179389999132
+  },
+  "culture_agent": {
+   "events": 15,
+   "tool_calls": 7,
+   "first": 34.103674500001944,
+   "last": 265.6077185000031
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 319.45915359999344,
+   "last": 319.45915359999344
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 324.8539133000013,
+   "last": 324.86224799999036
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 327.8973513999954,
+   "last": 516.5841472999891
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 516.5847282999894,
+   "last": 516.5847282999894
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 516.5849410999945,
+   "last": 1167.0880158999935
+  },
+  "itinerary_reviser": {
+   "events": 8,
+   "tool_calls": 2,
+   "first": 579.0659998999909,
+   "last": 1167.0882495999977
+  }
+ },
+ "seconds": 1219.4,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Porto",
+  "start_date": "2027-04-01",
+  "end_date": "2027-04-21",
+  "travellers": 1,
+  "budget_tier": "mid",
+  "total_budget_eur": 3000.0,
+  "interests": [
+   "wine",
+   "azulejos",
+   "surfing"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 41.15022,
+  "destination_lon": -8.61035,
+  "destination_country": "Portugal",
+  "nights": 20,
+  "days": 21
+ },
+ "plan_status": null,
+ "cost_total": 2368.82,
+ "n_days": 21,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 3,
+   "issue": "outside_hours",
+   "detail": "'Museu do Vinho do Porto' at 09:30, but it is open 10:00-17:30 on Saturdays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 8,
+   "issue": "outside_hours",
+   "detail": "'Museu Nacional Soares dos Reis' at 09:30, but it is open 10:00-18:00 on Thursdays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 13,
+   "issue": "outside_hours",
+   "detail": "'Mosteiro da Serra do Pilar' at 09:30, but it is open 10:00-18:30 on Tuesdays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 15,
+   "issue": "outside_hours",
+   "detail": "'Teatro Municipal Rivoli' at 09:30, but it is open 11:00-20:00 on Thursdays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 18,
+   "issue": "repeated_place",
+   "detail": "'São Bento railway station' is also on day 11: use each place once."
+  },
+  {
+   "day": 19,
+   "issue": "repeated_place",
+   "detail": "'Mosteiro da Serra do Pilar' is also on day 13: use each place once."
+  },
+  {
+   "day": 19,
+   "issue": "closed",
+   "detail": "'Mosteiro da Serra do Pilar' is closed on Mondays (Nov-Mar Tu-Su 10:00-17:30; Apr-Oct Tu-Su 10:00-18:30; PH off): move it to an open day or drop it."
+  },
+  {
+   "day": 20,
+   "issue": "ungrounded_place",
+   "detail": "'Ribeira district walking tour' is not in the research results: use a researched place (same name) or drop it."
+  }
+ ],
+ "final_should_fix": [
+  {
+   "day": 2,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Hokkah",
+     "kind": "cafe",
+     "km": 0.9,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.9,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.0,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 3,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 4,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 5,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 6,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 7,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 7,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 14:00-19:30.",
+   "alternatives": []
+  },
+  {
+   "day": 8,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.9,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 9,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.8,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 10,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 10,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 13:30-19:30.",
+   "alternatives": []
+  },
+  {
+   "day": 11,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 11,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Metro Brunch",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 11,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Metro Brunch",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Hokkah",
+     "kind": "cafe",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.6,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Hokkah",
+     "kind": "cafe",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.6,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Euskalduna Studio",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Mon–Sat 19:00–23:00, closed Sun",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Euskalduna Studio",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Mon–Sat 19:00–23:00, closed Sun",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Hokkah",
+     "kind": "cafe",
+     "km": 0.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.3,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Hokkah",
+     "kind": "cafe",
+     "km": 0.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.3,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Vaccarum - Steak House, Cervejaria",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.2,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Vaccarum - Steak House, Cervejaria",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 0.2,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 0.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Metro Brunch",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Metro Brunch",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Euskalduna Studio",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Mon–Sat 19:00–23:00, closed Sun",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Euskalduna Studio",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Mon–Sat 19:00–23:00, closed Sun",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Sublime",
+     "kind": "cafe",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Igreja da Trindade",
+     "kind": "sight",
+     "km": 1.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 1.6,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 1.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 1.6,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Garden Porto",
+     "kind": "restaurant",
+     "km": 1.6,
+     "hours": "09:00-19:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Tasca do Nuno",
+     "kind": "restaurant",
+     "km": 1.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Chafariz da Trindade",
+     "kind": "cafe",
+     "km": 1.6,
+     "hours": "Mo-Sa 07:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": []
+ }
+}

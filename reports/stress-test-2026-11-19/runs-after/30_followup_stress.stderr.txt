@@ -1,0 +1,54 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+[2026-11-19T23:06:56.317Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-19T23:06:56.318Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-19T23:06:56.318Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-19T23:06:56.325Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Old Town, Riga, Latvia",
+    "checkin": "2027-05-13",
+    "checkout": "2027-05-15",
+    "adults": 2
+  }
+}
+[2026-11-19T23:06:56.326Z] [INFO] Geocoding location via Photon: {
+  "location": "Old Town, Riga, Latvia"
+}
+[2026-11-19T23:06:56.566Z] [INFO] Photon selected feature: {
+  "location": "Old Town, Riga, Latvia",
+  "type": "house",
+  "name": "Riga Old Town Hostel",
+  "country": "Latvija",
+  "hasExtent": false
+}
+[2026-11-19T23:06:56.566Z] [INFO] Falling back to Nominatim for geocoding: {
+  "location": "Old Town, Riga, Latvia"
+}
+tool wikivoyage_section failed: Wikivoyage has no page 'Riga/Vecrēga': The page you specified doesn't exist.
+[2026-11-19T23:06:58.493Z] [WARN] No bounding box from either geocoder: {
+  "location": "Old Town, Riga, Latvia"
+}
+[2026-11-19T23:06:58.493Z] [INFO] Performing Airbnb search: {
+  "location": "Old Town, Riga, Latvia",
+  "checkin": "2027-05-13",
+  "checkout": "2027-05-15",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-19T23:06:59.658Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-19T23:06:59.658Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "3333ms",
+  "success": true
+}

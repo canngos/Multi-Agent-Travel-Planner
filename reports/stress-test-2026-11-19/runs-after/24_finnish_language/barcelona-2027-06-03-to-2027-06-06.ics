@@ -1,0 +1,213 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Barcelona
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-1@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T091000
+DTEND:20270603T101000
+SUMMARY:Arrive in Barcelona
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\; see Getting there and
+  back. https://kiwi.com/u/pktbnyt9mf
+URL:https://kiwi.com/u/pktbnyt9mf
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-2@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T104500
+DTEND:20270603T121500
+SUMMARY:Palau de la Música Catalana
+DESCRIPTION:Day 1. Modernista concert hall\, UNESCO site. https://www.palau
+ musica.cat/
+GEO:41.387500;2.175556
+URL:https://www.palaumusica.cat/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-3@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T133000
+DTEND:20270603T143000
+SUMMARY:Alkimia
+DESCRIPTION:Day 1. Michelin‑starred restaurant serving inventive Catalan 
+ cuisine. http://www.alkimia.cat/?lang=en
+GEO:41.405591;2.168989
+URL:http://www.alkimia.cat/?lang=en
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-4@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T150000
+DTEND:20270603T163000
+SUMMARY:Museu Frederic Marès
+DESCRIPTION:Day 1. Sculpture and everyday‑object collection. http://www.m
+ useumares.bcn.cat/
+GEO:41.384426;2.176741
+URL:http://www.museumares.bcn.cat/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-5@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T163000
+DTEND:20270603T173000
+SUMMARY:Barcelona Cathedral
+DESCRIPTION:Day 1. Gothic cathedral with historic cloister. https://www.cat
+ edralbcn.org/
+GEO:41.383889;2.176389
+URL:https://www.catedralbcn.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-6@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T173000
+DTEND:20270603T190000
+SUMMARY:Picasso Museum
+DESCRIPTION:Day 1. Extensive early‑Picasso collection. https://museupicas
+ sobcn.cat
+GEO:41.385138;2.181272
+URL:https://museupicassobcn.cat
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-7@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270603T204500
+DTEND:20270603T214500
+SUMMARY:La Taberna del Cura
+DESCRIPTION:Day 1. Mid‑budget tapas bar popular with locals\, ~0.5 km f
+ rom the stay. https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.400477;2.154597
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-8@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270604T094500
+DTEND:20270604T111500
+SUMMARY:Sagrada Família
+DESCRIPTION:Day 2. Gaudí's iconic basilica (ticket required). https://sagr
+ adafamilia.org/en/sagrada-familia-ticket
+GEO:41.403690;2.174330
+URL:https://sagradafamilia.org/en/sagrada-familia-ticket
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-9@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270604T120000
+DTEND:20270604T130000
+SUMMARY:La Rosa del Desierto
+DESCRIPTION:Day 2. Mid‑budget Moroccan dishes\, great for a rainy lunch. 
+ https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.397075;2.155589
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-10@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270604T154500
+DTEND:20270604T164500
+SUMMARY:Can Xurrades
+DESCRIPTION:Day 2. Mid‑budget Catalan dishes\; dinner. https://www.facebo
+ ok.com/canxurradesbarcelona/
+GEO:41.399497;2.155753
+URL:https://www.facebook.com/canxurradesbarcelona/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-11@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270604T173000
+DTEND:20270604T190000
+SUMMARY:Casa Batlló
+DESCRIPTION:Day 2. Colourful modernista masterpiece (ticket required). http
+ s://www.casabatllo.es/en/online-tickets
+GEO:41.391580;2.164920
+URL:https://www.casabatllo.es/en/online-tickets
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-12@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270604T193000
+DTEND:20270604T203000
+SUMMARY:D.O. vins i platillos
+DESCRIPTION:Day 2. Wine bar offering exquisite tapas. http://www.dovinsipla
+ tillos.com/
+GEO:41.404085;2.156718
+URL:http://www.dovinsiplatillos.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-13@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T093000
+DTEND:20270605T110000
+SUMMARY:Park Güell
+DESCRIPTION:Day 3. Gaudí's whimsical park with city views. https://www.par
+ kguell.cat/
+GEO:41.414684;2.151483
+URL:https://www.parkguell.cat/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-14@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T134500
+DTEND:20270605T144500
+SUMMARY:Kibuka
+DESCRIPTION:Day 3. Japanese sushi bar\, light lunch. https://en.wikivoyage.
+ org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.404891;2.155836
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-15@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T150000
+DTEND:20270605T163000
+SUMMARY:Casa Vicens
+DESCRIPTION:Day 3. Gaudí's first major work\, oriental‑Mudejar style. ht
+ tps://casavicens.org/
+GEO:41.403580;2.150790
+URL:https://casavicens.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-16@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T163000
+DTEND:20270605T171500
+SUMMARY:Casa Martí Trias i Domènech
+DESCRIPTION:Day 3. Architectural work in Gràcia\, historic heritage. https
+ ://opentripmap.com/en/card/Q47170945
+GEO:41.415287;2.152582
+URL:https://opentripmap.com/en/card/Q47170945
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-17@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T171500
+DTEND:20270605T180000
+SUMMARY:Can Muntaner de Dalt
+DESCRIPTION:Day 3. Noucentista farmhouse\, listed heritage building. https:
+ //opentripmap.com/en/card/Q96099488
+GEO:41.413490;2.152220
+URL:https://opentripmap.com/en/card/Q96099488
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-18@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270605T180000
+DTEND:20270605T190000
+SUMMARY:Sol i Lluna
+DESCRIPTION:Day 3. Mediterranean menu\, nice spot for dinner. https://en.wi
+ kivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+GEO:41.404461;2.156314
+URL:https://en.wikivoyage.org/wiki/Barcelona/Gr%C3%A0cia
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-19@trip-planner
+DTSTAMP:20261119T233713Z
+DTSTART:20270606T104500
+DTEND:20270606T114500
+SUMMARY:Depart from Barcelona
+DESCRIPTION:Day 4. Flight with Norwegian Air Sweden\; see Getting there and
+  back. https://kiwi.com/u/qbjtpwzq7u
+URL:https://kiwi.com/u/qbjtpwzq7u
+END:VEVENT
+END:VCALENDAR

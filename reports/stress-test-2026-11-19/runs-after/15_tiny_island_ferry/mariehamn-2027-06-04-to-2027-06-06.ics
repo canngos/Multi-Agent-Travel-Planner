@@ -1,0 +1,92 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Mariehamn
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-1@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270604T160000
+DTEND:20270604T170000
+SUMMARY:Arrive in Mariehamn
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/purcufg9m9
+URL:https://kiwi.com/u/purcufg9m9
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-2@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270604T193000
+DTEND:20270604T203000
+SUMMARY:Cafe Julius
+DESCRIPTION:Day 1. Try the Ålandspannkaka\, a local sweet pancake. https:/
+ /julle.ax/fi/
+GEO:60.099190;19.941890
+URL:https://julle.ax/fi/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-3@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270605T100000
+DTEND:20270605T113000
+SUMMARY:Åland Maritime Museum
+DESCRIPTION:Day 2. Explore Åland's seafaring heritage. https://sjofartsmus
+ eum.ax
+GEO:60.097247;19.926527
+URL:https://sjofartsmuseum.ax
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-4@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270605T114500
+DTEND:20270605T130000
+SUMMARY:Pommern (museum ship)
+DESCRIPTION:Day 2. Visit the historic four‑masted barque. https://www.ope
+ nstreetmap.org/way/155085207
+GEO:60.097360;19.925045
+URL:https://www.openstreetmap.org/way/155085207
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-5@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270605T130000
+DTEND:20270605T140000
+SUMMARY:Hesburger Mariehamn
+DESCRIPTION:Day 2. Quick fast‑food lunch. https://www.hesburger.com/resta
+ urants?tid=167
+GEO:60.099080;19.943280
+URL:https://www.hesburger.com/restaurants?tid=167
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-6@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270605T143000
+DTEND:20270605T160000
+SUMMARY:Tullarns äng Nature Area
+DESCRIPTION:Day 2. Walk the marked trails in the protected forest meadow. h
+ ttps://en.wikivoyage.org/wiki/Mariehamn
+GEO:60.094000;19.948300
+URL:https://en.wikivoyage.org/wiki/Mariehamn
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-7@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270605T190000
+DTEND:20270605T200000
+SUMMARY:Pizza24 machine
+DESCRIPTION:Day 2. Grab a hot pizza from the 24/7 vending machine. https://
+ www.pizza24.ax/
+GEO:60.100600;19.941690
+URL:https://www.pizza24.ax/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-8@trip-planner
+DTSTAMP:20261119T234954Z
+DTSTART:20270606T095000
+DTEND:20270606T105000
+SUMMARY:Depart from Mariehamn
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/ht7pu7g5dw
+URL:https://kiwi.com/u/ht7pu7g5dw
+END:VEVENT
+END:VCALENDAR

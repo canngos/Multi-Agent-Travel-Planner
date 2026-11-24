@@ -85,11 +85,25 @@ export function GuidePanel({ run }: { run: RunState }) {
   const brief = run.state.trip_brief as { destination?: string; start_date?: string; end_date?: string } | undefined;
   const slug = `${brief?.destination ?? "trip"}-${brief?.start_date ?? ""}-to-${brief?.end_date ?? ""}`.toLowerCase();
   const title = guide.match(/^#\s+(.+)$/m)?.[1] ?? "Trip guide";
+  // the guide writer's calendar and map files (export_calendar / export_map_stops), kept in state as text
+  const exports = (run.state.guide_exports ?? {}) as { calendar?: string; map?: string };
   return (
     <div className="guide">
       <div className="guide-actions">
         <button type="button" onClick={() => download(`${slug}.md`, guide, "text/markdown")}>Download Markdown</button>
         <button type="button" onClick={() => download(`${slug}.html`, guideHtml(guide, title), "text/html")}>Download HTML</button>
+        {exports.calendar && (
+          <button type="button" onClick={() => download(`${slug}.ics`, exports.calendar!, "text/calendar")}
+                  title="One event per planned item; import it into Google Calendar, Outlook or Apple Calendar">
+            Download calendar (.ics)
+          </button>
+        )}
+        {exports.map && (
+          <button type="button" onClick={() => download(`${slug}.geojson`, exports.map!, "application/geo+json")}
+                  title="The planned places in visiting order; open it in geojson.io, uMap or QGIS, or in the Guide map tab">
+            Download map (.geojson)
+          </button>
+        )}
       </div>
       <article className="md guide-body" dangerouslySetInnerHTML={{ __html: html }} />
     </div>

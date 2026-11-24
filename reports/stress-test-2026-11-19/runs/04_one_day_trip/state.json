@@ -1,0 +1,30 @@
+{
+ "concierge_pending_brief": {
+  "invocation_id": "e-51d4ef54-c8f5-487a-b135-dc748ddd6ce5",
+  "brief": {
+   "origin": "helsinki",
+   "destination": "tallinn",
+   "start_date": "2027-05-15",
+   "end_date": "2027-05-16",
+   "travellers": 2,
+   "budget_tier": "low",
+   "total_budget_eur": 150.0,
+   "interests": [
+    "food",
+    "history"
+   ],
+   "origin_lat": 60.16662,
+   "origin_lon": 24.94354,
+   "destination_lat": 59.43724,
+   "destination_lon": 24.75727,
+   "destination_country": "estonia",
+   "avoid_modes": [],
+   "requirements": [],
+   "own_accommodation": false,
+   "own_car": false,
+   "day_start": null,
+   "day_end": null,
+   "pace": null
+  }
+ }
+}

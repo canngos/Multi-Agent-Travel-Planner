@@ -14,10 +14,34 @@ import json
 import re
 
 from .output import extract_json
-from .review_checks import (_dicts, _minutes, _parse, _price, clock_minutes, find_place, plan_cost, research_places,
-                            walk_km)
+from .review_checks import (MEAL_NAME, _dicts, _key, _minutes, _parse, _price, clock_minutes, find_place, plan_cost,
+                            research_places, transport_summary, walk_km)
 
 _OTHER_FORMAT = re.compile(r"\d\s*[ap]\.?\s*m\b|\d[h.]\d{2}", re.IGNORECASE)  # "1:00 PM", "1 pm", "13h00", "13.00"
+
+
+# names of "free" items that plan nothing (the live runs' "Leisure morning", "Free snack", "Afternoon coffee break",
+# "Check-in and settle", "Indoor activity"); a named activity such as "Souvenirs" or "Beach" stays
+_FILLER = re.compile(r"leisure|\bfree\b|snack|coffee|\bbreak\b|\brest\b|relax|settle|check[- ]?in|indoor activit|"
+                     r"own time|explore|stroll|wander|\btips?\b|taxi|transfer|unwind|downtime|refresh", re.I)
+
+
+def drop_filler(items: list[dict], label) -> tuple[list[dict], list[str]]:
+    """Removes items that plan nothing: "free" items that are not a meal placeholder ("Leisure morning", "Free snack",
+    "Check-in and settle", "Indoor activity") and "transport" items that are not a journey ("Taxi to accommodation",
+    "Metro tip"). Live runs filled 8 of 21 plans with them, and a 21-day plan's days 9-20 with "Leisure morning"
+    only; the checks then saw no gap. Removed, the gap is reported (thin day, empty afternoon) with researched
+    alternatives."""
+    kept, changes = [], []
+    for item in items:
+        name = str(item.get("name") or "")
+        filler = (item.get("kind") == "free" and not MEAL_NAME.search(name) and _FILLER.search(name)) or \
+                 (item.get("kind") == "transport" and not _TRAVEL_WORDS.search(name))
+        if filler:
+            changes.append(f"day {label}: removed '{name}' (plans nothing)")
+        else:
+            kept.append(item)
+    return kept, changes
 
 
 def _normalise_times(items: list[dict], label) -> list[str]:
@@ -78,6 +102,8 @@ def tidy_plan(plan: dict, brief: dict | None = None) -> list[str]:
     for day in days:
         original = [i for i in day.get("items") or [] if isinstance(i, dict)]
         changes += _normalise_times(original, day.get("day"))
+        original, dropped_filler = drop_filler(original, day.get("day"))
+        changes += dropped_filler
         items = list(original)
         untimed_at = float("inf")  # items without a time go last (on the departure day: just before leaving)
         if anchored:  # replace the model's travel items with ones built from the chosen options
@@ -138,6 +164,53 @@ def ground_tickets(plan: dict, places: list[dict]) -> list[str]:
     return changes
 
 
+def apply_pins(plan: dict, state) -> list[str]:
+    """A re-plan that keeps the transport (or stay) research and changed nothing that bears on it keeps the previous
+    plan's choice (state["pinned_choices"], set by pipeline.reset_plan_state)."""
+    pins = state.get("pinned_choices") or {}
+    changes = []
+    transport = plan.get("transport") if isinstance(plan.get("transport"), dict) else None
+    old = pins.get("transport") if isinstance(pins.get("transport"), dict) else {}
+    for leg in ("outbound", "return"):
+        if transport is not None and isinstance(old.get(leg), dict) and transport.get(leg) != old[leg]:
+            transport[leg] = old[leg]
+            changes.append(f"{leg} kept from the previous plan (the change did not concern transport)")
+    if isinstance(pins.get("stay"), dict) and plan.get("stay") != pins["stay"]:
+        plan["stay"] = pins["stay"]
+        changes.append("stay kept from the previous plan (the change did not concern the stay)")
+    return changes
+
+
+def tag_food_tiers(plan: dict, places: list[dict]) -> None:
+    """Copies each planned restaurant's researched budget tier onto the item, so the cost can price a splurge."""
+    for day in plan.get("days") or []:
+        for item in (day.get("items") or []) if isinstance(day, dict) else []:
+            if isinstance(item, dict) and item.get("kind") in ("restaurant", "cafe", "bar"):
+                tier = (find_place(item.get("name"), places) or {}).get("budget_tier")
+                if tier:
+                    item["budget_tier"] = tier
+                else:
+                    item.pop("budget_tier", None)
+
+
+def rename_typos(plan: dict, places: list[dict]) -> list[str]:
+    """A planned place whose name is a typo of a researched one ("Notre-Dam Treasury") gets the researched name, so
+    the guide spells it right. Names that contain each other ("Faca & Garfo restaurant") are left alone."""
+    changes = []
+    for day in plan.get("days") or []:
+        for item in (day.get("items") or []) if isinstance(day, dict) else []:
+            if not isinstance(item, dict) or item.get("kind") not in ("sight", "restaurant", "cafe", "bar"):
+                continue
+            found = find_place(item.get("name"), places)
+            if not found:
+                continue
+            a, b = _key(item.get("name")), _key(found.get("name"))
+            if a != b and f" {a} " not in f" {b} " and f" {b} " not in f" {a} ":
+                changes.append(f"day {day.get('day')}: '{item.get('name')}' renamed to the researched '{found['name']}'")
+                item["name"] = found["name"]
+    return changes
+
+
 def restore_chosen_options(plan: dict, state) -> list[str]:
     """Replaces the chosen transport options and stay with the matching summary entries, copied unchanged.
 
@@ -147,12 +220,13 @@ def restore_chosen_options(plan: dict, state) -> list[str]:
     """
     changes = []
     transport = plan.get("transport") if isinstance(plan.get("transport"), dict) else None
-    tsum = _parse(state.get("transport_summary"))
+    tsum = transport_summary(state)
     for leg in ("outbound", "return"):
         chosen = (transport or {}).get(leg)
         if not isinstance(chosen, dict):
             continue
-        for d in _dicts(tsum.get(leg)):
+        picked = (tsum.get("recommended") or {}).get(leg) if isinstance(tsum.get("recommended"), dict) else None
+        for d in list(_dicts(tsum.get(leg))) + ([picked] if isinstance(picked, dict) else []):
             if d.get("operator") == chosen.get("operator") and d.get("depart") == chosen.get("depart") \
                     and _price(d.get("price_eur")) == _price(chosen.get("price_eur")) and "url" in d:
                 if d != chosen:
@@ -171,6 +245,35 @@ def restore_chosen_options(plan: dict, state) -> list[str]:
     return changes
 
 
+def drop_unneeded_stay(plan: dict, brief: dict) -> list[str]:
+    """The travellers stay in their own place (brief own_accommodation): a stay the model planned anyway goes, so it
+    costs nothing and the guide does not offer one. A fact the user stated, like an excluded transport mode."""
+    if not brief.get("own_accommodation") or not plan.get("stay"):
+        return []
+    name = plan["stay"].get("name") if isinstance(plan["stay"], dict) else plan["stay"]
+    plan["stay"] = None
+    plan["stay_why"] = "The travellers stay in their own place."
+    return [f"stay '{name}' removed: the travellers need no accommodation"]
+
+
+def drop_unneeded_transport(plan: dict, brief: dict) -> list[str]:
+    """The travellers drive their own car (brief own_car): a flight, train or bus the model planned anyway goes (a car
+    ferry stays). A fact the user stated, like an excluded transport mode."""
+    transport = plan.get("transport")
+    if not brief.get("own_car") or not isinstance(transport, dict):
+        return []
+    changes = []
+    for leg in ("outbound", "return"):
+        option = transport.get(leg)
+        if isinstance(option, dict) and option.get("mode") != "ferry":
+            transport[leg] = None
+            changes.append(f"{leg} {option.get('mode')} ({option.get('operator')}) removed: the travellers drive "
+                           "their own car")
+    if changes and not any(isinstance(transport.get(leg), dict) for leg in ("outbound", "return")):
+        transport["why"] = "Own car."
+    return changes
+
+
 def tidy_itinerary(callback_context):
     """After-agent callback for the planner (and the Phase 8 reviser)."""
     state = callback_context.state
@@ -178,7 +281,12 @@ def tidy_itinerary(callback_context):
         plan = extract_json(state.get("itinerary") or "")
     except ValueError:
         return None
-    changes = restore_chosen_options(plan, state) + ground_tickets(plan, research_places(state))
+    changes = drop_unneeded_stay(plan, state.get("trip_brief") or {})
+    changes += drop_unneeded_transport(plan, state.get("trip_brief") or {})
+    changes += apply_pins(plan, state)
+    places = research_places(state)
+    changes += restore_chosen_options(plan, state) + rename_typos(plan, places) + ground_tickets(plan, places)
+    tag_food_tiers(plan, places)
     changes += tidy_plan(plan, state.get("trip_brief") or {})
     state["itinerary"] = "```json\n" + json.dumps(plan, ensure_ascii=False, indent=1) + "\n```"
     if changes:

@@ -8,3 +8,5 @@ markdown
 fast-flights
 pytest
 pytest-asyncio
+json-repair
+airportsdata

@@ -1,0 +1,121 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-1@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270420T143800
+DTEND:20270420T153800
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-2@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270421T190900
+DTEND:20270421T200900
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 2. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-3@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T093000
+DTEND:20270422T103000
+SUMMARY:Brandenburg Gate
+DESCRIPTION:Day 3. Iconic neoclassical monument\, photo opportunity. https:
+ //www.openstreetmap.org/way/518071791
+GEO:52.516275;13.377702
+URL:https://www.openstreetmap.org/way/518071791
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-4@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T103000
+DTEND:20270422T120000
+SUMMARY:Reichstag dome
+DESCRIPTION:Day 3. Glass dome with panoramic city views\; pre‑book a slot
+  if possible. https://www.openstreetmap.org/node/2432753840
+GEO:52.518593;13.376106
+URL:https://www.openstreetmap.org/node/2432753840
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-5@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T130000
+DTEND:20270422T140000
+SUMMARY:Witty's Currywurst
+DESCRIPTION:Day 3. Classic Berlin currywurst and fries – a quick\, cheap 
+ lunch. https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.520242;13.388122
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-6@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T143000
+DTEND:20270422T160000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 3. Exhibits covering German history\; ticket €8 per perso
+ n. https://www.openstreetmap.org/node/3203167561
+GEO:52.517748;13.397023
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-7@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T170000
+DTEND:20270422T183000
+SUMMARY:Neues Museum
+DESCRIPTION:Day 3. UNESCO site with Egyptian artifacts\; no ticket price su
+ pplied. https://www.openstreetmap.org/way/18578139
+GEO:52.520170;13.397730
+URL:https://www.openstreetmap.org/way/18578139
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-8@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270422T193000
+DTEND:20270422T203000
+SUMMARY:Ständige Vertretung
+DESCRIPTION:Day 3. Mid‑budget Rhenish specialties\; try the Flammekuchen.
+  https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.521200;13.385500
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-9@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270423T093000
+DTEND:20270423T103000
+SUMMARY:Free morning
+DESCRIPTION:Day 4. Relax in a nearby park or explore the neighbourhood at l
+ eisure.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-10@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270423T113000
+DTEND:20270423T123000
+SUMMARY:Bombay
+DESCRIPTION:Day 4. Indian food – good vegetarian options for a low‑budg
+ et lunch. https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.523150;13.388160
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-11@trip-planner
+DTSTAMP:20261119T202943Z
+DTSTART:20270423T160000
+DTEND:20270423T170000
+SUMMARY:Free dinner
+DESCRIPTION:Day 4. Group can dine at the loft or pick a nearby takeaway\; n
+ o specific venue assigned.
+END:VEVENT
+END:VCALENDAR

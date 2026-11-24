@@ -38,10 +38,16 @@ def _stem(state, brief: dict) -> str:
     return slugify(f"{brief.get('destination', 'trip')}-{brief.get('start_date', '')}-to-{brief.get('end_date', '')}")
 
 
-def _remember(state, kind: str, path) -> None:
+EXPORTS_KEY = "guide_exports"  # {"calendar": ics text, "map": geojson text}, for the web UI's downloads
+
+
+def _remember(state, kind: str, path, text: str) -> None:
     paths = dict(state.get("guide_paths") or {})
     paths[kind] = str(path)
     state["guide_paths"] = paths
+    exports = dict(state.get(EXPORTS_KEY) or {})
+    exports[kind] = text
+    state[EXPORTS_KEY] = exports
 
 
 def _start(day: dict, item: dict) -> datetime | None:
@@ -136,30 +142,41 @@ def stops_geojson(plan: dict) -> dict:
     return {"type": "FeatureCollection", "features": features}
 
 
-@safe_tool
-def export_calendar(tool_context: ToolContext) -> dict:
-    """Writes the plan's days as a calendar file (.ics) next to the guide: one event per planned item, with its
-    time, place and link. Call it after save_guide; it needs no arguments."""
-    plan, brief = _plan_and_brief(tool_context.state)
-    stem = _stem(tool_context.state, brief)
+def write_calendar(state) -> dict:
+    """Writes the .ics file and keeps its text in state (the web UI offers it for download). Raises ToolError."""
+    plan, brief = _plan_and_brief(state)
+    stem = _stem(state, brief)
     config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     path = config.OUTPUT_DIR / f"{stem}.ics"
     text = calendar_text(plan, brief, stem)
     path.write_bytes(text.encode("utf-8"))
-    _remember(tool_context.state, "calendar", path)
-    return ok([{"calendar_path": str(path), "events": text.count("BEGIN:VEVENT")}])
+    _remember(state, "calendar", path, text)
+    return {"calendar_path": str(path), "events": text.count("BEGIN:VEVENT")}
+
+
+def write_map(state) -> dict:
+    """Writes the .geojson file and keeps its text in state (the web UI offers it for download). Raises ToolError."""
+    plan, brief = _plan_and_brief(state)
+    data = stops_geojson(plan)
+    if not data["features"]:
+        raise ToolError("No planned place has coordinates, so there is nothing to put on a map")
+    config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    path = config.OUTPUT_DIR / f"{_stem(state, brief)}.geojson"
+    text = json.dumps(data, ensure_ascii=False, indent=1)
+    path.write_text(text, encoding="utf-8")
+    _remember(state, "map", path, text)
+    return {"map_path": str(path), "stops": len(data["features"])}
+
+
+@safe_tool
+def export_calendar(tool_context: ToolContext) -> dict:
+    """Writes the plan's days as a calendar file (.ics) next to the guide: one event per planned item, with its
+    time, place and link. Call it after save_guide; it needs no arguments."""
+    return ok([write_calendar(tool_context.state)])
 
 
 @safe_tool
 def export_map_stops(tool_context: ToolContext) -> dict:
     """Writes the plan's places with coordinates (and the stay) as a GeoJSON map file next to the guide, in
     visiting order. Call it after save_guide; it needs no arguments."""
-    plan, brief = _plan_and_brief(tool_context.state)
-    data = stops_geojson(plan)
-    if not data["features"]:
-        raise ToolError("No planned place has coordinates, so there is nothing to put on a map")
-    config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    path = config.OUTPUT_DIR / f"{_stem(tool_context.state, brief)}.geojson"
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-    _remember(tool_context.state, "map", path)
-    return ok([{"map_path": str(path), "stops": len(data["features"])}])
+    return ok([write_map(tool_context.state)])

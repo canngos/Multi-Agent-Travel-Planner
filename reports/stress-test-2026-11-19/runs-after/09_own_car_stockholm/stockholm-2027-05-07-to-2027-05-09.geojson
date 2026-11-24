@@ -1,0 +1,172 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.03636161510137,
+     59.234491125668505
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Cozy cabin outside of Sthlm City",
+    "url": "https://www.airbnb.com/rooms/1429088581011091277?check_in=2027-05-07&check_out=2027-05-09&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.105239,
+     59.326539
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Skansen Open‑Air Museum",
+    "url": "https://www.skansen.se"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.073078,
+     59.326615
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Royal Armoury (Livrustkammaren)",
+    "url": "https://www.openstreetmap.org/node/304606190"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.085,
+     59.32583333
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Swedish Centre for Architecture and Design (ArkDes)",
+    "url": "https://arkdes.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.08361111,
+     59.32638889
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Moderna Museet",
+    "url": "https://www.modernamuseet.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04474,
+     59.32909
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Mäster Anders",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.0781,
+     59.3286
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "14:45",
+    "kind": "sight",
+    "name": "Nationalmuseum",
+    "url": "https://en.wikipedia.org/wiki/Nationalmuseum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.09137,
+     59.328084
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "15:55",
+    "kind": "sight",
+    "name": "Vasa Museum",
+    "url": "https://www.vasamuseet.se/en/visit/buy-ticket"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04365,
+     59.3265
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "16:30",
+    "kind": "restaurant",
+    "name": "Kungsholmen",
+    "url": null
+   }
+  }
+ ]
+}

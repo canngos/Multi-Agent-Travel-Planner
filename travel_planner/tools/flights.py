@@ -24,6 +24,11 @@ class _Dt:
     time: tuple
 
 
+# Set when Google answered with its consent page: it does so for every search from that network (a live stress
+# test saw it on each run), so later searches in this process go straight to SerpApi.
+_consent = {"seen": False}
+
+
 def search_url(query) -> str:
     return f"{GOOGLE_FLIGHTS_URL}?{urlencode(query.params())}"
 
@@ -86,11 +91,16 @@ async def search_google_flights(origin_iata: str, destination_iata: str, date: s
         language="en-GB",
     )
     url = search_url(query)
+    if _consent["seen"]:  # this network gets the consent page: do not wait for it again
+        return error("Google Flights shows its cookie-consent page from this network. Call search_serpapi_flights "
+                     "now, with the same arguments.", search_url=url)
 
     async def produce():
         html = await asyncio.to_thread(fetch_flights_html, query)
         if is_consent_page(html):
-            raise ToolError("Google Flights returned its cookie-consent page (common from EU networks)")
+            _consent["seen"] = True
+            raise ToolError("Google Flights returned its cookie-consent page (common from EU networks); call "
+                            "search_serpapi_flights now, with the same arguments")
         return [dataclasses.asdict(f) for f in parse(html)]
 
     request = {"from": origin_iata.upper(), "to": destination_iata.upper(), "date": date, "adults": int(adults)}

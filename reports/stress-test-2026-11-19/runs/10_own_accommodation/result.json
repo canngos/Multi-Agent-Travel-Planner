@@ -1,0 +1,294 @@
+{
+ "id": "10_own_accommodation",
+ "title": "Staying with friends in Amsterdam (no stay search)",
+ "turns": [
+  {
+   "user": "4 days in Amsterdam, 2-5 June 2027, from Oulu, 1 person. I stay with friends so I don't need accommodation. Budget 700 euros. Art and cycling.",
+   "seconds": 31.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of your trip brief:\n\n- **Destination:** Amsterdam, The Netherlands  \n- **Dates:** 2 June 2027 – 5 June 2027 (4 days)  \n- **Origin:** Oulu, Finland  \n- **Travelers:** 1 adult  \n- **Budget:** 700 EUR total (mid‑tier)  \n- **Interests:** art, cycling  \n- **Accommodation:** staying with friends (no need to book a place)\n\nDoes everything look correct? If you’d like to change anything, just let me know; otherwise, reply “yes” to confirm and I’ll save the brief and start the planning."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 632.6,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Amsterdam (2027-06-02 to 2027-06-05)**\n\n- **Outbound:** Finnair, Norwegian Air Sweden flight 2027-06-02 14:15-20:50, 155 EUR\n- **Return:** Finnair flight 2027-06-05 19:25-06:45, 215 EUR\n- **Stay:** your own place (no accommodation needed)\n\n- **Day 1 (Wed 2027-06-02):** 20:50 Arrive in Amsterdam · 21:30 De Blauwe Hollander\n- **Day 2 (Thu 2027-06-03):** 10:00 Foam Fotografiemuseum Amsterdam · 12:30 Magere Brug · 14:00 Rijksmuseum · 17:30 La Margarita\n- **Day 3 (Fri 2027-06-04):** 10:00 Museum Het Grachtenhuis · 12:00 Anne Frank House · 15:00 Van Gogh Museum · 17:30 Damsteeg · 21:00 Pancakes! Amsterdam\n- **Day 4 (Sat 2027-06-05):** 10:30 Eye Filmmuseum · 13:00 Kinnaree · 19:25 Depart from Amsterdam\n\nEstimated total: 656 EUR (budget 700 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 67.2,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "The guide was saved as **amsterdam-2027-06-02-to-2027-06-05.md** (and HTML version) in the temporary folder, the calendar as **amsterdam-2027-06-02-to-2027-06-05.ics**, and the map as **amsterdam-2027-06-02-to-2027-06-05.geojson**.  \n\n**Recommended transport:** outbound OUL‑HEL‑ARN‑AMS (Finnair + Norwegian) €155 and return AMS‑HEL‑OUL (Finnair) €215, total €370.  \n\n**Stay:** none needed – traveller uses their own place (cost €0).  \n\n**Budget:** total estimated cost €656.5, which is within the €700 budget (≈94 % used)."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Where am I staying according to the guide?",
+   "seconds": 2.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "According to the guide, you’re staying with friends—no hotel or other accommodation is booked because you’ll be using your own place."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 40,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 8.489626399998087,
+   "last": 733.7876211999974
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 34.328562900002,
+   "last": 664.2969231000025
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 34.353154299999005,
+   "last": 34.353154299999005
+  },
+  "food_agent": {
+   "events": 13,
+   "tool_calls": 6,
+   "first": 35.89638589999231,
+   "last": 164.9875832999969
+  },
+  "culture_agent": {
+   "events": 29,
+   "tool_calls": 14,
+   "first": 37.664252699993085,
+   "last": 324.83590180000465
+  },
+  "ground_searcher": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 37.80991409999842,
+   "last": 104.8189388000028
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 38.232107999996515,
+   "last": 129.63694860000396
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 257.30167669999355,
+   "last": 257.30167669999355
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 327.99913519999245,
+   "last": 488.4070638999983
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 488.4073236999975,
+   "last": 488.4073236999975
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 488.4074973999959,
+   "last": 596.865610199995
+  },
+  "itinerary_reviser": {
+   "events": 6,
+   "tool_calls": 0,
+   "first": 505.453465700004,
+   "last": 664.2963759999984
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 727.2169386000023,
+   "last": 731.4730610999977
+  }
+ },
+ "seconds": 733.8,
+ "brief": {
+  "origin": "Oulu",
+  "destination": "Amsterdam",
+  "start_date": "2027-06-02",
+  "end_date": "2027-06-05",
+  "travellers": 1,
+  "budget_tier": "mid",
+  "total_budget_eur": 700.0,
+  "interests": [
+   "art",
+   "cycling"
+  ],
+  "origin_lat": 65.01236,
+  "origin_lon": 25.46816,
+  "destination_lat": 52.37403,
+  "destination_lon": 4.88969,
+  "destination_country": "The Netherlands",
+  "own_accommodation": true,
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 656.5,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 2,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 17:30-22:00.",
+   "alternatives": [
+    {
+     "name": "Stedelijk Museum Amsterdam",
+     "kind": "sight",
+     "km": 1.1,
+     "hours": "Mo-Su 10:00-18:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Akbar",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Proeverij 274",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Daily 18:00-22:00",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Burgermeester",
+     "kind": "restaurant",
+     "km": 1.3,
+     "hours": "12:00-23:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Akbar",
+     "kind": "restaurant",
+     "km": 0.9,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Proeverij 274",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "Daily 18:00-22:00",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Burgermeester",
+     "kind": "restaurant",
+     "km": 1.3,
+     "hours": "12:00-23:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    }
+   ]
+  },
+  {
+   "day": 3,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Akbar",
+     "kind": "restaurant",
+     "km": 0.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Burgermeester",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": "12:00-23:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "Proeverij 274",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Daily 18:00-22:00",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 8647
+ }
+}

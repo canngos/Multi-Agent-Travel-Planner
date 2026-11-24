@@ -1,0 +1,160 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Kyiv
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-1@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T114000
+DTEND:20270610T124000
+SUMMARY:Arrive in Kyiv
+DESCRIPTION:Day 1. Flight with Finnair\, Wizz Air Malta\; see Getting there
+  and back. https://kiwi.com/u/s6t75scptc
+URL:https://kiwi.com/u/s6t75scptc
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-2@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T133000
+DTEND:20270610T150000
+SUMMARY:Kyiv Pechersk Lavra
+DESCRIPTION:Day 1. UNESCO cave monastery\, historic frescoes. https://visit
+ kyiv.com/sights-and-landmarks/kyiv-pechersk-lavra
+GEO:50.432222;30.562222
+URL:https://visitkyiv.com/sights-and-landmarks/kyiv-pechersk-lavra
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-3@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T154500
+DTEND:20270610T171500
+SUMMARY:National Museum of the History of Ukraine in the Second World War
+DESCRIPTION:Day 1. Massive “Motherland” sculpture and indoor exhibits. 
+ https://www.openstreetmap.org/way/158427185
+GEO:50.426863;30.563730
+URL:https://www.openstreetmap.org/way/158427185
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-4@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T173000
+DTEND:20270610T183000
+SUMMARY:Two Geese - Pechersk
+DESCRIPTION:Day 1. Low‑budget cafeteria\, try the borshch. https://en.wik
+ ivoyage.org/wiki/Kyiv
+GEO:50.430260;30.538620
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-5@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T190000
+DTEND:20270610T203000
+SUMMARY:Mystetskyi Arsenal
+DESCRIPTION:Day 1. Contemporary art exhibitions\, indoor. https://artarsena
+ l.in.ua/
+GEO:50.434159;30.553485
+URL:https://artarsenal.in.ua/
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-6@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270610T204500
+DTEND:20270610T214500
+SUMMARY:Korchma Budmo
+DESCRIPTION:Day 1. Low‑budget Ukrainian kitchen\, good for dinner. https:
+ //en.wikivoyage.org/wiki/Kyiv
+GEO:50.454120;30.521610
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-7@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270611T093000
+DTEND:20270611T110000
+SUMMARY:Saint Sophia Cathedral
+DESCRIPTION:Day 2. UNESCO World Heritage church\, stunning frescoes. https:
+ //en.wikipedia.org/wiki/Saint%20Sophia%20Cathedral%2C%20Kyiv
+GEO:50.453022;30.513849
+URL:https://en.wikipedia.org/wiki/Saint%20Sophia%20Cathedral%2C%20Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-8@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270611T123000
+DTEND:20270611T133000
+SUMMARY:Zavertailo
+DESCRIPTION:Day 2. Mid‑budget café\, try the croissants. https://en.wiki
+ voyage.org/wiki/Kyiv
+GEO:50.451533;30.515094
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-9@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270611T133000
+DTEND:20270611T150000
+SUMMARY:House of the Metropolitan
+DESCRIPTION:Day 2. 18th‑century palace\, indoor museum. https://uk.wikipe
+ dia.org/wiki/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA%20%D0%BC%D0%B8%D1%
+ 82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B0
+GEO:50.452461;30.513365
+URL:https://uk.wikipedia.org/wiki/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%B
+ A%20%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B0
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-10@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270611T153000
+DTEND:20270611T170000
+SUMMARY:St. Michael's Golden-Domed Monastery
+DESCRIPTION:Day 2. Iconic gilded domes and park with city views. https://en
+ .wikivoyage.org/wiki/Kyiv
+GEO:50.455556;30.522778
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-11@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270611T190000
+DTEND:20270611T200000
+SUMMARY:Puzata Khata
+DESCRIPTION:Day 2. Low‑budget cafeteria\, classic Ukrainian dishes. https
+ ://en.wikivoyage.org/wiki/Kyiv
+GEO:50.448150;30.523530
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-12@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270612T093000
+DTEND:20270612T103000
+SUMMARY:Zustrich
+DESCRIPTION:Day 3. Serves a tasty Ukrainian traditional borshch. https://en
+ .wikivoyage.org/wiki/Kyiv
+GEO:50.441770;30.521424
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-13@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270612T110000
+DTEND:20270612T123000
+SUMMARY:October Palace
+DESCRIPTION:Day 3. Historic cultural centre\, indoor exhibitions. https://w
+ ww.openstreetmap.org/way/62805186
+GEO:50.449919;30.527891
+URL:https://www.openstreetmap.org/way/62805186
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-14@trip-planner
+DTSTAMP:20261119T205553Z
+DTSTART:20270612T144500
+DTEND:20270612T154500
+SUMMARY:Depart from Kyiv
+DESCRIPTION:Day 3. Flight with airBaltic\, Finnair\; see Getting there and 
+ back. https://kiwi.com/u/nzjdkkfsdg
+URL:https://kiwi.com/u/nzjdkkfsdg
+END:VEVENT
+END:VCALENDAR

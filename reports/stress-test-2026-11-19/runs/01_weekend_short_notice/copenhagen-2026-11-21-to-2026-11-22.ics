@@ -1,0 +1,59 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Copenhagen
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-1@trip-planner
+DTSTAMP:20261119T202117Z
+DTSTART:20261121T120000
+DTEND:20261121T130000
+SUMMARY:Arrive in Copenhagen
+DESCRIPTION:Day 1. Flight with SAS\; see Getting there and back. https://ki
+ wi.com/u/wzfttr3fby
+URL:https://kiwi.com/u/wzfttr3fby
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-2@trip-planner
+DTSTAMP:20261119T202117Z
+DTSTART:20261121T133000
+DTEND:20261121T150000
+SUMMARY:Rosenborg Castle
+DESCRIPTION:Day 1. Renaissance castle housing the Crown Jewels. https://www
+ .kongernessamling.dk/rosenborg/
+GEO:55.685691;12.577436
+URL:https://www.kongernessamling.dk/rosenborg/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-3@trip-planner
+DTSTAMP:20261119T202117Z
+DTSTART:20261121T150000
+DTEND:20261121T163000
+SUMMARY:The David Collection
+DESCRIPTION:Day 1. Free museum of Islamic and European art. https://www.dav
+ idmus.dk/
+GEO:55.684280;12.582385
+URL:https://www.davidmus.dk/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-4@trip-planner
+DTSTAMP:20261119T202117Z
+DTSTART:20261121T180000
+DTEND:20261121T190000
+SUMMARY:Obelix
+DESCRIPTION:Day 1. Affordable sandwiches and beer\; outdoor seating on Vest
+ erbro Square. https://en.wikivoyage.org/wiki/Copenhagen/Vesterbro
+GEO:55.671970;12.554590
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Vesterbro
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-5@trip-planner
+DTSTAMP:20261119T202117Z
+DTSTART:20261122T085500
+DTEND:20261122T095500
+SUMMARY:Depart from Copenhagen
+DESCRIPTION:Day 2. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/y3yn6z9mnf
+URL:https://kiwi.com/u/y3yn6z9mnf
+END:VEVENT
+END:VCALENDAR

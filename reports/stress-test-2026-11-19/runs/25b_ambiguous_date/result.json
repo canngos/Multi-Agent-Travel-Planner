@@ -1,0 +1,216 @@
+{
+ "id": "25b_ambiguous_date",
+ "title": "Ambiguous 03/04/2027 date, continue after USD question",
+ "turns": [
+  {
+   "user": "Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.",
+   "seconds": 15.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’ve got the basics:\n\n- **Destination:** Paris, France  \n- **Dates:** 2027‑04‑03 → 2027‑04‑06 (4 days)  \n- **Origin:** Helsinki  \n- **Travellers:** 2 adults  \n- **Interests:** art, croissants (food)  \n\nCould you let me know:\n\n1. Which **budget tier** fits your € ≈ 2 500 budget – “low”, “mid” or “high”?  \n2. The **total budget in EUR** (just to confirm the amount you’d like to spend).  \n\nAny other preferences (e.g., avoiding a transport mode, specific day‑start/end times, pace) can be added now if you wish."
+    }
+   ]
+  },
+  {
+   "user": "Yes, convert it to euros.",
+   "seconds": 3.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Great! At today’s exchange rate (~ 1 USD ≈ 0.92 EUR), $2 500 is roughly **€2 300**.\n\nTo finish the brief, could you tell me which budget tier you’d like to use?\n\n- **low** – tight budget, cost‑focused options  \n- **mid** – balanced mix of value and comfort (the usual default)  \n- **high** – premium choices, more flexibility  \n\nJust let me know the tier, and we’ll be all set to lock in your trip details."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 17.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief summary**\n\n- **Destination:** Paris, France  \n- **Dates:** 2027‑04‑03 → 2027‑04‑06 (4 days)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 2 adults  \n- **Budget tier:** mid (≈ €2 300 total)  \n- **Interests:** art, croissants  \n\nPlease confirm that everything looks correct (or let me know any changes). Once you confirm, I’ll lock in the brief and start the planning process."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 557.6,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Paris (2027-04-03 to 2027-04-06)**\n\n- **Outbound:** Finnair flight 2027-04-03 07:35-09:40, 190 EUR\n- **Return:** Finnair flight 2027-04-06 07:15-11:05, 292 EUR\n- **Stay:** Cozy & quiet room in Drancy – close to public transport, 153 EUR in total\n\n- **Day 1 (Sat 2027-04-03):** 09:40 Arrive in Paris · 10:30 Conciergerie · 13:00 Notre‑Dam Treasury · 13:30 La Robe et le Palais · 16:30 Musée national du Moyen Âge · 18:30 L'Express Bar\n- **Day 2 (Sun 2027-04-04):** 09:45 Louvre Museum · 13:00 Café Marly · 14:30 Musée des Arts Décoratifs · 18:30 Beef Club & Co\n- **Day 3 (Mon 2027-04-05):** 10:00 Musée du Luxembourg · 13:00 Lemoni Café · 15:00 Musée de l'Orangerie · 19:00 Pizza Nelly.\n- **Day 4 (Tue 2027-04-06):** 07:15 Depart from Paris\n\nEstimated total: 1143 EUR (budget 2300 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 33.5,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Guide saved at:\n- Markdown & HTML: `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\25b_ambiguous_date\\paris-2027-04-03-to-2027-04-06.md` (and .html)\n- Calendar file: `C:\\Users\\canba\\AppData\\Local\\Temp\\wo...\\paris-2027-04-03-to-2027-04-06.ics`\n- Map file: `C:\\Users\\canba\\AppData\\Local\\...\\paris-2027-04-03-to-2027-04-06.geojson`\n\nRecommended : Fin air flight → Finnair (€ 482 total) + Drancy Airbnb (€ 153.45). Total ≈ € 635 ‑ well inside the € 2300 budget."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 39,
+ "agents": {
+  "concierge": {
+   "events": 13,
+   "tool_calls": 5,
+   "first": 15.668627599996398,
+   "last": 594.6945438999974
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 38.726736399999936,
+   "last": 593.8559605999908
+  },
+  "food_agent": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 40.997106599999825,
+   "last": 145.81431980000343
+  },
+  "culture_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 41.76050380000379,
+   "last": 254.61570850000135
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 42.26453299999412,
+   "last": 196.06648880000284
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 44.63614229999075,
+   "last": 128.6852036999917
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 44.636544299995876,
+   "last": 212.32572999999684
+  },
+  "ground_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 44.63672229999793,
+   "last": 115.85694299999159
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 243.14535069999692,
+   "last": 243.14535069999692
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 294.20147459999134,
+   "last": 294.20147459999134
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 296.4397117000044,
+   "last": 391.57525019999593
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 391.5756715000025,
+   "last": 391.5756715000025
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 391.5760600999929,
+   "last": 554.9718431999936
+  },
+  "itinerary_reviser": {
+   "events": 11,
+   "tool_calls": 1,
+   "first": 407.62811219999276,
+   "last": 593.8551997000031
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 624.5883598999935,
+   "last": 627.3646913999983
+  }
+ },
+ "seconds": 627.4,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Paris",
+  "start_date": "2027-04-03",
+  "end_date": "2027-04-06",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2300.0,
+  "interests": [
+   "art",
+   "croissants"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 48.85341,
+  "destination_lon": 2.3488,
+  "destination_country": "France",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1143.45,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 1,
+   "issue": "ungrounded_place",
+   "detail": "'Notre‑Dam Treasury' is not in the research results: use a researched place (same name) or drop it."
+  }
+ ],
+ "final_should_fix": [],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10252
+ }
+}

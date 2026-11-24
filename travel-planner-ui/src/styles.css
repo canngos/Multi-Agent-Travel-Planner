@@ -274,7 +274,7 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 .activity-list .segmented button { padding: 0.2rem 0.65rem; font-size: 12px; }
 
 /* guide */
-.guide-actions { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
 .guide-body { max-width: 72ch; font-size: var(--step-0); line-height: 1.6; }
 .guide-body h1 { font-size: var(--step-3); font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem; }
 .guide-body h2 { font-size: var(--step-2); font-weight: 800; margin-top: 1.75rem; padding-top: 0.5rem; border-top: 3px solid var(--ink); }
@@ -336,3 +336,23 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* guide map (Guide map tab: Leaflet map of the plan's places) */
+.map-sources { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin-bottom: 0.75rem; }
+.map-sources select { font: inherit; }
+.guide-map { height: 420px; border: 1px solid var(--rule); border-radius: 8px; z-index: 0; font-family: var(--font); }
+.guide-map .leaflet-popup-content { font-size: var(--step--1); line-height: 1.45; }
+.guide-map .pin-kind { color: #4a5568; text-transform: capitalize; }
+.map-note { font-size: var(--step--1); margin: 0.4rem 0 0.75rem; }
+.pin span, .pin-stay, .pin-dot { display: grid; place-items: center; border-radius: 50%; color: #fff; font-weight: 700; }
+.pin span { width: 26px; height: 26px; font-size: 12px; border: 2px solid #fff; box-shadow: 0 1px 4px rgb(0 0 0 / 0.35); box-sizing: border-box; }
+.pin-stay { background: #1d2433; font-size: 17px; border: 2px solid #fff; box-shadow: 0 1px 4px rgb(0 0 0 / 0.35); box-sizing: border-box; }
+.map-stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.map-stops ul { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+.map-stops h4 { display: flex; align-items: center; gap: 0.4rem; margin: 0; font-size: var(--step-0); }
+.map-stops button { border: 0; background: none; padding: 0.15rem 0; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+  display: flex; align-items: center; gap: 0.35rem; }
+.map-stops button:hover { text-decoration: underline; }
+.pin-dot { width: 20px; height: 20px; font-size: 11px; flex: none; }
+.pin-dot-stay { background: var(--ink); color: var(--paper); font-size: 13px; }
+.day-swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }

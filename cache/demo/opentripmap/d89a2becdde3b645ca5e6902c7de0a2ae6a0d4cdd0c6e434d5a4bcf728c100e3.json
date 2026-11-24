@@ -1,0 +1,60 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W28239475",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129204.054365,
+ "response": {
+  "xid": "W28239475",
+  "name": "Cemitério da Ajuda",
+  "address": {
+   "city": "Ajuda",
+   "road": "Calçada do Galvão",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Ajuda",
+   "country": "Portugal",
+   "postcode": "1349-016",
+   "country_code": "pt",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/28239475",
+  "bbox": {
+   "lon_min": -9.205382,
+   "lon_max": -9.202648,
+   "lat_min": 38.707055,
+   "lat_max": 38.710347
+  },
+  "wikidata": "Q16486684",
+  "kinds": "cemeteries,historic,burial_places,interesting_places",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W28239475",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Cemit%C3%A9rio%20da%20Ajuda",
+  "image": "https://commons.wikimedia.org/wiki/File:Cemit%C3%A9rio_da_Ajuda%2C_October_2012.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cemit%C3%A9rio_da_Ajuda%2C_October_2012.jpg/400px-Cemit%C3%A9rio_da_Ajuda%2C_October_2012.jpg",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Cemitério da Ajuda",
+   "text": "O Cemitério da Ajuda é um cemitério da freguesia da Ajuda, em Lisboa.",
+   "html": "<p>O <b>Cemitério da Ajuda</b> é um cemitério da freguesia da Ajuda, em Lisboa.</p>"
+  },
+  "point": {
+   "lon": -9.203908920288086,
+   "lat": 38.70878219604492
+  }
+ }
+}

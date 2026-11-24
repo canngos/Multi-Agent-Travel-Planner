@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.6901,
+     35.70761
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Walking distance from HigashiNakano station",
+    "url": "https://www.airbnb.com/rooms/1668455158021450810?check_in=2027-04-05&check_out=2027-04-11&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.722457,
+     35.685468
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Suga Shrine",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Shinjuku"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7202,
+     35.68836
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Fire Museum (東京消防博物館)",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Shinjuku"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.704814,
+     35.696384
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Torafugu-Tei",
+    "url": "https://www.torafugu.co.jp/en/shinjuku_honten/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.713791,
+     35.687258
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Shinjuku Gyoen National Garden",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Shinjuku"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.703643,
+     35.691161
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Nabezo",
+    "url": "https://nabe-zo.com/en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79637,
+     35.71112
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Kaminarimon (Thunder Gate)",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.795459,
+     35.713236
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Dembō-in Temple",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.761612,
+     35.678936
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Meiji Seimei Kan",
+    "url": "https://opentripmap.com/en/card/R8048114"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.760803,
+     35.675869
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "DN Tower 21",
+    "url": "https://opentripmap.com/en/card/Q3011415"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.76091,
+     35.676373
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Idemitsu Museum of Arts",
+    "url": "https://opentripmap.com/en/card/N5403425184"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.763222,
+     35.678411
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "16:00",
+    "kind": "sight",
+    "name": "Mitsubishi Ichigokan Museum",
+    "url": "https://www.openstreetmap.org/way/306116935"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.762643,
+     35.667988
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Sushi Kanesaka",
+    "url": "http://www.sushi-kanesaka.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7546,
+     35.690513
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "National Museum of Modern Art, Tokyo (MOMAT)",
+    "url": "https://www.openstreetmap.org/way/43934324"
+   }
+  }
+ ]
+}

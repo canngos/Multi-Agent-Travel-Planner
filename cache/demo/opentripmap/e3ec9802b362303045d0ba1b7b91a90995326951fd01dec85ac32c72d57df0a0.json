@@ -1,0 +1,62 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/R8718577",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129204.3806343,
+ "response": {
+  "xid": "R8718577",
+  "name": "Fort of São Sebastião de Caparica",
+  "address": {
+   "city": "Caparica e Trafaria",
+   "road": "Travessa da Escola Primária",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "ALM",
+   "suburb": "Porto Brandão",
+   "country": "Portugal",
+   "postcode": "2825-075 ALMADA",
+   "country_code": "pt",
+   "city_district": "Caparica",
+   "neighbourhood": "Fonte Santa",
+   "state_district": "Península de Setúbal"
+  },
+  "rate": "3h",
+  "osm": "relation/8718577",
+  "bbox": {
+   "lon_min": -9.212051,
+   "lon_max": -9.21114,
+   "lat_min": 38.675864,
+   "lat_max": 38.676823
+  },
+  "wikidata": "Q10284061",
+  "kinds": "fortifications,historic,interesting_places,castles",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/R8718577",
+  "wikipedia": "https://en.wikipedia.org/wiki/Fort%20of%20S%C3%A3o%20Sebasti%C3%A3o%20de%20Caparica",
+  "image": "https://commons.wikimedia.org/wiki/File:Torre_velha_da_caparica.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Torre_velha_da_caparica.jpg/400px-Torre_velha_da_caparica.jpg",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:Fort of São Sebastião de Caparica",
+   "text": "The Fort of São Sebastião de Caparica (Portuguese: Forte de São Sebastião de Caparica) also known as the Tower of São Sebastião (Portuguese: Torre de São Sebastião) or Fortress of the Old Tower (Portuguese: Fortaleza de Torre Velha) is a medieval fortification located in Monte da Caparica, civil parish of Caparica, in the municipality of Almada, in the Portuguese central region of Península de Setúbal.",
+   "html": "<p>The <b>Fort of São Sebastião de Caparica</b> (Portuguese: <i lang=\"pt\">Forte de São Sebastião de Caparica</i>) also known as the <i>Tower of São Sebastião</i> (Portuguese: <i lang=\"pt\">Torre de São Sebastião</i>) or <i>Fortress of the Old Tower</i> (Portuguese: <i lang=\"pt\">Fortaleza de Torre Velha</i>) is a medieval fortification located in Monte da Caparica, civil parish of Caparica, in the municipality of Almada, in the Portuguese central region of Península de Setúbal.</p>"
+  },
+  "point": {
+   "lon": -9.211800575256348,
+   "lat": 38.67634201049805
+  }
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.32053,
+     52.52419
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Unique 200 sqm loft for groups on the river!",
+    "url": "https://www.airbnb.com/rooms/1383517943466250521?check_in=2027-04-20&check_out=2027-04-23&adults=14"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.377702,
+     52.516275
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Brandenburg Gate",
+    "url": "https://www.openstreetmap.org/way/518071791"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.376106,
+     52.518593
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Reichstag dome",
+    "url": "https://www.openstreetmap.org/node/2432753840"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.388122,
+     52.520242
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Witty's Currywurst",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.397023,
+     52.517748
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "German Historical Museum",
+    "url": "https://www.openstreetmap.org/node/3203167561"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.39773,
+     52.52017
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "17:00",
+    "kind": "sight",
+    "name": "Neues Museum",
+    "url": "https://www.openstreetmap.org/way/18578139"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3855,
+     52.5212
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Ständige Vertretung",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.38816,
+     52.52315
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 4,
+    "date": "2027-04-23",
+    "time": "11:30",
+    "kind": "restaurant",
+    "name": "Bombay",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  }
+ ]
+}

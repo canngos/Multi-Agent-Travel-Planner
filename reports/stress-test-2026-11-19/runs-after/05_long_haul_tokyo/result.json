@@ -1,0 +1,240 @@
+{
+ "id": "05_long_haul_tokyo",
+ "title": "Tokyo 7 days, non-euro currency, long-haul",
+ "turns": [
+  {
+   "user": "Tokyo for a week, 2 adults, from Helsinki, 5-11 April 2027 (cherry blossom!). High budget, around 8000 euros. Anime, sushi, temples.",
+   "seconds": 14.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of your trip brief:\n\n- **Destination:** Tokyo, Japan  \n- **Dates:** 05 Apr – 11 Apr 2027 (7 days, 6 nights)  \n- **Departure:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** High – ≈ 8000 EUR total  \n- **Interests:** anime, sushi, temples  \n\nPlease confirm that everything looks correct or let me know any adjustments."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1042.7,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Tokyo (2027-04-05 to 2027-04-11)**\n\n- **Outbound:** Finnair, China Eastern Airlines flight 2027-04-05 20:25-20:55 (+1 day, 18 h 30 min), 1105 EUR\n- **Return:** Korean Air, China Southern Airlines flight 2027-04-11 02:00-18:35, 1268 EUR\n- **Stay:** MIMARU TOKYO ASAKUSA STATION (Kaminarimon 2), 3268 EUR in total\n\n- **Day 1 (Mon 2027-04-05):** 20:25 Depart from Helsinki\n- **Day 2 (Tue 2027-04-06):** 20:55 Arrive in Tokyo · 21:30 Sushi Kanesaka\n- **Day 3 (Wed 2027-04-07):** 10:00 Mitsubishi Ichigokan Museum · 12:30 Tokyo Station Gallery · 13:30 Lunch near Ueno · 15:00 National Museum of Modern Art, Tokyo · 16:30 Kyū-Iwasaki-Tei Garden · 19:30 Dinner near Asakusa\n- **Day 4 (Thu 2027-04-08):** 09:30 Sensō-ji · 12:00 Edo Tokyo Museum · 15:00 Lunch near Asakusa · 19:00 Dinner near Asakusa\n- **Day 5 (Fri 2027-04-09):** 10:00 Meiji Shrine · 12:30 Blumare · 13:00 Tokyo Tower · 16:00 Shibuya Crossing · 19:00 Ginza Shiseido Parlour\n- **Day 6 (Sat 2027-04-10):** 10:00 Ghibli Museum · 13:30 Lunch near Mitaka · 15:00 teamLab Planets · 19:00 Dinner near teamLab Planets\n- **Day 7 (Sun 2027-04-11):** 02:00 Depart from Tokyo\n\nEstimated total: 6566 EUR (budget 8000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 69.6,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: tokyo-2027-04-05-to-2027-04-11.md (and tokyo-2027-04-05-to-2027-04-11.html, best opened in a browser), the calendar tokyo-2027-04-05-to-2027-04-11.ics, the map tokyo-2027-04-05-to-2027-04-11.geojson in the output folder.\nTransport: out Finnair, China Eastern Airlines flight 5 Apr 20:25; back Korean Air, China Southern Airlines flight 11 Apr 02:00.\nStay: MIMARU TOKYO ASAKUSA STATION (€3268 in total).\nEstimated total: €6566, within your €8000 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "How much is the flight and which airline?",
+   "seconds": 2.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Outbound flight** (Finnair + China Eastern Airlines) – €1,105 for both travelers.  \n**Return flight** (Korean Air + China Southern Airlines) – €1,268 for both travelers."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 05 Apr - 11 Apr 2027, 7 days and 6 nights.",
+  "ground_searcher: plan_public_transport -> error No public-transport connection found for this route and day"
+ ],
+ "tool_calls": 39,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 7.676756899993052,
+   "last": 1129.3619094999885
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 16.93006259998947,
+   "last": 1057.419286599994
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 22.68452479998814,
+   "last": 104.5756185999926
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.785077199994703,
+   "last": 121.76622389999102
+  },
+  "culture_agent": {
+   "events": 26,
+   "tool_calls": 12,
+   "first": 24.40405610000016,
+   "last": 210.5249288999912
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 24.404239299998153,
+   "last": 91.25197230000049
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 25.039990699995542,
+   "last": 101.63056649999635
+  },
+  "ground_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 26.490652199994656,
+   "last": 40.92899159999797
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 244.7104132999957,
+   "last": 244.7104132999957
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 252.71082419999584,
+   "last": 252.71396699998877
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 258.1071731999982,
+   "last": 448.31711579998955
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 448.31734109998797,
+   "last": 448.31734109998797
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 448.31750309999916,
+   "last": 949.8062063999969
+  },
+  "itinerary_reviser": {
+   "events": 13,
+   "tool_calls": 2,
+   "first": 477.9758817999973,
+   "last": 1057.4187432999897
+  },
+  "guide_writer": {
+   "events": 6,
+   "tool_calls": 2,
+   "first": 1124.8790439000004,
+   "last": 1126.97311359999
+  }
+ },
+ "seconds": 1129.4,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Tokyo",
+  "start_date": "2027-04-05",
+  "end_date": "2027-04-11",
+  "travellers": 2,
+  "budget_tier": "high",
+  "total_budget_eur": 8000.0,
+  "interests": [
+   "anime",
+   "sushi",
+   "temples"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 35.67686,
+  "destination_lon": 139.76389,
+  "destination_country": "Japan",
+  "nights": 6,
+  "days": 7
+ },
+ "plan_status": "approved",
+ "cost_total": 6566.35,
+ "n_days": 7,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 2,
+   "issue": "empty_day",
+   "detail": "No sight at all on a full day: add sights (the listed alternatives, or a day trip from the research) so the day is not empty.",
+   "alternatives": [
+    {
+     "name": "Tokyo Metropolitan Art Museum",
+     "kind": "sight",
+     "km": 2.4,
+     "hours": "09:30-17:30",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  }
+ ],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": []
+  },
+  {
+   "day": 5,
+   "issue": "far_meal",
+   "detail": "'Blumare' is 3.2 km from the day's sights.",
+   "alternatives": []
+  },
+  {
+   "day": 6,
+   "issue": "long_walk",
+   "detail": "20.5 km straight-line between the day's stops: regroup or add a metro/tram note."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 12030
+ }
+}

@@ -7,6 +7,7 @@ from google.genai import types
 from .. import config
 from ..tools import search_google_hotels, search_hotel_rates, stay_deep_links
 from ..tools.mcp import airbnb_toolset, mcp_cache_after, mcp_cache_before
+from ..tools.trip import PEOPLE_PER_ROOM
 from ._common import research_agent
 
 STAY_SHAPE = """{"results": [StayOption, ...], "fallback_links": [str, ...], "notes": "..."}
@@ -39,9 +40,10 @@ HOTEL_ROLE = """You are the HOTEL SEARCHER of a trip-planning team. Find hotels 
 (checkin = start_date, checkout = end_date) for all travellers in one room, matching the budget tier."""
 
 HOTEL_STEPS = """STEPS
-1. search_google_hotels(area = destination, checkin, checkout, adults = travellers, sort_by, min_rating):
-   budget_tier "low" -> sort_by "lowest_price", min_rating 3.5; "mid" -> "lowest_price", 4.0;
-   "high" -> "highest_rating", 4.5. These are public prices with taxes (they include Booking.com).
+1. search_google_hotels(area = destination, checkin, checkout, adults = travellers, sort_by, min_rating,
+   hotel_class, exclude_hostels): budget_tier "low" -> sort_by "lowest_price", min_rating 3.5 (hostels allowed);
+   "mid" -> "lowest_price", 4.0, hotel_class "3,4,5", exclude_hostels true; "high" -> "highest_rating", 4.5,
+   hotel_class "4,5", exclude_hostels true. These are public prices with taxes (they include Booking.com).
 2. search_hotel_rates(lat = destination_lat, lon = destination_lon, checkin, checkout, adults, radius_km 3)
    for more hotels (liteAPI wholesale rates).
 3. Keep up to 8 hotels: mostly from Google Hotels, plus the 2-3 best liteAPI ones. For every liteAPI hotel,
@@ -69,6 +71,58 @@ def skip_without_npx(callback_context):
     return types.Content(role="model", parts=[types.Part(text=text)])
 
 
+# What each budget tier searches, set in code (the prompt says the same, but a model may drift): live runs gave mid
+# budgets the cheapest hostel, and a "money is no object" trip a €367 village Airbnb.
+HOTEL_TIER_ARGS = {
+    "low": {"sort_by": "lowest_price", "min_rating": 3.5, "hotel_class": "", "exclude_hostels": False},
+    "mid": {"sort_by": "lowest_price", "min_rating": 4.0, "hotel_class": "3,4,5", "exclude_hostels": True},
+    "high": {"sort_by": "highest_rating", "min_rating": 4.5, "hotel_class": "4,5", "exclude_hostels": True},
+}
+
+
+def rooms_needed(brief: dict) -> int:
+    return max(1, -(-int(brief.get("travellers") or 1) // PEOPLE_PER_ROOM))
+
+
+def tier_hotel_args(tool, args, tool_context):
+    """Before-tool callback of the hotel searcher: the brief's budget tier sets the Google Hotels filters, and a
+    group gets one room per two travellers in both hotel sources."""
+    name = getattr(tool, "name", "")
+    brief = tool_context.state.get("trip_brief") or {}
+    if name == "search_google_hotels":
+        args.update(HOTEL_TIER_ARGS.get(brief.get("budget_tier"), HOTEL_TIER_ARGS["mid"]))
+    if name in ("search_google_hotels", "search_hotel_rates", "stay_deep_links") and rooms_needed(brief) > 1:
+        args["rooms"] = max(int(args.get("rooms") or 1), rooms_needed(brief))
+    return None
+
+
+NO_STAY_NOTE = "Not searched: the travellers stay in their own place (no accommodation needed)."
+DAY_TRIP_NOTE = "Not searched: a day trip, out and back the same day (no night to stay)."
+
+
+def _fenced(data: dict) -> str:
+    return "```json\n" + json.dumps(data, ensure_ascii=False) + "\n```"
+
+
+def skip_without_stay(callback_context):
+    """Before-agent callback of the stay team: a brief with own_accommodation (or a day trip, with no night) needs no
+    stay, so the searchers and the comparer do not run. A hard fact the user stated, like an excluded transport mode. Their outputs say why, so
+    the planner knows the empty stay is intended (and plans "stay": null)."""
+    state = callback_context.state
+    brief = state.get("trip_brief") or {}
+    if brief.get("own_accommodation"):
+        note, why = NO_STAY_NOTE, "No stay: the travellers stay in their own place."
+    elif brief.get("nights") == 0:  # a day trip: out and back the same day
+        note, why = DAY_TRIP_NOTE, "No stay: a day trip, back the same evening."
+    else:
+        return None
+    for key in ("airbnb_options", "hotel_options"):
+        state[key] = _fenced({"results": [], "fallback_links": [], "notes": note})
+    state["stay_summary"] = _fenced({"by_area": [], "cheapest": None, "best_value": None, "top_rated": None,
+                                     "recommendation": why, "fallback_links": [], "notes": note})
+    return types.Content(role="model", parts=[types.Part(text=note)])
+
+
 def build_airbnb_searcher():
     return research_agent(
         name="airbnb_searcher",
@@ -91,4 +145,5 @@ def build_hotel_searcher():
         tools=[search_google_hotels, search_hotel_rates, stay_deep_links],
         output_key="hotel_options",
         max_calls=4,
+        before_tool_callback=tier_hotel_args,
     )

@@ -1,0 +1,59 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Tallinn
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-1@trip-planner
+DTSTAMP:20261119T234606Z
+DTSTART:20270515T132300
+DTEND:20270515T141500
+SUMMARY:Arrive in Tallinn
+DESCRIPTION:Day 1. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-2@trip-planner
+DTSTAMP:20261119T234606Z
+DTSTART:20270515T141500
+DTEND:20270515T154500
+SUMMARY:Toompea Castle
+DESCRIPTION:Day 1. Explore the historic castle grounds. https://en.wikivoya
+ ge.org/wiki/Tallinn
+GEO:59.435610;24.737430
+URL:https://en.wikivoyage.org/wiki/Tallinn
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-3@trip-planner
+DTSTAMP:20261119T234606Z
+DTSTART:20270515T154500
+DTEND:20270515T170000
+SUMMARY:St. Nicholas Church
+DESCRIPTION:Day 1. See the Danse Macabre altarpiece inside the historic chu
+ rch. https://nigulistemuuseum.ekm.ee/en/st-nicholas-church/
+GEO:59.435908;24.742726
+URL:https://nigulistemuuseum.ekm.ee/en/st-nicholas-church/
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-4@trip-planner
+DTSTAMP:20261119T234606Z
+DTSTART:20270515T170000
+DTEND:20270515T180000
+SUMMARY:Loca
+DESCRIPTION:Day 1. Dinner at low‑price fast‑food joint offering pizza\,
+  falafel and hummus. http://www.loca.ee
+GEO:59.432570;24.746490
+URL:http://www.loca.ee
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-5@trip-planner
+DTSTAMP:20261119T234606Z
+DTSTART:20270515T191100
+DTEND:20270515T201100
+SUMMARY:Depart from Tallinn
+DESCRIPTION:Day 1. Ferry with Tallink Grupp AS\; see Getting there and back
+ . https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE
+URL:https://en.tallink.com/book-a-cruise?voyageType=SHUTTLE
+END:VEVENT
+END:VCALENDAR

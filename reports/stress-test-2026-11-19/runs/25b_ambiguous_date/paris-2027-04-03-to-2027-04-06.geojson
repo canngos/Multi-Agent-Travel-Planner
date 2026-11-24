@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.4464,
+     48.9205
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Cozy & quiet room in Drancy – close to public transport",
+    "url": "https://www.airbnb.com/rooms/1785758130269777089?check_in=2027-04-03&check_out=2027-04-06&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.346026,
+     48.855949
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Conciergerie",
+    "url": "https://www.paris-conciergerie.fr"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.35006,
+     48.852631
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "Notre‑Dam Treasury",
+    "url": "https://www.notredamedeparis.fr/visiter/visiter-le-tresor"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.345878,
+     48.858616
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "La Robe et le Palais",
+    "url": "http://larobeetlepalais.fr/en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.343333,
+     48.850556
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Musée national du Moyen Âge",
+    "url": "https://en.wikivoyage.org/wiki/Paris"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3439084,
+     48.8611442
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "L'Express Bar",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.336397,
+     48.860864
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "09:45",
+    "kind": "sight",
+    "name": "Louvre Museum",
+    "url": "https://www.louvre.fr/en/visit/hours-admission/tickets-and-prices"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.336198,
+     48.862786
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Café Marly",
+    "url": "http://cafe-marly.com/en/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.334108,
+     48.862783
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Musée des Arts Décoratifs",
+    "url": "https://en.wikivoyage.org/wiki/Paris"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3436,
+     48.86356
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Beef Club & Co",
+    "url": "https://beefclubandco.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.334014,
+     48.848598
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Musée du Luxembourg",
+    "url": "https://museeduluxembourg.fr/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.341131,
+     48.864854
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Lemoni Café",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.322538,
+     48.863845
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Musée de l'Orangerie",
+    "url": "https://en.wikipedia.org/wiki/Mus%C3%A9e_de_l%27Orangerie"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3254118,
+     48.868661
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Pizza Nelly.",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  }
+ ]
+}

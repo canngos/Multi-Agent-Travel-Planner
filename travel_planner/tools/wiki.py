@@ -43,7 +43,7 @@ async def wiki_summary(title: str, lang: str = "en") -> dict:
             raise ToolError(f"No Wikipedia article found for '{title}'")
         page = await _wiki_page(api, hits[0]["title"])
     if "disambiguation" in (page.get("pageprops") or {}):
-        raise ToolError(f"'{title}' is ambiguous on Wikipedia; add the city, e.g. '{title}, Lisbon'")
+        raise ToolError(f"'{title}' is ambiguous on Wikipedia; add the destination city, e.g. '{title}, <city>'")
     coords = (page.get("coordinates") or [{}])[0]
     extract = page.get("extract") or ""
     if len(extract) > MAX_EXTRACT_CHARS:  # cut at a sentence end

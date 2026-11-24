@@ -1,0 +1,248 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.499243,
+     50.4412854
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "City Loft",
+    "url": "https://www.booking.com/searchresults.html?ss=City+Loft%2C+Kyiv&checkin=2027-06-10&checkout=2027-06-12&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.562222,
+     50.432222
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Kyiv Pechersk Lavra",
+    "url": "https://visitkyiv.com/sights-and-landmarks/kyiv-pechersk-lavra"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.56373,
+     50.426863
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "National Museum of the History of Ukraine in the Second World War",
+    "url": "https://www.openstreetmap.org/way/158427185"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.53862,
+     50.43026
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Two Geese - Pechersk",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.553485,
+     50.434159
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "19:00",
+    "kind": "sight",
+    "name": "Mystetskyi Arsenal",
+    "url": "https://artarsenal.in.ua/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.52161,
+     50.45412
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-06-10",
+    "time": "20:45",
+    "kind": "restaurant",
+    "name": "Korchma Budmo",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.513849,
+     50.453022
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Saint Sophia Cathedral",
+    "url": "https://en.wikipedia.org/wiki/Saint%20Sophia%20Cathedral%2C%20Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.515094,
+     50.451533
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Zavertailo",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.513365,
+     50.452461
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "House of the Metropolitan",
+    "url": "https://uk.wikipedia.org/wiki/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA%20%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B0"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.522778,
+     50.455556
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "St. Michael's Golden-Domed Monastery",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.52353,
+     50.44815
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-06-11",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Puzata Khata",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.521424,
+     50.44177
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "09:30",
+    "kind": "restaurant",
+    "name": "Zustrich",
+    "url": "https://en.wikivoyage.org/wiki/Kyiv"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     30.527891,
+     50.449919
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-12",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "October Palace",
+    "url": "https://www.openstreetmap.org/way/62805186"
+   }
+  }
+ ]
+}

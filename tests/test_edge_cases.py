@@ -47,9 +47,11 @@ def test_parse_hours_edge_formats(text, day, want):
 # ---------------------------------------------------------------- budget that cannot be met
 
 def _budget_issue(budget):
-    from tests.test_review import _state, fixed_plan
+    import copy
+    from tests.test_review import FAST_OUT, _state, fixed_plan
     from travel_planner.agents.review_checks import check_plan
-    plan = fixed_plan()  # costs €1108; the cheaper flight saves €200 and the tickets are €60
+    plan = fixed_plan()
+    plan["transport"]["outbound"] = copy.deepcopy(FAST_OUT)  # costs €1108; the cheaper flight saves €200, tickets €60
     state = _state(plan)
     state["trip_brief"]["total_budget_eur"] = budget
     report = check_plan(plan, state)
@@ -251,14 +253,36 @@ def test_save_trip_brief_rejects_trips_the_planner_cannot_plan(change, field):
 
 async def test_geocode_warns_when_the_place_is_a_region_not_a_city(tmp_cache, mock_http):
     from travel_planner.tools import geocode_place
-    def nominatim(kind):
-        return lambda req: mock_http.json_response([{"name": "Tuscany", "lat": "43.45", "lon": "11.13", "addresstype": kind,
-                                                     "address": {"country": "Italy", "country_code": "it"}}])
+    def nominatim(kind, city_search=None):
+        def handler(req):
+            if "featureType" in str(req.url):  # the city search for a region's name
+                return mock_http.json_response(city_search or [])
+            return mock_http.json_response([{"name": "Tuscany", "lat": "43.45", "lon": "11.13", "addresstype": kind,
+                                             "address": {"country": "Italy", "country_code": "it"}}])
+        return handler
     mock_http.handler = nominatim("state")
     region = await geocode_place("Tuscany")
     assert "not a city" in region["warning"]
     mock_http.handler = nominatim("city")
     assert "warning" not in await geocode_place("Florence")
+
+
+async def test_a_city_state_or_capital_region_is_a_city(tmp_cache, mock_http):
+    from travel_planner.tools import geocode_place
+
+    def handler(req):
+        if "featureType" in str(req.url):
+            return mock_http.json_response([{"name": "Singapore", "lat": "1.29", "lon": "103.85", "addresstype": "city",
+                                             "address": {"country": "Singapore", "country_code": "sg"}}])
+        return mock_http.json_response([{"name": "Singapore", "lat": "1.357", "lon": "103.82", "addresstype": "country",
+                                         "address": {"country": "Singapore", "country_code": "sg"}}])
+    mock_http.handler = handler
+    result = await geocode_place("Singapore")
+    assert "warning" not in result and result["results"][0]["lat"] == 1.29
+    mock_http.handler = lambda req: mock_http.json_response([{
+        "name": "Atlantis", "lat": "26.59", "lon": "-80.1", "addresstype": "village", "importance": 0.45,
+        "display_name": "Atlantis, Florida, United States", "address": {"country": "United States"}}])
+    assert "small village" in (await geocode_place("Atlantis"))["warning"]
 
 
 # ---------------------------------------------------------------- hard requirements and groups
@@ -721,7 +745,7 @@ async def test_tool_budget_is_enforced_in_code(factory):
     answers = [await call() for _ in range(40)]
     refused = [i for i, a in enumerate(answers) if a is not None]
     assert refused and all(answers[i]["status"] == "error" for i in refused)
-    assert 3 <= refused[0] <= 15  # the prompt's budget plus a little slack, never unlimited
+    assert 3 <= refused[0] <= 17  # the prompt's budget plus a little slack, never unlimited
 
 
 # ================================================================ findings from the live runs (Tallinn, Kraków)
@@ -1043,13 +1067,13 @@ def test_cost_table_is_rebuilt_from_the_plan_when_the_guide_changed_numbers():
     plan, state, guide, _ = _plan_and_guide(cost_rows=[("Transport", 550.0), ("Stay", 156.0), ("**Total**", 1114.0)])
     text = _finalised(state, guide)
     cost = text.split("## Cost estimate", 1)[1].split("\n## ", 1)[0]
-    assert "1114" not in cost and "156" not in cost and "1108" in cost and "Food" in cost
+    assert "1114" not in cost and "156" not in cost and "908" in cost and "Food" in cost
 
 
 def test_stay_and_day_items_that_drift_from_the_plan_are_listed():
     _, state, guide, _ = _plan_and_guide(stay_name="Nice Hotel", extra_day2="- **20:30 Scotland Yard** – dinner.")
     still = _finalised(state, guide).split("## Still to check", 1)[1]
-    assert "Cheap Hostel" in still and "Scotland Yard" in still and "Day 2" in still
+    assert "Cheap Guesthouse" in still and "Scotland Yard" in still and "Day 2" in still
 
 
 def test_wikivoyage_ticket_is_the_adult_price_of_a_price_list():

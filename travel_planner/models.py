@@ -35,6 +35,10 @@ class TripBrief(_Model):
     # (children and their ages, pets, accessibility, diet, room type).
     avoid_modes: list[TransportMode] = Field(default_factory=list)
     requirements: list[str] = Field(default_factory=list)
+    # The travellers need no accommodation (their own apartment, friends or family): no stay is searched or planned.
+    own_accommodation: bool = False
+    # The travellers drive their own car there and back and use it at the destination: no flights, trains or buses.
+    own_car: bool = False
     # Optional day rhythm, only when the user states it (None = the planners' defaults: 09:30-22:00, balanced).
     day_start: str | None = ClockTime
     day_end: str | None = ClockTime
@@ -42,9 +46,13 @@ class TripBrief(_Model):
 
     @model_validator(mode="after")
     def _check_dates(self) -> "TripBrief":
-        if self.end_date <= self.start_date:
-            raise ValueError("end_date must be after start_date")
+        if self.end_date < self.start_date:  # equal dates: a day trip, out and back the same day, no night
+            raise ValueError("end_date must not be before start_date")
         return self
+
+    @property
+    def day_trip(self) -> bool:
+        return self.end_date == self.start_date
 
     @model_validator(mode="after")
     def _check_day_hours(self) -> "TripBrief":

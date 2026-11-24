@@ -415,3 +415,37 @@ def test_api_key_is_optional_offline(monkeypatch):
         api_key("TAVILY_API_KEY")
     monkeypatch.setenv("TAVILY_API_KEY", "real")
     assert api_key("TAVILY_API_KEY") == "real"
+
+
+def test_hotel_tier_args_and_rooms():
+    from types import SimpleNamespace
+    from travel_planner.agents.stay import tier_hotel_args
+    from travel_planner.tools.serpapi import is_hostel
+    ctx = SimpleNamespace(state={"trip_brief": {"budget_tier": "high", "travellers": 5}})
+    args = {"area": "Monaco", "sort_by": "lowest_price"}
+    tier_hotel_args(SimpleNamespace(name="search_google_hotels"), args, ctx)
+    assert args["sort_by"] == "highest_rating" and args["hotel_class"] == "4,5" and args["exclude_hostels"]
+    assert args["rooms"] == 3
+    assert is_hostel("Hola Hostal Eixample") and is_hostel("Wombat's City Hostel") and not is_hostel("Hotel Lux")
+
+
+async def test_google_hotels_filters_hostels_and_prices_rooms(monkeypatch):
+    sent = {}
+
+    async def fake_search(params, *, slim, max_age_s):
+        sent.update(params)
+        props = [{"name": n, "gps_coordinates": {"latitude": 38.7, "longitude": -9.1}, "total": 200.0,
+                  "extracted_hotel_class": 4, "overall_rating": 4.5} for n in ("Lux Hotel", "Happy Hostel")]
+        return {"properties": props}
+
+    async def no_hood(lat, lon):
+        return "Baixa"
+
+    monkeypatch.setattr(serpapi, "_search", fake_search)
+    monkeypatch.setattr(serpapi, "neighbourhood", no_hood)
+    result = await serpapi.search_google_hotels("Lisbon", "2027-05-10", "2027-05-12", adults=10, hotel_class="3,4,5",
+                                                exclude_hostels=True)
+    assert sent["adults"] == 2 and sent["hotel_class"] == "3,4,5"
+    stays = result["results"]
+    assert [s["name"] for s in stays] == ["Lux Hotel"]
+    assert stays[0]["total_price_eur"] == 1000.0 and "5 rooms" in stays[0]["details"]

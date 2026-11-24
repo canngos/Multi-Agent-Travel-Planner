@@ -1,0 +1,251 @@
+{
+ "id": "30_followup_stress",
+ "title": "After the guide: out-of-guide questions, booking request, swap days",
+ "turns": [
+  {
+   "user": "Riga 3 days, 2 adults, from Helsinki, 13-15 May 2027, low budget 600 euros. Art nouveau and markets.",
+   "seconds": 12.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of the trip you described:\n\n- **Destination:** Riga, Latvia  \n- **Dates:** 13 May 2027 – 15 May 2027 (3 nights, 3 days)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Low‑budget, total 600 EUR for the whole trip  \n- **Interests:** Art Nouveau architecture, local markets  \n\nPlease let me know if everything looks correct. If you’d like to change any detail, just tell me and we’ll update it. If it’s all good, reply “Yes, confirm” and I’ll lock in the brief and start the planning process."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 484.8,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Riga (2027-05-13 to 2027-05-15)**\n\n- **Outbound:** Finnair flight 2027-05-13 07:00-08:10, 113 EUR\n- **Return:** airBaltic flight 2027-05-15 19:40-20:40, 94 EUR\n- **Stay:** Kalnciema apartments, 70 EUR in total\n\n- **Day 1 (Thu 2027-05-13):** 08:10 Arrive in Riga · 10:00 Latvian Museum of Architecture · 12:30 B Bārs Restorāns · 14:00 Art Museum Riga Bourse · 16:00 Museum of the History of Riga and Navigation · 18:30 DOM\n- **Day 2 (Fri 2027-05-14):** 10:00 House of the Blackheads · 12:30 Victory Pub · 14:00 St. Peter's Church · 15:45 Museum of Decorative Arts and Design · 18:30 Riga Central Market · 19:30 Neiburgs\n- **Day 3 (Sat 2027-05-15):** 10:00 Riga Art Nouveau Centre · 12:00 Latvian National Museum of Art · 14:30 Melnais ķiploks · 19:40 Depart from Riga\n\nEstimated total: 541 EUR (budget 600 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 37.8,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "The guide was saved to **riga-2027-05-13-to-2027-05-15.md** (HTML version also created).  \nThe calendar file **riga-2027-05-13-to-2027-05-15.ics** and the map file **riga-2027-05-13-to-2027-05-15.geojson** were generated.  \nRecommended transport: Finnair outbound (€113 live) + airBaltic return (€94 live).  \nRecommended stay: Kalnciema apartments Airbnb (€70 total, live).  \nTotal cost €541 ≈ 90 % of the €600 budget – fits comfortably."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Can you book the hotel for us right now?",
+   "seconds": 1.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but I can’t make reservations for you. I can provide the details of the recommended accommodation and any booking links, and you can complete the reservation directly. Let me know if you’d like the booking information or anything else about your trip."
+    }
+   ]
+  },
+  {
+   "user": "What's the best sushi restaurant in Riga?",
+   "seconds": 1.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The current guide doesn’t include any information about sushi restaurants in Riga, so I’m unable to provide a recommendation. If you’d like, I can help you adjust the plan or add a culinary interest, and the next planning round could include suitable sushi spots. Let me know how you’d like to proceed."
+    }
+   ]
+  },
+  {
+   "user": "Swap day 1 and day 3 please, and start every day at 7:00.",
+   "seconds": 9.6,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’ll update the itinerary as you requested:\n\n- **Day start time:** 07:00 each day (instead of the default 09:30)  \n- **Swap days:** Day 1 and Day 3 activities will be exchanged, keeping the same transport and accommodation.\n\n**New day‑by‑day outline (summary)**  \n\n- **Day 1 (Thu 2027‑05‑13):** Riga Art Nouveau Centre → Latvian National Museum of Art → Melnais ķiploks → depart 19:40.  \n- **Day 2 (Fri 2027‑05‑14):** unchanged (House of the Blackheads → Victory Pub → St. Peter’s Church → Museum of Decorative Arts and Design → Riga Central Market → Neiburgs).  \n- **Day 3 (Sat 2027‑05‑15):** Latvian Museum of Architecture → B Bārs Restorāns → Art Museum Riga Bourse → Museum of the History of Riga and Navigation → DOM → depart 19:40.\n\nDoes this look correct? Please reply “confirm” to proceed, or let me know any further adjustments."
+    }
+   ]
+  },
+  {
+   "user": "Yes.",
+   "seconds": 95.6,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Riga (2027-05-13 to 2027-05-15)**\n\n- **Outbound:** airBaltic flight 2027-05-13 09:15-10:10, 117 EUR\n- **Return:** airBaltic flight 2027-05-15 19:40-20:40, 94 EUR\n- **Stay:** Kalnciema apartments, 70 EUR in total\n\n- **Day 1 (Thu 2027-05-13):** 10:10 Arrive in Riga · 12:00 Riga Art Nouveau Centre · 13:30 Latvian National Museum of Art · 15:30 Melnais ķiploks · 18:30 Key to Riga\n- **Day 2 (Fri 2027-05-14):** 07:30 Riga Central Market · 10:30 House of the Blackheads · 12:00 Neiburgs · 13:30 St. Peter's Church · 15:00 Museum of Decorative Arts and Design · 18:00 DOM\n- **Day 3 (Sat 2027-05-15):** 09:00 Triangula Bastion · 10:00 Art Museum Riga Bourse · 11:30 Museum of the History of Riga and Navigation · 13:00 B Bārs Restorāns · 19:40 Depart from Riga\n\nEstimated total: 545 EUR (budget 600 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 41.5,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "- Guide : `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0255…\\riga‑2027‑05‑13‑to‑2027‑05‑15.md`  \n- Calendar : `C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0255…\\riga‑2027‑05‑13‑to‑2027‑05‑15.ics`  \n- Map : `C:\\Users\\canba\\AppData\\Local\\Temp\\‑…\\riga‑2027‑05‑13‑to‑2027‑15.geojson`  \n\nRecommended transport: airBaltic flights (outbound €117, return €94).  \nRecommended stay: Kalnciema apartments Airbnb (€70 total).  \n\nTotal cost ≈ €545 → within the €600 budget (≈ €55 spare)."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready. Days in this plan start at 07:00 and end by 22:00, at a balanced pace. If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details.",
+  "culture_agent: geocode_place -> error nominatim.openstreetmap.org: HTTP 429: \n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html>\n  <head>\n    <title>429 Too many requests< (the Open-Meteo geocoder found nothing either)",
+  "culture_agent: wiki_summary -> error 'House of the Blackheads' is ambiguous on Wikipedia; add the city, e.g. 'House of the Blackheads, Lisbon'"
+ ],
+ "tool_calls": 59,
+ "agents": {
+  "concierge": {
+   "events": 20,
+   "tool_calls": 8,
+   "first": 5.734388199998648,
+   "last": 645.0830741999962
+  },
+  "planning_pipeline": {
+   "events": 4,
+   "tool_calls": 0,
+   "first": 15.187558999998146,
+   "last": 643.6016395999904
+  },
+  "food_agent": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 16.928566299990052,
+   "last": 553.1815800999902
+  },
+  "culture_agent": {
+   "events": 31,
+   "tool_calls": 14,
+   "first": 18.7719580999983,
+   "last": 553.1814833999961
+  },
+  "ground_searcher": {
+   "events": 17,
+   "tool_calls": 8,
+   "first": 21.742411599989282,
+   "last": 110.03595979999227
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.604098600000725,
+   "last": 67.5528961999953
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.606321499988553,
+   "last": 155.02181869999913
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.607145099987974,
+   "last": 183.02506580000045
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 229.89773409999907,
+   "last": 229.89773409999907
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 231.3467307999963,
+   "last": 231.3467307999963
+  },
+  "itinerary_planner": {
+   "events": 20,
+   "tool_calls": 8,
+   "first": 316.51285699999426,
+   "last": 635.9170534000004
+  },
+  "review_loop": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 435.40941889998794,
+   "last": 635.9172927999898
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 435.409591299991,
+   "last": 642.1389490000001
+  },
+  "itinerary_reviser": {
+   "events": 11,
+   "tool_calls": 2,
+   "first": 446.2018631999963,
+   "last": 643.6010630999954
+  },
+  "guide_writer": {
+   "events": 18,
+   "tool_calls": 7,
+   "first": 532.061726999993,
+   "last": 685.0864065999922
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 553.181247799992,
+   "last": 553.181247799992
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 553.1813843999989,
+   "last": 553.1813843999989
+  }
+ },
+ "seconds": 685.1,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Riga",
+  "start_date": "2027-05-13",
+  "end_date": "2027-05-15",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 600.0,
+  "interests": [
+   "art nouveau",
+   "markets"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 56.9494,
+  "destination_lon": 24.10518,
+  "destination_country": "Latvia",
+  "day_start": "07:00",
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 545.0,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9113
+ }
+}

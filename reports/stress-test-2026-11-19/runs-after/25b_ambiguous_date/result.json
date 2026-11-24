@@ -1,0 +1,283 @@
+{
+ "id": "25b_ambiguous_date",
+ "title": "Ambiguous 03/04/2027 date, continue after USD question",
+ "turns": [
+  {
+   "user": "Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.",
+   "seconds": 9.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Kiitos tiedoista!  \n\n- Kohde: **Pariisi**  \n- Matka‑aikaväli: **03/04/2027 – 06/04/2027** (tämä päivämääräformaatti on hieman epäselvä)  \n- Lähtöpaikka: **Helsinki**  \n- Matkustajat: **2 aikuista**  \n- Budjetti: **2500 $** (haluatko käyttää euroa, vai pitääkö budjetti USD‑valuutassa?)  \n- Kiinnostuksen kohteet: **taide, croissantit**  \n\nVoisitko tarkentaa:\n1. **Päivämäärä** – tarkoitatko 3 huhtikuuta – 6 huhtikuuta 2027 (eurooppalainen formaatti) vai 4 maaliskuuta – 6 huhtikuuta 2027?  \n2. **Budjetin valuutta** – onko 2500 € vai 2500 $?  \n\nKun tiedän nämä, voin tallentaa matkabriefisi ja käynnistää suunnittelun."
+    }
+   ]
+  },
+  {
+   "user": "Yes, convert it to euros.",
+   "seconds": 5.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Käytänkö matkapäivinä **3 huhtikuuta 2027 – 6 huhtikuuta 2027** (eurooppalainen päivä/kuukausi‑muoto), vai tarkoititko **4 maaliskuuta – 6 huhtikuuta 2027**?  (Budjetin €‑määrä on 2500 €.)"
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 15.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Yhteenveto matkasta**\n\n- **Kohde:** Pariisi, Ranska  \n- **Matkapäivät:** 3 huhtikuuta 2027 – 6 huhtikuuta 2027 (4 päivää, 3 yötä)  \n- **Lähtöpaikka:** Helsinki, Suomi  \n- **Matkustajat:** 2 aikuista  \n- **Budjetti:** 2500 € (keskitaso)  \n- **Kiinnostuksen kohteet:** taide, croissantit  \n\nVahvistatko tiedot? (Vastaus “kyllä” tai “ok” tallentaa ja käynnistää suunnittelun.)"
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 534.0,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Paris (2027-04-03 to 2027-04-06)**\n\n- **Outbound:** Finnair flight 2027-04-03 07:35-09:40, 190 EUR\n- **Return:** Finnair flight 2027-04-06 19:00-22:55, 258 EUR\n- **Stay:** Cozy & quiet room in Drancy – close to public transport, 153 EUR in total\n\n- **Day 1 (Sat 2027-04-03):** 09:40 Arrive in Paris · 11:30 Les Invalides – Musée de l'Armée · 13:30 Lunch near Paris · 14:30 Palais de la Légion d'Honneur (Musée de la Légion d'Honneur) · 16:30 Dinner near Paris\n- **Day 2 (Sun 2027-04-04):** 09:30 Louvre Museum · 12:00 Musée national Eugène Delacroix · 13:45 Lunch near Paris · 19:00 Dinner near Paris\n- **Day 3 (Mon 2027-04-05):** 09:30 Musée d'Orsay · 12:00 Musée de l'Orangerie · 13:45 Lunch near Paris · 14:30 Fondation Custodia · 19:00 Dinner near Paris\n- **Day 4 (Tue 2027-04-06):** 09:30 Grand Palais · 12:00 Petit Palais · 13:30 Lunch near Paris · 19:00 Depart from Paris\n\nEstimated total: 1133 EUR (budget 2500 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 24.4,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: paris-2027-04-03-to-2027-04-06.md (and paris-2027-04-03-to-2027-04-06.html, best opened in a browser), the calendar paris-2027-04-03-to-2027-04-06.ics, the map paris-2027-04-03-to-2027-04-06.geojson in the output folder.\nTransport: out Finnair flight 3 Apr 07:35; back Finnair flight 6 Apr 19:00.\nStay: Cozy & quiet room in Drancy – close to public transport (€153 in total).\nEstimated total: €1133, within your €2500 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 03 Apr - 06 Apr 2027, 4 days and 3 nights."
+ ],
+ "tool_calls": 48,
+ "agents": {
+  "concierge": {
+   "events": 13,
+   "tool_calls": 5,
+   "first": 9.649755200007348,
+   "last": 564.4482413000078
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 31.917962999999872,
+   "last": 564.0433313999965
+  },
+  "food_agent": {
+   "events": 13,
+   "tool_calls": 6,
+   "first": 34.30092350000632,
+   "last": 101.39722240000265
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 35.84423869999591,
+   "last": 81.69282080000266
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 35.97519660000398,
+   "last": 88.16423090000171
+  },
+  "culture_agent": {
+   "events": 26,
+   "tool_calls": 12,
+   "first": 36.01020540000172,
+   "last": 235.43063270000857
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 38.464466100005666,
+   "last": 122.05468549999932
+  },
+  "airbnb_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 38.465678000007756,
+   "last": 134.76891140000953
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 194.8621281000087,
+   "last": 194.8668300999998
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 207.18621970000095,
+   "last": 207.18621970000095
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 237.0902184000006,
+   "last": 296.6155418999988
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 296.61575900000753,
+   "last": 296.61575900000753
+  },
+  "plan_critic": {
+   "events": 17,
+   "tool_calls": 4,
+   "first": 296.6159176000074,
+   "last": 457.2500505000062
+  },
+  "itinerary_reviser": {
+   "events": 17,
+   "tool_calls": 4,
+   "first": 313.6396376000048,
+   "last": 564.0428688999964
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 586.2329568999994,
+   "last": 588.4545532000047
+  }
+ },
+ "seconds": 588.5,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Paris",
+  "start_date": "2027-04-03",
+  "end_date": "2027-04-06",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2500.0,
+  "interests": [
+   "art",
+   "croissants"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 48.85889,
+  "destination_lon": 2.32004,
+  "destination_country": "France",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1133.45,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 16:30-22:00.",
+   "alternatives": [
+    {
+     "name": "Musée du Quai Branly – Jacques Chirac",
+     "kind": "sight",
+     "km": 1.5,
+     "hours": "Tu-We, Fr-Su 10:30-19:00; Th 10:30-22:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sainte-Chapelle",
+     "kind": "sight",
+     "km": 2.0,
+     "hours": "Jan-Mar 09:00-17:00; Apr-Sep 09:00-19:00; Oct-Dec 09:00-17:00",
+     "ticket_eur": 11.5,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Le Petit Prince de Paris",
+     "kind": "restaurant",
+     "km": 2.4,
+     "hours": "Evenings 19:30-24:00 (to 00:30 Fri‑Sat)",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 14:30-19:00.",
+   "alternatives": [
+    {
+     "name": "Musée du Quai Branly – Jacques Chirac",
+     "kind": "sight",
+     "km": 1.8,
+     "hours": "Tu-We, Fr-Su 10:30-19:00; Th 10:30-22:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    },
+    {
+     "name": "Sainte-Chapelle",
+     "kind": "sight",
+     "km": 1.8,
+     "hours": "Jan-Mar 09:00-17:00; Apr-Sep 09:00-19:00; Oct-Dec 09:00-17:00",
+     "ticket_eur": 11.5,
+     "budget_tier": null
+    },
+    {
+     "name": "Centre Pompidou",
+     "kind": "sight",
+     "km": 2.2,
+     "hours": "closed",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": null,
+   "issue": "interest_not_found",
+   "detail": "The research found nothing for the interest 'croissants', so the plan has nothing for it."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9437
+ }
+}

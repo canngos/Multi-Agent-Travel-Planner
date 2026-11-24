@@ -1,0 +1,114 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Copenhagen
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-1@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261121T120000
+DTEND:20261121T130000
+SUMMARY:Arrive in Copenhagen
+DESCRIPTION:Day 1. Flight with SAS\; see Getting there and back. https://ki
+ wi.com/u/wzfttr3fby
+URL:https://kiwi.com/u/wzfttr3fby
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-2@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261121T130000
+DTEND:20261121T140000
+SUMMARY:Riz Raz
+DESCRIPTION:Day 1. All‑you‑can‑eat vegetarian buffet\, good spot to t
+ ry smørrebrød. https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.680162;12.574260
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-3@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261121T163000
+DTEND:20261121T180000
+SUMMARY:Ny Carlsberg Glyptotek
+DESCRIPTION:Day 1. Ancient sculpture and French Impressionist collection. h
+ ttps://www.openstreetmap.org/relation/1322262
+GEO:55.672500;12.571944
+URL:https://www.openstreetmap.org/relation/1322262
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-4@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261121T193000
+DTEND:20261121T203000
+SUMMARY:Fodkold
+DESCRIPTION:Day 1. Hot‑dog stand\; try the classic Danish red sausage. ht
+ tps://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.676186;12.569180
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-5@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T100000
+DTEND:20261122T113000
+SUMMARY:Botanical Garden (University of Copenhagen)
+DESCRIPTION:Day 2. Visit the historic Palm House and plant collections. htt
+ ps://www.openstreetmap.org/way/3098803
+GEO:55.686873;12.573930
+URL:https://www.openstreetmap.org/way/3098803
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-6@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T113000
+DTEND:20261122T123000
+SUMMARY:Rosenborg Castle
+DESCRIPTION:Day 2. Royal residence housing the Crown Jewels. https://en.wik
+ ivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.685691;12.577436
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-7@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T123000
+DTEND:20261122T133000
+SUMMARY:Fresh Bagel
+DESCRIPTION:Day 2. Low‑budget bagel shop\, quick bite near Rosenborg Cast
+ le. https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.677741;12.570181
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-8@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T134500
+DTEND:20261122T144500
+SUMMARY:Rundetårn (Round Tower)
+DESCRIPTION:Day 2. Spiral ramp to observation platform with city views. htt
+ ps://www.openstreetmap.org/way/1011492033
+GEO:55.681362;12.575794
+URL:https://www.openstreetmap.org/way/1011492033
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-9@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T144500
+DTEND:20261122T161500
+SUMMARY:Amalienborg Palace
+DESCRIPTION:Day 2. Royal residence\; watch the Changing of the Guard ceremo
+ ny. http://kongehuset.dk/english/palaces/amalienborg
+GEO:55.684028;12.593333
+URL:http://kongehuset.dk/english/palaces/amalienborg
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-21-to-2026-11-22-10@trip-planner
+DTSTAMP:20261119T233655Z
+DTSTART:20261122T192000
+DTEND:20261122T202000
+SUMMARY:Depart from Copenhagen
+DESCRIPTION:Day 2. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/b4j4dn8fhg
+URL:https://kiwi.com/u/b4j4dn8fhg
+END:VEVENT
+END:VCALENDAR

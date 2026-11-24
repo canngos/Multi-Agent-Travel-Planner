@@ -36,6 +36,20 @@ TRANSPORT: httpx.AsyncBaseTransport | None = None
 
 _rate_lock = threading.Lock()
 _next_slot: dict[str, float] = {}
+# At most this many requests in flight per host, across every session of this process (the web UI serves several
+# users at once). Overpass gives an IP about 2 query slots; with 5 plans at once the live stress test got 502/429s.
+MAX_IN_FLIGHT = {"overpass-api.de": 2, "nominatim.openstreetmap.org": 1, "maps.mail.ru": 2}
+_in_flight = {host: threading.BoundedSemaphore(n) for host, n in MAX_IN_FLIGHT.items()}
+
+
+async def _acquire(host: str) -> threading.BoundedSemaphore | None:
+    """Waits for a free slot for the host (polling, so it works across event loops and threads)."""
+    sem = _in_flight.get(host)
+    if sem is None:
+        return None
+    while not sem.acquire(blocking=False):
+        await asyncio.sleep(0.2)
+    return sem
 
 
 async def _wait_for_slot(host: str) -> None:
@@ -57,6 +71,7 @@ async def _send(method: str, url: str, *, timeout_s: float = TIMEOUT_S, retries:
     headers = {"User-Agent": config.user_agent(), **(kwargs.pop("headers", None) or {})}
     async with httpx.AsyncClient(timeout=timeout_s, transport=TRANSPORT, follow_redirects=True) as client:
         for attempt in range(retries + 1):
+            sem = await _acquire(host)
             await _wait_for_slot(host)
             try:
                 resp = await client.request(method, url, headers=headers, **kwargs)
@@ -66,9 +81,13 @@ async def _send(method: str, url: str, *, timeout_s: float = TIMEOUT_S, retries:
                     raise ToolError(f"{host}: {kind} after {attempt + 1} tries ({timeout_s:.0f}s timeout) {exc}".rstrip()) from exc
                 await asyncio.sleep(0.5 * 2**attempt)
                 continue
+            finally:
+                if sem:
+                    sem.release()
             if resp.status_code in RETRY_STATUS and attempt < retries:
                 retry_after = resp.headers.get("Retry-After", "")
-                delay = min(float(retry_after), 10.0) if retry_after.isdigit() else 0.5 * 2**attempt
+                backoff = (2.0 if resp.status_code == 429 else 0.5) * 2**attempt  # "too many requests": wait longer
+                delay = min(float(retry_after), 10.0) if retry_after.isdigit() else backoff
                 log.info("%s %s -> %s, retrying in %.1fs", method, host, resp.status_code, delay)
                 await asyncio.sleep(delay)
                 continue

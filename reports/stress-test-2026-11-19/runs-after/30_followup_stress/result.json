@@ -1,0 +1,284 @@
+{
+ "id": "30_followup_stress",
+ "title": "After the guide: out-of-guide questions, booking request, swap days",
+ "turns": [
+  {
+   "user": "Riga 3 days, 2 adults, from Helsinki, 13-15 May 2027, low budget 600 euros. Art nouveau and markets.",
+   "seconds": 21.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Riga, Latvia  \n- **Dates:** 13 May – 15 May 2027 (3 days, 2 nights)  \n- **Departure:** Helsinki, Finland  \n- **Travellers:** 2 adults  \n- **Budget:** low tier, total €600  \n- **Interests:** art nouveau, markets  \n\nPlease confirm that these details are correct. If you’d like to change anything, let me know; otherwise I’ll save the brief and start the planning."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 435.5,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Riga (2027-05-13 to 2027-05-15)**\n\n- **Outbound:** Finnair flight 2027-05-13 07:00-08:10, 113 EUR\n- **Return:** Finnair flight 2027-05-15 21:40-22:50, 96 EUR\n- **Stay:** Liberty Hotel, 62 EUR in total\n\n- **Day 1 (Thu 2027-05-13):** 08:10 Arrive in Riga · 10:00 Riga Art Nouveau Museum · 11:30 Museum of the History of Riga and Navigation · 13:00 Lido Alus sēta · 14:15 Latvian Museum of Architecture · 16:00 Riga Central Market · 19:00 Province\n- **Day 2 (Fri 2027-05-14):** 10:00 Riga Art Nouveau Centre · 12:30 Latvian National Museum of Art · 14:30 Golden Coffee · 19:00 Late Night Munchies\n- **Day 3 (Sat 2027-05-15):** 10:00 House of the Black Heads · 11:45 Mencendorfa nams · 13:30 Salve · 17:30 Folkklubs Ala Pagrabs · 21:40 Depart from Riga\n\nEstimated total: 481 EUR (budget 600 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 64.3,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: riga-2027-05-13-to-2027-05-15.md (and riga-2027-05-13-to-2027-05-15.html, best opened in a browser), the calendar riga-2027-05-13-to-2027-05-15.ics, the map riga-2027-05-13-to-2027-05-15.geojson in the output folder.\nTransport: out Finnair flight 13 May 07:00; back Finnair flight 15 May 21:40.\nStay: Liberty Hotel (€62 in total).\nEstimated total: €481, within your €600 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Can you book the hotel for us right now?",
+   "seconds": 2.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but this service only plans your trip and compares options – it does not make any bookings or payments. You can use the hotel link in the guide to book the accommodation yourself whenever you’re ready. If you need any further help with the plan, just let me know!"
+    }
+   ]
+  },
+  {
+   "user": "What's the best sushi restaurant in Riga?",
+   "seconds": 2.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, the guide does not include information about sushi restaurants in Riga, so I can’t provide a recommendation. If you’d like, we can adjust your interests and re‑plan to include dining options such as sushi. Let me know how you’d like to proceed."
+    }
+   ]
+  },
+  {
+   "user": "Swap day 1 and day 3 please, and start every day at 7:00.",
+   "seconds": 9.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Got it! You’d like:\n\n- **Day start time:** 07:00 each day (instead of the default 09:30)  \n- **Itinerary order:** swap the current Day 1 and Day 3 activities  \n\nPlease confirm that these changes are correct, and I’ll update the plan accordingly."
+    }
+   ]
+  },
+  {
+   "user": "Yes.",
+   "seconds": 483.1,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Riga (2027-05-13 to 2027-05-15)**\n\n- **Outbound:** Finnair flight 2027-05-13 07:00-08:10, 113 EUR\n- **Return:** Finnair flight 2027-05-15 21:40-22:50, 96 EUR\n- **Stay:** Liberty Hotel, 62 EUR in total\n\n- **Day 1 (Thu 2027-05-13):** 08:10 Arrive in Riga · 09:30 Golden Coffee · 11:00 Mencendorfa nams · 12:30 Lido Alus sēta · 13:30 Museum of the History of Riga and Navigation · 17:30 Province\n- **Day 2 (Fri 2027-05-14):** 08:00 Riga Central Market · 10:30 Čili Pica · 12:30 Pienene · 12:30 Riga Art Nouveau Museum · 14:30 Riga Art Nouveau Centre · 15:30 House of the Black Heads · 18:00 Piga Gastrobārs\n- **Day 3 (Sat 2027-05-15):** 10:00 Latvian National Museum of Art · 12:00 Late Night Munchies · 14:30 Folkklubs Ala Pagrabs · 16:00 Salve · 21:40 Depart from Riga\n\nEstimated total: 481 EUR (budget 600 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 124.0,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: riga-2027-05-13-to-2027-05-15.md (and riga-2027-05-13-to-2027-05-15.html, best opened in a browser), the calendar riga-2027-05-13-to-2027-05-15.ics, the map riga-2027-05-13-to-2027-05-15.geojson in the output folder.\nTransport: out Finnair flight 13 May 07:00; back Finnair flight 15 May 21:40.\nStay: Liberty Hotel (€62 in total).\nEstimated total: €481, within your €600 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start at 07:00 and end by 22:00, at a balanced pace. If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts).",
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 13 May - 15 May 2027, 3 days and 2 nights.",
+  "culture_agent: wikivoyage_section -> error Wikivoyage has no page 'Riga/Vecrēga': The page you specified doesn't exist."
+ ],
+ "tool_calls": 47,
+ "agents": {
+  "concierge": {
+   "events": 20,
+   "tool_calls": 8,
+   "first": 6.697572300006868,
+   "last": 1019.2328108000074
+  },
+  "planning_pipeline": {
+   "events": 4,
+   "tool_calls": 0,
+   "first": 23.447499900008552,
+   "last": 1017.2813710000046
+  },
+  "food_agent": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 25.95843969999987,
+   "last": 543.2400241000141
+  },
+  "culture_agent": {
+   "events": 16,
+   "tool_calls": 7,
+   "first": 26.41714280001179,
+   "last": 543.2399300000106
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 26.67294750000292,
+   "last": 76.74374970000645
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 26.853897600012715,
+   "last": 91.64398050001182
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 27.77132430000347,
+   "last": 236.84734830001253
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 29.81061490000866,
+   "last": 219.02148910000687
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 185.856185200013,
+   "last": 185.85882210001
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 287.28213320000214,
+   "last": 287.28213320000214
+  },
+  "itinerary_planner": {
+   "events": 16,
+   "tool_calls": 6,
+   "first": 290.3712127000035,
+   "last": 677.7118946000119
+  },
+  "review_loop": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 444.06792170001427,
+   "last": 677.7125880000094
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 444.06807440001285,
+   "last": 940.5110999000026
+  },
+  "itinerary_reviser": {
+   "events": 13,
+   "tool_calls": 1,
+   "first": 454.7698384000105,
+   "last": 1017.2808847000124
+  },
+  "guide_writer": {
+   "events": 18,
+   "tool_calls": 7,
+   "first": 516.0920298000128,
+   "last": 1141.3253510000068
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 543.2397494000033,
+   "last": 543.2397494000033
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 543.2398447000014,
+   "last": 543.2398447000014
+  }
+ },
+ "seconds": 1141.4,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Riga",
+  "start_date": "2027-05-13",
+  "end_date": "2027-05-15",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 600.0,
+  "interests": [
+   "art nouveau",
+   "markets"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 56.946,
+  "destination_lon": 24.10589,
+  "destination_country": "Latvia",
+  "day_start": "07:00",
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 481.0,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 17:30-22:00.",
+   "alternatives": [
+    {
+     "name": "Latvian Museum of Architecture",
+     "kind": "sight",
+     "km": 0.3,
+     "hours": "Mo 09:00-18:00; Tu-Th 09:00-17:00; Fr 09:00-16:00; Sa,Su off",
+     "ticket_eur": 0.0,
+     "budget_tier": null
+    }
+   ]
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Limonāde",
+     "kind": "bar",
+     "km": 0.2,
+     "hours": "Tu,We 19:00-01:00; Fr,Sa 19:00-06:00",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 7922
+ }
+}

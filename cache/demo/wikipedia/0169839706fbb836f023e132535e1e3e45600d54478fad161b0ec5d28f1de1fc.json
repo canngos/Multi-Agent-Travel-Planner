@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "titles": "Navy Museum, Lisbon",
+   "redirects": 1,
+   "format": "json",
+   "formatversion": 2,
+   "prop": "extracts|coordinates|description|info|pageprops",
+   "exintro": 1,
+   "explaintext": 1,
+   "inprop": "url",
+   "ppprop": "disambiguation"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129305.7228367,
+ "response": {
+  "batchcomplete": true,
+  "query": {
+   "pages": [
+    {
+     "ns": 0,
+     "title": "Navy Museum, Lisbon",
+     "missing": true,
+     "contentmodel": "wikitext",
+     "pagelanguage": "en",
+     "pagelanguagehtmlcode": "en",
+     "pagelanguagedir": "ltr",
+     "fullurl": "https://en.wikipedia.org/wiki/Navy_Museum,_Lisbon",
+     "editurl": "https://en.wikipedia.org/w/index.php?title=Navy_Museum,_Lisbon&action=edit",
+     "canonicalurl": "https://en.wikipedia.org/wiki/Navy_Museum,_Lisbon"
+    }
+   ]
+  }
+ }
+}

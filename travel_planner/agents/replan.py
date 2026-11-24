@@ -14,6 +14,8 @@ the plan starts if it was accepted in this turn (or for exactly the brief that w
 `skip_branch` and keep their results. If the concierge does not call the tool, everything is researched again:
 code never decides on its own to reuse research. Every request, accepted or refused, goes to `replan_log`.
 """
+import re
+
 from google.adk.tools import ToolContext
 from google.genai import types
 
@@ -35,6 +37,9 @@ LOG_KEY = "replan_log"         # every request: accepted or refused, and why
 REUSED_KEY = "research_reused"  # the branches the current plan reused (None: everything was researched)
 NOTE_KEY = "plan_change_note"  # rendered into every planning agent's instruction (prompts.REQUIREMENTS)
 PLANNED_KEY = "planned_brief"  # the brief of the latest plan, i.e. of the research in state (set at its start)
+# words of a change note that concern transport or the stay (pipeline.pinned_choices, approval.present_plan)
+TRANSPORT_WORDS = re.compile(r"flight|fly|plane|train|bus|ferry|transport|depart|arriv|airline|earlier|later", re.I)
+STAY_WORDS = re.compile(r"hotel|stay|airbnb|hostel|accommodation|room|apartment|bnb", re.I)
 
 
 def normal(brief: dict | None) -> dict:
@@ -42,7 +47,7 @@ def normal(brief: dict | None) -> dict:
     case, in the order of interests and in which empty fields they list."""
     out = {}
     for key, value in (brief or {}).items():
-        if key in DERIVED or value in (None, "", []):
+        if key in DERIVED or value in (None, "", []) or value is False:  # False: an unset flag (own_accommodation)
             continue
         if key in ("destination", "origin", "destination_country") and isinstance(value, str):
             value = value.casefold()
@@ -100,6 +105,11 @@ def scope_problem(state, base: dict | None, target: dict | None, rerun: list[str
                 "request_replan; confirm and save the new brief with save_trip_brief.")
     if "avoid_modes" in changed and "transport" not in rerun:
         return "The excluded transport modes changed, so the transport research must run again: add \"transport\"."
+    if "own_car" in changed and "transport" not in rerun:
+        return ("Whether the travellers drive their own car changed, so the transport research must run again: add "
+                "'transport'.")
+    if "own_accommodation" in changed and "stay" not in rerun:
+        return "Whether the travellers need accommodation changed, so the stay research must run again: add \"stay\"."
     if (target or {}).get("pace") == "packed" and (base or {}).get("pace") != "packed" and "culture" not in rerun:
         return "A packed pace needs more sights than the earlier research found: add \"culture\"."
     return None

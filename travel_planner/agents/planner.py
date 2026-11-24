@@ -25,12 +25,14 @@ FOOD (food_findings): {food_findings?}"""
 STEPS = """STEPS
 1. get_forecast(destination_lat, destination_lon, start_date, end_date). Each day has a weekday and "rainy".
    If it fails, plan without weather and say so in "notes".
-2. Choose the transport: the outbound and return options the transport summary recommends (otherwise: low
-   budget -> cheapest, mid -> first of "ranked", high -> fastest). Note the outbound arrival time and the
+2. Choose the transport: the transport summary's "recommended" outbound and return (picked by code: price plus
+   travel time and lost trip time for this budget tier, and only options that suit the travellers); if it has
+   none, the options its recommendation names (otherwise: low budget -> cheapest, mid -> first of "ranked",
+   high -> fastest). Note the outbound arrival time and the
    return departure time: day 1 starts about 1.5 h after arrival, and the last day ends about 2.5 h before
    departure (for a flight; 1 h for a ferry, bus or train).
-3. Choose the stay: low budget -> "cheapest", mid -> "best_value", high -> "top_rated" (fall back to any stay
-   in the summary).
+3. Choose the stay: low budget -> "cheapest", mid -> "best_value" (never a hostel), high -> the best-rated 4-5★
+   hotel ("★" in its details) that fits total_budget_eur, else "top_rated" (fall back to any stay in the summary).
 4. Pick the sights: 2-4 per full day and 0-2 on arrival/departure days, matching the brief's interests,
    at most 14 in total. Call cluster_by_distance once with places = [{"name", "lat", "lon"}] of those sights
    (skip sights without coordinates and plan them where they fit), n_days = the number of trip days, and
@@ -72,6 +74,9 @@ DAY_SHAPE_RULES = """
 - One restaurant per meal: lunch and dinner at least 3 hours apart, and no second restaurant right after a meal."""
 
 
+PLAN_SIZE = "{trip_plan_size?}"  # a long trip may plan more than 14 sights; "" for an ordinary trip
+
+
 def plan_rules() -> str:
     """RULES, plus the day-shape rules (the reviser uses the same rules)."""
     return RULES + DAY_SHAPE_RULES
@@ -103,7 +108,7 @@ EXAMPLE = """{"transport": {"outbound": {"mode": "flight", "operator": "SAS", ".
 
 def build_itinerary_planner() -> LlmAgent:
     instruction = "\n\n".join([ROLE, BRIEF, INPUTS, STEPS, tool_budget(5), plan_rules(), output_format(SHAPE, EXAMPLE)]) \
-        + REQUIREMENTS
+        + REQUIREMENTS + PLAN_SIZE
     return LlmAgent(
         name="itinerary_planner",
         model=MODEL,

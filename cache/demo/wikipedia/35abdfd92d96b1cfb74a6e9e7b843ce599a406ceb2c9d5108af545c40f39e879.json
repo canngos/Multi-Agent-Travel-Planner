@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "list": "search",
+   "srsearch": "Navy Museum, Lisbon",
+   "srlimit": 1,
+   "format": "json",
+   "formatversion": 2
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129306.6240747,
+ "response": {
+  "batchcomplete": true,
+  "continue": {
+   "sroffset": 1,
+   "continue": "-||"
+  },
+  "query": {
+   "searchinfo": {
+    "totalhits": 1291
+   },
+   "search": [
+    {
+     "ns": 0,
+     "title": "Navy Museum (Portugal)",
+     "pageid": 12464919,
+     "size": 3384,
+     "wordcount": 210,
+     "snippet": "The <span class=\"searchmatch\">Navy</span> <span class=\"searchmatch\">Museum</span> (Portuguese: Museu de Marinha) is a maritime <span class=\"searchmatch\">museum</span> in <span class=\"searchmatch\">Lisbon</span>, dedicated to all aspects of the history of navigation in Portugal. The",
+     "timestamp": "2026-07-10T03:24:44Z"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.3608168,
+     48.196894799999995
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Wombat's City Hostel Vienna Naschmarkt",
+    "url": "https://www.booking.com/searchresults.html?ss=Wombat%27s+City+Hostel+Vienna+Naschmarkt%2C+Vienna&checkin=2027-05-06&checkout=2027-05-09&group_adults=3&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.379677,
+     48.204769
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-05-07",
+    "time": "22:30",
+    "kind": "sight",
+    "name": "Stadtpark",
+    "url": "https://opentripmap.com/en/card/W551031461"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.365952,
+     48.204384
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Burggarten",
+    "url": "https://opentripmap.com/en/card/W8063831"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.368239,
+     48.204695
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "10:15",
+    "kind": "sight",
+    "name": "Albertina",
+    "url": "http://www.albertina.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.366645,
+     48.205095
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Palmenhaus",
+    "url": "http://www.palmenhaus.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.365422,
+     48.206567
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Imperial Treasury (Schatzkammer)",
+    "url": "http://www.kaiserliche-schatzkammer.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.361786,
+     48.208035
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Volksgarten",
+    "url": "https://opentripmap.com/en/card/W8063768"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.363073,
+     48.213017
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-05-08",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Zum Leupold",
+    "url": "http://www.leupold.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.373166,
+     48.208481
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "St. Stephen's Cathedral",
+    "url": "https://en.wikipedia.org/wiki/St._Stephen%27s_Cathedral,_Vienna"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37333333,
+     48.20416667
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "11:15",
+    "kind": "sight",
+    "name": "House of Music",
+    "url": "https://www.hausdermusik.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.374494,
+     48.209199
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Figlmüller",
+    "url": "http://www.figlmueller.at/en/figlmueller-wollzeile-en.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37527778,
+     48.20777778
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "14:45",
+    "kind": "sight",
+    "name": "Mozarthaus Vienna",
+    "url": "https://www.mozarthausvienna.at/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.37771,
+     48.224445
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "17:00",
+    "kind": "sight",
+    "name": "Augarten",
+    "url": "https://en.wikipedia.org/wiki/Augarten"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     16.363073,
+     48.213017
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-05-09",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Zum Leupold",
+    "url": "http://www.leupold.at/"
+   }
+  }
+ ]
+}

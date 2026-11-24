@@ -1,0 +1,41 @@
+{
+ "id": "21_off_topic",
+ "title": "Off-topic requests",
+ "turns": [
+  {
+   "user": "Write me a Python function that reverses a linked list.",
+   "seconds": 4.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but I can’t help with that."
+    }
+   ]
+  },
+  {
+   "user": "What's the population of Brazil?",
+   "seconds": 0.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m sorry, but I can’t help with that."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 4.12697610000032,
+   "last": 4.829193199999281
+  }
+ },
+ "seconds": 4.8,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

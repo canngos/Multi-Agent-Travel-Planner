@@ -18,7 +18,7 @@ and decisions.
 
 ![The web UI: thirteen agents drawn as a transit map, with the research branches working in parallel](docs/images/ui-route-map.jpg)
 
-**Example request:** *"Plan 5 days in Lisbon for two, mid budget, we love history and street food."* About five
+**Example request:** *"Plan 5 days in Lisbon for two, mid budget, we love history and street food."* About seven to nine
 minutes later you get `output/lisbon-2027-05-10-to-2027-05-14.md` and `.html` with:
 
 - the chosen flights and their alternatives;
@@ -81,7 +81,7 @@ A React front end in [`travel-planner-ui/`](travel-planner-ui/README.md):
 - **Approval:** the reviewed plan appears in the chat with "Approve and write the guide" and "Request changes".
 - **Cost and time:** model answers, tokens, tool calls and working time per agent, and which research a re-plan
   reused.
-- **Guide:** the rendered guide with downloads.
+- **Guide:** the rendered guide, with downloads: Markdown, HTML, the calendar (`.ics`) and the map (`.geojson`).
 - **Replay:** recorded runs, with play, pause and speed controls.
 
 One command starts the planner and the UI together. It builds the UI on first start, which needs Node.js 18+:
@@ -101,7 +101,7 @@ One command starts the planner and the UI together. It builds the UI on first st
 ## Plan your own trip (live)
 
 This is how to run the planner for real on your own computer and ask for any trip: any city, your dates, your
-budget. Setup takes about 15 minutes; each plan then takes 5 to 7 minutes.
+budget. Setup takes about 15 minutes; each plan then takes 7 to 9 minutes.
 
 ### 1. Install
 
@@ -164,13 +164,16 @@ Stop it with Ctrl+C. Without Node.js, use ADK's own chat UI instead: `.venv/Scri
 
 Write your request in your own words. The concierge asks for anything missing, then shows a summary. Planning
 starts only after you confirm it. You can add hard requirements such as "we don't fly", "travelling with a
-4-year-old" or "vegetarian". The planner handles one city for up to 21 days. For example:
+4-year-old" or "vegetarian". If you need no accommodation ("we stay in our own apartment"), no stay is searched,
+planned or costed. If you drive your own car ("I will use my car"), no flights, trains or buses are searched; a
+car ferry is planned when the route crosses the sea, and the guide gives a rough road distance and time. Fuel or
+charging, tolls and parking are not estimated (they depend on the car). The planner handles one city for up to 21 days. For example:
 
 > 4 days in Barcelona for two from Helsinki, 2-5 June 2027, mid budget, about 1800 euros. We like Gaudí
 > architecture, art museums and tapas.
 
 Then:
-- Watch the agents work on the map; it takes 5 to 7 minutes.
+- Watch the agents work on the map; it takes 7 to 9 minutes.
 - The reviewed plan appears in the chat. Approve it, or say what to change.
 - The guide opens in the **Guide** tab, and is saved as Markdown and HTML in `output/`, with a calendar file
   (`.ics`, one event per planned item) and a map file (`.geojson`, the planned places in order).
@@ -195,7 +198,8 @@ Without the UI, a scripted trip runs in the terminal: `.venv/Scripts/python scri
   is faster and uses less free-tier quota. Delete `cache/` (but not `cache/demo/`) to fetch everything fresh.
 - **Failures:** a failing source does not stop the plan. Each agent has fallbacks, and the guide's
   "Good to know" section lists what was missing.
-- **Waiting:** a plan takes 5 to 7 minutes, most of it research. The map shows what is happening.
+- **Waiting:** a plan takes 7 to 9 minutes (12 to 18 when several plans run at once). The map shows what is
+  happening.
 
 ### Troubleshooting
 
@@ -309,7 +313,7 @@ matter are therefore enforced in code, each with a regression test:
 | Confirmation | `agents/concierge.py` | The brief is checked, saved only after you confirm what you saw, and only then does planning start |
 | Re-plan scope | `agents/replan.py` | The concierge's scope is only used when it is safe for the brief that was saved; skipped branches keep their results unchanged |
 | Approval | `agents/approval.py` | The guide is written only after you approved a reviewed plan |
-| Hard requirements | `tools/trip.py`, `agents/transport.py` | An excluded transport mode is never searched or chosen; other requirements reach every agent |
+| Hard requirements | `tools/trip.py`, `agents/transport.py`, `agents/stay.py` | An excluded transport mode is never searched or chosen; with no accommodation needed the stay team does not run and a planned stay is removed; with their own car no flight is searched, a planned flight, train or bus is removed, and a car ferry the routing tool found is kept (driving over the sea is must-fix); other requirements reach every agent |
 | Grounded links | `agents/grounding.py` | Every link shown comes from a tool result; altered links are restored, invented ones removed |
 | Itinerary tidy | `agents/itinerary_tidy.py`, `agents/enrich.py` | Travel times come from the chosen transport, tickets and hours from the research; the cost is recomputed from the plan |
 | Review checks | `agents/review_checks.py`, `agents/plan_critic.py` | Code checks the budget, opening hours, grounding, day count and pacing; facts are must-fix, day-shape matters of taste go to the critic, who must decide each one |
@@ -345,7 +349,7 @@ Twenty-four function tools, one agent used as a tool, and two MCP servers. Every
 |---|---|
 | At least 3 different agents | 13 LLM agents with distinct roles and prompts in `travel_planner/agents/`, plus 7 workflow agents; `tests/test_agents.py::test_root_agent_tree` checks the tree |
 | Multi-agent orchestration pattern | Delegation (`concierge.py`), sequential, parallel, nested parallel (`teams.py`, `pipeline.py`), loop (`pipeline.py::build_review_loop`), agent as tool (`extra_sights.py`) and human in the loop (`approval.py`) |
-| At least one tool call | 24 function tools in `travel_planner/tools/`, `agents/review_checks.py`, `agents/replan.py` and `agents/approval.py`, an agent used as a tool (`agents/extra_sights.py`) and 2 MCP servers (`tools/mcp.py`); the demo makes 54 tool calls |
+| At least one tool call | 24 function tools in `travel_planner/tools/`, `agents/review_checks.py`, `agents/replan.py` and `agents/approval.py`, an agent used as a tool (`agents/extra_sights.py`) and 2 MCP servers (`tools/mcp.py`); the demo makes 55 tool calls |
 | Fully agentic | Agents make the choices between steps too: the concierge decides which research a change needs (`request_replan`) and when you approved the plan (`approve_plan`); the reviser decides when to research more (`extra_sights_researcher`). Code checks facts, refuses unsafe actions with a reason and logs every override; see "Who decides what" and the evaluation below |
 | No code from assignments 2 and 3 | New repository written from scratch (see the git history) |
 | Executable, no errors | 435 offline tests (`pytest`, including an end-to-end replay of the demo that must have no cache miss) and 11 UI tests (`npm test`). Four test trips pass live (PLAN.md, Phase 9), plus a custom trip through `scripts/serve.py` and a trip with no data-source keys (Phase 10b). `scripts/check_setup.py` checks a new machine. The recorded demo replays offline with `scripts/run_trip.py --demo` |
@@ -448,7 +452,8 @@ docs/                     DEMO.md (presentation script) and screenshots
 
 ## Limitations
 
-- **Speed:** a live run takes 5 to 7 minutes, most of it research; the comparers wait for the slowest searcher.
+- **Speed:** a live run takes 7 to 9 minutes on its own and 12 to 18 minutes when five run at once (stress test,
+  19 Nov 2026); the model's answers are the bottleneck, and the comparers wait for the slowest searcher.
   A change to a finished plan is faster when the concierge reuses research, but only as fast as the slowest
   branch it reruns.
 - **Thin days:** long trips can get thin days. The reviser can research an area on demand (at most twice per

@@ -45,7 +45,7 @@ def _stay(name, total):
 FAST_OUT = _leg("Finnair", "2027-05-11T06:00", "2027-05-11T10:00", 400.0)
 CHEAP_OUT = _leg("Norwegian", "2027-05-11T07:00", "2027-05-11T11:00", 200.0)
 BACK = _leg("TAP", "2027-05-13T18:00", "2027-05-13T23:00", 150.0)
-NICE, CHEAP = _stay("Nice Hotel", 600.0), _stay("Cheap Hostel", 150.0)
+NICE, CHEAP = _stay("Nice Hotel", 600.0), _stay("Cheap Guesthouse", 150.0)
 
 
 def _state(plan) -> dict:
@@ -101,6 +101,9 @@ def bad_plan() -> dict:
 def fixed_plan() -> dict:
     plan = bad_plan()
     plan["stay"] = copy.deepcopy(CHEAP)
+    # the €400 flight at 06:00 is poor value next to the €200 one at 07:00 (poor_transport_choice)
+    plan["transport"]["outbound"] = copy.deepcopy(CHEAP_OUT)
+    plan["days"][0]["items"][0].update(time="11:00", note="Flight with Norwegian")
     day2 = plan["days"][1]["items"]
     day2[0]["time"] = "10:30"
     day2[1].update(name="Museu Arqueológico do Carmo", ticket_eur=7.0, lat=38.7120, lon=-9.1406, time="14:00")
@@ -153,7 +156,7 @@ def test_check_plan_finds_every_planted_problem():
     assert {(2, "missing_meal"), (3, "far_meal")} <= _issues(report, "should_fix")
     assert "Unused food places: Taberna Nearby" in next(x for x in report["must_fix"] if x["issue"] == "repeated_place")["detail"]
     budget = next(x for x in report["must_fix"] if x["issue"] == "over_budget")["detail"]
-    assert "€1568 is €68 over" in budget and "Cheap Hostel" in budget and "Norwegian" in budget
+    assert "€1568 is €68 over" in budget and "Cheap Guesthouse" in budget and "Norwegian" in budget
     gap = next(x for x in report["decide"] if x["issue"] == "empty_afternoon")
     assert {a["name"] for a in gap["alternatives"]} >= {"Museu Arqueológico do Carmo", "Museu do Dinheiro"}
     meal = next(x for x in report["should_fix"] if x["issue"] == "missing_meal")
@@ -164,7 +167,7 @@ def test_check_plan_passes_the_fixed_plan():
     plan = fixed_plan()
     report = check_plan(plan, _state(plan))
     assert report["must_fix"] == []
-    assert report["facts"]["total_eur"] == 1108.0  # 550 transport + 150 stay + 300 food + 48 local + (17+3+7+0+3) x 2
+    assert report["facts"]["total_eur"] == 908.0  # 350 transport + 150 stay + 300 food + 48 local + (17+3+7+0+3) x 2
 
 
 def test_check_plan_flags_options_not_in_the_summaries_and_closed_days():
@@ -291,7 +294,7 @@ async def test_over_budget_plan_is_revised_then_approved():
     assert [(r["round"], r["verdict"], r["overridden"]) for r in state["review_log"]] == \
         [(1, "REVISE", True), (2, "APPROVED", False)]
     plan = extract_json(state["itinerary"])
-    assert plan["stay"]["name"] == "Cheap Hostel" and plan["cost"]["within_budget"] is True
+    assert plan["stay"]["name"] == "Cheap Guesthouse" and plan["cost"]["within_budget"] is True
     assert state["revision_log"][-1]["exit"] == "exit_loop"
 
 
@@ -363,7 +366,7 @@ def test_budget_options_skip_flights_that_lose_a_trip_day():
     state["transport_summary"] = state["transport_summary"].replace('"Norwegian"', '"Ryanair"') \
         .replace('"2027-05-11T07:00"', '"2027-05-10T23:15"').replace('"2027-05-11T11:00"', '"2027-05-12T09:55"')
     budget = next(x for x in check_plan(plan, state)["must_fix"] if x["issue"] == "over_budget")["detail"]
-    assert "Ryanair" not in budget and "Cheap Hostel" in budget and "fixed typical costs" in budget
+    assert "Ryanair" not in budget and "Cheap Guesthouse" in budget and "fixed typical costs" in budget
     assert late["arrive"][:10] != FAST_OUT["arrive"][:10]
 
 
@@ -404,3 +407,35 @@ def test_keep_best_plan_undoes_a_worse_last_revision():
                                     "review_verdict": "REVISE"}
     keep_best_plan(SimpleNamespace(state=state))
     assert state["itinerary"] == good and state["best_itinerary"]["round"] == 1
+
+
+def test_far_airport_parsing_and_day_trip():
+    from travel_planner.tools.airports import far_airport, route_codes
+    from travel_planner.agents.review_checks import is_day_trip
+    assert route_codes("HEL → CPH → RMO; AY951 HEL 06:20→CPH 06:55") == ["HEL", "CPH", "RMO"]
+    assert route_codes("AY951 HEL 06:20→CPH 06:55 | W43992 CPH 08:10→RMO 11:40") == ["HEL", "CPH", "RMO"]
+    kyiv = (50.45, 30.52)
+    assert far_airport({"mode": "flight", "details": "HEL → RMO"}, "outbound", *kyiv)["iata"] == "RMO"
+    assert far_airport({"mode": "flight", "details": "RMO → HEL"}, "return", *kyiv)["km"] > 300
+    assert far_airport({"mode": "flight", "details": "HEL → KBP"}, "outbound", *kyiv) is None
+    assert far_airport({"mode": "bus", "details": "HEL → RMO"}, "outbound", *kyiv) is None
+    brief = {"destination_lat": 41.15, "destination_lon": -8.61}  # Porto; the Douro valley is ~80 km away
+    assert is_day_trip([{"kind": "sight", "lat": 41.16, "lon": -7.79}], brief)
+    assert not is_day_trip([{"kind": "sight", "lat": 41.14, "lon": -8.61}], brief)
+
+
+def test_filler_items_go_but_named_activities_and_meal_placeholders_stay():
+    from travel_planner.agents.itinerary_tidy import drop_filler
+    items = [{"kind": "free", "name": n} for n in ("Leisure morning", "Free snack", "Afternoon coffee break",
+                                                     "Check-in and settle", "Souvenirs", "Lunch near Baixa")]
+    items += [{"kind": "transport", "name": "Taxi to accommodation"}, {"kind": "transport", "name": "Arrive in Porto"}]
+    kept, _ = drop_filler(items, 1)
+    assert [i["name"] for i in kept] == ["Souvenirs", "Lunch near Baixa", "Arrive in Porto"]
+
+
+def test_fuzzy_names_and_saint():
+    from travel_planner.agents.review_checks import find_place
+    places = [{"name": "Notre-Dame Treasury"}, {"name": "Saint Nicholas Church"}, {"name": "Castle Museum"}]
+    assert find_place("Notre\u2011Dam Treasury", places)["name"] == "Notre-Dame Treasury"
+    assert find_place("St. Nicholas Church", places)["name"] == "Saint Nicholas Church"
+    assert find_place("Castle Garden", places) is None

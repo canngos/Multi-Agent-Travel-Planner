@@ -1,0 +1,227 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Tokyo
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-1@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270405T185000
+DTEND:20270405T195000
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\, China Eastern Airline
+ s\; see Getting there and back. https://kiwi.com/u/37krgqs6tp
+URL:https://kiwi.com/u/37krgqs6tp
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-2@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270406T212000
+DTEND:20270406T214500
+SUMMARY:Arrive in Tokyo
+DESCRIPTION:Day 2. Flight with Norwegian Air Sweden\, China Eastern Airline
+ s\; see Getting there and back. https://kiwi.com/u/37krgqs6tp
+URL:https://kiwi.com/u/37krgqs6tp
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-3@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270406T214500
+DTEND:20270406T224500
+SUMMARY:Check‑in and rest
+DESCRIPTION:Day 2. Settle into the Airbnb after the long flight.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-4@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270407T100000
+DTEND:20270407T113000
+SUMMARY:Suga Shrine
+DESCRIPTION:Day 3. Quiet Shinto shrine featured in the film "Your Name". ht
+ tps://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+GEO:35.685468;139.722457
+URL:https://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-5@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270407T113000
+DTEND:20270407T123000
+SUMMARY:Fire Museum (東京消防博物館)
+DESCRIPTION:Day 3. Three‑floor exhibit on firefighting history\, free ent
+ ry. https://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+GEO:35.688360;139.720200
+URL:https://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-6@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270407T123000
+DTEND:20270407T133000
+SUMMARY:Torafugu-Tei
+DESCRIPTION:Day 3. Lunch – high‑budget fugu set. https://www.torafugu.c
+ o.jp/en/shinjuku_honten/
+GEO:35.696384;139.704814
+URL:https://www.torafugu.co.jp/en/shinjuku_honten/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-7@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270407T150000
+DTEND:20270407T163000
+SUMMARY:Shinjuku Gyoen National Garden
+DESCRIPTION:Day 3. Large public garden with Japanese\, English and French l
+ andscapes. https://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+GEO:35.687258;139.713791
+URL:https://en.wikivoyage.org/wiki/Tokyo/Shinjuku
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-8@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270407T183000
+DTEND:20270407T193000
+SUMMARY:Nabezo
+DESCRIPTION:Day 3. Dinner\, mid‑budget all‑you‑can‑eat shabu‑shab
+ u. https://nabe-zo.com/en
+GEO:35.691161;139.703643
+URL:https://nabe-zo.com/en
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-9@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270408T100000
+DTEND:20270408T113000
+SUMMARY:Kaminarimon (Thunder Gate)
+DESCRIPTION:Day 4. Iconic outer gate of Senso‑ji with giant red lantern. 
+ https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+GEO:35.711120;139.796370
+URL:https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-10@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270408T113000
+DTEND:20270408T130000
+SUMMARY:Dembō-in Temple
+DESCRIPTION:Day 4. Sub‑temple of Sensō‑ji with a historic garden. http
+ s://en.wikivoyage.org/wiki/Tokyo/Asakusa
+GEO:35.713236;139.795459
+URL:https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-11@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270408T133000
+DTEND:20270408T143000
+SUMMARY:Lunch near Asakusa
+DESCRIPTION:Day 4. Explore the local street food scene.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-12@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270408T190000
+DTEND:20270408T200000
+SUMMARY:Dinner near Asakusa
+DESCRIPTION:Day 4. Casual dinner option close to the Kaminarimon area.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-13@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T093000
+DTEND:20270409T110000
+SUMMARY:Meiji Seimei Kan
+DESCRIPTION:Day 5. Historic 1934 building symbolising Japan’s modernizati
+ on. https://opentripmap.com/en/card/R8048114
+GEO:35.678936;139.761612
+URL:https://opentripmap.com/en/card/R8048114
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-14@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T120000
+DTEND:20270409T130000
+SUMMARY:Lunch near Marunouchi
+DESCRIPTION:Day 5. Quick lunch in the Marunouchi business district.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-15@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T130000
+DTEND:20270409T143000
+SUMMARY:DN Tower 21
+DESCRIPTION:Day 5. Historic tower that housed General MacArthur’s headqua
+ rters. https://opentripmap.com/en/card/Q3011415
+GEO:35.675869;139.760803
+URL:https://opentripmap.com/en/card/Q3011415
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-16@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T143000
+DTEND:20270409T160000
+SUMMARY:Idemitsu Museum of Arts
+DESCRIPTION:Day 5. Museum with Japanese and Asian art collections. https://
+ opentripmap.com/en/card/N5403425184
+GEO:35.676373;139.760910
+URL:https://opentripmap.com/en/card/N5403425184
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-17@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T160000
+DTEND:20270409T173000
+SUMMARY:Mitsubishi Ichigokan Museum
+DESCRIPTION:Day 5. Modern‑art museum housed in a historic 1894 building r
+ eplica. https://www.openstreetmap.org/way/306116935
+GEO:35.678411;139.763222
+URL:https://www.openstreetmap.org/way/306116935
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-18@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270409T173000
+DTEND:20270409T183000
+SUMMARY:Sushi Kanesaka
+DESCRIPTION:Day 5. Two‑Michelin‑star sushi omakase\, high‑budget expe
+ rience. http://www.sushi-kanesaka.com/
+GEO:35.667988;139.762643
+URL:http://www.sushi-kanesaka.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-19@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270410T103000
+DTEND:20270410T120000
+SUMMARY:National Museum of Modern Art\, Tokyo (MOMAT)
+DESCRIPTION:Day 6. Japan’s first national museum of modern art. https://w
+ ww.openstreetmap.org/way/43934324
+GEO:35.690513;139.754600
+URL:https://www.openstreetmap.org/way/43934324
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-20@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270410T123000
+DTEND:20270410T133000
+SUMMARY:Lunch near Chiyoda
+DESCRIPTION:Day 6. Simple lunch close to MOMAT.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-21@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270410T190000
+DTEND:20270410T200000
+SUMMARY:Dinner near Chiyoda
+DESCRIPTION:Day 6. Relaxed dinner close to the museum.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-22@trip-planner
+DTSTAMP:20261119T203803Z
+DTSTART:20270411T020000
+DTEND:20270411T030000
+SUMMARY:Depart from Tokyo
+DESCRIPTION:Day 7. Flight with Korean Air\, China Southern Airlines\; see G
+ etting there and back. https://kiwi.com/u/wdn7m8qmzg
+URL:https://kiwi.com/u/wdn7m8qmzg
+END:VEVENT
+END:VCALENDAR

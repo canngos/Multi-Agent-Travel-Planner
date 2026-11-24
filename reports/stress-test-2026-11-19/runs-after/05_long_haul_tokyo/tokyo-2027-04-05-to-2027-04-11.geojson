@@ -1,0 +1,248 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7975894,
+     35.7102617
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "MIMARU TOKYO ASAKUSA STATION",
+    "url": "https://www.booking.com/searchresults.html?ss=MIMARU+TOKYO+ASAKUSA+STATION%2C+Tokyo&checkin=2027-04-05&checkout=2027-04-11&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.762643,
+     35.667988
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-04-06",
+    "time": "21:30",
+    "kind": "restaurant",
+    "name": "Sushi Kanesaka",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.763397,
+     35.678581
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Mitsubishi Ichigokan Museum",
+    "url": "https://www.openstreetmap.org/way/306116935"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.766494,
+     35.68243
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "Tokyo Station Gallery",
+    "url": "https://www.openstreetmap.org/node/3164340661"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7546,
+     35.690513
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "National Museum of Modern Art, Tokyo",
+    "url": "https://www.openstreetmap.org/way/43934324"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.767548,
+     35.709831
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Kyū-Iwasaki-Tei Garden",
+    "url": "https://opentripmap.com/en/card/W577424968"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79675,
+     35.71472222
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Sensō-ji",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.796076,
+     35.696443
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Edo Tokyo Museum",
+    "url": "https://www.openstreetmap.org/way/76187056"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.699167,
+     35.676111
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Meiji Shrine",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Harajuku"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.702486,
+     35.69115
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Blumare",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.745444,
+     35.658575
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "Tokyo Tower",
+    "url": "https://en.wikipedia.org/wiki/Tokyo_Tower"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.57043056,
+     35.69623333
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Ghibli Museum",
+    "url": "https://en.wikipedia.org/wiki/Ghibli_Museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.789728,
+     35.64938
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "teamLab Planets",
+    "url": "https://planets.teamlab.art/tokyo/"
+   }
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 """food_agent: traditional dishes and restaurants per budget tier -> food_findings."""
 from ..tools import find_restaurants, geocode_place, local_dishes, web_search, wikivoyage_section
+from ..tools.trip import extra_research_calls
 from ._common import research_agent
 from .enrich import fill_from_tool_results
 
@@ -40,7 +41,7 @@ EXAMPLE = """{"dishes": [{"name": "Pastel de nata", "description": "Custard tart
 
 
 def build_food_agent():
-    return research_agent(
+    agent = research_agent(
         name="food_agent",
         description="Finds traditional dishes and restaurants per budget tier.",
         role=ROLE, steps=STEPS, shape=SHAPE, example=EXAMPLE,
@@ -48,4 +49,7 @@ def build_food_agent():
         output_key="food_findings",
         max_calls=8,
         before_grounding=[fill_from_tool_results("food_findings")],  # opening hours the agent left out
+        limit_bonus=extra_research_calls,
     )
+    agent.instruction += "{trip_food_research?}"  # a long trip needs more places; "" otherwise
+    return agent

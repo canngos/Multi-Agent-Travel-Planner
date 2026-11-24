@@ -1,0 +1,161 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Krakow
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-1@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T080500
+DTEND:20270517T090500
+SUMMARY:Arrive in Krakow
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/up4syyw6fs
+URL:https://kiwi.com/u/up4syyw6fs
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-2@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T093500
+DTEND:20270517T110500
+SUMMARY:Wawel Cathedral
+DESCRIPTION:Day 1. Visit the historic cathedral on Wawel Hill. https://en.w
+ ikipedia.org/wiki/Wawel_Cathedral
+GEO:50.054600;19.935400
+URL:https://en.wikipedia.org/wiki/Wawel_Cathedral
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-3@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T111500
+DTEND:20270517T124500
+SUMMARY:Rynek Underground
+DESCRIPTION:Day 1. Explore the underground museum beneath the Main Market S
+ quare. https://en.wikipedia.org/wiki/Rynek_Underground
+GEO:50.062005;19.937777
+URL:https://en.wikipedia.org/wiki/Rynek_Underground
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-4@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T130000
+DTEND:20270517T134500
+SUMMARY:Mały Śledź
+DESCRIPTION:Day 1. Traditional dishes\; try the pierogi. https://en.wikivoy
+ age.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.054800;19.943500
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-5@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T134500
+DTEND:20270517T143000
+SUMMARY:Town Hall Tower
+DESCRIPTION:Day 1. Visit the historic tower in the Main Market Square\, mus
+ eum about the city's municipal history. https://muzeumkrakowa.pl/oddzialy/
+ wieza-ratuszowa
+GEO:50.061476;19.936412
+URL:https://muzeumkrakowa.pl/oddzialy/wieza-ratuszowa
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-6@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T143000
+DTEND:20270517T160000
+SUMMARY:Wawel Castle
+DESCRIPTION:Day 1. Explore the historic royal castle and its grounds. https
+ ://en.wikipedia.org/wiki/Wawel_Castle
+GEO:50.053889;19.934722
+URL:https://en.wikipedia.org/wiki/Wawel_Castle
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-7@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270517T183000
+DTEND:20270517T193000
+SUMMARY:Hamsa
+DESCRIPTION:Day 1. Mediterranean dinner\, relax after a day of sights. http
+ s://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.053200;19.947800
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-8@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T100000
+DTEND:20270518T113000
+SUMMARY:National Museum in Kraków
+DESCRIPTION:Day 2. Explore Polish art collections. https://en.wikipedia.org
+ /wiki/National_Museum_in_Krak%C3%B3w
+GEO:50.060300;19.923900
+URL:https://en.wikipedia.org/wiki/National_Museum_in_Krak%C3%B3w
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-9@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T123000
+DTEND:20270518T133000
+SUMMARY:Poranki - breakfast\, coffee & cake
+DESCRIPTION:Day 2. Hearty breakfast\, try local pastries. https://en.wikivo
+ yage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.049800;19.946200
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-10@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T133000
+DTEND:20270518T143000
+SUMMARY:St. Mary's Basilica
+DESCRIPTION:Day 2. See the famous wooden altarpiece. https://en.wikipedia.o
+ rg/wiki/Basilica_of_the_Assumption_of_the_Blessed_Virgin_Mary\,_Krak%C3%B3
+ w
+GEO:50.061660;19.939427
+URL:https://en.wikipedia.org/wiki/Basilica_of_the_Assumption_of_the_Blessed
+ _Virgin_Mary,_Krak%C3%B3w
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-11@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T143000
+DTEND:20270518T160000
+SUMMARY:Museum of Pharmacy
+DESCRIPTION:Day 2. See historic pharmacy equipment. http://muzeum.farmacja.
+ uj.edu.pl
+GEO:50.063226;19.940330
+URL:http://muzeum.farmacja.uj.edu.pl
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-12@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T163000
+DTEND:20270518T180000
+SUMMARY:Oskar Schindler's Enamel Factory
+DESCRIPTION:Day 2. Museum about Kraków's WWII history. https://muzeumkrako
+ wa.pl/oddzialy/fabryka-emalia-oskara-schindlera
+GEO:50.047462;19.961621
+URL:https://muzeumkrakowa.pl/oddzialy/fabryka-emalia-oskara-schindlera
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-13@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270518T190000
+DTEND:20270518T200000
+SUMMARY:Judah Food Market
+DESCRIPTION:Day 2. Street‑food market\, great for pierogi. https://en.wik
+ ivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.050200;19.948100
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-14@trip-planner
+DTSTAMP:20261119T210504Z
+DTSTART:20270519T085000
+DTEND:20270519T095000
+SUMMARY:Depart from Krakow
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/79zv7z7ws2
+URL:https://kiwi.com/u/79zv7z7ws2
+END:VEVENT
+END:VCALENDAR

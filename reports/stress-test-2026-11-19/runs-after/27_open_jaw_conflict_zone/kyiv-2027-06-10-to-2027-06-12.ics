@@ -1,0 +1,91 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Kyiv
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-1@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270610T114000
+DTEND:20270610T124000
+SUMMARY:Arrive in Kyiv
+DESCRIPTION:Day 1. Flight with Finnair\, Wizz Air Malta\; see Getting there
+  and back. https://kiwi.com/u/s6t75scptc
+URL:https://kiwi.com/u/s6t75scptc
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-2@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270610T183000
+DTEND:20270610T200000
+SUMMARY:Maidan Nezalezhnosti (Independence Square)
+DESCRIPTION:Day 1. Central square\, great for a short evening stroll. https
+ ://en.wikivoyage.org/wiki/Kyiv
+GEO:50.450250;30.523889
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-3@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270610T203000
+DTEND:20270610T213000
+SUMMARY:Kureni
+DESCRIPTION:Day 1. Upscale Ukrainian cuisine for dinner. https://en.wikivoy
+ age.org/wiki/Kyiv
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-4@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270611T093000
+DTEND:20270611T110000
+SUMMARY:Saint Sophia Cathedral
+DESCRIPTION:Day 2. Iconic 11th‑century cathedral\, UNESCO site. https://e
+ n.wikivoyage.org/wiki/Kyiv
+GEO:50.452778;30.514444
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-5@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270611T133000
+DTEND:20270611T143000
+SUMMARY:Puzata Khata
+DESCRIPTION:Day 2. Traditional Ukrainian cafeteria‑style lunch. https://e
+ n.wikivoyage.org/wiki/Kyiv
+GEO:50.448150;30.523530
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-6@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270611T163000
+DTEND:20270611T180000
+SUMMARY:St. Volodymyr's Cathedral
+DESCRIPTION:Day 2. Neo‑Byzantine cathedral with rich frescoes. https://en
+ .wikivoyage.org/wiki/Kyiv
+GEO:50.444942;30.508717
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-7@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270611T200000
+DTEND:20270611T210000
+SUMMARY:Celentano
+DESCRIPTION:Day 2. Italian dishes and pizza for dinner. https://en.wikivoya
+ ge.org/wiki/Kyiv
+GEO:50.438920;30.517540
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-8@trip-planner
+DTSTAMP:20261119T233618Z
+DTSTART:20270612T113100
+DTEND:20270612T123100
+SUMMARY:Depart from Kyiv
+DESCRIPTION:Day 3. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+END:VCALENDAR

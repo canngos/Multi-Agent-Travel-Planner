@@ -1,0 +1,43 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "list": "search",
+   "srsearch": "Galerias Romanas da Rua da Prata",
+   "srlimit": 1,
+   "format": "json",
+   "formatversion": 2
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129516.50332,
+ "response": {
+  "batchcomplete": true,
+  "continue": {
+   "sroffset": 1,
+   "continue": "-||"
+  },
+  "query": {
+   "searchinfo": {
+    "totalhits": 2,
+    "suggestion": "galleries romanus da rua da prata",
+    "suggestionsnippet": "<em>galleries romanus</em> da rua da prata"
+   },
+   "search": [
+    {
+     "ns": 0,
+     "title": "Lisbon",
+     "pageid": 18091,
+     "size": 176121,
+     "wordcount": 15714,
+     "snippet": "the Romans also built a great theatre; the Cassian Baths (underneath <span class=\"searchmatch\">Rua</span> <span class=\"searchmatch\">da</span> <span class=\"searchmatch\">Prata</span>); temples to Jupiter, Diana, Cybele, Tethys and Idea Phrygiae (an uncommon",
+     "timestamp": "2026-11-19T10:47:58Z"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,13 @@
+
+>>> USER: I want 45 days in Lisbon from 1 March to 14 April 2027, alone, from Helsinki, budget 6000 euros.
+[  13.6s] concierge              CALL geocode_place({"name": "Lisbon"})
+[  16.5s] concierge              CALL geocode_place({"name": "Helsinki"})
+[  21.7s] concierge              CALL save_trip_brief({"destination": "Lisbon", "destination_country": "Portugal", "destination_lat": 38.70775, "destination_lon": -9.13659, "start_date": "2027-03-01", "end_date": "2027-04-14", "origin": "Helsinki", "origin_lat": 60.16662, "origin_lon": 24.94354, "travellers": 1, "budget_tier": "mid", "total_budget_eur")
+[  21.7s]   ERR concierge: save_trip_brief -> error Invalid trip brief - end_date: the trip has 45 days; the planner plans at most 21
+[  24.7s] <<< CONCIERGE:
+I’m sorry, but our planning service can only create itineraries for trips up to 21 days long. A 45‑day stay in Lisbon exceeds that limit.
+
+You could either shorten the trip (e.g., pick a 14‑ or 21‑day window) or split it into two separate trips that we can plan one after the other. Let me know how you’d like to adjust the dates or duration, and we’ll get the brief saved for you.
+
+
+=== done in 24.7 s, 3 tool calls, errors=[]

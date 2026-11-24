@@ -1,0 +1,41 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://en.wikipedia.org/w/api.php",
+  "params": {
+   "action": "query",
+   "list": "search",
+   "srsearch": "National Archaeology Museum, Lisbon",
+   "srlimit": 1,
+   "format": "json",
+   "formatversion": 2
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129286.9463634,
+ "response": {
+  "batchcomplete": true,
+  "continue": {
+   "sroffset": 1,
+   "continue": "-||"
+  },
+  "query": {
+   "searchinfo": {
+    "totalhits": 1000
+   },
+   "search": [
+    {
+     "ns": 0,
+     "title": "National Museum of Archaeology, Lisbon",
+     "pageid": 12446703,
+     "size": 23922,
+     "wordcount": 2455,
+     "snippet": "<span class=\"searchmatch\">National</span> <span class=\"searchmatch\">Museum</span> of <span class=\"searchmatch\">Archaeology</span>, of Doctor Leite de Vasconcelos is the largest <span class=\"searchmatch\">archaeological</span> <span class=\"searchmatch\">museum</span> in Portugal and one of the most important <span class=\"searchmatch\">museums</span>",
+     "timestamp": "2026-09-01T16:46:19Z"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,904 @@
+{
+ "id": "03_max_length_21_days",
+ "title": "21-day trip to Porto (the stated maximum)",
+ "turns": [
+  {
+   "user": "I want to spend 21 days in Porto, from 1 April 2027 to 21 April 2027, alone, from Helsinki. Mid budget, about 3000 euros. Wine, azulejos, surfing.",
+   "seconds": 13.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of your trip brief:\n\n- **Destination:** Porto, Portugal  \n- **Dates:** 1 April 2027 → 21 April 2027 (21 days)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 1 (solo)  \n- **Budget tier:** Mid (total ≈ 3 000 EUR)  \n- **Interests:** wine, azulejos, surfing  \n\nPlease confirm that all details are correct (reply “yes” or “no”)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 958.7,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Porto (2027-04-01 to 2027-04-21)**\n\n- **Outbound:** Norwegian Air Sweden, Ryanair flight 2027-04-01 06:15-19:05, 157 EUR\n- **Return:** Vueling, Norwegian Air Sweden flight 2027-04-21 17:00-02:25, 126 EUR\n- **Stay:** Happy Porto Hostel (Porto City Centre), 471 EUR in total\n\n- **Day 1 (Thu 2027-04-01):** 19:05 Arrive in Porto · 21:30 MUU Steakhouse\n- **Day 2 (Fri 2027-04-02):** 10:00 São Bento Train Station · 12:30 O Comercial · 14:00 Palácio da Bolsa · 18:00 Galeria de Paris Restaurante Bar\n- **Day 3 (Sat 2027-04-03):** 10:00 Church of São Francisco · 12:30 Padaria Cristo Rei · 14:00 Museu do Vinho do Porto · 19:30 Euskalduna Studio\n- **Day 4 (Sun 2027-04-04):** 10:00 Clérigos Tower · 12:30 Casa Da Foz\n- **Day 5 (Mon 2027-04-05):** 10:00 Fundação de Serralves · 13:00 Varanda Da Barra\n- **Day 6 (Tue 2027-04-06):** 10:00 Casa da Música · 13:00 Antiqvvm\n- **Day 7 (Wed 2027-04-07):** 10:00 Museu Nacional Soares dos Reis\n- **Day 8 (Thu 2027-04-08):** 10:00 Matosinhos Beach\n- **Day 9 (Fri 2027-04-09):** 10:00 Leisure morning\n- **Day 10 (Sat 2027-04-10):** 10:00 Leisure morning\n- **Day 11 (Sun 2027-04-11):** 10:00 Leisure morning\n- **Day 12 (Mon 2027-04-12):** 10:00 Leisure morning\n- **Day 13 (Tue 2027-04-13):** 10:00 Indoor activity\n- **Day 14 (Wed 2027-04-14):** 10:00 Leisure morning\n- **Day 15 (Thu 2027-04-15):** 10:00 Leisure morning\n- **Day 16 (Fri 2027-04-16):** 10:00 Leisure morning\n- **Day 17 (Sat 2027-04-17):** 10:00 Leisure morning\n- **Day 18 (Sun 2027-04-18):** 10:00 Leisure morning\n- **Day 19 (Mon 2027-04-19):** 10:00 Leisure morning\n- **Day 20 (Tue 2027-04-20):** 10:00 Leisure morning\n- **Day 21 (Wed 2027-04-21):** 10:00 Morning leisure · 17:00 Depart from Porto\n\nEstimated total: 2020 EUR (budget 3000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 84.9,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "{\n  \"markdown_text\": \"# Porto trip guide: 2027-04-01 – 2027-04-21\\n\\nOne adult traveller flies from Helsinki to Porto for a 20‑night, mid‑budget adventure (total budget **€3000**). Interests are **wine, azulejos and surfing**. The weather information is **typical historical** for the dates, not a forecast.\\n\\n## Getting there and back\\n\\n**Chosen flights (cheapest pair)**\\n\\n|  | Mode | Operator | Depart → Arrive | Duration | Stops | Price (all travellers) | Link |\\n|---|------|----------|----------------|----------|-------|------------------------|------|\\n| Outbound | flight | Norwegian Air Sweden, Ryanair | 2027‑04‑01 06:15 HEL → 2027‑04‑01 19:05 OPO | 890 min | 1 | €157 (live) | [booking](https://kiwi.com/u/ft44q6cpnw) |\\n| Return   | flight | Vueling, Norwegian Air Sweden | 2027‑04‑21 17:00 OPO → 2027‑04‑22 02:25 HEL | 445 min | 1 | €126 (live) | [booking](https://kiwi.com/u/gpf8pwrbyc) |\\n\\n**Outbound alternatives**\\n\\n|  | Mode | Operator | Depart → Arrive | Duration | Stops | Price (all travellers) | Link |\\n|---|------|----------|----------------|----------|-------|------------------------|------|\\n| Cheapest (chosen) | flight | Norwegian Air Sweden, Ryanair | 2027‑04‑01 06:15 HEL → 2027‑04‑01 19:05 OPO | 890 min | 1 | €157 (live) | [booking](https://kiwi.com/u/ft44q6cpnw) |\\n| Fastest | flight | Finnair, Ryanair | 2027‑04‑01 17:10 HEL → 2027‑04‑01 22:55 OPO | 465 min | 1 | €214 (live) | [booking](https://kiwi.com/u/2mtvx6ruf9) |\\n\\n**Return alternatives** (cheapest and fastest are identical)\\n\\n|  | Mode | Operator | Depart → Arrive | Duration | Stops | Price (all travellers) | Link |\\n|---|------|----------|----------------|----------|-------|------------------------|------|\\n| Cheapest (chosen) | flight | Vueling, Norwegian Air Sweden | 2027‑04‑21 17:00 OPO → 2027‑04‑22 02:25 HEL | 445 min | 1 | €126 (live) | [booking](https://kiwi.com/u/gpf8pwrbyc) |\\n| Fastest | flight | Vueling, Norwegian Air Sweden | 2027‑04‑21 17:00 OPO → 2027‑04‑22 02:25 HEL | 445 min | 1 | €126 (live) | [booking](https://kiwi.com/u/gpf8pwrbyc) |\\n\\n*Notes*: Both outbound legs involve a **self‑transfer** at the connecting airport (Barcelona). No checked baggage is included. Prices are total for the single traveller.\\n\\n## Where to stay\\n\\n**Chosen accommodation** – **[Happy Porto Hostel](https://www.booking.com/searchresults.html?ss=Happy+Porto+Hostel%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1)**, Porto City Centre\\n- Price per night: **€23.55 (live)**\\n- Total for 20 nights: **€471 (live)**\\n- Rating: **4.6 / 5** (Google, 702 reviews)\\n- Why: central location, excellent rating, includes breakfast and free Wi‑Fi – best value for a mid‑budget traveller.\\n\\n### Stay options by area\\n| Area | Airbnb | Hotel | From €/night |\\n|------|--------|------|--------------|\\n| Lóios | [Fountains Heritage House](https://www.airbnb.com/rooms/1100089652907687209?check_in=2027-04-01&check_out=2027-04-21&adults=1) | [Cats Hostel Porto](https://www.booking.com/searchresults.html?ss=Cats+Hostel+Porto%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1) | €27.5 |\\n| Central | [Historic house with beautiful view of the Douro](https://www.airbnb.com/rooms/18160151?check_in=2027-04-01&check_out=2027-04-21&adults=1) | – | €95.3 |\\n| Porto City Centre | – | [Happy Porto Hostel](https://www.booking.com/searchresults.html?ss=Happy+Porto+Hostel%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1) | €23.55 |\\n| Quinta do Gama | – | [Easy Host Porto](https://www.booking.com/searchresults.html?ss=Easy+Host+Porto%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1) | €14.05 |\\n| Carvalhido | – | [Avenue Guesthouse](https://www.booking.com/searchresults.html?ss=Avenue+Guesthouse%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1) | €15.65 |\\n| Lindo Vale | [AC House 6 | Comfortable Private Twin Room](https://www.airbnb.com/rooms/17328144?check_in=2027-04-01&check_out=2027-04-21&adults=1) | – | €32.57 |\\n\\n**Recommendation** – Happy Porto Hostel gives the best mix of price, rating and location. Prices shown are live rates; city tax may be added at check‑in.\\n\\n## Day by day\\n\\n### Day 1 – Thu 2027-04-01: Porto City Centre\\nWeather: overcast, 23‑13 °C – no rain. Walk: – km\\n- **19:05 Arrive in Porto** – Flight arrival (see Getting there and back).  \\n- **21:30 MUU Steakhouse** – High‑budget steak dinner.  \\n  *Budget tier*: high.  \\n  [source](https://www.muusteakhouse.com)\\n\\n### Day 2 – Fri 2027-04-02: Porto City Centre\\nWeather: overcast, 20.6‑9.4 °C – no rain. Walk: 1.4 km\\n- **10:00 São Bento Train Station** – The main hall is lined with ~20 000 blue‑and‑white azulejo panels depicting Portuguese history. Free entry.  \\n  Hours: open daily (main hall all day).  \\n  ticket €0 (free).  \\n  [source](https://porto.travel/porto-train-station-sao-bento)\\n- **12:30 O Comercial** – Refined Portuguese dishes with a modern twist.  \\n  *Budget tier*: high.  \\n  [source](https://ocomercial.com)\\n- **14:00 Palácio da Bolsa** – 19th‑century neoclassical stock‑exchange building, famous for its lavish Arab Room and a wine‑tasting hall.  \\n  Hours: 09:00‑18:30 daily.  \\n  ticket €12.  \\n  [source](https://palaciodabolsa.com/)\\n- **18:00 Galeria de Paris Restaurante Bar** – Casual bar for a relaxed dinner.  \\n  *Budget tier*: mid.  \\n  [source](https://www.facebook.com/restaurantegaleriadeparis)\\n\\n### Day 3 – Sat 2027-04-03: Porto City Centre\\nWeather: overcast, 22.2‑10.7 °C – no rain. Walk: 3.9 km\\n- **10:00 Church of São Francisco** – Gothic church with an opulent Baroque interior richly gilded; interior features intricate azulejo tiles.  \\n  Ticket info: see the website.  \\n  [source](https://en.wikipedia.org/wiki/Church_of_S%C3%A3o_Francisco_(Porto))\\n- **12:30 Padaria Cristo Rei** – Bakery good for a pastel de nata and coffee.  \\n  *Budget tier*: low.  \\n  [source](https://www.cristorei.com.pt)\\n- **14:00 Museu do Vinho do Porto** – Interactive exhibits on the history of port wine inside an 18th‑century warehouse on the Douro.  \\n  Hours: 10:00‑17:30 Tue‑Sun.  \\n  ticket €4.  \\n  [source](https://www.openstreetmap.org/way/210571326)\\n- **19:30 Euskalduna Studio** – High‑budget tasting‑menu dinner.  \\n  *Budget tier*: high.  \\n  [source](http://www.euskaldunastudio.pt)\\n\\n### Day 4 – Sun 2027-04-04: Porto City Centre\\nWeather: overcast, 23‑11.8 °C – no rain. Walk: 5.0 km\\n- **10:00 Clérigos Tower** – 76 m Baroque tower offering panoramic city views after climbing 226 steps.  \\n  Hours: 09:00‑19:00 daily.  \\n  ticket €5.  \\n  [source](https://www.torredosclerigos.pt/)\\n- **12:30 Casa Da Foz** – Mid‑tier Italian lunch; reservation recommended.  \\n  *Budget tier*: mid.  \\n  [source](https://www.casadafoz.pt)\\n\\n### Day 5 – Mon 2027-04-05: Porto City Centre\\nWeather: overcast, 22.9‑10.6 °C – no rain. Walk: 1.2 km\\n- **10:00 Fundação de Serralves** – Contemporary art museum and park designed by Álvaro Siza; rotating exhibitions inside a modernist villa.  \\n  Hours: not listed.  \\n  ticket €8.5.  \\n  [source](http://www.serralves.pt/en/)\\n- **13:00 Varanda Da Barra** – Riverside lunch with Portuguese dishes.  \\n  *Budget tier*: mid.  \\n  [source](#)\\n\\n### Day 6 – Tue 2027-04-06\\nWeather: light rain, 28.3‑15.3 °C – rain. Walk: 1.3 km\\n- **10:00 Casa da Música** – Modern concert hall by Rem Koolhaas; guided tours showcase avant‑garde architecture.  \\n  Hours: 09:30‑18:00 daily.  \\n  ticket €8.  \\n  [source](https://www.casadamusica.com/)\\n- **13:00 Antiqvvm** – Michelin‑starred tasting menu lunch.  \\n  *Budget tier*: high.  \\n  [source](http://www.antiqvvm.pt/)\\n\\n### Day 7 – Wed 2027-04-07\\nWeather: light rain, 17.5‑11 °C – rain. \\n- **10:00 Museu Nacional Soares dos Reis** – 19th‑century palace housing Portuguese art from the 14th‑19th centuries.  \\n  Hours: Tue 14:00‑18:00; Wed‑Sun 10:00‑18:00.  \\n  ticket €10.  \\n  [source](https://www.openstreetmap.org/way/261265893)\\n\\n### Day 8 – Thu 2027-04-08\\nWeather: drizzle, 15.1‑9.2 °C – no rain. Area: Matosinhos\\n- **10:00 Matosinhos Beach** – Surf session on the Atlantic coast; rentals nearby.  \\n  Free, open 24 h.\\n\\n### Day 9 – Fri 2027-04-09\\nWeather: overcast, 23.9‑10.4 °C – no rain.\\n- **10:00 Leisure morning** – Explore local markets or relax at the hostel.\\n\\n### Day 10 – Sat 2027-04-10\\nWeather: mainly clear, 26.4‑12.5 °C – no rain.\\n- **10:00 Leisure morning** – Optional visit to Ribeira district.\\n\\n### Day 11 – Sun 2027-04-11\\nWeather: overcast, 16.1‑8.4 °C – no rain.\\n- **10:00 Leisure morning** – Visit a local café or park.\\n\\n### Day 12 – Mon 2027-04-12\\nWeather: partly cloudy, 13.5‑6.7 °C – no rain.\\n- **10:00 Leisure morning** – Explore the historic centre at a relaxed pace.\\n\\n### Day 13 – Tue 2027-04-13\\nWeather: light drizzle, 13.9‑8.2 °C – rain.\\n- **10:00 Indoor activity** – Visit a local gallery or shop for azulejos.\\n\\n### Day 14 – Wed 2027-04-14\\nWeather: light drizzle, 16.5‑12.0 °C – no rain.\\n- **10:00 Leisure morning** – Stroll along the Douro riverbanks.\\n\\n### Day 15 – Thu 2027-04-15\\nWeather: light drizzle, 17.1‑10.5 °C – no rain.\\n- **10:00 Leisure morning** – Visit a museum or shop for souvenirs.\\n\\n### Day 16 – Fri 2027-04-16\\nWeather: overcast, 17.2‑10.8 °C – no rain.\\n- **10:00 Leisure morning** – Enjoy a coffee in a local café.\\n\\n### Day 17 – Sat 2027-04-17\\nWeather: overcast, 17.9‑8.5 °C – no rain.\\n- **10:00 Leisure morning** – Optional day‑trip to nearby vineyards.\\n\\n### Day 18 – Sun 2027-04-18\\nWeather: overcast, 21.1‑9.5 °C – no rain.\\n- **10:00 Leisure morning** – Visit local markets or relax at the hostel.\\n\\n### Day 19 – Mon 2027-04-19\\nWeather: overcast, 19.9‑11.8 °C – no rain.\\n- **10:00 Leisure morning** – Free time for personal interests.\\n\\n### Day 20 – Tue 2027-04-20\\nWeather: overcast, 20.7‑9.8 °C – no rain.\\n- **10:00 Leisure morning** – Pack and enjoy the last day in Porto.\\n\\n### Day 21 – Wed 2027-04-21: Porto City Centre\\nWeather: rain, 25.0‑13.7 °C – rain.\\n- **10:00 Morning leisure** – Pack final items, light indoor activity.\\n- **17:00 Depart from Porto** – Flight departure (see Getting there and back).\\n\\n## Food to try\\n- **Caldo verde** – The Minho speciality, caldo verde, is a soup made from kale, potatoes and spiced smoked sausage. – [source](https://en.wikivoyage.org/wiki/Portugal#Eat)\\n- **Bacalhau à Brás** – Bacalhau, the revered salt cod, is prepared in many ways, notably as Bacalhau à Brás with shredded cod, onions and potatoes. – [source](https://en.wikivoyage.org/wiki/Portugal#Eat)\\n- **Sardinhas assadas** – Grilled sardines, a beloved fish dish that features heavily in Portuguese cuisine, especially in summer. – [source](https://en.wikivoyage.org/wiki/Portugal#Eat)\\n- **Pastel de nata** – Portuguese egg‑tart pastry dusted with cinnamon. – [source](https://www.wikidata.org/wiki/Q1421401)\\n- **Francesinha** – Hearty Portuguese sandwich stacked with cured meats, covered in melted cheese and a rich tomato‑beer sauce. – [source](https://www.wikidata.org/wiki/Q732)\\n\\n## Cost estimate\\n| Category | Total (€) | Share |\\n|----------|-----------|-------|\\n| Transport | 283.0 | 14.0 % |\\n| Stay | 471.0 | 23.3 % |\\n| Food | 1050.0 | 52.0 % |\\n| Activities | 47.5 | 2.4 % |\\n| Local transport | 168.0 | 8.3 % |\\n| **Total** | **2019.5** | **67.3 %** |\\n\\n- Per person total: **€2019.5**\\n- Per person per day: **€96.17**\\n- Budget: **€3000** – **€980.5** under budget.\\n\\n**Assumptions**\\n- Food: typical mid‑budget cost of €50 per person per day.\\n- Local transport: typical €8 per person per day.\\n- One sight with an unknown ticket price counted as €0.\\n\\n## Good to know\\n- Both outbound flights require a self‑transfer at Barcelona; allow extra time.\\n- No checked baggage is included; only a personal item.\\n- São Bento Train Station is free and open all day.\\n- Museu Nacional Soares dos Reis is closed on 1 Jan, 1 May and 1 Dec.\\n- Some restaurants (e.g., O Comercial, Antiqvvm) require reservation.\\n- Prices shown are live at the time of planning; city taxes may be added at checkout.\\n\",\n  \"filename_slug\": \"porto-2027-04-01-to-2027-04-21\"\n}"
+    },
+    {
+     "author": "guide_writer",
+     "text": "Saved the guide to C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\03_max_length_21_days\\porto-2027-04-01-to-2027-04-21.md and C:\\Users\\canba\\AppData\\Local\\Temp\\claude\\41e7193b7aa0256b\\420c4b06-5777-4391-b608-25198b547ccb\\scratchpad\\stress\\runs\\03_max_length_21_days\\porto-2027-04-01-to-2027-04-21.html.\n\nYour trip guide is ready. Days in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details.",
+  "culture_agent: tool_call_failed -> error Your call to web_search was NOT run: its arguments were not valid JSON. Call it again with valid JSON arguments (double quotes, no comments, no trailing commas, numbers without units), or continue without it. Attempt 1 of 2."
+ ],
+ "tool_calls": 36,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 5.943178200002876,
+   "last": 972.5812326000014
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 15.032509700002265,
+   "last": 971.6689327000058
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 17.11264160000428,
+   "last": 218.73038789999555
+  },
+  "culture_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 17.589371800000663,
+   "last": 352.31533379999746
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.435193099998287,
+   "last": 101.13322210000479
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.435802100008004,
+   "last": 182.71167350000178
+  },
+  "ground_searcher": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 20.436041699998896,
+   "last": 87.61929810000584
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.846984200004954,
+   "last": 197.10439459999907
+  },
+  "transport_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 330.51331320000463,
+   "last": 330.51331320000463
+  },
+  "stay_comparer": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 353.83330820000265,
+   "last": 353.83330820000265
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 361.62366660000407,
+   "last": 575.7684446000058
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 575.7687380999996,
+   "last": 575.7687380999996
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 575.7689225000067,
+   "last": 968.6714733999979
+  },
+  "itinerary_reviser": {
+   "events": 10,
+   "tool_calls": 1,
+   "first": 621.4700797999976,
+   "last": 971.6684062999993
+  },
+  "guide_writer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 1056.513354499999,
+   "last": 1056.5542894999962
+  }
+ },
+ "seconds": 1056.6,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Porto",
+  "start_date": "2027-04-01",
+  "end_date": "2027-04-21",
+  "travellers": 1,
+  "budget_tier": "mid",
+  "total_budget_eur": 3000.0,
+  "interests": [
+   "wine",
+   "azulejos",
+   "surfing"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 41.15022,
+  "destination_lon": -8.61035,
+  "destination_country": "Portugal",
+  "nights": 20,
+  "days": 21
+ },
+ "plan_status": "approved",
+ "cost_total": 2019.5,
+ "n_days": 21,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 14:00-19:30.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 12:30-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.7,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 4,
+   "issue": "far_meal",
+   "detail": "'Casa Da Foz' is 5.0 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 0.7,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 5,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 5,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 13:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 5,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Pedro Lemos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon–Fri 19:00–23:00, Sat 12:30–15:00 & 19:00–23:00",
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 6,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 6,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 13:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 6,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 2.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 7,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 7,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 7,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.3,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 7,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.3,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 8,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 8,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 8,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 8,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 9,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 9,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 9,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 9,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 10,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 10,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 10,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 10,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 11,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 11,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 11,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 11,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 12,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 12,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 12,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 13,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 13,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 13,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 14,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 14,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 14,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 15,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 15,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 15,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 16,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 16,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 16,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 17,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 17,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 17,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 18,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 18,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 18,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 19,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 19,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 19,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "issue": "thin_day",
+   "detail": "Only 0 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 20,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 20,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 20,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": 21,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 10:00-14:30.",
+   "alternatives": []
+  },
+  {
+   "day": 21,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Maus Hábitos",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": "Mon-Fri 12:00-15:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 12660
+ }
+}

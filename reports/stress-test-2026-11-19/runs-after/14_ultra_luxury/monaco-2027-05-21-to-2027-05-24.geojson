@@ -1,0 +1,381 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4259517,
+     43.7384432
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Hôtel Hermitage Monte-Carlo",
+    "url": "https://www.booking.com/searchresults.html?ss=H%C3%B4tel+Hermitage+Monte-Carlo%2C+Monaco&checkin=2027-05-21&checkout=2027-05-24&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42015,
+     43.731278
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Prince's Palace of Monaco",
+    "url": "https://en.wikipedia.org/wiki/Prince%27s_Palace_of_Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4201694,
+     43.7324334
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Chez Roger",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.425534,
+     43.730663
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Oceanographic Museum of Monaco",
+    "url": "https://musee.oceano.org"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.417584,
+     43.730872
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Musée des Timbres et des Monnaies",
+    "url": "https://www.mtm-monaco.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42162,
+     43.72781
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Beefbar",
+    "url": "http://beefbar.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.426,
+     43.735
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Port Hercules",
+    "url": "https://en.wikipedia.org/wiki/Port_Hercules"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42769,
+     43.73972
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "Café de Paris",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42848,
+     43.73886
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Opéra de Monaco",
+    "url": "http://www.opera.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42796,
+     43.73917
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Monte Carlo Casino",
+    "url": "http://www.casinomontecarlo.com"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.426,
+     43.735
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "16:00",
+    "kind": "sight",
+    "name": "Port Hercules",
+    "url": "https://en.wikipedia.org/wiki/Port_Hercules"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42734,
+     43.73911
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Louis XV",
+    "url": "https://www.montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-ducasse-hotel-de-paris"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.431074,
+     43.742274
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Japanese Garden",
+    "url": "https://en.wikipedia.org/wiki/Japanese_Garden,_Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4305,
+     43.7444
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Nouveau Musée National – Villa Sauber",
+    "url": "http://www.nmnm.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4265801,
+     43.7422661
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Maison des pâtes Saint‑Charles",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.414172,
+     43.731277
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Jardin Exotique",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4264822,
+     43.7421777
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Lo Sfizio Street",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.417149,
+     43.730892
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Monaco Top Cars Collection",
+    "url": "https://www.mtcc.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.414172,
+     43.731277
+    ]
+   },
+   "properties": {
+    "order": 18,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Jardin Exotique",
+    "url": "http://www.jardin-exotique.mc"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4182891,
+     43.7334802
+    ]
+   },
+   "properties": {
+    "order": 19,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Mickey’s Pizza",
+    "url": "https://www.mickeyspizza-monaco.com/"
+   }
+  }
+ ]
+}

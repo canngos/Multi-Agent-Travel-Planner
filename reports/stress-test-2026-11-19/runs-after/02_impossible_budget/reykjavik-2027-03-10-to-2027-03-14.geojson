@@ -1,0 +1,324 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.874748,
+     64.14655789999999
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Dalur - HI Eco Hostel, Café & Bar",
+    "url": "https://www.booking.com/searchresults.html?ss=Dalur+-+HI+Eco+Hostel%2C+Caf%C3%A9+%26+Bar%2C+Reykjavik&checkin=2027-03-10&checkout=2027-03-14&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9189,
+     64.1292
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Perlan",
+    "url": "https://www.openstreetmap.org/way/25795245"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9377,
+     64.14821
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Bæjarins beztu pylsur",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.944002,
+     64.1508125
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Sægreifinn",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9325,
+     64.15027778
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Harpa",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93576,
+     64.148468
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "11:15",
+    "kind": "sight",
+    "name": "Icelandic Phallological Museum",
+    "url": "https://www.openstreetmap.org/node/1511563888"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.932163,
+     64.147309
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "The Culture House (Safnahúsið)",
+    "url": "https://www.openstreetmap.org/way/94560552"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.92661,
+     64.14357
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "13:45",
+    "kind": "restaurant",
+    "name": "Kaffismiðja Íslands",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.92568,
+     64.14563
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Austur-Indíafjelagið",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.926711,
+     64.141796
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Hallgrímskirkja",
+    "url": "https://www.openstreetmap.org/relation/6184378"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.913947,
+     64.13787
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Kjarvalsstaðir (Reykjavik Art Museum)",
+    "url": "https://www.openstreetmap.org/node/971164356"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.88711,
+     64.13905
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "13:45",
+    "kind": "restaurant",
+    "name": "Múlakaffi",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93777,
+     64.146618
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Messinn",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.948163,
+     64.141951
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "National Museum of Iceland",
+    "url": "https://www.openstreetmap.org/relation/6180675"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93888,
+     64.14689
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "The Icelandic Bar",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.94086,
+     64.14913
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 5,
+    "date": "2027-03-14",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Reykjavik Art Museum – Hafnarhús",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9469379,
+     64.1383261
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 5,
+    "date": "2027-03-14",
+    "time": "17:15",
+    "kind": "restaurant",
+    "name": "Dill",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  }
+ ]
+}

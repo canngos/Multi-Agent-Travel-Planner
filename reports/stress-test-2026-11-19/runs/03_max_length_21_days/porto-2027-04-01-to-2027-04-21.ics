@@ -1,0 +1,311 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Porto
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-1@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270401T190500
+DTEND:20270401T200500
+SUMMARY:Arrive in Porto
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\, Ryanair\; see Getting
+  there and back. https://kiwi.com/u/ft44q6cpnw
+URL:https://kiwi.com/u/ft44q6cpnw
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-2@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270401T213000
+DTEND:20270401T223000
+SUMMARY:MUU Steakhouse
+DESCRIPTION:Day 1. Steak dinner at MUU Steakhouse. https://www.muusteakhous
+ e.com
+GEO:41.147600;-8.612200
+URL:https://www.muusteakhouse.com
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-3@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270402T100000
+DTEND:20270402T113000
+SUMMARY:São Bento Train Station
+DESCRIPTION:Day 2. Admire the blue‑and‑white azulejo panels. https://po
+ rto.travel/porto-train-station-sao-bento
+GEO:41.145493;-8.609644
+URL:https://porto.travel/porto-train-station-sao-bento
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-4@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270402T123000
+DTEND:20270402T133000
+SUMMARY:O Comercial
+DESCRIPTION:Day 2. Traditional Portuguese dishes\, good for a midday break.
+  https://ocomercial.com
+GEO:41.140800;-8.615000
+URL:https://ocomercial.com
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-5@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270402T140000
+DTEND:20270402T153000
+SUMMARY:Palácio da Bolsa
+DESCRIPTION:Day 2. Explore the Arab Room and wine‑tasting hall. https://p
+ alaciodabolsa.com/
+GEO:41.141367;-8.615428
+URL:https://palaciodabolsa.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-6@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270402T180000
+DTEND:20270402T190000
+SUMMARY:Galeria de Paris Restaurante Bar
+DESCRIPTION:Day 2. Vibrant bar for a casual dinner. https://www.facebook.co
+ m/restaurantegaleriadeparis
+GEO:41.147100;-8.614300
+URL:https://www.facebook.com/restaurantegaleriadeparis
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-7@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270403T100000
+DTEND:20270403T113000
+SUMMARY:Church of São Francisco
+DESCRIPTION:Day 3. Marvel at the gilded Baroque interior. https://en.wikipe
+ dia.org/wiki/Church_of_S%C3%A3o_Francisco_(Porto)
+GEO:41.141016;-8.615740
+URL:https://en.wikipedia.org/wiki/Church_of_S%C3%A3o_Francisco_(Porto)
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-8@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270403T123000
+DTEND:20270403T133000
+SUMMARY:Padaria Cristo Rei
+DESCRIPTION:Day 3. Try a pastel de nata with coffee. https://www.cristorei.
+ com.pt
+GEO:41.150226;-8.608071
+URL:https://www.cristorei.com.pt
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-9@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270403T140000
+DTEND:20270403T153000
+SUMMARY:Museu do Vinho do Porto
+DESCRIPTION:Day 3. Interactive exhibits on port wine history.
+GEO:41.140109;-8.615303
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-10@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270403T193000
+DTEND:20270403T203000
+SUMMARY:Euskalduna Studio
+DESCRIPTION:Day 3. Tasting menu dinner at Euskalduna Studio. http://www.eus
+ kaldunastudio.pt
+GEO:41.147400;-8.600900
+URL:http://www.euskaldunastudio.pt
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-11@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270404T100000
+DTEND:20270404T113000
+SUMMARY:Clérigos Tower
+DESCRIPTION:Day 4. Climb to the viewpoint for panoramic city vistas. https:
+ //www.torredosclerigos.pt/
+GEO:41.145656;-8.614628
+URL:https://www.torredosclerigos.pt/
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-12@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270404T123000
+DTEND:20270404T133000
+SUMMARY:Casa Da Foz
+DESCRIPTION:Day 4. Mid‑tier Italian lunch at Casa Da Foz. https://www.cas
+ adafoz.pt
+GEO:41.150000;-8.674200
+URL:https://www.casadafoz.pt
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-13@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270405T100000
+DTEND:20270405T113000
+SUMMARY:Fundação de Serralves
+DESCRIPTION:Day 5. Visit the contemporary art museum and park. http://www.s
+ erralves.pt/en/
+GEO:41.159260;-8.659410
+URL:http://www.serralves.pt/en/
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-14@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270405T130000
+DTEND:20270405T140000
+SUMMARY:Varanda Da Barra
+DESCRIPTION:Day 5. Riverside lunch with Portuguese dishes.
+GEO:41.148300;-8.658100
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-15@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270406T100000
+DTEND:20270406T113000
+SUMMARY:Casa da Música
+DESCRIPTION:Day 6. Guided tour of the modern concert hall. https://www.casa
+ damusica.com/
+GEO:41.158852;-8.630783
+URL:https://www.casadamusica.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-16@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270406T130000
+DTEND:20270406T140000
+SUMMARY:Antiqvvm
+DESCRIPTION:Day 6. Michelin‑starred tasting menu for lunch. http://www.an
+ tiqvvm.pt/
+GEO:41.147700;-8.628300
+URL:http://www.antiqvvm.pt/
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-17@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270407T100000
+DTEND:20270407T113000
+SUMMARY:Museu Nacional Soares dos Reis
+DESCRIPTION:Day 7. Explore Portuguese art from the 14th‑19th centuries. h
+ ttps://www.openstreetmap.org/way/261265893
+GEO:41.148479;-8.621753
+URL:https://www.openstreetmap.org/way/261265893
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-18@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270408T100000
+DTEND:20270408T110000
+SUMMARY:Matosinhos Beach
+DESCRIPTION:Day 8. Surf session at the Atlantic coast\; rentals available n
+ earby.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-19@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270409T100000
+DTEND:20270409T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 9. Explore local markets or relax at the hostel.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-20@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270410T100000
+DTEND:20270410T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 10. Optional visit to Ribeira district.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-21@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270411T100000
+DTEND:20270411T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 11. Visit a local café or park.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-22@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270412T100000
+DTEND:20270412T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 12. Explore the historic centre at a relaxed pace.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-23@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270413T100000
+DTEND:20270413T110000
+SUMMARY:Indoor activity
+DESCRIPTION:Day 13. Visit a local gallery or shop for azulejos.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-24@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270414T100000
+DTEND:20270414T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 14. Stroll along the Douro riverbanks.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-25@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270415T100000
+DTEND:20270415T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 15. Visit a museum or shop for souvenirs.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-26@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270416T100000
+DTEND:20270416T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 16. Enjoy a coffee in a local café.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-27@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270417T100000
+DTEND:20270417T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 17. Optional day trip to nearby vineyards.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-28@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270418T100000
+DTEND:20270418T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 18. Visit local markets or relax at the hostel.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-29@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270419T100000
+DTEND:20270419T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 19. Free time for personal interests.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-30@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270420T100000
+DTEND:20270420T110000
+SUMMARY:Leisure morning
+DESCRIPTION:Day 20. Pack and enjoy last day in Porto.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-31@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270421T100000
+DTEND:20270421T110000
+SUMMARY:Morning leisure
+DESCRIPTION:Day 21. Pack final items\, light indoor activity.
+END:VEVENT
+BEGIN:VEVENT
+UID:porto-2027-04-01-to-2027-04-21-32@trip-planner
+DTSTAMP:20261119T202840Z
+DTSTART:20270421T170000
+DTEND:20270421T180000
+SUMMARY:Depart from Porto
+DESCRIPTION:Day 21. Flight with Vueling\, Norwegian Air Sweden\; see Gettin
+ g there and back. https://kiwi.com/u/gpf8pwrbyc
+URL:https://kiwi.com/u/gpf8pwrbyc
+END:VEVENT
+END:VCALENDAR

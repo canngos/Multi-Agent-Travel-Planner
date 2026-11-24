@@ -1,0 +1,55 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/N5651521604",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129145.4232955,
+ "response": {
+  "xid": "N5651521604",
+  "name": "Galerias Romanas da Rua da Prata",
+  "address": {
+   "city": "Santa Maria Maior",
+   "road": "Rua da Conceição",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Baixa",
+   "country": "Portugal",
+   "postcode": "1100-053",
+   "country_code": "pt",
+   "house_number": "68",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "node/5651521604",
+  "wikidata": "Q10288100",
+  "kinds": "historic,archaeology,interesting_places,other_archaeological_sites",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/N5651521604",
+  "wikipedia": "https://pt.wikipedia.org/wiki/Galerias%20Romanas%20da%20Rua%20da%20Prata",
+  "image": "https://commons.wikimedia.org/wiki/File:Galerias_Romanas.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Galerias_Romanas.jpg/400px-Galerias_Romanas.jpg",
+   "height": 300,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "pt:Galerias Romanas da Rua da Prata",
+   "text": "As galerias romanas da Rua da Prata ou criptopórtico da Rua da Prata (anteriormente designadas por termas dos Augustaesn, termas dos Augustais, termas romanas de Olisipo, termas romanas de Lisboa, conservas da Rua da Prata, conservas de água da Rua da Prata e termas romanas da Rua da Prata), são uma estrutura arquitectónica que se encontra no subsolo da Rua da Prata (antiga Rua Bela da Rainha) e da Rua da Conceição, estendendo-se até à Rua do Comércio, na baixa de Lisboa.",
+   "html": "<p>As <b>galerias romanas da Rua da Prata</b> ou criptopórtico da Rua da Prata (anteriormente designadas por <i>termas dos Augustaesn</i>, <i>termas dos Augustais</i>, <i>termas romanas de Olisipo</i>, <i>termas romanas de Lisboa</i>, <i>conservas da Rua da Prata</i>, <i>conservas de água da Rua da Prata</i> e <i>termas romanas da Rua da Prata</i>), são uma estrutura arquitectónica que se encontra no subsolo da Rua da Prata (antiga Rua Bela da Rainha) e da Rua da Conceição, estendendo-se até à Rua do Comércio, na baixa de Lisboa.</p>"
+  },
+  "point": {
+   "lon": -9.136666297912598,
+   "lat": 38.709747314453125
+  }
+ }
+}

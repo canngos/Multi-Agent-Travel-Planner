@@ -1,0 +1,53 @@
+{
+ "id": "05_long_haul_tokyo",
+ "title": "Tokyo 7 days, non-euro currency, long-haul",
+ "turns": [
+  {
+   "user": "Tokyo for a week, 2 adults, from Helsinki, 5-11 April 2027 (cherry blossom!). High budget, around 8000 euros. Anime, sushi, temples.",
+   "seconds": 14.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I see that “Tokyo” is returned as a province rather than a specific city. Would you like to focus the trip on the central area of Tokyo (the 23 special wards often referred to as Tokyo city), or is there a particular city or district within the Tokyo prefecture you’d prefer to base the itinerary on?"
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 8.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief summary**\n\n- **Destination:** Tokyo, Japan  \n- **Dates:** 5 April 2027 – 11 April 2027 (7 days)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget tier:** High (total budget ≈ 8 000 EUR)  \n- **Interests:** anime, sushi, temples  \n\nPlease confirm that the above details are correct or let me know any changes you’d like to make."
+    }
+   ]
+  },
+  {
+   "user": "How much is the flight and which airline?",
+   "seconds": 3.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m not able to look up exact flight prices or airline options until we’ve saved your trip brief and the planning team runs the transport research. If everything in the summary looks good, just confirm and I’ll lock in the details so the planners can retrieve up‑to‑date flight information for you. Let me know if you’d like to make any changes first!"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with the same details."
+ ],
+ "tool_calls": 3,
+ "agents": {
+  "concierge": {
+   "events": 9,
+   "tool_calls": 3,
+   "first": 6.139193200011505,
+   "last": 25.774720700006583
+  }
+ },
+ "seconds": 25.8,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

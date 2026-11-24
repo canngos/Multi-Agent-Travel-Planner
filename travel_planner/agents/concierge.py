@@ -20,7 +20,7 @@ from ..config import MODEL
 from ..models import TripBrief
 from ..tools import geocode_place, save_trip_brief
 from ..tools._result import ToolError
-from ..tools.trip import check_brief
+from ..tools.trip import ASSUMED_FOOD_PER_PERSON_DAY, ASSUMED_LOCAL_TRANSPORT_PER_PERSON_DAY, check_brief
 from .approval import GUIDE_WRITER, approve_plan, awaiting_block
 from .replan import request_replan, scoped_save
 from .retry import offer_retry_tool, retry_malformed_call
@@ -28,20 +28,33 @@ from .retry import offer_retry_tool, retry_malformed_call
 OTHER_AGENT_PREFIX = "For context:"  # how ADK presents another agent's events to the current agent
 
 ROLE = """You are the CONCIERGE of a trip-planning service. You talk with the user, collect the trip details,
-then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself."""
+then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself.
+LANGUAGE: answer in the same language as the user's latest message: English to English, Finnish to Finnish,
+German to German, and so on (a city name such as "Helsinki" says nothing about the language). Summaries and
+questions too; trip details in tool calls stay as they are. The trip guide itself is written in English.
+OFF-TOPIC: if a message is not about planning a trip, say in one or two sentences what you do (plan a trip from
+one city to another on exact dates: transport, stay, sights, food and a day-by-day guide) and invite them to
+tell you where and when they want to go.
+NEVER BOOK OR PAY: the service only plans and compares; it never books, reserves or pays for anything. If the user
+asks you to book or shares payment details, say so plainly."""
 
 COLLECT = """TRIP DETAILS TO COLLECT
 - destination: one city (required)
 - start_date and end_date (required). Resolve dates like "10-14 May" to ISO YYYY-MM-DD; if the user gives no year,
   use the next date in the future. Trips of 2-10 days work best (3, 5 or 7 are typical); "5 days" from 10 May
-  means 10-14 May.
+  means 10-14 May. A day trip (out and back the same day) is fine: start_date = end_date, and no stay is planned.
+  Never set own_accommodation just because there is no night. A numeric date that reads two ways (03/04/2027) is
+  ambiguous: ask once whether it is 3 April or 4 March, unless the user's own wording makes it clear.
 - origin: the departure city (default Helsinki; ask once, accept the default if the user does not care)
 - travellers: number of adults (default 2)
 - budget_tier: "low", "mid" or "high" (default "mid"); total_budget_eur for the whole group if the user has one
 - interests: e.g. history, street food, viewpoints, museums, nightlife (optional)
 
 HOW TO WORK
-1. Ask for the missing required details in ONE short message (do not ask one question at a time).
+1. Ask for the missing required details in ONE short message (do not ask one question at a time). Never ask for
+   a detail that has a default (origin aside, once): use the default and show it in the summary.
+   As soon as the required details are known, go on with steps 2-3 in the same turn: the summary itself is the
+   question the user confirms (never ask "shall I go ahead?" first; that costs the user an extra round).
 2. When destination, dates and origin are known, call geocode_place for the destination and for the origin.
    If a place is not found, ask the user to rephrase.
 3. Call save_trip_brief with all details, including origin_lat/origin_lon, destination_lat/destination_lon and
@@ -96,14 +109,19 @@ before planning starts:
   the interests are about food); "we don't want to fly" -> ["transport"]; "start the days at 8", "a slower pace" or
   "swap two days" -> [] (only the days are planned again).
 - change_note: the user's wish in one sentence for the planning team (e.g. "a hotel under 100 EUR a night").
+  A one-off wish about this plan ("a cheaper hotel", "skip Auschwitz") goes ONLY in change_note, never in
+  requirements: requirements are standing needs of the travellers (children, diet, accessibility, pets, rooms).
 - reason: one short sentence on why you chose this scope.
+Do not describe the new days yourself (times, order, departures): the planning team plans them and shows the
+result.
 Then call save_trip_brief with all the trip details, including every changed one (pace, day hours, budget,
 interests, avoid_modes, requirements), or the same details if none changed: saving starts the planning.
 If trip details change, first show the changed details and ask the user to confirm; when they confirm, call
 request_replan and then save_trip_brief in that turn (no second confirmation is needed then). If no trip detail
 changes, call request_replan and save_trip_brief right away.
 A new destination, new dates, another origin or another number of travellers is a new trip: do not call
-request_replan, just confirm and save the new brief (everything is researched again). If request_replan refuses,
+request_replan, just confirm and save the new brief (everything is researched again). A new trip keeps only the
+standing needs (diet, children, accessibility, pets), never wishes about the old trip's places or hotel. If request_replan refuses,
 read its reason and follow it."""
 
 AFTER = """AFTER A GUIDE EXISTS
@@ -167,7 +185,83 @@ def hide_pipeline_events(callback_context, llm_request):
     return None
 
 
+_CARD = re.compile(r"(?<!\d)(?:\d[ -]?){12,18}\d(?!\d)")
+CARD_REMOVED = "[card number removed]"
+CARD_NOTE = ("\n(Note from the system: the user's message contained a payment card number, which was removed. Tell "
+             "them in one sentence that this service never books or pays for anything, so they should never share "
+             "card details here.)")
+
+
+def _luhn(digits: str) -> bool:
+    total = 0
+    for i, ch in enumerate(reversed(digits)):
+        d = int(ch) * (2 if i % 2 else 1)
+        total += d - 9 if d > 9 else d
+    return total % 10 == 0
+
+
+def redact_cards(text: str) -> tuple[str, bool]:
+    """Payment card numbers (13-19 digits, spaces or dashes allowed, Luhn-valid) replaced by a marker."""
+    found = False
+
+    def repl(m: re.Match) -> str:
+        nonlocal found
+        digits = re.sub(r"\D", "", m.group(0))
+        if 13 <= len(digits) <= 19 and _luhn(digits):
+            found = True
+            return CARD_REMOVED
+        return m.group(0)
+
+    return _CARD.sub(repl, text or ""), found
+
+
+def redact_card_numbers(callback_context, llm_request):
+    """Before-model callback: a card number the user typed never reaches the model (a live tester wrote "book with
+    my card 4111 ..."; the number was silently kept in every later prompt), and the concierge is told to warn them.
+    The note is added only to the latest user turn, so it is said once."""
+    last_user = max((i for i, c in enumerate(llm_request.contents) if c.role == "user"), default=None)
+    for i, content in enumerate(llm_request.contents):
+        if content.role != "user":
+            continue
+        for part in content.parts or []:
+            if not part.text:
+                continue
+            part.text, found = redact_cards(part.text)
+            if found and i == last_user:
+                part.text += CARD_NOTE
+                if callback_context is not None and not callback_context.state.get(CARD_WARNED_KEY):
+                    callback_context.state[CARD_WARNED_KEY] = "due"
+    return None
+
+
+CARD_WARNED_KEY = "card_warning"  # "due" until the concierge's next reply carries the warning, then "given"
+CARD_WARNING = ("Please never share card details here: this service only plans and compares, it never books or pays "
+                "for anything, and I have removed the card number from our chat.")
+
+
+def warn_about_card(callback_context, llm_response):
+    """After-model callback: the first text reply after a card number carries a fixed warning. In the live test the
+    number was removed but the model said nothing about it. Edits the reply in place and returns None, so the other
+    after-model callbacks still run."""
+    if callback_context.state.get(CARD_WARNED_KEY) != "due":
+        return None
+    parts = (llm_response.content.parts if llm_response.content else None) or []
+    if any(p.function_call for p in parts):
+        return None
+    for part in parts:
+        if part.text and not part.thought:
+            part.text = CARD_WARNING + "\n\n" + part.text
+            callback_context.state[CARD_WARNED_KEY] = "given"
+            break
+    return None
+
+
 PENDING_KEY = "concierge_pending_brief"
+NO_STAY_WORDS = re.compile(r"\b(?:own (?:apartment|flat|home|house|place)|no (?:accommodation|hotel|stay|lodging)"
+                           r"|(?:stay|staying) (?:with|at) (?:friends|family|relatives|home)"
+                           r"|(?:don'?t|do not) need (?:a |any )?(?:hotel|accommodation|place to stay))", re.I)
+OWN_CAR_WORDS = re.compile(r"\b(?:(?:my|our|own) (?:car|vehicle)|by car|drive (?:there|ourselves|myself|down|up)"
+                           r"|driving (?:there|ourselves|myself)|road ?trip)", re.I)
 COORD_TOLERANCE_DEG = 0.05  # ~5 km: the same geocoding result copied twice, not another place with the same name
 
 
@@ -194,6 +288,36 @@ def _same_brief(a: dict | None, b: dict) -> bool:
 
 
 SAVED_KEY = "concierge_brief_saved_in"  # invocation in which save_trip_brief last returned "ok"
+
+
+def trip_length_sentence(brief: TripBrief) -> str:
+    """The trip's length as code counts it, for the summary (live summaries said "7-9 May (3 nights, 2 days)")."""
+    when = f"{brief.start_date:%d %b %Y}" if brief.day_trip else f"{brief.start_date:%d %b} - {brief.end_date:%d %b %Y}"
+    if brief.day_trip:
+        return f"In the summary write: {when}, a day trip (1 day, no night)."
+    return (f"In the summary write: {when}, {brief.days} days and {brief.nights} night"
+            f"{'s' if brief.nights != 1 else ''}.")
+
+
+GROUP_FLIGHT_MAX = 9
+
+
+def confirmation_warnings(brief: TripBrief) -> str:
+    """Facts the user should know before confirming: a budget below what food and local transport alone typically
+    cost (a live €200 trip for 2 people and 5 days was planned to €1,215 without a word), and a group too big to
+    book flights online."""
+    text = ""
+    floor = (ASSUMED_FOOD_PER_PERSON_DAY["low"] + ASSUMED_LOCAL_TRANSPORT_PER_PERSON_DAY["low"]) \
+        * brief.travellers * brief.days
+    if brief.total_budget_eur and brief.total_budget_eur < floor:
+        text += (f" The budget looks too small: food and local transport alone typically cost about €{floor:.0f} for "
+                 f"{brief.travellers} traveller(s) and {brief.days} day(s) on a low budget, before transport there and "
+                 "a stay. Say so in the summary and ask whether to plan anyway or raise the budget.")
+    if brief.travellers > GROUP_FLIGHT_MAX and not brief.own_car:
+        text += (f" A group of {brief.travellers}: flights for more than {GROUP_FLIGHT_MAX} people are booked through "
+                 "the airline's group desk, so flight prices will be estimates (per-person fare x group size). Say so "
+                 "in the summary.")
+    return text
 
 
 def require_confirmation(tool, args, tool_context):
@@ -231,10 +355,21 @@ def require_confirmation(tool, args, tool_context):
         tool_context.state[PENDING_KEY] = None
         return None
     tool_context.state[PENDING_KEY] = {"invocation_id": tool_context.invocation_id, "brief": shown}
+    brief = check_brief(args)
     reason = ("Not saved yet. Show the user a short summary of these details and ask them to confirm. "
-              "When they confirm in their next message, call save_trip_brief again with the same details.")
+              "When they confirm in their next message, call save_trip_brief again with exactly the same arguments. "
+              + trip_length_sentence(brief))
+    reason += confirmation_warnings(brief)
     if shown["avoid_modes"] or shown["requirements"]:
         reason += " Include the hard requirements (avoid_modes, requirements) in the summary."
+    if not shown["own_accommodation"] and any(NO_STAY_WORDS.search(r) for r in shown["requirements"]):
+        # a tester wrote "staying in own apartment (no accommodation needed)": it went into requirements, and the
+        # stay team still searched hotels and the guide still offered one
+        reason += (" A requirement says the travellers need no accommodation: if so, set own_accommodation true (and "
+                   "drop that requirement), so no stay is searched or planned.")
+    if not shown["own_car"] and any(OWN_CAR_WORDS.search(r) for r in shown["requirements"]):
+        reason += (" A requirement says the travellers drive their own car: if so, set own_car true (and drop that "
+                   "requirement), so no flights, trains or buses are searched or planned.")
     return {"status": "needs_confirmation", "reason": reason}
 
 
@@ -335,9 +470,9 @@ def build_concierge(planning_pipeline, guide_writer=None) -> LlmAgent:
         instruction=concierge_instruction,
         tools=tools,
         sub_agents=[planning_pipeline] + ([guide_writer] if guide_writer is not None else []),
-        before_model_callback=[hide_pipeline_events, offer_retry_tool],
+        before_model_callback=[hide_pipeline_events, redact_card_numbers, offer_retry_tool],
         # a tool call with invalid JSON gets another try; "Day N" dates in answers must match the trip
-        after_model_callback=[retry_malformed_call, fix_day_dates],
+        after_model_callback=[warn_about_card, retry_malformed_call, fix_day_dates],
         before_tool_callback=require_confirmation,
         after_tool_callback=note_saved_brief,
         generate_content_config=types.GenerateContentConfig(temperature=0.3),

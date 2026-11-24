@@ -1,0 +1,411 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://serpapi.com/search.json",
+  "params": {
+   "engine": "google_hotels",
+   "q": "Lisbon",
+   "check_in_date": "2027-05-10",
+   "check_out_date": "2027-05-14",
+   "adults": 2,
+   "sort_by": 3,
+   "rating": 8,
+   "hotel_class": "3,4,5",
+   "currency": "EUR",
+   "hl": "en",
+   "gl": "fi"
+  },
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795128722.1763427,
+ "response": {
+  "error": null,
+  "google_hotels_url": "https://www.google.com/travel/search?q=Lisbon&hl=en&gl=fi",
+  "properties": [
+   {
+    "type": "hotel",
+    "name": "Green View Home",
+    "gps_coordinates": {
+     "latitude": 38.738565,
+     "longitude": -9.1523872
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.1,
+    "reviews": 53,
+    "location_rating": 3.9,
+    "amenities": [
+     "Free Wi-Fi",
+     "Kitchen in some rooms",
+     "Smoke-free property"
+    ],
+    "total": 176,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Draft Hostel & Rooms",
+    "gps_coordinates": {
+     "latitude": 38.7107232,
+     "longitude": -9.137206599999999
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.2,
+    "reviews": 312,
+    "location_rating": 4.9,
+    "amenities": [
+     "Free Wi-Fi",
+     "Air conditioning"
+    ],
+    "total": 195,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Be Lisbon Hostel Intendente",
+    "gps_coordinates": {
+     "latitude": 38.721485799999996,
+     "longitude": -9.1348939
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.4,
+    "reviews": 405,
+    "location_rating": 4.3,
+    "amenities": [
+     "Free breakfast",
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Restaurant"
+    ],
+    "total": 241,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Alfama - Lisbon Lounge Suites (Alojamento Local)",
+    "gps_coordinates": {
+     "latitude": 38.713632000000004,
+     "longitude": -9.128602
+    },
+    "hotel_class": "4-star hotel",
+    "extracted_hotel_class": 4,
+    "overall_rating": 4.3,
+    "reviews": 412,
+    "location_rating": 4.8,
+    "amenities": [
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Kitchen in some rooms",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 279,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "My Charm Lisbon Suites",
+    "gps_coordinates": {
+     "latitude": 38.7309571,
+     "longitude": -9.1342926
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.2,
+    "reviews": 817,
+    "location_rating": 3.8,
+    "amenities": [
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 283,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Famous Crows Guest House",
+    "gps_coordinates": {
+     "latitude": 38.697438999999996,
+     "longitude": -9.202966499999999
+    },
+    "hotel_class": "4-star hotel",
+    "extracted_hotel_class": 4,
+    "overall_rating": 4.3,
+    "reviews": 317,
+    "location_rating": 4.7,
+    "amenities": [
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Restaurant",
+     "Kitchen",
+     "Airport shuttle",
+     "Kid-friendly"
+    ],
+    "total": 284,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Sant Jordi Hostels Lisbon",
+    "gps_coordinates": {
+     "latitude": 38.723839999999996,
+     "longitude": -9.132143
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.5,
+    "reviews": 1167,
+    "location_rating": 4.0,
+    "amenities": [
+     "Breakfast ($)",
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Bar",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 307,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Residencial Valentina",
+    "gps_coordinates": {
+     "latitude": 38.7113435,
+     "longitude": -9.153175
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.4,
+    "reviews": 197,
+    "location_rating": 4.7,
+    "amenities": [
+     "Free Wi-Fi",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 320,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "4U Lisbon VI Guesthouse",
+    "gps_coordinates": {
+     "latitude": 38.753751699999995,
+     "longitude": -9.1378494
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4,
+    "reviews": 365,
+    "location_rating": 3.1,
+    "amenities": [
+     "Breakfast",
+     "Free Wi-Fi",
+     "Parking",
+     "Air conditioning",
+     "Airport shuttle"
+    ],
+    "total": 320,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Pensão Praça da Figueira",
+    "gps_coordinates": {
+     "latitude": 38.714361,
+     "longitude": -9.137616
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.4,
+    "reviews": 811,
+    "location_rating": 4.8,
+    "amenities": [
+     "Free breakfast",
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Airport shuttle",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 323,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Lisboa - Oliveirinha",
+    "gps_coordinates": {
+     "latitude": 38.713336999999996,
+     "longitude": -9.1292711
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.6,
+    "reviews": 5,
+    "location_rating": 4.6,
+    "amenities": [
+     "Free Wi-Fi",
+     "Kitchen in some rooms",
+     "Kid-friendly"
+    ],
+    "total": 332,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "DuMont Lisbon Guesthouse",
+    "gps_coordinates": {
+     "latitude": 38.7213859,
+     "longitude": -9.131547
+    },
+    "hotel_class": "4-star hotel",
+    "extracted_hotel_class": 4,
+    "overall_rating": 4.5,
+    "reviews": 60,
+    "location_rating": 3.9,
+    "amenities": [
+     "Free Wi-Fi",
+     "Kitchen in some rooms",
+     "Smoke-free property"
+    ],
+    "total": 341,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "SK Lisboa Villa Guesthouse",
+    "gps_coordinates": {
+     "latitude": 38.7511362,
+     "longitude": -9.136292899999999
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.8,
+    "reviews": 114,
+    "location_rating": 3.1,
+    "amenities": [
+     "Free Wi-Fi",
+     "Free parking",
+     "Air conditioning"
+    ],
+    "total": 344,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "C&O Guest House Lisbon",
+    "gps_coordinates": {
+     "latitude": 38.7051563,
+     "longitude": -9.1772023
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.1,
+    "reviews": 63,
+    "location_rating": 3.8,
+    "amenities": [
+     "Free Wi-Fi",
+     "Kitchen in some rooms",
+     "Smoke-free property"
+    ],
+    "total": 344,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "República Bed & Breakfast",
+    "gps_coordinates": {
+     "latitude": 38.742165,
+     "longitude": -9.147259499999999
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.7,
+    "reviews": 248,
+    "location_rating": 3.9,
+    "amenities": [
+     "Breakfast",
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Kid-friendly"
+    ],
+    "total": 345,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Magnolia Guesthouse, Lisbon",
+    "gps_coordinates": {
+     "latitude": 38.7247877,
+     "longitude": -9.15474
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.7,
+    "reviews": 142,
+    "location_rating": 4.4,
+    "amenities": [
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Kid-friendly",
+     "Smoke-free property"
+    ],
+    "total": 352,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Dorma Saldanha",
+    "gps_coordinates": {
+     "latitude": 38.733387,
+     "longitude": -9.1431819
+    },
+    "hotel_class": "3-star hotel",
+    "extracted_hotel_class": 3,
+    "overall_rating": 4.5,
+    "reviews": 1060,
+    "location_rating": 4.3,
+    "amenities": [
+     "Breakfast ($)",
+     "Free Wi-Fi",
+     "Parking ($)",
+     "Air conditioning",
+     "Bar",
+     "Restaurant"
+    ],
+    "total": 360,
+    "before_taxes": null
+   },
+   {
+    "type": "hotel",
+    "name": "Castilho House",
+    "gps_coordinates": {
+     "latitude": 38.724196,
+     "longitude": -9.1530528
+    },
+    "hotel_class": "4-star hotel",
+    "extracted_hotel_class": 4,
+    "overall_rating": 4.3,
+    "reviews": 243,
+    "location_rating": 4.0,
+    "amenities": [
+     "Breakfast",
+     "Free Wi-Fi",
+     "Air conditioning",
+     "Kitchen in some rooms",
+     "Airport shuttle",
+     "Kid-friendly"
+    ],
+    "total": 371,
+    "before_taxes": null
+   }
+  ]
+ }
+}

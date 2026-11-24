@@ -1,0 +1,62 @@
+{
+ "request": {
+  "method": "GET",
+  "url": "https://api.opentripmap.com/0.1/en/places/xid/W186267353",
+  "params": {},
+  "json": null,
+  "data": null,
+  "response": "json"
+ },
+ "saved_at": 1795129204.0694556,
+ "response": {
+  "xid": "W186267353",
+  "name": "Forte do Bom Sucesso",
+  "address": {
+   "city": "Belém",
+   "road": "Avenida de Brasília",
+   "house": "Forte do Bom Sucesso",
+   "state": "Área Metropolitana de Lisboa",
+   "county": "Lisboa",
+   "suburb": "Belém",
+   "country": "Portugal",
+   "postcode": "1400-113",
+   "country_code": "pt",
+   "neighbourhood": "Pedrouços",
+   "state_district": "Grande Lisboa"
+  },
+  "rate": "3h",
+  "osm": "way/186267353",
+  "bbox": {
+   "lon_min": -9.218844,
+   "lon_max": -9.216971,
+   "lat_min": 38.691913,
+   "lat_max": 38.693337
+  },
+  "wikidata": "Q10284089",
+  "kinds": "fortifications,historic,cultural,museums,interesting_places,castles,other_museums",
+  "sources": {
+   "geometry": "osm",
+   "attributes": [
+    "osm",
+    "wikidata"
+   ]
+  },
+  "otm": "https://opentripmap.com/en/card/W186267353",
+  "wikipedia": "https://en.wikipedia.org/wiki/Fort%20of%20Bom%20Sucesso",
+  "image": "https://commons.wikimedia.org/wiki/File:Fte_b_sucesso_1.jpg",
+  "preview": {
+   "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Fte_b_sucesso_1.jpg/400px-Fte_b_sucesso_1.jpg",
+   "height": 311,
+   "width": 400
+  },
+  "wikipedia_extracts": {
+   "title": "en:Fort of Bom Sucesso",
+   "text": "The Fort of Bom Sucesso (Portuguese: Forte do Bom Sucesso) is located slightly to the west of the Belém Tower in Belém in the municipality of Lisbon, in Portugal. It now houses the Museu do Combatente (Combatant’s museum) and the Monument to Overseas Combatants.Construction of the fort, which follows a polygonal outline on the right bank of the River Tagus, was started in 1780 under the direction of General Guilherme de Vallerée. A residence for the governor of the fort was added soon after, within the perimeter. On the basis of an inscription over the main entrance, it appears that the fort was completed in 1802.",
+   "html": "<p>The <b>Fort of Bom Sucesso</b> (Portuguese: <i lang=\"pt\">Forte do Bom Sucesso</i>) is located slightly to the west of the Belém Tower in Belém in the municipality of Lisbon, in Portugal. It now houses the <i>Museu do Combatente</i> (Combatant’s museum) and the Monument to Overseas Combatants.</p><p>Construction of the fort, which follows a polygonal outline on the right bank of the River Tagus, was started in 1780 under the direction of General Guilherme de Vallerée. A residence for the governor of the fort was added soon after, within the perimeter. On the basis of an inscription over the main entrance, it appears that the fort was completed in 1802.</p>"
+  },
+  "point": {
+   "lon": -9.218406677246094,
+   "lat": 38.69261932373047
+  }
+ }
+}

@@ -1,0 +1,193 @@
+{
+ "id": "04_one_day_trip",
+ "title": "Same-day Tallinn trip (1 day)",
+ "turns": [
+  {
+   "user": "A day trip to Tallinn from Helsinki on 15 May 2027, two of us, back the same evening. Budget 150 euros. Old town and a nice lunch.",
+   "seconds": 23.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Tallinn, Estonia – 15 May 2027 (day trip, 1 day, return the same evening)  \nOrigin: Helsinki, Finland  \nTravelers: 2  \nBudget: 150 EUR total (low‑budget tier)  \nInterests: history (Old Town) and food (nice lunch)\n\nDoes everything look correct? Please confirm or let me know if you’d like to change any detail."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 473.5,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Tallinn (2027-05-15 to 2027-05-15)**\n\n- **Outbound:** Viking Line ferry 2027-05-15 10:13-13:23, 30 EUR\n- **Return:** Tallink Grupp AS ferry 2027-05-15 19:11-21:54, 78 EUR\n- **Stay:** none, a day trip (back the same evening)\n\n- **Day 1 (Sat 2027-05-15):** 13:23 Arrive in Tallinn · 14:15 Toompea Castle · 15:45 St. Nicholas Church · 17:00 Loca · 19:11 Depart from Tallinn\n\nEstimated total: 185 EUR (budget 150 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 32.8,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: tallinn-2027-05-15-to-2027-05-15.md (and tallinn-2027-05-15-to-2027-05-15.html, best opened in a browser), the calendar tallinn-2027-05-15-to-2027-05-15.ics, the map tallinn-2027-05-15-to-2027-05-15.geojson in the output folder.\nTransport: out Viking Line ferry 15 May 10:13; back Tallink Grupp AS ferry 15 May 19:11.\nEstimated total: €185, €35 over your €150 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "What time is the last ferry back?",
+   "seconds": 2.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The return‑trip ferry departs Tallinn at **19:11** and arrives back in Helsinki at **21:54**."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no actionable content (finish_reason=STOP with thought-only or whitespace-only parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 15 May 2027, a day trip (1 day, no night).",
+  "flight_searcher: search_google_flights -> error Google Flights returned its cookie-consent page (common from EU networks); call search_serpapi_flights now, with the same arguments. Give the user the search link instead."
+ ],
+ "tool_calls": 29,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 6.57436030000099,
+   "last": 532.1522832999908
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 26.160127800001646,
+   "last": 496.8145894999907
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 26.178756799999974,
+   "last": 26.178756799999974
+  },
+  "food_agent": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 27.531232799999998,
+   "last": 103.8486636000016
+  },
+  "culture_agent": {
+   "events": 14,
+   "tool_calls": 6,
+   "first": 29.27358579999418,
+   "last": 134.56260229999316
+  },
+  "flight_searcher": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 31.04863619999378,
+   "last": 81.96481989999302
+  },
+  "ground_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 32.442918799992185,
+   "last": 79.62249159999192
+  },
+  "transport_comparer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 184.61081129999366,
+   "last": 184.6135798000032
+  },
+  "itinerary_planner": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 187.05234409999684,
+   "last": 258.36905690000276
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 258.36931569999433,
+   "last": 258.36931569999433
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 258.36947320000036,
+   "last": 466.2082289999962
+  },
+  "itinerary_reviser": {
+   "events": 9,
+   "tool_calls": 0,
+   "first": 278.6480261999968,
+   "last": 496.8139622000017
+  },
+  "guide_writer": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 525.187397799993,
+   "last": 529.6471401000017
+  }
+ },
+ "seconds": 532.2,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Tallinn",
+  "start_date": "2027-05-15",
+  "end_date": "2027-05-15",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 150.0,
+  "interests": [
+   "history",
+   "food"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 59.43696,
+  "destination_lon": 24.75353,
+  "destination_country": "Estonia",
+  "nights": 0,
+  "days": 1
+ },
+ "plan_status": "approved",
+ "cost_total": 184.8,
+ "n_days": 1,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": null,
+   "issue": "over_budget",
+   "detail": "Total €184.8 is €34.8 over the €150 budget. Food and local transport are fixed typical costs, not options. The budget cannot be met: all cheaper options together save at most €7. Keep the plan and say so in notes."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 5633
+ }
+}

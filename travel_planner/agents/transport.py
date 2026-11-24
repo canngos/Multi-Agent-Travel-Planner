@@ -1,12 +1,16 @@
 """flight_searcher -> flight_options and ground_searcher -> ground_options."""
+import copy
 import json
+import re
 
 from google.genai import types
 
 from ..tools import geocode_place, plan_public_transport, search_google_flights, search_serpapi_flights, web_search
+from ..tools.airports import far_airport, far_airport_note
 from ..tools.geo import haversine_km
 from ..tools.mcp import kiwi_toolset, mcp_cache_after, mcp_cache_before
 from ._common import research_agent
+from .output import extract_json
 
 
 SNAP_KM = 50  # an endpoint this close to the brief's origin or destination is taken to mean that place
@@ -51,12 +55,15 @@ def skip_when_excluded(modes: set[str], output_key: str, what: str):
     """Before-agent callback factory: a searcher whose transport modes the travellers all refuse does not run.
     Its output says why, so the comparer knows the empty list is intended, not a failed search."""
     def callback(callback_context):
-        avoid = set((callback_context.state.get("trip_brief") or {}).get("avoid_modes") or [])
-        if not modes <= avoid:
+        brief = callback_context.state.get("trip_brief") or {}
+        avoid = set(brief.get("avoid_modes") or [])
+        # a car trip needs no flights; the ground searcher still runs, for a car ferry over the sea
+        own_car = bool(brief.get("own_car")) and modes == {"flight"}
+        if not (modes <= avoid or own_car):
             return None
+        why = "the travellers drive their own car" if own_car else f"the travellers do not want to travel by {what}"
         text = "```json\n" + json.dumps({"outbound": [], "return": [], "fallback_links": [],
-                                         "notes": f"Not searched: the travellers do not want to travel by {what}."}) \
-            + "\n```"
+                                         "notes": f"Not searched: {why}."}) + "\n```"
         callback_context.state[output_key] = text
         return types.Content(role="model", parts=[types.Part(text=text)])
 
@@ -117,6 +124,76 @@ GROUND_EXAMPLE = """{"outbound": [{"mode": "ferry", "operator": "Tallink", "depa
  "return": [], "fallback_links": [], "notes": "Return connection not found by Transitous; fares are web estimates."}"""
 
 
+def _rewrite(state, key: str, data: dict) -> None:
+    state[key] = "```json\n" + json.dumps(data, ensure_ascii=False, indent=1) + "\n```"
+
+
+def mark_far_airports(callback_context):
+    """After-agent callback of the flight searcher (before grounding): a flight whose destination-side airport is
+    far from the destination gets "FAR AIRPORT: ..." in its details, so the comparer ranks it down and the guide
+    shows it. A live Kyiv run planned "Arrive in Kyiv" for flights landing in Chișinău, 409 km away."""
+    state = callback_context.state
+    brief = state.get("trip_brief") or {}
+    try:
+        data = extract_json(state.get("flight_options") or "")
+    except ValueError:
+        return None
+    marked = 0
+    for leg in ("outbound", "return"):
+        for option in data.get(leg) or []:
+            found = far_airport(option, leg, brief.get("destination_lat"), brief.get("destination_lon"))
+            if found and "FAR AIRPORT" not in str(option.get("details")):
+                option["details"] = (str(option.get("details") or "") + "; "
+                                     + far_airport_note(found, leg, brief.get("destination", "the destination"))).strip("; ")
+                marked += 1
+    if marked:
+        _rewrite(state, "flight_options", data)
+    return None
+
+
+GROUP_MAX = 9  # Kiwi, Google Flights and SerpApi all refuse more passengers in one search
+FLIGHT_TOOLS = {"search-flight", "search_google_flights", "search_serpapi_flights"}
+GROUP_NOTE = ("price is the per-person fare x {n} travellers (an estimate): groups over 9 book through the airline's "
+              "group desk, and group fares may differ")
+
+
+def _group_size(tool_context) -> int:
+    return int((tool_context.state.get("trip_brief") or {}).get("travellers") or 1)
+
+
+async def flight_tool_before(tool, args, tool_context):
+    """Before-tool callback of the flight searcher: a group over GROUP_MAX is searched for one passenger (a live school
+    group of 14 broke every flight source and silently got a 28-hour bus), then the MCP cache."""
+    if getattr(tool, "name", "") in FLIGHT_TOOLS and _group_size(tool_context) > GROUP_MAX and "adults" in args:
+        args["adults"] = 1
+    return await mcp_cache_before(tool, args, tool_context)
+
+
+def scale_group_fares(response, n: int):
+    """The one-passenger results of a group search, priced for the whole group with a note."""
+    if not (isinstance(response, dict) and response.get("status") == "ok"):
+        return None
+    scaled = copy.deepcopy(response)
+    for option in scaled.get("results") or []:
+        if not isinstance(option, dict):
+            continue
+        if option.get("price_eur") is not None:
+            option["price_eur"] = round(float(option["price_eur"]) * n, 2)
+        details = re.sub(r";?\s*price is the total for 1 adults?(?:\(s\))?[^;]*", "", str(option.get("details") or ""))
+        option["details"] = (details + "; " + GROUP_NOTE.format(n=n)).strip("; ")
+    return scaled
+
+
+async def flight_tool_after(tool, args, tool_context, tool_response):
+    """After-tool callback of the flight searcher: the MCP normalising and cache, then group fares (see above)."""
+    response = await mcp_cache_after(tool, args, tool_context, tool_response)
+    n = _group_size(tool_context)
+    if getattr(tool, "name", "") not in FLIGHT_TOOLS or n <= GROUP_MAX or int(args.get("adults") or 0) != 1:
+        return response
+    scaled = scale_group_fares(response if response is not None else tool_response, n)
+    return scaled if scaled is not None else response
+
+
 def build_flight_searcher():
     return research_agent(
         name="flight_searcher",
@@ -126,9 +203,54 @@ def build_flight_searcher():
         output_key="flight_options",
         max_calls=6,
         before_agent_callback=skip_when_excluded({"flight"}, "flight_options", "plane"),
-        before_tool_callback=mcp_cache_before,
-        after_tool_callback=mcp_cache_after,
+        before_tool_callback=flight_tool_before,  # group passengers, then the MCP cache
+        after_tool_callback=flight_tool_after,
+        before_grounding=[mark_far_airports],
     )
+
+
+def routed_ferries(session) -> list[dict]:
+    """Ferry connections in this session's plan_public_transport results (the routing tool's own data)."""
+    found = []
+    for event in getattr(session, "events", None) or []:
+        for part in getattr(getattr(event, "content", None), "parts", None) or []:
+            fr = getattr(part, "function_response", None)
+            if fr is None or fr.name != "plan_public_transport" or not isinstance(fr.response, dict):
+                continue
+            found += [r for r in fr.response.get("results") or [] if isinstance(r, dict) and r.get("mode") == "ferry"]
+    return found
+
+
+def keep_car_ferry(callback_context):
+    """After-agent callback of the ground searcher (before grounding), for a trip in the travellers' own car: a road
+    route over the sea needs the car ferry. If the routing tool found a ferry but the agent reported none (a live
+    Helsinki-Tallinn run "drove" 100 km across the Gulf of Finland), the tool's ferry options are added, per
+    direction, with their source; the car fare stays unknown. Nothing changes for other trips."""
+    state = callback_context.state
+    brief = state.get("trip_brief") or {}
+    if not brief.get("own_car"):
+        return None
+    try:
+        data = extract_json(state.get("ground_options") or "")
+    except ValueError:
+        data = {"outbound": [], "return": [], "fallback_links": [], "notes": ""}
+    ferries = routed_ferries(callback_context.session)
+    added = 0
+    for leg, day in (("outbound", brief.get("start_date")), ("return", brief.get("end_date"))):
+        options = [o for o in data.get(leg) or [] if isinstance(o, dict)]
+        if any(o.get("mode") == "ferry" for o in options):
+            continue
+        same_day = [dict(f) for f in ferries if str(f.get("depart", ""))[:10] == day][:3]
+        for f in same_day:
+            f["details"] = (str(f.get("details") or "") + " | car ferry: the road route crosses the sea; car fare "
+                            "unknown, check with the operator").strip(" |")
+        data[leg] = same_day + options
+        added += len(same_day)
+    if added:
+        data["notes"] = (str(data.get("notes") or "") + f" Added {added} car ferry option(s) from the routing "
+                         "tool: the road route crosses the sea.").strip()
+        state["ground_options"] = "```json\n" + json.dumps(data, ensure_ascii=False, indent=1) + "\n```"
+    return None
 
 
 def build_ground_searcher():
@@ -141,4 +263,5 @@ def build_ground_searcher():
         max_calls=6,
         before_agent_callback=skip_when_excluded({"train", "bus", "ferry"}, "ground_options", "train, bus or ferry"),
         before_tool_callback=snap_transit_points,
+        before_grounding=[keep_car_ferry],  # an own-car trip over the sea keeps the routing tool's car ferry
     )

@@ -1,0 +1,233 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.88473,
+     52.36354
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "21:30",
+    "kind": "restaurant",
+    "name": "De Blauwe Hollander",
+    "url": "http://www.deblauwehollander.nl"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.893611,
+     52.363889
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Foam Fotografiemuseum Amsterdam",
+    "url": "https://www.openstreetmap.org/node/250624672"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.902357,
+     52.363586
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "Magere Brug",
+    "url": "https://en.wikivoyage.org/wiki/Amsterdam/Canal_District"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.885131,
+     52.359863
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Rijksmuseum",
+    "url": "https://www.rijksmuseum.nl/en/visit"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.89115,
+     52.36643
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "La Margarita",
+    "url": "https://en.wikivoyage.org/wiki/Amsterdam/Canal_District"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.886241,
+     52.367882
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Museum Het Grachtenhuis",
+    "url": "https://en.wikivoyage.org/wiki/Amsterdam/Canal_District"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.88404,
+     52.375147
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Anne Frank House",
+    "url": "http://www.annefrank.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.881171,
+     52.358218
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Van Gogh Museum",
+    "url": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.88332,
+     52.37249
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Damsteeg",
+    "url": "https://en.wikivoyage.org/wiki/Amsterdam/Canal_District"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.88318,
+     52.3705
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "21:00",
+    "kind": "restaurant",
+    "name": "Pancakes! Amsterdam",
+    "url": "http://www.pancakesamsterdam.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.900812,
+     52.384335
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 4,
+    "date": "2027-06-05",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Eye Filmmuseum",
+    "url": "https://en.wikipedia.org/wiki/EYE_Institut_Filmmuseum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.883282,
+     52.378022
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 4,
+    "date": "2027-06-05",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Kinnaree",
+    "url": "http://www.restaurantkinnaree.nl"
+   }
+  }
+ ]
+}

@@ -1,0 +1,324 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6233895,
+     41.14437600000001
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Happy Porto Hostel",
+    "url": "https://www.booking.com/searchresults.html?ss=Happy+Porto+Hostel%2C+Porto&checkin=2027-04-01&checkout=2027-04-21&group_adults=1&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6122,
+     41.1476
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-01",
+    "time": "21:30",
+    "kind": "restaurant",
+    "name": "MUU Steakhouse",
+    "url": "https://www.muusteakhouse.com"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.609644,
+     41.145493
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "São Bento Train Station",
+    "url": "https://porto.travel/porto-train-station-sao-bento"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615,
+     41.1408
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "O Comercial",
+    "url": "https://ocomercial.com"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615428,
+     41.141367
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Palácio da Bolsa",
+    "url": "https://palaciodabolsa.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6143,
+     41.1471
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Galeria de Paris Restaurante Bar",
+    "url": "https://www.facebook.com/restaurantegaleriadeparis"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.61574,
+     41.141016
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Church of São Francisco",
+    "url": "https://en.wikipedia.org/wiki/Church_of_S%C3%A3o_Francisco_(Porto)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.608071,
+     41.150226
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Padaria Cristo Rei",
+    "url": "https://www.cristorei.com.pt"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615303,
+     41.140109
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Museu do Vinho do Porto",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6009,
+     41.1474
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Euskalduna Studio",
+    "url": "http://www.euskaldunastudio.pt"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.614628,
+     41.145656
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 4,
+    "date": "2027-04-04",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Clérigos Tower",
+    "url": "https://www.torredosclerigos.pt/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6742,
+     41.15
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 4,
+    "date": "2027-04-04",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Casa Da Foz",
+    "url": "https://www.casadafoz.pt"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.65941,
+     41.15926
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 5,
+    "date": "2027-04-05",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Fundação de Serralves",
+    "url": "http://www.serralves.pt/en/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6581,
+     41.1483
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 5,
+    "date": "2027-04-05",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Varanda Da Barra",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.630783,
+     41.158852
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 6,
+    "date": "2027-04-06",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Casa da Música",
+    "url": "https://www.casadamusica.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6283,
+     41.1477
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 6,
+    "date": "2027-04-06",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Antiqvvm",
+    "url": "http://www.antiqvvm.pt/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.621753,
+     41.148479
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 7,
+    "date": "2027-04-07",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Museu Nacional Soares dos Reis",
+    "url": "https://www.openstreetmap.org/way/261265893"
+   }
+  }
+ ]
+}

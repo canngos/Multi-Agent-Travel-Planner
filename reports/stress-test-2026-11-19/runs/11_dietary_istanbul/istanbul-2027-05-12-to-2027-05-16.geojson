@@ -1,0 +1,229 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.961848300000003,
+     41.005164099999995
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Stylish Hotel",
+    "url": "https://www.booking.com/searchresults.html?ss=Stylish+Hotel%2C+Istanbul&checkin=2027-05-12&checkout=2027-05-16&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.976732,
+     41.005352
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-05-13",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Blue Mosque (Sultan Ahmed Mosque)",
+    "url": "https://en.wikipedia.org/wiki/Blue_Mosque,_Istanbul"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.979973,
+     41.008537
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-05-13",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Hagia Sophia",
+    "url": "https://en.wikipedia.org/wiki/Hagia_Sophia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.974915,
+     41.00628
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-05-13",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Turkish and Islamic Arts Museum",
+    "url": "https://en.wikipedia.org/wiki/Turkish_and_Islamic_Arts_Museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.968189,
+     41.01062
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Grand Bazaar",
+    "url": "https://en.wikipedia.org/wiki/Grand_Bazaar,_Istanbul"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.971624,
+     41.008542
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Çemberlitaş Hammam",
+    "url": "https://en.wikipedia.org/wiki/%C3%87emberlita%C5%9F_Hamam"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.9615,
+     41.00994444
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Bayezid II Hamam (Turkish Bath Culture Museum)",
+    "url": "https://en.wikipedia.org/wiki/Bayezid_II_Hamam"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.972396,
+     41.007415
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Theodosius Cistern",
+    "url": "https://en.wikipedia.org/wiki/Theodosius_Cistern"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.97055556,
+     41.01638889
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 4,
+    "date": "2027-05-15",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Spice Bazaar",
+    "url": "https://en.wikipedia.org/wiki/Spice_Bazaar"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.976683,
+     41.015199
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 4,
+    "date": "2027-05-15",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Istanbul Railway Museum",
+    "url": "https://en.wikipedia.org/wiki/Istanbul_Railway_Museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.972696,
+     41.013176
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 4,
+    "date": "2027-05-15",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Rüstem Pasha Medrese",
+    "url": "https://en.wikipedia.org/wiki/R%C3%BCstem_Pasha_Medrese"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.984,
+     41.013
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 5,
+    "date": "2027-05-16",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Topkapı Palace",
+    "url": "https://en.wikipedia.org/wiki/Topkap%C4%B1_Palace"
+   }
+  }
+ ]
+}

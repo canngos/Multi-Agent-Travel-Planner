@@ -13,12 +13,13 @@ MAX_TRACKED = 512  # recent agent runs; older ones are long finished
 _calls: OrderedDict[tuple, int] = OrderedDict()
 
 
-def limit_tool_calls(max_calls: int, only: tuple[str, ...] | None = None, slack: int = SLACK):
+def limit_tool_calls(max_calls: int, only: tuple[str, ...] | None = None, slack: int = SLACK, bonus=None):
     """Before-tool callback factory: refuses calls beyond max_calls + slack in one agent run (one review round).
 
     `only` counts just the named tools (e.g. the reviser's on-demand researcher), leaving the agent's other tools
-    alone; each limiter keeps its own count."""
-    limit = max_calls + slack
+    alone; each limiter keeps its own count. `bonus(trip_brief) -> int` adds calls for some trips (a long trip's
+    researchers read more pages)."""
+    base = max_calls + slack
     name = f"limit_tool_calls_{max_calls}" + (f"_{'_'.join(only)}" if only else "")
 
     def callback(tool, args, tool_context):
@@ -26,6 +27,7 @@ def limit_tool_calls(max_calls: int, only: tuple[str, ...] | None = None, slack:
         if tool_name == RETRY_TOOL or (only and tool_name not in only):  # the framework's retry is not a real call
             return None
         state = getattr(tool_context, "state", None) or {}
+        limit = base + (bonus(state.get("trip_brief") or {}) if bonus else 0)
         key = (name, tool_context.invocation_id, tool_context.agent_name, state.get("review_round"))
         _calls[key] = _calls.get(key, 0) + 1
         _calls.move_to_end(key)

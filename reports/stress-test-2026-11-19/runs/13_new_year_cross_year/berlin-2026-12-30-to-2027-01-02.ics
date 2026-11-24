@@ -1,0 +1,208 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-1@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261230T160000
+DTEND:20261230T170000
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 1. Flight with Eurowings\; see Getting there and back. http
+ s://kiwi.com/u/mjtnk7b7ub
+URL:https://kiwi.com/u/mjtnk7b7ub
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-2@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261230T173000
+DTEND:20261230T183000
+SUMMARY:Brandenburg Gate
+DESCRIPTION:Day 1. Iconic 18th‑century arch\, free to visit. https://www.
+ openstreetmap.org/way/518071791
+GEO:52.516300;13.377700
+URL:https://www.openstreetmap.org/way/518071791
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-3@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261230T183000
+DTEND:20261230T200000
+SUMMARY:Reichstag Dome
+DESCRIPTION:Day 1. Panoramic city view from the glass dome. https://www.ope
+ nstreetmap.org/node/2432753840
+GEO:52.518611;13.376111
+URL:https://www.openstreetmap.org/node/2432753840
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-4@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261230T203000
+DTEND:20261230T213000
+SUMMARY:Die Berliner Republik
+DESCRIPTION:Day 1. Mid‑range German cuisine\, try the pork knuckle. https
+ ://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.521336;13.385531
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-5@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T103000
+DTEND:20261231T120000
+SUMMARY:Humboldt Forum
+DESCRIPTION:Day 2. Museum of non‑European art\, ticket €14. https://www
+ .openstreetmap.org/node/8413352835
+GEO:52.517500;13.402778
+URL:https://www.openstreetmap.org/node/8413352835
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-6@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T121500
+DTEND:20261231T131500
+SUMMARY:Witty's Currywurst
+DESCRIPTION:Day 2. Low‑budget snack\, try the organic currywurst. https:/
+ /en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.520242;13.388122
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-7@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T133000
+DTEND:20261231T150000
+SUMMARY:DDR Museum
+DESCRIPTION:Day 2. Interactive exhibit on East German life\, ticket €13.5
+ . https://www.openstreetmap.org/way/175149971
+GEO:52.519422;13.402256
+URL:https://www.openstreetmap.org/way/175149971
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-8@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T154500
+DTEND:20261231T171500
+SUMMARY:Berlin Cathedral
+DESCRIPTION:Day 2. Historic Protestant cathedral\, free nave entry. https:/
+ /www.openstreetmap.org/way/313670734
+GEO:52.519167;13.401111
+URL:https://www.openstreetmap.org/way/313670734
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-9@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T193000
+DTEND:20261231T203000
+SUMMARY:Kopps
+DESCRIPTION:Day 2. Mid‑range vegan restaurant\, try the vegan schnitzel. 
+ https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.528810;13.397400
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-10@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20261231T213000
+DTEND:20261231T230000
+SUMMARY:Brandenburg Gate (NYE fireworks)
+DESCRIPTION:Day 2. Main gathering point for Berlin's New Year’s Eve firew
+ orks. https://www.openstreetmap.org/way/518071791
+GEO:52.516300;13.377700
+URL:https://www.openstreetmap.org/way/518071791
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-11@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270101T100000
+DTEND:20270101T113000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 3. History of Germany\, ticket €8. https://www.openstreet
+ map.org/node/3203167561
+GEO:52.517748;13.397023
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-12@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270101T121500
+DTEND:20270101T131500
+SUMMARY:Chi Sing Restaurant
+DESCRIPTION:Day 3. Mid‑range Chinese\, try the dumplings. https://en.wiki
+ voyage.org/wiki/Berlin/Mitte
+GEO:52.527680;13.403380
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-13@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270101T140000
+DTEND:20270101T150000
+SUMMARY:Afternoon coffee break
+DESCRIPTION:Day 3. Relax at a nearby café.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-14@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270101T183000
+DTEND:20270101T193000
+SUMMARY:Grill Royal
+DESCRIPTION:Day 3. High‑end grill\, great steaks\; reservation recommende
+ d. https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.522690;13.388760
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-15@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270101T223000
+DTEND:20270102T000000
+SUMMARY:Berghain
+DESCRIPTION:Day 3. Legendary techno club\, entry €25‑30\; open late on 
+ Friday.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-16@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270102T093000
+DTEND:20270102T110000
+SUMMARY:Fountain of the Peoples' Friendship
+DESCRIPTION:Day 4. Large concrete fountain on Alexanderplatz\, popular NYE 
+ spot. https://opentripmap.com/en/card/W52564405
+GEO:52.522034;13.412771
+URL:https://opentripmap.com/en/card/W52564405
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-17@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270102T113000
+DTEND:20270102T123000
+SUMMARY:Lucky Star
+DESCRIPTION:Day 4. Mid‑range Chinese hot‑pot\, €12.80 per person (min
+  2). https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.525513;13.387117
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-18@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270102T143000
+DTEND:20270102T160000
+SUMMARY:Museum der Stille
+DESCRIPTION:Day 4. Free contemporary art space\, open Saturday afternoon. h
+ ttps://www.openstreetmap.org/node/4261575774
+GEO:52.527566;13.393694
+URL:https://www.openstreetmap.org/node/4261575774
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-19@trip-planner
+DTSTAMP:20261119T205005Z
+DTSTART:20270102T193000
+DTEND:20270102T203000
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/43vkycqt9c
+URL:https://kiwi.com/u/43vkycqt9c
+END:VEVENT
+END:VCALENDAR

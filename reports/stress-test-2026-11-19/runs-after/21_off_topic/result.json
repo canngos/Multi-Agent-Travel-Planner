@@ -1,0 +1,41 @@
+{
+ "id": "21_off_topic",
+ "title": "Off-topic requests",
+ "turns": [
+  {
+   "user": "Write me a Python function that reverses a linked list.",
+   "seconds": 4.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m here to help you plan trips—transport, accommodation, sights, food, and day‑by‑day itineraries. If you’d like assistance with a travel itinerary, just let me know your destination, dates and any preferences!"
+    }
+   ]
+  },
+  {
+   "user": "What's the population of Brazil?",
+   "seconds": 1.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I specialize in planning trips (transport, stay, sights, food, day‑by‑day itineraries). If you’d like help designing a travel itinerary, just let me know the destination, dates and any preferences!"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 4.298142300001928,
+   "last": 5.455811300009373
+  }
+ },
+ "seconds": 5.5,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

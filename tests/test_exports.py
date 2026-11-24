@@ -63,3 +63,27 @@ def test_guide_writer_is_asked_to_export_after_saving():
     writer = build_guide_writer()
     assert {getattr(t, "__name__", "") for t in writer.tools} == {"save_guide", "export_calendar", "export_map_stops"}
     assert writer.instruction.index("save_guide(") < writer.instruction.index("export_calendar()")
+
+
+def test_exports_keep_their_text_in_state_for_the_web_ui(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "OUTPUT_DIR", tmp_path)
+    state = _state(fixed_plan())
+    export_calendar(_ctx(state))
+    export_map_stops(_ctx(state))
+    exports = state["guide_exports"]
+    assert exports["calendar"] == (tmp_path / "lisbon-2027-05-11-to-2027-05-13.ics").read_bytes().decode("utf-8")
+    assert json.loads(exports["map"])["type"] == "FeatureCollection"
+
+
+def test_finish_guide_writes_the_exports_the_guide_writer_skipped(tmp_path, monkeypatch):
+    from travel_planner.agents.guide_writer import finish_guide
+    monkeypatch.setattr(config, "OUTPUT_DIR", tmp_path)
+    state = {**_state(fixed_plan()), "final_guide": "# Lisbon", "guide_reply": "Saved."}
+    export_calendar(_ctx(state))  # the agent made the calendar but not the map
+    calendar = state["guide_exports"]["calendar"]
+    finish_guide(_ctx(state))
+    assert state["exports_by_code"] == ["map"] and state["guide_exports"]["calendar"] == calendar
+    assert (tmp_path / "lisbon-2027-05-11-to-2027-05-13.geojson").exists() and "map" in state["guide_paths"]
+    state = {**_state(fixed_plan()), "final_guide": None}
+    finish_guide(_ctx(state))
+    assert "guide_exports" not in state  # no guide saved: nothing to export
