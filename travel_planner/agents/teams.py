@@ -1,51 +1,47 @@
 """Workflow agents (no LLM) that run the research agents together.
 
 research_team (ParallelAgent)
-├─ transport_team (SequentialAgent): ParallelAgent[flight_searcher, ground_searcher] → transport_comparer
-├─ stay_team (SequentialAgent):      ParallelAgent[airbnb_searcher, hotel_searcher] → stay_comparer
+├─ transport_team (ParallelAgent): flight_searcher, ground_searcher  -> code writes transport_summary
+├─ stay_team (ParallelAgent):      airbnb_searcher, hotel_searcher   -> code writes stay_summary
 ├─ culture_agent
 └─ food_agent
 
-Every agent writes its own state key, and nothing in a parallel branch reads another branch's key
-(the comparers only read their own team's searchers, which have finished by then).
+Every agent writes its own state key, and nothing in a parallel branch reads another branch's key. When a team's
+searchers are done, its after-agent callback compares their options in code (summaries.py).
 
 On a re-plan, a branch the concierge's scope does not name is skipped and keeps its results (replan.skip_branch).
 """
-from google.adk.agents import ParallelAgent, SequentialAgent
+from google.adk.agents import ParallelAgent
 
-from .comparers import build_stay_comparer, build_transport_comparer
 from .culture import build_culture_agent
 from .food import build_food_agent
 from .replan import skip_branch
 from .stay import build_airbnb_searcher, build_hotel_searcher, skip_without_stay
+from .summaries import summarize_stay, summarize_transport
 from .transport import build_flight_searcher, build_ground_searcher
 
 RESEARCH_KEYS = ("flight_options", "ground_options", "transport_summary", "airbnb_options", "hotel_options",
                  "stay_summary", "culture_findings", "food_findings")
 
 
-def build_transport_team() -> SequentialAgent:
-    return SequentialAgent(
+def build_transport_team() -> ParallelAgent:
+    return ParallelAgent(
         name="transport_team",
-        description="Searches flights and ground transport in parallel, then compares them.",
+        description="Searches flights and ground transport in parallel; code then compares the options.",
+        sub_agents=[build_flight_searcher(), build_ground_searcher()],
         before_agent_callback=skip_branch("transport"),
-        sub_agents=[
-            ParallelAgent(name="transport_search", sub_agents=[build_flight_searcher(), build_ground_searcher()]),
-            build_transport_comparer(),
-        ],
+        after_agent_callback=summarize_transport,
     )
 
 
-def build_stay_team() -> SequentialAgent:
-    return SequentialAgent(
+def build_stay_team() -> ParallelAgent:
+    return ParallelAgent(
         name="stay_team",
-        description="Searches Airbnb and hotels in parallel, then compares them per neighbourhood.",
+        description="Searches Airbnb and hotels in parallel; code then compares the stays per neighbourhood.",
+        sub_agents=[build_airbnb_searcher(), build_hotel_searcher()],
         # no stay needed (a hard fact the user stated), or a re-plan that keeps the stay research
         before_agent_callback=[skip_without_stay, skip_branch("stay")],
-        sub_agents=[
-            ParallelAgent(name="stay_search", sub_agents=[build_airbnb_searcher(), build_hotel_searcher()]),
-            build_stay_comparer(),
-        ],
+        after_agent_callback=summarize_stay,
     )
 
 

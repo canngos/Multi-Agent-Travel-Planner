@@ -128,7 +128,7 @@ class CachedLiteLlm(LiteLlm):
             if not response.partial:
                 final.append(response.model_dump(mode="json", exclude_none=True))
                 if not any(r.get("error_code") for r in final):
-                    # write BEFORE yielding: after a transfer or exit_loop ADK may stop reading this generator,
+                    # write BEFORE yielding: after a transfer or an escalation ADK may stop reading this generator,
                     # and code after the loop would never run (the first recording lost the concierge's save turn)
                     _cache.write(NAMESPACE, key, final)
             yield response

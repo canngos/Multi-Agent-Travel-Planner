@@ -1,0 +1,81 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.74649,
+     59.43257
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "14:30",
+    "kind": "restaurant",
+    "name": "Loca",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.73743,
+     59.43561
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Toompea Castle",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.73931,
+     59.43572
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "16:15",
+    "kind": "sight",
+    "name": "Alexander Nevsky Cathedral",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.741266,
+     59.434701
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "16:45",
+    "kind": "sight",
+    "name": "Kiek in de Kök",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Amsterdam
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-1@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T094500
+DTEND:20270602T104500
+SUMMARY:Arrive in Amsterdam
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/f3jv934quh
+URL:https://kiwi.com/u/f3jv934quh
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-2@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T120000
+DTEND:20270602T131500
+SUMMARY:Rijksmuseum
+DESCRIPTION:Day 1. Explore Dutch masterpieces\; iconic works by Rembrandt a
+ nd Vermeer. https://www.rijksmuseum.nl/
+GEO:52.359863;4.885131
+URL:https://www.rijksmuseum.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-3@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T131500
+DTEND:20270602T134500
+SUMMARY:CTaste
+DESCRIPTION:Day 1. Dining in the dark with a surprise menu. http://www.ctas
+ te.nl
+GEO:52.354182;4.906317
+URL:http://www.ctaste.nl
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-4@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T134500
+DTEND:20270602T151500
+SUMMARY:Van Gogh Museum
+DESCRIPTION:Day 1. See the world’s largest Van Gogh collection. https://w
+ ww.vangoghmuseum.nl/
+GEO:52.358218;4.881171
+URL:https://www.vangoghmuseum.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-5@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T153000
+DTEND:20270602T170000
+SUMMARY:Stedelijk Museum Amsterdam
+DESCRIPTION:Day 1. Modern and contemporary art\, including works by Kandins
+ ky and Warhol. https://www.stedelijk.nl/
+GEO:52.357903;4.879842
+URL:https://www.stedelijk.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-6@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270602T193000
+DTEND:20270602T203000
+SUMMARY:Long Pura
+DESCRIPTION:Day 1. Indonesian rijsttafel\, mid‑budget dinner. http://www.
+ restaurant-longpura.com/
+GEO:52.373700;4.881100
+URL:http://www.restaurant-longpura.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-7@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270603T093000
+DTEND:20270603T110000
+SUMMARY:Anne Frank House
+DESCRIPTION:Day 2. Visit the historic hidden annex. https://www.annefrank.o
+ rg/
+GEO:52.375155;4.884094
+URL:https://www.annefrank.org/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-8@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270603T113000
+DTEND:20270603T123000
+SUMMARY:Royal Palace of Amsterdam
+DESCRIPTION:Day 2. Explore the lavish state rooms. https://www.paleisamster
+ dam.nl/
+GEO:52.373146;4.891336
+URL:https://www.paleisamsterdam.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-9@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270603T123000
+DTEND:20270603T133000
+SUMMARY:Frites Huys
+DESCRIPTION:Day 2. Classic Dutch fries with a selection of sauces. https://
+ www.openstreetmap.org/node/2385772433
+GEO:52.372556;4.891009
+URL:https://www.openstreetmap.org/node/2385772433
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-10@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270603T150000
+DTEND:20270603T163000
+SUMMARY:Eye Filmmuseum
+DESCRIPTION:Day 2. Explore cinema exhibitions and interactive film installa
+ tions. https://www.eyefilm.nl/
+GEO:52.384335;4.900812
+URL:https://www.eyefilm.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-11@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270603T190000
+DTEND:20270603T200000
+SUMMARY:Kinnaree
+DESCRIPTION:Day 2. Thai cuisine\; try the green curry. http://www.restauran
+ tkinnaree.nl
+GEO:52.378022;4.883282
+URL:http://www.restaurantkinnaree.nl
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-12@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270604T093000
+DTEND:20270604T110000
+SUMMARY:NEMO Science Museum
+DESCRIPTION:Day 3. Hands‑on science exhibits\; great for indoor cycling b
+ reak. https://www.nemosciencemuseum.nl
+GEO:52.373853;4.912111
+URL:https://www.nemosciencemuseum.nl
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-13@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270604T123000
+DTEND:20270604T133000
+SUMMARY:Burgermeester
+DESCRIPTION:Day 3. Low‑budget burger joint\, try the mini trio. http://ww
+ w.burgermeester.eu/
+GEO:52.369300;4.878800
+URL:http://www.burgermeester.eu/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-14@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270604T143000
+DTEND:20270604T160000
+SUMMARY:Canal Belt (Grachtengordel)
+DESCRIPTION:Day 3. Scenic canal walk\, perfect for a short cycling/ strolli
+ ng break. https://en.wikipedia.org/wiki/Canals_of_Amsterdam
+GEO:52.365000;4.887778
+URL:https://en.wikipedia.org/wiki/Canals_of_Amsterdam
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-15@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270604T163000
+DTEND:20270604T180000
+SUMMARY:Vondelpark
+DESCRIPTION:Day 3. Relax in the park\; ideal for a short bike ride. https:/
+ /eurolandmarks.com/attractions/netherlands/amsterdam/vondelpark
+GEO:52.366042;4.916861
+URL:https://eurolandmarks.com/attractions/netherlands/amsterdam/vondelpark
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-16@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270604T190000
+DTEND:20270604T200000
+SUMMARY:La Piazza
+DESCRIPTION:Day 3. Italian pizza\; open late for a relaxed dinner. https://
+ www.lapiazza.nl/
+GEO:52.372596;4.891576
+URL:https://www.lapiazza.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-17@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270605T123000
+DTEND:20270605T133000
+SUMMARY:Tjin's Gelderlandplein
+DESCRIPTION:Day 4. Surinamese take‑out\, good value\; try the spicy sandw
+ ich. https://tjinsgelderlandplein.nl/
+GEO:52.331409;4.875960
+URL:https://tjinsgelderlandplein.nl/
+END:VEVENT
+BEGIN:VEVENT
+UID:amsterdam-2027-06-02-to-2027-06-05-18@trip-planner
+DTSTAMP:20261125T121801Z
+DTSTART:20270605T192500
+DTEND:20270605T202500
+SUMMARY:Depart from Amsterdam
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/p8u628h5fc
+URL:https://kiwi.com/u/p8u628h5fc
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,238 @@
+{
+ "id": "05_long_haul_tokyo",
+ "title": "Tokyo 7 days, non-euro currency, long-haul",
+ "turns": [
+  {
+   "user": "Tokyo for a week, 2 adults, from Helsinki, 5-11 April 2027 (cherry blossom!). High budget, around 8000 euros. Anime, sushi, temples.",
+   "seconds": 12.9,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Tokyo, Japan  \n- **Dates:** 05 Apr – 11 Apr 2027 (7 days, 6 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** High – ≈ 8 000 EUR total  \n- **Interests:** anime, sushi, temples  \n\nPlease confirm that these details are correct (or let me know any changes)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 735.2,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Tokyo (2027-04-05 to 2027-04-11)**\n\n- **Outbound:** Finnair, China Eastern Airlines flight 2027-04-05 20:25-20:55 (+1 day, 18 h 30 min), 1108 EUR\n- **Return:** Peach Aviation, China Southern Airlines flight 2027-04-11 02:10-18:35, 997 EUR\n- **Stay:** APA Hotel & Resort Roppongi Ekihigashi (Roppongi 3), 702 EUR in total\n\n- **Day 1 (Mon 2027-04-05):** 20:25 Depart from Helsinki\n- **Day 2 (Tue 2027-04-06):** 20:55 Arrive in Tokyo\n- **Day 3 (Wed 2027-04-07):** 10:00 Mitsubishi Ichigokan Museum · 12:30 Tokyo Station Gallery · 13:30 Lunch near museum · 14:30 Kaminarimon · 18:30 Sushi Kanesaka\n- **Day 4 (Thu 2027-04-08):** 10:00 Meiji Shrine · 11:00 Metro Chiyoda Line to Suginami · 12:30 Lunch near Harajuku · 13:30 Suginami Animation Museum · 14:30 Harajuku Takeshita‑dōri · 17:00 Metro to Shinjuku · 18:30 Dinner near Shinjuku\n- **Day 5 (Fri 2027-04-09):** 10:00 National Museum of Modern Art, Tokyo (MOMAT) · 12:30 Lunch near museum · 13:30 teamLab Borderless · 15:30 Sensō‑ji · 18:30 Dinner near Odaiba\n- **Day 6 (Sat 2027-04-10):** 10:00 National Art Center Tokyo · 12:30 Lunch near Roppongi · 13:00 Metro to Tokyo Station · 14:30 Anime Tokyo Station (Anime Museum) · 18:00 Dinner near Roppongi\n- **Day 7 (Sun 2027-04-11):** 02:10 Depart from Tokyo\n\nEstimated total: 4160 EUR (budget 8000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 36.2,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: tokyo-2027-04-05-to-2027-04-11.md (and tokyo-2027-04-05-to-2027-04-11.html, best opened in a browser), the calendar tokyo-2027-04-05-to-2027-04-11.ics, the map tokyo-2027-04-05-to-2027-04-11.geojson in the output folder.\nTransport: out Finnair, China Eastern Airlines flight 5 Apr 20:25; back Peach Aviation, China Southern Airlines flight 11 Apr 02:10.\nStay: APA Hotel & Resort Roppongi Ekihigashi (€702 in total).\nEstimated total: €4160, within your €8000 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "How much is the flight and which airline?",
+   "seconds": 3.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Outbound flight**  \n- **Airlines:** Finnair / China Eastern Airlines (one‑stop connection)  \n- **Price (both travellers):** **€1 108**  \n\n**Return flight**  \n- **Airlines:** Peach Aviation / China Southern Airlines (one‑stop connection)  \n- **Price (both travellers):** **€997**"
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "guide_writer: MODEL_RETURNED_NO_CONTENT The model returned no content (finish_reason=STOP with empty parts)."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 05 Apr - 11 Apr 2027, 7 days and 6 nights.",
+  "ground_searcher: plan_public_transport -> error No public-transport connection found for this route and day"
+ ],
+ "tool_calls": 38,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 6.972288999997545,
+   "last": 787.5963121999957
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 15.772169799995027,
+   "last": 748.0272888000036
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 22.849655800004257,
+   "last": 149.3170664999925
+  },
+  "ground_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.40939509999589,
+   "last": 50.056878200004576
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 23.544366999994963,
+   "last": 118.75987690000329
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 25.42826810000406,
+   "last": 152.75944579999486
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 25.938623499998357,
+   "last": 129.47590049999417
+  },
+  "culture_agent": {
+   "events": 25,
+   "tool_calls": 12,
+   "first": 26.582454999996116,
+   "last": 216.97308889999113
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 129.4784065999993,
+   "last": 129.4784065999993
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 149.38119250000454,
+   "last": 149.38119250000454
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 217.01013709999097,
+   "last": 217.01013709999097
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 217.01032139999734,
+   "last": 726.7487655000004
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 388.83010799999465,
+   "last": 748.0267183999968
+  },
+  "guide_writer": {
+   "events": 6,
+   "tool_calls": 2,
+   "first": 783.2086257999908,
+   "last": 784.2778569999937
+  }
+ },
+ "seconds": 787.6,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Tokyo",
+  "start_date": "2027-04-05",
+  "end_date": "2027-04-11",
+  "travellers": 2,
+  "budget_tier": "high",
+  "total_budget_eur": 8000.0,
+  "interests": [
+   "anime",
+   "sushi",
+   "temples"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 35.67686,
+  "destination_lon": 139.76389,
+  "destination_country": "Japan",
+  "nights": 6,
+  "days": 7
+ },
+ "plan_status": "approved",
+ "cost_total": 4159.6,
+ "n_days": 7,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 09:30-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "long_walk",
+   "detail": "10.4 km straight-line between the day's stops: regroup or add a metro/tram note."
+  },
+  {
+   "day": 3,
+   "issue": "far_meal",
+   "detail": "'Sushi Kanesaka' is 2.8 km from the day's sights.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "long_walk",
+   "detail": "9.1 km straight-line between the day's stops: regroup or add a metro/tram note."
+  },
+  {
+   "day": 5,
+   "issue": "long_walk",
+   "detail": "10.9 km straight-line between the day's stops: regroup or add a metro/tram note."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10573
+ }
+}

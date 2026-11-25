@@ -29,7 +29,7 @@ export function RouteMap({ index, layout, run, now, selection, onSelect }: Props
   };
 
   return (
-    <svg className="route-map" viewBox={`0 0 ${layout.width} ${layout.height}`} role="img"
+    <svg className="route-map" style={{ maxWidth: layout.width }} viewBox={`0 0 ${layout.width} ${layout.height}`} role="img"
          aria-label="Map of the planning agents and their current state">
       {layout.groups.filter((g) => g.line.id === "main" || g.kind === "loop").map((g) => (
         <g key={g.name} className={`group group-${g.kind}`}>

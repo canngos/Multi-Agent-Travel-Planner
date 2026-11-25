@@ -1,0 +1,220 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Monaco
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-1@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T091000
+DTEND:20270521T101000
+SUMMARY:Arrive in Monaco
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoeEgoyMDI3L
+ TA1LTIxagcIARIDSEVMcgcIARIDTkNFQAFAAUgBcAGYAQI&tfu=EgIIAQ
+URL:https://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoe
+ EgoyMDI3LTA1LTIxagcIARIDSEVMcgcIARIDTkNFQAFAAUgBcAGYAQI&tfu=EgIIAQ
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-2@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T110000
+DTEND:20270521T123000
+SUMMARY:Prince's Palace of Monaco
+DESCRIPTION:Day 1. Guided tour of the historic palace and panoramic view of
+  the port. https://www.palais.mc/
+GEO:43.731337;7.420113
+URL:https://www.palais.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-3@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T123000
+DTEND:20270521T133000
+SUMMARY:Chez Roger
+DESCRIPTION:Day 1. Try the local Socca and Pissaladière\; perfect lunch sp
+ ot. https://en.wikivoyage.org/wiki/Monaco
+GEO:43.732433;7.420169
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-4@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T143000
+DTEND:20270521T160000
+SUMMARY:Monaco Top Cars Collection
+DESCRIPTION:Day 1. Explore vintage and Formula 1 cars in the Fontvieille 
+ district. https://www.mtcc.mc/
+GEO:43.735173;7.421568
+URL:https://www.mtcc.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-5@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T163000
+DTEND:20270521T180000
+SUMMARY:Musée des Timbres et des Monnaies
+DESCRIPTION:Day 1. Discover Monaco's postal and monetary history. https://w
+ ww.mtm-monaco.mc/
+GEO:43.730872;7.417584
+URL:https://www.mtm-monaco.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-6@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270521T193000
+DTEND:20270521T203000
+SUMMARY:Beefbar
+DESCRIPTION:Day 1. Upscale steak dinner with a fine wine list. http://beefb
+ ar.com/
+GEO:43.727810;7.421620
+URL:http://beefbar.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-7@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270522T113000
+DTEND:20270522T123000
+SUMMARY:Yacht Club de Monaco
+DESCRIPTION:Day 2. Visit the modern clubhouse\, bars and gallery. https://y
+ acht-club-monaco.mc/en/club-house/bars-restaurants
+GEO:43.737490;7.427920
+URL:https://yacht-club-monaco.mc/en/club-house/bars-restaurants
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-8@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270522T123000
+DTEND:20270522T133000
+SUMMARY:Le Grill
+DESCRIPTION:Day 2. Rooftop lunch with panoramic Monte‑Carlo views. https:
+ //www.montecarlosbm.com/en/restaurant-monaco/the-grill
+GEO:43.738540;7.427580
+URL:https://www.montecarlosbm.com/en/restaurant-monaco/the-grill
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-9@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270522T143000
+DTEND:20270522T153000
+SUMMARY:Monte Carlo Casino
+DESCRIPTION:Day 2. Explore the historic gaming rooms and Opéra de Monte‑
+ Carlo. https://en.wikipedia.org/wiki/Monte_Carlo_Casino
+GEO:43.739161;7.428023
+URL:https://en.wikipedia.org/wiki/Monte_Carlo_Casino
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-10@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270522T153000
+DTEND:20270522T170000
+SUMMARY:One Monte‑Carlo
+DESCRIPTION:Day 2. Luxury residential complex with upscale retail spaces. h
+ ttps://www.montecarlosbm.com/en/hotel-monaco/residences/one-monte-carlo
+GEO:43.739340;7.426200
+URL:https://www.montecarlosbm.com/en/hotel-monaco/residences/one-monte-carl
+ o
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-11@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270522T200000
+DTEND:20270522T210000
+SUMMARY:Louis XV – Alain Ducasse
+DESCRIPTION:Day 2. Three‑Michelin‑star dinner\, reservation required. h
+ ttps://www.montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-ducass
+ e-hotel-de-paris
+GEO:43.739110;7.427340
+URL:https://www.montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-du
+ casse-hotel-de-paris
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-12@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270523T100000
+DTEND:20270523T113000
+SUMMARY:Oceanographic Museum of Monaco
+DESCRIPTION:Day 3. Visit the marine exhibits and historic vessel. https://e
+ n.wikipedia.org/wiki/Musée_Océanographique
+GEO:43.730681;7.425522
+URL:https://en.wikipedia.org/wiki/Musée_Océanographique
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-13@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270523T130000
+DTEND:20270523T140000
+SUMMARY:Café de Paris
+DESCRIPTION:Day 3. Iconic Monte‑Carlo café for people‑watching\; lunch
+ . https://en.wikivoyage.org/wiki/Monaco
+GEO:43.739720;7.427690
+URL:https://en.wikivoyage.org/wiki/Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-14@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270523T143000
+DTEND:20270523T160000
+SUMMARY:Musée de la Chapelle de la Visitation
+DESCRIPTION:Day 3. Explore the baroque chapel‑turned‑art museum. https:
+ //www.monte-carlo.mc/en/tourism/musee-chapelle/
+GEO:43.731460;7.425417
+URL:https://www.monte-carlo.mc/en/tourism/musee-chapelle/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-15@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270523T193000
+DTEND:20270523T203000
+SUMMARY:L'Express
+DESCRIPTION:Day 3. Mid‑range dinner with local sampler plate. https://lex
+ press-restaurant-monaco.com/
+GEO:43.730786;7.422509
+URL:https://lexpress-restaurant-monaco.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-16@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270524T100000
+DTEND:20270524T113000
+SUMMARY:Japanese Garden
+DESCRIPTION:Day 4. Stroll through the tranquil garden and zen area. https:/
+ /en.wikipedia.org/wiki/Japanese_Garden\,_Monaco
+GEO:43.742393;7.430971
+URL:https://en.wikipedia.org/wiki/Japanese_Garden,_Monaco
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-17@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270524T120000
+DTEND:20270524T133000
+SUMMARY:Nouveau Musée National – Villa Sauber
+DESCRIPTION:Day 4. Contemporary art exhibition (combined ticket €6). http
+ s://www.nmnm.mc/
+GEO:43.744400;7.430500
+URL:https://www.nmnm.mc/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-18@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270524T133000
+DTEND:20270524T143000
+SUMMARY:Mickey’s Pizza
+DESCRIPTION:Day 4. Casual pizza lunch with high‑quality pies. https://www
+ .mickeyspizza-monaco.com/
+GEO:43.733480;7.418289
+URL:https://www.mickeyspizza-monaco.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:monaco-2027-05-21-to-2027-05-24-19@trip-planner
+DTSTAMP:20261125T122801Z
+DTSTART:20270524T205500
+DTEND:20270524T215500
+SUMMARY:Depart from Monaco
+DESCRIPTION:Day 4. Flight with Norwegian\; see Getting there and back. http
+ s://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoeEgoyMDI
+ 3LTA1LTI0agcIARIDTkNFcgcIARIDSEVMQAFAAUgBcAGYAQI&tfu=EgIIAQ
+URL:https://www.google.com/travel/flights?hl=en&gl=fi&curr=EUR&tfs=CBwQAhoe
+ EgoyMDI3LTA1LTI0agcIARIDTkNFcgcIARIDSEVMQAFAAUgBcAGYAQI&tfu=EgIIAQ
+END:VEVENT
+END:VCALENDAR

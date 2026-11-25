@@ -1,0 +1,33 @@
+{
+ "id": "22_ambiguous_city",
+ "title": "Ambiguous city name (Valencia / Springfield)",
+ "turns": [
+  {
+   "user": "4 days in Springfield, 2 adults, from Helsinki, 10-13 June 2027, mid budget 3000 euros.",
+   "seconds": 12.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Springfield, United States  \n- **Dates:** 10 Jun 2027 – 13 Jun 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total €3 000  \n- **Interests / special requirements:** none noted  \n\nPlease confirm that these details are correct (or let me know any changes)."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 10 Jun - 13 Jun 2027, 4 days and 3 nights."
+ ],
+ "tool_calls": 3,
+ "agents": {
+  "concierge": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 5.729176299995743,
+   "last": 12.77472649999254
+  }
+ },
+ "seconds": 12.8,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

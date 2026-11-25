@@ -1,0 +1,190 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-1@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270610T093800
+DTEND:20270610T103800
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-2@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T125400
+DTEND:20270611T132000
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 2. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-3@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T132000
+DTEND:20270611T142000
+SUMMARY:Witty's Currywurst
+DESCRIPTION:Day 2. Quick organic currywurst – a Berlin classic. https://e
+ n.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.520242;13.388122
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-4@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T143000
+DTEND:20270611T160000
+SUMMARY:Altes Museum
+DESCRIPTION:Day 2. Neoclassical museum on Museum Island. https://www.openst
+ reetmap.org/relation/3619
+GEO:52.519453;13.398785
+URL:https://www.openstreetmap.org/relation/3619
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-5@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T160000
+DTEND:20270611T170000
+SUMMARY:Neues Museum
+DESCRIPTION:Day 2. Egyptian and prehistoric collections\, home of the Nefer
+ titi bust. https://www.openstreetmap.org/way/18578139
+GEO:52.520170;13.397730
+URL:https://www.openstreetmap.org/way/18578139
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-6@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T170000
+DTEND:20270611T183000
+SUMMARY:Alte Nationalgalerie
+DESCRIPTION:Day 2. 19th‑century paintings and sculptures. https://www.ope
+ nstreetmap.org/way/313670733
+GEO:52.520871;13.398251
+URL:https://www.openstreetmap.org/way/313670733
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-7@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270611T200000
+DTEND:20270611T210000
+SUMMARY:Die Berliner Republik
+DESCRIPTION:Day 2. Traditional German dishes\, good for a relaxed dinner. h
+ ttps://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.521336;13.385531
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-8@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T100000
+DTEND:20270612T113000
+SUMMARY:Bode Museum
+DESCRIPTION:Day 3. Sculpture\, Byzantine art and numismatics on Museum Isla
+ nd. https://www.openstreetmap.org/relation/4211594
+GEO:52.521731;13.394951
+URL:https://www.openstreetmap.org/relation/4211594
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-9@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T130000
+DTEND:20270612T140000
+SUMMARY:Bombay
+DESCRIPTION:Day 3. Mid‑budget Indian restaurant for lunch. https://en.wik
+ ivoyage.org/wiki/Berlin/Mitte
+GEO:52.523150;13.388160
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-10@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T143000
+DTEND:20270612T160000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 3. German history from the Middle Ages to today. https://ww
+ w.openstreetmap.org/node/3203167561
+GEO:52.517748;13.397023
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-11@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T173000
+DTEND:20270612T190000
+SUMMARY:Humboldt Forum
+DESCRIPTION:Day 3. Modern museum inside the reconstructed Berlin Palace. ht
+ tps://www.openstreetmap.org/node/8413352835
+GEO:52.517032;13.401227
+URL:https://www.openstreetmap.org/node/8413352835
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-12@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T210000
+DTEND:20270612T220000
+SUMMARY:Kopps
+DESCRIPTION:Day 3. Mid‑budget vegan restaurant for dinner\, close to Berg
+ hain. https://en.wikivoyage.org/wiki/Berlin/Mitte
+GEO:52.528810;13.397400
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-13@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270612T233000
+DTEND:20270613T010000
+SUMMARY:Berghain
+DESCRIPTION:Day 3. World‑renowned techno club – Saturday night session.
+  https://www.technoairlines.com/blog/how-to-get-into-berghain
+GEO:52.511111;13.443056
+URL:https://www.technoairlines.com/blog/how-to-get-into-berghain
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-14@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270613T110000
+DTEND:20270613T123000
+SUMMARY:Jewish Museum Berlin
+DESCRIPTION:Day 4. Libeskind‑designed museum exploring two millennia of J
+ ewish history. https://www.openstreetmap.org/way/302942554
+GEO:52.501859;13.396038
+URL:https://www.openstreetmap.org/way/302942554
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-15@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270613T131500
+DTEND:20270613T141500
+SUMMARY:Curry Wolf am Brandenburger Tor
+DESCRIPTION:Day 4. Quick currywurst near the Brandenburg Gate. https://curr
+ y-wolf.de/de/currywurst-standorte/brandenburger-tor
+GEO:52.517550;13.383400
+URL:https://curry-wolf.de/de/currywurst-standorte/brandenburger-tor
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-16@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270613T193000
+DTEND:20270613T203000
+SUMMARY:Brasserie Desbrosses
+DESCRIPTION:Day 4. High‑budget French brasserie for dinner. https://en.wi
+ kivoyage.org/wiki/Berlin/Mitte
+GEO:52.510530;13.375100
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-06-10-to-2027-06-14-17@trip-planner
+DTSTAMP:20261125T121657Z
+DTSTART:20270614T093800
+DTEND:20270614T103800
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 5. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+END:VCALENDAR

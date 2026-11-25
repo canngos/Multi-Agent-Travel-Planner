@@ -93,32 +93,62 @@ def test_item_urls_collects_every_link_field():
     assert problems == ["'fallback_links' must be a list of strings"]
 
 
-# ---------------------------------------------------------------- comparers and teams
+# ---------------------------------------------------------------- teams and their summaries (code, no LLM)
 
 from google.adk.agents import LlmAgent, LoopAgent, ParallelAgent, SequentialAgent  # noqa: E402
 
-from travel_planner.agents.comparers import build_stay_comparer, build_transport_comparer  # noqa: E402
+from travel_planner.agents.summaries import (build_stay_summary, build_transport_summary,  # noqa: E402
+                                             summarize_stay, summarize_transport)
 from travel_planner.agents.teams import RESEARCH_KEYS, build_research_team  # noqa: E402
 
 FLIGHT = {"mode": "flight", "operator": "SAS", "depart": "2027-05-10T11:15", "arrive": "2027-05-10T16:10",
           "duration_min": 415, "stops": 1, "price_eur": 297.0, "price_source": "live", "source": "kiwi",
           "url": "https://kiwi.com/u/a", "details": ""}
+TRIP = {"destination": "Lisbon", "destination_lat": 38.72, "destination_lon": -9.14, "start_date": "2027-05-10",
+        "end_date": "2027-05-14", "travellers": 2, "budget_tier": "mid"}
 
 
-@pytest.mark.parametrize("factory, key, inputs", [
-    (build_transport_comparer, "transport_summary", ("flight_options", "ground_options")),
-    (build_stay_comparer, "stay_summary", ("airbnb_options", "hotel_options")),
-])
-async def test_comparers_read_only_their_team_and_render_without_inputs(factory, key, inputs):
-    agent = factory()
-    assert agent.output_key == key and not agent.tools and agent.include_contents == "none"
-    for name in inputs:
-        assert "{" + name + "?}" in agent.instruction  # optional: renders empty if a searcher wrote nothing
-    state = {"trip_brief": {"destination": "Lisbon"}}
-    ctx = SimpleNamespace(state=state, _invocation_context=SimpleNamespace(artifact_service=None,
-                                                                          session=SimpleNamespace(state=state)))
-    rendered = await inject_session_state(agent.instruction, ctx)
-    assert "?}" not in rendered
+def test_transport_summary_ranks_by_value_and_copies_options_unchanged():
+    slow_cheap = {**FLIGHT, "operator": "Ryanair", "depart": "2027-05-10T06:00", "arrive": "2027-05-10T21:30",
+                  "duration_min": 930, "stops": 2, "price_eur": 250.0}
+    fast = {**FLIGHT, "operator": "TAP", "depart": "2027-05-10T08:00", "arrive": "2027-05-10T11:30",
+            "duration_min": 330, "stops": 0, "price_eur": 320.0}
+    bus = {**FLIGHT, "mode": "bus", "operator": "FlixBus", "price_eur": None, "price_source": None}
+    summary = build_transport_summary({"outbound": [slow_cheap, fast, FLIGHT, dict(FLIGHT)]},
+                                      {"outbound": [bus], "notes": "No return found."}, TRIP)
+    out = summary["outbound"]
+    assert out["cheapest"] == slow_cheap and out["fastest"] == fast
+    assert out["ranked"][0] == fast and out["ranked"][-1] == bus  # value first; no price -> after the priced ones
+    assert len(out["ranked"]) == 4  # the duplicate SAS option is listed once
+    assert summary["recommended"]["outbound"] == fast and summary["recommended"]["return"] is None
+    assert summary["return"] == {"cheapest": None, "fastest": None, "ranked": []}
+    assert "Flights: no readable search result." in summary["notes"] and "No return found." in summary["notes"]
+
+
+def test_stay_summary_picks_per_area_and_compares_ratings_on_one_scale():
+    hostel = {**STAY, "name": "Lisbon Hostel", "total_price_eur": 90, "rating": 4.6}
+    lite = {**STAY, "name": "Lite Hotel", "total_price_eur": 150, "rating": 9.2, "source": "liteapi"}  # 4.6 of 5
+    poor = {**STAY, "name": "Cheap Poor", "total_price_eur": 120, "rating": 3.1}
+    flat = {**STAY, "kind": "airbnb", "name": "Flat", "area": "Alfama", "total_price_eur": 300, "rating": 4.9}
+    far = {**STAY, "kind": "airbnb", "name": "Far Villa", "area": "Sintra", "lat": 38.80, "lon": -9.38,
+           "total_price_eur": 100, "rating": 5.0}
+    summary = build_stay_summary({"results": [flat, far], "fallback_links": ["https://air.example"]},
+                                 {"results": [hostel, lite, poor, STAY]}, TRIP)
+    assert summary["cheapest"] == hostel and summary["top_rated"] == far
+    # not the hostel, not the far villa; of the central stays up to the median price, the best rated
+    assert summary["best_value"] == lite
+    assert [a["area"] for a in summary["by_area"]] == ["Baixa", "Alfama", "Sintra"]
+    assert summary["by_area"][1] == {"area": "Alfama", "airbnb": flat, "hotel": None, "min_price_per_night_eur": 50}
+    assert summary["fallback_links"] == ["https://air.example"]
+
+
+def test_team_callbacks_write_their_summaries():
+    state = {"trip_brief": TRIP, "flight_options": "```json\n" + __import__("json").dumps({"outbound": [FLIGHT]}) + "\n```",
+             "ground_options": "not JSON", "airbnb_options": None, "hotel_options": '{"results": []}'}
+    summarize_transport(SimpleNamespace(state=state))
+    summarize_stay(SimpleNamespace(state=state))
+    assert extract_json(state["transport_summary"])["outbound"]["ranked"] == [FLIGHT]
+    assert extract_json(state["stay_summary"])["cheapest"] is None
 
 
 def _walk(agent):
@@ -131,29 +161,14 @@ def test_research_team_structure():
     team = build_research_team()
     assert isinstance(team, ParallelAgent)
     assert [a.name for a in team.sub_agents] == ["transport_team", "stay_team", "culture_agent", "food_agent"]
-    transport = team.sub_agents[0]
-    assert isinstance(transport, SequentialAgent)
-    assert isinstance(transport.sub_agents[0], ParallelAgent)
-    assert [a.name for a in transport.sub_agents[0].sub_agents] == ["flight_searcher", "ground_searcher"]
-    assert transport.sub_agents[1].name == "transport_comparer"
+    transport, stay = team.sub_agents[:2]
+    assert isinstance(transport, ParallelAgent) and isinstance(stay, ParallelAgent)
+    assert [a.name for a in transport.sub_agents] == ["flight_searcher", "ground_searcher"]
+    assert [a.name for a in stay.sub_agents] == ["airbnb_searcher", "hotel_searcher"]
+    assert transport.after_agent_callback is summarize_transport and stay.after_agent_callback is summarize_stay
     keys = [a.output_key for a in _walk(team) if isinstance(a, LlmAgent)]
-    assert sorted(keys) == sorted(RESEARCH_KEYS) and len(set(keys)) == len(keys) == 8
-
-
-def test_check_output_nested_comparer_shapes():
-    good = {"outbound": {"cheapest": FLIGHT, "fastest": FLIGHT, "ranked": [FLIGHT]},
-            "return": {"cheapest": None, "fastest": None, "ranked": []},
-            "recommendation": "x", "total_cheapest_eur": None, "notes": "n"}
-    data, problems = check_output("transport_summary", __import__("json").dumps(good))
-    assert problems == [] and item_urls(data) == ["https://kiwi.com/u/a"]
-    bad = {**good, "return": {"cheapest": {**FLIGHT, "duration_min": -1}, "ranked": "x"}}
-    _, problems = check_output("transport_summary", __import__("json").dumps(bad))
-    assert "return.cheapest: duration_min: Input should be greater than or equal to 0" in problems
-    assert "'return.fastest' is missing" in problems and "'return.ranked' is missing or not a list" in problems
-    stay = {"by_area": [{"area": "Baixa", "airbnb": None, "hotel": {**STAY, "lat": 200}}],
-            "cheapest": STAY, "best_value": STAY, "top_rated": None, "recommendation": "", "fallback_links": [], "notes": ""}
-    _, problems = check_output("stay_summary", __import__("json").dumps(stay))
-    assert problems == ["by_area[0].hotel: lat: Input should be less than or equal to 90"]
+    summaries = {"transport_summary", "stay_summary"}  # written by code
+    assert sorted(keys) == sorted(set(RESEARCH_KEYS) - summaries) and len(set(keys)) == len(keys) == 6
 
 
 # ---------------------------------------------------------------- Phase 7: pipeline, planner, writer, concierge
@@ -163,8 +178,8 @@ from google.genai import types  # noqa: E402
 from travel_planner import agent as entry  # noqa: E402
 from travel_planner.agents import concierge as concierge_mod  # noqa: E402
 from travel_planner.agents.guide_writer import build_guide_writer, save_reply_if_not_saved  # noqa: E402
+from travel_planner.agents import itinerary_writer  # noqa: E402
 from travel_planner.agents.pipeline import build_root_agent  # noqa: E402
-from travel_planner.agents.planner import build_itinerary_planner  # noqa: E402
 
 
 def _ctx(state):
@@ -178,17 +193,15 @@ def test_root_agent_tree():
     assert {t.__name__ for t in root.tools} == {"geocode_place", "save_trip_brief", "request_replan", "approve_plan"}
     pipeline, writer = root.sub_agents
     assert isinstance(pipeline, SequentialAgent) and pipeline.name == "planning_pipeline"
-    assert [a.name for a in pipeline.sub_agents] == ["research_team", "itinerary_planner", "review_loop"]
+    assert [a.name for a in pipeline.sub_agents] == ["research_team", "review_loop"]
     assert writer.name == "guide_writer" and writer.disallow_transfer_to_parent and writer.disallow_transfer_to_peers
-    loop = pipeline.sub_agents[2]
-    assert isinstance(loop, LoopAgent) and loop.max_iterations == 3
-    assert [a.name for a in loop.sub_agents] == ["plan_critic", "itinerary_reviser"]
+    loop = pipeline.sub_agents[1]
+    assert isinstance(loop, LoopAgent) and loop.max_iterations == 4
+    assert [a.name for a in loop.sub_agents] == ["itinerary_writer", "plan_critic"]
     llm = [a for a in _walk(root) if isinstance(a, LlmAgent)]
-    assert len(llm) == 13
+    assert len(llm) == 10  # + extra_sights_researcher, which the itinerary writer calls as a tool
     keys = [a.output_key for a in llm if a.output_key]
-    # the reviser rewrites the planner's "itinerary" in place (that is the loop's job); every other key is unique
-    assert keys.count("itinerary") == 2 and len(keys) - 1 == len(set(keys))
-    assert {"itinerary", "critique", "guide_reply"} <= set(keys)
+    assert len(keys) == len(set(keys)) and {"itinerary", "critique", "guide_reply"} <= set(keys)
 
 
 def test_demo_runs_the_same_tree_as_a_live_run(monkeypatch):
@@ -202,20 +215,44 @@ def test_demo_runs_the_same_tree_as_a_live_run(monkeypatch):
     assert prompts(demo) == prompts(live)  # no demo-only prompt text: the demo shows the system as it is
 
 
-@pytest.mark.parametrize("factory, tools, reads", [
-    (build_itinerary_planner, {"get_forecast", "cluster_by_distance", "calculate_trip_cost"},
-     ("transport_summary", "stay_summary", "culture_findings", "food_findings")),
+RESEARCH_READS = ("transport_summary", "stay_summary", "culture_findings", "food_findings")
+
+
+@pytest.mark.parametrize("factory, tools, template, reads", [
+    (itinerary_writer.build_itinerary_writer,
+     {"get_forecast", "cluster_by_distance", "calculate_trip_cost", "extra_sights_researcher"},
+     itinerary_writer.DRAFT, RESEARCH_READS),
+    (itinerary_writer.build_itinerary_writer,
+     {"get_forecast", "cluster_by_distance", "calculate_trip_cost", "extra_sights_researcher"},
+     itinerary_writer.REVISION, RESEARCH_READS + ("itinerary", "critique", "itinerary_check")),
     (build_guide_writer, {"save_guide", "export_calendar", "export_map_stops"},
-     ("itinerary", "transport_summary", "stay_summary", "culture_findings", "food_findings")),
+     None, ("itinerary",) + RESEARCH_READS),
 ])
-async def test_planner_and_writer_read_state(factory, tools, reads):
+async def test_itinerary_and_guide_writers_read_state(factory, tools, template, reads):
     agent = factory()
-    assert {t.__name__ for t in agent.tools} == tools and agent.include_contents == "none"
+    template = template or agent.instruction
+    names = {n for t in agent.tools for n in ([x.name for task in t.by_task.values() for x in task]
+                                            if hasattr(t, "by_task") else [t.__name__])}
+    assert names == tools and agent.include_contents == "none"
     for key in reads:
-        assert "{" + key + "?}" in agent.instruction
+        assert "{" + key + "?}" in template
     state = {"trip_brief": {"destination": "Lisbon"}, "culture_findings": '{"results": ["Belém Tower"]}'}
-    rendered = await inject_session_state(agent.instruction, _ctx(state))
+    rendered = await inject_session_state(template, _ctx(state))
     assert "Belém Tower" in rendered and "?}" not in rendered and "{trip_brief}" not in rendered
+
+
+async def test_the_itinerary_writer_drafts_first_and_revises_after_a_review():
+    plan = '```json\n{"days": [{"day": 1}]}\n```'
+    draft = await itinerary_writer.writer_instruction(_ctx({"trip_brief": {}, "itinerary": None}))
+    revision = await itinerary_writer.writer_instruction(_ctx({"trip_brief": {}, "itinerary": plan,
+                                                               "critique": "MUST FIX: ..."}))
+    assert "TASK: write the first plan." in draft and "HOW TO FIX" not in draft
+    assert "HOW TO FIX" in revision and "CRITIQUE: MUST FIX: ..." in revision
+    (tools,) = itinerary_writer.build_itinerary_writer().tools
+    drafting = [t.name for t in await tools.get_tools(_ctx({"itinerary": None}))]
+    revising = [t.name for t in await tools.get_tools(_ctx({"itinerary": plan, "critique": "MUST FIX: ..."}))]
+    assert drafting == ["get_forecast", "cluster_by_distance", "calculate_trip_cost"]  # no on-demand research yet
+    assert revising == ["extra_sights_researcher"]
 
 
 def test_check_output_itinerary():

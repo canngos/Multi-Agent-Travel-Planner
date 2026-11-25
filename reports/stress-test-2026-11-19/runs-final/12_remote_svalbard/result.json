@@ -1,0 +1,248 @@
+{
+ "id": "12_remote_svalbard",
+ "title": "Longyearbyen in January (polar night, sparse data)",
+ "turns": [
+  {
+   "user": "4 days in Longyearbyen, Svalbard, 14-17 January 2027, from Helsinki, two adults, high budget 5000 euros. Northern lights, husky sledding.",
+   "seconds": 14.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Longyearbyen, Norway  \n- **Dates:** 14 Jan – 17 Jan 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** High / €5 000 total  \n- **Interests:** Northern lights, husky sledding  \n\nPlease confirm that all details are correct. If you’d like any changes, let me know; otherwise I’ll save the brief and start the planning."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 671.9,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Longyearbyen (2027-01-14 to 2027-01-17)**\n\n- **Outbound:** SAS flight 2027-01-14 22:10-11:30 (+1 day, 14 h 20 min), 342 EUR\n- **Return:** SAS, Ethiopian Airlines, Norwegian Air Sweden flight 2027-01-17 14:40-23:40, 281 EUR\n- **Stay:** Svalbard Hotell | Polfareren (Elvsletta Nord), 486 EUR in total\n\n- **Day 1 (Thu 2027-01-14):** 22:10 Depart from Helsinki\n- **Day 2 (Fri 2027-01-15):** 11:30 Arrive in Longyearbyen · 12:15 Barentz Pub & Spiseri · 13:30 Svalbard Church · 14:30 24‑Hour Sundial · 15:30 Arctic Husky Travellers – Husky Sledding Tour · 18:00 Gruve 1A (Amerikagruva) Mine · 20:00 Stationen · 22:30 Aurora Borealis Viewing (Longyearbyen)\n- **Day 3 (Sat 2027-01-16):** 10:30 Svalbard Museum · 12:30 North Pole Expedition Museum · 13:30 Mix kiosk · 15:00 Reindeer and Wildlife · 19:00 Restaurant Nansen\n- **Day 4 (Sun 2027-01-17):** 09:30 University Cafeteria · 14:40 Depart from Longyearbyen\n\nEstimated total: 1787 EUR (budget 5000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 61.0,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: longyearbyen-2027-01-14-to-2027-01-17.md (and longyearbyen-2027-01-14-to-2027-01-17.html, best opened in a browser), the calendar longyearbyen-2027-01-14-to-2027-01-17.ics, the map longyearbyen-2027-01-14-to-2027-01-17.geojson in the output folder.\nTransport: out SAS flight 14 Jan 22:10; back SAS, Ethiopian Airlines, Norwegian Air Sweden flight 17 Jan 14:40.\nStay: Svalbard Hotell | Polfareren (€486 in total).\nEstimated total: €1787, within your €5000 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 14 Jan - 17 Jan 2027, 4 days and 3 nights.",
+  "ground_searcher: plan_public_transport -> error No public-transport connection found for this route and day"
+ ],
+ "tool_calls": 36,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 6.62505489999603,
+   "last": 687.5676814000035
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 16.743042599991895,
+   "last": 686.6130124999909
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 19.82491709999158,
+   "last": 155.33366309999838
+  },
+  "culture_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 20.091457200003788,
+   "last": 149.5907065999927
+  },
+  "ground_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.616347399991355,
+   "last": 39.99902210000437
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.83146639999177,
+   "last": 102.6783340999973
+  },
+  "airbnb_searcher": {
+   "events": 3,
+   "tool_calls": 1,
+   "first": 21.321265899998252,
+   "last": 78.22424379999575
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 21.932737900002394,
+   "last": 63.7169167999964
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 78.2267756999936,
+   "last": 78.2267756999936
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 102.74011440000322,
+   "last": 102.74011440000322
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 155.33957589999773,
+   "last": 155.33957589999773
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 155.33976800000528,
+   "last": 667.8666105000011
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 323.0550260000018,
+   "last": 686.6125313999946
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 741.9745604999916,
+   "last": 747.6474326000025
+  }
+ },
+ "seconds": 747.7,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Longyearbyen",
+  "start_date": "2027-01-14",
+  "end_date": "2027-01-17",
+  "travellers": 2,
+  "budget_tier": "high",
+  "total_budget_eur": 5000.0,
+  "interests": [
+   "northern lights",
+   "husky sledding"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 78.22316,
+  "destination_lon": 15.64637,
+  "destination_country": "Norway",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1787.0,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Kroa",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Fruene AS",
+     "kind": "restaurant",
+     "km": 0.3,
+     "hours": "Mon–Fri 10:00–18:00, Sat 10:00–17:00, Sun 11:00–17:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Funktionærmessen Restaurant",
+     "kind": "restaurant",
+     "km": 0.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Kroa",
+     "kind": "restaurant",
+     "km": 0.1,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Fruene AS",
+     "kind": "restaurant",
+     "km": 0.3,
+     "hours": "Mon–Fri 10:00–18:00, Sat 10:00–17:00, Sun 11:00–17:00",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Funktionærmessen Restaurant",
+     "kind": "restaurant",
+     "km": 0.6,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 8872
+ }
+}

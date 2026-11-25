@@ -1,0 +1,286 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.4309187,
+     52.4986075
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "36Rooms",
+    "url": "https://www.booking.com/searchresults.html?ss=36Rooms%2C+Berlin&checkin=2027-04-20&checkout=2027-04-23&group_adults=14&no_rooms=7"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.397023,
+     52.517748
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "German Historical Museum",
+    "url": "https://en.wikipedia.org/wiki/German_Historical_Museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.394858,
+     52.515764
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "12:15",
+    "kind": "sight",
+    "name": "St. Hedwig's Cathedral",
+    "url": "https://en.wikipedia.org/wiki/St._Hedwig%27s_Cathedral"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3866,
+     52.518
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Ishin Japanese Deli",
+    "url": "http://www.ishin.de/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.395556,
+     52.5175
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Neue Wache",
+    "url": "https://opentripmap.com/en/card/W24240381"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.38972222,
+     52.535
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Berlin Wall Memorial",
+    "url": "https://www.walkofberlin.com/post/berlin-wall-memorial-bernauer-strasse"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3871174,
+     52.5255132
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-04-20",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Lucky Star",
+    "url": "http://www.restaurant-luckystar.de"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.389435,
+     52.507899
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-04-21",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "East Side Gallery",
+    "url": "https://www.ticketlens.com/en/p268072866/berlin/east-side-gallery"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.378889,
+     52.513889
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-04-21",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Memorial to the Murdered Jews of Europe",
+    "url": "http://www.stiftung-denkmal.de/en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3834,
+     52.51755
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-04-21",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Curry Wolf am Brandenburger Tor",
+    "url": "https://curry-wolf.de/de/currywurst-standorte/brandenburger-tor"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.377722,
+     52.516272
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-04-21",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Brandenburg Gate",
+    "url": "http://www.visitberlin.de/de/ort/brandenburger-tor"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.38817,
+     52.52645
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-04-21",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Dada Falafel",
+    "url": "https://en.wikivoyage.org/wiki/Berlin/Mitte"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.402256,
+     52.519422
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "DDR Museum",
+    "url": "https://www.openstreetmap.org/way/175149971"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.388122,
+     52.520242
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "Witty's Currywurst",
+    "url": "http://wittys-berlin.de/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.38816,
+     52.52315
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-04-22",
+    "time": "15:00",
+    "kind": "restaurant",
+    "name": "Bombay",
+    "url": "http://www.bombay-berlin.de/"
+   }
+  }
+ ]
+}

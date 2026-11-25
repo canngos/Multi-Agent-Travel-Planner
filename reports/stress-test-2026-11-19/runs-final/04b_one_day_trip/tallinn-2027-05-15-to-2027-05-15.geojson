@@ -1,0 +1,81 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.73743,
+     59.43561
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Toompea Castle",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.73931,
+     59.43572
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "Alexander Nevsky Cathedral",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.74285,
+     59.4372
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "16:30",
+    "kind": "restaurant",
+    "name": "Aed",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.754236,
+     59.439812
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-15",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Scotland Yard",
+    "url": "https://en.wikivoyage.org/wiki/Tallinn"
+   }
+  }
+ ]
+}

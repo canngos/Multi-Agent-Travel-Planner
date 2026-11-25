@@ -1,0 +1,101 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+tool local_dishes failed: Wikivoyage: Wikivoyage has no page 'Republic of Türkiye': The page you specified doesn't exist.
+[2026-11-25T12:12:47.539Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T12:12:47.542Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T12:12:47.542Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T12:12:47.549Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Istanbul, Republic of Türkiye",
+    "checkin": "2027-05-12",
+    "checkout": "2027-05-16",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:12:47.549Z] [INFO] Geocoding location via Photon: {
+  "location": "Istanbul, Republic of Türkiye"
+}
+[2026-11-25T12:12:47.906Z] [INFO] Photon selected feature: {
+  "location": "Istanbul, Republic of Türkiye",
+  "type": "house",
+  "name": "Çek Cumhuriyeti Başkonsolosluğu",
+  "country": "Türkiye",
+  "hasExtent": false
+}
+[2026-11-25T12:12:47.906Z] [INFO] Falling back to Nominatim for geocoding: {
+  "location": "Istanbul, Republic of Türkiye"
+}
+[2026-11-25T12:12:47.985Z] [WARN] No bounding box from either geocoder: {
+  "location": "Istanbul, Republic of Türkiye"
+}
+[2026-11-25T12:12:47.985Z] [INFO] Performing Airbnb search: {
+  "location": "Istanbul, Republic of Türkiye",
+  "checkin": "2027-05-12",
+  "checkout": "2027-05-16",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:12:48.958Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:12:48.958Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1409ms",
+  "success": true
+}
+[2026-11-25T12:12:55.442Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Sultanahmet, Istanbul",
+    "checkin": "2027-05-12",
+    "checkout": "2027-05-16",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:12:55.442Z] [INFO] Geocoding location via Photon: {
+  "location": "Sultanahmet, Istanbul"
+}
+[2026-11-25T12:12:55.641Z] [INFO] Photon selected feature: {
+  "location": "Sultanahmet, Istanbul",
+  "type": "district",
+  "name": "Sultan Ahmet",
+  "country": "Türkiye",
+  "hasExtent": true
+}
+[2026-11-25T12:12:55.641Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Sultanahmet, Istanbul",
+  "coords": {
+    "sw_lat": "40.9010699",
+    "ne_lat": "41.1071851",
+    "sw_lng": "28.8748231",
+    "ne_lng": "29.0826005",
+    "displayName": "Sultan Ahmet"
+  }
+}
+[2026-11-25T12:12:55.641Z] [INFO] Performing Airbnb search: {
+  "location": "Sultanahmet, Istanbul",
+  "checkin": "2027-05-12",
+  "checkout": "2027-05-16",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:12:56.616Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:12:56.616Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1174ms",
+  "success": true
+}
+tool wiki_summary failed: 'Blue Mosque' is ambiguous on Wikipedia; add the destination city, e.g. 'Blue Mosque, <city>'

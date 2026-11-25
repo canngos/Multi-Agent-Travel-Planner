@@ -1,0 +1,203 @@
+{
+ "id": "28_change_mind_before_confirm",
+ "title": "Changes destination and dates twice before confirming",
+ "turns": [
+  {
+   "user": "3 days in Madrid, 2 adults from Helsinki, 3-5 June 2027, mid budget 1500 euros.",
+   "seconds": 21.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of your trip brief:\n\n- **Destination:** Madrid, Spain  \n- **Dates:** 03 Jun – 05 Jun 2027 (3 days, 2 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total €1,500  \n\nPlease confirm that everything looks correct or let me know if you’d like to change any detail."
+    }
+   ]
+  },
+  {
+   "user": "Actually, make it Seville instead.",
+   "seconds": 8.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s the updated summary:\n\n- **Destination:** Seville, Spain  \n- **Dates:** 03 Jun – 05 Jun 2027 (3 days, 2 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total €1,500  \n\nPlease confirm that these details are correct or let me know if you’d like any further adjustments."
+    }
+   ]
+  },
+  {
+   "user": "Hmm no, Valencia, and 4 days: 3-6 June. Budget 1800.",
+   "seconds": 8.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief – please confirm**\n\n- **Destination:** Valencia, Spain  \n- **Dates:** 03 Jun – 06 Jun 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total €1,800  \n\nLet me know if everything looks good or if you’d like any changes."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 576.1,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Valencia (2027-06-03 to 2027-06-06)**\n\n- **Outbound:** Norwegian Air Sweden, Ryanair flight 2027-06-03 17:25-22:45, 262 EUR\n- **Return:** Lufthansa flight 2027-06-06 18:00-01:35 (+1 day, 6 h 35 min), 347 EUR\n- **Stay:** Room with private bathroom in VLC (la Raïosa), 285 EUR in total\n\n- **Day 1 (Thu 2027-06-03):** 22:45 Arrive in Valencia\n- **Day 2 (Fri 2027-06-04):** 10:00 Valencia Cathedral (Catedral de Santa María de València) · 12:00 Almoina Archaeological Centre (Centre Arqueològic de l'Almoina) · 13:30 Tasca Ángel · 15:00 Almodí (Almodí Building) · 16:30 Torres de Serranos · 20:30 El Poblet Restaurante\n- **Day 3 (Sat 2027-06-05):** 10:00 City of Arts and Sciences · 12:30 Príncipe Felipe Science Museum · 14:30 Alquería del Pou · 16:30 Oceanogràfic · 19:30 Portland Ale House\n- **Day 4 (Sun 2027-06-06):** 10:00 Silk Exchange (Llotja de la Seda) · 11:45 Museum of Ceramics and Decorative Arts (González Martí) · 13:15 Museum of Fine Arts (Museu de Belles Arts de València) · 14:30 Bodega La Rentaora · 18:00 Depart from Valencia\n\nEstimated total: 1593 EUR (budget 1800 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 92.5,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: valencia-2027-06-03-to-2027-06-06.md (and valencia-2027-06-03-to-2027-06-06.html, best opened in a browser), the calendar valencia-2027-06-03-to-2027-06-06.ics, the map valencia-2027-06-03-to-2027-06-06.geojson in the output folder.\nTransport: out Norwegian Air Sweden, Ryanair flight 3 Jun 17:25; back Lufthansa flight 6 Jun 18:00.\nStay: Room with private bathroom in VLC (€285 in total).\nEstimated total: €1593, within your €1800 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 03 Jun - 05 Jun 2027, 3 days and 2 nights.",
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 03 Jun - 05 Jun 2027, 3 days and 2 nights.",
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 03 Jun - 06 Jun 2027, 4 days and 3 nights."
+ ],
+ "tool_calls": 35,
+ "agents": {
+  "concierge": {
+   "events": 21,
+   "tool_calls": 9,
+   "first": 9.117417100002058,
+   "last": 615.274256500008
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 42.18992160000198,
+   "last": 613.8632921999961
+  },
+  "food_agent": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 44.38201400000253,
+   "last": 130.5280563999986
+  },
+  "culture_agent": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 45.496089599997504,
+   "last": 195.49792850000085
+  },
+  "ground_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 45.91899900000135,
+   "last": 163.28549740000744
+  },
+  "flight_searcher": {
+   "events": 6,
+   "tool_calls": 2,
+   "first": 48.40062830000534,
+   "last": 170.2678367000044
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 48.411238700005924,
+   "last": 164.6115301999962
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 52.18440389999887,
+   "last": 156.20915160000732
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 164.61454819999926,
+   "last": 164.61454819999926
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 170.26889249999658,
+   "last": 170.26889249999658
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 195.49835500000336,
+   "last": 195.49835500000336
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 195.49851770000532,
+   "last": 609.5629390000104
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 349.87893130000157,
+   "last": 613.8626635999972
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 697.4126152999961,
+   "last": 706.402482000005
+  }
+ },
+ "seconds": 706.4,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Valencia",
+  "start_date": "2027-06-03",
+  "end_date": "2027-06-06",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 1800.0,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 39.46971,
+  "destination_lon": -0.37634,
+  "destination_country": "Spain",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1593.2,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10514
+ }
+}

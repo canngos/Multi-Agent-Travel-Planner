@@ -1,0 +1,343 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.919484,
+     64.14542399999999
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "KEX Hostel and Hotel Reykjavik",
+    "url": "https://www.booking.com/searchresults.html?ss=KEX+Hostel+and+Hotel+Reykjavik%2C+Reykjavik&checkin=2027-03-10&checkout=2027-03-14&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9377,
+     64.14821
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Bæjarins beztu pylsur",
+    "url": "http://www.bbp.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.932886,
+     64.150436
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Harpa Concert Hall",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.932163,
+     64.147309
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "The Culture House (Safnahúsið)",
+    "url": "https://www.openstreetmap.org/way/94560552"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93576,
+     64.148468
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "17:00",
+    "kind": "sight",
+    "name": "The Icelandic Phallological Museum",
+    "url": "https://www.openstreetmap.org/node/1511563888"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.944002,
+     64.1508125
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-03-10",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Sægreifinn",
+    "url": "http://www.saegreifinn.is/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.940444,
+     64.149065
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Reykjavik Art Museum – Hafnarhús",
+    "url": "https://www.openstreetmap.org/node/688998258"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.93888,
+     64.14689
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "The Icelandic Bar",
+    "url": "http://www.icelandicbar.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.942782,
+     64.147351
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Reykjavík 871±2 (The Settlement Exhibition)",
+    "url": "https://www.openstreetmap.org/node/1264724303"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.939219,
+     64.144107
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "National Gallery of Iceland",
+    "url": "https://www.openstreetmap.org/node/688998282"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9343,
+     64.14663
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-03-11",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Caruso",
+    "url": "http://www.caruso.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.926711,
+     64.141796
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Hallgrímskirkja",
+    "url": "https://www.openstreetmap.org/relation/6184378"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.92661,
+     64.14357
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "12:30",
+    "kind": "cafe",
+    "name": "Kaffismiðja Íslands",
+    "url": "http://www.kaffismidja.is"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9189,
+     64.1292
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "Perlan",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.88711,
+     64.13905
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-03-12",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Múlakaffi",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.948163,
+     64.141951
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "National Museum of Iceland",
+    "url": "https://www.openstreetmap.org/relation/6180675"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.938,
+     64.1488
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "12:00",
+    "kind": "restaurant",
+    "name": "Kolaportið",
+    "url": "https://en.wikivoyage.org/wiki/Reykjav%C3%ADk"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -21.9377,
+     64.14821
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "day": 4,
+    "date": "2027-03-13",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Bæjarins beztu pylsur",
+    "url": "http://www.bbp.is"
+   }
+  }
+ ]
+}

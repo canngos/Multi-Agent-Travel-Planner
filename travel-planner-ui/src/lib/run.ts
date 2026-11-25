@@ -3,7 +3,7 @@
  *
  * ADK sends an event only after a model answer, not when an agent starts thinking. So start times come from
  * the agent tree: when a step of a sequential agent finishes, the next one starts; a parallel agent starts all
- * its children; a loop starts over until a child escalates (exit_loop) or the round limit is reached. Events
+ * its children; a loop starts over until a child escalates (the critic approves) or the round limit is reached. Events
  * never move a finished agent back to "working" (after-agent callbacks still send events); only the tree does.
  */
 import { humanize, type GraphIndex } from "./graph";
@@ -148,7 +148,7 @@ export function createReducer(index: GraphIndex) {
         log({ at, agent: name, kind: "start", text: `${humanize(name)} starts` });
         return;
       }
-      if (node.kind === "loop") {  // a new run of the loop (a re-plan): the last run's exit_loop no longer counts
+      if (node.kind === "loop") {  // a new run of the loop (a re-plan): the last run's approval no longer counts
         run.rounds = 1;
         s.escalated[name] = false;
       }
@@ -333,7 +333,7 @@ export function createReducer(index: GraphIndex) {
       if (loop) {
         s.escalated[loop] = true;
         // The escalation can come from an after-agent callback, after the tree already started the next round
-        // (the reviser answered in text, then code ended the loop). Undo a round that has not sent any event.
+        // (code checks the critic's verdict after its answer). Undo a round that has not sent any event.
         const first = nodes[loop].children?.[0]?.name;
         const fr = first ? s.agents[first] : undefined;
         const span = fr?.spans[fr.spans.length - 1];

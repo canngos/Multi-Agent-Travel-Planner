@@ -1,0 +1,207 @@
+{
+ "id": "14_ultra_luxury",
+ "title": "Monaco, 50 000 EUR budget, 3 days",
+ "turns": [
+  {
+   "user": "Monaco, 3 nights, 21-24 May 2027 (Grand Prix weekend), 2 adults from Helsinki. Money is no object: budget 50000 euros. Best hotel, Michelin restaurants, yacht.",
+   "seconds": 18.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of the trip you’d like to plan:\n\n- **Destination:** Monaco, Monaco  \n- **Dates:** 21 May – 24 May 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** €50 000 (high‑budget)  \n- **Interests / focus:** best luxury hotel, Michelin‑starred restaurants, yacht experience  \n\nPlease confirm that all details are correct (or let me know any changes)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 564.9,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Monaco (2027-05-21 to 2027-05-24)**\n\n- **Outbound:** Finnair flight 2027-05-21 06:40-09:10, 261 EUR\n- **Return:** Norwegian flight 2027-05-24 20:55-01:10 (+1 day, 3 h 15 min), 191 EUR\n- **Stay:** Hotel Metropole, Monte Carlo (Monte-Carlo), 2489 EUR in total\n\n- **Day 1 (Fri 2027-05-21):** 09:10 Arrive in Monaco · 11:00 Prince's Palace of Monaco · 12:30 Chez Roger · 14:30 Monaco Top Cars Collection · 16:30 Musée des Timbres et des Monnaies · 19:30 Beefbar\n- **Day 2 (Sat 2027-05-22):** 11:30 Yacht Club de Monaco · 12:30 Le Grill · 14:30 Monte Carlo Casino · 15:30 One Monte‑Carlo · 20:00 Louis XV – Alain Ducasse\n- **Day 3 (Sun 2027-05-23):** 10:00 Oceanographic Museum of Monaco · 13:00 Café de Paris · 14:30 Musée de la Chapelle de la Visitation · 19:30 L'Express\n- **Day 4 (Mon 2027-05-24):** 10:00 Japanese Garden · 12:00 Nouveau Musée National – Villa Sauber · 13:30 Mickey’s Pizza · 20:55 Depart from Monaco\n\nEstimated total: 3860 EUR (budget 50000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 78.6,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: monaco-2027-05-21-to-2027-05-24.md (and monaco-2027-05-21-to-2027-05-24.html, best opened in a browser), the calendar monaco-2027-05-21-to-2027-05-24.ics, the map monaco-2027-05-21-to-2027-05-24.geojson in the output folder.\nTransport: out Finnair flight 21 May 06:40; back Norwegian flight 24 May 20:55.\nStay: Hotel Metropole, Monte Carlo (€2489 in total).\nEstimated total: €3860, within your €50000 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 21 May - 24 May 2027, 4 days and 3 nights.",
+  "flight_searcher: search-flight -> error Kiwi found no flights for this route and date",
+  "flight_searcher: search_google_flights -> error Google Flights returned its cookie-consent page (common from EU networks); call search_serpapi_flights now, with the same arguments. Give the user the search link instead.",
+  "flight_searcher: search-flight -> error Kiwi found no flights for this route and date"
+ ],
+ "tool_calls": 43,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 9.164344999997411,
+   "last": 584.3120467999979
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 20.32699109999521,
+   "last": 583.35188989999
+  },
+  "food_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 22.19821729999967,
+   "last": 185.95029369999247
+  },
+  "ground_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 23.78899969998747,
+   "last": 68.51989429999958
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 24.821913799998583,
+   "last": 68.71006619998661
+  },
+  "flight_searcher": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 25.142037699988578,
+   "last": 95.79710739999427
+  },
+  "airbnb_searcher": {
+   "events": 3,
+   "tool_calls": 1,
+   "first": 25.200224199987133,
+   "last": 81.94434439999168
+  },
+  "culture_agent": {
+   "events": 15,
+   "tool_calls": 7,
+   "first": 25.435336799986544,
+   "last": 158.69864779998898
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 81.94719729998906,
+   "last": 81.94719729998906
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 95.84791459998814,
+   "last": 95.84791459998814
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 185.95742549998977,
+   "last": 185.95742549998977
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 185.95759279999766,
+   "last": 575.0677454999968
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 308.46852689998923,
+   "last": 583.3513757999899
+  },
+  "guide_writer": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 658.7989350999997,
+   "last": 661.9459665999893
+  }
+ },
+ "seconds": 662.0,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Monaco",
+  "start_date": "2027-05-21",
+  "end_date": "2027-05-24",
+  "travellers": 2,
+  "budget_tier": "high",
+  "total_budget_eur": 50000.0,
+  "interests": [
+   "luxury accommodation",
+   "fine dining",
+   "yacht experience"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 43.73097,
+  "destination_lon": 7.42482,
+  "destination_country": "Monaco",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 3860.0,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 2,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 15:30-20:00.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 14:30-19:30.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 13:30-18:25.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10187
+ }
+}

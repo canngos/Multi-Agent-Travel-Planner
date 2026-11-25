@@ -1,0 +1,229 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6341317,
+     78.2167027
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Svalbard Hotell | Polfareren",
+    "url": "https://www.booking.com/searchresults.html?ss=Svalbard+Hotell+%7C+Polfareren%2C+Longyearbyen&checkin=2027-01-14&checkout=2027-01-17&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6484,
+     78.220839
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "12:15",
+    "kind": "restaurant",
+    "name": "Barentz Pub & Spiseri",
+    "url": "https://hurtigrutensvalbard.com/no/restauranter/barentz-gastropub"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.618279,
+     78.21983
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Svalbard Church",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6297,
+     78.2223
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "24‑Hour Sundial",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.599052,
+     78.217087
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "18:00",
+    "kind": "sight",
+    "name": "Gruve 1A (Amerikagruva) Mine",
+    "url": "https://opentripmap.com/en/card/W686576331"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6406,
+     78.218756
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Stationen",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.64637,
+     78.22316
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-01-15",
+    "time": "22:30",
+    "kind": "sight",
+    "name": "Aurora Borealis Viewing (Longyearbyen)",
+    "url": "https://polarforecast.com/northern-light-forecast-longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.652997,
+     78.222359
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-01-16",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Svalbard Museum",
+    "url": "http://svalbardmuseum.no"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.6534568,
+     78.2233465
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-01-16",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "North Pole Expedition Museum",
+    "url": "https://www.northpolemuseum.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.639345264745055,
+     78.21883626473337
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-01-16",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Mix kiosk",
+    "url": "https://en.wikivoyage.org/wiki/Longyearbyen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.645482300026734,
+     78.22102823104917
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-01-16",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Restaurant Nansen",
+    "url": "http://www.spitsbergentravel.com/start/food/restaurant-nansen/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     15.648711,
+     78.222733
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 4,
+    "date": "2027-01-17",
+    "time": "09:30",
+    "kind": "restaurant",
+    "name": "University Cafeteria",
+    "url": "https://www.openstreetmap.org/node/4264171350"
+   }
+  }
+ ]
+}

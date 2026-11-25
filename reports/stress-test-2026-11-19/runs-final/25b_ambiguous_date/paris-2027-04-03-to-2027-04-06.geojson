@@ -1,0 +1,286 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.34091,
+     48.848853
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Hotel Trianon Rive Gauche",
+    "url": "https://www.booking.com/searchresults.html?ss=Hotel+Trianon+Rive+Gauche%2C+Paris&checkin=2027-04-03&checkout=2027-04-06&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.326527,
+     48.859972
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Musée d'Orsay",
+    "url": "https://thetourguy.com/travel-blog/france/paris/musee-dorsay/visiting-musee-dorsay-everything-you-need-to-know"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3254118,
+     48.868661
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Pizza Nelly.",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.32253834,
+     48.86384535
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "13:40",
+    "kind": "sight",
+    "name": "Musée de l'Orangerie",
+    "url": "https://www.musee-orangerie.fr/en/articles/rates-257"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.31535,
+     48.866043
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "15:20",
+    "kind": "sight",
+    "name": "Petit Palais",
+    "url": "https://www.openstreetmap.org/relation/2778854"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.315858,
+     48.854695
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "17:00",
+    "kind": "sight",
+    "name": "Musée Rodin",
+    "url": "https://www.openstreetmap.org/way/472159547"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.338124,
+     48.866412
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 1,
+    "date": "2027-04-03",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Macéo",
+    "url": "http://maceorestaurant.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.336397,
+     48.860864
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Louvre Museum",
+    "url": "https://www.openstreetmap.org/relation/7515426"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3439084,
+     48.8611442
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "L'Express Bar",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.335377,
+     48.85466
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Musée national Eugène Delacroix",
+    "url": "https://www.openstreetmap.org/way/395785603"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.345023,
+     48.855388
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Sainte‑Chapelle",
+    "url": "https://www.openstreetmap.org/relation/3344870"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.344001,
+     48.861521
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 2,
+    "date": "2027-04-04",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Chez Denise",
+    "url": "https://en.wikivoyage.org/wiki/Paris/1st_arrondissement"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.295037,
+     48.873777
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Arc de Triomphe",
+    "url": "https://www.openstreetmap.org/way/226413508"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.345878,
+     48.858616
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-04-05",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "La Robe et le Palais",
+    "url": "http://larobeetlepalais.fr/en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.294496,
+     48.858262
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-04-06",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Eiffel Tower",
+    "url": "https://www.openstreetmap.org/way/5013364"
+   }
+  }
+ ]
+}

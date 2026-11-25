@@ -1,0 +1,116 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Copenhagen
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-1@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T120000
+DTEND:20261128T130000
+SUMMARY:Arrive in Copenhagen
+DESCRIPTION:Day 1. Flight with SAS\; see Getting there and back. https://ki
+ wi.com/u/nrfvdb93w8
+URL:https://kiwi.com/u/nrfvdb93w8
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-2@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T130000
+DTEND:20261128T133000
+SUMMARY:Riz Raz
+DESCRIPTION:Day 1. Low‑budget vegetarian buffet\, good starter before sig
+ htseeing. https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.680162;12.574260
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-3@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T133000
+DTEND:20261128T143000
+SUMMARY:Check‑in at Sleep in Heaven
+DESCRIPTION:Day 1. Leave luggage and freshen up. https://www.booking.com/se
+ archresults.html?ss=Sleep+in+Heaven%2C+Copenhagen&checkin=2026-11-28&check
+ out=2026-11-29&group_adults=1&no_rooms=1
+GEO:55.686832;12.550664
+URL:https://www.booking.com/searchresults.html?ss=Sleep+in+Heaven%2C+Copenh
+ agen&checkin=2026-11-28&checkout=2026-11-29&group_adults=1&no_rooms=1
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-4@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T143000
+DTEND:20261128T154500
+SUMMARY:Rosenborg Castle
+DESCRIPTION:Day 1. Renaissance castle\, open indoor\, 10:00‑17:00 on Satu
+ rdays. https://www.kongernessamling.dk/rosenborg/
+GEO:55.685691;12.577436
+URL:https://www.kongernessamling.dk/rosenborg/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-5@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T154500
+DTEND:20261128T171500
+SUMMARY:Round Tower
+DESCRIPTION:Day 1. 17th‑century observatory tower\, indoor\, 10:00‑18:0
+ 0 on Saturdays. https://www.rundetaarn.dk/
+GEO:55.681362;12.575794
+URL:https://www.rundetaarn.dk/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-6@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261128T180000
+DTEND:20261128T190000
+SUMMARY:Bøf og Ost
+DESCRIPTION:Day 1. Mid‑budget French‑Danish cuisine\, good dinner after
+  sights. https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.679550;12.575940
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-7@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261129T100000
+DTEND:20261129T113000
+SUMMARY:National Museum of Denmark
+DESCRIPTION:Day 2. Indoor museum covering Danish history\, open 10:00‑17:
+ 00 on Sundays. https://www.nationalmuseet.dk/
+GEO:55.674658;12.574714
+URL:https://www.nationalmuseet.dk/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-8@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261129T123000
+DTEND:20261129T133000
+SUMMARY:Fodkold
+DESCRIPTION:Day 2. Hot‑dog stand\, quick low‑budget lunch. https://en.w
+ ikivoyage.org/wiki/Copenhagen/Indre_By
+GEO:55.676186;12.569180
+URL:https://en.wikivoyage.org/wiki/Copenhagen/Indre_By
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-9@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261129T133000
+DTEND:20261129T150000
+SUMMARY:Ny Carlsberg Glyptotek
+DESCRIPTION:Day 2. Indoor art museum with winter garden\, open 10:00‑17:0
+ 0 on Sundays. https://www.glyptoteket.dk/
+GEO:55.672535;12.571963
+URL:https://www.glyptoteket.dk/
+END:VEVENT
+BEGIN:VEVENT
+UID:copenhagen-2026-11-28-to-2026-11-29-10@trip-planner
+DTSTAMP:20261125T125526Z
+DTSTART:20261129T192000
+DTEND:20261129T202000
+SUMMARY:Depart from Copenhagen
+DESCRIPTION:Day 2. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/27h4grx35h
+URL:https://kiwi.com/u/27h4grx35h
+END:VEVENT
+END:VCALENDAR

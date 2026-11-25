@@ -1,0 +1,224 @@
+{
+ "id": "15_tiny_island_ferry",
+ "title": "Mariehamn (Åland) from Helsinki, ferry-only island",
+ "turns": [
+  {
+   "user": "3 days in Mariehamn on Åland, 4-6 June 2027, 2 adults from Helsinki, low budget 500 euros. Cycling and nature.",
+   "seconds": 12.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief**  \n- **Destination:** Mariehamn, Finland  \n- **Dates:** 04 Jun – 06 Jun 2027 (3 days, 2 nights)  \n- **Origin:** Helsinki  \n- **Travellers:** 2 adults  \n- **Budget:** low tier, total 500 EUR  \n- **Interests:** cycling, nature  \n\nPlease confirm that these details are correct (reply “yes” or make any changes)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 813.0,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Mariehamn (2027-06-04 to 2027-06-06)**\n\n- **Outbound:** Finnair flight 2027-06-04 15:05-16:00, 157 EUR\n- **Return:** populAir, Finnair flight 2027-06-06 16:00-18:40, 351 EUR\n- **Stay:** Övernäsgården Ab, 50 EUR in total\n\n- **Day 1 (Fri 2027-06-04):** 16:00 Arrive in Mariehamn · 16:45 Draken Kebab Stan · 17:30 Ålandsvägen cycling route Mariehamn → Lemland · 18:30 Tullarns äng nature reserve · 20:00 Pub Niska\n- **Day 2 (Sat 2027-06-05):** 10:30 Åland Museum (cultural history) and Åland Art Museum · 12:30 Bagarstugan Cafe och Vin · 15:00 Mariehamn Museum (Model Town) · 18:30 Hesburger Mariehamn\n- **Day 3 (Sun 2027-06-06):** 10:30 Café Julius · 11:30 Åland Maritime Museum · 16:00 Depart from Mariehamn\n\nEstimated total: 847 EUR (budget 500 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 56.0,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: mariehamn-2027-06-04-to-2027-06-06.md (and mariehamn-2027-06-04-to-2027-06-06.html, best opened in a browser), the calendar mariehamn-2027-06-04-to-2027-06-06.ics, the map mariehamn-2027-06-04-to-2027-06-06.geojson in the output folder.\nTransport: out Finnair flight 4 Jun 15:05; back populAir, Finnair flight 6 Jun 16:00.\nStay: Övernäsgården Ab (€50 in total).\nEstimated total: €847, €347 over your €500 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 04 Jun - 06 Jun 2027, 3 days and 2 nights.",
+  "culture_agent: find_sights -> error No well-known sights found; try a larger radius or other interests",
+  "culture_agent: find_sights -> error No well-known sights found; try a larger radius or other interests",
+  "airbnb_searcher: airbnb_search -> error Airbnb found 18 listings, none within 15 km of the centre; search again with a central neighbourhood of Mariehamn city centre, e.g. '<neighbourhood>, Mariehamn city centre'"
+ ],
+ "tool_calls": 38,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 5.833436600005371,
+   "last": 826.2796224000049
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 14.755400299996836,
+   "last": 825.5291010000074
+  },
+  "food_agent": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 17.643983700007084,
+   "last": 63.85979230000521
+  },
+  "culture_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 18.27763579999737,
+   "last": 170.05837100000645
+  },
+  "airbnb_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 18.470220700008213,
+   "last": 89.92879679999896
+  },
+  "ground_searcher": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 18.759194500002195,
+   "last": 52.13803810000536
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 19.863569299996016,
+   "last": 91.74526660000265
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 20.36119779999717,
+   "last": 104.58342209999682
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 91.81152299999667,
+   "last": 91.81152299999667
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 104.58563470000809,
+   "last": 104.58563470000809
+  },
+  "review_loop": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 170.0683674000029,
+   "last": 825.5285109999968
+  },
+  "itinerary_writer": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 170.06854170000588,
+   "last": 804.3060488000046
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 334.38200620000134,
+   "last": 825.5270825000043
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 875.2205435000069,
+   "last": 881.5047882000072
+  }
+ },
+ "seconds": 881.5,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Mariehamn",
+  "start_date": "2027-06-04",
+  "end_date": "2027-06-06",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 500.0,
+  "interests": [
+   "cycling",
+   "nature"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 60.10242,
+  "destination_lon": 19.94126,
+  "destination_country": "Finland",
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 847.0,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 3,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Nautical",
+     "kind": "restaurant",
+     "km": 0.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Pub Albin",
+     "kind": "restaurant",
+     "km": 0.2,
+     "hours": "June-early August: Mon-Fri 15:00-22:00, Sat Sun 12:00-21:00; otherwise closed",
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Draken Kebab Hamn",
+     "kind": "restaurant",
+     "km": 0.5,
+     "hours": "Mon–Fri 11:00–19:00, Sat Sun 12:00–19:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    }
+   ]
+  },
+  {
+   "day": null,
+   "issue": "over_budget",
+   "detail": "Total €847 is €347 over the €500 budget. Food and local transport are fixed typical costs, not options. The budget cannot be met: all cheaper options together save at most €49. Keep the plan and say so in notes."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 7640
+ }
+}

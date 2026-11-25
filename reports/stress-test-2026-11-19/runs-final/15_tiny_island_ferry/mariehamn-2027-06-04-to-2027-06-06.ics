@@ -1,0 +1,133 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Mariehamn
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-1@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270604T160000
+DTEND:20270604T164500
+SUMMARY:Arrive in Mariehamn
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/9s4xxumutv
+URL:https://kiwi.com/u/9s4xxumutv
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-2@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270604T164500
+DTEND:20270604T173000
+SUMMARY:Draken Kebab Stan
+DESCRIPTION:Day 1. Quick kebab lunch after arrival. https://en.wikivoyage.o
+ rg/wiki/Mariehamn
+GEO:60.100200;19.943410
+URL:https://en.wikivoyage.org/wiki/Mariehamn
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-3@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270604T173000
+DTEND:20270604T183000
+SUMMARY:Ålandsvägen cycling route Mariehamn → Lemland
+DESCRIPTION:Day 1. Free coastal cycle path\, 16 km long\; enjoy the scene
+ ry.
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-4@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270604T183000
+DTEND:20270604T200000
+SUMMARY:Tullarns äng nature reserve
+DESCRIPTION:Day 1. Walk through protected forest and meadow\, spot local fl
+ ora.
+GEO:60.094000;19.948300
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-5@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270604T200000
+DTEND:20270604T210000
+SUMMARY:Pub Niska
+DESCRIPTION:Day 1. Sample Åland‑style plåtbröd pizza for dinner. https
+ ://www.pubniska.com/
+GEO:60.105160;19.945170
+URL:https://www.pubniska.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-6@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270605T103000
+DTEND:20270605T120000
+SUMMARY:Åland Museum (cultural history) and Åland Art Museum
+DESCRIPTION:Day 2. Visit both museums\; combined ticket €8. https://www.m
+ useum.ax/en
+GEO:60.097150;19.944820
+URL:https://www.museum.ax/en
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-7@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270605T123000
+DTEND:20270605T133000
+SUMMARY:Bagarstugan Cafe och Vin
+DESCRIPTION:Day 2. Enjoy Ålandspannkaka (€6.5) on the terrace. https://b
+ agarstugan.ax/
+GEO:60.099760;19.942940
+URL:https://bagarstugan.ax/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-8@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270605T150000
+DTEND:20270605T163000
+SUMMARY:Mariehamn Museum (Model Town)
+DESCRIPTION:Day 2. Free scale‑model exhibition of historic Mariehamn. htt
+ ps://www.mariehamnsmuseet.hembygd.fi/
+GEO:60.098990;19.938210
+URL:https://www.mariehamnsmuseet.hembygd.fi/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-9@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270605T183000
+DTEND:20270605T193000
+SUMMARY:Hesburger Mariehamn
+DESCRIPTION:Day 2. Fast‑food burgers for a casual dinner. https://www.hes
+ burger.com/restaurants?tid=167
+GEO:60.099080;19.943280
+URL:https://www.hesburger.com/restaurants?tid=167
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-10@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270606T103000
+DTEND:20270606T113000
+SUMMARY:Café Julius
+DESCRIPTION:Day 3. Light lunch with Ålandspannkaka (€5.5). https://julle
+ .ax/fi/
+GEO:60.099190;19.941890
+URL:https://julle.ax/fi/
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-11@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270606T113000
+DTEND:20270606T130000
+SUMMARY:Åland Maritime Museum
+DESCRIPTION:Day 3. Explore the maritime heritage\; ticket €16.5. https://
+ sjofartsmuseum.ax
+GEO:60.097247;19.926527
+URL:https://sjofartsmuseum.ax
+END:VEVENT
+BEGIN:VEVENT
+UID:mariehamn-2027-06-04-to-2027-06-06-12@trip-planner
+DTSTAMP:20261125T123254Z
+DTSTART:20270606T160000
+DTEND:20270606T170000
+SUMMARY:Depart from Mariehamn
+DESCRIPTION:Day 3. Flight with populAir\, Finnair\; see Getting there and b
+ ack. https://kiwi.com/u/zjdfsfbfm7
+URL:https://kiwi.com/u/zjdfsfbfm7
+END:VEVENT
+END:VCALENDAR

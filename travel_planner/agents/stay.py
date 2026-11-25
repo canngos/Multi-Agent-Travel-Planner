@@ -1,5 +1,4 @@
 """airbnb_searcher -> airbnb_options and hotel_searcher -> hotel_options."""
-import json
 import shutil
 
 from google.genai import types
@@ -9,6 +8,8 @@ from ..tools import search_google_hotels, search_hotel_rates, stay_deep_links
 from ..tools.mcp import airbnb_toolset, mcp_cache_after, mcp_cache_before
 from ..tools.trip import PEOPLE_PER_ROOM
 from ._common import research_agent
+from .output import fenced_json
+from .summaries import build_stay_summary
 
 STAY_SHAPE = """{"results": [StayOption, ...], "fallback_links": [str, ...], "notes": "..."}
 fallback_links: the stay_deep_links URLs when you had to use that fallback, otherwise [].
@@ -65,8 +66,8 @@ def skip_without_npx(callback_context):
     only fail, so it does not run. A hard fact, not a choice. Never offline: the recorded MCP answers need no npx."""
     if config.offline() or shutil.which("npx"):
         return None
-    text = "```json\n" + json.dumps({"results": [], "fallback_links": [], "notes": (
-        "Not searched: the Airbnb source needs Node.js (npx), which is not installed on this computer.")}) + "\n```"
+    text = fenced_json({"results": [], "fallback_links": [], "notes": (
+        "Not searched: the Airbnb source needs Node.js (npx), which is not installed on this computer.")})
     callback_context.state["airbnb_options"] = text
     return types.Content(role="model", parts=[types.Part(text=text)])
 
@@ -100,26 +101,22 @@ NO_STAY_NOTE = "Not searched: the travellers stay in their own place (no accommo
 DAY_TRIP_NOTE = "Not searched: a day trip, out and back the same day (no night to stay)."
 
 
-def _fenced(data: dict) -> str:
-    return "```json\n" + json.dumps(data, ensure_ascii=False) + "\n```"
-
-
 def skip_without_stay(callback_context):
     """Before-agent callback of the stay team: a brief with own_accommodation (or a day trip, with no night) needs no
-    stay, so the searchers and the comparer do not run. A hard fact the user stated, like an excluded transport mode. Their outputs say why, so
-    the planner knows the empty stay is intended (and plans "stay": null)."""
+    stay, so the searchers do not run. A hard fact the user stated, like an excluded transport mode. Their outputs
+    and the summary say why, so the itinerary writer knows the empty stay is intended (and plans "stay": null)."""
     state = callback_context.state
     brief = state.get("trip_brief") or {}
     if brief.get("own_accommodation"):
-        note, why = NO_STAY_NOTE, "No stay: the travellers stay in their own place."
+        note = NO_STAY_NOTE
     elif brief.get("nights") == 0:  # a day trip: out and back the same day
-        note, why = DAY_TRIP_NOTE, "No stay: a day trip, back the same evening."
+        note = DAY_TRIP_NOTE
     else:
         return None
+    nothing = {"results": [], "fallback_links": [], "notes": note}
     for key in ("airbnb_options", "hotel_options"):
-        state[key] = _fenced({"results": [], "fallback_links": [], "notes": note})
-    state["stay_summary"] = _fenced({"by_area": [], "cheapest": None, "best_value": None, "top_rated": None,
-                                     "recommendation": why, "fallback_links": [], "notes": note})
+        state[key] = fenced_json(nothing)
+    state["stay_summary"] = fenced_json(build_stay_summary(nothing, nothing, brief) | {"notes": note})
     return types.Content(role="model", parts=[types.Part(text=note)])
 
 

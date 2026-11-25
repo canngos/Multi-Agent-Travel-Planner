@@ -18,7 +18,8 @@ def _metrics(*turns):
             "turns": list(turns)}
 
 
-ALL = ["culture_agent", "food_agent", "transport_comparer", "stay_comparer", "itinerary_planner"]
+ALL = ["culture_agent", "food_agent", "flight_searcher", "ground_searcher", "airbnb_searcher", "hotel_searcher",
+       "itinerary_writer", "plan_critic"]
 
 
 def test_evaluate_reports_who_decided_grounding_and_reuse():
@@ -34,7 +35,7 @@ def test_evaluate_reports_who_decided_grounding_and_reuse():
                  replan_log=[{"rerun": ["stay"], "accepted": True}, {"rerun": [], "accepted": False}])
     metrics = _metrics({"turn": 2, "seconds": 300.0, "agents": ALL, "llm_agents": ALL},
                        {"turn": 5, "seconds": 80.0, "agents": ALL,  # skipped agents still post an event
-                        "llm_agents": ["stay_comparer", "itinerary_planner"]})
+                        "llm_agents": ["airbnb_searcher", "hotel_searcher", "itinerary_writer"]})
     row = evaluate.evaluate(state, metrics)
     assert row["rounds"] == 2 and row["agreement"] == "1/2"
     assert row["overrides"] == "r1: critic APPROVED -> REVISE"
@@ -69,7 +70,7 @@ async def test_code_only_critic_skips_the_llm_and_logs_its_verdict(monkeypatch):
     llm = ScriptedLlm(fixes=True)
     state = await _run_loop(llm)
     assert "critic" not in llm.calls  # the critic's LLM was never asked
-    assert llm.calls == ["reviser:revise", "reviser:exit_loop"]
+    assert llm.calls == ["writer:draft", "writer:revise"]
     assert [(r["round"], r["verdict"], r["critic_said"], r["overridden"]) for r in state["review_log"]] == \
         [(1, "REVISE", "REVISE", False), (2, "APPROVED", "APPROVED", False)]
     assert state["critic_mode"] == "code_only" and state["critique"].endswith("VERDICT: APPROVED")

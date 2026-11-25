@@ -35,7 +35,7 @@ from travel_planner.agents.review_checks import check_plan  # noqa: E402
 
 CONFIRM = "Yes, that's right, go ahead."
 APPROVE = "Looks good, please write the guide."
-TURN_TIMEOUT = 20 * 60
+TURN_TIMEOUT = int(os.environ.get("TURN_TIMEOUT", 20 * 60))  # seconds per turn
 LOG = open(out / "log.txt", "w", encoding="utf-8")
 
 

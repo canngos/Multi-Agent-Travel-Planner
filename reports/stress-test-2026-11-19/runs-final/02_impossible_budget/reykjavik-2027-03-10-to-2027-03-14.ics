@@ -1,0 +1,214 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Reykjavik
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-1@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T105000
+DTEND:20270310T115000
+SUMMARY:Arrive in Reykjavik
+DESCRIPTION:Day 1. Flight with SAS\; see Getting there and back. https://ki
+ wi.com/u/6fwu7jhfr3
+URL:https://kiwi.com/u/6fwu7jhfr3
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-2@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T123000
+DTEND:20270310T133000
+SUMMARY:Bæjarins beztu pylsur
+DESCRIPTION:Day 1. Try the famous Icelandic hot‑dog with crispy fries. ht
+ tp://www.bbp.is
+GEO:64.148210;-21.937700
+URL:http://www.bbp.is
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-3@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T140000
+DTEND:20270310T153000
+SUMMARY:Harpa Concert Hall
+DESCRIPTION:Day 1. Explore the striking glass façade and lobby. https://en
+ .wikivoyage.org/wiki/Reykjav%C3%ADk
+GEO:64.150436;-21.932886
+URL:https://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-4@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T153000
+DTEND:20270310T170000
+SUMMARY:The Culture House (Safnahúsið)
+DESCRIPTION:Day 1. Visit the rotating cultural exhibitions. https://www.ope
+ nstreetmap.org/way/94560552
+GEO:64.147309;-21.932163
+URL:https://www.openstreetmap.org/way/94560552
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-5@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T170000
+DTEND:20270310T183000
+SUMMARY:The Icelandic Phallological Museum
+DESCRIPTION:Day 1. Unique collection of mammalian penises\, very quirky. ht
+ tps://www.openstreetmap.org/node/1511563888
+GEO:64.148468;-21.935760
+URL:https://www.openstreetmap.org/node/1511563888
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-6@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270310T193000
+DTEND:20270310T203000
+SUMMARY:Sægreifinn
+DESCRIPTION:Day 1. Seafood\, try the lobster soup. http://www.saegreifinn.i
+ s/
+GEO:64.150813;-21.944002
+URL:http://www.saegreifinn.is/
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-7@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270311T100000
+DTEND:20270311T113000
+SUMMARY:Reykjavik Art Museum – Hafnarhús
+DESCRIPTION:Day 2. Contemporary Icelandic art by Erró and others. https://
+ www.openstreetmap.org/node/688998258
+GEO:64.149065;-21.940444
+URL:https://www.openstreetmap.org/node/688998258
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-8@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270311T123000
+DTEND:20270311T133000
+SUMMARY:The Icelandic Bar
+DESCRIPTION:Day 2. Sample traditional lamb shank and skyr dessert. http://w
+ ww.icelandicbar.is
+GEO:64.146890;-21.938880
+URL:http://www.icelandicbar.is
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-9@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270311T143000
+DTEND:20270311T154500
+SUMMARY:Reykjavík 871±2 (The Settlement Exhibition)
+DESCRIPTION:Day 2. Explore the archaeological remains of Reykjavik’s foun
+ ding. https://www.openstreetmap.org/node/1264724303
+GEO:64.147351;-21.942782
+URL:https://www.openstreetmap.org/node/1264724303
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-10@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270311T154500
+DTEND:20270311T171500
+SUMMARY:National Gallery of Iceland
+DESCRIPTION:Day 2. 20th‑ and 21st‑century Icelandic art. https://www.op
+ enstreetmap.org/node/688998282
+GEO:64.144107;-21.939219
+URL:https://www.openstreetmap.org/node/688998282
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-11@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270311T193000
+DTEND:20270311T203000
+SUMMARY:Caruso
+DESCRIPTION:Day 2. Mid‑range Italian dishes\, good for a relaxed dinner. 
+ http://www.caruso.is
+GEO:64.146630;-21.934300
+URL:http://www.caruso.is
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-12@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270312T103000
+DTEND:20270312T120000
+SUMMARY:Hallgrímskirkja
+DESCRIPTION:Day 3. Iconic modernist church with city views from the tower. 
+ https://www.openstreetmap.org/relation/6184378
+GEO:64.141796;-21.926711
+URL:https://www.openstreetmap.org/relation/6184378
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-13@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270312T123000
+DTEND:20270312T130000
+SUMMARY:Kaffismiðja Íslands
+DESCRIPTION:Day 3. Enjoy coffee and a skyr pastry. http://www.kaffismidja.i
+ s
+GEO:64.143570;-21.926610
+URL:http://www.kaffismidja.is
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-14@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270312T130000
+DTEND:20270312T143000
+SUMMARY:Perlan
+DESCRIPTION:Day 3. Panoramic observation deck and interactive natural‑his
+ tory exhibits. https://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+GEO:64.129200;-21.918900
+URL:https://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-15@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270312T193000
+DTEND:20270312T203000
+SUMMARY:Múlakaffi
+DESCRIPTION:Day 3. Low‑budget café serving Icelandic home‑cooking\, a 
+ good spot after the day’s sights. https://en.wikivoyage.org/wiki/Reykjav
+ %C3%ADk
+GEO:64.139050;-21.887110
+URL:https://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-16@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270313T100000
+DTEND:20270313T113000
+SUMMARY:National Museum of Iceland
+DESCRIPTION:Day 4. History of Iceland from settlement to modern times. http
+ s://www.openstreetmap.org/relation/6180675
+GEO:64.141951;-21.948163
+URL:https://www.openstreetmap.org/relation/6180675
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-17@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270313T120000
+DTEND:20270313T130000
+SUMMARY:Kolaportið
+DESCRIPTION:Day 4. Weekend market – affordable local snacks and treats. h
+ ttps://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+GEO:64.148800;-21.938000
+URL:https://en.wikivoyage.org/wiki/Reykjav%C3%ADk
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-18@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270313T180000
+DTEND:20270313T190000
+SUMMARY:Bæjarins beztu pylsur
+DESCRIPTION:Day 4. Cheap hot‑dog stand for a low‑budget dinner. http://
+ www.bbp.is
+GEO:64.148210;-21.937700
+URL:http://www.bbp.is
+END:VEVENT
+BEGIN:VEVENT
+UID:reykjavik-2027-03-10-to-2027-03-14-19@trip-planner
+DTSTAMP:20261125T125816Z
+DTSTART:20270314T073000
+DTEND:20270314T083000
+SUMMARY:Depart from Reykjavik
+DESCRIPTION:Day 5. Flight with Icelandair\; see Getting there and back. htt
+ ps://kiwi.com/u/wmmzxyvddj
+URL:https://kiwi.com/u/wmmzxyvddj
+END:VEVENT
+END:VCALENDAR

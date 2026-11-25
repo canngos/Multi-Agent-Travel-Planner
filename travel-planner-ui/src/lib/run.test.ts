@@ -21,9 +21,9 @@ function play(upTo = Infinity): RunState {
 }
 
 describe("graph", () => {
-  it("indexes the 13 LLM agents of the real tree", () => {
-    expect(index.llmAgents).toHaveLength(13);
-    expect(index.parent.flight_searcher).toBe("transport_search");
+  it("indexes the 10 LLM agents of the real tree", () => {
+    expect(index.llmAgents).toHaveLength(10);
+    expect(index.parent.flight_searcher).toBe("transport_team");
     expect(index.nodes.review_loop.kind).toBe("loop");
   });
 
@@ -35,9 +35,8 @@ describe("graph", () => {
     expect(map.segments.filter((s) => s.kind === "transfer")).toHaveLength(2);  // to the pipeline, then to the guide writer
     const x = Object.fromEntries(map.stations.map((s) => [s.name, s.x]));
     expect(x.concierge).toBeLessThan(x.flight_searcher);
-    expect(x.transport_comparer).toBeGreaterThan(x.flight_searcher);
-    expect(x.itinerary_planner).toBeGreaterThan(x.transport_comparer);
-    expect(x.guide_writer).toBeGreaterThan(x.itinerary_reviser);
+    expect(x.itinerary_writer).toBeGreaterThan(x.flight_searcher);
+    expect(x.guide_writer).toBeGreaterThan(x.plan_critic);
   });
 });
 
@@ -52,8 +51,8 @@ describe("run reducer on the recorded Lisbon demo", () => {
     expect(final.agents.planning_pipeline.status).toBe("done");
   });
 
-  it("pairs all 52 tool calls with their results", () => {
-    expect(final.toolOrder).toHaveLength(52);
+  it("pairs all 51 tool calls with their results", () => {
+    expect(final.toolOrder).toHaveLength(51);
     expect(Object.values(final.tools).every((t) => t.status !== "running")).toBe(true);
   });
 
@@ -62,15 +61,16 @@ describe("run reducer on the recorded Lisbon demo", () => {
     for (const name of ["flight_searcher", "ground_searcher", "airbnb_searcher", "hotel_searcher", "culture_agent", "food_agent"]) {
       expect(final.agents[name].spans[0].start, name).toBe(transfer.at);
     }
-    expect(final.agents.transport_comparer.spans[0].start).toBeGreaterThan(transfer.at);
   });
 
   it("runs each plan's review loop afresh; the loop's exit leaves no extra round", () => {
-    // in this recording each plan was approved in round 2 and the reviser ended its loop with exit_loop (for the
-    // re-plan, code approved over the critic's REVISE). The first loop's exit must not end the second loop early.
-    expect((replay.final_state!.revision_log as { exit?: string }[]).at(-1)!.exit).toBe("exit_loop");
+    // in this recording each plan was approved in round 2 (a draft and one revision; code approved over the
+    // critic's REVISE), and the approval ended the loop. The first loop's exit must not end the second loop early.
+    expect(replay.final_state!.review_verdict).toBe("APPROVED");
+    expect(replay.final_state!.revision_log as unknown[]).toHaveLength(1);
     expect(final.agents.review_loop.rounds).toBe(2);
     expect(final.agents.plan_critic.spans).toHaveLength(4);  // 2 rounds, then 2
+    expect(final.agents.itinerary_writer.spans).toHaveLength(4);  // a draft and a revision per plan
     expect(final.agents.review_loop.status).toBe("done");
     expect(final.agents.review_loop.spans).toHaveLength(2);  // one review per plan
     expect(final.escalated.review_loop).toBe(true);
@@ -81,7 +81,6 @@ describe("run reducer on the recorded Lisbon demo", () => {
     expect(replay.final_state!.research_reused).toEqual(["transport", "culture", "food"]);
     const [, replan] = final.agents.planning_pipeline.spans;
     expect(replan).toBeDefined();
-    expect(final.agents.transport_comparer.spans).toHaveLength(1);  // its skipped team never reached it
     for (const name of ["flight_searcher", "ground_searcher", "culture_agent", "food_agent"]) {
       const last = final.agents[name].spans.at(-1)!;
       expect(last.start, name).toBeGreaterThanOrEqual(replan.start);
@@ -100,13 +99,13 @@ describe("run reducer on the recorded Lisbon demo", () => {
     for (const key of ["flight_options", "transport_summary", "itinerary", "critique"]) expect(final.state).toHaveProperty(key);
   });
 
-  it("shows the planner working only after the whole research team finished", () => {
-    // the planner follows research_team in the sequential pipeline: it waits for the last of the four branches
-    const branches = ["transport_comparer", "stay_comparer", "culture_agent", "food_agent"];
-    const researchDone = Math.max(...branches.map((name) => final.agents[name].spans[0].end!));
-    expect(final.agents.itinerary_planner.spans[0].start).toBe(researchDone);
+  it("shows the itinerary writer working only after the whole research team finished", () => {
+    // the review loop follows research_team in the sequential pipeline: it waits for the last researcher
+    const researchers = ["flight_searcher", "ground_searcher", "airbnb_searcher", "hotel_searcher", "culture_agent", "food_agent"];
+    const researchDone = Math.max(...researchers.map((name) => final.agents[name].spans[0].end!));
+    expect(final.agents.itinerary_writer.spans[0].start).toBe(researchDone);
     const mid = play(researchDone - 0.001);
-    expect(mid.agents.itinerary_planner.status).toBe("idle");
+    expect(mid.agents.itinerary_writer.status).toBe("idle");
   });
 });
 

@@ -1,0 +1,93 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+[2026-11-25T11:43:31.545Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T11:43:31.546Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T11:43:31.546Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T11:43:31.552Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Copenhagen, Denmark",
+    "checkin": "2026-11-28",
+    "checkout": "2026-11-29",
+    "adults": 1
+  }
+}
+[2026-11-25T11:43:31.553Z] [INFO] Geocoding location via Photon: {
+  "location": "Copenhagen, Denmark"
+}
+[2026-11-25T11:43:31.834Z] [INFO] Photon selected feature: {
+  "location": "Copenhagen, Denmark",
+  "type": "city",
+  "name": "København",
+  "country": "Danmark",
+  "hasExtent": false
+}
+[2026-11-25T11:43:31.834Z] [INFO] Falling back to Nominatim for geocoding: {
+  "location": "Copenhagen, Denmark"
+}
+[2026-11-25T11:43:31.927Z] [WARN] No bounding box from either geocoder: {
+  "location": "Copenhagen, Denmark"
+}
+[2026-11-25T11:43:31.927Z] [INFO] Performing Airbnb search: {
+  "location": "Copenhagen, Denmark",
+  "checkin": "2026-11-28",
+  "checkout": "2026-11-29",
+  "adults": 1,
+  "children": 0
+}
+[2026-11-25T11:43:32.855Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:43:32.855Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1303ms",
+  "success": true
+}
+[2026-11-25T11:43:59.830Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Indre By, Copenhagen, Denmark",
+    "checkin": "2026-11-28",
+    "checkout": "2026-11-29",
+    "adults": 1
+  }
+}
+[2026-11-25T11:43:59.831Z] [INFO] Geocoding location via Photon: {
+  "location": "Indre By, Copenhagen, Denmark"
+}
+[2026-11-25T11:44:00.036Z] [INFO] Photon selected feature: {
+  "location": "Indre By, Copenhagen, Denmark",
+  "type": "house",
+  "name": "Nasdaq Copenhagen",
+  "country": "Danmark",
+  "hasExtent": false
+}
+[2026-11-25T11:44:00.036Z] [INFO] Falling back to Nominatim for geocoding: {
+  "location": "Indre By, Copenhagen, Denmark"
+}
+[2026-11-25T11:44:00.115Z] [WARN] No bounding box from either geocoder: {
+  "location": "Indre By, Copenhagen, Denmark"
+}
+[2026-11-25T11:44:00.115Z] [INFO] Performing Airbnb search: {
+  "location": "Indre By, Copenhagen, Denmark",
+  "checkin": "2026-11-28",
+  "checkout": "2026-11-29",
+  "adults": 1,
+  "children": 0
+}
+[2026-11-25T11:44:01.096Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:44:01.097Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1267ms",
+  "success": true
+}

@@ -1,0 +1,177 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-1@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T080000
+DTEND:20261230T090000
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/g2fbtk4shu
+URL:https://kiwi.com/u/g2fbtk4shu
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-2@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T100000
+DTEND:20261230T113000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 1. Explore German history in the former Zeughaus. https://w
+ ww.openstreetmap.org/node/3203167561
+GEO:52.517748;13.397023
+URL:https://www.openstreetmap.org/node/3203167561
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-3@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T121500
+DTEND:20261230T133000
+SUMMARY:PalaisPopulaire
+DESCRIPTION:Day 1. Free contemporary‑art gallery\, rotating exhibitions. 
+ https://www.openstreetmap.org/node/6355366085
+GEO:52.517147;13.396145
+URL:https://www.openstreetmap.org/node/6355366085
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-4@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T133000
+DTEND:20261230T143000
+SUMMARY:Lunch near Mitte
+DESCRIPTION:Day 1. Try a local Currywurst stand.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-5@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T153000
+DTEND:20261230T170000
+SUMMARY:Brandenburg Gate
+DESCRIPTION:Day 1. Iconic neoclassical arch\, great for photos. https://en.
+ wikipedia.org/wiki/Brandenburg_Gate
+GEO:52.516300;13.377700
+URL:https://en.wikipedia.org/wiki/Brandenburg_Gate
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-6@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261230T183000
+DTEND:20261230T193000
+SUMMARY:Dinner near Brandenburg Gate
+DESCRIPTION:Day 1. Enjoy a casual meal\; optional try a pretzel.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-7@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261231T100000
+DTEND:20261231T113000
+SUMMARY:Berlin Cathedral
+DESCRIPTION:Day 2. Visit the impressive dome and interior. https://www.open
+ streetmap.org/way/313670734
+GEO:52.519085;13.401075
+URL:https://www.openstreetmap.org/way/313670734
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-8@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261231T120000
+DTEND:20261231T133000
+SUMMARY:DDR Museum
+DESCRIPTION:Day 2. Interactive exhibits about everyday life in former East 
+ Germany. https://www.openstreetmap.org/way/175149971
+GEO:52.519422;13.402256
+URL:https://www.openstreetmap.org/way/175149971
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-9@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261231T143000
+DTEND:20261231T153000
+SUMMARY:Lunch near Mitte
+DESCRIPTION:Day 2. Warm up with a hearty soup.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-10@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261231T180000
+DTEND:20261231T190000
+SUMMARY:Dinner near Brandenburg Gate
+DESCRIPTION:Day 2. Early dinner before the fireworks.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-11@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20261231T200000
+DTEND:20261231T213000
+SUMMARY:Brandenburg Gate (New Year’s Eve fireworks)
+DESCRIPTION:Day 2. Join the crowd for Berlin’s famous NYE fireworks displ
+ ay. https://en.wikipedia.org/wiki/Brandenburg_Gate
+GEO:52.516300;13.377700
+URL:https://en.wikipedia.org/wiki/Brandenburg_Gate
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-12@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270101T100000
+DTEND:20270101T113000
+SUMMARY:St. Hedwig's Cathedral
+DESCRIPTION:Day 3. Visit the Neo‑Romanesque Catholic cathedral. https://w
+ ww.openstreetmap.org/way/58608090
+GEO:52.515764;13.394858
+URL:https://www.openstreetmap.org/way/58608090
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-13@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270101T123000
+DTEND:20270101T133000
+SUMMARY:Lunch near Mitte
+DESCRIPTION:Day 3. Sample a spiced potato salad.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-14@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270101T180000
+DTEND:20270101T190000
+SUMMARY:Dinner near Alexanderplatz
+DESCRIPTION:Day 3. Relax with a simple meal before the night out.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-15@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270101T230000
+DTEND:20270102T000000
+SUMMARY:Berghain
+DESCRIPTION:Day 3. World‑famous techno club\; doors open at 23:59 Saturda
+ y night. https://www.technoairlines.com/blog/how-to-get-into-berghain
+URL:https://www.technoairlines.com/blog/how-to-get-into-berghain
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-16@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270102T110000
+DTEND:20270102T120000
+SUMMARY:Lunch near Mitte
+DESCRIPTION:Day 4. Warm soup and a pretzel to keep you energized.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-17@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270102T150000
+DTEND:20270102T160000
+SUMMARY:Early dinner near hotel
+DESCRIPTION:Day 4. Light fare before heading to the airport.
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2026-12-30-to-2027-01-02-18@trip-planner
+DTSTAMP:20261125T122643Z
+DTSTART:20270102T193000
+DTEND:20270102T203000
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/pcmgs6ffqc
+URL:https://kiwi.com/u/pcmgs6ffqc
+END:VEVENT
+END:VCALENDAR

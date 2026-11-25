@@ -8,7 +8,7 @@ another chance, the same way ADK's ReflectAndRetryModelPlugin does, but per agen
   request's tools_dict only, so it is never declared to the model;
 - `retry_malformed_call` (after-model) replaces the failed response with a call to that tool. ADK runs it and
   the model receives its reply: "your call was not run, call it again with valid JSON". At most
-  MAX_RETRIES per agent run (per review round for the critic and the reviser, which run up to three times in one
+  MAX_RETRIES per agent run (per review round for the critic and the itinerary writer, which run up to four times in one
   invocation).
 """
 import uuid

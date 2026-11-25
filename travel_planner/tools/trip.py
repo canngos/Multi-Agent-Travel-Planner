@@ -149,7 +149,7 @@ def food_research_block(brief: TripBrief) -> str:
 
 
 def plan_size_block(brief: TripBrief) -> str:
-    """Extra instruction for the planner and reviser (state["trip_plan_size"]): the cap of 14 sights in total does not
+    """Extra instruction for the itinerary writer (state["trip_plan_size"]): the cap of 14 sights in total does not
     fit a long trip. "" for an ordinary trip."""
     per_day = SIGHTS_PER_DAY[brief.pace or "balanced"]
     want = min(MAX_RESEARCH_SIGHTS, max(14, (per_day - 1) * max(1, brief.days - 2) + 2))

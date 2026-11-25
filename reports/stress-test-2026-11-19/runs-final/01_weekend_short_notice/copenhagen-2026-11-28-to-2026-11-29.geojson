@@ -1,0 +1,172 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5506637,
+     55.6868323
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Sleep in Heaven",
+    "url": "https://www.booking.com/searchresults.html?ss=Sleep+in+Heaven%2C+Copenhagen&checkin=2026-11-28&checkout=2026-11-29&group_adults=1&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.57426,
+     55.680162
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2026-11-28",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Riz Raz",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5506637,
+     55.6868323
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2026-11-28",
+    "time": "13:30",
+    "kind": "hotel",
+    "name": "Check‑in at Sleep in Heaven",
+    "url": "https://www.booking.com/searchresults.html?ss=Sleep+in+Heaven%2C+Copenhagen&checkin=2026-11-28&checkout=2026-11-29&group_adults=1&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.577436,
+     55.685691
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2026-11-28",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Rosenborg Castle",
+    "url": "https://www.kongernessamling.dk/rosenborg/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.575794,
+     55.681362
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2026-11-28",
+    "time": "15:45",
+    "kind": "sight",
+    "name": "Round Tower",
+    "url": "https://www.rundetaarn.dk/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.57594,
+     55.67955
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2026-11-28",
+    "time": "18:00",
+    "kind": "restaurant",
+    "name": "Bøf og Ost",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.574714,
+     55.674658
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2026-11-29",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "National Museum of Denmark",
+    "url": "https://www.nationalmuseet.dk/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.5691795,
+     55.6761856
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2026-11-29",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Fodkold",
+    "url": "https://en.wikivoyage.org/wiki/Copenhagen/Indre_By"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     12.571963,
+     55.672535
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2026-11-29",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Ny Carlsberg Glyptotek",
+    "url": "https://www.glyptoteket.dk/"
+   }
+  }
+ ]
+}

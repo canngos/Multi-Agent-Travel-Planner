@@ -1,0 +1,209 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Riga
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-1@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T081000
+DTEND:20270513T091000
+SUMMARY:Arrive in Riga
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/4hgyfuup8r
+URL:https://kiwi.com/u/4hgyfuup8r
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-2@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T100000
+DTEND:20270513T113000
+SUMMARY:House of the Blackheads
+DESCRIPTION:Day 1. Renaissance guild house\, entrance fee €7.0. https://e
+ n.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+GEO:56.947139;24.106917
+URL:https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-3@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T123000
+DTEND:20270513T133000
+SUMMARY:Key to Riga
+DESCRIPTION:Day 1. Try the cabbage rolls or cold borscht. https://www.opens
+ treetmap.org/node/445460372
+GEO:56.950008;24.105671
+URL:https://www.openstreetmap.org/node/445460372
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-4@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T140000
+DTEND:20270513T153000
+SUMMARY:Museum of Decorative Arts and Design
+DESCRIPTION:Day 1. Shows ceramics\, textiles\, etc.\; ticket €10.0. https
+ ://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+GEO:56.948100;24.109400
+URL:https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-5@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T163000
+DTEND:20270513T173000
+SUMMARY:Melnais ķiploks
+DESCRIPTION:Day 1. Inexpensive rye‑bread snacks\, perfect after the museu
+ m. https://www.openstreetmap.org/node/10192025381
+GEO:56.950214;24.105754
+URL:https://www.openstreetmap.org/node/10192025381
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-6@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T181000
+DTEND:20270513T191000
+SUMMARY:Spot Kafé
+DESCRIPTION:Day 1. Late‑night bar\; affordable drinks before heading to t
+ he airport. https://www.openstreetmap.org/node/3092908017
+GEO:56.948824;24.105873
+URL:https://www.openstreetmap.org/node/3092908017
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-7@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270513T191000
+DTEND:20270513T201000
+SUMMARY:Travel to airport
+DESCRIPTION:Day 1. Leave hotel for airport to catch the 21:40 flight.
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-8@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270514T080000
+DTEND:20270514T093000
+SUMMARY:Riga Central Market
+DESCRIPTION:Day 2. Large market in former Zeppelin hangars\, great for expl
+ oring local stalls. https://www.arboursabroad.com/riga-central-market
+URL:https://www.arboursabroad.com/riga-central-market
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-9@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270514T100000
+DTEND:20270514T113000
+SUMMARY:Latvian National Museum of Art
+DESCRIPTION:Day 2. Large collection of Latvian art\; ticket €6.0. https:/
+ /www.openstreetmap.org/way/87971760
+GEO:56.955778;24.113074
+URL:https://www.openstreetmap.org/way/87971760
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-10@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270514T113000
+DTEND:20270514T123000
+SUMMARY:Burger Corner
+DESCRIPTION:Day 2. Quick\, cheap burger – great for a light lunch. https:
+ //www.openstreetmap.org/node/6617343796
+GEO:56.949103;24.106477
+URL:https://www.openstreetmap.org/node/6617343796
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-11@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270514T150000
+DTEND:20270514T163000
+SUMMARY:Riga Art Nouveau Centre
+DESCRIPTION:Day 2. Exhibits on Riga's famous Art Nouvelle\; ticket €7.0
+ . https://www.openstreetmap.org/node/1160803251
+GEO:56.959610;24.108517
+URL:https://www.openstreetmap.org/node/1160803251
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-12@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270514T190000
+DTEND:20270514T200000
+SUMMARY:KwakInn
+DESCRIPTION:Day 2. Belgian‑style beer bar\; stay for a relaxed drink. htt
+ ps://www.openstreetmap.org/node/7882140663
+GEO:56.949143;24.105923
+URL:https://www.openstreetmap.org/node/7882140663
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-13@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T100000
+DTEND:20270515T113000
+SUMMARY:Art Museum "Riga Bourse"
+DESCRIPTION:Day 3. Historic stock‑exchange building with varied collectio
+ ns. https://www.openstreetmap.org/relation/9248240
+GEO:56.950089;24.105103
+URL:https://www.openstreetmap.org/relation/9248240
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-14@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T114500
+DTEND:20270515T124500
+SUMMARY:St. Peter's Church
+DESCRIPTION:Day 3. Baroque spire with city views\; ticket €3.0 for tower 
+ lift. https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+GEO:56.947508;24.109299
+URL:https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-15@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T124500
+DTEND:20270515T133000
+SUMMARY:DOM
+DESCRIPTION:Day 3. Contemporary Latvian dishes\; try the rye‑bread with c
+ heese. https://www.openstreetmap.org/node/3172202159
+GEO:56.948706;24.105591
+URL:https://www.openstreetmap.org/node/3172202159
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-16@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T133000
+DTEND:20270515T150000
+SUMMARY:The Large Guild
+DESCRIPTION:Day 3. Historic guild hall\, impressive façade. https://en.wik
+ ivoyage.org/wiki/Riga/Vecr%C4%ABga
+GEO:56.949691;24.108167
+URL:https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-17@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T153000
+DTEND:20270515T170000
+SUMMARY:Museum of the History of Riga and Navigation
+DESCRIPTION:Day 3. Maritime and urban history exhibits. https://www.openstr
+ eetmap.org/node/13721805929
+GEO:56.948499;24.104309
+URL:https://www.openstreetmap.org/node/13721805929
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-18@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T173000
+DTEND:20270515T183000
+SUMMARY:13 krēsli
+DESCRIPTION:Day 3. Casual bar with cheap drinks\, suitable for a relaxed di
+ nner. https://www.openstreetmap.org/node/445460362
+GEO:56.949284;24.105903
+URL:https://www.openstreetmap.org/node/445460362
+END:VEVENT
+BEGIN:VEVENT
+UID:riga-2027-05-13-to-2027-05-15-19@trip-planner
+DTSTAMP:20261125T124701Z
+DTSTART:20270515T214000
+DTEND:20270515T224000
+SUMMARY:Depart from Riga
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/zzpy5y4gby
+URL:https://kiwi.com/u/zzpy5y4gby
+END:VEVENT
+END:VCALENDAR

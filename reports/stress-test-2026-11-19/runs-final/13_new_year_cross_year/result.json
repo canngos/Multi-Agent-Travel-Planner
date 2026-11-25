@@ -1,0 +1,207 @@
+{
+ "id": "13_new_year_cross_year",
+ "title": "Berlin over New Year (dates cross a year boundary)",
+ "turns": [
+  {
+   "user": "Berlin from 30 December to 2 January, 2 adults, from Helsinki, mid budget 2000 euros. New Year's Eve fireworks and clubs.",
+   "seconds": 21.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Berlin, Germany  \n- **Dates:** 30 Dec 2026 – 02 Jan 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** €2 000 (mid‑range)  \n- **Interests:** New Year’s Eve fireworks, nightlife & clubs  \n\nDoes everything look correct? If so, just reply “Yes” (or “Confirm”) and I’ll lock in the brief and start the planning. If you’d like any changes, let me know."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 619.1,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Berlin (2026-12-30 to 2027-01-02)**\n\n- **Outbound:** Finnair flight 2026-12-30 07:00-08:00, 386 EUR\n- **Return:** Finnair flight 2027-01-02 19:30-22:25, 335 EUR\n- **Stay:** The Social Hub Berlin Alexanderplatz (Alexanderstraße 40), 281 EUR in total\n\n- **Day 1 (Wed 2026-12-30):** 08:00 Arrive in Berlin · 10:00 German Historical Museum · 12:15 PalaisPopulaire · 13:30 Lunch near Mitte · 15:30 Brandenburg Gate · 18:30 Dinner near Brandenburg Gate\n- **Day 2 (Thu 2026-12-31):** 10:00 Berlin Cathedral · 12:00 DDR Museum · 14:30 Lunch near Mitte · 18:00 Dinner near Brandenburg Gate · 20:00 Brandenburg Gate (New Year’s Eve fireworks)\n- **Day 3 (Fri 2027-01-01):** 10:00 St. Hedwig's Cathedral · 12:30 Lunch near Mitte · 18:00 Dinner near Alexanderplatz · 23:00 Berghain\n- **Day 4 (Sat 2027-01-02):** 11:00 Lunch near Mitte · 15:00 Early dinner near hotel · 19:30 Depart from Berlin\n\nEstimated total: 1509 EUR (budget 2000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 68.4,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: berlin-2026-12-30-to-2027-01-02.md (and berlin-2026-12-30-to-2027-01-02.html, best opened in a browser), the calendar berlin-2026-12-30-to-2027-01-02.ics, the map berlin-2026-12-30-to-2027-01-02.geojson in the output folder.\nTransport: out Finnair flight 30 Dec 07:00; back Finnair flight 2 Jan 19:30.\nStay: The Social Hub Berlin Alexanderplatz (€281 in total).\nEstimated total: €1509, within your €2000 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Where should we be at midnight on New Year's Eve?",
+   "seconds": 2.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "According to the guide, you’ll be at the **Brandenburg Gate** for Berlin’s New Year’s Eve fireworks, which culminate at midnight."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 30 Dec - 02 Jan 2027, 4 days and 3 nights."
+ ],
+ "tool_calls": 37,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 8.402088300004834,
+   "last": 711.220155300005
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 23.391107000003103,
+   "last": 640.2976894000021
+  },
+  "food_agent": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 25.088045099997544,
+   "last": 107.39896429999499
+  },
+  "culture_agent": {
+   "events": 15,
+   "tool_calls": 7,
+   "first": 26.914727900002617,
+   "last": 133.185106799996
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 27.682999600001494,
+   "last": 114.42846340000688
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 29.31848820000596,
+   "last": 104.86199790000683
+  },
+  "airbnb_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 29.546112099997117,
+   "last": 129.92227500000445
+  },
+  "ground_searcher": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 32.73439670000516,
+   "last": 111.65427379999892
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 114.48478980000073,
+   "last": 114.48478980000073
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 129.92752800000017,
+   "last": 129.92752800000017
+  },
+  "review_loop": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 133.20024659999763,
+   "last": 640.2973530000017
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 133.20041920000222,
+   "last": 590.3780613999988
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 288.19060159999935,
+   "last": 640.2965851000044
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 703.1397327000013,
+   "last": 708.7401809000003
+  }
+ },
+ "seconds": 711.3,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Berlin",
+  "start_date": "2026-12-30",
+  "end_date": "2027-01-02",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2000.0,
+  "interests": [
+   "nightlife",
+   "fireworks"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 52.51739,
+  "destination_lon": 13.39513,
+  "destination_country": "Germany",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1509.3,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 3,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 12:30-18:00.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10473
+ }
+}

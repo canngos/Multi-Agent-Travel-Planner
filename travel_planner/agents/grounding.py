@@ -1,11 +1,11 @@
-"""Deterministic link grounding for the research agents, the planner and the guide writer.
+"""Deterministic link grounding for the research agents, the itinerary writer and the guide writer.
 
 LLMs copying URLs sometimes "improve" them (http -> https, adding www., dropping a trailing slash, decoding
 %C3%A9 to é) and can invent one from memory. Every link shown to the user must come from a tool result, so:
 - a link that matches a known link after normalising is restored to the known spelling;
 - a link that matches nothing is removed (JSON: url -> null; Markdown: a link keeps its text but loses the
   URL, a bare URL is deleted).
-The research agents' and comparers' outputs are grounded against the raw tool results in the session
+The research agents' outputs are grounded against the raw tool results in the session
 (`ground_research_output`); later agents are grounded against those research outputs (`known_urls`).
 """
 import json
@@ -171,7 +171,7 @@ def tool_result_urls(session) -> dict[str, str]:
 
 
 def ground_research_output(output_key: str, strict: bool = False):
-    """After-agent callback factory for the research agents and comparers: every link in their JSON output must
+    """After-agent callback factory for the research agents: every link in their JSON output must
     come from a tool result in the session (their outputs are the "known links" of every later agent).
 
     Without any tool result in the session (e.g. an agent run alone on prepared state) nothing is changed, unless
@@ -208,7 +208,7 @@ def ground_research_output(output_key: str, strict: bool = False):
 
 
 def ground_itinerary(callback_context):
-    """After-agent callback for the planner (and the Phase 8 reviser): grounds the links in state["itinerary"]."""
+    """After-agent callback of the itinerary writer: grounds the links in state["itinerary"]."""
     state = callback_context.state
     try:
         plan = extract_json(state.get("itinerary") or "")

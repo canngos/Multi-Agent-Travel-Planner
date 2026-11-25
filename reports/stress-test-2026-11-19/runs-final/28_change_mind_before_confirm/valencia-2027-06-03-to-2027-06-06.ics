@@ -1,0 +1,190 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Valencia
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-1@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270603T224500
+DTEND:20270603T234500
+SUMMARY:Arrive in Valencia
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\, Ryanair\; see Getting
+  there and back. https://kiwi.com/u/syyxx7mmnh
+URL:https://kiwi.com/u/syyxx7mmnh
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-2@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T100000
+DTEND:20270604T113000
+SUMMARY:Valencia Cathedral (Catedral de Santa María de València)
+DESCRIPTION:Day 2. Explore the Gothic cathedral and climb the Miguelete tow
+ er. https://catedraldevalencia.es/
+GEO:39.475600;-0.375060
+URL:https://catedraldevalencia.es/
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-3@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T120000
+DTEND:20270604T133000
+SUMMARY:Almoina Archaeological Centre (Centre Arqueològic de l'Almoina)
+DESCRIPTION:Day 2. Underground museum of Roman\, Moorish and Visigothic lay
+ ers. https://en.wikivoyage.org/wiki/Valencia
+GEO:39.476190;-0.374220
+URL:https://en.wikivoyage.org/wiki/Valencia
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-4@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T133000
+DTEND:20270604T143000
+SUMMARY:Tasca Ángel
+DESCRIPTION:Day 2. Low‑budget tapas\; try the grilled sardines. https://w
+ ww.facebook.com/Tasca-Angel-163047987042853/
+GEO:39.474860;-0.377660
+URL:https://www.facebook.com/Tasca-Angel-163047987042853/
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-5@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T150000
+DTEND:20270604T163000
+SUMMARY:Almodí (Almodí Building)
+DESCRIPTION:Day 2. Visit temporary art exhibitions in the restored granary.
+  https://en.wikivoyage.org/wiki/Valencia
+GEO:39.476550;-0.373860
+URL:https://en.wikivoyage.org/wiki/Valencia
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-6@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T163000
+DTEND:20270604T180000
+SUMMARY:Torres de Serranos
+DESCRIPTION:Day 2. Climb the towers for panoramic city views. https://www.o
+ penstreetmap.org/way/9281502
+GEO:39.479259;-0.376009
+URL:https://www.openstreetmap.org/way/9281502
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-7@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270604T203000
+DTEND:20270604T213000
+SUMMARY:El Poblet Restaurante
+DESCRIPTION:Day 2. Mid‑budget Michelin‑starred spot\; seasonal tasting 
+ menu. http://elpobletrestaurante.com/home
+GEO:39.469730;-0.374450
+URL:http://elpobletrestaurante.com/home
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-8@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270605T100000
+DTEND:20270605T113000
+SUMMARY:City of Arts and Sciences
+DESCRIPTION:Day 3. Explore the architectural complex\; admiration of Calatr
+ ava’s design. https://en.wikipedia.org/wiki/City_of_Arts_and_Sciences
+GEO:39.454167;-0.350000
+URL:https://en.wikipedia.org/wiki/City_of_Arts_and_Sciences
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-9@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270605T123000
+DTEND:20270605T140000
+SUMMARY:Príncipe Felipe Science Museum
+DESCRIPTION:Day 3. Interactive science exhibits inside the whale‑shaped b
+ uilding. https://www.openstreetmap.org/relation/14693200
+GEO:39.455781;-0.351663
+URL:https://www.openstreetmap.org/relation/14693200
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-10@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270605T143000
+DTEND:20270605T153000
+SUMMARY:Alquería del Pou
+DESCRIPTION:Day 3. Mid‑budget restaurant\; order a traditional Valencian 
+ paella. http://alqueriadelpou.com/
+GEO:39.450480;-0.353340
+URL:http://alqueriadelpou.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-11@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270605T163000
+DTEND:20270605T180000
+SUMMARY:Oceanogràfic
+DESCRIPTION:Day 3. Europe’s largest oceanarium\; see dolphin shows and sh
+ ark tunnel. https://www.openstreetmap.org/way/23433776
+GEO:39.453019;-0.347047
+URL:https://www.openstreetmap.org/way/23433776
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-12@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270605T193000
+DTEND:20270605T203000
+SUMMARY:Portland Ale House
+DESCRIPTION:Day 3. Mid‑budget American‑style bar\; enjoy a burger and a
+  local craft beer. https://www.facebook.com/pages/Portland-Ale-House/35965
+ 599857?sk=wall
+GEO:39.467020;-0.364940
+URL:https://www.facebook.com/pages/Portland-Ale-House/35965599857?sk=wall
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-13@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270606T100000
+DTEND:20270606T113000
+SUMMARY:Silk Exchange (Llotja de la Seda)
+DESCRIPTION:Day 4. Visit the Gothic UNESCO World Heritage hall. https://www
+ .openstreetmap.org/way/23377876
+GEO:39.474376;-0.378395
+URL:https://www.openstreetmap.org/way/23377876
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-14@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270606T114500
+DTEND:20270606T131500
+SUMMARY:Museum of Ceramics and Decorative Arts (González Martí)
+DESCRIPTION:Day 4. See historic Valencian ceramics in a Rococo palace. http
+ s://en.wikivoyage.org/wiki/Valencia
+GEO:39.472524;-0.374668
+URL:https://en.wikivoyage.org/wiki/Valencia
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-15@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270606T131500
+DTEND:20270606T143000
+SUMMARY:Museum of Fine Arts (Museu de Belles Arts de València)
+DESCRIPTION:Day 4. Explore Spanish paintings from medieval to early‑20th
+  century. https://en.wikivoyage.org/wiki/Valencia
+GEO:39.479342;-0.370833
+URL:https://en.wikivoyage.org/wiki/Valencia
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-16@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270606T143000
+DTEND:20270606T153000
+SUMMARY:Bodega La Rentaora
+DESCRIPTION:Day 4. Mid‑budget tapas bar\; quick snack before flight.
+GEO:39.477790;-0.380250
+END:VEVENT
+BEGIN:VEVENT
+UID:valencia-2027-06-03-to-2027-06-06-17@trip-planner
+DTSTAMP:20261125T123858Z
+DTSTART:20270606T180000
+DTEND:20270606T190000
+SUMMARY:Depart from Valencia
+DESCRIPTION:Day 4. Flight with Lufthansa\; see Getting there and back. http
+ s://kiwi.com/u/r9sh2wxhdy
+URL:https://kiwi.com/u/r9sh2wxhdy
+END:VEVENT
+END:VCALENDAR

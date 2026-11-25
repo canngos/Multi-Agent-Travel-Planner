@@ -1,0 +1,257 @@
+{
+ "id": "05_long_haul_tokyo",
+ "title": "Tokyo 7 days, non-euro currency, long-haul",
+ "turns": [
+  {
+   "user": "Tokyo for a week, 2 adults, from Helsinki, 5-11 April 2027 (cherry blossom!). High budget, around 8000 euros. Anime, sushi, temples.",
+   "seconds": 17.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Tokyo, Japan – 05 Apr 2027 to 11 Apr 2027 (7 days, 6 nights)  \nFrom: Helsinki, Finland  \nTravelers: 2 adults  \nBudget: high (≈ 8000 EUR)  \nInterests: anime, sushi, temples  \n\nPlease confirm these details or let me know any changes."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1200.0,
+   "replies": []
+  },
+  {
+   "user": "How much is the flight and which airline?",
+   "seconds": 10.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I don’t have the exact flight price or airline details at this moment—those will be researched and included in the full itinerary that the planning team prepares for you. Once the plan is ready, you’ll see the recommended flight options, airlines, and estimated costs. Let me know if you’d like me to proceed with the full planning (which is already underway) or if there’s anything else you’d like to adjust first."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "TIMEOUT after 1200s on turn: Yes, that's right, go ahead."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 05 Apr - 11 Apr 2027, 7 days and 6 nights.",
+  "ground_searcher: plan_public_transport -> error No public-transport connection found for this route and day",
+  "culture_agent: geocode_place -> error nominatim.openstreetmap.org: response is not JSON: \n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html>\n  <head>\n    <title>629 Unknown Error</tit (the Open-Meteo geocoder found nothing either)",
+  "culture_agent: tool_call_failed -> error Your call to web_search was NOT run: its arguments were not valid JSON. Call it again with valid JSON arguments (double quotes, no comments, no trailing commas, numbers without units), or continue without it. Attempt 1 of 2."
+ ],
+ "tool_calls": 34,
+ "agents": {
+  "concierge": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 8.561896100000013,
+   "last": 1228.0469583999948
+  },
+  "planning_pipeline": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 19.958973500004504,
+   "last": 19.958973500004504
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 24.661947900007362,
+   "last": 281.2730314000073
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 26.301057899996522,
+   "last": 221.79299549999996
+  },
+  "ground_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 26.44863319999422,
+   "last": 53.50227840000298
+  },
+  "hotel_searcher": {
+   "events": 6,
+   "tool_calls": 2,
+   "first": 27.859914200002095,
+   "last": 187.98351590000675
+  },
+  "culture_agent": {
+   "events": 29,
+   "tool_calls": 14,
+   "first": 27.86029939999571,
+   "last": 710.9306082999974
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 36.42002839999623,
+   "last": 266.9216165999969
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 221.8457522999961,
+   "last": 221.8457522999961
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 266.92432720000215,
+   "last": 266.92432720000215
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 710.9791742999951,
+   "last": 710.9791742999951
+  },
+  "itinerary_writer": {
+   "events": 12,
+   "tool_calls": 3,
+   "first": 710.9793510000018,
+   "last": 1216.1202085999976
+  },
+  "plan_critic": {
+   "events": 6,
+   "tool_calls": 1,
+   "first": 1049.459732000003,
+   "last": 1216.1204856999975
+  }
+ },
+ "seconds": 1228.1,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Tokyo",
+  "start_date": "2027-04-05",
+  "end_date": "2027-04-11",
+  "travellers": 2,
+  "budget_tier": "high",
+  "total_budget_eur": 8000.0,
+  "interests": [
+   "anime",
+   "sushi",
+   "temples"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 35.67686,
+  "destination_lon": 139.76389,
+  "destination_country": "Japan",
+  "nights": 6,
+  "days": 7
+ },
+ "plan_status": null,
+ "cost_total": 4159.6,
+ "n_days": 7,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 5,
+   "issue": "outside_hours",
+   "detail": "'Nezu Museum' at 09:30, but it is open 10:00-17:00 on Fridays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 6,
+   "issue": "outside_hours",
+   "detail": "'Mitsubishi Ichigokan Museum' at 09:30, but it is open 10:00-18:00 on Saturdays: move it inside the opening hours (at least 30 min before closing)."
+  }
+ ],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 09:30-22:00.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": []
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 12:30-18:30.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "packed_day",
+   "detail": "Only 30 min between 'Hōzōmon' and 'Kannondō (Main Hall of Senso‑ji)' (at least 45 min): move the later one, but never against a must-fix point such as the time to leave or opening hours."
+  },
+  {
+   "day": 4,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 12:30-18:00.",
+   "alternatives": []
+  },
+  {
+   "day": 4,
+   "issue": "packed_day",
+   "detail": "Only 30 min between 'Kaminarimon' and 'Edo Tokyo Museum' (at least 45 min): move the later one, but never against a must-fix point such as the time to leave or opening hours."
+  },
+  {
+   "day": 5,
+   "issue": "long_walk",
+   "detail": "38.3 km straight-line between the day's stops: regroup or add a metro/tram note."
+  },
+  {
+   "day": 5,
+   "issue": "far_meal",
+   "detail": "'Sushi Kanesaka' is 6.2 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Pasutakan",
+     "kind": "restaurant",
+     "km": 2.2,
+     "hours": "11:00-22:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "Khao San",
+     "kind": "restaurant",
+     "km": 2.2,
+     "hours": "10:00-22:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    }
+   ]
+  },
+  {
+   "day": 6,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 13:30-18:30.",
+   "alternatives": []
+  },
+  {
+   "day": 6,
+   "issue": "long_walk",
+   "detail": "10.2 km straight-line between the day's stops: regroup or add a metro/tram note."
+  },
+  {
+   "day": 6,
+   "issue": "far_meal",
+   "detail": "'Nabezo' is 5.0 km from the day's sights.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": []
+ }
+}

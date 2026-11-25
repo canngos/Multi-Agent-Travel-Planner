@@ -15,7 +15,7 @@ should_fix (the plan is weak):  thin days (few sights, long empty gaps, missing 
           walks, meals far from the day's area, places used twice, over budget with no cheaper option left.
 
 Thin days and far meals come with "alternatives": unused researched places near that day's area, so the
-reviser can fix them without inventing anything.
+writer can fix them without inventing anything.
 """
 import difflib
 import json
@@ -1342,7 +1342,7 @@ def _day_shape_issues(must, should, label, items, sights, times, start, full_day
 
 
 def check_state(state) -> dict:
-    """check_plan on state["itinerary"]; also stores the result in state["itinerary_check"] for the reviser."""
+    """check_plan on state["itinerary"]; also stores the result in state["itinerary_check"] for the writer."""
     report = check_plan(_parse(state.get("itinerary")), state)
     state["itinerary_check"] = json.dumps({k: report[k] for k in ("must_fix", "should_fix", "decide", "facts")},
                                           ensure_ascii=False)

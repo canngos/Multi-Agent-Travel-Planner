@@ -1,0 +1,305 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.1113273,
+     56.9504758
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Liberty Hotel",
+    "url": "https://www.booking.com/searchresults.html?ss=Liberty+Hotel%2C+Riga&checkin=2027-05-13&checkout=2027-05-15&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.106917,
+     56.947139
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "House of the Blackheads",
+    "url": "https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105671,
+     56.950008
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Key to Riga",
+    "url": "https://www.openstreetmap.org/node/445460372"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.1094,
+     56.9481
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Museum of Decorative Arts and Design",
+    "url": "https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105754,
+     56.950214
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "16:30",
+    "kind": "restaurant",
+    "name": "Melnais ķiploks",
+    "url": "https://www.openstreetmap.org/node/10192025381"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105873,
+     56.948824
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-13",
+    "time": "18:10",
+    "kind": "bar",
+    "name": "Spot Kafé",
+    "url": "https://www.openstreetmap.org/node/3092908017"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.113074,
+     56.955778
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Latvian National Museum of Art",
+    "url": "https://www.openstreetmap.org/way/87971760"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.106477,
+     56.949103
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "11:30",
+    "kind": "restaurant",
+    "name": "Burger Corner",
+    "url": "https://www.openstreetmap.org/node/6617343796"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.108517,
+     56.95961
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Riga Art Nouveau Centre",
+    "url": "https://www.openstreetmap.org/node/1160803251"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105923,
+     56.949143
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-14",
+    "time": "19:00",
+    "kind": "bar",
+    "name": "KwakInn",
+    "url": "https://www.openstreetmap.org/node/7882140663"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105103,
+     56.950089
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Art Museum \"Riga Bourse\"",
+    "url": "https://www.openstreetmap.org/relation/9248240"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.109299,
+     56.947508
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "11:45",
+    "kind": "sight",
+    "name": "St. Peter's Church",
+    "url": "https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105591,
+     56.948706
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "12:45",
+    "kind": "restaurant",
+    "name": "DOM",
+    "url": "https://www.openstreetmap.org/node/3172202159"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.108167,
+     56.949691
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "The Large Guild",
+    "url": "https://en.wikivoyage.org/wiki/Riga/Vecr%C4%ABga"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.104309,
+     56.948499
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Museum of the History of Riga and Navigation",
+    "url": "https://www.openstreetmap.org/node/13721805929"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     24.105903,
+     56.949284
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-05-15",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "13 krēsli",
+    "url": "https://www.openstreetmap.org/node/445460362"
+   }
+  }
+ ]
+}

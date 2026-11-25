@@ -1,0 +1,41 @@
+{
+ "id": "21_off_topic",
+ "title": "Off-topic requests",
+ "turns": [
+  {
+   "user": "Write me a Python function that reverses a linked list.",
+   "seconds": 3.9,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’m here to help you plan trips—choosing destinations, dates, transport, accommodation, sights, food, and creating a day‑by‑day guide. Let me know where and when you’d like to travel, and we can get started!"
+    }
+   ]
+  },
+  {
+   "user": "What's the population of Brazil?",
+   "seconds": 1.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I specialize in planning trips (transport, accommodation, sights, food, and day‑by‑day itineraries). I don’t have population data, but you can find Brazil’s current population on a reliable statistics website or through a quick web search. If you’d like help planning a trip to Brazil (or anywhere else), just let me know the destination, dates, and any preferences!"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 3.8870834999979706,
+   "last": 5.36408179999853
+  }
+ },
+ "seconds": 5.4,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

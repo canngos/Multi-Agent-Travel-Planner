@@ -36,8 +36,8 @@ def test_every_agent_is_told_there_is_no_stay_and_no_rooms_line():
 async def test_the_stay_team_does_not_run():
     llm = ResearchLlm()
     state = await _run_research({"trip_brief": dict(OWN)}, llm)
-    assert not {"AIRBNB SEARCHER", "HOTEL SEARCHER", "STAY COMPARER"} & set(llm.asked)
-    assert "CULTURE RESEARCHER" in llm.asked and len(llm.asked) == 5  # 2 transport searchers, comparer, culture, food
+    assert not {"AIRBNB SEARCHER", "HOTEL SEARCHER"} & set(llm.asked)
+    assert "CULTURE RESEARCHER" in llm.asked and len(llm.asked) == 4  # 2 transport searchers, culture, food
     summary = extract_json(state["stay_summary"])
     assert summary["cheapest"] is None and "own place" in summary["notes"]
     assert extract_json(state["hotel_options"])["results"] == []

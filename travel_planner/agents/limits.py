@@ -16,7 +16,7 @@ _calls: OrderedDict[tuple, int] = OrderedDict()
 def limit_tool_calls(max_calls: int, only: tuple[str, ...] | None = None, slack: int = SLACK, bonus=None):
     """Before-tool callback factory: refuses calls beyond max_calls + slack in one agent run (one review round).
 
-    `only` counts just the named tools (e.g. the reviser's on-demand researcher), leaving the agent's other tools
+    `only` counts just the named tools (e.g. the writer's on-demand researcher), leaving the agent's other tools
     alone; each limiter keeps its own count. `bonus(trip_brief) -> int` adds calls for some trips (a long trip's
     researchers read more pages)."""
     base = max_calls + slack

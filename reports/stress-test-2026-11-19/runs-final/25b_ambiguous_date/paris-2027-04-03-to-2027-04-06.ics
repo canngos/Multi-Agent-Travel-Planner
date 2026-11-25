@@ -1,0 +1,208 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Paris
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-1@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T094000
+DTEND:20270403T104000
+SUMMARY:Arrive in Paris
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/nryuk8y7rd
+URL:https://kiwi.com/u/nryuk8y7rd
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-2@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T110000
+DTEND:20270403T123000
+SUMMARY:Musée d'Orsay
+DESCRIPTION:Day 1. Explore Impressionist masterpieces. https://thetourguy.c
+ om/travel-blog/france/paris/musee-dorsay/visiting-musee-dorsay-everything-
+ you-need-to-know
+GEO:48.859972;2.326527
+URL:https://thetourguy.com/travel-blog/france/paris/musee-dorsay/visiting-m
+ usee-dorsay-everything-you-need-to-know
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-3@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T123000
+DTEND:20270403T133000
+SUMMARY:Pizza Nelly.
+DESCRIPTION:Day 1. Quick slice\; try a croissant‑style dough for a French
+  twist. https://en.wikivoyage.org/wiki/Paris/1st_arrondissement
+GEO:48.868661;2.325412
+URL:https://en.wikivoyage.org/wiki/Paris/1st_arrondissement
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-4@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T134000
+DTEND:20270403T151000
+SUMMARY:Musée de l'Orangerie
+DESCRIPTION:Day 1. See Monet's Water Lilies and other Impressionist works. 
+ https://www.musee-orangerie.fr/en/articles/rates-257
+GEO:48.863845;2.322538
+URL:https://www.musee-orangerie.fr/en/articles/rates-257
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-5@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T152000
+DTEND:20270403T165000
+SUMMARY:Petit Palais
+DESCRIPTION:Day 1. Free entry Art Nouveau museum. https://www.openstreetmap
+ .org/relation/2778854
+GEO:48.866043;2.315350
+URL:https://www.openstreetmap.org/relation/2778854
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-6@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T170000
+DTEND:20270403T183000
+SUMMARY:Musée Rodin
+DESCRIPTION:Day 1. Visit the gardens and see The Thinker. https://www.opens
+ treetmap.org/way/472159547
+GEO:48.854695;2.315858
+URL:https://www.openstreetmap.org/way/472159547
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-7@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270403T193000
+DTEND:20270403T203000
+SUMMARY:Macéo
+DESCRIPTION:Day 1. Fine‑dining dinner\; try the chef’s tasting menu. ht
+ tp://maceorestaurant.com/
+GEO:48.866412;2.338124
+URL:http://maceorestaurant.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-8@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T093000
+DTEND:20270404T110000
+SUMMARY:Louvre Museum
+DESCRIPTION:Day 2. World‑famous art collection\; see the Mona Lisa. https
+ ://www.openstreetmap.org/relation/7515426
+GEO:48.860864;2.336397
+URL:https://www.openstreetmap.org/relation/7515426
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-9@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T123000
+DTEND:20270404T133000
+SUMMARY:L'Express Bar
+DESCRIPTION:Day 2. Inexpensive bar for a quick lunch. https://en.wikivoyage
+ .org/wiki/Paris/1st_arrondissement
+GEO:48.861144;2.343908
+URL:https://en.wikivoyage.org/wiki/Paris/1st_arrondissement
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-10@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T133000
+DTEND:20270404T150000
+SUMMARY:Musée national Eugène Delacroix
+DESCRIPTION:Day 2. Romantic paintings and sketches. https://www.openstreetm
+ ap.org/way/395785603
+GEO:48.854660;2.335377
+URL:https://www.openstreetmap.org/way/395785603
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-11@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T150000
+DTEND:20270404T163000
+SUMMARY:Sainte‑Chapelle
+DESCRIPTION:Day 2. Stained‑glass masterpiece\; perfect for a quiet moment
+ . https://www.openstreetmap.org/relation/3344870
+GEO:48.855388;2.345023
+URL:https://www.openstreetmap.org/relation/3344870
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-12@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T163000
+DTEND:20270404T173000
+SUMMARY:Walk on Île de la Cité
+DESCRIPTION:Day 2. Free exploration of the historic island and its narrow s
+ treets.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-13@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270404T193000
+DTEND:20270404T203000
+SUMMARY:Chez Denise
+DESCRIPTION:Day 2. Mid‑budget bistro for dinner\, try the croissant‑bre
+ ad confit. https://en.wikivoyage.org/wiki/Paris/1st_arrondissement
+GEO:48.861521;2.344001
+URL:https://en.wikivoyage.org/wiki/Paris/1st_arrondissement
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-14@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270405T100000
+DTEND:20270405T113000
+SUMMARY:Arc de Triomphe
+DESCRIPTION:Day 3. Climb to the top for a panoramic view of Paris. https://
+ www.openstreetmap.org/way/226413508
+GEO:48.873777;2.295037
+URL:https://www.openstreetmap.org/way/226413508
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-15@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270405T113000
+DTEND:20270405T123000
+SUMMARY:Lunch near Arc de Triomphe
+DESCRIPTION:Day 3. Grab a pastry or a quick snack from a nearby bakery.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-16@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270405T193000
+DTEND:20270405T203000
+SUMMARY:La Robe et le Palais
+DESCRIPTION:Day 3. Cozy Basque‑style restaurant for a relaxed dinner. htt
+ p://larobeetlepalais.fr/en
+GEO:48.858616;2.345878
+URL:http://larobeetlepalais.fr/en
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-17@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270406T093000
+DTEND:20270406T110000
+SUMMARY:Eiffel Tower
+DESCRIPTION:Day 4. Visit the summit for iconic city views. https://www.open
+ streetmap.org/way/5013364
+GEO:48.858262;2.294496
+URL:https://www.openstreetmap.org/way/5013364
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-18@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270406T123000
+DTEND:20270406T133000
+SUMMARY:Lunch near Eiffel Tower
+DESCRIPTION:Day 4. Picnic with a baguette\, cheese\, and a croissant from a
+  nearby shop.
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-2027-04-03-to-2027-04-06-19@trip-planner
+DTSTAMP:20261125T124732Z
+DTSTART:20270406T190000
+DTEND:20270406T200000
+SUMMARY:Depart from Paris
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/8uygwh85yt
+URL:https://kiwi.com/u/8uygwh85yt
+END:VEVENT
+END:VCALENDAR

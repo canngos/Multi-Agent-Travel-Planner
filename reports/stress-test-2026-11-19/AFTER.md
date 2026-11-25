@@ -1,5 +1,7 @@
 # After the fixes: second live run, 2026-11-20
 
+> These runs used the system as it was on 2026-11-20, before the agent tree was simplified to the current 10 LLM agents (PLAN.md, Phase 13): the planner and reviser named here are now one `itinerary_writer`, and the transport and stay comparisons are code. The results on the current system are in [FINAL.md](FINAL.md).
+
 The findings of [REPORT.md](REPORT.md) were fixed (PLAN.md, Phase 12), then 19 of the scenarios were run again live
 (same harness, 4 at a time, while the demo was being re-recorded). Results are in `runs-after/`; the first runs stay in
 `runs/`. Summary tables: `STRESS_RUNS=runs-after python stats.py` and `... summarize.py`.

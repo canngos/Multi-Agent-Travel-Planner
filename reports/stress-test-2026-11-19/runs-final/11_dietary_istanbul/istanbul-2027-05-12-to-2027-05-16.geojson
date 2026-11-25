@@ -1,0 +1,172 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.940587,
+     41.011973
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Ramada by Wyndham Istanbul Old City",
+    "url": "https://www.booking.com/searchresults.html?ss=Ramada+by+Wyndham+Istanbul+Old+City%2C+Istanbul&checkin=2027-05-12&checkout=2027-05-16&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.979973,
+     41.008537
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-12",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Hagia Sophia",
+    "url": "https://en.wikipedia.org/wiki/Hagia_Sophia"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.979709,
+     41.002807
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-12",
+    "time": "18:45",
+    "kind": "sight",
+    "name": "Mevlana Bazaar",
+    "url": "https://bazaarturkey.com/activities/daily-konya-mevlana-rumi-tour"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.96793333,
+     41.01058056
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-05-13",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Grand Bazaar",
+    "url": "https://en.wikipedia.org/wiki/Grand_Bazaar,_Istanbul"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.971624,
+     41.008542
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-05-13",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Çemberlitaş Hammam",
+    "url": "https://www.openstreetmap.org/node/663391267"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.939018,
+     41.031205
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Chora Mosque (Kariye Museum)",
+    "url": "https://en.wikipedia.org/wiki/The_Chora"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.961554,
+     41.009945
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-05-14",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Bayezid II Hamam (II. Bayezid Turkish Bath Culture Museum)",
+    "url": "https://en.wikipedia.org/wiki/Bayezid%20II%20Hamam"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.976732,
+     41.005352
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 4,
+    "date": "2027-05-15",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Blue Mosque (Sultan Ahmed Mosque)",
+    "url": "https://en.wikipedia.org/wiki/Blue_Mosque,_Istanbul"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     28.956539,
+     41.018022
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 5,
+    "date": "2027-05-16",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Zeyrek Çinili Hamam",
+    "url": "https://zeyrekcinilihamam.com/en/"
+   }
+  }
+ ]
+}

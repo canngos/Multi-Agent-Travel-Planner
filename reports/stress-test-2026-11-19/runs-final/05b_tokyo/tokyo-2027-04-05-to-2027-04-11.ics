@@ -1,0 +1,237 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Tokyo
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-1@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270405T202500
+DTEND:20270405T212500
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Flight with Finnair\, China Eastern Airlines\; see Getti
+ ng there and back. https://kiwi.com/u/qqmt28tsyz
+URL:https://kiwi.com/u/qqmt28tsyz
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-2@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270406T205500
+DTEND:20270406T213000
+SUMMARY:Arrive in Tokyo
+DESCRIPTION:Day 2. Flight with Finnair\, China Eastern Airlines\; see Getti
+ ng there and back. https://kiwi.com/u/qqmt28tsyz
+URL:https://kiwi.com/u/qqmt28tsyz
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-3@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270406T213000
+DTEND:20270406T223000
+SUMMARY:Dinner near hotel
+DESCRIPTION:Day 2. Explore a nearby izakaya for a relaxed first night.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-4@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T093000
+DTEND:20270407T103000
+SUMMARY:Kaminarimon (Sensō-ji Gate)
+DESCRIPTION:Day 3. Iconic red lantern‑walled gate of Tokyo's oldest templ
+ e. https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+GEO:35.711120;139.796370
+URL:https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-5@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T103000
+DTEND:20270407T120000
+SUMMARY:Dembō‑in Temple
+DESCRIPTION:Day 3. Quiet sub‑temple with a garden\; small entrance fee. h
+ ttp://www.senso-ji.jp/guide/guide13.html
+GEO:35.713236;139.795459
+URL:http://www.senso-ji.jp/guide/guide13.html
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-6@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T123000
+DTEND:20270407T133000
+SUMMARY:Lunch near Asakusa
+DESCRIPTION:Day 3. Try a local noodle shop for a quick bite.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-7@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T140000
+DTEND:20270407T153000
+SUMMARY:Hōzōmon (Inner Gate)
+DESCRIPTION:Day 3. Inner gate of Sensō-ji\, famous for the giant straw san
+ dal. https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+GEO:35.713930;139.796680
+URL:https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-8@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T153000
+DTEND:20270407T170000
+SUMMARY:Gojūnotō Pagoda
+DESCRIPTION:Day 3. Five‑story pagoda on the Sensō‑ji grounds\, free en
+ try. https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+GEO:35.714102;139.796041
+URL:https://en.wikivoyage.org/wiki/Tokyo/Asakusa
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-9@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270407T183000
+DTEND:20270407T193000
+SUMMARY:Sukiyabashi Jiro
+DESCRIPTION:Day 3. Three‑Michelin‑star sushi venue\, reservation requir
+ ed\; take the Asakusa‑Tsubame‑michō line to reduce walking. http://ww
+ w.sushi-jiro.jp/eng-index.html
+URL:http://www.sushi-jiro.jp/eng-index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-10@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270408T093000
+DTEND:20270408T110000
+SUMMARY:teamLab Borderless
+DESCRIPTION:Day 4. Immersive digital‑art museum\; walk through constantly
+  changing rooms. https://www.teamlab.art/e/tokyo/
+GEO:35.662002;139.743418
+URL:https://www.teamlab.art/e/tokyo/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-11@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270408T123000
+DTEND:20270408T133000
+SUMMARY:Lunch near Odaiba
+DESCRIPTION:Day 4. Grab a quick bite at a mall food court.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-12@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270408T150000
+DTEND:20270408T163000
+SUMMARY:Mori Art Museum
+DESCRIPTION:Day 4. Contemporary art museum in Roppongi Hills. https://www.m
+ ori.art.museum/jp/index.html
+GEO:35.660432;139.729261
+URL:https://www.mori.art.museum/jp/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-13@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270408T173000
+DTEND:20270408T183000
+SUMMARY:Sushi Kanesaka
+DESCRIPTION:Day 4. Two‑Michelin‑star omakase sushi\; take the Yurikamom
+ e line from Odaiba to shorten travel. http://www.sushi-kanesaka.com/
+GEO:35.667988;139.762643
+URL:http://www.sushi-kanesaka.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-14@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270408T210000
+DTEND:20270408T220000
+SUMMARY:Botejyu
+DESCRIPTION:Day 4. Okonomiyaki shop offering interactive tabletop cooking\;
+  convenient after museum. http://www.botejyu.co.jp
+URL:http://www.botejyu.co.jp
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-15@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270409T103000
+DTEND:20270409T120000
+SUMMARY:Mitsubishi Ichigokan Museum
+DESCRIPTION:Day 5. Reconstructed Meiji‑era office building with European 
+ art. https://en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20To
+ kyo
+GEO:35.678411;139.763222
+URL:https://en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20Toky
+ o
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-16@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270409T123000
+DTEND:20270409T133000
+SUMMARY:Lunch near Roppongi
+DESCRIPTION:Day 5. Grab a bento from a nearby convenience store.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-17@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270409T150000
+DTEND:20270409T163000
+SUMMARY:Tokyo Anime Center (DNP Plaza)
+DESCRIPTION:Day 5. Anime exhibitions\, live radio and merch fairs. https://
+ us.trip.com/travel-guide/attraction/tokyo/tokyo-anime-center-in-dnp-plaza-
+ 20905486
+URL:https://us.trip.com/travel-guide/attraction/tokyo/tokyo-anime-center-in
+ -dnp-plaza-20905486
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-18@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270409T190000
+DTEND:20270409T200000
+SUMMARY:Dinner near Roppongi
+DESCRIPTION:Day 5. Enjoy a casual izakaya for drinks and small plates.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-19@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270410T103000
+DTEND:20270410T120000
+SUMMARY:National Museum of Modern Art\, Tokyo (MOMAT)
+DESCRIPTION:Day 6. 20th‑century Japanese and international modern art. ht
+ tps://www.momat.go.jp/
+GEO:35.690513;139.754600
+URL:https://www.momat.go.jp/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-20@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270410T123000
+DTEND:20270410T133000
+SUMMARY:Lunch near MOMAT
+DESCRIPTION:Day 6. Cafe inside the museum offers light meals.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-21@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270410T150000
+DTEND:20270410T163000
+SUMMARY:Bank of Japan Currency Museum
+DESCRIPTION:Day 6. Historical exhibit on Japanese money. https://www.openst
+ reetmap.org/node/1350269516
+GEO:35.685440;139.771603
+URL:https://www.openstreetmap.org/node/1350269516
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-22@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270410T190000
+DTEND:20270410T200000
+SUMMARY:Dinner near MOMAT
+DESCRIPTION:Day 6. Try a nearby ramen shop for a warm dinner.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-23@trip-planner
+DTSTAMP:20261125T124733Z
+DTSTART:20270411T021000
+DTEND:20270411T031000
+SUMMARY:Depart from Tokyo
+DESCRIPTION:Day 7. Flight with Peach Aviation\, China Southern Airlines\; s
+ ee Getting there and back. https://kiwi.com/u/fvhuv3jcc8
+URL:https://kiwi.com/u/fvhuv3jcc8
+END:VEVENT
+END:VCALENDAR

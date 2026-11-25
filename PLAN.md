@@ -2,6 +2,8 @@
 
 Spec: [PROJECT.md](PROJECT.md). This file says **in what order** we build it and **how we know each phase is done**. Tick boxes as we go. Each phase ends with something runnable.
 
+> Phases are a build log: each one describes the system as it was built then. The submitted system has 10 LLM agents (see [Phase 13](#phase-13--fewer-agents--2026-11-25) and the README's Architecture section): the comparer agents of Phase 6 became code, and the planner and reviser of Phases 7–8 became one `itinerary_writer`.
+
 ## Conventions (apply in every phase)
 
 - **Layout:** repo root is the ADK "agents dir"; `travel_planner/` is the agent package (`__init__.py` does `from . import agent`; `agent.py` exposes `root_agent`). Run `adk web` from the repo root.
@@ -156,6 +158,8 @@ Research on free alternatives to Tavily: `reports/Travel data APIs beyond web se
 - Result: the food agent makes 0 web searches on the Lisbon brief (was 2–4); the culture agent fills hours/tickets from OSM and searches the web at most twice. 132 offline tests, 18 live tests.
 
 ## Phase 6 — Comparers and teams  *(spec step 6)*
+*Replaced in Phase 13: the comparisons are now code (`agents/summaries.py`), the teams plain parallel agents.*
+
 Files: `travel_planner/agents/{comparers,teams}.py`; `agents/output.py` (nested schemas); tests in `tests/test_agents.py`; harness runs teams
 
 - [x] `transport_comparer` → `transport_summary`: per direction `cheapest`, `fastest` and up to 5 `ranked` options (copied unchanged), plus `recommendation` and `total_cheapest_eur`
@@ -172,6 +176,8 @@ Files: `travel_planner/agents/{comparers,teams}.py`; `agents/output.py` (nested 
 - ADK 2.x deprecates `SequentialAgent`/`ParallelAgent` in favour of `Workflow`, which cannot yet be an LlmAgent sub-agent; we keep them (Decisions log).
 
 ## Phase 7 — End-to-end pipeline without the loop  *(spec step 7)*
+*Later: the planner became the drafting step of `itinerary_writer` (Phase 13), and the guide writer became the concierge's second sub-agent, run after the user's approval (2026-11-19).*
+
 Files: `travel_planner/agents/{concierge,planner,guide_writer,pipeline,grounding,itinerary_tidy}.py`, `travel_planner/agent.py`
 
 - [x] `concierge` (root): asks for missing fields, geocodes origin and destination, confirms with the user, calls `save_trip_brief`, transfers to `planning_pipeline` (or uses the Phase 0 fallback)
@@ -204,6 +210,8 @@ Files: `travel_planner/agents/{concierge,planner,guide_writer,pipeline,grounding
   - The concierge sees one other agent's final reply because of `include_contents="none"` slicing; harmless.
 
 ## Phase 8 — Review loop  *(spec step 8)*
+*Replaced in Phase 13: the loop is now `itinerary_writer` → `plan_critic` (renamed from `budget_critic` on 2026-11-19), at most 4 rounds, ended by the critic's approval; `exit_loop` is gone.*
+
 Files: `travel_planner/agents/{budget_critic,itinerary_reviser,review_checks,retry}.py`; update `pipeline.py`, `itinerary_tidy.py`
 
 - [x] `budget_critic` → `critique`: calls `calculate_trip_cost`, flags over-budget totals, packed days, long walks and **ungrounded places or prices**. Ends with the literal verdict `APPROVED` or `REVISE`.
@@ -314,7 +322,8 @@ Files: `travel-planner-ui/` (Vite + React + TypeScript), `scripts/export_agent_g
   suggestion (works with `DEMO=1`, no network)
 - [x] **Agent graph:** the real agent tree, drawn the way it runs:
   - concierge → planning_pipeline → research_team (4 parallel branches) → planner → review_loop
-    (critic ⇄ reviser, with a round counter) → guide_writer;
+    (critic ⇄ reviser, with a round counter) → guide_writer (since Phase 13: research_team → review_loop
+    with itinerary_writer ⇄ plan_critic; the graph is exported from the agent tree, so it follows);
   - the active agent is highlighted;
   - tool calls fly out of an agent as chips (spinner, then ok or error);
   - state keys (`flight_options`, `itinerary`, …) light up as agents write them;
@@ -561,6 +570,30 @@ Goal: fix every finding of `reports/stress-test-2026-11-19/REPORT.md` (33 live c
   sets `price_eur` = fare x travellers (`tests/test_web_fares.py`). Demo re-recorded (52 tool calls, both review
   loops approved in round 2), UI replay, `run.test.ts` and `docs/DEMO.md` updated
 
+## Phase 13 — Fewer agents  *(2026-11-25)*
+Goal: drop agents whose work is code, or that duplicate another agent (14 LLM agents -> 10, plus the culture
+researcher used as a tool; 7 workflow agents -> 5).
+
+- [x] Comparers replaced by code (`agents/summaries.py`). The two comparer agents called no tools and only
+  sorted and copied options; code already overrode their main pick (`recommended`) and the review measured the
+  plan against the code's choice. `transport_team` and `stay_team` are now plain parallel teams whose after-agent
+  callbacks write `transport_summary` and `stay_summary`: cheapest, fastest and ranked by `leg_cost`; best value
+  = cheapest stay rated 4/5 or better that is not a hostel; liteAPI ratings halved to the 0-5 scale. No option is
+  dropped any more (the comparer had left unpriced ferries out of the Åland run)
+- [x] Planner and reviser merged into `itinerary_writer` (`agents/itinerary_writer.py`). Both had the same inputs,
+  rules, output shape and output key. The writer drafts when no plan has been reviewed yet and revises after a
+  critique; the task picks the instruction and the tools (`WriterTools`: forecast, clustering and cost for a
+  draft, `extra_sights_researcher` for a revision; with all four, a draft researched more sights in the first
+  recording attempt)
+- [x] Loop order is now writer -> critic (`agents/review_loop.py`), so every plan is reviewed, the last one too.
+  The critic's code-enforced APPROVED verdict ends the loop (`escalate`), which removed `exit_loop`, its gate and
+  the "forced by code" exit. The critic scores each round's plan (`remember_best_plan`); without approval the loop
+  ends with the best reviewed plan, then drops unfixed ungrounded places and items too late to leave. Max 4
+  rounds: the draft and up to three revisions, all reviewed (at most 8 LLM calls; before: 7, with the last of
+  three revisions never reviewed). With 3 rounds only two revisions were left, and the first re-recording ended
+  with a closed-at-lunch restaurant that round 3 found but nothing could fix any more
+- [x] Tests, `scripts/evaluate.py`, the UI agent graph and review panel updated; demo re-recorded
+
 ---
 
 ## Decisions log
@@ -571,7 +604,7 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-17 | LLM is **GPT OSS 120B** (`azsydsttjnlbfjbgqnwd`) on Lehmus AI, as in the spec | Native `tool_calls` work, both raw and through LiteLLM. Fallbacks on the same key: Gemma4 26B MoE (`wnofibsjlomanbprgbdp`, ~3× faster, also passes all spikes), Qwen3.8-27B, Gemma4 31B, Qwen3.6-35B-A3B |
 | 2026-11-17 | Env vars are `LEHMUS_API_BASE/KEY/MODEL_ID` instead of the spec's `UNI_*` | Matches the provider's name; `config.py` reads them |
 | 2026-11-17 | Concierge → pipeline uses plain `transfer_to_agent` with the `SequentialAgent` as a sub-agent | Works in ADK 2.14.1; no `AgentTool` fallback needed |
-| 2026-11-17 | Use ADK's built-in `google.adk.tools.exit_loop` | It sets `escalate` and `skip_summarization`, so the reviser's previous `itinerary` output is kept |
+| 2026-11-17 | Use ADK's built-in `google.adk.tools.exit_loop` (replaced 2026-11-25: the critic's code-enforced verdict escalates) | It sets `escalate` and `skip_summarization`, so the reviser's previous `itinerary` output is kept |
 | 2026-11-17 | Always use UTF-8 for text I/O (`encoding="utf-8"` on every file write; `sys.stdout.reconfigure(encoding="utf-8")` in scripts) | GPT OSS emits typographic Unicode (‑,  , —). Windows defaults to cp1252 and crashes on it |
 | 2026-11-17 | `TripBrief` dates are `datetime.date` (ISO strings in and out); added optional `origin_lat/lon`, `destination_lat/lon`, `destination_country`; models reject unknown fields | Validates dates early (end after start); the concierge stores the geocoded coordinates once so research tools need no extra lookups; unknown fields catch model typos |
 | 2026-11-17 | The cache lives in its own module (`_cache.py`), apart from `_http.py`; secrets (`apikey`, `key`, `token`, …) are left out of cache keys and files; headers are never stored | MCP and fast-flights reuse the same cache; fixtures are safe to commit and work with anyone's key |
@@ -659,3 +692,5 @@ Record choices made during the build (model switch, transfer vs AgentTool, hotel
 | 2026-11-20 | Hostel prices are not multiplied for 2+ guests | Checked in Google Hotels: the price for 2 guests is the nightly total for both beds; a note says it may be dorm beds |
 | 2026-11-20 | The concierge chats in the user's language; the guide and code-built messages stay English | Smallest change that fixes the Finnish run; translating the code-built guide parts is out of scope |
 | 2026-11-20 | The guide writer's own final text is held back; one message built in code is shown | Its text leaked absolute local paths and raw JSON in most stress runs |
+| 2026-11-25 | Transport and stay summaries are built in code; the two comparer agents are gone | Sorting and filtering options needs no LLM; code was already overriding the comparer's pick, and code cannot alter or drop an option |
+| 2026-11-25 | One `itinerary_writer` drafts and revises; the loop runs writer -> critic and ends on the critic's approval | Planner and reviser shared inputs, rules and output; the new order reviews every plan, and the loop exit no longer depends on the model calling `exit_loop` |

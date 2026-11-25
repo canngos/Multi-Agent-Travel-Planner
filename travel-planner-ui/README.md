@@ -1,6 +1,6 @@
 # Trip planner web UI
 
-A browser front end for the multi-agent travel planner. Chat with the concierge, then watch the thirteen
+A browser front end for the multi-agent travel planner. Chat with the concierge, then watch the ten
 agents work on a transit-map view of the real agent tree:
 
 - the stations light up while an agent is thinking;
@@ -70,7 +70,7 @@ from the tree:
 
 - when a step of a sequential agent finishes, the next step starts;
 - a parallel agent starts all of its branches at once;
-- a loop starts another round until a step escalates (`exit_loop`) or the round limit is reached.
+- a loop starts another round until a step escalates (the plan critic approves) or the round limit is reached.
 
 This is why all six research agents light up at the moment of the hand-over.
 

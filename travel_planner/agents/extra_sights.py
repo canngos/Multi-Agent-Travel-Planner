@@ -1,8 +1,8 @@
-"""Research on demand (REVIEW.md A2): the itinerary reviser may call a culture researcher as a tool.
+"""Research on demand (REVIEW.md A2): the itinerary writer may call a culture researcher as a tool.
 
 extra_sights_researcher is a second culture researcher (an ADK agent has one parent, so it is a new instance,
-not culture_agent), wrapped in an AgentTool and given to the itinerary reviser. When a day is thin and the code
-check lists no unused place nearby, the REVISER decides to research that area instead of the team researching
+not culture_agent), wrapped in an AgentTool and given to the itinerary writer. When a day is thin and the code
+check lists no unused place nearby, the writer (when revising) decides to research that area instead of the team researching
 everything up front. Code guards the facts:
 - the researcher runs in its own session with its own tool results, and its links are grounded strictly against
   them (a link it did not get from a tool is removed);
@@ -29,14 +29,14 @@ MAX_CALLS_PER_ROUND = 2
 
 
 class ExtraSightsRequest(BaseModel):
-    """Where the reviser needs more sights."""
+    """Where the writer needs more sights."""
     area: str = Field(description="Name of the area or neighbourhood, e.g. \"Belém\".")
     lat: float = Field(ge=-90, le=90, description="Latitude of the area's centre (e.g. a planned item there).")
     lon: float = Field(ge=-180, le=180, description="Longitude of the area's centre.")
     count: int = Field(default=3, ge=1, le=4, description="How many new sights are wanted (1-4).")
 
 
-ROLE = """You are the EXTRA SIGHTS RESEARCHER of a trip-planning team. The itinerary reviser found a thin day and
+ROLE = """You are the EXTRA SIGHTS RESEARCHER of a trip-planning team. The itinerary writer found a thin day and
 asks for a few more sights in one area. The user message is JSON: {"area", "lat", "lon", "count"}."""
 
 STEPS = """STEPS
@@ -80,7 +80,7 @@ budget = limit_tool_calls(MAX_CALLS_PER_ROUND, only=(TOOL_NAME,), slack=0)
 
 
 def merge_extra_sights(tool, args, tool_context, tool_response):
-    """After-tool callback of the reviser: the grounded new sights join culture_findings, and the reviser gets them
+    """After-tool callback of the writer: the grounded new sights join culture_findings, and the writer gets them
     back (in place of the researcher's raw reply, whose links were not yet grounded)."""
     if getattr(tool, "name", "") != TOOL_NAME:
         return None

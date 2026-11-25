@@ -1,0 +1,27 @@
+{
+ "concierge_pending_brief": {
+  "invocation_id": "e-afbe27c7-fbf5-4066-99c9-4bebb95c7cc6",
+  "brief": {
+   "origin": "helsinki",
+   "destination": "springfield",
+   "start_date": "2027-06-10",
+   "end_date": "2027-06-13",
+   "travellers": 2,
+   "budget_tier": "mid",
+   "total_budget_eur": 3000.0,
+   "interests": [],
+   "origin_lat": 60.16662,
+   "origin_lon": 24.94354,
+   "destination_lat": 39.79902,
+   "destination_lon": -89.64396,
+   "destination_country": "united states",
+   "avoid_modes": [],
+   "requirements": [],
+   "own_accommodation": false,
+   "own_car": false,
+   "day_start": null,
+   "day_end": null,
+   "pace": null
+  }
+ }
+}

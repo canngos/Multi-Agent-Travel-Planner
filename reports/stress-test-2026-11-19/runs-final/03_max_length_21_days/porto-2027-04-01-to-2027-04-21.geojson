@@ -1,0 +1,419 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6067,
+     41.1645
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "AC House 6 | Comfortable Private Twin Room",
+    "url": "https://www.airbnb.com/rooms/17328144?check_in=2027-04-01&check_out=2027-04-21&adults=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.61033333,
+     41.14555556
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-04-01",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "São Bento Railway Station",
+    "url": "https://en.wikipedia.org/wiki/S%C3%A3o_Bento_railway_station"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.612235,
+     41.148265
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-04-01",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Ris8tto da Baixa",
+    "url": "https://www.openstreetmap.org/node/5316076222"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.605811,
+     41.14667
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-04-01",
+    "time": "20:30",
+    "kind": "restaurant",
+    "name": "Maus Hábitos",
+    "url": "http://www.maushabitos.com/restaurant/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615686,
+     41.141369
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Palácio da Bolsa",
+    "url": "https://en.wikivoyage.org/wiki/Porto"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.611778,
+     41.149167
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-04-02",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Cervejaria Brasão Aliados",
+    "url": "https://www.brasao.pt/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.61458333,
+     41.14566667
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Clérigos Church and Tower",
+    "url": "https://www.openstreetmap.org/way/211337881"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.606836,
+     41.150444
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-04-03",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Bulha",
+    "url": "https://www.openstreetmap.org/node/5736895821"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615486,
+     41.141961
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 4,
+    "date": "2027-04-04",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Port Wine Institute",
+    "url": "https://en.wikivoyage.org/wiki/Porto"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.615303,
+     41.140109
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 5,
+    "date": "2027-04-05",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Museu do Vinho do Porto",
+    "url": "https://www.openstreetmap.org/way/210571326"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.621753,
+     41.148479
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 6,
+    "date": "2027-04-06",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Museu Nacional Soares dos Reis",
+    "url": "https://www.openstreetmap.org/way/261265893"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.65941,
+     41.15926
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 8,
+    "date": "2027-04-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Fundação de Serralves (Serralves Museum)",
+    "url": "https://en.wikivoyage.org/wiki/Porto"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6581,
+     41.1483
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 8,
+    "date": "2027-04-08",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Varanda Da Barra",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.630711,
+     41.158886
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 9,
+    "date": "2027-04-09",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Casa da Música",
+    "url": "https://www.openstreetmap.org/way/603359226"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.607138,
+     41.149359
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 10,
+    "date": "2027-04-10",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Mercado do Bolhão",
+    "url": "https://www.openstreetmap.org/relation/3046626"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.68908,
+     41.18207
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 10,
+    "date": "2027-04-10",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Matosinhos (surf spot)",
+    "url": "https://thesurfatlas.com/surfing-portugal/porto-surf"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.6060587,
+     41.1509425
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 10,
+    "date": "2027-04-10",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Taberna do Doutor",
+    "url": "https://taberna-do-doutor.negocio.site/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.582354,
+     41.161095
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "day": 11,
+    "date": "2027-04-11",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "FC Porto Museum",
+    "url": "https://www.openstreetmap.org/node/3145554676"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.29619,
+     41.44443
+    ]
+   },
+   "properties": {
+    "order": 18,
+    "day": 12,
+    "date": "2027-04-12",
+    "time": "09:00",
+    "kind": "sight",
+    "name": "Guimarães (day‑trip town)",
+    "url": "https://www.geekyexplorer.com/day-trips-from-porto"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.42311,
+     41.5514
+    ]
+   },
+   "properties": {
+    "order": 19,
+    "day": 13,
+    "date": "2027-04-13",
+    "time": "09:00",
+    "kind": "sight",
+    "name": "Braga (day‑trip city)",
+    "url": "https://www.geekyexplorer.com/day-trips-from-porto"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.612911,
+     41.137616
+    ]
+   },
+   "properties": {
+    "order": 20,
+    "day": 14,
+    "date": "2027-04-14",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Teleférico de Gaia",
+    "url": "https://www.openstreetmap.org/way/107436948"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -8.610676,
+     41.150039
+    ]
+   },
+   "properties": {
+    "order": 21,
+    "day": 20,
+    "date": "2027-04-20",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Câmara Municipal do Porto (Porto City Hall)",
+    "url": "https://www.openstreetmap.org/relation/3012085"
+   }
+  }
+ ]
+}

@@ -1,0 +1,210 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.73766,
+     35.661601
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "APA Hotel & Resort Roppongi Ekihigashi",
+    "url": "https://www.booking.com/searchresults.html?ss=APA+Hotel+%26+Resort+Roppongi+Ekihigashi%2C+Tokyo&checkin=2027-04-05&checkout=2027-04-11&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.763222,
+     35.678411
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Mitsubishi Ichigokan Museum",
+    "url": "https://en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20Tokyo"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.766494,
+     35.68243
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "12:30",
+    "kind": "sight",
+    "name": "Tokyo Station Gallery",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79638889,
+     35.71111111
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Kaminarimon",
+    "url": "https://en.wikipedia.org/wiki/Kaminarimon"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.762643,
+     35.667988
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Sushi Kanesaka",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Ginza"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.69916667,
+     35.67611111
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Meiji Shrine",
+    "url": "https://en.wikipedia.org/wiki/Meiji_Shrine"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.60777778,
+     35.71044444
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "Suginami Animation Museum",
+    "url": "https://en.wikipedia.org/wiki/Suginami_Animation_Museum"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7546,
+     35.690513
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "National Museum of Modern Art, Tokyo (MOMAT)",
+    "url": "https://www.momat.go.jp/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.743418,
+     35.662002
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "13:30",
+    "kind": "sight",
+    "name": "teamLab Borderless",
+    "url": "https://www.teamlab.art/e/tokyo/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79675,
+     35.71472222
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Sensō‑ji",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.726485,
+     35.665154
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "National Art Center Tokyo",
+    "url": "https://www.openstreetmap.org/way/103425086"
+   }
+  }
+ ]
+}

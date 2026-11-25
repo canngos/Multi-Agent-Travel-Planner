@@ -171,12 +171,11 @@ def test_research_output_with_only_respelled_links_is_not_rewritten():
 
 def _grounding_agents():
     from travel_planner.agents import RESEARCH_AGENTS
-    from travel_planner.agents.comparers import build_stay_comparer, build_transport_comparer
-    return list(RESEARCH_AGENTS.values()) + [build_transport_comparer, build_stay_comparer]
+    return list(RESEARCH_AGENTS.values())
 
 
 @pytest.mark.parametrize("factory", _grounding_agents())
-def test_every_research_agent_and_comparer_grounds_its_own_output(factory):
+def test_every_research_agent_grounds_its_own_output(factory):
     import json
     from types import SimpleNamespace
     agent = factory()
@@ -320,26 +319,25 @@ def test_group_gets_several_hotel_rooms_in_the_requirements():
     assert "3 rooms" in state["trip_requirements"]
 
 
-def _all_planning_agents():
+def _planning_instructions():
+    """Every planning agent's instruction template; the itinerary writer has one per task."""
+    from travel_planner.agents import itinerary_writer
     from travel_planner.agents.plan_critic import build_plan_critic
     from travel_planner.agents.guide_writer import build_guide_writer
-    from travel_planner.agents.itinerary_reviser import build_itinerary_reviser
-    from travel_planner.agents.planner import build_itinerary_planner
-    return _grounding_agents() + [build_itinerary_planner, build_plan_critic, build_itinerary_reviser,
-                                  build_guide_writer]
+    agents = [factory() for factory in _grounding_agents() + [build_plan_critic, build_guide_writer]]
+    return [a.instruction for a in agents] + [itinerary_writer.DRAFT, itinerary_writer.REVISION]
 
 
-@pytest.mark.parametrize("factory", _all_planning_agents())
-async def test_every_planning_agent_reads_the_requirements_only_when_there_are_some(factory):
+@pytest.mark.parametrize("template", _planning_instructions())
+async def test_every_planning_agent_reads_the_requirements_only_when_there_are_some(template):
     from types import SimpleNamespace
     from google.adk.utils.instructions_utils import inject_session_state
-    agent = factory()
 
     async def render(state):
         state = {"trip_brief": {"destination": "Lisbon"}, **state}
         ctx = SimpleNamespace(state=state, _invocation_context=SimpleNamespace(artifact_service=None,
                                                                                session=SimpleNamespace(state=state)))
-        return await inject_session_state(agent.instruction, ctx)
+        return await inject_session_state(template, ctx)
 
     with_block = await render({"trip_requirements": "\n\nHARD REQUIREMENTS: no flights"})
     assert with_block.endswith("HARD REQUIREMENTS: no flights")
@@ -565,14 +563,14 @@ def _malformed():
     from google.genai import types
     return LlmResponse(finish_reason=types.FinishReason.MALFORMED_FUNCTION_CALL,
                        error_code=types.FinishReason.MALFORMED_FUNCTION_CALL,
-                       error_message="Arguments were not a valid JSON object: exit_loop")
+                       error_message="Arguments were not a valid JSON object: extra_sights_researcher")
 
 
 def test_every_review_round_gets_its_own_retries():
     from types import SimpleNamespace
     from travel_planner.agents.retry import MAX_RETRIES, retry_malformed_call
     state = {}
-    ctx = SimpleNamespace(state=state, invocation_id="loop-run", agent_name="itinerary_reviser")
+    ctx = SimpleNamespace(state=state, invocation_id="loop-run", agent_name="itinerary_writer")
     for round_no in (1, 2, 3):
         state["review_round"] = round_no
         retried = [retry_malformed_call(ctx, _malformed()) is not None for _ in range(MAX_RETRIES + 1)]
@@ -722,9 +720,9 @@ def test_google_flights_duration_includes_layovers():
 
 def _paid_tool_agents():
     from travel_planner.agents import RESEARCH_AGENTS
+    from travel_planner.agents.itinerary_writer import build_itinerary_writer
     from travel_planner.agents.plan_critic import build_plan_critic
-    from travel_planner.agents.planner import build_itinerary_planner
-    return list(RESEARCH_AGENTS.values()) + [build_itinerary_planner, build_plan_critic]
+    return list(RESEARCH_AGENTS.values()) + [build_itinerary_writer, build_plan_critic]
 
 
 @pytest.mark.parametrize("factory", _paid_tool_agents())
@@ -909,12 +907,11 @@ def test_a_late_start_with_only_other_sights_open_early_or_meals_2_5_hours_apart
     assert {"empty_morning", "double_meal"} <= set(decide) and not decide["empty_morning"].get("obvious")
 
 
-def test_planner_and_reviser_get_the_day_shape_rules():
-    from travel_planner.agents.itinerary_reviser import build_itinerary_reviser
-    from travel_planner.agents.planner import build_itinerary_planner
-    for build in (build_itinerary_planner, build_itinerary_reviser):
-        assert "Never start a full day with lunch" in build().instruction
-    assert "Empty morning:" in build_itinerary_reviser().instruction
+def test_drafts_and_revisions_get_the_day_shape_rules():
+    from travel_planner.agents.itinerary_writer import DRAFT, REVISION
+    for instruction in (DRAFT, REVISION):
+        assert "Never start a full day with lunch" in instruction
+    assert "Empty morning:" in REVISION and "Empty morning:" not in DRAFT
 
 
 def check_plan_of(plan, state):
@@ -1337,9 +1334,8 @@ def test_concierge_learns_the_optional_day_rhythm():
     assert "OPTIONAL DAY RHYTHM (never ask for it" in live and '"packed"' in live
 
 
-def test_planner_rules_follow_the_briefs_day_hours_and_pace():
-    from travel_planner.agents.planner import build_itinerary_planner
-    instruction = build_itinerary_planner().instruction
+def test_writer_rules_follow_the_briefs_day_hours_and_pace():
+    from travel_planner.agents.itinerary_writer import DRAFT as instruction
     assert "the brief's day_start and day_end (09:30 and 22:00" in instruction and "packed = 4-6" in instruction
 
 
