@@ -1,0 +1,33 @@
+{
+ "id": "26_contradictions",
+ "title": "Contradictory: 5-star luxury but 300 EUR for 7 days in Dubai; zero travellers",
+ "turns": [
+  {
+   "user": "7 days in Dubai, 5-star luxury only, but total budget 300 euros, 0 adults, from Helsinki, 10-16 Feb 2027.",
+   "seconds": 16.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’ve captured the following details for your trip:\n\n- **Destination:** Dubai (UAE)  \n- **Dates:** 10 Feb 2027 – 16 Feb 2027 (7 days)  \n- **Origin:** Helsinki  \n- **Travel style:** 5‑star luxury only  \n- **Total budget:** 300 EUR  \n- **Travellers:** 0 (adults) – the system requires at least one traveller.\n\nCould you let me know the correct number of travellers (adults) for this trip? Once we have a valid traveller count, I’ll confirm everything and save the brief."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> error Invalid trip brief - travellers: Input should be greater than or equal to 1"
+ ],
+ "tool_calls": 1,
+ "agents": {
+  "concierge": {
+   "events": 3,
+   "tool_calls": 1,
+   "first": 10.817110999996657,
+   "last": 16.102557499994873
+  }
+ },
+ "seconds": 16.1,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

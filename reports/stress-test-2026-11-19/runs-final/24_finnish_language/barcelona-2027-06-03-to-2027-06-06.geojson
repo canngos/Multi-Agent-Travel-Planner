@@ -1,0 +1,286 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.07595,
+     41.44998
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Ground floor bedroom with exclusive use of bathr´m",
+    "url": "https://www.airbnb.com/rooms/666615281945310240?check_in=2027-06-03&check_out=2027-06-06&adults=2"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.175226,
+     41.387585
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Palau de la Música Catalana",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.177678,
+     41.383921
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "13:00",
+    "kind": "sight",
+    "name": "Museu d'Història de Barcelona",
+    "url": "https://www.barcelona.cat/museuhistoria/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.170577,
+     41.389453
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "14:30",
+    "kind": "restaurant",
+    "name": "El Glop",
+    "url": "https://elglop.com/en/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.16113,
+     41.386893
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-06-03",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "La Flauta",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Eixample"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.181944,
+     41.383611
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Basilica of Santa Maria del Mar",
+    "url": "https://www.santamariadelmar.barcelona/en/opening-hours-and-admission-fees"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.17433,
+     41.40369
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "10:45",
+    "kind": "sight",
+    "name": "Sagrada Família",
+    "url": "https://sagradafamilia.org/en/sagrada-familia-ticket"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.162645,
+     41.384516
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Restaurant Macrobiòtic Zen",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Eixample"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.174234,
+     41.378824
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Palau Güell",
+    "url": "https://inici.palauguell.cat/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.1656968883036565,
+     41.392516914481284
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-06-04",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Vinitus",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Eixample"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.169444,
+     41.376111
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Sant Pau del Camp",
+    "url": "https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.16072,
+     41.404604
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "12:45",
+    "kind": "restaurant",
+    "name": "Veg World - India",
+    "url": "http://www.vegworldindiabarcelona.es/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.159344,
+     41.388549
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-05",
+    "time": "20:30",
+    "kind": "restaurant",
+    "name": "Cinc Sentits",
+    "url": "http://www.cincsentits.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.18103,
+     41.38504
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 4,
+    "date": "2027-06-06",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Picasso Museum",
+    "url": "https://museupicassobcn.cat/en/node/6010"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.156517,
+     41.402769
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 4,
+    "date": "2027-06-06",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Karakala",
+    "url": "http://www.karakala.com/"
+   }
+  }
+ ]
+}

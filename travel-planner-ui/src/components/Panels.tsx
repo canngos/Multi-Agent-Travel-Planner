@@ -115,14 +115,14 @@ export function GuidePanel({ run }: { run: RunState }) {
 interface Decline { day: number | null; issue: string; reason: string }
 interface ReviewRound { round: number; verdict: string; critic_said?: string; overridden?: boolean; must_fix: number; should_fix: number; total_eur?: number;
   decide?: number; declined?: Decline[]; declines_refused?: Decline[] }
-interface RevisionRound { round: number; verdict?: string; changes?: string[] | null; restored?: string; exit?: string }
+interface RevisionRound { round: number; changes?: string[] | null; restored?: string }
 
 export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Selection) => void }) {
   const reviews = (run.state.review_log as ReviewRound[] | null) ?? [];
   const revisions = (run.state.revision_log as RevisionRound[] | null) ?? [];
   const critique = typeof run.state.critique === "string" ? run.state.critique : "";
   const overridden = typeof run.state.critique_overridden === "string" ? run.state.critique_overridden : "";
-  if (!reviews.length) return <Empty>The plan critic reviews the plan after the itinerary planner, and the reviser fixes what it finds, for up to three rounds.</Empty>;
+  if (!reviews.length) return <Empty>The itinerary writer drafts the plan and the plan critic reviews it; the writer revises it until the critic approves, for up to four rounds.</Empty>;
   return (
     <div className="review">
       <ol className="rounds">
@@ -146,7 +146,7 @@ export function ReviewPanel({ run, onSelect }: { run: RunState; onSelect: (s: Se
               ) : null}
               {rev?.changes?.length ? (
                 <ul>{rev.changes.map((c, i) => <li key={i}>{c}</li>)}</ul>
-              ) : rev?.exit ? <p className="muted">The reviser ended the loop ({rev.exit === "exit_loop" ? "called exit_loop" : "ended by the code guard"}).</p> : null}
+              ) : null}
               {rev?.restored && <p className="muted">Kept the previous plan: {rev.restored}.</p>}
             </li>
           );
@@ -198,7 +198,7 @@ export function MetricsPanel({ index, run, now, onSelect }: Common & { now: numb
         </ul>
       )}
       {extra.some((e) => e.added?.length) && (
-        <p className="muted">Sights researched on demand by the reviser: {extra.flatMap((e) => e.added ?? []).join(", ")}.</p>
+        <p className="muted">Sights researched on demand by the itinerary writer: {extra.flatMap((e) => e.added ?? []).join(", ")}.</p>
       )}
       <table className="data-table">
         <thead><tr><th scope="col">Agent</th><th scope="col">Model answers</th><th scope="col">Tokens in / out</th>

@@ -10,12 +10,18 @@ from google.adk.runners import InMemoryRunner
 from google.genai import types
 from pydantic import Field
 
-from travel_planner.agents.plan_critic import enforce_verdict, verdict_of
-from travel_planner.agents.itinerary_reviser import gate_exit_loop, guard_revision
 from travel_planner.agents.itinerary_tidy import tidy_plan
+from travel_planner.agents.itinerary_writer import guard_revision, revising
 from travel_planner.agents.output import extract_json
-from travel_planner.agents.pipeline import build_review_loop
+from travel_planner.agents.plan_critic import enforce_verdict, verdict_of
 from travel_planner.agents.review_checks import check_plan, find_place, parse_hours
+from travel_planner.agents.review_loop import build_review_loop, finish_review
+
+
+def critic_context(state: dict) -> SimpleNamespace:
+    """A callback context for the critic's callbacks: the state, and the actions an approval escalates."""
+    return SimpleNamespace(state=state, actions=SimpleNamespace(escalate=False))
+
 
 BRIEF = {"origin": "Helsinki", "destination": "Lisbon", "start_date": "2027-05-11", "end_date": "2027-05-13",
          "travellers": 2, "budget_tier": "mid", "total_budget_eur": 1500.0, "nights": 2, "days": 3}
@@ -209,44 +215,51 @@ def test_tidy_recomputes_cost_and_walk_km():
 
 def test_enforce_verdict_overrides_an_approval_with_must_fix_problems():
     state = _state(bad_plan()) | {"critique": "Looks great.\nVERDICT: **APPROVED**", "review_round": 1}
-    enforce_verdict(SimpleNamespace(state=state))
+    enforce_verdict(critic_context(state))
     assert state["review_verdict"] == "REVISE" and state["critique"].endswith("VERDICT: REVISE")
     assert "MUST FIX (found by the code check" in state["critique"] and "Museum of Invented Things" in state["critique"]
     assert state["review_log"][-1]["overridden"] is True and json.loads(state["itinerary_check"])["must_fix"]
 
     state = _state(fixed_plan()) | {"critique": "MUST FIX:\nnone\nVERDICT: APPROVED", "review_round": 2}
-    enforce_verdict(SimpleNamespace(state=state))
+    enforce_verdict(critic_context(state))
     assert state["review_verdict"] == "APPROVED" and state["critique"].count("VERDICT") == 1
     assert verdict_of("all fine, approved?") is None and verdict_of("...\nREVISE") == "REVISE"
 
 
-def test_exit_loop_is_refused_while_the_verdict_is_revise():
-    tool = SimpleNamespace(name="exit_loop")
-    ctx = SimpleNamespace(state={"review_verdict": "REVISE"})
-    assert gate_exit_loop(tool, {}, ctx)["status"] == "error"
-    ctx.state["review_verdict"] = "APPROVED"
-    assert gate_exit_loop(tool, {}, ctx) is None and ctx.state["review_exit_called"] is True
+def test_only_an_approval_ends_the_loop():
+    approved = critic_context(_state(fixed_plan()) | {"critique": "MUST FIX:\nnone\nVERDICT: APPROVED", "review_round": 1})
+    enforce_verdict(approved)
+    assert approved.actions.escalate is True
+    revise = critic_context(_state(bad_plan()) | {"critique": "MUST FIX:\nnone\nVERDICT: APPROVED", "review_round": 1})
+    enforce_verdict(revise)  # over budget: code turns the approval into REVISE, and the loop goes on
+    assert revise.state["review_verdict"] == "REVISE" and revise.actions.escalate is False
+
+
+def test_the_writer_drafts_until_a_plan_was_reviewed():
+    plan = _state(fixed_plan())["itinerary"]
+    assert not revising({"itinerary": None, "critique": None})
+    assert not revising({"itinerary": plan, "critique": None})  # a new review starts with a draft
+    assert not revising({"itinerary": "no JSON here", "critique": "MUST FIX: no plan"})  # the draft failed
+    assert revising({"itinerary": plan, "critique": "MUST FIX: ..."})
 
 
 def test_guard_revision_keeps_the_plan_safe():
     good = _state(fixed_plan())["itinerary"]
 
     def ctx(**state):
-        return SimpleNamespace(state={"trip_brief": BRIEF, "itinerary_before_revision": good, **state},
-                               actions=SimpleNamespace(escalate=False))
+        return SimpleNamespace(state={"trip_brief": BRIEF, "itinerary_before_revision": good, **state})
 
-    approved = ctx(itinerary="APPROVED, nothing to change", review_verdict="APPROVED", review_exit_called=False)
-    guard_revision(approved)  # text instead of exit_loop: plan restored, loop ended in code
-    assert approved.state["itinerary"] == good and approved.actions.escalate is True
+    draft = SimpleNamespace(state={"trip_brief": BRIEF, "itinerary_before_revision": None, "itinerary": "not a plan"})
+    guard_revision(draft)  # a draft has nothing to fall back to: the critic reports it
+    assert draft.state["itinerary"] == "not a plan" and "revision_log" not in draft.state
 
-    broken = ctx(itinerary='```json\n{"days": [1, 2]}\n```', review_verdict="REVISE")
+    broken = ctx(itinerary='```json\n{"days": [1, 2]}\n```')
     guard_revision(broken)
     assert broken.state["itinerary"] == good and "restored" in broken.state["revision_log"][-1]
 
     revised = _state(fixed_plan())["itinerary"]
-    kept = ctx(itinerary=revised, review_verdict="REVISE")
+    kept = ctx(itinerary=revised)
     guard_revision(kept)
-    assert kept.actions.escalate is False
     expected = fixed_plan()
     changes = expected.pop("changes")
     assert extract_json(kept.state["itinerary"]) == expected  # kept, minus "changes" (logged instead)
@@ -256,7 +269,8 @@ def test_guard_revision_keeps_the_plan_safe():
 # ---------------------------------------------------------------- the loop with a scripted model
 
 class ScriptedLlm(BaseLlm):
-    """Stands in for GPT OSS: the critic always 'approves', the reviser either fixes the plan or repeats it."""
+    """Stands in for GPT OSS: the writer drafts an over-budget plan, then either fixes it or repeats it; the critic
+    always 'approves' (code turns that into REVISE while the plan is over budget)."""
     model: str = "scripted"
     fixes: bool = False
     calls: list = Field(default_factory=list)
@@ -266,11 +280,11 @@ class ScriptedLlm(BaseLlm):
         if "PLAN CRITIC" in system:
             self.calls.append("critic")
             part = types.Part(text="MUST FIX:\nnone\nSHOULD FIX:\nnone\nKEEP: all of it.\nVERDICT: APPROVED")
-        elif "VERDICT OF THE REVIEW: APPROVED" in system:
-            self.calls.append("reviser:exit_loop")
-            part = types.Part(function_call=types.FunctionCall(name="exit_loop", args={}))
+        elif "TASK: write the first plan" in system:
+            self.calls.append("writer:draft")
+            part = types.Part(text="```json\n" + json.dumps(bad_plan(), ensure_ascii=False) + "\n```")
         else:
-            self.calls.append("reviser:revise")
+            self.calls.append("writer:revise")
             plan = fixed_plan() if self.fixes else bad_plan()
             part = types.Part(text="```json\n" + json.dumps(plan, ensure_ascii=False) + "\n```")
         yield LlmResponse(content=types.Content(role="model", parts=[part]))
@@ -290,19 +304,19 @@ async def _run_loop(llm) -> dict:
 async def test_over_budget_plan_is_revised_then_approved():
     llm = ScriptedLlm(fixes=True)
     state = await _run_loop(llm)
-    assert llm.calls == ["critic", "reviser:revise", "critic", "reviser:exit_loop"]
+    assert llm.calls == ["writer:draft", "critic", "writer:revise", "critic"]
     assert [(r["round"], r["verdict"], r["overridden"]) for r in state["review_log"]] == \
         [(1, "REVISE", True), (2, "APPROVED", False)]
     plan = extract_json(state["itinerary"])
     assert plan["stay"]["name"] == "Cheap Guesthouse" and plan["cost"]["within_budget"] is True
-    assert state["revision_log"][-1]["exit"] == "exit_loop"
+    assert [r["round"] for r in state["revision_log"]] == [1]  # the revision that answers round 1's critique
 
 
-async def test_loop_never_runs_more_than_three_rounds():
+async def test_loop_never_runs_more_than_four_rounds():
     llm = ScriptedLlm(fixes=False)
     state = await _run_loop(llm)
-    assert llm.calls == ["critic", "reviser:revise"] * 3
-    assert [r["verdict"] for r in state["review_log"]] == ["REVISE"] * 3
+    assert llm.calls == ["writer:draft", "critic"] + ["writer:revise", "critic"] * 3  # every plan is reviewed
+    assert [r["verdict"] for r in state["review_log"]] == ["REVISE"] * 4
     assert len(state["revision_log"]) == 3
 
 
@@ -351,10 +365,10 @@ def test_should_fix_only_revision_needs_a_fix_and_progress():
     assert not worth_revising([gap_without], None, 1)                     # nothing researched to add
     assert not worth_revising([gap_with_alt], {"should_fix": 1}, 2)       # no progress since round 1
     assert worth_revising([gap_with_alt], {"should_fix": 3}, 2)
-    assert not worth_revising([gap_with_alt], None, 3)                    # last round
+    assert not worth_revising([gap_with_alt], None, 4)                    # last round
 
-    state = _state(fixed_plan()) | {"critique": "SHOULD FIX:\n1. Day 3: add something.\nVERDICT: REVISE", "review_round": 3}
-    enforce_verdict(SimpleNamespace(state=state))
+    state = _state(fixed_plan()) | {"critique": "SHOULD FIX:\n1. Day 3: add something.\nVERDICT: REVISE", "review_round": 4}
+    enforce_verdict(critic_context(state))
     assert state["review_verdict"] == "APPROVED" and "Approved by the code check" in state["critique"]
 
 
@@ -371,7 +385,7 @@ def test_budget_options_skip_flights_that_lose_a_trip_day():
 
 
 def test_ground_tickets_restores_research_prices():
-    """Regression: the reviser set real ticket prices to 0 to fit the budget."""
+    """Regression: a revision set real ticket prices to 0 to fit the budget."""
     from travel_planner.agents.itinerary_tidy import ground_tickets
     from travel_planner.agents.review_checks import research_places
     plan = bad_plan()
@@ -395,18 +409,22 @@ def test_late_arrival_is_must_fix_when_a_same_day_option_exists():
     assert len(lost) == 1 and "2027-05-11" in lost[0]["detail"]
 
 
-def test_keep_best_plan_undoes_a_worse_last_revision():
-    from travel_planner.agents.itinerary_reviser import keep_best_plan
+def test_the_critic_remembers_the_best_plan_and_the_loop_ends_with_it():
     good, bad = _state(fixed_plan())["itinerary"], _state(bad_plan())["itinerary"]
-    state = _state(fixed_plan()) | {"itinerary_before_revision": good, "itinerary": bad, "review_round": 3,
-                                    "review_verdict": "REVISE", "revision_log": [{"round": 3}]}
-    keep_best_plan(SimpleNamespace(state=state))
-    assert state["itinerary"] == good and "kept the plan from round 0" in state["revision_log"][-1]["restored"]
+    state = _state(bad_plan()) | {"critique": "VERDICT: APPROVED", "review_round": 1}
+    enforce_verdict(critic_context(state))  # the over-budget plan has must-fix problems
+    assert state["best_itinerary"]["round"] == 1 and state["best_itinerary"]["score"][0] > 0
+    state |= {"itinerary": good, "critique": "VERDICT: APPROVED", "review_round": 2}
+    enforce_verdict(critic_context(state))
+    assert state["best_itinerary"]["round"] == 2 and state["best_itinerary"]["score"][0] == 0
 
-    state = _state(fixed_plan()) | {"itinerary_before_revision": bad, "itinerary": good, "review_round": 1,
-                                    "review_verdict": "REVISE"}
-    keep_best_plan(SimpleNamespace(state=state))
-    assert state["itinerary"] == good and state["best_itinerary"]["round"] == 1
+    state |= {"itinerary": bad, "review_verdict": "REVISE", "review_round": 4}
+    finish_review(SimpleNamespace(state=state))  # not approved: the better plan of round 2 is kept
+    assert state["itinerary"] == good and "round 2" in state["revision_log"][-1]["restored"]
+
+    state |= {"itinerary": bad, "review_verdict": "APPROVED"}
+    finish_review(SimpleNamespace(state=state))  # an approved plan stays as it is
+    assert state["itinerary"] == bad
 
 
 def test_far_airport_parsing_and_day_trip():

@@ -1,0 +1,191 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9561253,
+     60.0873171
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Övernäsgården Ab",
+    "url": "https://www.booking.com/searchresults.html?ss=%C3%96vern%C3%A4sg%C3%A5rden+Ab%2C+Mariehamn&checkin=2027-06-04&checkout=2027-06-06&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94341,
+     60.1002
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-04",
+    "time": "16:45",
+    "kind": "restaurant",
+    "name": "Draken Kebab Stan",
+    "url": "https://en.wikivoyage.org/wiki/Mariehamn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.9483,
+     60.094
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-04",
+    "time": "18:30",
+    "kind": "sight",
+    "name": "Tullarns äng nature reserve",
+    "url": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94517,
+     60.10516
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-04",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Pub Niska",
+    "url": "https://www.pubniska.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94482,
+     60.09715
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-06-05",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Åland Museum (cultural history) and Åland Art Museum",
+    "url": "https://www.museum.ax/en"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94294,
+     60.09976
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-06-05",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Bagarstugan Cafe och Vin",
+    "url": "https://bagarstugan.ax/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.93821,
+     60.09899
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-05",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Mariehamn Museum (Model Town)",
+    "url": "https://www.mariehamnsmuseet.hembygd.fi/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94328,
+     60.09908
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-05",
+    "time": "18:30",
+    "kind": "restaurant",
+    "name": "Hesburger Mariehamn",
+    "url": "https://www.hesburger.com/restaurants?tid=167"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.94189,
+     60.09919
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-06-06",
+    "time": "10:30",
+    "kind": "restaurant",
+    "name": "Café Julius",
+    "url": "https://julle.ax/fi/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     19.926527,
+     60.097247
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-06-06",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Åland Maritime Museum",
+    "url": "https://sjofartsmuseum.ax"
+   }
+  }
+ ]
+}

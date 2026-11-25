@@ -1,0 +1,103 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+[2026-11-25T12:04:08.297Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T12:04:08.298Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T12:04:08.299Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T12:04:08.306Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Stockholm, Sweden",
+    "checkin": "2027-05-07",
+    "checkout": "2027-05-09",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:04:08.306Z] [INFO] Geocoding location via Photon: {
+  "location": "Stockholm, Sweden"
+}
+[2026-11-25T12:04:08.725Z] [INFO] Photon selected feature: {
+  "location": "Stockholm, Sweden",
+  "type": "county",
+  "name": "Stockholms län",
+  "country": "Sverige",
+  "hasExtent": true
+}
+[2026-11-25T12:04:08.725Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Stockholm, Sweden",
+  "coords": {
+    "sw_lat": "58.0359346",
+    "ne_lat": "60.7536676",
+    "sw_lng": "16.5524928",
+    "ne_lng": "20.6995616",
+    "displayName": "Stockholms län"
+  }
+}
+[2026-11-25T12:04:08.725Z] [INFO] Performing Airbnb search: {
+  "location": "Stockholm, Sweden",
+  "checkin": "2027-05-07",
+  "checkout": "2027-05-09",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:04:09.628Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:04:09.628Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1322ms",
+  "success": true
+}
+[2026-11-25T12:04:22.749Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Gamla Stan, Stockholm",
+    "checkin": "2027-05-07",
+    "checkout": "2027-05-09",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:04:22.749Z] [INFO] Geocoding location via Photon: {
+  "location": "Gamla Stan, Stockholm"
+}
+[2026-11-25T12:04:22.980Z] [INFO] Photon selected feature: {
+  "location": "Gamla Stan, Stockholm",
+  "type": "district",
+  "name": "Gamla stan",
+  "country": "Sverige",
+  "hasExtent": true
+}
+[2026-11-25T12:04:22.980Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Gamla Stan, Stockholm",
+  "coords": {
+    "sw_lat": "59.2207376",
+    "ne_lat": "59.4291225",
+    "sw_lng": "17.9622697",
+    "ne_lng": "18.1815771",
+    "displayName": "Gamla stan"
+  }
+}
+[2026-11-25T12:04:22.981Z] [INFO] Performing Airbnb search: {
+  "location": "Gamla Stan, Stockholm",
+  "checkin": "2027-05-07",
+  "checkout": "2027-05-09",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:04:23.960Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:04:23.960Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1211ms",
+  "success": true
+}

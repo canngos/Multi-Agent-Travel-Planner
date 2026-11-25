@@ -1,0 +1,31 @@
+{
+ "id": "18_multi_city",
+ "title": "Multi-city request (Rome + Florence + Venice)",
+ "turns": [
+  {
+   "user": "10 days in Italy: Rome, Florence and Venice, 2 adults from Helsinki, 1-10 May 2027, mid budget 4000 euros.",
+   "seconds": 5.2,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I can plan a trip from Helsinki to one destination city. Since you’d like to visit Rome, Florence and Venice, could you tell me which of those cities should be the primary destination for the itinerary? (We’ll then plan the round‑trip from Helsinki to that city on 1 – 10 May 2027.)"
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 5.151579000012134,
+   "last": 5.151579000012134
+  }
+ },
+ "seconds": 5.2,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

@@ -192,7 +192,8 @@ button:disabled { cursor: not-allowed; opacity: 0.5; }
 .map-stats { color: var(--ink-2); font-size: var(--step--1); font-variant-numeric: tabular-nums; }
 .map-actions { display: flex; gap: 0.5rem; }
 .map-scroll { overflow-x: auto; padding: 0.25rem 0.5rem 0; }
-.route-map { display: block; width: 100%; min-width: 900px; height: auto; }
+/* Capped at its natural size (set inline) so browser zoom-out shrinks it instead of stretching it to the page. */
+.route-map { display: block; width: 100%; min-width: 900px; height: auto; margin: 0 auto; }
 
 .track { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.22; transition: opacity 0.6s ease; }
 .track.lit { opacity: 1; }

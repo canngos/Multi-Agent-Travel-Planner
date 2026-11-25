@@ -1,10 +1,8 @@
 """REVIEW.md A4: day-shape findings are the plan critic's decision; code checks facts and that each one is decided."""
-from types import SimpleNamespace
-
 import pytest
 
 from tests.test_edge_cases import _afternoon_day, _live_state
-from tests.test_review import _item
+from tests.test_review import _item, critic_context
 from travel_planner.agents.guide_writer import open_issues
 from travel_planner.agents.plan_critic import (declines_of, enforce_verdict, reason_is_specific)
 from travel_planner.agents.review_checks import check_plan
@@ -26,7 +24,7 @@ def _empty_afternoon_state(critique: str, round_no: int = 1) -> dict:
 
 def _verdict(critique: str, round_no: int = 1) -> dict:
     state = _empty_afternoon_state(critique, round_no)
-    enforce_verdict(SimpleNamespace(state=state))
+    enforce_verdict(critic_context(state))
     return state
 
 
@@ -74,7 +72,7 @@ def test_the_code_only_ablation_declines_nothing(monkeypatch):
     from travel_planner.agents.plan_critic import code_only_critique
     monkeypatch.setenv("CRITIC_MODE", "code_only")
     state = _empty_afternoon_state("")
-    code_only_critique(SimpleNamespace(state=state))
+    code_only_critique(critic_context(state))
     assert state["review_verdict"] == "REVISE" and state["review_log"][-1]["declined"] == []
 
 

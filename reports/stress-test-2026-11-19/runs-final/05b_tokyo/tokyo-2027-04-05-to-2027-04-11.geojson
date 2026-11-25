@@ -1,0 +1,210 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.794395,
+     35.697427
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "APA Hotel & Resort Ryogoku Ekimae Tower",
+    "url": "https://www.booking.com/searchresults.html?ss=APA+Hotel+%26+Resort+Ryogoku+Ekimae+Tower%2C+Tokyo&checkin=2027-04-05&checkout=2027-04-11&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79637,
+     35.71112
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Kaminarimon (Sensō-ji Gate)",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.795459,
+     35.713236
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Dembō‑in Temple",
+    "url": "http://www.senso-ji.jp/guide/guide13.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.79668,
+     35.71393
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "14:00",
+    "kind": "sight",
+    "name": "Hōzōmon (Inner Gate)",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.796041,
+     35.714102
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 3,
+    "date": "2027-04-07",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Gojūnotō Pagoda",
+    "url": "https://en.wikivoyage.org/wiki/Tokyo/Asakusa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.743418,
+     35.662002
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "teamLab Borderless",
+    "url": "https://www.teamlab.art/e/tokyo/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.729261,
+     35.660432
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Mori Art Museum",
+    "url": "https://www.mori.art.museum/jp/index.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.762643,
+     35.667988
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 4,
+    "date": "2027-04-08",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Sushi Kanesaka",
+    "url": "http://www.sushi-kanesaka.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.763222,
+     35.678411
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 5,
+    "date": "2027-04-09",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "Mitsubishi Ichigokan Museum",
+    "url": "https://en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20Tokyo"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.7546,
+     35.690513
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "10:30",
+    "kind": "sight",
+    "name": "National Museum of Modern Art, Tokyo (MOMAT)",
+    "url": "https://www.momat.go.jp/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     139.771603,
+     35.68544
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 6,
+    "date": "2027-04-10",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Bank of Japan Currency Museum",
+    "url": "https://www.openstreetmap.org/node/1350269516"
+   }
+  }
+ ]
+}

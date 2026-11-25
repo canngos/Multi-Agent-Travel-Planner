@@ -1,0 +1,148 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+[2026-11-25T12:28:38.524Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T12:28:38.526Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T12:28:38.526Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T12:28:38.534Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Krakow, Poland",
+    "checkin": "2027-05-17",
+    "checkout": "2027-05-19",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:28:38.535Z] [INFO] Geocoding location via Photon: {
+  "location": "Krakow, Poland"
+}
+[2026-11-25T12:28:38.812Z] [INFO] Photon selected feature: {
+  "location": "Krakow, Poland",
+  "type": "county",
+  "name": "powiat krakowski",
+  "country": "Polska",
+  "hasExtent": true
+}
+[2026-11-25T12:28:38.812Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Krakow, Poland",
+  "coords": {
+    "sw_lat": "49.7778285",
+    "ne_lat": "50.4220088",
+    "sw_lng": "19.3120480",
+    "ne_lng": "20.5620989",
+    "displayName": "powiat krakowski"
+  }
+}
+[2026-11-25T12:28:38.812Z] [INFO] Performing Airbnb search: {
+  "location": "Krakow, Poland",
+  "checkin": "2027-05-17",
+  "checkout": "2027-05-19",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:28:39.810Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:28:39.810Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1276ms",
+  "success": true
+}
+[2026-11-25T12:28:49.271Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Old Town, Krakow",
+    "checkin": "2027-05-17",
+    "checkout": "2027-05-19",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:28:49.271Z] [INFO] Geocoding location via Photon: {
+  "location": "Old Town, Krakow"
+}
+[2026-11-25T12:28:49.478Z] [INFO] Photon selected feature: {
+  "location": "Old Town, Krakow",
+  "type": "district",
+  "name": "Stare Miasto",
+  "country": "Polska",
+  "hasExtent": true
+}
+[2026-11-25T12:28:49.478Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Old Town, Krakow",
+  "coords": {
+    "sw_lat": "49.9448324",
+    "ne_lat": "50.1809769",
+    "sw_lng": "19.8237653",
+    "ne_lng": "20.0601668",
+    "displayName": "Stare Miasto"
+  }
+}
+[2026-11-25T12:28:49.478Z] [INFO] Performing Airbnb search: {
+  "location": "Old Town, Krakow",
+  "checkin": "2027-05-17",
+  "checkout": "2027-05-19",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:28:50.357Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:28:50.357Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1086ms",
+  "success": true
+}
+[2026-11-25T12:38:28.730Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Old Town, Krakow, Poland",
+    "checkin": "2027-05-17",
+    "checkout": "2027-05-19",
+    "adults": 2,
+    "propertyType": "entire_home"
+  }
+}
+[2026-11-25T12:38:28.731Z] [INFO] Geocoding location via Photon: {
+  "location": "Old Town, Krakow, Poland"
+}
+[2026-11-25T12:38:28.931Z] [INFO] Photon selected feature: {
+  "location": "Old Town, Krakow, Poland",
+  "type": "district",
+  "name": "Stare Miasto",
+  "country": "Polska",
+  "hasExtent": true
+}
+[2026-11-25T12:38:28.931Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Old Town, Krakow, Poland",
+  "coords": {
+    "sw_lat": "49.9448324",
+    "ne_lat": "50.1809769",
+    "sw_lng": "19.8237653",
+    "ne_lng": "20.0601668",
+    "displayName": "Stare Miasto"
+  }
+}
+[2026-11-25T12:38:28.931Z] [INFO] Performing Airbnb search: {
+  "location": "Old Town, Krakow, Poland",
+  "checkin": "2027-05-17",
+  "checkout": "2027-05-19",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T12:38:29.715Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T12:38:29.715Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "985ms",
+  "success": true
+}

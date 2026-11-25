@@ -1,5 +1,7 @@
 # Live stress test, 2026-11-19
 
+> These runs used the system as it was on 2026-11-19, before the agent tree was simplified to the current 10 LLM agents (PLAN.md, Phase 13): the planner and reviser named here are now one `itinerary_writer`, and the transport and stay comparisons are code. The results on the current system are in [FINAL.md](FINAL.md).
+
 The real system (live Lehmus GPT OSS 120B, all keys set) was run on 30 unusual trip requests, plus 3 re-runs that
 answered the concierge's own questions (04b, 05b, 25b). Each conversation ran against the real root agent with
 `InMemoryRunner`, 5 at a time. 21 conversations went all the way to a written guide. The rest were tests of the

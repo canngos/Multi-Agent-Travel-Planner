@@ -1,0 +1,243 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Tokyo
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-1@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270405T202500
+DTEND:20270405T212500
+SUMMARY:Depart from Helsinki
+DESCRIPTION:Day 1. Flight with Finnair\, China Eastern Airlines\; see Getti
+ ng there and back. https://kiwi.com/u/2zkdxqh6jg
+URL:https://kiwi.com/u/2zkdxqh6jg
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-2@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270406T205500
+DTEND:20270406T215500
+SUMMARY:Arrive in Tokyo
+DESCRIPTION:Day 2. Flight with Finnair\, China Eastern Airlines\; see Getti
+ ng there and back. https://kiwi.com/u/2zkdxqh6jg
+URL:https://kiwi.com/u/2zkdxqh6jg
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-3@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270407T100000
+DTEND:20270407T113000
+SUMMARY:Mitsubishi Ichigokan Museum
+DESCRIPTION:Day 3. Art museum in a faithful 1894 building replica. https://
+ en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20Tokyo
+GEO:35.678411;139.763222
+URL:https://en.wikipedia.org/wiki/Mitsubishi%20Ichigokan%20Museum%2C%20Toky
+ o
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-4@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270407T123000
+DTEND:20270407T133000
+SUMMARY:Tokyo Station Gallery
+DESCRIPTION:Day 3. Exhibition space inside historic Tokyo Station.
+GEO:35.682430;139.766494
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-5@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270407T133000
+DTEND:20270407T143000
+SUMMARY:Lunch near museum
+DESCRIPTION:Day 3. Light meal at a station café.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-6@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270407T143000
+DTEND:20270407T160000
+SUMMARY:Kaminarimon
+DESCRIPTION:Day 3. Iconic outer gate of Sensō‑ji\, great photo spot. htt
+ ps://en.wikipedia.org/wiki/Kaminarimon
+GEO:35.711111;139.796389
+URL:https://en.wikipedia.org/wiki/Kaminarimon
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-7@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270407T183000
+DTEND:20270407T193000
+SUMMARY:Sushi Kanesaka
+DESCRIPTION:Day 3. High‑budget dinner with two‑Michelin‑star sushi. h
+ ttps://en.wikivoyage.org/wiki/Tokyo/Ginza
+GEO:35.667988;139.762643
+URL:https://en.wikivoyage.org/wiki/Tokyo/Ginza
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-8@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T100000
+DTEND:20270408T110000
+SUMMARY:Meiji Shrine
+DESCRIPTION:Day 4. Shinto shrine set in a forested precinct. https://en.wik
+ ipedia.org/wiki/Meiji_Shrine
+GEO:35.676111;139.699167
+URL:https://en.wikipedia.org/wiki/Meiji_Shrine
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-9@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T110000
+DTEND:20270408T120000
+SUMMARY:Metro Chiyoda Line to Suginami
+DESCRIPTION:Day 4. Approx 25 min ride on the Chiyoda Line to Suginami.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-10@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T123000
+DTEND:20270408T133000
+SUMMARY:Lunch near Harajuku
+DESCRIPTION:Day 4. Try a crepe stand or a ramen shop.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-11@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T133000
+DTEND:20270408T143000
+SUMMARY:Suginami Animation Museum
+DESCRIPTION:Day 4. Exhibits on the history and production of Japanese anime
+ . https://en.wikipedia.org/wiki/Suginami_Animation_Museum
+GEO:35.710444;139.607778
+URL:https://en.wikipedia.org/wiki/Suginami_Animation_Museum
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-12@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T143000
+DTEND:20270408T153000
+SUMMARY:Harajuku Takeshita‑dōri
+DESCRIPTION:Day 4. Famous shopping street\, lively atmosphere.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-13@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T170000
+DTEND:20270408T180000
+SUMMARY:Metro to Shinjuku
+DESCRIPTION:Day 4. Take the Chiyoda Line to Shinjuku for dinner.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-14@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270408T183000
+DTEND:20270408T193000
+SUMMARY:Dinner near Shinjuku
+DESCRIPTION:Day 4. Explore izakaya alleys for small plates.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-15@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270409T100000
+DTEND:20270409T113000
+SUMMARY:National Museum of Modern Art\, Tokyo (MOMAT)
+DESCRIPTION:Day 5. Japan's first modern art museum. https://www.momat.go.jp
+ /
+GEO:35.690513;139.754600
+URL:https://www.momat.go.jp/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-16@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270409T123000
+DTEND:20270409T133000
+SUMMARY:Lunch near museum
+DESCRIPTION:Day 5. Museum cafe offers set menus.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-17@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270409T133000
+DTEND:20270409T150000
+SUMMARY:teamLab Borderless
+DESCRIPTION:Day 5. Immersive digital art museum. https://www.teamlab.art/e/
+ tokyo/
+GEO:35.662002;139.743418
+URL:https://www.teamlab.art/e/tokyo/
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-18@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270409T153000
+DTEND:20270409T170000
+SUMMARY:Sensō‑ji
+DESCRIPTION:Day 5. Tokyo's oldest Buddhist temple\; requires ~30 min metr
+ o ride from Odaiba (Yurikamome → Ginza Line).
+GEO:35.714722;139.796750
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-19@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270409T183000
+DTEND:20270409T193000
+SUMMARY:Dinner near Odaiba
+DESCRIPTION:Day 5. Try a seaside izakaya with views of the Rainbow Bridge.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-20@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270410T100000
+DTEND:20270410T113000
+SUMMARY:National Art Center Tokyo
+DESCRIPTION:Day 6. Large exhibition space with free entry. https://www.open
+ streetmap.org/way/103425086
+GEO:35.665154;139.726485
+URL:https://www.openstreetmap.org/way/103425086
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-21@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270410T123000
+DTEND:20270410T130000
+SUMMARY:Lunch near Roppongi
+DESCRIPTION:Day 6. Roppongi has many upscale cafés\; try a bento box.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-22@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270410T130000
+DTEND:20270410T140000
+SUMMARY:Metro to Tokyo Station
+DESCRIPTION:Day 6. Take the Hibiya Line to Hibiya\, then walk to Tokyo Stat
+ ion for the anime museum.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-23@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270410T143000
+DTEND:20270410T160000
+SUMMARY:Anime Tokyo Station (Anime Museum)
+DESCRIPTION:Day 6. Free museum inside Tokyo Station showcasing anime histor
+ y. https://en.japantravel.com/guide/anime-museums-in-tokyo/70797
+URL:https://en.japantravel.com/guide/anime-museums-in-tokyo/70797
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-24@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270410T180000
+DTEND:20270410T190000
+SUMMARY:Dinner near Roppongi
+DESCRIPTION:Day 6. Explore a high‑end sushi bar or a rooftop bar.
+END:VEVENT
+BEGIN:VEVENT
+UID:tokyo-2027-04-05-to-2027-04-11-25@trip-planner
+DTSTAMP:20261125T130133Z
+DTSTART:20270411T021000
+DTEND:20270411T031000
+SUMMARY:Depart from Tokyo
+DESCRIPTION:Day 7. Flight with Peach Aviation\, China Southern Airlines\; s
+ ee Getting there and back. https://kiwi.com/u/6y6h2vddwx
+URL:https://kiwi.com/u/6y6h2vddwx
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,212 @@
+{
+ "id": "29_replan_chain",
+ "title": "Plan, then a cheaper hotel, then remove a sight, then new dates",
+ "turns": [
+  {
+   "user": "3 days in Krakow, 2 adults from Helsinki, 17-19 May 2027, mid budget 900 euros. History and pierogi.",
+   "seconds": 17.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Krakow, Poland  \n- **Dates:** 17 May – 19 May 2027 (3 days, 2 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total ≈ 900 EUR  \n- **Interests:** History, pierogi (Polish cuisine)\n\nPlease confirm that these details are correct. If anything needs to be changed, let me know."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 576.4,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Krakow (2027-05-17 to 2027-05-19)**\n\n- **Outbound:** Finnair flight 2027-05-17 07:05-08:05, 204 EUR\n- **Return:** Finnair flight 2027-05-19 18:55-21:50, 153 EUR\n- **Stay:** Ośrodek SCSK Optima (Wola Duchacka), 71 EUR in total\n\n- **Day 1 (Mon 2027-05-17):** 08:05 Arrive in Krakow · 10:15 Galicia Jewish Museum · 12:00 Judah Food Market · 13:30 Old Synagogue · 14:30 Oskar Schindler's Enamel Factory (Museum of Oskar Schindler) · 17:00 Bottiglieria 1881 · 19:30 Fort 31 \"Święty Benedykt\" · 20:30 Zazie Bistro\n- **Day 2 (Tue 2027-05-18):** 09:30 Royal Castle (Wawel) · 11:30 Rynek Underground (Market Square Underground Museum) · 13:00 Wawel Cathedral (Royal Archcathedral Basilica of Saints Stanislaus and Wenceslaus) · 14:45 Mały Śledź · 16:30 St. Mary's Basilica · 19:00 Hamsa\n- **Day 3 (Wed 2027-05-19):** 09:30 Krakus Mound · 12:00 Poranki - breakfast, coffee & cake · 15:00 Kraków‑Płaszów Concentration Camp Memorial · 18:55 Depart from Krakow\n\nEstimated total: 892 EUR (budget 900 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Change it: we want a cheaper hotel and we definitely don't want to visit Auschwitz.",
+   "seconds": 429.5,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Krakow (2027-05-17 to 2027-05-19)**\n\n- **Outbound:** Finnair flight 2027-05-17 07:05-08:05, 204 EUR\n- **Return:** Finnair flight 2027-05-19 18:55-21:50, 153 EUR\n- **Stay:** K12 Apartments (Stare Podgórze), 91 EUR in total\n\n- **Day 1 (Mon 2027-05-17):** 08:05 Arrive in Krakow · 09:40 Wawel Castle · 12:00 Mały Śledź · 13:15 Wawel Cathedral · 14:30 Archaeological Museum of Kraków · 16:15 Dragon's Den · 18:30 Kuchnia u Doroty\n- **Day 2 (Tue 2027-05-18):** 10:45 Barbican · 12:00 Polakowski · 13:45 St. Mary's Basilica · 16:00 National Museum – Nineteenth Century Polish Art Gallery at the Sukiennice · 18:30 Hamsa\n- **Day 3 (Wed 2027-05-19):** 09:30 Oskar Schindler's Enamel Factory · 12:00 Judah Food Market · 13:15 Galicia Jewish Museum · 15:00 Krakus Mound · 15:25 Return to hotel / prepare for departure · 18:55 Depart from Krakow\n\nEstimated total: 817 EUR (budget 900 EUR).\n\nNote: the search found no suitable stay cheaper than the previous Ośrodek SCSK Optima (€71); the new plan has K12 Apartments (€91). Say so if you prefer to keep the previous one.\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Yes, please do that.",
+   "seconds": 51.1,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: krakow-2027-05-17-to-2027-05-19.md (and krakow-2027-05-17-to-2027-05-19.html, best opened in a browser), the calendar krakow-2027-05-17-to-2027-05-19.ics, the map krakow-2027-05-17-to-2027-05-19.geojson in the output folder.\nTransport: out Finnair flight 17 May 07:05; back Finnair flight 19 May 18:55.\nStay: K12 Apartments (€91 in total).\nEstimated total: €817, within your €900 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "Did the guide include the Wieliczka salt mine? What did the hotel cost?",
+   "seconds": 2.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The guide does not list a visit to the Wieliczka Salt Mine.  \nThe accommodation shown – K12 Apartments – costs €45.5 per night, €91 in total for the two‑night stay."
+    }
+   ]
+  },
+  {
+   "user": "Now move the whole trip one week later, 24-26 May 2027.",
+   "seconds": 2.7,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Updated trip details**\n\n- **Destination:** Krakow, Poland  \n- **New dates:** 24 May – 26 May 2027 (3 days, 2 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total ≈ 900 EUR  \n- **Interests:** History, pierogi  \n\nPlease confirm these changes so I can update the brief and restart the planning."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 17 May - 19 May 2027, 3 days and 2 nights."
+ ],
+ "tool_calls": 61,
+ "agents": {
+  "concierge": {
+   "events": 17,
+   "tool_calls": 7,
+   "first": 7.398890500000562,
+   "last": 1079.996241300003
+  },
+  "planning_pipeline": {
+   "events": 4,
+   "tool_calls": 0,
+   "first": 21.26415210000414,
+   "last": 1023.718375299999
+  },
+  "food_agent": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 24.022952200000873,
+   "last": 608.9093703000108
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 27.30538289999822,
+   "last": 138.5318752000021
+  },
+  "culture_agent": {
+   "events": 46,
+   "tool_calls": 21,
+   "first": 29.234853300004033,
+   "last": 851.4370951000019
+  },
+  "hotel_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 31.02739030000521,
+   "last": 660.0625406000036
+  },
+  "ground_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 31.16963110001234,
+   "last": 129.27393760000996
+  },
+  "airbnb_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 31.170179400010966,
+   "last": 679.2779978000035
+  },
+  "stay_team": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 119.25213140000415,
+   "last": 679.2818041999999
+  },
+  "transport_team": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 138.58347350000986,
+   "last": 608.9025232999993
+  },
+  "review_loop": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 170.7026227000024,
+   "last": 851.437708700003
+  },
+  "itinerary_writer": {
+   "events": 32,
+   "tool_calls": 7,
+   "first": 170.70278070001223,
+   "last": 1015.6364088000118
+  },
+  "plan_critic": {
+   "events": 32,
+   "tool_calls": 7,
+   "first": 293.2354272000084,
+   "last": 1023.7178756000067
+  },
+  "guide_writer": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 1069.193281800006,
+   "last": 1074.8172984999983
+  }
+ },
+ "seconds": 1080.0,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Krakow",
+  "start_date": "2027-05-17",
+  "end_date": "2027-05-19",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 900.0,
+  "interests": [
+   "history",
+   "pierogi"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 50.04694,
+  "destination_lon": 19.99715,
+  "destination_country": "Poland",
+  "nights": 2,
+  "days": 3
+ },
+ "plan_status": "approved",
+ "cost_total": 817.08,
+ "n_days": 3,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 3,
+   "issue": "packed_day",
+   "detail": "Only 25 min between 'Krakus Mound' and 'Return to hotel / prepare for departure' (at least 45 min): move the later one, but never against a must-fix point such as the time to leave or opening hours."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 9876
+ }
+}

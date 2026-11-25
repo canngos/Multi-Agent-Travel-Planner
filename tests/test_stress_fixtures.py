@@ -4,11 +4,13 @@ Each fixture is a run's session state (guide text and local paths removed). The 
 the run ended with: every check added after the test must find the problem the report describes."""
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
 from travel_planner.agents.output import extract_json, was_repaired
 from travel_planner.agents.review_checks import check_plan
+from travel_planner.agents.summaries import summarize_transport
 
 FIXTURES = Path(__file__).parent / "fixtures" / "stress"
 
@@ -103,6 +105,7 @@ def test_unknown_fares_are_not_counted_silently():
     cost = plan_cost(plan, state["trip_brief"])
     assert cost["incomplete"] and "Not included (price unknown)" in render_cost(cost)
     aland = state_of("15")
+    summarize_transport(SimpleNamespace(state=aland))  # recorded before the summaries were code; that run had dropped the unpriced ferries
     assert any("no known fare" in n for n in travel_warnings(extract_json(aland["itinerary"]), aland))
 
 
@@ -161,7 +164,7 @@ def test_long_trips_get_more_research_calls():
 
 
 def test_items_too_late_to_leave_are_dropped_after_the_last_round():
-    from travel_planner.agents.itinerary_reviser import drop_too_late_to_leave
+    from travel_planner.agents.review_loop import drop_too_late_to_leave
     state = state_of("24")
     state["review_round"] = 3
     drop_too_late_to_leave(state)

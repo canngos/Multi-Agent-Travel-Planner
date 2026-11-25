@@ -1,0 +1,213 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Vienna
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-1@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T082500
+DTEND:20270506T092500
+SUMMARY:Arrive in Vienna
+DESCRIPTION:Day 1. Flight with airBaltic\; see Getting there and back. http
+ s://kiwi.com/u/n7zp3jgbp6
+URL:https://kiwi.com/u/n7zp3jgbp6
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-2@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T100000
+DTEND:20270506T113000
+SUMMARY:Haus der Musik
+DESCRIPTION:Day 1. Interactive sound museum\, perfect for music lovers. htt
+ ps://www.openstreetmap.org/node/10138397168
+GEO:48.203792;16.373155
+URL:https://www.openstreetmap.org/node/10138397168
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-3@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T120000
+DTEND:20270506T130000
+SUMMARY:Palmenhaus
+DESCRIPTION:Day 1. Mid‑range lunch\, try Wiener schnitzel with a side sal
+ ad. https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.205095;16.366645
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-4@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T131500
+DTEND:20270506T144500
+SUMMARY:Albertina
+DESCRIPTION:Day 1. Visit the print room and modern art sections. https://ww
+ w.openstreetmap.org/node/60438337
+GEO:48.204637;16.368260
+URL:https://www.openstreetmap.org/node/60438337
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-5@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T150000
+DTEND:20270506T163000
+SUMMARY:Burggarten
+DESCRIPTION:Day 1. Stroll through the historic park\, great for the toddler
+ . https://opentripmap.com/en/card/W8063831
+GEO:48.204384;16.365952
+URL:https://opentripmap.com/en/card/W8063831
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-6@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270506T183000
+DTEND:20270506T193000
+SUMMARY:Le Bol
+DESCRIPTION:Day 1. Mid‑range dinner\, enjoy a seasonal dish and a glass o
+ f Austrian wine. https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.206486;16.370594
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-7@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270507T093000
+DTEND:20270507T103000
+SUMMARY:Volksgarten
+DESCRIPTION:Day 2. Morning walk in the rose garden\, toddler‑friendly. ht
+ tps://opentripmap.com/en/card/W8063768
+GEO:48.208035;16.361786
+URL:https://opentripmap.com/en/card/W8063768
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-8@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270507T103000
+DTEND:20270507T120000
+SUMMARY:Natural History Museum Vienna
+DESCRIPTION:Day 2. Explore minerals and the Venus of Willendorf. https://ww
+ w.openstreetmap.org/relation/11187
+GEO:48.205268;16.359752
+URL:https://www.openstreetmap.org/relation/11187
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-9@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270507T123000
+DTEND:20270507T133000
+SUMMARY:Artner am Franziskanerplatz
+DESCRIPTION:Day 2. High‑budget lunch\, creative Austrian dishes and wine 
+ list. http://www.artner.co.at/
+GEO:48.206368;16.374070
+URL:http://www.artner.co.at/
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-10@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270507T134500
+DTEND:20270507T151500
+SUMMARY:Museum of Art History (Kunsthistorisches Museum)
+DESCRIPTION:Day 2. See the imperial art collections. https://www.openstreet
+ map.org/relation/20165
+GEO:48.203738;16.361776
+URL:https://www.openstreetmap.org/relation/20165
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-11@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270507T183000
+DTEND:20270507T193000
+SUMMARY:Chattanooga
+DESCRIPTION:Day 2. Low‑budget dinner\, quick bites suitable for a child. 
+ https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.208472;16.370530
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-12@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270508T100000
+DTEND:20270508T113000
+SUMMARY:Mozarthaus Vienna
+DESCRIPTION:Day 3. Visit Mozart’s actual residence. https://www.openstree
+ tmap.org/way/169186435
+GEO:48.208208;16.374951
+URL:https://www.openstreetmap.org/way/169186435
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-13@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270508T114500
+DTEND:20270508T124500
+SUMMARY:Stadtpark
+DESCRIPTION:Day 3. Relax in the park\, see the Johann Strauss monument. h
+ ttps://opentripmap.com/en/card/W551031461
+GEO:48.204769;16.379677
+URL:https://opentripmap.com/en/card/W551031461
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-14@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270508T124500
+DTEND:20270508T134500
+SUMMARY:Inigo
+DESCRIPTION:Day 3. Mid‑range lunch\, family‑friendly menu with vegetari
+ an options. https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.208693;16.376916
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-15@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270508T183000
+DTEND:20270508T193000
+SUMMARY:Figlmüller
+DESCRIPTION:Day 3. Mid‑range dinner\, famous for the giant Wiener schnitz
+ el. https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.209199;16.374494
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-16@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270509T093000
+DTEND:20270509T110000
+SUMMARY:Augarten
+DESCRIPTION:Day 4. Baroque park\, excellent for a stroller walk. https://op
+ entripmap.com/en/card/W8044066
+GEO:48.224445;16.377710
+URL:https://opentripmap.com/en/card/W8044066
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-17@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270509T113000
+DTEND:20270509T123000
+SUMMARY:Schachtelwirt
+DESCRIPTION:Day 4. Low‑budget lunch\, simple Austrian fare suitable for a
+  child. https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+GEO:48.211427;16.373553
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-18@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270509T153000
+DTEND:20270509T163000
+SUMMARY:Plachutta
+DESCRIPTION:Day 4. Dinner\, try the classic Tafelspitz. https://en.wikivoya
+ ge.org/wiki/Vienna/Innere_Stadt
+GEO:48.207607;16.378724
+URL:https://en.wikivoyage.org/wiki/Vienna/Innere_Stadt
+END:VEVENT
+BEGIN:VEVENT
+UID:vienna-2027-05-06-to-2027-05-09-19@trip-planner
+DTSTAMP:20261125T121423Z
+DTSTART:20270509T201500
+DTEND:20270509T211500
+SUMMARY:Depart from Vienna
+DESCRIPTION:Day 4. Flight with airBaltic\; see Getting there and back. http
+ s://kiwi.com/u/yh6dmh9629
+URL:https://kiwi.com/u/yh6dmh9629
+END:VEVENT
+END:VCALENDAR

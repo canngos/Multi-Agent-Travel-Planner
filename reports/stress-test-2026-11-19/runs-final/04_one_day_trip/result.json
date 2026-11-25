@@ -1,0 +1,181 @@
+{
+ "id": "04_one_day_trip",
+ "title": "Same-day Tallinn trip (1 day)",
+ "turns": [
+  {
+   "user": "A day trip to Tallinn from Helsinki on 15 May 2027, two of us, back the same evening. Budget 150 euros. Old town and a nice lunch.",
+   "seconds": 25.8,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Tallinn, Estonia  \n- **Date:** 15 May 2027 (day trip – start and return the same day)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** 150 EUR (low‑budget tier)  \n- **Interests:** Exploring the Old Town and enjoying a nice lunch  \n\nPlease confirm that these details are correct. If anything needs changing, let me know; otherwise I’ll save the brief and start the planning."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 752.9,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Tallinn (2027-05-15 to 2027-05-15)**\n\n- **Outbound:** Tallink Grupp AS ferry 2027-05-15 10:09-12:45, 16 EUR\n- **Return:** Tallink Grupp AS ferry 2027-05-15 19:14-21:56, 16 EUR\n- **Stay:** none, a day trip (back the same evening)\n\n- **Day 1 (Sat 2027-05-15):** 12:45 Arrive in Tallinn · 14:30 Loca · 15:30 Toompea Castle · 16:15 Alexander Nevsky Cathedral · 16:45 Kiek in de Kök · 19:14 Depart from Tallinn\n\nEstimated total: 102 EUR (budget 150 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 66.6,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: tallinn-2027-05-15-to-2027-05-15.md (and tallinn-2027-05-15-to-2027-05-15.html, best opened in a browser), the calendar tallinn-2027-05-15-to-2027-05-15.ics, the map tallinn-2027-05-15-to-2027-05-15.geojson in the output folder.\nTransport: out Tallink Grupp AS ferry 15 May 10:09; back Tallink Grupp AS ferry 15 May 19:14.\nEstimated total: €102, within your €150 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  },
+  {
+   "user": "What time is the last ferry back?",
+   "seconds": 2.6,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "The return ferry departs Tallinn at 19:14 and arrives in Helsinki at 21:56."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 15 May 2027, a day trip (1 day, no night).",
+  "flight_searcher: search_google_flights -> error Google Flights returned its cookie-consent page (common from EU networks); call search_serpapi_flights now, with the same arguments. Give the user the search link instead."
+ ],
+ "tool_calls": 29,
+ "agents": {
+  "concierge": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 9.471078599992325,
+   "last": 847.8981781000039
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 31.659197600005427,
+   "last": 778.7257153999963
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 31.6783213000017,
+   "last": 31.6783213000017
+  },
+  "food_agent": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 35.750667500004056,
+   "last": 207.70249389999663
+  },
+  "ground_searcher": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 41.550462100000004,
+   "last": 249.28893729999254
+  },
+  "culture_agent": {
+   "events": 13,
+   "tool_calls": 6,
+   "first": 42.05381040000066,
+   "last": 432.47482790000504
+  },
+  "flight_searcher": {
+   "events": 8,
+   "tool_calls": 3,
+   "first": 43.388299300000654,
+   "last": 188.33572699999786
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 249.289795100005,
+   "last": 249.289795100005
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 432.4943526999996,
+   "last": 432.4943526999996
+  },
+  "itinerary_writer": {
+   "events": 12,
+   "tool_calls": 3,
+   "first": 432.4945099000033,
+   "last": 761.989333000005
+  },
+  "plan_critic": {
+   "events": 10,
+   "tool_calls": 2,
+   "first": 645.249636099994,
+   "last": 778.7252931999974
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 838.547369699998,
+   "last": 845.2980975999963
+  }
+ },
+ "seconds": 847.9,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Tallinn",
+  "start_date": "2027-05-15",
+  "end_date": "2027-05-15",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 150.0,
+  "interests": [
+   "old town",
+   "lunch"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 59.43724,
+  "destination_lon": 24.75727,
+  "destination_country": "Estonia",
+  "nights": 0,
+  "days": 1
+ },
+ "plan_status": "approved",
+ "cost_total": 102.0,
+ "n_days": 1,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "packed_day",
+   "detail": "Only 30 min between 'Alexander Nevsky Cathedral' and 'Kiek in de Kök' (at least 45 min): move the later one, but never against a must-fix point such as the time to leave or opening hours."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 5697
+ }
+}

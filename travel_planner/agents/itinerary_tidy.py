@@ -1,4 +1,4 @@
-"""Deterministic clean-up of the planner's itinerary (after-agent callback, runs after link grounding).
+"""Deterministic clean-up of the itinerary writer's plan (after-agent callback, runs after link grounding).
 
 Rules the model sometimes breaks and code can fix reliably:
 - items in time order within each day;
@@ -148,7 +148,7 @@ def tidy_plan(plan: dict, brief: dict | None = None) -> list[str]:
 def ground_tickets(plan: dict, places: list[dict]) -> list[str]:
     """Sets every researched sight's ticket_eur to the research value (prices are facts, not plan choices).
 
-    The reviser once "saved money" by setting real ticket prices to 0. A sight that is not in the research keeps
+    The writer once "saved money" by setting real ticket prices to 0. A sight that is not in the research keeps
     its value; the critic's check reports it as an ungrounded place.
     """
     changes = []
@@ -275,7 +275,7 @@ def drop_unneeded_transport(plan: dict, brief: dict) -> list[str]:
 
 
 def tidy_itinerary(callback_context):
-    """After-agent callback for the planner (and the Phase 8 reviser)."""
+    """After-agent callback of the itinerary writer."""
     state = callback_context.state
     try:
         plan = extract_json(state.get("itinerary") or "")

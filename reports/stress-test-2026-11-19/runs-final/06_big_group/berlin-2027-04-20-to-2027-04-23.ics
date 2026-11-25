@@ -1,0 +1,180 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Berlin
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-1@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T080500
+DTEND:20270420T090500
+SUMMARY:Arrive in Berlin
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/uvnvg6hmc2
+URL:https://kiwi.com/u/uvnvg6hmc2
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-2@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T100000
+DTEND:20270420T113000
+SUMMARY:German Historical Museum
+DESCRIPTION:Day 1. Intro to German history\, indoor and rain‑sheltered. h
+ ttps://en.wikipedia.org/wiki/German_Historical_Museum
+GEO:52.517748;13.397023
+URL:https://en.wikipedia.org/wiki/German_Historical_Museum
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-3@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T121500
+DTEND:20270420T133000
+SUMMARY:St. Hedwig's Cathedral
+DESCRIPTION:Day 1. Baroque cathedral\, quiet contemplation. https://en.wiki
+ pedia.org/wiki/St._Hedwig%27s_Cathedral
+GEO:52.515764;13.394858
+URL:https://en.wikipedia.org/wiki/St._Hedwig%27s_Cathedral
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-4@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T133000
+DTEND:20270420T143000
+SUMMARY:Ishin Japanese Deli
+DESCRIPTION:Day 1. Try the sushi set\; low‑budget Japanese snack. http://
+ www.ishin.de/
+GEO:52.518000;13.386600
+URL:http://www.ishin.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-5@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T143000
+DTEND:20270420T160000
+SUMMARY:Neue Wache
+DESCRIPTION:Day 1. Central memorial\, reflective indoor space. https://open
+ tripmap.com/en/card/W24240381
+GEO:52.517500;13.395556
+URL:https://opentripmap.com/en/card/W24240381
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-6@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T163000
+DTEND:20270420T180000
+SUMMARY:Berlin Wall Memorial
+DESCRIPTION:Day 1. Outdoor site commemorating the Wall\; free entry. https:
+ //www.walkofberlin.com/post/berlin-wall-memorial-bernauer-strasse
+GEO:52.535000;13.389722
+URL:https://www.walkofberlin.com/post/berlin-wall-memorial-bernauer-strasse
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-7@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270420T183000
+DTEND:20270420T193000
+SUMMARY:Lucky Star
+DESCRIPTION:Day 1. All‑you‑can‑eat hot‑pot\, mid‑budget dinner. h
+ ttp://www.restaurant-luckystar.de
+GEO:52.525513;13.387117
+URL:http://www.restaurant-luckystar.de
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-8@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270421T093000
+DTEND:20270421T110000
+SUMMARY:East Side Gallery
+DESCRIPTION:Day 2. Open‑air mural stretch of the Wall\, free entry. https
+ ://www.ticketlens.com/en/p268072866/berlin/east-side-gallery
+GEO:52.507899;13.389435
+URL:https://www.ticketlens.com/en/p268072866/berlin/east-side-gallery
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-9@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270421T110000
+DTEND:20270421T123000
+SUMMARY:Memorial to the Murdered Jews of Europe
+DESCRIPTION:Day 2. Visit the field of steles\; info centre open 10‑19 h
+ . http://www.stiftung-denkmal.de/en
+GEO:52.513889;13.378889
+URL:http://www.stiftung-denkmal.de/en
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-10@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270421T123000
+DTEND:20270421T133000
+SUMMARY:Curry Wolf am Brandenburger Tor
+DESCRIPTION:Day 2. Classic currywurst stand near the Gate. https://curry-wo
+ lf.de/de/currywurst-standorte/brandenburger-tor
+GEO:52.517550;13.383400
+URL:https://curry-wolf.de/de/currywurst-standorte/brandenburger-tor
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-11@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270421T133000
+DTEND:20270421T150000
+SUMMARY:Brandenburg Gate
+DESCRIPTION:Day 2. Iconic monument\, quick photo stop. http://www.visitberl
+ in.de/de/ort/brandenburger-tor
+GEO:52.516272;13.377722
+URL:http://www.visitberlin.de/de/ort/brandenburger-tor
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-12@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270421T190000
+DTEND:20270421T200000
+SUMMARY:Dada Falafel
+DESCRIPTION:Day 2. Low‑budget falafel dinner. https://en.wikivoyage.org/w
+ iki/Berlin/Mitte
+GEO:52.526450;13.388170
+URL:https://en.wikivoyage.org/wiki/Berlin/Mitte
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-13@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270422T093000
+DTEND:20270422T110000
+SUMMARY:DDR Museum
+DESCRIPTION:Day 3. Interactive East‑German life exhibits\, indoor. https:
+ //www.openstreetmap.org/way/175149971
+GEO:52.519422;13.402256
+URL:https://www.openstreetmap.org/way/175149971
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-14@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270422T120000
+DTEND:20270422T130000
+SUMMARY:Witty's Currywurst
+DESCRIPTION:Day 3. Organic currywurst\, a Berlin classic. http://wittys-ber
+ lin.de/
+GEO:52.520242;13.388122
+URL:http://wittys-berlin.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-15@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270422T150000
+DTEND:20270422T160000
+SUMMARY:Bombay
+DESCRIPTION:Day 3. North‑Indian dishes\, moderate price\, dinner. http://
+ www.bombay-berlin.de/
+GEO:52.523150;13.388160
+URL:http://www.bombay-berlin.de/
+END:VEVENT
+BEGIN:VEVENT
+UID:berlin-2027-04-20-to-2027-04-23-16@trip-planner
+DTSTAMP:20261125T121207Z
+DTSTART:20270423T085000
+DTEND:20270423T095000
+SUMMARY:Depart from Berlin
+DESCRIPTION:Day 4. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/jxjj8zdkp2
+URL:https://kiwi.com/u/jxjj8zdkp2
+END:VEVENT
+END:VCALENDAR

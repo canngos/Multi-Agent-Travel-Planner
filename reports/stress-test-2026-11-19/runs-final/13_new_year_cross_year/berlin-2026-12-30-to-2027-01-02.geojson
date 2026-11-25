@@ -1,0 +1,153 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.418073,
+     52.517825
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "The Social Hub Berlin Alexanderplatz",
+    "url": "https://www.booking.com/searchresults.html?ss=The+Social+Hub+Berlin+Alexanderplatz%2C+Berlin&checkin=2026-12-30&checkout=2027-01-02&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.397023,
+     52.517748
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "German Historical Museum",
+    "url": "https://www.openstreetmap.org/node/3203167561"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.396145,
+     52.517147
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "12:15",
+    "kind": "sight",
+    "name": "PalaisPopulaire",
+    "url": "https://www.openstreetmap.org/node/6355366085"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3777,
+     52.5163
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2026-12-30",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Brandenburg Gate",
+    "url": "https://en.wikipedia.org/wiki/Brandenburg_Gate"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.401075,
+     52.519085
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Berlin Cathedral",
+    "url": "https://www.openstreetmap.org/way/313670734"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.402256,
+     52.519422
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "DDR Museum",
+    "url": "https://www.openstreetmap.org/way/175149971"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.3777,
+     52.5163
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2026-12-31",
+    "time": "20:00",
+    "kind": "sight",
+    "name": "Brandenburg Gate (New Year’s Eve fireworks)",
+    "url": "https://en.wikipedia.org/wiki/Brandenburg_Gate"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     13.394858,
+     52.515764
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 3,
+    "date": "2027-01-01",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "St. Hedwig's Cathedral",
+    "url": "https://www.openstreetmap.org/way/58608090"
+   }
+  }
+ ]
+}

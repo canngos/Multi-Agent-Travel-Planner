@@ -4,31 +4,58 @@ A review of the Multi-Agent Travel Planner against the course brief, written fro
 It is meant as a **work plan for an agent** that implements the fixes and features below. Read §1–§3 before
 starting any task.
 
-State when written (2026-11-19): working tree with uncommitted rhythm/pace/research-reuse work; `pytest` 385
-passed, 18 live deselected.
+Written on 2026-11-19 (`pytest` 385 passed then). Updated on 2026-11-25 to the submitted system: names in
+this file are the current ones, and the status of every task is below.
+
+## Status (2026-11-25)
+
+Every task is done except A8 (multi-city), which stays a stretch goal. `pytest`: 498 passed, 18 live
+deselected. Decisions are logged in `PLAN.md`.
+
+| Task | Status |
+|---|---|
+| A1 Change router | Done, as a concierge tool `request_replan` (no separate router agent) |
+| A2 Research on demand | Done: `extra_sights_researcher` (AgentTool) of the `itinerary_writer`, at most 2 calls per round |
+| A3 Evaluation and ablation | Done: `scripts/evaluate.py`, `CRITIC_MODE=code_only`; live results in the README |
+| A4 Critic vs code | Done: day-shape findings are a "decide" list the critic fixes or declines with a reason |
+| A5 Skip agents that cannot help | Done: flight search skipped for an avoided mode or own car, Airbnb without `npx` |
+| A6 Human in the loop | Done: `approve_plan`; the guide writer runs only after approval |
+| A7 Small extras | Done: `.ics` and `.geojson` exports, tokens/seconds panel in the UI |
+| A8 Multi-city | Not done (README Limitations: one city, up to 21 days) |
+| F1 Demo shows an older system | Done: demo re-recorded (8 messages), every `config.demo()` behaviour branch removed |
+| F2 README out of date | Done |
+| F3 Default day start | Done: 09:30 in the check and the prompts |
+| F4 Pace numbers | Done: the check stays one wider on purpose (comment at `review_checks.PACES`) |
+| F5 Repository tidiness | Done |
+| F6 Naming | Done: `budget_critic` is now `plan_critic` |
+
+Later (2026-11-25) the system got simpler: code builds the transport and stay summaries
+(`agents/summaries.py`), and one `itinerary_writer` drafts and revises in a loop of at most four rounds that
+ends when the plan critic approves. That leaves **10 LLM agents**.
 
 ## 1. The brief, and where the project stands
 
-| Requirement | Status |
+| Requirement | Status (2026-11-25) |
 |---|---|
-| ≥ 3 different agents | Met: 13 LLM agents, 7 workflow agents |
-| Multi-agent orchestration pattern (Lecture 4) | Met: sequential, parallel, nested parallel, loop, coordinator handoff |
-| ≥ 1 tool call | Met: 20 function tools, 2 MCP servers |
+| ≥ 3 different agents | Met: 10 LLM agents, a culture researcher used as a tool, 5 workflow agents |
+| Multi-agent orchestration pattern (Lecture 4) | Met: sequential, parallel, nested parallel, loop, coordinator handoff, agent as tool, human in the loop |
+| ≥ 1 tool call | Met: 24 function tools, an agent used as a tool, 2 MCP servers |
 | No code from assignments 2 and 3 | Met (new repository) |
-| Executable, runs without errors | Met offline; a live run needs the Oulu VPN (Lehmus) |
-| **Fully agentic** | **Weakest point: see §2** |
+| Executable, runs without errors | Met offline; a live run needs the Oulu VPN (Lehmus) or another LLM key |
+| **Fully agentic** | Was the weakest point (§2); A1–A4 addressed it, see the README's "Who decides what" |
 
 ## 2. The "fully agentic" problem
 
-Today the LLMs are autonomous *inside* each step, but **code owns every decision between steps**:
+On 2026-11-19 the LLMs were autonomous *inside* each step, but **code owned every decision between steps**
+(the table shows the current file names; the README's "Who decides what" shows the state after the fixes):
 
-| Decision | Who makes it now | Where |
+| Decision | Who made it (2026-11-19) | Where |
 |---|---|---|
 | Order of all agents | fixed workflow (Sequential/Parallel/Loop) | `agents/pipeline.py`, `agents/teams.py` |
 | Handoff concierge → pipeline | code sets `transfer_to_agent` | `concierge.py::note_saved_brief` |
-| Skip research on re-plan | code diffs two briefs | `pipeline.py::research_reusable`, `skip_research_if_reused` |
-| Review verdict | code overrides the critic both ways | `budget_critic.py::enforce_verdict`, `worth_revising` |
-| End of the loop / undoing revisions | code | `itinerary_reviser.py::guard_revision`, `keep_best_plan` |
+| Skip research on re-plan | code diffs two briefs | `pipeline.py::research_reusable` (removed by A1) |
+| Review verdict | code overrides the critic both ways | `plan_critic.py::enforce_verdict` |
+| End of the loop / undoing revisions | code | `itinerary_writer.py::guard_revision`, `review_loop.py` |
 | Last chat message (rhythm offer) | code | `guide_writer.py::finish_guide` |
 
 The guard code (~1,450 lines, `review_checks.py` alone ~760) is much larger than the agent definitions (~45
@@ -40,7 +67,7 @@ decides the verdict, what does the critic agent add?"*
   on matters of taste (pacing, interests, order, rhythm).
 - **Code** only validates **objective facts**: opening hours, grounded links/prices, budget arithmetic, day
   count, hard requirements (`avoid_modes`). Code may *refuse* an unsafe action and say why (as
-  `gate_exit_loop` does). It should not silently take the decision itself.
+  `request_replan` and `approve_plan` do). It should not silently take the decision itself.
 - Every code override is **logged** (as `review_log` does with `critic_said` / `overridden`), so we can
   measure how much the agents decide.
 - Prefer giving the agent a **tool that code validates** over a callback that acts for it. Example: a
@@ -92,16 +119,16 @@ router as an agent decision. `run_trip.py --demo` has 0 misses.
 
 ### A2. Research on demand: agent as tool
 **Why:** adds a new orchestration pattern (agent-as-tool) and fixes the "thin days" limitation by letting
-the reviser *decide* to research more, instead of code over-researching up front (`pace_research_block`).
+the itinerary writer *decide* to research more, instead of code over-researching up front (`pace_research_block`).
 **Do:**
 - Build a *new instance* of the culture researcher (ADK agents cannot have two parents), e.g.
   `extra_sights_researcher`, wrapped in `google.adk.tools.agent_tool.AgentTool`. Its input is an area with
   lat/lon and the number of sights wanted.
-- Give it to `itinerary_reviser` with a small budget (`limits.limit_tool_calls`, 1–2 calls per round).
+- Give it to `itinerary_writer` (when revising) with a small budget (`limits.limit_tool_calls`, 1–2 calls per round).
 - **Grounding:** merge its results into `culture_findings` (or add the key to what `grounding.known_urls`
   reads), so the new places' links and prices count as researched and `review_checks` finds them.
 - Demo mode: do not offer the tool.
-**Done when:** a test with a scripted reviser calls the tool on a thin day, and the new sight passes
+**Done when:** a test with a scripted writer calls the tool on a thin day, and the new sight passes
 `check_plan` as grounded. The tool budget is enforced.
 
 ### A3. Measure who decides: evaluation and ablation
@@ -185,8 +212,8 @@ always destination → origin.
 ## 5. Tasks: fixes
 
 ### F1. The demo shows an older system (urgent before submission; owner + agent)
-There are about nine `config.demo()` branches: `concierge.py` (LIMITS, DAY_RHYTHM), `planner.py::plan_rules`,
-`itinerary_reviser.py::how_to_fix`, `review_checks.py::live_checks`, `guide_writer.py` (rhythm line,
+There were about nine `config.demo()` branches (all removed since): `concierge.py` (LIMITS, DAY_RHYTHM), the
+planner's `plan_rules`, the reviser's `how_to_fix`, `review_checks.py::live_checks`, `guide_writer.py` (rhythm line,
 `finish_guide`) and `pipeline.py::research_reusable`. The demo the grader can run shows **none** of the new
 features, and still shows faults that are already fixed (full days starting with lunch).
 - **Agent:** add an end-to-end test that replays the recorded demo (`DEMO=1`, the four recorded messages)
@@ -220,8 +247,8 @@ balanced 2–5). Either align them or add a comment that the check is deliberate
   The owner decides what is submitted.
 
 ### F6. Naming (only after a re-record)
-`budget_critic` also checks hours, pacing and grounding. `plan_critic` would describe it better. Renaming
-changes the demo keys and the UI graph, so do it only together with F1.
+The critic (then `budget_critic`) also checks hours, pacing and grounding, so `plan_critic` describes it
+better. Renaming changes the demo keys and the UI graph, so do it only together with F1. (Done.)
 
 ## 6. Questions the lecturer is likely to ask
 - Which decisions does the LLM make, and which does code make? Why is that still *fully agentic*? (§2,
@@ -229,8 +256,8 @@ changes the demo keys and the UI graph, so do it only together with F1.
 - Show a case where the critic found something the code check didn't. (A3)
 - Your demo starts every day with lunch. Didn't you fix that? (F1)
 - What happens if I type a different message in the demo? (`LLM_CACHE_MISS`: say so up front)
-- Why 13 agents? Why are `airbnb_searcher` and the comparers agents and not tools? (Have a one-line reason
-  per agent.)
+- Why 10 agents? Why is `airbnb_searcher` an agent and not a tool, and why is comparing the options code and
+  not an agent? (Have a one-line reason per agent.)
 - How do you know the plans are *good*, not just valid? (A3)
 
 ## 7. Suggested order

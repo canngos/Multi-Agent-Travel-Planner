@@ -1,0 +1,241 @@
+{
+ "id": "02_impossible_budget",
+ "title": "Reykjavik 5 days, 2 people, 200 EUR total",
+ "turns": [
+  {
+   "user": "5 days in Reykjavik for two people from Helsinki, 10-14 March 2027. Our total budget is 200 euros for everything.",
+   "seconds": 30.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip Summary**\n\n- **Destination:** Reykjavík, Iceland  \n- **Travel dates:** 10 Mar – 14 Mar 2027 (5 days, 4 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 2 adults  \n- **Budget tier:** low (total budget **€200**)  \n\n*Note:* A total budget of €200 is very tight. Even on a low‑budget plan, food and local transport for two people over five days usually cost around €350, not counting travel to/from Iceland and accommodation.\n\nDo you want to proceed with this budget, or would you like to increase it? Please confirm or adjust any details."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1200.0,
+   "replies": []
+  },
+  {
+   "user": "Is this really possible within 200 euros?",
+   "seconds": 6.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "You’re right—€200 for two people over five days (including transport from Helsinki to Reykjavík, accommodation, food, and local travel) is extremely tight. The planning team will still try to find the most economical options (e.g., the cheapest flights, budget hostels or shared rooms, and low‑cost meals), but the result may require compromises such as very basic lodging, minimal dining out, or leaving out some activities.\n\nIf you find later that the proposed options don’t meet your expectations, you can always raise the total budget and we’ll recompute a plan with a more comfortable allowance. Let me know if you’d like to keep the €200 limit as is or adjust it before we start the detailed planning."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "TIMEOUT after 1200s on turn: Yes, that's right, go ahead."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 10 Mar - 14 Mar 2027, 5 days and 4 nights. The budget looks too small: food and local tran",
+  "ground_searcher: plan_public_transport -> error No public-transport connection found for this route and day"
+ ],
+ "tool_calls": 29,
+ "agents": {
+  "concierge": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 10.777228200007812,
+   "last": 1236.8023511000065
+  },
+  "planning_pipeline": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 36.690212400004384,
+   "last": 36.690212400004384
+  },
+  "food_agent": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 40.353197999997064,
+   "last": 209.27936580000096
+  },
+  "ground_searcher": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 44.961794000002556,
+   "last": 225.05458419999923
+  },
+  "culture_agent": {
+   "events": 14,
+   "tool_calls": 6,
+   "first": 46.89194149999821,
+   "last": 378.53518020000774
+  },
+  "hotel_searcher": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 47.919991200004006,
+   "last": 229.9124310000043
+  },
+  "airbnb_searcher": {
+   "events": 3,
+   "tool_calls": 1,
+   "first": 48.05812310001056,
+   "last": 212.57082490000175
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 48.310460599997896,
+   "last": 219.82335020000755
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 225.0580828000093,
+   "last": 225.0580828000093
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 229.91502110000874,
+   "last": 229.91502110000874
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 378.535555800001,
+   "last": 378.535555800001
+  },
+  "itinerary_writer": {
+   "events": 16,
+   "tool_calls": 3,
+   "first": 378.53570610001043,
+   "last": 1115.3026670000108
+  },
+  "plan_critic": {
+   "events": 15,
+   "tool_calls": 3,
+   "first": 703.2603939999972,
+   "last": 1115.302198400008
+  }
+ },
+ "seconds": 1236.8,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Reykjavik",
+  "start_date": "2027-03-10",
+  "end_date": "2027-03-14",
+  "travellers": 2,
+  "budget_tier": "low",
+  "total_budget_eur": 200.0,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 64.14598,
+  "destination_lon": -21.94224,
+  "destination_country": "Iceland",
+  "nights": 4,
+  "days": 5
+ },
+ "plan_status": null,
+ "cost_total": 1235.0,
+ "n_days": 5,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 3,
+   "issue": "ungrounded_place",
+   "detail": "'Reykjavík City Hall' is not in the research results: use a researched place (same name) or drop it."
+  },
+  {
+   "day": 4,
+   "issue": "ungrounded_place",
+   "detail": "'Einar Jónsson Museum' is not in the research results: use a researched place (same name) or drop it."
+  }
+ ],
+ "final_should_fix": [
+  {
+   "day": 4,
+   "issue": "far_meal",
+   "detail": "'Tian' is 2.8 km from the day's sights.",
+   "alternatives": [
+    {
+     "name": "Hotel Holt",
+     "kind": "restaurant",
+     "km": 0.4,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "The Icelandic Bar",
+     "kind": "restaurant",
+     "km": 0.8,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Kaffiport",
+     "kind": "restaurant",
+     "km": 1.0,
+     "hours": "Sat Sun 11:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    }
+   ]
+  },
+  {
+   "day": 5,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Hotel Holt",
+     "kind": "restaurant",
+     "km": 0.8,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    },
+    {
+     "name": "Kaffiport",
+     "kind": "restaurant",
+     "km": 1.0,
+     "hours": "Sat Sun 11:00-17:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "The Icelandic Bar",
+     "kind": "restaurant",
+     "km": 1.0,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    }
+   ]
+  },
+  {
+   "day": null,
+   "issue": "over_budget",
+   "detail": "Total €1235 is €1035 over the €200 budget. Food and local transport are fixed typical costs, not options. The plan already uses the cheapest options: say so in notes."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": []
+ }
+}

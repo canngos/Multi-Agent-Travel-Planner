@@ -53,7 +53,7 @@ def snap_transit_points(tool, args, tool_context):
 
 def skip_when_excluded(modes: set[str], output_key: str, what: str):
     """Before-agent callback factory: a searcher whose transport modes the travellers all refuse does not run.
-    Its output says why, so the comparer knows the empty list is intended, not a failed search."""
+    Its output says why, so the itinerary writer knows the empty list is intended, not a failed search."""
     def callback(callback_context):
         brief = callback_context.state.get("trip_brief") or {}
         avoid = set(brief.get("avoid_modes") or [])
@@ -138,7 +138,7 @@ def _rewrite(state, key: str, data: dict) -> None:
 
 def mark_far_airports(callback_context):
     """After-agent callback of the flight searcher (before grounding): a flight whose destination-side airport is
-    far from the destination gets "FAR AIRPORT: ..." in its details, so the comparer ranks it down and the guide
+    far from the destination gets "FAR AIRPORT: ..." in its details, so the transport summary ranks it last and the guide
     shows it. A live Kyiv run planned "Arrive in Kyiv" for flights landing in Chișinău, 409 km away."""
     state = callback_context.state
     brief = state.get("trip_brief") or {}

@@ -1,0 +1,178 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Stockholm
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-1@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270507T203700
+DTEND:20270507T213700
+SUMMARY:Depart from Turku
+DESCRIPTION:Day 1. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-2@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T065200
+DTEND:20270508T075200
+SUMMARY:Arrive in Stockholm
+DESCRIPTION:Day 2. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-3@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T090000
+DTEND:20270508T100000
+SUMMARY:Peppar
+DESCRIPTION:Day 2. Mid‑budget Cajun & Creole spot\; good breakfast option
+ s. https://en.wikivoyage.org/wiki/Stockholm/Vasastan_and_Hagastaden
+GEO:59.340270;18.038840
+URL:https://en.wikivoyage.org/wiki/Stockholm/Vasastan_and_Hagastaden
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-4@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T100000
+DTEND:20270508T113000
+SUMMARY:Royal Palace
+DESCRIPTION:Day 2. Explore the royal apartments and the Treasury. https://e
+ n.wikivoyage.org/wiki/Stockholm/Gamla_stan
+GEO:59.326944;18.071667
+URL:https://en.wikivoyage.org/wiki/Stockholm/Gamla_stan
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-5@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T121500
+DTEND:20270508T134500
+SUMMARY:Royal Armoury
+DESCRIPTION:Day 2. See historic royal costumes and armor. http://livrustkam
+ maren.se/en/
+GEO:59.326615;18.073078
+URL:http://livrustkammaren.se/en/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-6@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T134500
+DTEND:20270508T143000
+SUMMARY:Mäster Anders
+DESCRIPTION:Day 2. Mid‑budget French/Swedish menu\; try the grilled salmo
+ n. https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+GEO:59.329090;18.044740
+URL:https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-7@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T143000
+DTEND:20270508T153000
+SUMMARY:Nobel Museum
+DESCRIPTION:Day 2. Interactive exhibits on Nobel laureates. http://www.nobe
+ lmuseum.se/
+GEO:59.325215;18.070831
+URL:http://www.nobelmuseum.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-8@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T153000
+DTEND:20270508T170000
+SUMMARY:Hallwyl Museum
+DESCRIPTION:Day 2. Explore the preserved early‑20th‑century mansion. ht
+ tps://hallwylskamuseet.se/
+GEO:59.333255;18.074529
+URL:https://hallwylskamuseet.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-9@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270508T190000
+DTEND:20270508T200000
+SUMMARY:Döden i grytan
+DESCRIPTION:Day 2. Mid‑budget Italian spot\; try the house pasta. http://
+ www.visomkanmat.se/dig/index.html
+GEO:59.348850;18.044960
+URL:http://www.visomkanmat.se/dig/index.html
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-10@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T100000
+DTEND:20270509T113000
+SUMMARY:Swedish Centre for Architecture and Design
+DESCRIPTION:Day 3. Design exhibitions and workshops. https://arkdes.se/
+GEO:59.325814;18.084654
+URL:https://arkdes.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-11@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T114500
+DTEND:20270509T131500
+SUMMARY:Vasa Museum
+DESCRIPTION:Day 3. Visit the restored 17th‑century warship. https://www.o
+ penstreetmap.org/way/27288534
+GEO:59.328084;18.091370
+URL:https://www.openstreetmap.org/way/27288534
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-12@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T140000
+DTEND:20270509T150000
+SUMMARY:Restaurang Ät Gott
+DESCRIPTION:Day 3. Mid‑budget diner with traditional Swedish dishes\; con
+ venient lunch spot. https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+GEO:59.333620;18.030430
+URL:https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-13@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T151500
+DTEND:20270509T163000
+SUMMARY:ABBA The Museum
+DESCRIPTION:Day 3. Interactive pop‑music exhibits. https://abbathemuseum.
+ com
+GEO:59.324912;18.096552
+URL:https://abbathemuseum.com
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-14@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T163000
+DTEND:20270509T173000
+SUMMARY:Skansen
+DESCRIPTION:Day 3. Open‑air museum and zoo\; walk through historic Swedis
+ h buildings. https://www.skansen.se
+GEO:59.326539;18.105239
+URL:https://www.skansen.se
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-15@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T173000
+DTEND:20270509T183000
+SUMMARY:Tennstopet
+DESCRIPTION:Day 3. Mid‑budget spot famous for Surströmming\; try the tra
+ ditional serving. http://www.tennstopet.se/
+GEO:59.341910;18.045730
+URL:http://www.tennstopet.se/
+END:VEVENT
+BEGIN:VEVENT
+UID:stockholm-2027-05-07-to-2027-05-09-16@trip-planner
+DTSTAMP:20261125T121455Z
+DTSTART:20270509T194000
+DTEND:20270509T204000
+SUMMARY:Depart from Stockholm
+DESCRIPTION:Day 3. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+END:VCALENDAR

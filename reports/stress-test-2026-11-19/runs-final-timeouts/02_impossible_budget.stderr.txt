@@ -1,0 +1,58 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+tool plan_public_transport failed: No public-transport connection found for this route and day
+[2026-11-25T11:43:18.650Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T11:43:18.652Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T11:43:18.652Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T11:43:18.658Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Reykjavik, Iceland",
+    "checkin": "2027-03-10",
+    "checkout": "2027-03-14",
+    "adults": 2
+  }
+}
+[2026-11-25T11:43:18.659Z] [INFO] Geocoding location via Photon: {
+  "location": "Reykjavik, Iceland"
+}
+[2026-11-25T11:43:18.932Z] [INFO] Photon selected feature: {
+  "location": "Reykjavik, Iceland",
+  "type": "city",
+  "name": "Reykjavík",
+  "country": "Ísland",
+  "hasExtent": true
+}
+[2026-11-25T11:43:18.933Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Reykjavik, Iceland",
+  "coords": {
+    "sw_lat": "63.9404021",
+    "ne_lat": "64.4153711",
+    "sw_lng": "-22.1292876",
+    "ne_lng": "-21.2565414",
+    "displayName": "Reykjavík"
+  }
+}
+[2026-11-25T11:43:18.933Z] [INFO] Performing Airbnb search: {
+  "location": "Reykjavik, Iceland",
+  "checkin": "2027-03-10",
+  "checkout": "2027-03-14",
+  "adults": 2,
+  "children": 0
+}
+[2026-11-25T11:43:19.924Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:43:19.924Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1266ms",
+  "success": true
+}

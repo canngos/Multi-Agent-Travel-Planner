@@ -1,0 +1,188 @@
+{
+ "id": "01_weekend_short_notice",
+ "title": "This weekend, minimal info (dates within forecast window)",
+ "turns": [
+  {
+   "user": "Copenhagen this weekend, just me, cheap.",
+   "seconds": 14.3,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I’ve noted:\n\n- **Destination:** Copenhagen, Denmark  \n- **Dates:** Saturday 28 Nov 2026 – Sunday 29 Nov 2026 (the coming weekend)  \n- **Origin:** Helsinki (unless you’d like another departure city)  \n- **Travellers:** 1 person  \n- **Budget tier:** low  \n\nIf the dates or origin need to be changed, just let me know; otherwise I’ll proceed with these details."
+    }
+   ]
+  },
+  {
+   "user": "From Helsinki, Saturday to Sunday. No idea about budget, keep it cheap.",
+   "seconds": 22.0,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip summary**\n\n- **Destination:** Copenhagen, Denmark  \n- **Dates:** 28 Nov – 29 Nov 2026 (2 days, 1 night)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 1 person  \n- **Budget tier:** low (cheapest options)  \n\nPlease confirm these details or let me know if anything should be changed."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 1200.0,
+   "replies": []
+  },
+  {
+   "user": "What will the weather be like?",
+   "seconds": 4.9,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I don’t have real‑time weather data, but a quick check on a weather service (e.g., the local meteorological institute or a weather app) will give you up‑to‑date forecasts for Copenhagen on the weekend of 28‑29 Nov 2026. If you’d like to adjust any part of the trip (dates, budget, interests, etc.) just let me know and I can update the plan for you."
+    }
+   ]
+  }
+ ],
+ "errors": [
+  "TIMEOUT after 1200s on turn: Yes, that's right, go ahead."
+ ],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 28 Nov - 29 Nov 2026, 2 days and 1 night."
+ ],
+ "tool_calls": 31,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 4,
+   "first": 14.266689000010956,
+   "last": 1241.1268112000107
+  },
+  "planning_pipeline": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 45.855322400006116,
+   "last": 45.855322400006116
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 49.55990210000891,
+   "last": 345.9867265000066
+  },
+  "ground_searcher": {
+   "events": 10,
+   "tool_calls": 4,
+   "first": 54.86526230000891,
+   "last": 213.9043371000007
+  },
+  "culture_agent": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 55.20286400000623,
+   "last": 449.112234900007
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 58.2110507000034,
+   "last": 250.15240580000682
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 58.36651650001295,
+   "last": 166.95557380000537
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 61.0285595000023,
+   "last": 225.0541910000029
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 225.0575278000033,
+   "last": 225.0575278000033
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 250.20621660001052,
+   "last": 250.20621660001052
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 449.1343419000041,
+   "last": 449.1343419000041
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 4,
+   "first": 449.13452860001416,
+   "last": 1170.0781806000014
+  },
+  "plan_critic": {
+   "events": 17,
+   "tool_calls": 4,
+   "first": 830.4248501000111,
+   "last": 1170.0777707000088
+  }
+ },
+ "seconds": 1241.2,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Copenhagen",
+  "start_date": "2026-11-28",
+  "end_date": "2026-11-29",
+  "travellers": 1,
+  "budget_tier": "low",
+  "total_budget_eur": null,
+  "interests": [],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 55.68672,
+  "destination_lon": 12.57007,
+  "destination_country": "Denmark",
+  "nights": 1,
+  "days": 2
+ },
+ "plan_status": null,
+ "cost_total": 437.72,
+ "n_days": 2,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [
+  {
+   "day": 1,
+   "issue": "outside_hours",
+   "detail": "'Wild Kiwi Pies Byen' at 20:30, but it is open 11:00-19:00 on Saturdays: move it inside the opening hours (at least 30 min before closing)."
+  },
+  {
+   "day": 2,
+   "issue": "outside_hours",
+   "detail": "'Slurp Ramen Joint' at 15:45, but it is open 11:30-15:00, 16:00-21:00 on Sundays: move it inside the opening hours (at least 30 min before closing)."
+  }
+ ],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "packed_day",
+   "detail": "Only 30 min between 'The David Collection' and 'Little Brother' (at least 45 min): move the later one, but never against a must-fix point such as the time to leave or opening hours."
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": []
+ }
+}

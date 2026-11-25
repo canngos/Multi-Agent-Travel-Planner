@@ -1,0 +1,12 @@
+
+>>> USER: Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.
+[  11.4s] <<< CONCIERGE:
+I want to be sure about the travel dates – does **03/04/2027 to 06/04/2027** mean:
+
+* 3 April 2027 to 6 April 2027 (European style), or  
+* 4 March 2027 to 6 March 2027 (U.S. style)?
+
+Please let me know which one you intended.
+
+
+=== done in 11.4 s, 0 tool calls, errors=[]

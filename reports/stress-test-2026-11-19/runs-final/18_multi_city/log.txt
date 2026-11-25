@@ -1,0 +1,7 @@
+
+>>> USER: 10 days in Italy: Rome, Florence and Venice, 2 adults from Helsinki, 1-10 May 2027, mid budget 4000 euros.
+[   5.2s] <<< CONCIERGE:
+I can plan a trip from Helsinki to one destination city. Since you’d like to visit Rome, Florence and Venice, could you tell me which of those cities should be the primary destination for the itinerary? (We’ll then plan the round‑trip from Helsinki to that city on 1 – 10 May 2027.)
+
+
+=== done in 5.2 s, 0 tool calls, errors=[]

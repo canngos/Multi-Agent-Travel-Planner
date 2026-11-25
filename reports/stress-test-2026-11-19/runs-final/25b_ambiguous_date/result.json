@@ -1,0 +1,223 @@
+{
+ "id": "25b_ambiguous_date",
+ "title": "Ambiguous 03/04/2027 date, continue after USD question",
+ "turns": [
+  {
+   "user": "Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.",
+   "seconds": 12.1,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I have the destination (Paris), the travellers (2 adults from Helsinki) and your interests (art and croissants).  \n\nYour dates “03/04/2027 to 06/04/2027” are ambiguous – do you mean **3 April 2027 – 6 April 2027** or **4 March 2027 – 6 March 2027**?  \n\nYou mentioned a budget of **$ 2 500**; should I treat this as EUR 2 500 or would you like it converted to euros?"
+    }
+   ]
+  },
+  {
+   "user": "Yes, convert it to euros.",
+   "seconds": 2.9,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Thanks! I’ll convert the $ 2 500 budget to euros (≈ € 2 300).  \n\nCould you please confirm the exact dates: do you want the trip **3 April 2027 – 6 April 2027** or **4 March 2027 – 6 March 2027**?   (Both options are three full days.)"
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 17.6,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "**Trip brief (please confirm):**  \n\n- **Destination:** Paris, France  \n- **Travel dates:** 03 Apr 2027 – 06 Apr 2027 (4 days, 3 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travellers:** 2 adults  \n- **Budget:** approx. € 2 300 (converted from US $ 2 500) – “mid” tier  \n- **Interests:** art, croissants  \n\nIf everything looks correct, just reply “yes” or “confirm”. If you’d like to change anything, let me know."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 525.6,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Paris (2027-04-03 to 2027-04-06)**\n\n- **Outbound:** Finnair flight 2027-04-03 07:35-09:40, 189 EUR\n- **Return:** Finnair flight 2027-04-06 19:00-22:55, 251 EUR\n- **Stay:** Hotel Trianon Rive Gauche (Quartier de l'Odéon), 468 EUR in total\n\n- **Day 1 (Sat 2027-04-03):** 09:40 Arrive in Paris · 11:00 Musée d'Orsay · 12:30 Pizza Nelly. · 13:40 Musée de l'Orangerie · 15:20 Petit Palais · 17:00 Musée Rodin · 19:30 Macéo\n- **Day 2 (Sun 2027-04-04):** 09:30 Louvre Museum · 12:30 L'Express Bar · 13:30 Musée national Eugène Delacroix · 15:00 Sainte‑Chapelle · 16:30 Walk on Île de la Cité · 19:30 Chez Denise\n- **Day 3 (Mon 2027-04-05):** 10:00 Arc de Triomphe · 11:30 Lunch near Arc de Triomphe · 19:30 La Robe et le Palais\n- **Day 4 (Tue 2027-04-06):** 09:30 Eiffel Tower · 12:30 Lunch near Eiffel Tower · 19:00 Depart from Paris\n\nEstimated total: 1576 EUR (budget 2300 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 49.2,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: paris-2027-04-03-to-2027-04-06.md (and paris-2027-04-03-to-2027-04-06.html, best opened in a browser), the calendar paris-2027-04-03-to-2027-04-06.ics, the map paris-2027-04-03-to-2027-04-06.geojson in the output folder.\nTransport: out Finnair flight 3 Apr 07:35; back Finnair flight 6 Apr 19:00.\nStay: Hotel Trianon Rive Gauche (€468 in total).\nEstimated total: €1576, within your €2300 budget.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 03 Apr - 06 Apr 2027, 4 days and 3 nights."
+ ],
+ "tool_calls": 42,
+ "agents": {
+  "concierge": {
+   "events": 13,
+   "tool_calls": 5,
+   "first": 12.070054200012237,
+   "last": 558.659550100012
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 34.95008619999862,
+   "last": 558.0690481000056
+  },
+  "ground_searcher": {
+   "events": 14,
+   "tool_calls": 6,
+   "first": 39.00795830000425,
+   "last": 141.33315170000424
+  },
+  "flight_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 39.15623450001294,
+   "last": 126.97739360001287
+  },
+  "culture_agent": {
+   "events": 21,
+   "tool_calls": 10,
+   "first": 39.29126260000339,
+   "last": 195.38569390001066
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 39.986776500009,
+   "last": 101.6935450000019
+  },
+  "food_agent": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 40.360188400009065,
+   "last": 132.97676520000095
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 42.94784910000453,
+   "last": 116.21376660000533
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 116.21682910001255,
+   "last": 116.21682910001255
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 141.33403060000273,
+   "last": 141.33403060000273
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 195.40787660000206,
+   "last": 195.40787660000206
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 195.4080307000113,
+   "last": 546.9358356000012
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 286.47899529999995,
+   "last": 558.0685807000118
+  },
+  "guide_writer": {
+   "events": 7,
+   "tool_calls": 3,
+   "first": 604.2912657000124,
+   "last": 607.2387051000114
+  }
+ },
+ "seconds": 607.3,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Paris",
+  "start_date": "2027-04-03",
+  "end_date": "2027-04-06",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2300.0,
+  "interests": [
+   "art",
+   "croissants"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 48.85889,
+  "destination_lon": 2.32004,
+  "destination_country": "France",
+  "nights": 3,
+  "days": 4
+ },
+ "plan_status": "approved",
+ "cost_total": 1575.79,
+ "n_days": 4,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "APPROVED"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 3,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "empty_gap",
+   "detail": "Nothing planned 11:30-19:30.",
+   "alternatives": []
+  },
+  {
+   "day": 3,
+   "issue": "far_meal",
+   "detail": "'La Robe et le Palais' is 4.1 km from the day's sights.",
+   "alternatives": []
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10318
+ }
+}

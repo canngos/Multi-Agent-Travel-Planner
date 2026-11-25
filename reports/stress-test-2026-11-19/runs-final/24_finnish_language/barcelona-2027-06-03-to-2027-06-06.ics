@@ -1,0 +1,190 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Barcelona
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-1@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270603T091000
+DTEND:20270603T101000
+SUMMARY:Arrive in Barcelona
+DESCRIPTION:Day 1. Flight with Norwegian Air Sweden\; see Getting there and
+  back. https://kiwi.com/u/sxuuv8gt59
+URL:https://kiwi.com/u/sxuuv8gt59
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-2@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270603T113000
+DTEND:20270603T130000
+SUMMARY:Palau de la Música Catalana
+DESCRIPTION:Day 1. Marvel at the modernist concert hall’s colourful stain
+ ed‑glass interior. https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella
+GEO:41.387585;2.175226
+URL:https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-3@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270603T130000
+DTEND:20270603T143000
+SUMMARY:Museu d'Història de Barcelona
+DESCRIPTION:Day 1. Explore Roman ruins and medieval Barcelona. https://www.
+ barcelona.cat/museuhistoria/
+GEO:41.383921;2.177678
+URL:https://www.barcelona.cat/museuhistoria/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-4@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270603T143000
+DTEND:20270603T153000
+SUMMARY:El Glop
+DESCRIPTION:Day 1. Try classic Catalan dishes\; order the set menu. https:/
+ /elglop.com/en/
+GEO:41.389453;2.170577
+URL:https://elglop.com/en/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-5@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270603T183000
+DTEND:20270603T193000
+SUMMARY:La Flauta
+DESCRIPTION:Day 1. Enjoy the menu del día and finish with Crema Catalana. 
+ https://en.wikivoyage.org/wiki/Barcelona/Eixample
+GEO:41.386893;2.161130
+URL:https://en.wikivoyage.org/wiki/Barcelona/Eixample
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-6@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T100000
+DTEND:20270604T104500
+SUMMARY:Basilica of Santa Maria del Mar
+DESCRIPTION:Day 2. Gothic masterpiece\; admire the soaring interior. https:
+ //www.santamariadelmar.barcelona/en/opening-hours-and-admission-fees
+GEO:41.383611;2.181944
+URL:https://www.santamariadelmar.barcelona/en/opening-hours-and-admission-f
+ ees
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-7@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T104500
+DTEND:20270604T121500
+SUMMARY:Sagrada Família
+DESCRIPTION:Day 2. Gaudí’s iconic basilica\; book a ticket to go inside.
+  https://sagradafamilia.org/en/sagrada-familia-ticket
+GEO:41.403690;2.174330
+URL:https://sagradafamilia.org/en/sagrada-familia-ticket
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-8@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T130000
+DTEND:20270604T140000
+SUMMARY:Restaurant Macrobiòtic Zen
+DESCRIPTION:Day 2. Vegan lunch with fresh seasonal dishes. https://en.wikiv
+ oyage.org/wiki/Barcelona/Eixample
+GEO:41.384516;2.162645
+URL:https://en.wikivoyage.org/wiki/Barcelona/Eixample
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-9@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T143000
+DTEND:20270604T154500
+SUMMARY:Palau Güell
+DESCRIPTION:Day 2. Explore Gaudí’s early palace and its colourful roofto
+ p chimneys. https://inici.palauguell.cat/
+GEO:41.378824;2.174234
+URL:https://inici.palauguell.cat/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-10@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T154500
+DTEND:20270604T164500
+SUMMARY:Walk along Passeig de Gràcia
+DESCRIPTION:Day 2. Admire modernist façades such as Casa Batlló (exterior
+ ).
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-11@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270604T183000
+DTEND:20270604T193000
+SUMMARY:Vinitus
+DESCRIPTION:Day 2. Tapas and seafood\; try the house special paella. https:
+ //en.wikivoyage.org/wiki/Barcelona/Eixample
+GEO:41.392517;2.165697
+URL:https://en.wikivoyage.org/wiki/Barcelona/Eixample
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-12@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270605T093000
+DTEND:20270605T110000
+SUMMARY:Sant Pau del Camp
+DESCRIPTION:Day 3. Visit Barcelona’s rare Romanesque church\; cloister en
+ trance €2. https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella
+GEO:41.376111;2.169444
+URL:https://en.wikivoyage.org/wiki/Barcelona/Ciutat_Vella
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-13@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270605T124500
+DTEND:20270605T134500
+SUMMARY:Veg World - India
+DESCRIPTION:Day 3. Sample a Masala Dosa – a rare find in Barcelona. http:
+ //www.vegworldindiabarcelona.es/
+GEO:41.404604;2.160720
+URL:http://www.vegworldindiabarcelona.es/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-14@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270605T203000
+DTEND:20270605T213000
+SUMMARY:Cinc Sentits
+DESCRIPTION:Day 3. Contemporary Catalan tasting menu – a special evening.
+  http://www.cincsentits.com/
+GEO:41.388549;2.159344
+URL:http://www.cincsentits.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-15@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270606T103000
+DTEND:20270606T120000
+SUMMARY:Picasso Museum
+DESCRIPTION:Day 4. See early works of Picasso in the Gothic quarter. https:
+ //museupicassobcn.cat/en/node/6010
+GEO:41.385040;2.181030
+URL:https://museupicassobcn.cat/en/node/6010
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-16@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270606T123000
+DTEND:20270606T133000
+SUMMARY:Karakala
+DESCRIPTION:Day 4. Enjoy Lebanese mezze before heading to the airport. http
+ ://www.karakala.com/
+GEO:41.402769;2.156517
+URL:http://www.karakala.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:barcelona-2027-06-03-to-2027-06-06-17@trip-planner
+DTSTAMP:20261125T123018Z
+DTSTART:20270606T190000
+DTEND:20270606T200000
+SUMMARY:Depart from Barcelona
+DESCRIPTION:Day 4. Flight with Vueling\, Norwegian Air Sweden\; see Getting
+  there and back. https://kiwi.com/u/67u7yk9tdy
+URL:https://kiwi.com/u/67u7yk9tdy
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,31 @@
+{
+ "id": "23_fictional_place",
+ "title": "Fictional destination (Hogwarts / Atlantis)",
+ "turns": [
+  {
+   "user": "Plan a 3-day trip to Atlantis for two from Helsinki, 1-3 July 2027, mid budget.",
+   "seconds": 14.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I found **Atlantis** as a small village in Palm Beach County, Florida, United States.  \n\n**Trip summary**  \n- **Destination:** Atlantis, United States (please confirm this is the right place)  \n- **Dates:** 1 – 3 July 2027 (3 days)  \n- **Origin:** Helsinki, Finland (default)  \n- **Travelers:** 2 adults  \n- **Budget tier:** mid  \n- **Interests:** none specified  \n\nPlease let me know if the destination is correct (or tell me the exact Atlantis you have in mind) and whether any interests or special requirements should be added. Once confirmed I’ll save the brief and start planning."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 2,
+ "agents": {
+  "concierge": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 5.60196200000064,
+   "last": 14.403133300002082
+  }
+ },
+ "seconds": 14.4,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

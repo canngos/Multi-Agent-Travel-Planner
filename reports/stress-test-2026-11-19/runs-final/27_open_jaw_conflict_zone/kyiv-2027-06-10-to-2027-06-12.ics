@@ -1,0 +1,126 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Kyiv
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-1@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270610T140500
+DTEND:20270610T142000
+SUMMARY:Arrive in Kyiv
+DESCRIPTION:Day 1. Flight with airBaltic\; see Getting there and back. http
+ s://kiwi.com/u/vhpfry27gm
+URL:https://kiwi.com/u/vhpfry27gm
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-2@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270610T142000
+DTEND:20270610T150000
+SUMMARY:Zustrich
+DESCRIPTION:Day 1. Mid‑budget lunch with Ukrainian borscht and homestyle 
+ dishes. https://en.wikivoyage.org/wiki/Kyiv
+GEO:50.441770;30.521424
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-3@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270610T150000
+DTEND:20270610T163000
+SUMMARY:Taras Shevchenko National Museum
+DESCRIPTION:Day 1. Visit the museum dedicated to Ukraine’s foremost poet 
+ and artist. https://www.openstreetmap.org/way/27829799
+GEO:50.443459;30.515644
+URL:https://www.openstreetmap.org/way/27829799
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-4@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270610T193000
+DTEND:20270610T203000
+SUMMARY:Korchma Budmo
+DESCRIPTION:Day 1. Low‑budget dinner with Ukrainian dishes\, close to the
+  hotel. https://en.wikivoyage.org/wiki/Kyiv
+GEO:50.454120;30.521610
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-5@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270611T100000
+DTEND:20270611T113000
+SUMMARY:Saint Sophia Cathedral
+DESCRIPTION:Day 2. Explore the UNESCO World Heritage 11th‑century cathedr
+ al and its complex. https://en.wikipedia.org/wiki/Saint_Sophia_Cathedral\,
+ _Kyiv
+GEO:50.452800;30.514400
+URL:https://en.wikipedia.org/wiki/Saint_Sophia_Cathedral,_Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-6@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270611T130000
+DTEND:20270611T140000
+SUMMARY:Puzata Khata
+DESCRIPTION:Day 2. Low‑budget cafeteria style lunch with varenyky and cab
+ bage rolls. https://en.wikivoyage.org/wiki/Kyiv
+GEO:50.448150;30.523530
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-7@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270611T150000
+DTEND:20270611T163000
+SUMMARY:National Museum of the History of Ukraine in the Second World War
+DESCRIPTION:Day 2. Indoor museum beneath Mother Ukraine\, covering WWII his
+ tory. https://www.openstreetmap.org/way/158427185
+GEO:50.426863;30.563730
+URL:https://www.openstreetmap.org/way/158427185
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-8@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270611T163000
+DTEND:20270611T180000
+SUMMARY:National Art Museum of Ukraine
+DESCRIPTION:Day 2. Visit the National Art Museum (approx. 1.5 h). https:/
+ /www.openstreetmap.org/way/62805191
+GEO:50.449417;30.530784
+URL:https://www.openstreetmap.org/way/62805191
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-9@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270611T221500
+DTEND:20270611T231500
+SUMMARY:Good Music Bar&Restaurant
+DESCRIPTION:Day 2. Mid‑budget bar‑restaurant for dinner and drinks. htt
+ ps://en.wikivoyage.org/wiki/Kyiv
+GEO:50.439543;30.548150
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-10@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270612T083000
+DTEND:20270612T100000
+SUMMARY:Kyiv Pechersk Lavra
+DESCRIPTION:Day 3. Indoor visit to the historic monastic complex (opens 08:
+ 00 summer). https://en.wikivoyage.org/wiki/Kyiv
+GEO:50.432222;30.562222
+URL:https://en.wikivoyage.org/wiki/Kyiv
+END:VEVENT
+BEGIN:VEVENT
+UID:kyiv-2027-06-10-to-2027-06-12-11@trip-planner
+DTSTAMP:20261125T123618Z
+DTSTART:20270612T112700
+DTEND:20270612T122700
+SUMMARY:Depart from Kyiv
+DESCRIPTION:Day 3. Bus with FlixBus-eu\; see Getting there and back. https:
+ //global.flixbus.com
+URL:https://global.flixbus.com
+END:VEVENT
+END:VCALENDAR

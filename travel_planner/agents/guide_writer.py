@@ -53,8 +53,8 @@ Then any warning from the options' details (airport change, self-transfer, bags,
 
 ## Where to stay
 The chosen stay with price per night, total, rating (say the scale) and why. Then a table of the stay
-summary's by_area: | Area | Airbnb | Hotel | From €/night |, each name a link. Then the recommendation and
-any caveats (e.g. liteAPI rates may be below public prices, city tax not included).
+summary's by_area: | Area | Airbnb | Hotel | From €/night |, each name a link. Then any caveats from the
+stays' details or the summary's notes (e.g. liteAPI rates may be below public prices, city tax not included).
 
 ## Day by day
 For each day: "### Day N – <weekday> <date>: <area>" and a line with the weather and walking distance.
@@ -253,8 +253,7 @@ def travel_warnings(plan: dict, state) -> list[str]:
             text += "."
         notes.append(text)
     searched = {leg: list(_dicts(summary.get(leg) if isinstance(summary.get(leg), (dict, list)) else []))
-                     + [o for o in _parse(state.get("ground_options")).get(leg) or [] if isinstance(o, dict)]
-                for leg in ("outbound", "return")}  # the comparer may leave unpriced options out
+                for leg in ("outbound", "return")}
     return notes + feasibility_warnings(plan, brief) + unpriced_cheap_options(plan, brief, searched)
 
 

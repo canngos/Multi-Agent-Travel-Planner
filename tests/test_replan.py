@@ -204,7 +204,7 @@ async def test_culture_only_change_runs_only_the_culture_researcher():
 async def test_full_plan_runs_every_researcher():
     llm = ResearchLlm()
     await _run_research({"trip_brief": dict(BRIEF)}, llm)
-    assert len(llm.asked) == 8  # 4 searchers, 2 comparers, culture, food
+    assert len(llm.asked) == 6  # 4 searchers, culture, food (code compares the options)
 
 
 # ---------------------------------------------------------------- the concierge decides

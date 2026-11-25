@@ -1,0 +1,18 @@
+
+>>> USER: 7 days in Dubai, 5-star luxury only, but total budget 300 euros, 0 adults, from Helsinki, 10-16 Feb 2027.
+[  10.8s] concierge              CALL save_trip_brief({"destination": "Dubai", "destination_country": null, "destination_lat": null, "destination_lon": null, "start_date": "2027-02-10", "end_date": "2027-02-16", "origin": "Helsinki", "origin_lat": null, "origin_lon": null, "travellers": 0, "budget_tier": "low", "total_budget_eur": 300, "interests": ["5)
+[  10.8s]   ERR concierge: save_trip_brief -> error Invalid trip brief - travellers: Input should be greater than or equal to 1
+[  16.1s] <<< CONCIERGE:
+I’ve captured the following details for your trip:
+
+- **Destination:** Dubai (UAE)  
+- **Dates:** 10 Feb 2027 – 16 Feb 2027 (7 days)  
+- **Origin:** Helsinki  
+- **Travel style:** 5‑star luxury only  
+- **Total budget:** 300 EUR  
+- **Travellers:** 0 (adults) – the system requires at least one traveller.
+
+Could you let me know the correct number of travellers (adults) for this trip? Once we have a valid traveller count, I’ll confirm everything and save the brief.
+
+
+=== done in 16.1 s, 1 tool calls, errors=[]

@@ -1,0 +1,16 @@
+
+>>> USER: Plan 3 days in Prague, 10-12 March 2026, 2 adults from Helsinki, mid budget 1000 euros.
+[   6.8s] concierge              CALL geocode_place({"name": "Prague"})
+[  10.4s] concierge              CALL geocode_place({"name": "Helsinki"})
+[  15.6s] concierge              CALL save_trip_brief({"destination": "Prague", "destination_country": "Czechia", "destination_lat": 50.08747, "destination_lon": 14.42125, "origin": "Helsinki", "origin_lat": 60.16662, "origin_lon": 24.94354, "start_date": "2026-03-10", "end_date": "2026-03-12", "travellers": 2, "budget_tier": "mid", "total_budget_eur":)
+[  15.6s]   ERR concierge: save_trip_brief -> error Invalid trip brief - start_date: 2026-03-10 is in the past (today is 2026-11-25)
+[  19.9s] <<< CONCIERGE:
+The dates you provided (10‑12 March 2026) are in the past. Could you let me know the correct future dates you’d like for the 3‑day trip (e.g. March 2027 or another period)? All other details (Prague, Helsinki, 2 adults, mid‑budget) are fine.
+
+
+>>> USER: Yes those dates, 10-12 March 2026.
+[  21.3s] <<< CONCIERGE:
+I’m sorry, but I can only plan trips on dates that are in the future—today is 25 November 2026. Could you please provide a new set of dates (e.g., March 2027) for your 3‑day visit to Prague? All the other details remain the same.
+
+
+=== done in 21.4 s, 3 tool calls, errors=[]

@@ -109,7 +109,7 @@ export default function App() {
       <header className="top">
         <div className="brand">
           <h1>Trip planner</h1>
-          <p>Thirteen AI agents research, plan and check your trip. Watch them work.</p>
+          <p>Ten AI agents research, plan and check your trip. Watch them work.</p>
         </div>
         <div className="segmented mode" role="radiogroup" aria-label="Mode">
           <button type="button" role="radio" aria-checked={mode === "live"} onClick={() => switchMode("live")}>Plan a trip</button>

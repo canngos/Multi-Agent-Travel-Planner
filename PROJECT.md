@@ -58,9 +58,9 @@ from google.adk.models.lite_llm import LiteLlm
 import os
 
 MODEL = LiteLlm(
-    model=f"openai/{os.environ['UNI_MODEL_ID']}",
-    api_base=os.environ["UNI_API_BASE"],   # ends with /v1
-    api_key=os.environ["UNI_API_KEY"],
+    model=f"openai/{os.environ['LEHMUS_MODEL_ID']}",
+    api_base=os.environ["LEHMUS_API_BASE"],   # ends with /v1
+    api_key=os.environ["LEHMUS_API_KEY"],
 )
 ```
 
@@ -70,62 +70,54 @@ If the endpoint returns *Not Found*, check that `api_base` ends with `/v1`.
 
 ## 3. Agent architecture
 
-Thirteen LLM agents in one pipeline, using four orchestration patterns: **coordinator/delegation**, **sequential**, **parallel** (nested) and a **generator–critic loop**. Agents pass results through ADK session state: each writes to its own `output_key`, and later agents read those keys in their instructions.
+Ten LLM agents, using five orchestration patterns: **coordinator/delegation**, **sequential**, **parallel** (nested), a **generator–critic loop** and an **agent used as a tool**, plus a **human-in-the-loop** approval before the guide. Agents pass results through ADK session state: each writes to its own `output_key`, and later agents read those keys in their instructions. Comparing options is sorting and filtering, so code does it (`agents/summaries.py`), not an LLM agent.
 
 ### Flow
 
 1. **Concierge** (root) chats with the user until the trip brief is complete, saves it with a tool, then hands over to the planning pipeline.
-2. **Research team** runs four branches in parallel: Transport, Stay, Culture & History, Food & Drink. Transport and Stay are small teams of their own: two searchers in parallel, then a comparer that merges their results.
-3. **Itinerary Planner** builds the day-by-day plan from all research results and the weather forecast.
-4. **Review loop** (max 3 rounds): the Budget Critic checks cost, pace and distances; the Reviser fixes the plan, or ends the loop when the critic approves.
-5. **Guide Writer** turns the approved plan into a trip guide and saves it to a file.
+2. **Research team** runs four branches in parallel: Transport, Stay, Culture & History, Food & Drink. Transport and Stay are small teams of their own: two searchers in parallel, then code ranks and compares their results.
+3. **Review loop** (at most 4 rounds): the Itinerary Writer drafts the day-by-day plan from the research and the weather forecast; the Plan Critic checks cost, opening hours, pace and grounding; the writer revises. The loop ends when the critic approves. When revising, the writer may call `extra_sights_researcher` for a thin day.
+4. The reviewed plan is shown to the user, who approves it or asks for a change (a change goes back to the concierge, which decides which research to re-run).
+5. **Guide Writer** turns the approved plan into a trip guide, a calendar and a map file.
 
 ```
 concierge (LlmAgent, root)
    │  transfer_to_agent
-   ▼
-planning_pipeline (SequentialAgent)
-   ├─ research_team (ParallelAgent)
-   │     ├─ transport_team (SequentialAgent)
-   │     │     ├─ ParallelAgent: flight_searcher ∥ ground_searcher
-   │     │     └─ transport_comparer
-   │     ├─ stay_team (SequentialAgent)
-   │     │     ├─ ParallelAgent: airbnb_searcher ∥ hotel_searcher
-   │     │     └─ stay_comparer
-   │     ├─ culture_agent
-   │     └─ food_agent
-   ├─ itinerary_planner
-   ├─ review_loop (LoopAgent, max_iterations=3)
-   │     ├─ budget_critic
-   │     └─ itinerary_reviser   (calls exit_loop when approved)
-   └─ guide_writer
+   ├─▶ planning_pipeline (SequentialAgent)
+   │     ├─ research_team (ParallelAgent)
+   │     │     ├─ transport_team (ParallelAgent: flight_searcher ∥ ground_searcher; code then writes transport_summary)
+   │     │     ├─ stay_team (ParallelAgent: airbnb_searcher ∥ hotel_searcher; code then writes stay_summary)
+   │     │     ├─ culture_agent
+   │     │     └─ food_agent
+   │     └─ review_loop (LoopAgent, max_iterations=4)
+   │           ├─ itinerary_writer   (tool: extra_sights_researcher, an AgentTool)
+   │           └─ plan_critic        (approval ends the loop)
+   └─▶ guide_writer   (after the user approved the plan)
 ```
 
 ### Agents
 
 | # | Agent | ADK type | Job | Writes to state |
 | --- | --- | --- | --- | --- |
-| 1 | `concierge` | LlmAgent (root) | Asks for missing details (destination, dates, travellers, budget, interests), confirms, saves the brief, transfers to the pipeline | `trip_brief` |
+| 1 | `concierge` | LlmAgent (root) | Asks for missing details (destination, dates, travellers, budget, interests), confirms, saves the brief, transfers to the pipeline; later decides what a change request needs re-run and records the user's approval | `trip_brief`, `replan_scope` |
 | 2 | `flight_searcher` | LlmAgent | Flights from origin to destination and back | `flight_options` |
 | 3 | `ground_searcher` | LlmAgent | Trains, buses, ferries; schedules plus prices | `ground_options` |
-| 4 | `transport_comparer` | LlmAgent | Merges both lists, ranks by price and time, picks a cheapest and a fastest option | `transport_summary` |
-| 5 | `airbnb_searcher` | LlmAgent | Airbnb listings in the best areas for the budget | `airbnb_options` |
-| 6 | `hotel_searcher` | LlmAgent | Hotel rates for the same areas and dates | `hotel_options` |
-| 7 | `stay_comparer` | LlmAgent | Airbnb vs hotels per neighbourhood: price per night, total, rating | `stay_summary` |
-| 8 | `culture_agent` | LlmAgent | Sights, a short history of each, opening hours and tickets | `culture_findings` |
-| 9 | `food_agent` | LlmAgent | Traditional dishes, restaurants per budget tier near the sights | `food_findings` |
-| 10 | `itinerary_planner` | LlmAgent | Day-by-day plan; nearby places on the same day, indoor sights on rainy days | `itinerary` |
-| 11 | `budget_critic` | LlmAgent | Totals per category vs budget; flags packed days and long walks | `critique` |
-| 12 | `itinerary_reviser` | LlmAgent | Applies the critique, or calls `exit_loop` when the critique says approved | `itinerary` |
-| 13 | `guide_writer` | LlmAgent | Writes the final guide and saves it | `final_guide` |
+| 4 | `airbnb_searcher` | LlmAgent | Airbnb listings in the best areas for the budget | `airbnb_options` |
+| 5 | `hotel_searcher` | LlmAgent | Hotel rates for the same areas and dates | `hotel_options` |
+| 6 | `culture_agent` | LlmAgent | Sights, a short history of each, opening hours and tickets | `culture_findings` |
+| 7 | `food_agent` | LlmAgent | Traditional dishes, restaurants per budget tier near the sights | `food_findings` |
+| 8 | `itinerary_writer` | LlmAgent | Drafts the day-by-day plan (nearby places on the same day, indoor sights on rainy days), then revises it from the critique; may research more sights for a thin day | `itinerary` |
+| 9 | `plan_critic` | LlmAgent | Reviews the plan with the code check (must-fix facts, day-shape points to decide); `VERDICT: APPROVED` ends the loop | `critique` |
+| 10 | `guide_writer` | LlmAgent | Writes the final guide and saves it with a calendar and a map file | `final_guide`, `guide_reply` |
 
-Workflow agents that hold them together (no LLM): `planning_pipeline` (SequentialAgent), `research_team` (ParallelAgent), `transport_team` and `stay_team` (SequentialAgent, each wrapping a ParallelAgent of two searchers plus a comparer), `review_loop` (LoopAgent, `max_iterations=3`).
+`extra_sights_researcher` is a second culture researcher wrapped in an ADK `AgentTool`; the itinerary writer calls it, so it is a tool, not a step in the tree. Workflow agents that hold them together (no LLM): `planning_pipeline` (SequentialAgent), `research_team`, `transport_team` and `stay_team` (ParallelAgent), `review_loop` (LoopAgent, `max_iterations=4`).
 
 ### Design notes
 
 - Parallel agents share one session, so every agent writes to a distinct key. Nothing in a parallel branch reads another branch's output.
-- The concierge → pipeline handover uses ADK's `transfer_to_agent` with `planning_pipeline` as a sub-agent. Verify this early; the fallback is wrapping the pipeline in an `AgentTool` the concierge calls.
-- Thirteen LLM agents means about 15–20 model calls per trip plus tool calls. If runs get slow, the first merge candidates are the two comparers into their searchers.
+- The concierge → pipeline and concierge → guide writer handovers use ADK's `transfer_to_agent` with both as sub-agents.
+- Code checks facts (opening hours, grounding, budget arithmetic, day count) and refuses unsafe actions with a reason; agents make the choices. Every code override is logged in `review_log`.
+- One itinerary writer both drafts and revises, so every plan, the last one included, is reviewed by the critic.
 
 ---
 
@@ -135,17 +127,16 @@ Every data need has a free source, and most agents **combine** several tools bec
 
 | Agent | Tools it combines | What the merge gives | Fallback |
 | --- | --- | --- | --- |
-| `concierge` | `save_trip_brief` (own code) + `geocode_place` (Nominatim) | Validated destination and origin with coordinates | Ask the user to rephrase |
+| `concierge` | `save_trip_brief`, `request_replan`, `approve_plan` (own code) + `geocode_place` (Nominatim) | Validated destination and origin with coordinates; the re-plan scope; the user's approval | Ask the user to rephrase |
 | `flight_searcher` | Kiwi MCP `search-flight` | Live flight prices, times, booking links | `search_google_flights` (fast-flights library), then SerpApi Google Flights |
 | `ground_searcher` | `plan_public_transport` (Transitous) + `web_search` (Tavily) | Train/bus/ferry schedules from Transitous, ticket prices from operator pages | Tavily only |
 | `airbnb_searcher` | Airbnb MCP `airbnb_search`, `airbnb_listing_details` | Listings with nightly price, rating, link | Airbnb search deep link |
 | `hotel_searcher` | `search_hotel_rates` (liteAPI) + optional `search_google_hotels` (SerpApi) | Hotel rates for the same dates and areas | Booking.com search deep link |
 | `culture_agent` | `find_sights` (OpenTripMap) + `wiki_summary` (Wikipedia) + `wikivoyage_section` (Wikivoyage) + `web_search` | Sights with location, short history, traveller tips, hours and tickets | Wikivoyage "See" section only |
-| `food_agent` | `find_restaurants` (OSM Overpass) + `wikivoyage_section` ("Eat") + `web_search` + optional `foursquare_search` | Traditional dishes, restaurants per budget tier, near the sights | Overpass plus model knowledge |
-| `itinerary_planner` | `get_forecast` (Open-Meteo) + `cluster_by_distance` (own code) | Nearby places grouped per day, indoor sights on rainy days | Plan without the forecast |
-| `budget_critic` | `calculate_trip_cost` (own code) | Totals per category vs the budget | n/a |
-| `itinerary_reviser` | `exit_loop` (ADK loop-exit pattern) | Ends the review loop on approval | Loop stops at 3 rounds |
-| `guide_writer` | `save_guide` (own code) | Markdown and HTML guide in `output/` | n/a |
+| `food_agent` | `find_restaurants` (OSM Overpass) + `wikivoyage_section` ("Eat") + `web_search` | Traditional dishes, restaurants per budget tier, near the sights | Overpass plus model knowledge |
+| `itinerary_writer` | `get_forecast` (Open-Meteo) + `cluster_by_distance` + `calculate_trip_cost` (own code); when revising, `extra_sights_researcher` (agent as tool) | Nearby places grouped per day, indoor sights on rainy days, the cost total; more sights for a thin day | Plan without the forecast; group sights by area itself |
+| `plan_critic` | `check_itinerary` + `calculate_trip_cost` (own code) | Must-fix facts and day-shape points, totals per category vs the budget | Loop stops at 4 rounds and keeps the best reviewed plan |
+| `guide_writer` | `save_guide`, `export_calendar`, `export_map_stops` (own code) | Markdown and HTML guide, `.ics` calendar and `.geojson` stops in `output/` | n/a |
 
 ### Rules for every tool wrapper
 
@@ -189,18 +180,17 @@ Check the exact import paths and parameter names against the installed ADK versi
 
 ## 5. Accounts and registration
 
-Three free sign-ups are required (Tavily, OpenTripMap, liteAPI), two are optional (SerpApi, Foursquare), and everything else needs no account. No credit card is needed for any required service. Put every key in `.env` and add `.env` to `.gitignore`.
+Only the LLM key is required. Four free data-source sign-ups are optional (Tavily and OpenTripMap recommended; liteAPI and SerpApi), and everything else needs no account. Without a key the planner still works with less detail (`scripts/check_setup.py` says what each missing key costs). No credit card is needed for any of them. Put every key in `.env` and add `.env` to `.gitignore`.
 
 ### Action needed: sign up for a key
 
 | Service | Required? | What to do | Free allowance | `.env` variable |
 | --- | --- | --- | --- | --- |
-| University LLM API | Required | Get the API key and base URL from the course or university portal; confirm the model id | Per university terms | `UNI_API_KEY`, `UNI_API_BASE`, `UNI_MODEL_ID` |
-| [Tavily](https://app.tavily.com) | Required | Create an account, copy the API key from the dashboard | 1,000 credits/month, no card (1 basic search = 1 credit) | `TAVILY_API_KEY` |
-| [OpenTripMap](https://dev.opentripmap.com) | Required | Register on the developer site, request the free API key | Free tier; check the daily limit shown after sign-up | `OPENTRIPMAP_API_KEY` |
-| [liteAPI (Nuitée)](https://docs.liteapi.travel/docs/faq) | Required | Create a free account, open Profile in the dashboard, copy the **sandbox** key. Do not add a card; production keys are not needed | Free sandbox | `LITEAPI_KEY` |
+| University LLM API (Lehmus) | Required for live runs (not for the offline demo) | Get the API key and base URL from the course or university portal; confirm the model id | Per university terms | `LEHMUS_API_KEY`, `LEHMUS_API_BASE`, `LEHMUS_MODEL_ID` |
+| [Tavily](https://app.tavily.com) | Optional (recommended) | Create an account, copy the API key from the dashboard | 1,000 credits/month, no card (1 basic search = 1 credit) | `TAVILY_API_KEY` |
+| [OpenTripMap](https://dev.opentripmap.com) | Optional (recommended) | Register on the developer site, request the free API key | Free tier; check the daily limit shown after sign-up | `OPENTRIPMAP_API_KEY` |
+| [liteAPI (Nuitée)](https://docs.liteapi.travel/docs/faq) | Optional | Create a free account, open Profile in the dashboard, copy the **sandbox** key. Do not add a card; production keys are not needed | Free sandbox | `LITEAPI_KEY` |
 | [SerpApi](https://serpapi.com) | Optional | Create an account, copy the key. Used as flight fallback and extra hotel source | 250 searches/month, shared by Flights and Hotels | `SERPAPI_KEY` |
-| [Foursquare Places](https://foursquare.com/developers) | Optional | Create a developer account and a project key. Only for restaurant ratings | Free Pro calls; sources disagree on 500 vs 10,000 a month, and one says a card is required. Skip unless needed | `FOURSQUARE_API_KEY` |
 
 ### Action needed: no account, but set something up
 
@@ -224,20 +214,24 @@ Three free sign-ups are required (Tavily, OpenTripMap, liteAPI), two are optiona
 
 ### `.env.example`
 
-```dotenv
-# University LLM
-UNI_API_BASE=https://<university-endpoint>/v1
-UNI_API_KEY=
-UNI_MODEL_ID=azsydsttjnlbfjbgqnwd
+The real file is `.env.example` in the repository root; in short:
 
-# Required data sources
+```dotenv
+# University LLM (Lehmus; not needed for the offline demo, DEMO=1)
+LEHMUS_API_BASE=https://api.lehmus-ai.oulu.fi/v1
+LEHMUS_API_KEY=
+LEHMUS_MODEL_ID=azsydsttjnlbfjbgqnwd
+
+# Optional, instead of Lehmus: any LiteLLM model string with its key
+LLM_MODEL=
+LLM_API_BASE=
+LLM_API_KEY=
+
+# Data sources: free keys, all optional (Tavily and OpenTripMap recommended)
 TAVILY_API_KEY=
 OPENTRIPMAP_API_KEY=
 LITEAPI_KEY=
-
-# Optional
 SERPAPI_KEY=
-FOURSQUARE_API_KEY=
 
 # Used in User-Agent headers (Nominatim, Wikipedia, Transitous)
 CONTACT_EMAIL=
@@ -248,7 +242,7 @@ APP_USER_AGENT=TripPlannerCourseProject/0.1
 
 ## 6. Data model
 
-Shared Pydantic models let agents compare results from different sources like for like. Tool wrappers return these models; comparer and planner agents read them from session state.
+Shared Pydantic models let agents compare results from different sources like for like. Tool wrappers return these models; the comparison code and the itinerary writer read them from session state.
 
 ```python
 from pydantic import BaseModel
@@ -307,14 +301,15 @@ class Place(BaseModel):     # sights and restaurants
 | Key | Written by | Read by |
 | --- | --- | --- |
 | `trip_brief` | `concierge` (via `save_trip_brief` tool) | every agent |
-| `flight_options`, `ground_options` | the two transport searchers | `transport_comparer` |
-| `transport_summary` | `transport_comparer` | planner, critic, writer |
-| `airbnb_options`, `hotel_options` | the two stay searchers | `stay_comparer` |
-| `stay_summary` | `stay_comparer` | planner, critic, writer |
-| `culture_findings`, `food_findings` | culture and food agents | planner, writer |
-| `itinerary` | planner, then reviser | critic, writer |
-| `critique` | `budget_critic` | `itinerary_reviser` |
-| `final_guide` | `guide_writer` | user (also saved to `output/`) |
+| `replan_scope` | `concierge` (via `request_replan` tool) | the research branches (skip when out of scope) |
+| `flight_options`, `ground_options` | the two transport searchers | the transport team's code |
+| `transport_summary` | `transport_team` (code, no LLM) | itinerary writer, critic, guide writer |
+| `airbnb_options`, `hotel_options` | the two stay searchers | the stay team's code |
+| `stay_summary` | `stay_team` (code, no LLM) | itinerary writer, critic, guide writer |
+| `culture_findings`, `food_findings` | culture and food agents (new sights also from `extra_sights_researcher`) | itinerary writer, guide writer |
+| `itinerary` | `itinerary_writer` (drafted in round 1, revised later) | critic, guide writer |
+| `critique` | `plan_critic` | `itinerary_writer` |
+| `final_guide`, `guide_reply` | `guide_writer` | user (also saved to `output/`) |
 
 Instructions read state with ADK's `{key}` templating, e.g. `"Compare these options: {flight_options} {ground_options}"`.
 
@@ -324,9 +319,9 @@ Instructions read state with ADK's `{key}` templating, e.g. `"Compare these opti
 
 | Requirement | How the design meets it |
 | --- | --- |
-| At least 3 different agents | 13 LLM agents with distinct roles, plus 6 workflow agents |
-| Multi-agent orchestration pattern | Coordinator/delegation (concierge), sequential (pipeline), parallel (research team, nested in transport and stay), loop (review) |
-| At least one tool call | 15+ function tools and 2 MCP servers; every research agent calls tools |
+| At least 3 different agents | 10 LLM agents with distinct roles, plus a culture researcher used as a tool and 5 workflow agents |
+| Multi-agent orchestration pattern | Coordinator/delegation (concierge), sequential (pipeline), parallel (research team, nested in transport and stay), loop (review), agent as tool (`extra_sights_researcher`), human in the loop (approval) |
+| At least one tool call | 24 function tools, an agent used as a tool and 2 MCP servers; every research agent calls tools |
 | Fully agentic | Agents choose search parameters, which tools to call, how to rank and when the plan is good enough; no hard-coded trip logic |
 | No code from assignments 2 and 3 | New repository written from scratch |
 | Executable, no errors | Error-returning tool wrappers, fallbacks per source, response cache, a recorded demo trip, smoke tests |
@@ -344,7 +339,7 @@ Instructions read state with ADK's `{key}` templating, e.g. `"Compare these opti
 | Transitous has no data for a route (common outside Europe) | Medium | Tavily search for operators and schedules |
 | Web-extracted prices are wrong | Medium | `price_source: web_estimate` shown in the guide so the user double-checks |
 | Parallel agents overwrite each other's state | Low | Distinct `output_key` per agent |
-| Runs are slow (15–20 model calls) | Medium | Parallel research; merge comparers into searchers if needed; stream progress in `adk web` |
+| Runs are slow (many model and tool calls) | Medium | Parallel research; comparisons in code instead of LLM agents; a re-plan re-runs only the research the change needs; progress streamed in the web UI |
 | Model invents places or prices | Medium | Instructions require every place and price to come from a tool result with a source URL; critic checks this |
 
 ---
@@ -358,9 +353,9 @@ Build bottom-up: prove the model and each tool alone, then wire agents in, then 
 3. **Tool wrappers.** Write each wrapper with its schema, error handling and cache, and a pytest smoke test per tool.
 4. **MCP connections.** Connect Kiwi (remote) and Airbnb (`npx`) through `McpToolset`; list their tools.
 5. **Research agents.** Build the four branches one at a time, running each alone in `adk web`.
-6. **Comparers and teams.** Add the transport and stay teams (parallel searchers plus comparer).
-7. **Pipeline.** Concierge, research team, planner and guide writer, end to end without the loop.
-8. **Review loop.** Add critic, reviser and `exit_loop`; check it stops by round 3.
+6. **Teams.** Add the transport and stay teams (parallel searchers, then code that ranks and compares their options).
+7. **Pipeline.** Concierge, research team, itinerary writer and guide writer, end to end without the loop.
+8. **Review loop.** Add the plan critic and the writer's revision step; check the loop ends on approval or after round 4.
 9. **Hardening.** Run 3–4 different trips; fix failures; record the demo trip's cache.
 10. **Report and demo.** README with setup steps, architecture diagram, demo video or live run.
 
@@ -388,9 +383,10 @@ One scripted run in `adk web` that shows every pattern and both MCP servers in a
 1. User: *"Plan 5 days in Lisbon for two, mid budget, we love history and street food."*
 2. Concierge asks for the dates and departure city, then saves the brief. Shows the delegation pattern.
 3. The event trace shows the four research branches running in parallel, with Kiwi and Airbnb MCP calls visible.
-4. Transport comparer shows cheapest vs fastest; stay comparer shows Airbnb vs hotels per neighbourhood.
-5. Planner drafts 5 days; the critic flags an overpacked day or an over-budget total; the reviser fixes it; a later round approves. Shows the loop.
-6. Guide writer saves `output/lisbon-<dates>.md` and `.html`: transport, stay comparison, daily plan with history snippets and food stops, cost table, links, and price sources marked.
+4. Code ranks the transport options (best value, cheapest, fastest) and compares Airbnb with hotels per neighbourhood.
+5. The itinerary writer drafts 5 days; the critic flags a problem such as a sight planned after closing; the writer fixes it; a later round approves. Shows the loop.
+6. The reviewed plan appears in the chat; the user approves it (human in the loop).
+7. Guide writer saves `output/lisbon-<dates>.md` and `.html`: transport, stay comparison, daily plan with history snippets and food stops, cost table, links, and price sources marked.
 
 Keep the cached responses from a rehearsal so the live demo cannot fail on a rate limit or a broken scraper.
 

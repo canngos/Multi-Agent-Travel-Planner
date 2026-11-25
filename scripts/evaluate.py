@@ -26,7 +26,9 @@ from travel_planner.agents.review_checks import (  # noqa: E402
 
 PLACE_KINDS = {"sight"} | FOOD_KINDS
 LINK_FIX_KEYS = ("itinerary_link_fixes", "guide_link_fixes")
-RESEARCHERS = {"culture_agent", "food_agent", "transport_comparer", "stay_comparer"}  # one per research branch
+# the LLM agents of each research branch: a plan "researched everything" when every branch called the LLM
+BRANCHES = ({"flight_searcher", "ground_searcher"}, {"airbnb_searcher", "hotel_searcher"}, {"culture_agent"},
+            {"food_agent"})
 
 
 def load(path: Path) -> tuple[dict, dict]:
@@ -64,10 +66,14 @@ def grounded_items(plan: dict, state: dict) -> tuple[int, int]:
 
 
 def planning_turns(metrics: dict) -> list[dict]:
-    """The turns in which the planner ran (a full plan, or a re-plan), with "ran": the agents that called the LLM
+    """The turns in which the itinerary writer ran (a full plan, or a re-plan), with "ran": the agents that called the LLM
     (a skipped research agent still posts an event, but makes no LLM call)."""
     return [{**t, "ran": set(t.get("llm_agents", t.get("agents", [])))}
-            for t in metrics.get("turns") or [] if "itinerary_planner" in t.get("agents", [])]
+            for t in metrics.get("turns") or [] if "itinerary_writer" in t.get("agents", [])]
+
+
+def researched_all(ran: set[str]) -> bool:
+    return all(branch & ran for branch in BRANCHES)
 
 
 def evaluate(state: dict, metrics: dict) -> dict:
@@ -82,8 +88,8 @@ def evaluate(state: dict, metrics: dict) -> dict:
     turns = planning_turns(metrics)
     replans = [r for r in state.get("replan_log") or [] if r.get("accepted")]
     # time saved: each re-plan that skipped research, against the run's slowest plan with all research
-    full = max((t["seconds"] for t in turns if RESEARCHERS <= t["ran"]), default=None)
-    reused = [t for t in turns if not RESEARCHERS <= t["ran"]]
+    full = max((t["seconds"] for t in turns if researched_all(t["ran"])), default=None)
+    reused = [t for t in turns if not researched_all(t["ran"])]
     saved = round(sum(full - t["seconds"] for t in reused), 1) if full is not None and reused else None
     return {
         "rounds": len(review),

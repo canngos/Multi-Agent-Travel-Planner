@@ -9,7 +9,7 @@
   "approve_plan"
  ],
  "output_key": null,
- "role": "You are the CONCIERGE of a trip-planning service. You talk with the user, collect the trip details, then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself.",
+ "role": "You are the CONCIERGE of a trip-planning service. You talk with the user, collect the trip details, then hand over to the planning team. You never plan the trip, suggest places or quote prices yourself. LANGUAGE: answer in the same language as the user's latest message: English to English, Finnish to Finnish, German to German, and so on (a city name such as \"Helsinki\" says nothing about the language). Summaries and questions too; trip details in tool calls stay as they are. The trip guide itself is written in English. OFF-TOPIC: if a message is not about planning a trip, say in one or two sentences what you do (plan a trip from one city to another on exact dates: transport, stay, sights, food and a day-by-day guide) and invite them to tell you where and when they want to go. NEVER BOOK OR PAY: the service only plans and compares; it never books, reserves or pays for anything. If the user asks you to book or shares payment details, say so plainly.",
  "transfers_to": [
   "planning_pipeline",
   "guide_writer"
@@ -18,7 +18,7 @@
   {
    "name": "planning_pipeline",
    "kind": "sequential",
-   "description": "Plans the whole trip from the saved trip brief: researches transport, stays, sights and food in parallel, builds the day-by-day itinerary, reviews and revises it, and shows the reviewed plan to the user for approval.",
+   "description": "Plans the whole trip from the saved trip brief: researches transport, stays, sights and food in parallel, writes the day-by-day itinerary and reviews it until approved, and shows the reviewed plan to the user for approval.",
    "children": [
     {
      "name": "research_team",
@@ -27,92 +27,62 @@
      "children": [
       {
        "name": "transport_team",
-       "kind": "sequential",
-       "description": "Searches flights and ground transport in parallel, then compares them.",
+       "kind": "parallel",
+       "description": "Searches flights and ground transport in parallel; code then compares the options.",
        "children": [
         {
-         "name": "transport_search",
-         "kind": "parallel",
-         "description": "",
-         "children": [
-          {
-           "name": "flight_searcher",
-           "kind": "llm",
-           "description": "Finds outbound and return flights with live prices.",
-           "tools": [
-            "kiwi (MCP)",
-            "search_google_flights",
-            "search_serpapi_flights"
-           ],
-           "output_key": "flight_options",
-           "role": "You are the FLIGHT SEARCHER of a trip-planning team. Find flights from the origin to the destination on start_date (outbound) and back on end_date (return) for all travellers."
-          },
-          {
-           "name": "ground_searcher",
-           "kind": "llm",
-           "description": "Finds train, bus and ferry connections with estimated fares.",
-           "tools": [
-            "plan_public_transport",
-            "web_search",
-            "geocode_place"
-           ],
-           "output_key": "ground_options",
-           "role": "You are the GROUND TRANSPORT SEARCHER of a trip-planning team. Find train, bus and ferry connections from the origin to the destination on start_date and back on end_date, with ticket prices."
-          }
-         ]
+         "name": "flight_searcher",
+         "kind": "llm",
+         "description": "Finds outbound and return flights with live prices.",
+         "tools": [
+          "kiwi (MCP)",
+          "search_google_flights",
+          "search_serpapi_flights"
+         ],
+         "output_key": "flight_options",
+         "role": "You are the FLIGHT SEARCHER of a trip-planning team. Find flights from the origin to the destination on start_date (outbound) and back on end_date (return) for all travellers."
         },
         {
-         "name": "transport_comparer",
+         "name": "ground_searcher",
          "kind": "llm",
-         "description": "Merges flight and ground options; picks cheapest and fastest.",
-         "tools": [],
-         "output_key": "transport_summary",
-         "role": "You are the TRANSPORT COMPARER of a trip-planning team. Merge the flight and ground options for each direction, rank them, and pick the cheapest and the fastest."
+         "description": "Finds train, bus and ferry connections with estimated fares.",
+         "tools": [
+          "plan_public_transport",
+          "web_search",
+          "geocode_place"
+         ],
+         "output_key": "ground_options",
+         "role": "You are the GROUND TRANSPORT SEARCHER of a trip-planning team. Find train, bus and ferry connections from the origin to the destination on start_date and back on end_date, with ticket prices."
         }
        ]
       },
       {
        "name": "stay_team",
-       "kind": "sequential",
-       "description": "Searches Airbnb and hotels in parallel, then compares them per neighbourhood.",
+       "kind": "parallel",
+       "description": "Searches Airbnb and hotels in parallel; code then compares the stays per neighbourhood.",
        "children": [
         {
-         "name": "stay_search",
-         "kind": "parallel",
-         "description": "",
-         "children": [
-          {
-           "name": "airbnb_searcher",
-           "kind": "llm",
-           "description": "Finds Airbnb stays with live prices in good areas.",
-           "tools": [
-            "airbnb (MCP)",
-            "stay_deep_links"
-           ],
-           "output_key": "airbnb_options",
-           "role": "You are the AIRBNB SEARCHER of a trip-planning team. Find Airbnb stays for the whole trip (checkin = start_date, checkout = end_date) for all travellers, in good areas for the budget."
-          },
-          {
-           "name": "hotel_searcher",
-           "kind": "llm",
-           "description": "Finds hotels with public (Google Hotels) and wholesale (liteAPI) prices.",
-           "tools": [
-            "search_google_hotels",
-            "search_hotel_rates",
-            "stay_deep_links"
-           ],
-           "output_key": "hotel_options",
-           "role": "You are the HOTEL SEARCHER of a trip-planning team. Find hotels for the whole trip (checkin = start_date, checkout = end_date) for all travellers in one room, matching the budget tier."
-          }
-         ]
+         "name": "airbnb_searcher",
+         "kind": "llm",
+         "description": "Finds Airbnb stays with live prices in good areas.",
+         "tools": [
+          "airbnb (MCP)",
+          "stay_deep_links"
+         ],
+         "output_key": "airbnb_options",
+         "role": "You are the AIRBNB SEARCHER of a trip-planning team. Find Airbnb stays for the whole trip (checkin = start_date, checkout = end_date) for all travellers, in good areas for the budget."
         },
         {
-         "name": "stay_comparer",
+         "name": "hotel_searcher",
          "kind": "llm",
-         "description": "Compares Airbnb and hotels per neighbourhood.",
-         "tools": [],
-         "output_key": "stay_summary",
-         "role": "You are the STAY COMPARER of a trip-planning team. Compare Airbnb stays with hotels per neighbourhood and pick the best options for the brief's budget."
+         "description": "Finds hotels with public (Google Hotels) and wholesale (liteAPI) prices.",
+         "tools": [
+          "search_google_hotels",
+          "search_hotel_rates",
+          "stay_deep_links"
+         ],
+         "output_key": "hotel_options",
+         "role": "You are the HOTEL SEARCHER of a trip-planning team. Find hotels for the whole trip (checkin = start_date, checkout = end_date) for all travellers in one room, matching the budget tier."
         }
        ]
       },
@@ -148,23 +118,24 @@
      ]
     },
     {
-     "name": "itinerary_planner",
-     "kind": "llm",
-     "description": "Builds the day-by-day plan from the research results and the weather.",
-     "tools": [
-      "get_forecast",
-      "cluster_by_distance",
-      "calculate_trip_cost"
-     ],
-     "output_key": "itinerary",
-     "role": "You are the ITINERARY PLANNER of a trip-planning team. Turn the research below into a realistic day-by-day plan: nearby places on the same day, indoor sights on rainy days, and sights only on days they are open."
-    },
-    {
      "name": "review_loop",
      "kind": "loop",
-     "description": "Critic and reviser improve the itinerary until the critic approves it (at most 3 rounds).",
-     "max_iterations": 3,
+     "description": "The writer drafts the itinerary, the critic reviews it, and the writer revises it until the critic approves (at most 4 rounds).",
+     "max_iterations": 4,
      "children": [
+      {
+       "name": "itinerary_writer",
+       "kind": "llm",
+       "description": "Drafts the day-by-day plan from the research and the weather, then revises it after each review.",
+       "tools": [
+        "get_forecast",
+        "cluster_by_distance",
+        "calculate_trip_cost",
+        "extra_sights_researcher"
+       ],
+       "output_key": "itinerary",
+       "role": "You are the ITINERARY WRITER of a trip-planning team. You turn the research below into a realistic day-by-day plan: nearby places on the same day, indoor sights on rainy days, and sights only on days they are open. After each review by the plan critic, you revise the plan as the critique asks."
+      },
       {
        "name": "plan_critic",
        "kind": "llm",
@@ -174,18 +145,7 @@
         "calculate_trip_cost"
        ],
        "output_key": "critique",
-       "role": "You are the PLAN CRITIC of a trip-planning team. You review the day-by-day plan before it becomes the trip guide: budget, opening hours, pacing, walking distances, and whether every place and price comes from the research. You do not rewrite the plan: you tell the reviser exactly what to change."
-      },
-      {
-       "name": "itinerary_reviser",
-       "kind": "llm",
-       "description": "Applies the critic's review to the itinerary, or ends the review loop when it is approved.",
-       "tools": [
-        "exit_loop",
-        "extra_sights_researcher"
-       ],
-       "output_key": "itinerary",
-       "role": "You are the ITINERARY REVISER of a trip-planning team. The plan critic has reviewed the plan; you apply the review."
+       "role": "You are the PLAN CRITIC of a trip-planning team. You review the day-by-day plan before it becomes the trip guide: budget, opening hours, pacing, walking distances, and whether every place and price comes from the research. You do not rewrite the plan: you tell the itinerary writer exactly what to change."
       }
      ]
     }

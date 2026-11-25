@@ -1,0 +1,31 @@
+{
+ "id": "25_currency_and_ambiguous_date",
+ "title": "Budget in USD + ambiguous date format 03/04/2027",
+ "turns": [
+  {
+   "user": "Paris 03/04/2027 to 06/04/2027, 2 adults from Helsinki, budget $2500. Art and croissants.",
+   "seconds": 11.4,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "I want to be sure about the travel dates – does **03/04/2027 to 06/04/2027** mean:\n\n* 3 April 2027 to 6 April 2027 (European style), or  \n* 4 March 2027 to 6 March 2027 (U.S. style)?\n\nPlease let me know which one you intended."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [],
+ "tool_calls": 0,
+ "agents": {
+  "concierge": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 11.393636299995705,
+   "last": 11.393636299995705
+  }
+ },
+ "seconds": 11.4,
+ "brief": null,
+ "plan_status": null,
+ "checks": {}
+}

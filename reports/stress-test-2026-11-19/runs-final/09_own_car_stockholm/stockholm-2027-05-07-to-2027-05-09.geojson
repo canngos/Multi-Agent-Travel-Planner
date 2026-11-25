@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.087699,
+     59.30278
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Motel L Hammarby Sjöstad",
+    "url": "https://www.booking.com/searchresults.html?ss=Motel+L+Hammarby+Sj%C3%B6stad%2C+Stockholm&checkin=2027-05-07&checkout=2027-05-09&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.03884,
+     59.34027
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "09:00",
+    "kind": "restaurant",
+    "name": "Peppar",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Vasastan_and_Hagastaden"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.07166667,
+     59.32694444
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Royal Palace",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Gamla_stan"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.073078,
+     59.326615
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "12:15",
+    "kind": "sight",
+    "name": "Royal Armoury",
+    "url": "http://livrustkammaren.se/en/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04474,
+     59.32909
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "13:45",
+    "kind": "restaurant",
+    "name": "Mäster Anders",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.070831,
+     59.325215
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Nobel Museum",
+    "url": "http://www.nobelmuseum.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.074529,
+     59.333255
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Hallwyl Museum",
+    "url": "https://hallwylskamuseet.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04496,
+     59.34885
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-08",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Döden i grytan",
+    "url": "http://www.visomkanmat.se/dig/index.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.084654,
+     59.325814
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Swedish Centre for Architecture and Design",
+    "url": "https://arkdes.se/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.09137,
+     59.328084
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "11:45",
+    "kind": "sight",
+    "name": "Vasa Museum",
+    "url": "https://www.openstreetmap.org/way/27288534"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.03043,
+     59.33362
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "14:00",
+    "kind": "restaurant",
+    "name": "Restaurang Ät Gott",
+    "url": "https://en.wikivoyage.org/wiki/Stockholm/Kungsholmen"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.096552,
+     59.324912
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "15:15",
+    "kind": "sight",
+    "name": "ABBA The Museum",
+    "url": "https://abbathemuseum.com"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.105239,
+     59.326539
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Skansen",
+    "url": "https://www.skansen.se"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     18.04573,
+     59.34191
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-09",
+    "time": "17:30",
+    "kind": "restaurant",
+    "name": "Tennstopet",
+    "url": "http://www.tennstopet.se/"
+   }
+  }
+ ]
+}

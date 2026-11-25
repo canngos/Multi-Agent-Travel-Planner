@@ -74,6 +74,7 @@ from google.genai import types  # noqa: E402
 from travel_planner import config, llm_cache  # noqa: E402
 from travel_planner.agents.output import check_output, item_urls  # noqa: E402
 from travel_planner.agents.pipeline import build_root_agent  # noqa: E402
+from travel_planner.agents.plan_critic import MAX_ROUNDS  # noqa: E402
 from travel_planner.agents.review_checks import check_plan  # noqa: E402
 
 RESEARCH = ("transport_summary", "stay_summary", "culture_findings", "food_findings")
@@ -159,8 +160,8 @@ def report(state: dict) -> bool:
         "every itinerary link came from research or tool results": not ungrounded,
         "guide saved as .md and .html": bool(paths) and all(Path(p).exists() for p in paths.values()),
         "every guide link came from research or tool results": not guide_ungrounded,
-        "review loop ran (approved, or stopped after 3 rounds)": bool(review) and (
-            state.get("review_verdict") == "APPROVED" or len(review) == 3),
+        f"review loop ran (approved, or stopped after {MAX_ROUNDS} rounds)": bool(review) and (
+            state.get("review_verdict") == "APPROVED" or len(review) == MAX_ROUNDS),
         "final plan has no must-fix problems (code check)": not final["must_fix"],
         "the concierge answered the follow-up question": bool(ANSWERS.get(QUESTION_TURN, "").strip()),
     }

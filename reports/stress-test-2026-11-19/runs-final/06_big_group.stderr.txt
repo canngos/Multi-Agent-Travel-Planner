@@ -1,0 +1,189 @@
+App "stress" can transfer between agents but has no context_cache_config. Every transfer swaps the system instruction and the tool set, so the request prefix changes and the whole prompt is re-sent uncached after each transfer. Set context_cache_config on the app to give each agent its own cache.
+[2026-11-25T11:57:18.959Z] [INFO] Airbnb MCP Server starting: {
+  "version": "0.3.0",
+  "ignoreRobotsTxt": true,
+  "disableGeocoding": false,
+  "nodeVersion": "v25.2.1",
+  "platform": "win32"
+}
+[2026-11-25T11:57:18.960Z] [INFO] Skipping robots.txt fetch (ignored by configuration)
+[2026-11-25T11:57:18.960Z] [INFO] Airbnb MCP Server running on stdio: {
+  "version": "0.3.0",
+  "robotsRespected": false
+}
+[2026-11-25T11:57:18.969Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Berlin, Germany",
+    "checkin": "2027-04-20",
+    "checkout": "2027-04-23",
+    "adults": 14
+  }
+}
+[2026-11-25T11:57:18.969Z] [INFO] Geocoding location via Photon: {
+  "location": "Berlin, Germany"
+}
+[2026-11-25T11:57:22.501Z] [INFO] Photon selected feature: {
+  "location": "Berlin, Germany",
+  "type": "city",
+  "name": "Berlin",
+  "country": "Deutschland",
+  "hasExtent": true
+}
+[2026-11-25T11:57:22.501Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Berlin, Germany",
+  "coords": {
+    "sw_lat": "52.2382448",
+    "ne_lat": "52.7755087",
+    "sw_lng": "12.9201410",
+    "ne_lng": "13.9293649",
+    "displayName": "Berlin"
+  }
+}
+[2026-11-25T11:57:22.501Z] [INFO] Performing Airbnb search: {
+  "location": "Berlin, Germany",
+  "checkin": "2027-04-20",
+  "checkout": "2027-04-23",
+  "adults": 14,
+  "children": 0
+}
+[2026-11-25T11:57:23.537Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:57:23.537Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "4568ms",
+  "success": true
+}
+[2026-11-25T11:57:55.361Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Mitte, Berlin, Germany",
+    "checkin": "2027-04-20",
+    "checkout": "2027-04-23",
+    "adults": 14
+  }
+}
+[2026-11-25T11:57:55.361Z] [INFO] Geocoding location via Photon: {
+  "location": "Mitte, Berlin, Germany"
+}
+[2026-11-25T11:57:55.571Z] [INFO] Photon selected feature: {
+  "location": "Mitte, Berlin, Germany",
+  "type": "district",
+  "name": "Mitte",
+  "country": "Deutschland",
+  "hasExtent": true
+}
+[2026-11-25T11:57:55.571Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Mitte, Berlin, Germany",
+  "coords": {
+    "sw_lat": "52.4040371",
+    "ne_lat": "52.6404013",
+    "sw_lng": "13.2658989",
+    "ne_lng": "13.5294017",
+    "displayName": "Mitte"
+  }
+}
+[2026-11-25T11:57:55.571Z] [INFO] Performing Airbnb search: {
+  "location": "Mitte, Berlin, Germany",
+  "checkin": "2027-04-20",
+  "checkout": "2027-04-23",
+  "adults": 14,
+  "children": 0
+}
+[2026-11-25T11:57:56.359Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:57:56.359Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "998ms",
+  "success": true
+}
+[2026-11-25T11:58:33.155Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Friedrichshain, Berlin, Germany",
+    "checkin": "2027-04-20",
+    "checkout": "2027-04-23",
+    "adults": 14
+  }
+}
+[2026-11-25T11:58:33.155Z] [INFO] Geocoding location via Photon: {
+  "location": "Friedrichshain, Berlin, Germany"
+}
+[2026-11-25T11:58:33.386Z] [INFO] Photon selected feature: {
+  "location": "Friedrichshain, Berlin, Germany",
+  "type": "district",
+  "name": "Friedrichshain",
+  "country": "Deutschland",
+  "hasExtent": true
+}
+[2026-11-25T11:58:33.386Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Friedrichshain, Berlin, Germany",
+  "coords": {
+    "sw_lat": "52.3860501",
+    "ne_lat": "52.6310256",
+    "sw_lng": "13.3197532",
+    "ne_lng": "13.5914434",
+    "displayName": "Friedrichshain"
+  }
+}
+[2026-11-25T11:58:33.386Z] [INFO] Performing Airbnb search: {
+  "location": "Friedrichshain, Berlin, Germany",
+  "checkin": "2027-04-20",
+  "checkout": "2027-04-23",
+  "adults": 14,
+  "children": 0
+}
+[2026-11-25T11:58:34.315Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:58:34.315Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1160ms",
+  "success": true
+}
+[2026-11-25T11:59:07.429Z] [INFO] Tool call received: {
+  "tool": "airbnb_search",
+  "arguments": {
+    "location": "Charlottenburg, Berlin, Germany",
+    "checkin": "2027-04-20",
+    "checkout": "2027-04-23",
+    "adults": 14
+  }
+}
+[2026-11-25T11:59:07.430Z] [INFO] Geocoding location via Photon: {
+  "location": "Charlottenburg, Berlin, Germany"
+}
+[2026-11-25T11:59:07.638Z] [INFO] Photon selected feature: {
+  "location": "Charlottenburg, Berlin, Germany",
+  "type": "district",
+  "name": "Charlottenburg",
+  "country": "Deutschland",
+  "hasExtent": true
+}
+[2026-11-25T11:59:07.638Z] [INFO] Geocoded successfully (with 25% padding): {
+  "location": "Charlottenburg, Berlin, Germany",
+  "coords": {
+    "sw_lat": "52.3990215",
+    "ne_lat": "52.6323723",
+    "sw_lng": "13.1806236",
+    "ne_lng": "13.4414287",
+    "displayName": "Charlottenburg"
+  }
+}
+[2026-11-25T11:59:07.638Z] [INFO] Performing Airbnb search: {
+  "location": "Charlottenburg, Berlin, Germany",
+  "checkin": "2027-04-20",
+  "checkout": "2027-04-23",
+  "adults": 14,
+  "children": 0
+}
+[2026-11-25T11:59:08.477Z] [INFO] Search completed successfully: {
+  "resultCount": 18
+}
+[2026-11-25T11:59:08.477Z] [INFO] Tool call completed: {
+  "tool": "airbnb_search",
+  "duration": "1048ms",
+  "success": true
+}

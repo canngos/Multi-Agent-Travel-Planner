@@ -1,0 +1,20 @@
+
+>>> USER: 4 days in Springfield, 2 adults, from Helsinki, 10-13 June 2027, mid budget 3000 euros.
+[   5.7s] concierge              CALL geocode_place({"name": "Springfield"})
+[   7.0s] concierge              CALL geocode_place({"name": "Helsinki"})
+[  10.5s] concierge              CALL save_trip_brief({"destination": "Springfield", "destination_country": "United States", "destination_lat": 39.79902, "destination_lon": -89.64396, "start_date": "2027-06-10", "end_date": "2027-06-13", "origin": "Helsinki", "origin_lat": 60.16662, "origin_lon": 24.94354, "travellers": 2, "budget_tier": "mid", "total_)
+[  10.5s]   ERR concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 10 Jun - 13 Jun 2027, 4 days and 3 nights.
+[  12.8s] <<< CONCIERGE:
+**Trip summary**
+
+- **Destination:** Springfield, United States  
+- **Dates:** 10 Jun 2027 – 13 Jun 2027 (4 days, 3 nights)  
+- **Origin:** Helsinki, Finland  
+- **Travelers:** 2 adults  
+- **Budget:** Mid‑range, total €3 000  
+- **Interests / special requirements:** none noted  
+
+Please confirm that these details are correct (or let me know any changes).
+
+
+=== done in 12.8 s, 3 tool calls, errors=[]

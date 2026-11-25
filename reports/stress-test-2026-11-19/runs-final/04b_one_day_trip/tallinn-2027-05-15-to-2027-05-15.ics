@@ -1,0 +1,70 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Tallinn
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-1@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T132500
+DTEND:20270515T142500
+SUMMARY:Arrive in Tallinn
+DESCRIPTION:Day 1. Ferry with Viking Line\; see Getting there and back. htt
+ ps://www.vikingline.com/find-your-trip/trips-for-individuals/
+URL:https://www.vikingline.com/find-your-trip/trips-for-individuals/
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-2@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T150000
+DTEND:20270515T154500
+SUMMARY:Toompea Castle
+DESCRIPTION:Day 1. Explore the historic medieval fortress. https://en.wikiv
+ oyage.org/wiki/Tallinn
+GEO:59.435610;24.737430
+URL:https://en.wikivoyage.org/wiki/Tallinn
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-3@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T154500
+DTEND:20270515T163000
+SUMMARY:Alexander Nevsky Cathedral
+DESCRIPTION:Day 1. Visit the ornate Russian Orthodox cathedral. https://en.
+ wikivoyage.org/wiki/Tallinn
+GEO:59.435720;24.739310
+URL:https://en.wikivoyage.org/wiki/Tallinn
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-4@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T163000
+DTEND:20270515T173000
+SUMMARY:Aed
+DESCRIPTION:Day 1. Nice lunch with organic Estonian dishes. https://en.wiki
+ voyage.org/wiki/Tallinn
+GEO:59.437200;24.742850
+URL:https://en.wikivoyage.org/wiki/Tallinn
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-5@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T193000
+DTEND:20270515T203000
+SUMMARY:Scotland Yard
+DESCRIPTION:Day 1. Relaxed dinner in an English‑style pub. https://en.wik
+ ivoyage.org/wiki/Tallinn
+GEO:59.439812;24.754236
+URL:https://en.wikivoyage.org/wiki/Tallinn
+END:VEVENT
+BEGIN:VEVENT
+UID:tallinn-2027-05-15-to-2027-05-15-6@trip-planner
+DTSTAMP:20261125T123714Z
+DTSTART:20270515T231500
+DTEND:20270516T001500
+SUMMARY:Depart from Tallinn
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/qnyv8cnujh
+URL:https://kiwi.com/u/qnyv8cnujh
+END:VEVENT
+END:VCALENDAR

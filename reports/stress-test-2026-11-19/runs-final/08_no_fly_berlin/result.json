@@ -1,0 +1,269 @@
+{
+ "id": "08_no_fly_berlin",
+ "title": "No flying, Helsinki to Berlin overland/ferry",
+ "turns": [
+  {
+   "user": "We don't fly at all (climate). 5 days in Berlin, 2 adults, from Helsinki, 10-14 June 2027, mid budget 2000 euros. Museums and techno.",
+   "seconds": 16.5,
+   "replies": [
+    {
+     "author": "concierge",
+     "text": "Here’s a quick summary of your trip brief:\n\n- **Destination:** Berlin, Germany  \n- **Dates:** 10 Jun – 14 Jun 2027 (5 days, 4 nights)  \n- **Origin:** Helsinki, Finland  \n- **Travelers:** 2 adults  \n- **Budget:** Mid‑range, total 2000 EUR  \n- **Interests:** Museums, techno music scene  \n- **Hard requirement:** No flights (avoid “flight” mode)\n\nPlease confirm that everything looks correct. If you’d like to change anything, just let me know."
+    }
+   ]
+  },
+  {
+   "user": "Yes, that's right, go ahead.",
+   "seconds": 746.9,
+   "replies": [
+    {
+     "author": "planning_pipeline",
+     "text": "**Your reviewed plan for Berlin (2027-06-10 to 2027-06-14)**\n\n- **Outbound:** FlixBus-eu bus 2027-06-10 09:38-12:54 (+1 day, 26 h 16 min), 76 EUR\n- **Return:** FlixBus-eu bus 2027-06-14 09:38-12:54 (+1 day, 26 h 16 min), 76 EUR\n- **Stay:** City Centre Oasis Balcony Room- Female Guests Only, 513 EUR in total\n\n- **Day 1 (Thu 2027-06-10):** 09:38 Depart from Helsinki\n- **Day 2 (Fri 2027-06-11):** 12:54 Arrive in Berlin · 13:20 Witty's Currywurst · 14:30 Altes Museum · 16:00 Neues Museum · 17:00 Alte Nationalgalerie · 20:00 Die Berliner Republik\n- **Day 3 (Sat 2027-06-12):** 10:00 Bode Museum · 13:00 Bombay · 14:30 German Historical Museum · 17:30 Humboldt Forum · 21:00 Kopps · 23:30 Berghain\n- **Day 4 (Sun 2027-06-13):** 11:00 Jewish Museum Berlin · 13:15 Curry Wolf am Brandenburger Tor · 19:30 Brasserie Desbrosses\n- **Day 5 (Mon 2027-06-14):** 09:38 Depart from Berlin\n\nEstimated total: 1316 EUR (budget 2000 EUR).\n\nReply \"looks good\" and I will write the full trip guide, or tell me what to change (e.g. a cheaper hotel, more museums, a slower pace, start the days earlier)."
+    }
+   ]
+  },
+  {
+   "user": "Looks good, please write the guide.",
+   "seconds": 74.2,
+   "replies": [
+    {
+     "author": "guide_writer",
+     "text": "Saving the trip guide."
+    },
+    {
+     "author": "guide_writer",
+     "text": "Your trip guide is ready: berlin-2027-06-10-to-2027-06-14.md (and berlin-2027-06-10-to-2027-06-14.html, best opened in a browser), the calendar berlin-2027-06-10-to-2027-06-14.ics, the map berlin-2027-06-10-to-2027-06-14.geojson in the output folder.\nTransport: out FlixBus-eu bus 10 Jun 09:38; back FlixBus-eu bus 14 Jun 09:38.\nStay: City Centre Oasis Balcony Room- Female Guests Only (€513 in total).\nEstimated total: €1316, within your €2000 budget.\nThe guide ends with a few points to check before booking.\n\nDays in this plan start around 09:30 and end by 22:00, at a balanced pace (the defaults). If you would like a different rhythm (e.g. \"we wake up early, start at 07:00\", \"we stay out late\" or \"a more relaxed pace, please\"), tell me: I will keep the research and only plan the days again, which is quicker."
+    }
+   ]
+  }
+ ],
+ "errors": [],
+ "tool_errors": [
+  "concierge: save_trip_brief -> needs_confirmation Not saved yet. Show the user a short summary of these details and ask them to confirm. When they confirm in their next message, call save_trip_brief again with exactly the same arguments. In the summary write: 10 Jun - 14 Jun 2027, 5 days and 4 nights. Include the hard requirements (avoid_modes, req"
+ ],
+ "tool_calls": 32,
+ "agents": {
+  "concierge": {
+   "events": 11,
+   "tool_calls": 5,
+   "first": 6.326655299999402,
+   "last": 764.5774016000069
+  },
+  "planning_pipeline": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 19.930968100001337,
+   "last": 763.4276335000031
+  },
+  "flight_searcher": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 19.959124100001645,
+   "last": 19.959124100001645
+  },
+  "culture_agent": {
+   "events": 15,
+   "tool_calls": 7,
+   "first": 24.73376560000179,
+   "last": 212.55720540000766
+  },
+  "food_agent": {
+   "events": 9,
+   "tool_calls": 4,
+   "first": 26.730057900000247,
+   "last": 197.03811040001165
+  },
+  "ground_searcher": {
+   "events": 12,
+   "tool_calls": 5,
+   "first": 28.381757300012396,
+   "last": 202.74093780000112
+  },
+  "hotel_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 28.99893470000825,
+   "last": 167.90239909999946
+  },
+  "airbnb_searcher": {
+   "events": 5,
+   "tool_calls": 2,
+   "first": 29.64278180000838,
+   "last": 188.5136710000079
+  },
+  "stay_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 188.516177100013,
+   "last": 188.516177100013
+  },
+  "transport_team": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 202.74149680000846,
+   "last": 202.74149680000846
+  },
+  "review_loop": {
+   "events": 1,
+   "tool_calls": 0,
+   "first": 212.57963839999866,
+   "last": 212.57963839999866
+  },
+  "itinerary_writer": {
+   "events": 18,
+   "tool_calls": 3,
+   "first": 212.5797978000046,
+   "last": 731.1306785000052
+  },
+  "plan_critic": {
+   "events": 20,
+   "tool_calls": 4,
+   "first": 367.313263700009,
+   "last": 763.4260816000024
+  },
+  "guide_writer": {
+   "events": 2,
+   "tool_calls": 0,
+   "first": 837.6280695000023,
+   "last": 837.664537900011
+  }
+ },
+ "seconds": 837.7,
+ "brief": {
+  "origin": "Helsinki",
+  "destination": "Berlin",
+  "start_date": "2027-06-10",
+  "end_date": "2027-06-14",
+  "travellers": 2,
+  "budget_tier": "mid",
+  "total_budget_eur": 2000.0,
+  "interests": [
+   "museums",
+   "techno"
+  ],
+  "origin_lat": 60.16662,
+  "origin_lon": 24.94354,
+  "destination_lat": 52.51739,
+  "destination_lon": 13.39513,
+  "destination_country": "Germany",
+  "avoid_modes": [
+   "flight"
+  ],
+  "nights": 4,
+  "days": 5
+ },
+ "plan_status": "approved",
+ "cost_total": 1315.75,
+ "n_days": 5,
+ "review": [
+  [
+   1,
+   "REVISE"
+  ],
+  [
+   2,
+   "REVISE"
+  ],
+  [
+   3,
+   "REVISE"
+  ],
+  [
+   4,
+   "REVISE"
+  ]
+ ],
+ "final_must_fix": [],
+ "final_should_fix": [
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No lunch planned.",
+   "alternatives": [
+    {
+     "name": "Dada Falafel",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "10:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "Lucky Star",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Grill Royal",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 1,
+   "issue": "missing_meal",
+   "detail": "No dinner planned.",
+   "alternatives": [
+    {
+     "name": "Dada Falafel",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": "10:00-02:00",
+     "ticket_eur": null,
+     "budget_tier": "low"
+    },
+    {
+     "name": "Lucky Star",
+     "kind": "restaurant",
+     "km": 1.2,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "mid"
+    },
+    {
+     "name": "Grill Royal",
+     "kind": "restaurant",
+     "km": 1.5,
+     "hours": null,
+     "ticket_eur": null,
+     "budget_tier": "high"
+    }
+   ]
+  },
+  {
+   "day": 4,
+   "issue": "thin_day",
+   "detail": "Only 1 sight(s) on a full day.",
+   "alternatives": [
+    {
+     "name": "Pergamon Museum",
+     "kind": "sight",
+     "km": 2.1,
+     "hours": "off",
+     "ticket_eur": null,
+     "budget_tier": null
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "schema_ok": true,
+  "schema_problems": [],
+  "days_match": true,
+  "ungrounded": [],
+  "guide_files": {
+   "markdown": true,
+   "html": true,
+   "calendar": true,
+   "map": true
+  },
+  "guide_len": 10587
+ }
+}

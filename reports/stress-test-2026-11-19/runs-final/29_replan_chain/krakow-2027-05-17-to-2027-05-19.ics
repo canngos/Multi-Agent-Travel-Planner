@@ -1,0 +1,203 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Trip planner course project//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Trip to Krakow
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-1@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T080500
+DTEND:20270517T090500
+SUMMARY:Arrive in Krakow
+DESCRIPTION:Day 1. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/d5gd7wkscu
+URL:https://kiwi.com/u/d5gd7wkscu
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-2@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T094000
+DTEND:20270517T111000
+SUMMARY:Wawel Castle
+DESCRIPTION:Day 1. Start the historic tour\; open 09:30‑17:00 (April‑Oc
+ t). https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+GEO:50.054010;19.935140
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-3@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T120000
+DTEND:20270517T130000
+SUMMARY:Mały Śledź
+DESCRIPTION:Day 1. Try the cheap pierogi and bigos\; budget‑friendly loca
+ l fare. https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.054800;19.943500
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-4@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T131500
+DTEND:20270517T143000
+SUMMARY:Wawel Cathedral
+DESCRIPTION:Day 1. Visit the royal basilica\; open Mon‑Sat 09:00‑16:00.
+  https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+GEO:50.054600;19.935500
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-5@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T143000
+DTEND:20270517T160000
+SUMMARY:Archaeological Museum of Kraków
+DESCRIPTION:Day 1. Explore prehistoric artefacts\; indoor\, open 10:00‑16
+ :00. https://en.wikipedia.org/wiki/Archaeological_Museum_of_Krak%C3%B3w
+GEO:50.057613;19.936271
+URL:https://en.wikipedia.org/wiki/Archaeological_Museum_of_Krak%C3%B3w
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-6@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T161500
+DTEND:20270517T174500
+SUMMARY:Dragon's Den
+DESCRIPTION:Day 1. Brief visit to the legendary cave\; no opening hours lis
+ ted. https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+GEO:50.052900;19.933600
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Old_Town
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-7@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270517T183000
+DTEND:20270517T193000
+SUMMARY:Kuchnia u Doroty
+DESCRIPTION:Day 1. Home‑cooked Polish dishes\; good for a warm dinner aft
+ er rain. https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.052100;19.942800
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-8@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270518T104500
+DTEND:20270518T120000
+SUMMARY:Barbican
+DESCRIPTION:Day 2. Entry to the medieval fortified gateway\; indoor museum.
+GEO:50.065468;19.941615
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-9@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270518T120000
+DTEND:20270518T130000
+SUMMARY:Polakowski
+DESCRIPTION:Day 2. Budget Polish cafeteria\; try pierogi and bigos. http://
+ www.polakowski.com.pl
+GEO:50.053291;19.947224
+URL:http://www.polakowski.com.pl
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-10@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270518T134500
+DTEND:20270518T151500
+SUMMARY:St. Mary's Basilica
+DESCRIPTION:Day 2. Visit the iconic Gothic church\; open 12:00‑18:00. htt
+ ps://en.wikipedia.org/wiki/Basilica_of_the_Assumption_of_the_Blessed_Virgi
+ n_Mary\,_Krak%C3%B3w
+GEO:50.061660;19.939427
+URL:https://en.wikipedia.org/wiki/Basilica_of_the_Assumption_of_the_Blessed
+ _Virgin_Mary,_Krak%C3%B3w
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-11@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270518T160000
+DTEND:20270518T173000
+SUMMARY:National Museum – Nineteenth Century Polish Art Gallery at the Su
+ kiennice
+DESCRIPTION:Day 2. Explore 19th‑century Polish paintings\; indoor\, open 
+ Tue‑Sat 10:00‑18:00. https://en.wikipedia.org/wiki/National_Museum_in_
+ Krak%C3%B3w
+GEO:50.061742;19.937588
+URL:https://en.wikipedia.org/wiki/National_Museum_in_Krak%C3%B3w
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-12@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270518T183000
+DTEND:20270518T193000
+SUMMARY:Hamsa
+DESCRIPTION:Day 2. Middle‑Eastern spot with a warm atmosphere\; good for 
+ dinner after rain. http://hamsa.pl/
+GEO:50.053200;19.947800
+URL:http://hamsa.pl/
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-13@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T093000
+DTEND:20270519T110000
+SUMMARY:Oskar Schindler's Enamel Factory
+DESCRIPTION:Day 3. Visit the museum inside the former factory\; indoor\, op
+ en 09:00‑19:00 (Tue‑Sun). https://en.wikipedia.org/wiki/Oskar_Schindle
+ r%27s_Enamel_Factory
+GEO:50.047462;19.961621
+URL:https://en.wikipedia.org/wiki/Oskar_Schindler%27s_Enamel_Factory
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-14@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T120000
+DTEND:20270519T130000
+SUMMARY:Judah Food Market
+DESCRIPTION:Day 3. Street‑food market\; sample pierogi and other Polish s
+ nacks. https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+GEO:50.050200;19.948100
+URL:https://en.wikivoyage.org/wiki/Krak%C3%B3w/Kazimierz
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-15@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T131500
+DTEND:20270519T144500
+SUMMARY:Galicia Jewish Museum
+DESCRIPTION:Day 3. Explore Jewish history exhibits\; indoor\, open 10:00‑
+ 18:00. https://en.wikipedia.org/wiki/Galicia_Jewish_Museum
+GEO:50.050857;19.949677
+URL:https://en.wikipedia.org/wiki/Galicia_Jewish_Museum
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-16@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T150000
+DTEND:20270519T152500
+SUMMARY:Krakus Mound
+DESCRIPTION:Day 3. Climb the prehistoric mound for city views\; outdoor. ht
+ tps://en.wikipedia.org/wiki/Krakus%20Mound
+GEO:50.038082;19.958435
+URL:https://en.wikipedia.org/wiki/Krakus%20Mound
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-17@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T152500
+DTEND:20270519T162500
+SUMMARY:Return to hotel / prepare for departure
+DESCRIPTION:Day 3. Relax before heading to the airport\; need to leave by 1
+ 6:25.
+END:VEVENT
+BEGIN:VEVENT
+UID:krakow-2027-05-17-to-2027-05-19-18@trip-planner
+DTSTAMP:20261125T124555Z
+DTSTART:20270519T185500
+DTEND:20270519T195500
+SUMMARY:Depart from Krakow
+DESCRIPTION:Day 3. Flight with Finnair\; see Getting there and back. https:
+ //kiwi.com/u/hjjsbmdh8f
+URL:https://kiwi.com/u/hjjsbmdh8f
+END:VEVENT
+END:VCALENDAR

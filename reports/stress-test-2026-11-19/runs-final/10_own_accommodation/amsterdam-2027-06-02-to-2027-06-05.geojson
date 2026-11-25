@@ -1,0 +1,309 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.885131,
+     52.359863
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Rijksmuseum",
+    "url": "https://www.rijksmuseum.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.906317,
+     52.354182
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "13:15",
+    "kind": "restaurant",
+    "name": "CTaste",
+    "url": "http://www.ctaste.nl"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.881171,
+     52.358218
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "13:45",
+    "kind": "sight",
+    "name": "Van Gogh Museum",
+    "url": "https://www.vangoghmuseum.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.879842,
+     52.357903
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "Stedelijk Museum Amsterdam",
+    "url": "https://www.stedelijk.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.8811,
+     52.3737
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-06-02",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Long Pura",
+    "url": "http://www.restaurant-longpura.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.884094,
+     52.375155
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "Anne Frank House",
+    "url": "https://www.annefrank.org/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.891336,
+     52.373146
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Royal Palace of Amsterdam",
+    "url": "https://www.paleisamsterdam.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.891009,
+     52.372556
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Frites Huys",
+    "url": "https://www.openstreetmap.org/node/2385772433"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.900812,
+     52.384335
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "15:00",
+    "kind": "sight",
+    "name": "Eye Filmmuseum",
+    "url": "https://www.eyefilm.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.883282,
+     52.378022
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-06-03",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "Kinnaree",
+    "url": "http://www.restaurantkinnaree.nl"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.912111,
+     52.373853
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "09:30",
+    "kind": "sight",
+    "name": "NEMO Science Museum",
+    "url": "https://www.nemosciencemuseum.nl"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.8788,
+     52.3693
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Burgermeester",
+    "url": "http://www.burgermeester.eu/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.88777778,
+     52.365
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Canal Belt (Grachtengordel)",
+    "url": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.916861,
+     52.366042
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Vondelpark",
+    "url": "https://eurolandmarks.com/attractions/netherlands/amsterdam/vondelpark"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.891576,
+     52.372596
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 3,
+    "date": "2027-06-04",
+    "time": "19:00",
+    "kind": "restaurant",
+    "name": "La Piazza",
+    "url": "https://www.lapiazza.nl/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.87596,
+     52.331409
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 4,
+    "date": "2027-06-05",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Tjin's Gelderlandplein",
+    "url": "https://tjinsgelderlandplein.nl/"
+   }
+  }
+ ]
+}

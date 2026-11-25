@@ -1,0 +1,343 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.427932600000001,
+     43.740932099999995
+    ]
+   },
+   "properties": {
+    "kind": "stay",
+    "name": "Hotel Metropole, Monte Carlo",
+    "url": "https://www.booking.com/searchresults.html?ss=Hotel+Metropole%2C+Monte+Carlo%2C+Monaco&checkin=2027-05-21&checkout=2027-05-24&group_adults=2&no_rooms=1"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.420113,
+     43.731337
+    ]
+   },
+   "properties": {
+    "order": 1,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "11:00",
+    "kind": "sight",
+    "name": "Prince's Palace of Monaco",
+    "url": "https://www.palais.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4201694,
+     43.7324334
+    ]
+   },
+   "properties": {
+    "order": 2,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Chez Roger",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.421568,
+     43.735173
+    ]
+   },
+   "properties": {
+    "order": 3,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Monaco Top Cars Collection",
+    "url": "https://www.mtcc.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.417584,
+     43.730872
+    ]
+   },
+   "properties": {
+    "order": 4,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "16:30",
+    "kind": "sight",
+    "name": "Musée des Timbres et des Monnaies",
+    "url": "https://www.mtm-monaco.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42162,
+     43.72781
+    ]
+   },
+   "properties": {
+    "order": 5,
+    "day": 1,
+    "date": "2027-05-21",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "Beefbar",
+    "url": "http://beefbar.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42792,
+     43.73749
+    ]
+   },
+   "properties": {
+    "order": 6,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "11:30",
+    "kind": "sight",
+    "name": "Yacht Club de Monaco",
+    "url": "https://yacht-club-monaco.mc/en/club-house/bars-restaurants"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42758,
+     43.73854
+    ]
+   },
+   "properties": {
+    "order": 7,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "12:30",
+    "kind": "restaurant",
+    "name": "Le Grill",
+    "url": "https://www.montecarlosbm.com/en/restaurant-monaco/the-grill"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.428023,
+     43.739161
+    ]
+   },
+   "properties": {
+    "order": 8,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Monte Carlo Casino",
+    "url": "https://en.wikipedia.org/wiki/Monte_Carlo_Casino"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4262,
+     43.73934
+    ]
+   },
+   "properties": {
+    "order": 9,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "15:30",
+    "kind": "sight",
+    "name": "One Monte‑Carlo",
+    "url": "https://www.montecarlosbm.com/en/hotel-monaco/residences/one-monte-carlo"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42734,
+     43.73911
+    ]
+   },
+   "properties": {
+    "order": 10,
+    "day": 2,
+    "date": "2027-05-22",
+    "time": "20:00",
+    "kind": "restaurant",
+    "name": "Louis XV – Alain Ducasse",
+    "url": "https://www.montecarlosbm.com/en/restaurant-monaco/le-louis-xv-alain-ducasse-hotel-de-paris"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.425522,
+     43.730681
+    ]
+   },
+   "properties": {
+    "order": 11,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Oceanographic Museum of Monaco",
+    "url": "https://en.wikipedia.org/wiki/Musée_Océanographique"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.42769,
+     43.73972
+    ]
+   },
+   "properties": {
+    "order": 12,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "13:00",
+    "kind": "restaurant",
+    "name": "Café de Paris",
+    "url": "https://en.wikivoyage.org/wiki/Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.425417,
+     43.73146
+    ]
+   },
+   "properties": {
+    "order": 13,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "14:30",
+    "kind": "sight",
+    "name": "Musée de la Chapelle de la Visitation",
+    "url": "https://www.monte-carlo.mc/en/tourism/musee-chapelle/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.422509,
+     43.730786
+    ]
+   },
+   "properties": {
+    "order": 14,
+    "day": 3,
+    "date": "2027-05-23",
+    "time": "19:30",
+    "kind": "restaurant",
+    "name": "L'Express",
+    "url": "https://lexpress-restaurant-monaco.com/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.430971,
+     43.742393
+    ]
+   },
+   "properties": {
+    "order": 15,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "10:00",
+    "kind": "sight",
+    "name": "Japanese Garden",
+    "url": "https://en.wikipedia.org/wiki/Japanese_Garden,_Monaco"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4305,
+     43.7444
+    ]
+   },
+   "properties": {
+    "order": 16,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "12:00",
+    "kind": "sight",
+    "name": "Nouveau Musée National – Villa Sauber",
+    "url": "https://www.nmnm.mc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.4182891,
+     43.7334802
+    ]
+   },
+   "properties": {
+    "order": 17,
+    "day": 4,
+    "date": "2027-05-24",
+    "time": "13:30",
+    "kind": "restaurant",
+    "name": "Mickey’s Pizza",
+    "url": "https://www.mickeyspizza-monaco.com/"
+   }
+  }
+ ]
+}
